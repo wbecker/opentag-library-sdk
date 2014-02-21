@@ -27,7 +27,7 @@ echo "Build: Generating full package (with dependencies): dist/out-all-src.js"
 
 #build output with all dependencies
 java -jar $TOOLS/bin/MiniMerge.jar \
- -o dist/out-all-src.js \
+ -o $SRC/dist/out-all-src.js \
  -i .js \
  --source-base "$SRC_BASE"\
  -s $SRC\
@@ -41,7 +41,7 @@ echo
 #build output with this sources ONLY 
 #(it will complain for missing files - its normal)
 java -jar $TOOLS/bin/MiniMerge.jar \
- -o dist/$TAG-release.js \
+ -o $SRC/dist/$TAG-release.js \
  -i .js \
  --source-base "$SRC_BASE"\
  -s $SRC\
