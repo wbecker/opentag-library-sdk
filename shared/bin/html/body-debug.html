@@ -1,0 +1,23 @@
+<h1>Welcome to Tag Library Testing Page.</h1>
+
+<h2>Sources </h2>
+
+<div id="sources"></div>
+
+<script>
+  function main() {
+    var html = "<div>";
+    var scripts = document.getElementsByTagName("script");
+    for(var i =0 ; i < scripts.length; i++) {
+      var src = scripts[i].getAttribute("src");
+      if (src) {
+        html += "<a href='" +  src + "' target='frame" + i + "' >" +
+                src +
+                "</a><br/>";
+      }
+    }
+    html += "</div>";
+    
+    document.getElementById("sources").innerHTML = html;
+  }
+</script>
