@@ -14,16 +14,16 @@ qubit.qtag.LibraryTag.define("adgenie.conversiontracking.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		name: "adGENIE Transaction ID",
-		description: "The ID of the transaction",
-		token: "trans_id",
-		uv: "universal_variable.transaction.order_id"
+		name: "adGENIE Company ID",
+		description: "The identifier for the client using adGENIE",
+		token: "client_id+a",
+		uv: ""
 	},
 	{
-		name: "adGENIE Transaction ID",
-		description: "The ID of the transaction",
-		token: "trans_id",
-		uv: "universal_variable.transaction.order_id"
+		name: "adGENIE Product ID List",
+		description: "A list of products in the basket",
+		token: "product_id_list+b",
+		uv: "universal_variable.transaction.line_items[#].product.id"
 	}
 	]
             /*~DATA*/
