@@ -1,0 +1,102 @@
+//:include tagsdk-0.0.1.js
+
+qubit.qtag.LibraryTag.define("criteo.legacyproductpagetag.Tag", {
+    config: {/*DATA*/
+	id: 38,
+	name: "Legacy - Product Page Tag",
+	async: true,
+	description: "This is a mandatory tag and must be placed on all the advertiser product pages.",
+	html: "",
+	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+	locationDetail: "",
+	priv: false,
+	url: "",
+	usesDocWrite: false,
+	parameters: [
+	{
+		id: 3800,
+		name: "Criteo wi Parameter",
+		description: "Criteo wi Parameter",
+		token: "wi",
+		uv: ""
+	},
+	{
+		id: 3801,
+		name: "Criteo Subdomain Parameter",
+		description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
+		token: "subdomain",
+		uv: ""
+	},
+	{
+		id: 3802,
+		name: "Criteo Partner ID",
+		description: "Partner ID provided by Criteo",
+		token: "partner_id",
+		uv: ""
+	},
+	{
+		id: 3803,
+		name: "Criteo Call Parameter",
+		description: "Call Parameter Provided by Criteo, e.g. pjl",
+		token: "call_parameter",
+		uv: ""
+	},
+	{
+		id: 3804,
+		name: "Product ID",
+		description: "",
+		token: "product_id",
+		uv: "universal_variable.product.id"
+	}
+	]
+    },/*~DATA*/
+    script: function () {/*SCRIPT*/
+
+(function () {
+
+function pcto_dis() {
+  if (document.createElement) {
+    var cto_dis_im = document.createElement('IFRAME');
+    if (cto_dis_im) {
+      cto_dis_im.width = '1px';
+      cto_dis_im.height = '1px';
+      cto_dis_im.style.display = 'none';
+      var cto_dis_im_src = '//dis.criteo.com/dis/dis.aspx?p=' + this.getValueForToken("partner_id") + '&c=2&cb=' +         Math.floor(Math.random() * 99999999999);
+      try {
+        cto_dis_im_src += '&ref=' + encodeURIComponent(document.referrer);
+      } catch (e) {
+      }
+      cto_dis_im.src = cto_dis_im_src.substring(0, 2000);
+      var cto_dis_doc = document.getElementById('pcto_dis_div');
+      if (cto_dis_doc !== null && cto_dis_doc.appendChild) {
+        cto_dis_doc.appendChild(cto_dis_im);
+      }
+    }
+  }
+}
+
+var _cr_d1 = document.createElement("div");
+_cr_d1.id = "pcto_dis_div";
+_cr_d1.style.display="none";
+document.body.appendChild(_cr_d1);
+
+var _cr_d2 = document.createElement("div");
+_cr_d2.style.display="none";
+
+var domain = window.location.protocol === "https:" ? "https://sslwidget.criteo.com" : "http://" + this.getValueForToken("subdomain") + "";
+
+var _cr_i = document.createElement("img");
+_cr_i.src = domain + "/" + this.getValueForToken("call_parameter") + "/display.js?p1=" + escape("v=2&wi=" + this.getValueForToken("wi") + "&pt1=2&i=" + this.getValueForToken("product_id") + "") + "&t1=sendEvent&resptype=gif&cb=" + Math.floor(Math.random() * 99999999999);
+_cr_i.onload=pcto_dis;
+_cr_d2.appendChild(_cr_i);
+document.body.appendChild(_cr_d2);
+
+})();
+
+
+    },/*~SCRIPT*/
+    pre: function () {/*PRE*/
+    },/*~PRE*/
+    post: function () {/*POST*/
+    }/*~POST*/
+});
