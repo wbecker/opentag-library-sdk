@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.realtimeping.Tag", {
-    config: {
-      /*DATA*/
-	name: "Realtime Ping",
-	async: true,
-	description: "Used for realtime stats in Deliver. Must have QTracker as a dependency.",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "Realtime Ping",
+		async: true,
+		description: "Used for realtime stats in Deliver. Must have QTracker as a dependency.",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
 
@@ -156,14 +156,14 @@ qubit.qtag.LibraryTag.define("qubit.realtimeping.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,267 +1,267 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("acceleration.adformecommercetracking.Tag", {
-    config: {
-      /*DATA*/
-	name: "AdForm - Ecommerce Tracking",
-	async: true,
-	description: "To be placed only on order confirmation page.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "AdForm Campaign ID",
-		description: "Unique client id for AdForm",
-		token: "campaignid",
-		uv: ""
-	},
-	{
-		name: "AdForm Point ID",
-		description: "Point ID for the tag. Usually unique to page type.",
-		token: "pointid",
-		uv: ""
-	},
-	{
-		name: "Subtotal",
-		description: "The subtotal of the order",
-		token: "subtotal",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Currency",
-		description: "",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Order quantity list",
-		description: "The quantities for all the individual products",
-		token: "order_quantity_list",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Billing country",
-		description: "",
-		token: "country",
-		uv: "universal_variable.transaction.billing.country"
-	},
-	{
-		name: "Agegroup",
-		description: "(Optional) The age group of the purchaser.",
-		token: "agegroup",
-		uv: "universal_variable.user.age"
-	},
-	{
-		name: "Gender",
-		description: "(Optional) Gender",
-		token: "gender",
-		uv: "universal_variable.user.gender"
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "User Email",
-		description: "",
-		token: "email",
-		uv: "universal_variable.user.email"
-	},
-	{
-		name: "User full name",
-		description: "",
-		token: "name",
-		uv: "universal_variable.user.name"
-	},
-	{
-		name: "Address Line 1",
-		description: "House name and road name",
-		token: "delivery_address_1",
-		uv: "universal_variable.transaction.delivery.address"
-	},
-	{
-		name: "Address Line 2",
-		description: "Town or city",
-		token: "delivery_address_2",
-		uv: "universal_variable.transaction.delivery.city"
-	},
-	{
-		name: "Phone",
-		description: "(Optional) The phone number of the purchaser.",
-		token: "phone",
-		uv: ""
-	},
-	{
-		name: "Zip Code",
-		description: "",
-		token: "postcode",
-		uv: "universal_variable.transaction.delivery.postcode"
-	},
-	{
-		name: "Product ID list",
-		description: "An array of product ids purchased",
-		token: "product_id_arr",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Category Name List",
-		description: "An array of category names of the products ordered",
-		token: "category_name_arr",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Product Name List",
-		description: "An array of product names purchased",
-		token: "product_name_arr",
-		uv: "universal_variable.transaction.line_items[#].product.name"
-	},
-	{
-		name: "Product Count List",
-		description: "An array of the quantities of each product purchased",
-		token: "product_count_arr",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Product Sales List",
-		description: "A list of the total sales of the product (qty x product value)",
-		token: "product_sales_arr",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "AdForm Campaign ID",
-		description: "Unique client id for AdForm",
-		token: "campaignid",
-		uv: ""
-	},
-	{
-		name: "AdForm Point ID",
-		description: "Point ID for the tag. Usually unique to page type.",
-		token: "pointid",
-		uv: ""
-	},
-	{
-		name: "Subtotal",
-		description: "The subtotal of the order",
-		token: "subtotal",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Currency",
-		description: "",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Order quantity list",
-		description: "The quantities for all the individual products",
-		token: "order_quantity_list",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Billing country",
-		description: "",
-		token: "country",
-		uv: "universal_variable.transaction.billing.country"
-	},
-	{
-		name: "Agegroup",
-		description: "(Optional) The age group of the purchaser.",
-		token: "agegroup",
-		uv: "universal_variable.user.age"
-	},
-	{
-		name: "Gender",
-		description: "(Optional) Gender",
-		token: "gender",
-		uv: "universal_variable.user.gender"
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "User Email",
-		description: "",
-		token: "email",
-		uv: "universal_variable.user.email"
-	},
-	{
-		name: "User full name",
-		description: "",
-		token: "name",
-		uv: "universal_variable.user.name"
-	},
-	{
-		name: "Address Line 1",
-		description: "House name and road name",
-		token: "delivery_address_1",
-		uv: "universal_variable.transaction.delivery.address"
-	},
-	{
-		name: "Address Line 2",
-		description: "Town or city",
-		token: "delivery_address_2",
-		uv: "universal_variable.transaction.delivery.city"
-	},
-	{
-		name: "Phone",
-		description: "(Optional) The phone number of the purchaser.",
-		token: "phone",
-		uv: ""
-	},
-	{
-		name: "Zip Code",
-		description: "",
-		token: "postcode",
-		uv: "universal_variable.transaction.delivery.postcode"
-	},
-	{
-		name: "Product ID list",
-		description: "An array of product ids purchased",
-		token: "product_id_arr",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Category Name List",
-		description: "An array of category names of the products ordered",
-		token: "category_name_arr",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Product Name List",
-		description: "An array of product names purchased",
-		token: "product_name_arr",
-		uv: "universal_variable.transaction.line_items[#].product.name"
-	},
-	{
-		name: "Product Count List",
-		description: "An array of the quantities of each product purchased",
-		token: "product_count_arr",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Product Sales List",
-		description: "A list of the total sales of the product (qty x product value)",
-		token: "product_sales_arr",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	}
+	config: {
+		/*DATA*/
+		name: "AdForm - Ecommerce Tracking",
+		async: true,
+		description: "To be placed only on order confirmation page.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "AdForm Campaign ID",
+			description: "Unique client id for AdForm",
+			token: "campaignid",
+			uv: ""
+		},
+		{
+			name: "AdForm Point ID",
+			description: "Point ID for the tag. Usually unique to page type.",
+			token: "pointid",
+			uv: ""
+		},
+		{
+			name: "Subtotal",
+			description: "The subtotal of the order",
+			token: "subtotal",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Currency",
+			description: "",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Order quantity list",
+			description: "The quantities for all the individual products",
+			token: "order_quantity_list",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Billing country",
+			description: "",
+			token: "country",
+			uv: "universal_variable.transaction.billing.country"
+		},
+		{
+			name: "Agegroup",
+			description: "(Optional) The age group of the purchaser.",
+			token: "agegroup",
+			uv: "universal_variable.user.age"
+		},
+		{
+			name: "Gender",
+			description: "(Optional) Gender",
+			token: "gender",
+			uv: "universal_variable.user.gender"
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "User Email",
+			description: "",
+			token: "email",
+			uv: "universal_variable.user.email"
+		},
+		{
+			name: "User full name",
+			description: "",
+			token: "name",
+			uv: "universal_variable.user.name"
+		},
+		{
+			name: "Address Line 1",
+			description: "House name and road name",
+			token: "delivery_address_1",
+			uv: "universal_variable.transaction.delivery.address"
+		},
+		{
+			name: "Address Line 2",
+			description: "Town or city",
+			token: "delivery_address_2",
+			uv: "universal_variable.transaction.delivery.city"
+		},
+		{
+			name: "Phone",
+			description: "(Optional) The phone number of the purchaser.",
+			token: "phone",
+			uv: ""
+		},
+		{
+			name: "Zip Code",
+			description: "",
+			token: "postcode",
+			uv: "universal_variable.transaction.delivery.postcode"
+		},
+		{
+			name: "Product ID list",
+			description: "An array of product ids purchased",
+			token: "product_id_arr",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Category Name List",
+			description: "An array of category names of the products ordered",
+			token: "category_name_arr",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Product Name List",
+			description: "An array of product names purchased",
+			token: "product_name_arr",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		},
+		{
+			name: "Product Count List",
+			description: "An array of the quantities of each product purchased",
+			token: "product_count_arr",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Product Sales List",
+			description: "A list of the total sales of the product (qty x product value)",
+			token: "product_sales_arr",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "AdForm Campaign ID",
+			description: "Unique client id for AdForm",
+			token: "campaignid",
+			uv: ""
+		},
+		{
+			name: "AdForm Point ID",
+			description: "Point ID for the tag. Usually unique to page type.",
+			token: "pointid",
+			uv: ""
+		},
+		{
+			name: "Subtotal",
+			description: "The subtotal of the order",
+			token: "subtotal",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Currency",
+			description: "",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Order quantity list",
+			description: "The quantities for all the individual products",
+			token: "order_quantity_list",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Billing country",
+			description: "",
+			token: "country",
+			uv: "universal_variable.transaction.billing.country"
+		},
+		{
+			name: "Agegroup",
+			description: "(Optional) The age group of the purchaser.",
+			token: "agegroup",
+			uv: "universal_variable.user.age"
+		},
+		{
+			name: "Gender",
+			description: "(Optional) Gender",
+			token: "gender",
+			uv: "universal_variable.user.gender"
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "User Email",
+			description: "",
+			token: "email",
+			uv: "universal_variable.user.email"
+		},
+		{
+			name: "User full name",
+			description: "",
+			token: "name",
+			uv: "universal_variable.user.name"
+		},
+		{
+			name: "Address Line 1",
+			description: "House name and road name",
+			token: "delivery_address_1",
+			uv: "universal_variable.transaction.delivery.address"
+		},
+		{
+			name: "Address Line 2",
+			description: "Town or city",
+			token: "delivery_address_2",
+			uv: "universal_variable.transaction.delivery.city"
+		},
+		{
+			name: "Phone",
+			description: "(Optional) The phone number of the purchaser.",
+			token: "phone",
+			uv: ""
+		},
+		{
+			name: "Zip Code",
+			description: "",
+			token: "postcode",
+			uv: "universal_variable.transaction.delivery.postcode"
+		},
+		{
+			name: "Product ID list",
+			description: "An array of product ids purchased",
+			token: "product_id_arr",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Category Name List",
+			description: "An array of category names of the products ordered",
+			token: "category_name_arr",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Product Name List",
+			description: "An array of product names purchased",
+			token: "product_name_arr",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		},
+		{
+			name: "Product Count List",
+			description: "An array of the quantities of each product purchased",
+			token: "product_count_arr",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Product Sales List",
+			description: "A list of the total sales of the product (qty x product value)",
+			token: "product_sales_arr",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
 	// The basic tracker
 	window._adftrack = {
 	    pm: '' + this.getValueForToken("campaignid") + '',
@@ -307,10 +307,10 @@ qubit.qtag.LibraryTag.define("acceleration.adformecommercetracking.Tag", {
 	    zip: '' + this.getValueForToken("postcode") + '',
 	    itms: items
 	};
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

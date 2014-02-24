@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("monetate.monetate.Tag", {
-    config: {
-      /*DATA*/
-	name: "Monetate",
-	async: true,
-	description: "Generic Monetate tag to be added on all pages.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/monetate-logo.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Monetate ID",
-		description: "Your unique id, e.g. a-64624593",
-		token: "id",
-		uv: ""
-	},
-	{
-		name: "Monetate Domain",
-		description: "e.g. qubitproducts.com",
-		token: "domain",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Monetate",
+		async: true,
+		description: "Generic Monetate tag to be added on all pages.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/monetate-logo.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Monetate ID",
+			description: "Your unique id, e.g. a-64624593",
+			token: "id",
+			uv: ""
+		},
+		{
+			name: "Monetate Domain",
+			description: "e.g. qubitproducts.com",
+			token: "domain",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var monetateT = new Date().getTime();
 (function() {
@@ -43,14 +43,14 @@ var monetateT = new Date().getTime();
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

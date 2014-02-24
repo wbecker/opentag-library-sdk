@@ -1,65 +1,65 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
-    config: {
-      /*DATA*/
-	name: "Price Runner Sale Pixel",
-	async: true,
-	description: "",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Pricerunner.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Enterprise ID",
-		description: "The Enterprise ID is an ID that enables a single integration across multiple Commission Junction products. This parameter is static and can be hard-coded into the URL call for the image.",
-		token: "enterprise_id",
-		uv: ""
-	},
-	{
-		name: "Action ID",
-		description: "Parameter that is paired with the Action ID, a Commission Junction-assigned number that identifies an action that has occurred. The Action ID is static and can be hard-coded into the URL call for the image.",
-		token: "action_id",
-		uv: ""
-	},
-	{
-		name: "Order ID",
+	config: {
+		/*DATA*/
+		name: "Price Runner Sale Pixel",
+		async: true,
 		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Product ID List",
-		description: "",
-		token: "ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Product Unit Price List",
-		description: "",
-		token: "unit_prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_price"
-	},
-	{
-		name: "Product Quantity List",
-		description: "",
-		token: "quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Currency",
-		description: "",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	}
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Pricerunner.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Enterprise ID",
+			description: "The Enterprise ID is an ID that enables a single integration across multiple Commission Junction products. This parameter is static and can be hard-coded into the URL call for the image.",
+			token: "enterprise_id",
+			uv: ""
+		},
+		{
+			name: "Action ID",
+			description: "Parameter that is paired with the Action ID, a Commission Junction-assigned number that identifies an action that has occurred. The Action ID is static and can be hard-coded into the URL call for the image.",
+			token: "action_id",
+			uv: ""
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Product ID List",
+			description: "",
+			token: "ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Product Unit Price List",
+			description: "",
+			token: "unit_prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_price"
+		},
+		{
+			name: "Product Quantity List",
+			description: "",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Currency",
+			description: "",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   var img = document.createElement("img");
@@ -86,14 +86,14 @@ qubit.qtag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

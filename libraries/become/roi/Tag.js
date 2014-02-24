@@ -1,59 +1,59 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("become.roi.Tag", {
-    config: {
-      /*DATA*/
-	name: "ROI",
-	async: true,
-	description: "ROI script to be placed on the Confirmation Page",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Become.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Merchant ID",
-		description: "The ID specific to the merchant using the Become tag",
-		token: "become_merchant_id",
-		uv: ""
-	},
-	{
-		name: "Transaction Order ID",
-		description: "The transaction order identifier for the purchase",
-		token: "order_number",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Transaction Product Quantity List",
-		description: "A list of quantities for all purchased items in the transaction",
-		token: "product_quantity_list",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Transaction Product ID List",
-		description: "A list of product IDs on the transaction page",
-		token: "product_id_list",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Transaction Product Category List",
-		description: "A list of product categories on the transaction page",
-		token: "product_category_list",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Transaction Product Price List",
-		description: "A list of the prices for items in the transaction page (unit sale price)",
-		token: "product_price_list",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	}
+	config: {
+		/*DATA*/
+		name: "ROI",
+		async: true,
+		description: "ROI script to be placed on the Confirmation Page",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Become.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Merchant ID",
+			description: "The ID specific to the merchant using the Become tag",
+			token: "become_merchant_id",
+			uv: ""
+		},
+		{
+			name: "Transaction Order ID",
+			description: "The transaction order identifier for the purchase",
+			token: "order_number",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Transaction Product Quantity List",
+			description: "A list of quantities for all purchased items in the transaction",
+			token: "product_quantity_list",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Transaction Product ID List",
+			description: "A list of product IDs on the transaction page",
+			token: "product_id_list",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Transaction Product Category List",
+			description: "A list of product categories on the transaction page",
+			token: "product_category_list",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Transaction Product Price List",
+			description: "A list of the prices for items in the transaction page (unit sale price)",
+			token: "product_price_list",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var become_merchant_id = '' + this.getValueForToken("become_merchant_id") + '';
 var become_order_num = '' + this.getValueForToken("order_number") + ''; 
@@ -74,14 +74,14 @@ script.src = "https://partner.become.com/roi-tracker2/conversion.js";
 document.body.appendChild(script);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

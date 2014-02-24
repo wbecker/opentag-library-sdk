@@ -1,65 +1,65 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecode.Tag", {
-    config: {
-      /*DATA*/
-	name: "Conversion Capture Code",
-	async: true,
-	description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together.",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Product IDs",
-		description: "Product IDs",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Product Categories",
-		description: "Product Categories",
-		token: "product_categories",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Product Quantities",
-		description: "Product Quantities",
-		token: "product_quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Order ID",
-		description: "Order ID",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Total",
-		description: "Order Total",
-		token: "order_total",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Currency",
-		description: "Currency",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Marin Tracking ID",
-		description: "Marin Tracking ID",
-		token: "tracking_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Conversion Capture Code",
+		async: true,
+		description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together.",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Product IDs",
+			description: "Product IDs",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Product Categories",
+			description: "Product Categories",
+			token: "product_categories",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Product Quantities",
+			description: "Product Quantities",
+			token: "product_quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Order ID",
+			description: "Order ID",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Total",
+			description: "Order Total",
+			token: "order_total",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Currency",
+			description: "Currency",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Marin Tracking ID",
+			description: "Marin Tracking ID",
+			token: "tracking_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   window._mTrack = window._mTrack || [];
@@ -102,14 +102,14 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecode.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

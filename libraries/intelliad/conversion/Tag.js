@@ -1,83 +1,83 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("intelliad.conversion.Tag", {
-    config: {
-      /*DATA*/
-	name: "Conversion",
-	async: true,
-	description: "The intelliAd Conversion Tracking is specifically tailored for our system and provides you and our bid management tool extensive data on individual conversions.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelliAd.gif",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Transaction Order Total",
-		description: "The total amount for the conversion",
-		token: "order_total",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Transaction Order Currency",
-		description: "The currency for the transaction",
-		token: "order_currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Transaction Order ID",
-		description: "The unique identifier specifying the transaction.",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Transaction Product IDs",
-		description: "The array of product ID's corresponding to products in the transaction",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "intelliAd Conversion Type",
-		description: "sale, lead, download, pageview, signup, social, call, cutom1 - custom49 for main types _[1-255] sub",
-		token: "order_type",
-		uv: ""
-	},
-	{
-		name: "IntelliAd Custom Parameter 1",
-		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
-		token: "custom_param1",
-		uv: ""
-	},
-	{
-		name: "IntelliAd Custom Parameter 2",
-		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
-		token: "custom_param2",
-		uv: ""
-	},
-	{
-		name: "IntelliAd Custom Parameter 3",
-		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
-		token: "custom_param3",
-		uv: ""
-	},
-	{
-		name: "IntelliAd Custom Parameter 4",
-		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
-		token: "custom_param4",
-		uv: ""
-	},
-	{
-		name: "IntelliAd Client ID",
-		description: "The id that relates the client to IntelliAd",
-		token: "client_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Conversion",
+		async: true,
+		description: "The intelliAd Conversion Tracking is specifically tailored for our system and provides you and our bid management tool extensive data on individual conversions.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelliAd.gif",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Transaction Order Total",
+			description: "The total amount for the conversion",
+			token: "order_total",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Transaction Order Currency",
+			description: "The currency for the transaction",
+			token: "order_currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Transaction Order ID",
+			description: "The unique identifier specifying the transaction.",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Transaction Product IDs",
+			description: "The array of product ID's corresponding to products in the transaction",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "intelliAd Conversion Type",
+			description: "sale, lead, download, pageview, signup, social, call, cutom1 - custom49 for main types _[1-255] sub",
+			token: "order_type",
+			uv: ""
+		},
+		{
+			name: "IntelliAd Custom Parameter 1",
+			description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
+			token: "custom_param1",
+			uv: ""
+		},
+		{
+			name: "IntelliAd Custom Parameter 2",
+			description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
+			token: "custom_param2",
+			uv: ""
+		},
+		{
+			name: "IntelliAd Custom Parameter 3",
+			description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
+			token: "custom_param3",
+			uv: ""
+		},
+		{
+			name: "IntelliAd Custom Parameter 4",
+			description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
+			token: "custom_param4",
+			uv: ""
+		},
+		{
+			name: "IntelliAd Client ID",
+			description: "The id that relates the client to IntelliAd",
+			token: "client_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   var ia_v = "" + this.getValueForToken("order_total") + "";
   var ia_vz = "" + this.getValueForToken("order_type") + ""; // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
@@ -114,14 +114,14 @@ qubit.qtag.LibraryTag.define("intelliad.conversion.Tag", {
   document.getElementsByTagName("head")[0].appendChild(script);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

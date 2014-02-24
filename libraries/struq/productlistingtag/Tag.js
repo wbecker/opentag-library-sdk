@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.productlistingtag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Product Listing Tag",
-	async: true,
-	description: "To be placed only on product listing/search result pages",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Pixel ID",
-		description: "",
-		token: "id",
-		uv: ""
-	},
-	{
-		name: "Product ID List",
-		description: "",
-		token: "product_id_list",
-		uv: "universal_variable.listing.items[#].id"
-	}
+	config: {
+		/*DATA*/
+		name: "Product Listing Tag",
+		async: true,
+		description: "To be placed only on product listing/search result pages",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Pixel ID",
+			description: "",
+			token: "id",
+			uv: ""
+		},
+		{
+			name: "Product ID List",
+			description: "",
+			token: "product_id_list",
+			uv: "universal_variable.listing.items[#].id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var _struqPI = _struqPI || [];
 var productArr = [];
@@ -55,14 +55,14 @@ script.src = "//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js
 document.body.appendChild(script);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.georequest.Tag", {
-    config: {
-      /*DATA*/
-	name: "Geo Request",
-	async: true,
-	description: "A standardized template for making a request to Orca. Caches the result, and stores the parsed object (from cache or request) in window.qb_geo. But, the tag's asynchronous, so your best bet is to add a callback to window.qb_geo_cbs, and it'll get called when the object's available. NOTE: IE<8 doesn't have JSON, so you'll need to pull in the JSON2 tag as a dependency.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Client ID",
-		description: "Client's tracking ID",
-		token: "client_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Geo Request",
+		async: true,
+		description: "A standardized template for making a request to Orca. Caches the result, and stores the parsed object (from cache or request) in window.qb_geo. But, the tag's asynchronous, so your best bet is to add a callback to window.qb_geo_cbs, and it'll get called when the object's available. NOTE: IE<8 doesn't have JSON, so you'll need to pull in the JSON2 tag as a dependency.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Client ID",
+			description: "Client's tracking ID",
+			token: "client_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   function createCookie(name, value) {
       document.cookie = name + "=" + escape(value) + expires + "; path=/";
@@ -80,14 +80,14 @@ qubit.qtag.LibraryTag.define("qubit.georequest.Tag", {
   }
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

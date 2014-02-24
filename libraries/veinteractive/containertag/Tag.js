@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("veinteractive.containertag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Container Tag",
-	async: true,
-	description: "Tag to be placed on all pages",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ve-interactive.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "VE Interactive ID",
-		description: "The ID for the tag in this format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX with dashes included",
-		token: "id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Container Tag",
+		async: true,
+		description: "Tag to be placed on all pages",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ve-interactive.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "VE Interactive ID",
+			description: "The ID for the tag in this format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX with dashes included",
+			token: "id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
   (function () {
@@ -39,14 +39,14 @@ qubit.qtag.LibraryTag.define("veinteractive.containertag.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

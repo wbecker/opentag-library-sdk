@@ -1,41 +1,41 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
-    config: {
-      /*DATA*/
-	name: "Sub2 - Main Script - All Pages",
-	async: true,
-	description: "This script should fire on all pages and all other Sub2 scripts should be dependent upon this script",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Client ID",
-		description: "e.g. xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
-		token: "client_id",
-		uv: ""
-	},
-	{
-		name: "Client Name",
-		description: "e.g. google",
-		token: "client_name",
-		uv: ""
-	},
-	{
-		name: "Cookie Domain",
-		description: "e.g.  .google.co.uk",
-		token: "cookie_domain",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Sub2 - Main Script - All Pages",
+		async: true,
+		description: "This script should fire on all pages and all other Sub2 scripts should be dependent upon this script",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Client ID",
+			description: "e.g. xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+			token: "client_id",
+			uv: ""
+		},
+		{
+			name: "Client Name",
+			description: "e.g. google",
+			token: "client_name",
+			uv: ""
+		},
+		{
+			name: "Cookie Domain",
+			description: "e.g.  .google.co.uk",
+			token: "cookie_domain",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
   var _SUB2metadata = {
@@ -180,14 +180,14 @@ qubit.qtag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,41 +1,41 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("quantcast.deprecatedquantcastconfirmationpage.Tag", {
-    config: {
-      /*DATA*/
-	name: "DEPRECATED QuantCast - Confirmation page",
-	async: true,
-	description: "To be placed on the confirmation page instead of the regular Quantcast tag.",
-	html: "\n",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/quantcast.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Account Number",
-		description: "Your Quantcast account number",
-		token: "account_no",
-		uv: ""
-	},
-	{
-		name: "Order ID",
-		description: "The unique order id for the transaction",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Revenue",
-		description: "The total revenue for the transaction (uses subtotal, not grand total)",
-		token: "revenue",
-		uv: "universal_variable.transaction.subtotal"
-	}
+	config: {
+		/*DATA*/
+		name: "DEPRECATED QuantCast - Confirmation page",
+		async: true,
+		description: "To be placed on the confirmation page instead of the regular Quantcast tag.",
+		html: "\n",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/quantcast.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Account Number",
+			description: "Your Quantcast account number",
+			token: "account_no",
+			uv: ""
+		},
+		{
+			name: "Order ID",
+			description: "The unique order id for the transaction",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Revenue",
+			description: "The total revenue for the transaction (uses subtotal, not grand total)",
+			token: "revenue",
+			uv: "universal_variable.transaction.subtotal"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var _qevents = _qevents || []; 
 
@@ -56,14 +56,14 @@ _qevents.push({
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleuniversalanalytics.googleuniversalanalyticsautosenduvevents.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Universal Analytics - auto send UV events",
-	async: true,
-	description: "Automatically send UV events as GA events using Universal Analytics. Depends on the main Universal Analytics script.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "Google Universal Analytics - auto send UV events",
+		async: true,
+		description: "Automatically send UV events as GA events using Universal Analytics. Depends on the main Universal Analytics script.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 window.uv_listener.push(["on", "event", function (event) {
 
@@ -42,14 +42,14 @@ window.uv_listener.push(["on", "event", function (event) {
 }]);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

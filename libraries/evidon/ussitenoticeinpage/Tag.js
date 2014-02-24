@@ -1,53 +1,53 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
-    config: {
-      /*DATA*/
-	name: "US Site Notice (In-Page)",
-	async: true,
-	description: "This tag handles the Standard Notice functionality for US sites by adding an AdChoices link in the specified location. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon). The placement requires an element ID, or a classname and an index, corresponding to the element the tag should be placed into.",
-	html: "<a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Evidon Company ID",
-		description: "The ID assigned to you by Evidon",
-		token: "cid",
-		uv: ""
-	},
-	{
-		name: "Evidon Page ID",
-		description: "The unique ID for the page this notice will be fired on",
-		token: "pid",
-		uv: ""
-	},
-	{
-		name: "Using Class Name",
-		description: "Enter true if providing class name and index, or false if providing an ID.",
-		token: "class",
-		uv: ""
-	},
-	{
-		name: "Class Name/ID",
-		description: "The class name or id of the div the AdChoices link should be appended to.",
-		token: "name",
-		uv: ""
-	},
-	{
-		name: "Index",
-		description: "The index of the specific instance of element to be appended to. Leave blank if using ID",
-		token: "index",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "US Site Notice (In-Page)",
+		async: true,
+		description: "This tag handles the Standard Notice functionality for US sites by adding an AdChoices link in the specified location. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon). The placement requires an element ID, or a classname and an index, corresponding to the element the tag should be placed into.",
+		html: "<a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Evidon Company ID",
+			description: "The ID assigned to you by Evidon",
+			token: "cid",
+			uv: ""
+		},
+		{
+			name: "Evidon Page ID",
+			description: "The unique ID for the page this notice will be fired on",
+			token: "pid",
+			uv: ""
+		},
+		{
+			name: "Using Class Name",
+			description: "Enter true if providing class name and index, or false if providing an ID.",
+			token: "class",
+			uv: ""
+		},
+		{
+			name: "Class Name/ID",
+			description: "The class name or id of the div the AdChoices link should be appended to.",
+			token: "name",
+			uv: ""
+		},
+		{
+			name: "Index",
+			description: "The index of the specific instance of element to be appended to. Leave blank if using ID",
+			token: "index",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   (function() {
     var lnk;
@@ -86,14 +86,14 @@ qubit.qtag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
   })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

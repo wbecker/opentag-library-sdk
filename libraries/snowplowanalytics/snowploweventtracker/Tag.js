@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("snowplowanalytics.snowploweventtracker.Tag", {
-    config: {
-      /*DATA*/
-	name: "Snowplow EventTracker",
-	async: true,
-	description: "Tag for getting SnowPlow to track all UV events into your custom SnowPlow system. Must be set to depend on the SnowPlow PageTracker.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/snowplow.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "Snowplow EventTracker",
+		async: true,
+		description: "Tag for getting SnowPlow to track all UV events into your custom SnowPlow system. Must be set to depend on the SnowPlow PageTracker.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/snowplow.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
   window.uv_listener.push(['on', 'event', function(event){
@@ -35,14 +35,14 @@ qubit.qtag.LibraryTag.define("snowplowanalytics.snowploweventtracker.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

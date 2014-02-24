@@ -1,59 +1,59 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacybasketpagetag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Legacy - Basket Page Tag",
-	async: true,
-	description: "The basket tag has to be integrated on the basket or checkout page.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "Criteo wi Parameter",
-		description: "A Parameter wi provided by Criteo",
-		token: "wi",
-		uv: ""
-	},
-	{
-		name: "Criteo Call Parameter",
-		description: "Call Parameter provided by Criteo",
-		token: "call_parameter",
-		uv: ""
-	},
-	{
-		name: "Product IDs",
-		description: "",
-		token: "product_ids",
-		uv: "universal_variable.basket.line_items[#].product.id"
-	},
-	{
-		name: "Product Unit Prices",
-		description: "",
-		token: "product_unit_prices",
-		uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Quantities",
-		description: "",
-		token: "quantities",
-		uv: "universal_variable.basket.line_items[#].quantity"
-	},
-	{
-		name: "Criteo",
-		description: "A Parameter wi provided by Criteo",
-		token: "wi",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Legacy - Basket Page Tag",
+		async: true,
+		description: "The basket tag has to be integrated on the basket or checkout page.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "Criteo wi Parameter",
+			description: "A Parameter wi provided by Criteo",
+			token: "wi",
+			uv: ""
+		},
+		{
+			name: "Criteo Call Parameter",
+			description: "Call Parameter provided by Criteo",
+			token: "call_parameter",
+			uv: ""
+		},
+		{
+			name: "Product IDs",
+			description: "",
+			token: "product_ids",
+			uv: "universal_variable.basket.line_items[#].product.id"
+		},
+		{
+			name: "Product Unit Prices",
+			description: "",
+			token: "product_unit_prices",
+			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Quantities",
+			description: "",
+			token: "quantities",
+			uv: "universal_variable.basket.line_items[#].quantity"
+		},
+		{
+			name: "Criteo",
+			description: "A Parameter wi provided by Criteo",
+			token: "wi",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   var src = [
@@ -81,14 +81,14 @@ qubit.qtag.LibraryTag.define("criteo.legacybasketpagetag.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

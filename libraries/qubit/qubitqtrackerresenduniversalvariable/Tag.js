@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.qubitqtrackerresenduniversalvariable.Tag", {
-    config: {
-      /*DATA*/
-	name: "QuBit QTracker - resend Universal Variable",
-	async: true,
-	description: "Ties in with QuBit QTracker, re-sending Universal Variables to QTracker when they exist on the page. This is useful when the Universal Variable is not declared before OpenTag.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "QuBit QTracker - resend Universal Variable",
+		async: true,
+		description: "Ties in with QuBit QTracker, re-sending Universal Variables to QTracker when they exist on the page. This is useful when the Universal Variable is not declared before OpenTag.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   (function() {
     // Wait for UV and then resend data to QTracker
@@ -36,14 +36,14 @@ qubit.qtag.LibraryTag.define("qubit.qubitqtrackerresenduniversalvariable.Tag", {
   })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

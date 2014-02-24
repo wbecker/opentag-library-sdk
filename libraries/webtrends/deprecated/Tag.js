@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("webtrends.deprecated.Tag", {
-    config: {
-      /*DATA*/
-	name: "DEPRECATED",
-	async: true,
-	description: "",
-	html: "<script type=\"text/javascript\" src=\"/cs/static/js/webtrends/webtrends.js\"></script>\n<!-- Version: 9.3.0 -->\n",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "DEPRECATED",
+		async: true,
+		description: "",
+		html: "<script type=\"text/javascript\" src=\"/cs/static/js/webtrends/webtrends.js\"></script>\n<!-- Version: 9.3.0 -->\n",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 	
 //<![CDATA[
@@ -36,14 +36,14 @@ qubit.qtag.LibraryTag.define("webtrends.deprecated.Tag", {
 //]]>	
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

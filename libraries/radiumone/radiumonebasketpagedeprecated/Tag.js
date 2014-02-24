@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
-    config: {
-      /*DATA*/
-	name: "RadiumOne - Basket Page DEPRECATED",
-	async: true,
-	description: "",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Product ID List",
-		description: "An array of product ids in the basket",
-		token: "order_article",
-		uv: "universal_variable.basket.line_items[#].product.id"
-	}
+	config: {
+		/*DATA*/
+		name: "RadiumOne - Basket Page DEPRECATED",
+		async: true,
+		description: "",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Product ID List",
+			description: "An array of product ids in the basket",
+			token: "order_article",
+			uv: "universal_variable.basket.line_items[#].product.id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 
@@ -53,14 +53,14 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

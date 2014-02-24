@@ -1,101 +1,101 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", {
-    config: {
-      /*DATA*/
-	name: "Zanox - Confirmation Page with Order Details",
-	async: true,
-	description: "The Zanox confirmation page tag with order details. Includes generic \"MasterTag\" tracking pixel.",
-	html: "<div class=\"zx_${page_id} zx_mediaslot\">\n  \n</div>",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Program ID",
-		description: "Unique identifier, e.g. 10292C1904329647",
-		token: "program_id",
-		uv: ""
-	},
-	{
-		name: "User ID",
-		description: "The user's unique identifier. Will not track if left blank.",
-		token: "user_id",
-		uv: "universal_variable.user.user_id"
-	},
-	{
-		name: "Order ID",
-		description: "The unique identifier for this order",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Currency",
-		description: "The currency in which this order was charged",
-		token: "order_currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Subtotal",
-		description: "The order's total value",
-		token: "subtotal",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Zanox Partner ID",
-		description: "Required for Advanced Session Tracking. Pass an empty hard-coded variable otherwise.",
-		token: "partner_id",
-		uv: ""
-	},
-	{
-		name: "Product Categories",
-		description: "An array of categories for each product in the order",
-		token: "product_cats",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Product Names",
-		description: "An array of names for each product in the order",
-		token: "product_names",
-		uv: "universal_variable.transaction.line_items[#].product.name"
-	},
-	{
-		name: "Product IDs",
-		description: "An array of IDs for each product in the order",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Product Prices",
-		description: "An array of prices paid for each product in the order",
-		token: "product_prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Product Quantities",
-		description: "An array of quantities purchased for each product in the order",
-		token: "product_qtys",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Product URLs",
-		description: "An array of urls for each product in the order. Pass an empty hard-coded variable if unavailable.",
-		token: "product_urls",
-		uv: "universal_variable.transaction.line_items[#].product.url"
-	},
-	{
-		name: "Zanox Page ID",
-		description: "The page ID for the confirmation page. Zanox calls this the 'checkout' page.",
-		token: "page_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Zanox - Confirmation Page with Order Details",
+		async: true,
+		description: "The Zanox confirmation page tag with order details. Includes generic \"MasterTag\" tracking pixel.",
+		html: "<div class=\"zx_${page_id} zx_mediaslot\">\n  \n</div>",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Program ID",
+			description: "Unique identifier, e.g. 10292C1904329647",
+			token: "program_id",
+			uv: ""
+		},
+		{
+			name: "User ID",
+			description: "The user's unique identifier. Will not track if left blank.",
+			token: "user_id",
+			uv: "universal_variable.user.user_id"
+		},
+		{
+			name: "Order ID",
+			description: "The unique identifier for this order",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Currency",
+			description: "The currency in which this order was charged",
+			token: "order_currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Subtotal",
+			description: "The order's total value",
+			token: "subtotal",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Zanox Partner ID",
+			description: "Required for Advanced Session Tracking. Pass an empty hard-coded variable otherwise.",
+			token: "partner_id",
+			uv: ""
+		},
+		{
+			name: "Product Categories",
+			description: "An array of categories for each product in the order",
+			token: "product_cats",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Product Names",
+			description: "An array of names for each product in the order",
+			token: "product_names",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		},
+		{
+			name: "Product IDs",
+			description: "An array of IDs for each product in the order",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Product Prices",
+			description: "An array of prices paid for each product in the order",
+			token: "product_prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Product Quantities",
+			description: "An array of quantities purchased for each product in the order",
+			token: "product_qtys",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Product URLs",
+			description: "An array of urls for each product in the order. Pass an empty hard-coded variable if unavailable.",
+			token: "product_urls",
+			uv: "universal_variable.transaction.line_items[#].product.url"
+		},
+		{
+			name: "Zanox Page ID",
+			description: "The page ID for the confirmation page. Zanox calls this the 'checkout' page.",
+			token: "page_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
     //Define a function to ensure all product details are HTML encoded.
@@ -169,14 +169,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", 
 
   
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

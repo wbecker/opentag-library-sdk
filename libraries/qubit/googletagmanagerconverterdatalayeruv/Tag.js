@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.googletagmanagerconverterdatalayeruv.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Tag Manager Converter: dataLayer > UV",
-	async: true,
-	description: "Take the Google Tag Manager data layer and map it to UV.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "Google Tag Manager Converter: dataLayer > UV",
+		async: true,
+		description: "Take the Google Tag Manager data layer and map it to UV.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
 
@@ -241,14 +241,14 @@ qubit.qtag.LibraryTag.define("qubit.googletagmanagerconverterdatalayeruv.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,59 +1,59 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
-    config: {
-      /*DATA*/
-	name: "Confirmation Tag - INACTIVE",
-	async: true,
-	description: "",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Order Product IDs",
+	config: {
+		/*DATA*/
+		name: "Confirmation Tag - INACTIVE",
+		async: true,
 		description: "",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Order Product Prices",
-		description: "",
-		token: "product_prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Order Product Quantities",
-		description: "",
-		token: "product_quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Amount",
-		description: "",
-		token: "order_amount",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "myThings Advertiser Token",
-		description: "",
-		token: "advertiser_token",
-		uv: ""
-	}
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Order Product IDs",
+			description: "",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Order Product Prices",
+			description: "",
+			token: "product_prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Order Product Quantities",
+			description: "",
+			token: "product_quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Amount",
+			description: "",
+			token: "order_amount",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "myThings Advertiser Token",
+			description: "",
+			token: "advertiser_token",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var i = 0, productIDArray = this.getValueForToken("product_ids"), productPriceArray = this.getValueForToken("product_prices"), productQuantityArray = this.getValueForToken("product_quantities"), productIDArrayLength = productIDArray.length, productArray = [];
 
@@ -83,14 +83,14 @@ document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok="+mtAdvertise
 javascript'%3E%3C/script%3E"));
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

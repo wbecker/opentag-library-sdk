@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Analytics - Custom Domains",
-	async: true,
-	description: "Allows the collecting of visits to multiple domains in a single profile—as if they were a single site rather than two separate ones.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "GA Profile ID",
-		description: "Profile ID of your Google Analytics account",
-		token: "PROFILE_ID",
-		uv: ""
-	},
-	{
-		name: "Domain URL",
-		description: "In the format www.yourdomain.com or subdomain.yourdomain.com",
-		token: "DOMAIN",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Google Analytics - Custom Domains",
+		async: true,
+		description: "Allows the collecting of visits to multiple domains in a single profile—as if they were a single site rather than two separate ones.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "GA Profile ID",
+			description: "Profile ID of your Google Analytics account",
+			token: "PROFILE_ID",
+			uv: ""
+		},
+		{
+			name: "Domain URL",
+			description: "In the format www.yourdomain.com or subdomain.yourdomain.com",
+			token: "DOMAIN",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
  
  var _gaq = _gaq || [];
@@ -45,14 +45,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag",
  
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

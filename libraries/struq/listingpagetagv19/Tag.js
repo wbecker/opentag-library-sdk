@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.listingpagetagv19.Tag", {
-    config: {
-      /*DATA*/
-	name: "Listing Page Tag v1.9",
-	async: true,
-	description: "",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Struq Listing Page Pixel ID",
+	config: {
+		/*DATA*/
+		name: "Listing Page Tag v1.9",
+		async: true,
 		description: "",
-		token: "pixelid",
-		uv: ""
-	},
-	{
-		name: "Product IDs",
-		description: "",
-		token: "products",
-		uv: "universal_variable.listing.items[#].id"
-	}
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Struq Listing Page Pixel ID",
+			description: "",
+			token: "pixelid",
+			uv: ""
+		},
+		{
+			name: "Product IDs",
+			description: "",
+			token: "products",
+			uv: "universal_variable.listing.items[#].id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 window._struqPI = window._struqPI || [];
 var productArr = [];
@@ -52,14 +52,14 @@ struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 
 document.getElementsByTagName('head')[0].appendChild(struq);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

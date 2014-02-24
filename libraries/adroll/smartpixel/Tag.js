@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("adroll.smartpixel.Tag", {
-    config: {
-      /*DATA*/
-	name: "SmartPixel",
-	async: true,
-	description: "Asynchronously and independently registers a callback within the browser that will be called only at the end of the rendering process - adds an image to the head tag.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AdRoll.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "AdRoll Advertiser ID",
-		description: "ID for the Advertiser",
-		token: "adroll_adv_id",
-		uv: ""
-	},
-	{
-		name: "AdRoll Pixel ID",
-		description: "ID for the AdRoll pixel",
-		token: "adroll_pix_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "SmartPixel",
+		async: true,
+		description: "Asynchronously and independently registers a callback within the browser that will be called only at the end of the rendering process - adds an image to the head tag.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AdRoll.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "AdRoll Advertiser ID",
+			description: "ID for the Advertiser",
+			token: "adroll_adv_id",
+			uv: ""
+		},
+		{
+			name: "AdRoll Pixel ID",
+			description: "ID for the AdRoll pixel",
+			token: "adroll_pix_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 window.adroll_adv_id = "" + this.getValueForToken("adroll_adv_id") + "";
 window.adroll_pix_id = "" + this.getValueForToken("adroll_pix_id") + "";
@@ -49,14 +49,14 @@ window.adroll_pix_id = "" + this.getValueForToken("adroll_pix_id") + "";
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,41 +1,41 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediaforge.basket.Tag", {
-    config: {
-      /*DATA*/
-	name: "Basket",
-	async: true,
-	description: "To be placed on the basket/cart page for cart abandonment targeting.",
-	html: " ",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "mediaFORGE Merchant ID",
-		description: "The ID that relates you to mediaFORGE",
-		token: "merchant_id",
-		uv: ""
-	},
-	{
-		name: "Basket Product IDs",
-		description: "An array of the product ID/SKUs of all items in the basket",
-		token: "product_ids",
-		uv: "universal_variable.basket.line_items[#].product.sku_code"
-	},
-	{
-		name: "Basket Total",
-		description: "The total value for all items in the basket",
-		token: "basket_total",
-		uv: "universal_variable.basket.subtotal"
-	}
+	config: {
+		/*DATA*/
+		name: "Basket",
+		async: true,
+		description: "To be placed on the basket/cart page for cart abandonment targeting.",
+		html: " ",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "mediaFORGE Merchant ID",
+			description: "The ID that relates you to mediaFORGE",
+			token: "merchant_id",
+			uv: ""
+		},
+		{
+			name: "Basket Product IDs",
+			description: "An array of the product ID/SKUs of all items in the basket",
+			token: "product_ids",
+			uv: "universal_variable.basket.line_items[#].product.sku_code"
+		},
+		{
+			name: "Basket Total",
+			description: "The total value for all items in the basket",
+			token: "basket_total",
+			uv: "universal_variable.basket.subtotal"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   var script = document.createElement("script");
   var productArr = [];
@@ -47,14 +47,14 @@ qubit.qtag.LibraryTag.define("mediaforge.basket.Tag", {
   document.body.appendChild(script);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

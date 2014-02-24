@@ -1,59 +1,59 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyconfirmationpagetag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Legacy - Confirmation Page Tag",
-	async: true,
-	description: "This is a mandatory tag and must be executed on the confirmation page after user made payment.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "Criteo wi parameter",
-		description: "Criteo wi parameter value",
-		token: "wi",
-		uv: ""
-	},
-	{
-		name: "Criteo call parameter value",
-		description: "Criteo call parameter value",
-		token: "call_parameter",
-		uv: ""
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Product IDs",
-		description: "",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Product Unit Sale Prices",
-		description: "",
-		token: "product_unit_prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Quantities",
-		description: "",
-		token: "quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	}
+	config: {
+		/*DATA*/
+		name: "Legacy - Confirmation Page Tag",
+		async: true,
+		description: "This is a mandatory tag and must be executed on the confirmation page after user made payment.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "Criteo wi parameter",
+			description: "Criteo wi parameter value",
+			token: "wi",
+			uv: ""
+		},
+		{
+			name: "Criteo call parameter value",
+			description: "Criteo call parameter value",
+			token: "call_parameter",
+			uv: ""
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Product IDs",
+			description: "",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Product Unit Sale Prices",
+			description: "",
+			token: "product_unit_prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Quantities",
+			description: "",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   var src = [
@@ -82,14 +82,14 @@ qubit.qtag.LibraryTag.define("criteo.legacyconfirmationpagetag.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

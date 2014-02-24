@@ -1,37 +1,37 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Remarketing Only Aynsc",
-	async: true,
-	description: "Remarkting Only Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
-	html: "\n",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
-	locationDetail: "",
-	priv: false,
-	url: "www.googleadservices.com/pagead/conversion_async.js",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Google Conversion ID",
-		description: "",
-		token: "conversionid",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Google Remarketing Only Aynsc",
+		async: true,
+		description: "Remarkting Only Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
+		html: "\n",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
+		locationDetail: "",
+		priv: false,
+		url: "www.googleadservices.com/pagead/conversion_async.js",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Google Conversion ID",
+			description: "",
+			token: "conversionid",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
 	var poll = function() {
 	  if (window.google_trackConversion) {
 	    window.google_trackConversion({
@@ -44,6 +44,6 @@ qubit.qtag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
 	  }
 	};
 	poll();
-      /*~POST*/
-    }
+		/*~POST*/
+	}
 });

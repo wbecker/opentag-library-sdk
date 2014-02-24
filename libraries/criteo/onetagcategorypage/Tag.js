@@ -1,61 +1,61 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagcategorypage.Tag", {
-    config: {
-      /*DATA*/
-	name: "OneTag - Category Page",
-	async: true,
-	description: "Add to a page listing products. This will pick off the first three values in the Listing Product IDs array and send them to Criteo, with (by default) the page's subcategory as keywords. INTENDED FOR: Pages which do not include a query in their UV Listing.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
-	locationDetail: "",
-	priv: false,
-	url: "static.criteo.net/js/ld/ld.js",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Criteo Partner ID",
-		description: "The ID assigned to you by Criteo",
-		token: "partner_id",
-		uv: ""
-	},
-	{
-		name: "Customer ID",
-		description: "This MUST NOT include any personally-identifiable information. Send \"\" if there is no anonymous ID.",
-		token: "customer_id",
-		uv: "universal_variable.user.user_id"
-	},
-	{
-		name: "Site Type",
-		description: "\"m\" for mobile or \"t\" for tablet or \"d\" for desktop",
-		token: "site_type",
-		uv: ""
-	},
-	{
-		name: "Product ID List",
-		description: "List of Product IDs displayed on this page",
-		token: "product_ids",
-		uv: "universal_variable.listing.items[#].id"
-	},
-	{
-		name: "List Keywords",
-		description: "The keywords used to generate the list.",
-		token: "list_keywords",
-		uv: "universal_variable.page.subcategory"
-	}
+	config: {
+		/*DATA*/
+		name: "OneTag - Category Page",
+		async: true,
+		description: "Add to a page listing products. This will pick off the first three values in the Listing Product IDs array and send them to Criteo, with (by default) the page's subcategory as keywords. INTENDED FOR: Pages which do not include a query in their UV Listing.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		locationDetail: "",
+		priv: false,
+		url: "static.criteo.net/js/ld/ld.js",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Criteo Partner ID",
+			description: "The ID assigned to you by Criteo",
+			token: "partner_id",
+			uv: ""
+		},
+		{
+			name: "Customer ID",
+			description: "This MUST NOT include any personally-identifiable information. Send \"\" if there is no anonymous ID.",
+			token: "customer_id",
+			uv: "universal_variable.user.user_id"
+		},
+		{
+			name: "Site Type",
+			description: "\"m\" for mobile or \"t\" for tablet or \"d\" for desktop",
+			token: "site_type",
+			uv: ""
+		},
+		{
+			name: "Product ID List",
+			description: "List of Product IDs displayed on this page",
+			token: "product_ids",
+			uv: "universal_variable.listing.items[#].id"
+		},
+		{
+			name: "List Keywords",
+			description: "The keywords used to generate the list.",
+			token: "list_keywords",
+			uv: "universal_variable.page.subcategory"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
 (function() {
 
   //Criteo suggests that this list should only be 3 products long.
@@ -82,6 +82,6 @@ qubit.qtag.LibraryTag.define("criteo.onetagcategorypage.Tag", {
   );
 
 }());
-      /*~POST*/
-    }
+		/*~POST*/
+	}
 });

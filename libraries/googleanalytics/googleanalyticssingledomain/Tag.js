@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticssingledomain.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Analytics - Single domain",
-	async: true,
-	description: "Google Analytics is the enterprise class web analytics solution that gives you rich insights into your website traffic and marketing effectiveness. Powerful, flexible and easy to use features now let you see and analyze your traffic data in an entirely new way. With Google Analytics, you're more prepared to write better targeted ads, strengthen your marketing initiatives and create higher converting websites.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "GA Profile Id",
-		description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
-		token: "PROFILE_ID",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Google Analytics - Single domain",
+		async: true,
+		description: "Google Analytics is the enterprise class web analytics solution that gives you rich insights into your website traffic and marketing effectiveness. Powerful, flexible and easy to use features now let you see and analyze your traffic data in an entirely new way. With Google Analytics, you're more prepared to write better targeted ads, strengthen your marketing initiatives and create higher converting websites.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "GA Profile Id",
+			description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
+			token: "PROFILE_ID",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
   var _gaq = _gaq || [];
@@ -38,14 +38,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticssingledomain.Tag", 
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

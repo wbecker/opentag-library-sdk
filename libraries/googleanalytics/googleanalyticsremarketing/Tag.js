@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsremarketing.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Analytics Remarketing",
-	async: true,
-	description: "A Google Analytics tracking tag which reports information to the doubleclick servers for remarketing purposes.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "GA Profile Id",
-		description: "Please enter your Google Analytics profile Id here. Example: UA-123123-12",
-		token: "PROFILE_ID",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Google Analytics Remarketing",
+		async: true,
+		description: "A Google Analytics tracking tag which reports information to the doubleclick servers for remarketing purposes.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "GA Profile Id",
+			description: "Please enter your Google Analytics profile Id here. Example: UA-123123-12",
+			token: "PROFILE_ID",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
   var _gaq = _gaq || [];
@@ -38,14 +38,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsremarketing.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

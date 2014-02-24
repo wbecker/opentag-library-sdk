@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
-    config: {
-      /*DATA*/
-	name: "zanox Generic MasterTag",
-	async: true,
-	description: "The MasterTag for all pages. Different IDs needed for each page type.",
-	html: "<div class=\"zx_${zanoxPageId} zx_mediaslot\">\n	\n</div>",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "zanox Page ID",
-		description: "Unique ID for the page",
-		token: "zanoxPageId",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "zanox Generic MasterTag",
+		async: true,
+		description: "The MasterTag for all pages. Different IDs needed for each page type.",
+		html: "<div class=\"zx_${zanoxPageId} zx_mediaslot\">\n	\n</div>",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "zanox Page ID",
+			description: "Unique ID for the page",
+			token: "zanoxPageId",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 		window._zx = window._zx || [];
 		window._zx.push({"id":"" + this.getValueForToken("zanoxPageId") + ""});
@@ -46,14 +46,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
                 waitForZanoxDiv();
 	
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

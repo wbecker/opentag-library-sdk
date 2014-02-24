@@ -1,41 +1,41 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediaplex.standardiframe.Tag", {
-    config: {
-      /*DATA*/
-	name: "Standard iframe",
-	async: true,
-	description: "The standard iframe can be used on any page which does not send back any parameters. It simply reports that a page has been visited. Example uses: Home page, help, contact us.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Mediaplex Client ID",
-		description: "The ID assigned to you by Mediaplex",
-		token: "client_id",
-		uv: ""
-	},
-	{
-		name: "Page Name",
-		description: "The name of the page being accessed. Typically all lowercase, with underscores",
-		token: "page_name",
-		uv: ""
-	},
-	{
-		name: "Event Name",
-		description: "The name of the event triggered. Typically, this is a CamelCased version of the page name",
-		token: "event_name",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Standard iframe",
+		async: true,
+		description: "The standard iframe can be used on any page which does not send back any parameters. It simply reports that a page has been visited. Example uses: Home page, help, contact us.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Mediaplex Client ID",
+			description: "The ID assigned to you by Mediaplex",
+			token: "client_id",
+			uv: ""
+		},
+		{
+			name: "Page Name",
+			description: "The name of the page being accessed. Typically all lowercase, with underscores",
+			token: "page_name",
+			uv: ""
+		},
+		{
+			name: "Event Name",
+			description: "The name of the event triggered. Typically, this is a CamelCased version of the page name",
+			token: "event_name",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function(){
 
@@ -51,14 +51,14 @@ qubit.qtag.LibraryTag.define("mediaplex.standardiframe.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

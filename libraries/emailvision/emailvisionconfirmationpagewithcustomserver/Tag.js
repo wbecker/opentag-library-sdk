@@ -1,65 +1,65 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustomserver.Tag", {
-    config: {
-      /*DATA*/
-	name: "Emailvision - Confirmation page with custom server",
-	async: true,
-	description: "The Emailvision tag to be used on confirmation pages, with the option to fully specify a custom server.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Emailvision.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Emailvision Client ID",
-		description: "",
-		token: "client_id",
-		uv: ""
-	},
-	{
-		name: "Order Total",
-		description: "",
-		token: "order_total",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Currency",
-		description: "",
-		token: "order_currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Emailvision Conversion Flag",
-		description: "",
-		token: "conversion_flag",
-		uv: ""
-	},
-	{
-		name: "Emailvision Page Name",
-		description: "",
-		token: "emailvision_page_name",
-		uv: ""
-	},
-	{
-		name: "Emailvision Server",
-		description: "The server to send data to",
-		token: "server_name",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Emailvision - Confirmation page with custom server",
+		async: true,
+		description: "The Emailvision tag to be used on confirmation pages, with the option to fully specify a custom server.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Emailvision.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Emailvision Client ID",
+			description: "",
+			token: "client_id",
+			uv: ""
+		},
+		{
+			name: "Order Total",
+			description: "",
+			token: "order_total",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Currency",
+			description: "",
+			token: "order_currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Emailvision Conversion Flag",
+			description: "",
+			token: "conversion_flag",
+			uv: ""
+		},
+		{
+			name: "Emailvision Page Name",
+			description: "",
+			token: "emailvision_page_name",
+			uv: ""
+		},
+		{
+			name: "Emailvision Server",
+			description: "The server to send data to",
+			token: "server_name",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
   var src = "//" + this.getValueForToken("server_name") + "/P?";
@@ -82,14 +82,14 @@ qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustoms
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

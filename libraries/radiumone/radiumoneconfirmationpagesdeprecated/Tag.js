@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag", {
-    config: {
-      /*DATA*/
-	name: "RadiumOne - Confirmation Pages DEPRECATED",
-	async: true,
-	description: "",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Product Quantity List",
-		description: "An array of all the product ids in the transaction",
-		token: "order_article",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	}
+	config: {
+		/*DATA*/
+		name: "RadiumOne - Confirmation Pages DEPRECATED",
+		async: true,
+		description: "",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Product Quantity List",
+			description: "An array of all the product ids in the transaction",
+			token: "order_article",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 
@@ -51,14 +51,14 @@ qubit.qtag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

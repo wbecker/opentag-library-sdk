@@ -1,81 +1,81 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.confirmationtagwithlastclicktracking.Tag", {
-    config: {
-      /*DATA*/
-	name: "Confirmation Tag (with last click tracking)",
-	async: true,
-	description: "As confirmation page tag, but with last click tracking. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Advertiser ID",
-		description: "An identifier for the client",
-		token: "advertiserid",
-		uv: ""
-	},
-	{
-		name: "User ID",
-		description: "User's identifier - return false to safely exclude it",
-		token: "user_id",
-		uv: "universal_variable.user.user_id"
-	},
-	{
-		name: "Transaction ID",
-		description: "Identifier relating to the current transaction",
-		token: "transaction_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Checkout Total",
-		description: "The total value of items at checkout",
-		token: "checkout_total",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Product Ids",
-		description: "A list of identifiers relating to products in the order",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Prices",
-		description: "A list of sale prices for each item in the order",
-		token: "prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Currency",
-		description: "The currency for the current order",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Quantities",
-		description: "A list of quantities for items relating to respective items currently in the order",
-		token: "quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "User Email",
-		description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
-		token: "user_email",
-		uv: "universal_variable.user.email"
-	}
+	config: {
+		/*DATA*/
+		name: "Confirmation Tag (with last click tracking)",
+		async: true,
+		description: "As confirmation page tag, but with last click tracking. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Advertiser ID",
+			description: "An identifier for the client",
+			token: "advertiserid",
+			uv: ""
+		},
+		{
+			name: "User ID",
+			description: "User's identifier - return false to safely exclude it",
+			token: "user_id",
+			uv: "universal_variable.user.user_id"
+		},
+		{
+			name: "Transaction ID",
+			description: "Identifier relating to the current transaction",
+			token: "transaction_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Checkout Total",
+			description: "The total value of items at checkout",
+			token: "checkout_total",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Product Ids",
+			description: "A list of identifiers relating to products in the order",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Prices",
+			description: "A list of sale prices for each item in the order",
+			token: "prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Currency",
+			description: "The currency for the current order",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Quantities",
+			description: "A list of quantities for items relating to respective items currently in the order",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "User Email",
+			description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
+			token: "user_email",
+			uv: "universal_variable.user.email"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
 var sale = {
   confirmed: true
 };
@@ -126,10 +126,10 @@ if (user_id && user_id.toLowerCase() !== "false"){
   var parts = document.cookie.split("qb_sm_uid=");
   if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 }
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

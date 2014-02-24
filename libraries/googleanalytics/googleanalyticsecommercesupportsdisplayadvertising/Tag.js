@@ -1,101 +1,101 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercesupportsdisplayadvertising.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Analytics Ecommerce - supports display advertising",
-	async: true,
-	description: "The standard ecommerce tag, but pointing to the Doubleclick servers to support display advertising.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "GA Profile Id",
-		description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
-		token: "PROFILE_ID",
-		uv: ""
-	},
-	{
-		name: "Order Id",
-		description: "Internal unique order id number for this transaction.",
-		token: "orderId",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Total",
-		description: "Total amount of the transaction.",
-		token: "orderTotal",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Order Tax Amount",
-		description: "Tax amount of the transaction (Optional - can be given a blank value if not available)",
-		token: "orderTax",
-		uv: "universal_variable.transaction.tax"
-	},
-	{
-		name: "Order Shipping",
-		description: "Shipping charge for the transaction (Optional)",
-		token: "orderShipping",
-		uv: "universal_variable.transaction.shipping_cost"
-	},
-	{
-		name: "Order Shipping City",
-		description: "City to associate with transaction.",
-		token: "orderShippingCity",
-		uv: "universal_variable.transaction.delivery.city"
-	},
-	{
-		name: "Order Shipping State",
-		description: "State to associate with transaction.",
-		token: "orderShippingState",
-		uv: "universal_variable.transaction.delivery.state"
-	},
-	{
-		name: "Order Shipping Country",
-		description: "Country to associate with transaction.",
-		token: "orderShippingCountry",
-		uv: "universal_variable.transaction.delivery.country"
-	},
-	{
-		name: "Item SKUs",
-		description: "Items' SKU codes.",
-		token: "itemSkus",
-		uv: "universal_variable.transaction.line_items[#].product.sku_code"
-	},
-	{
-		name: "Item Names",
-		description: "Product name. Required to see data in the product detail report.",
-		token: "itemNames",
-		uv: "universal_variable.transaction.line_items[#].product.name"
-	},
-	{
-		name: "Item Categories",
-		description: "Product category (Optional)",
-		token: "itemCategories",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Item Unit Prices",
-		description: "Product price - use the discounted rate that the user is actually buying at.",
-		token: "itemUnitPrices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Item Quantities",
-		description: "Purchase quantity",
-		token: "itemQuantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	}
+	config: {
+		/*DATA*/
+		name: "Google Analytics Ecommerce - supports display advertising",
+		async: true,
+		description: "The standard ecommerce tag, but pointing to the Doubleclick servers to support display advertising.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "GA Profile Id",
+			description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
+			token: "PROFILE_ID",
+			uv: ""
+		},
+		{
+			name: "Order Id",
+			description: "Internal unique order id number for this transaction.",
+			token: "orderId",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Total",
+			description: "Total amount of the transaction.",
+			token: "orderTotal",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Order Tax Amount",
+			description: "Tax amount of the transaction (Optional - can be given a blank value if not available)",
+			token: "orderTax",
+			uv: "universal_variable.transaction.tax"
+		},
+		{
+			name: "Order Shipping",
+			description: "Shipping charge for the transaction (Optional)",
+			token: "orderShipping",
+			uv: "universal_variable.transaction.shipping_cost"
+		},
+		{
+			name: "Order Shipping City",
+			description: "City to associate with transaction.",
+			token: "orderShippingCity",
+			uv: "universal_variable.transaction.delivery.city"
+		},
+		{
+			name: "Order Shipping State",
+			description: "State to associate with transaction.",
+			token: "orderShippingState",
+			uv: "universal_variable.transaction.delivery.state"
+		},
+		{
+			name: "Order Shipping Country",
+			description: "Country to associate with transaction.",
+			token: "orderShippingCountry",
+			uv: "universal_variable.transaction.delivery.country"
+		},
+		{
+			name: "Item SKUs",
+			description: "Items' SKU codes.",
+			token: "itemSkus",
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
+		},
+		{
+			name: "Item Names",
+			description: "Product name. Required to see data in the product detail report.",
+			token: "itemNames",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		},
+		{
+			name: "Item Categories",
+			description: "Product category (Optional)",
+			token: "itemCategories",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Item Unit Prices",
+			description: "Product price - use the discounted rate that the user is actually buying at.",
+			token: "itemUnitPrices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Item Quantities",
+			description: "Purchase quantity",
+			token: "itemQuantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -132,14 +132,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercesupportsdi
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

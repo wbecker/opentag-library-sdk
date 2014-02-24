@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
-    config: {
-      /*DATA*/
-	name: "Confirmation Page Conversion Pixel",
-	async: true,
-	description: "Build audience profiles for both groups of customers, allowing to overlay that data on top of inventory operated by networks using the platform, or on top of third party ad exchange inventory. Retargeting based on conversion events, previous clicks on ads and other customer lifecycle events are all made possible in a simple, integrated interface.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adgear.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "Account ID",
-		description: "The account ID for AdGear",
-		token: "accountid",
-		uv: ""
-	},
-	{
-		name: "Chip Key",
-		description: "The chip key value",
-		token: "chipkey",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Confirmation Page Conversion Pixel",
+		async: true,
+		description: "Build audience profiles for both groups of customers, allowing to overlay that data on top of inventory operated by networks using the platform, or on top of third party ad exchange inventory. Retargeting based on conversion events, previous clicks on ads and other customer lifecycle events are all made possible in a simple, integrated interface.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adgear.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "Account ID",
+			description: "The account ID for AdGear",
+			token: "accountid",
+			uv: ""
+		},
+		{
+			name: "Chip Key",
+			description: "The chip key value",
+			token: "chipkey",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
   if (typeof ADGEAR == "undefined") {
@@ -66,14 +66,14 @@ qubit.qtag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

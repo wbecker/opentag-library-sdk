@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains.Tag", {
-    config: {
-      /*DATA*/
-	name: "[DEPRECATED] Google Analytics E-Commerce Tracking with Custom Domains",
-	async: true,
-	description: "Enables ecommerce tracking of multiple domains within one Google Analytics account.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "[DEPRECATED] Google Analytics E-Commerce Tracking with Custom Domains",
+		async: true,
+		description: "Enables ecommerce tracking of multiple domains within one Google Analytics account.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -56,14 +56,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecommerce
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,65 +1,65 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
-    config: {
-      /*DATA*/
-	name: "Webtrends - Ecommerce tracking",
-	async: true,
-	description: "To be placed on pages where you wish to pass back transactional data. Should be dependent on the main Webtrends tracking tag.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Product Unit Sale Prices",
-		description: "",
-		token: "unit_sale_prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Product IDs",
-		description: "",
-		token: "ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Product SKUs",
-		description: "",
-		token: "skus",
-		uv: "universal_variable.transaction.line_items[#].product.sku_code"
-	},
-	{
-		name: "Product Categories",
-		description: "",
-		token: "categories",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Product Manufacturers",
-		description: "",
-		token: "manufacturers",
-		uv: "universal_variable.transaction.line_items[#].product.manufacturer"
-	},
-	{
-		name: "Line Item Quantities",
-		description: "",
-		token: "quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	}
+	config: {
+		/*DATA*/
+		name: "Webtrends - Ecommerce tracking",
+		async: true,
+		description: "To be placed on pages where you wish to pass back transactional data. Should be dependent on the main Webtrends tracking tag.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Product Unit Sale Prices",
+			description: "",
+			token: "unit_sale_prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Product IDs",
+			description: "",
+			token: "ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Product SKUs",
+			description: "",
+			token: "skus",
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
+		},
+		{
+			name: "Product Categories",
+			description: "",
+			token: "categories",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Product Manufacturers",
+			description: "",
+			token: "manufacturers",
+			uv: "universal_variable.transaction.line_items[#].product.manufacturer"
+		},
+		{
+			name: "Line Item Quantities",
+			description: "",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 (function() 
@@ -124,14 +124,14 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

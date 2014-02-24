@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
-    config: {
-      /*DATA*/
-	name: "UV Breadcrumb Converter",
-	async: true,
-	description: "Converts UV page breadcrumbs to be in the new format.",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "UV - Ignore Last Breadcrumb",
-		description: "Ignore the last breadcrumb",
-		token: "skip_last",
-		uv: ""
-	},
-	{
-		name: "UV - Ignore First Breadcrumb",
-		description: "Ignore the first breadcrumb in the UV",
-		token: "skip_first",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "UV Breadcrumb Converter",
+		async: true,
+		description: "Converts UV page breadcrumbs to be in the new format.",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "UV - Ignore Last Breadcrumb",
+			description: "Ignore the last breadcrumb",
+			token: "skip_last",
+			uv: ""
+		},
+		{
+			name: "UV - Ignore First Breadcrumb",
+			description: "Ignore the first breadcrumb in the UV",
+			token: "skip_first",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
 
@@ -118,14 +118,14 @@ qubit.qtag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

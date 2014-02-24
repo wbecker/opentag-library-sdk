@@ -1,71 +1,71 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
-    config: {
-      /*DATA*/
-	name: "Conversion Pixel",
-	async: true,
-	description: "The Steelhouse conversion pixel, for placing on confirmation pages. Bundled with the tracking pixel.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/SteelHouse.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "SteelHouse Advertiser ID",
-		description: "The ID assigned to you by SteelHouse",
-		token: "advertiser_id",
-		uv: ""
-	},
-	{
-		name: "Order ID",
-		description: "The unique identifier for this order",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Total",
-		description: "The total amount paid by the customer for this order",
-		token: "order_total",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Order Currency",
-		description: "The currency used to pay for this order",
-		token: "order_currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Product SKU List",
-		description: "An array containing the SKUs for each item in the order",
-		token: "skus",
-		uv: "universal_variable.transaction.line_items[#].product.sku_code"
-	},
-	{
-		name: "Product Quantity List",
-		description: "An array containing quantities associated with each product in this order",
-		token: "quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Product Price List",
-		description: "An array containing sale prices for each product in the order",
-		token: "prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Additional Information",
-		description: "Arbitrary additional information you'd like to pass back to SteelHouse",
-		token: "custom",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Conversion Pixel",
+		async: true,
+		description: "The Steelhouse conversion pixel, for placing on confirmation pages. Bundled with the tracking pixel.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/SteelHouse.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "SteelHouse Advertiser ID",
+			description: "The ID assigned to you by SteelHouse",
+			token: "advertiser_id",
+			uv: ""
+		},
+		{
+			name: "Order ID",
+			description: "The unique identifier for this order",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Total",
+			description: "The total amount paid by the customer for this order",
+			token: "order_total",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Order Currency",
+			description: "The currency used to pay for this order",
+			token: "order_currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Product SKU List",
+			description: "An array containing the SKUs for each item in the order",
+			token: "skus",
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
+		},
+		{
+			name: "Product Quantity List",
+			description: "An array containing quantities associated with each product in this order",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Product Price List",
+			description: "An array containing sale prices for each product in the order",
+			token: "prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Additional Information",
+			description: "Arbitrary additional information you'd like to pass back to SteelHouse",
+			token: "custom",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   function shaddslashes(e) {
     "use strict";
@@ -248,14 +248,14 @@ qubit.qtag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
     })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

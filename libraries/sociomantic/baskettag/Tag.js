@@ -1,69 +1,69 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.baskettag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Basket Tag",
-	async: true,
-	description: "Product ID is required on the basket page, along with additional information like quantity, amount, currency. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Advertiser ID",
-		description: "An identifier for the client",
-		token: "advertiserid",
-		uv: ""
-	},
-	{
-		name: "User Email",
-		description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
-		token: "user_email",
-		uv: "universal_variable.user.email"
-	},
-	{
-		name: "Product Ids",
-		description: "A list of identifiers relating to products in the basket",
-		token: "product_ids",
-		uv: "universal_variable.basket.line_items[#].product.id"
-	},
-	{
-		name: "Prices",
-		description: "A list of sale prices for each item in the basket",
-		token: "prices",
-		uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Currency",
-		description: "The currency for the current basket",
-		token: "currency",
-		uv: "universal_variable.basket.currency"
-	},
-	{
-		name: "Quantities",
-		description: "A list of quantities for items relating to respective items currently in the basket",
-		token: "quantities",
-		uv: "universal_variable.basket.line_items[#].quantity"
-	},
-	{
-		name: "User ID",
-		description: "User's ID - return false to safely exclude it",
-		token: "user_id",
-		uv: "universal_variable.user.user_id"
-	}
+	config: {
+		/*DATA*/
+		name: "Basket Tag",
+		async: true,
+		description: "Product ID is required on the basket page, along with additional information like quantity, amount, currency. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Advertiser ID",
+			description: "An identifier for the client",
+			token: "advertiserid",
+			uv: ""
+		},
+		{
+			name: "User Email",
+			description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
+			token: "user_email",
+			uv: "universal_variable.user.email"
+		},
+		{
+			name: "Product Ids",
+			description: "A list of identifiers relating to products in the basket",
+			token: "product_ids",
+			uv: "universal_variable.basket.line_items[#].product.id"
+		},
+		{
+			name: "Prices",
+			description: "A list of sale prices for each item in the basket",
+			token: "prices",
+			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Currency",
+			description: "The currency for the current basket",
+			token: "currency",
+			uv: "universal_variable.basket.currency"
+		},
+		{
+			name: "Quantities",
+			description: "A list of quantities for items relating to respective items currently in the basket",
+			token: "quantities",
+			uv: "universal_variable.basket.line_items[#].quantity"
+		},
+		{
+			name: "User ID",
+			description: "User's ID - return false to safely exclude it",
+			token: "user_id",
+			uv: "universal_variable.user.user_id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
 var basket = {
    products: []
 };
@@ -107,10 +107,10 @@ if (user_id && user_id.toLowerCase() !== "false"){
   var parts = document.cookie.split("qb_sm_uid=");
   if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 }
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

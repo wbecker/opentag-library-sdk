@@ -1,65 +1,65 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
-    config: {
-      /*DATA*/
-	name: "Zanox - Confirmation page",
-	async: true,
-	description: "The Zanox confirmation page tag.",
-	html: "<div class=\"zx_${zanox_page_id} zx_mediaslot\">\n  \n</div>",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Program id",
-		description: "Unique identifier, e.g. 10292C1904329647",
-		token: "program_id",
-		uv: ""
-	},
-	{
-		name: "Mode",
-		description: "e.g .2",
-		token: "mode",
-		uv: ""
-	},
-	{
-		name: "User ID",
-		description: "",
-		token: "user_id",
-		uv: "universal_variable.user.user_id"
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Currency",
-		description: "",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Subtotal",
-		description: "",
-		token: "subtotal",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Zanox Page ID",
-		description: "",
-		token: "zanox_page_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Zanox - Confirmation page",
+		async: true,
+		description: "The Zanox confirmation page tag.",
+		html: "<div class=\"zx_${zanox_page_id} zx_mediaslot\">\n  \n</div>",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Program id",
+			description: "Unique identifier, e.g. 10292C1904329647",
+			token: "program_id",
+			uv: ""
+		},
+		{
+			name: "Mode",
+			description: "e.g .2",
+			token: "mode",
+			uv: ""
+		},
+		{
+			name: "User ID",
+			description: "",
+			token: "user_id",
+			uv: "universal_variable.user.user_id"
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Currency",
+			description: "",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Subtotal",
+			description: "",
+			token: "subtotal",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Zanox Page ID",
+			description: "",
+			token: "zanox_page_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
     // Fire the confirmation tag
@@ -103,14 +103,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
 
   
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

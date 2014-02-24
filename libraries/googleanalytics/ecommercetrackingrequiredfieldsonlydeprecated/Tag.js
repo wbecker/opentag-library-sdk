@@ -1,59 +1,59 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfieldsonlydeprecated.Tag", {
-    config: {
-      /*DATA*/
-	name: "E-Commerce Tracking (Required Fields Only) DEPRECATED",
-	async: true,
-	description: "Before Google Analytics can report ecommerce activity for your website, you must enable ecommerce tracking on the profile settings page for your website.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Profile ID",
-		description: "",
-		token: "PROFILE_ID",
-		uv: ""
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "orderId",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Total",
-		description: "",
-		token: "orderTotal",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Product SKU List",
-		description: "",
-		token: "itemSkus",
-		uv: "universal_variable.transaction.line_items[#].product.sku_code"
-	},
-	{
-		name: "Product Unit Price List",
-		description: "",
-		token: "itemUnitPrices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_price"
-	},
-	{
-		name: "Product Quantity List",
-		description: "",
-		token: "itemQuantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	}
+	config: {
+		/*DATA*/
+		name: "E-Commerce Tracking (Required Fields Only) DEPRECATED",
+		async: true,
+		description: "Before Google Analytics can report ecommerce activity for your website, you must enable ecommerce tracking on the profile settings page for your website.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Profile ID",
+			description: "",
+			token: "PROFILE_ID",
+			uv: ""
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "orderId",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Total",
+			description: "",
+			token: "orderTotal",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Product SKU List",
+			description: "",
+			token: "itemSkus",
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
+		},
+		{
+			name: "Product Unit Price List",
+			description: "",
+			token: "itemUnitPrices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_price"
+		},
+		{
+			name: "Product Quantity List",
+			description: "",
+			token: "itemQuantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -89,14 +89,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfieldsonl
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

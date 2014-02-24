@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.Tag", {
-    config: {
-      /*DATA*/
-	name: "Snowplow EcommTracker",
-	async: true,
-	description: "SnowPlow eCommerce tracking tag to collect transaction data into your SnowPlow system. Must have a dependency set on the PageTracker.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/snowplow.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "Snowplow EcommTracker",
+		async: true,
+		description: "SnowPlow eCommerce tracking tag to collect transaction data into your SnowPlow system. Must have a dependency set on the PageTracker.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/snowplow.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var sp_t=window.universal_variable.transaction;
 
@@ -52,14 +52,14 @@ _snaq.push(['trackTrans']);
 }
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

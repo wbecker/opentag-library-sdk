@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumonegenericpagesdeprecated.Tag", {
-    config: {
-      /*DATA*/
-	name: "RadiumOne - Generic Pages DEPRECATED",
-	async: true,
-	description: "",
-	html: "\n",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Shop ID",
-		description: "The unique ID for the store",
-		token: "shop_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "RadiumOne - Generic Pages DEPRECATED",
+		async: true,
+		description: "",
+		html: "\n",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Shop ID",
+			description: "The unique ID for the store",
+			token: "shop_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 (function() {
@@ -46,14 +46,14 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonegenericpagesdeprecated.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

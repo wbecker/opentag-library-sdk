@@ -1,53 +1,53 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Confirmation Page Tag",
-	async: true,
-	description: "Tag must be implemented on the confirmation page after user has made payment.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AdRoll.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "AdRoll Advertiser ID",
-		description: "The identifier for the advertiser",
-		token: "adroll_ad_id",
-		uv: ""
-	},
-	{
-		name: "AdRoll Pixel ID",
-		description: "The identifier for the pixel",
-		token: "adroll_pix_id",
-		uv: ""
-	},
-	{
-		name: "Transaction Order Total",
-		description: "The total value of the order",
-		token: "total",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Transaction Order ID",
-		description: "The identifier relating to the transaction",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Transaction User ID",
-		description: "The identifier relating to the user",
-		token: "user_id",
-		uv: "universal_variable.user.user_id"
-	}
+	config: {
+		/*DATA*/
+		name: "Confirmation Page Tag",
+		async: true,
+		description: "Tag must be implemented on the confirmation page after user has made payment.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AdRoll.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "AdRoll Advertiser ID",
+			description: "The identifier for the advertiser",
+			token: "adroll_ad_id",
+			uv: ""
+		},
+		{
+			name: "AdRoll Pixel ID",
+			description: "The identifier for the pixel",
+			token: "adroll_pix_id",
+			uv: ""
+		},
+		{
+			name: "Transaction Order Total",
+			description: "The total value of the order",
+			token: "total",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Transaction Order ID",
+			description: "The identifier relating to the transaction",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Transaction User ID",
+			description: "The identifier relating to the user",
+			token: "user_id",
+			uv: "universal_variable.user.user_id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 window.adroll_adv_id = "" + this.getValueForToken("adroll_ad_id") + "";
 window.adroll_pix_id = "" + this.getValueForToken("adroll_pix_id") + "";
@@ -73,14 +73,14 @@ window.adroll_custom_data = {
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,105 +1,105 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductandcommissiongroupdetail.Tag", {
-    config: {
-      /*DATA*/
-	name: "Confirmation Tag with Product and Commission Group Detail",
-	async: true,
-	description: "Use this if you have different commission groups per product.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "www.dwin1.com/${merchant_id}.js",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Affiliate Window Merchant ID",
-		description: "Affiliate Window Merchant ID",
-		token: "merchant_id",
-		uv: ""
-	},
-	{
-		name: "Affiliate Window Test Mode",
-		description: "Enter 0 if the code is on production mode; Test mode uses value 1.",
-		token: "testmode",
-		uv: ""
-	},
-	{
-		name: "Order Sub Total",
-		description: "The total cost of the order",
-		token: "orderTotal",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Order Id",
-		description: "A unique id for the order",
-		token: "orderId",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Voucher",
-		description: "The voucher by which the order was discounted",
-		token: "voucher",
-		uv: "universal_variable.transaction.voucher"
-	},
-	{
-		name: "Order Currency",
-		description: "The currency the order was paid with",
-		token: "orderCurrency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Product Ids",
-		description: "The id of each product purchased",
-		token: "productId",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Product Name",
-		description: "The name of each product purchased",
-		token: "productName",
-		uv: "universal_variable.transaction.line_items[#].product.name"
-	},
-	{
-		name: "Product Unit Price",
-		description: "The price of each product purchased",
-		token: "productUnitPrice",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Product Quantities",
-		description: "The quantity of each product purchased",
-		token: "quantity",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Product SKUs",
-		description: "The SKUs for each product in the order",
-		token: "productSku",
-		uv: "universal_variable.transaction.line_items[#].product.sku_code"
-	},
-	{
-		name: "Product Categories",
-		description: "The category for each product purchased",
-		token: "productCategory",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Product Commission Groups",
-		description: "The commission group for every product purchased",
-		token: "commission_groups",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Confirmation Tag with Product and Commission Group Detail",
+		async: true,
+		description: "Use this if you have different commission groups per product.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "www.dwin1.com/${merchant_id}.js",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Affiliate Window Merchant ID",
+			description: "Affiliate Window Merchant ID",
+			token: "merchant_id",
+			uv: ""
+		},
+		{
+			name: "Affiliate Window Test Mode",
+			description: "Enter 0 if the code is on production mode; Test mode uses value 1.",
+			token: "testmode",
+			uv: ""
+		},
+		{
+			name: "Order Sub Total",
+			description: "The total cost of the order",
+			token: "orderTotal",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Order Id",
+			description: "A unique id for the order",
+			token: "orderId",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Voucher",
+			description: "The voucher by which the order was discounted",
+			token: "voucher",
+			uv: "universal_variable.transaction.voucher"
+		},
+		{
+			name: "Order Currency",
+			description: "The currency the order was paid with",
+			token: "orderCurrency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Product Ids",
+			description: "The id of each product purchased",
+			token: "productId",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Product Name",
+			description: "The name of each product purchased",
+			token: "productName",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		},
+		{
+			name: "Product Unit Price",
+			description: "The price of each product purchased",
+			token: "productUnitPrice",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Product Quantities",
+			description: "The quantity of each product purchased",
+			token: "quantity",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Product SKUs",
+			description: "The SKUs for each product in the order",
+			token: "productSku",
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
+		},
+		{
+			name: "Product Categories",
+			description: "The category for each product purchased",
+			token: "productCategory",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Product Commission Groups",
+			description: "The commission group for every product purchased",
+			token: "commission_groups",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
 (function () {
 
     var i, cg, cg_groups = {}, parts;
@@ -174,10 +174,10 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductandcommi
     };
 
 })();
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

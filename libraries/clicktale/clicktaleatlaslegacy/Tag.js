@@ -1,41 +1,41 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
-    config: {
-      /*DATA*/
-	name: "ClickTale - Atlas - Legacy",
-	async: true,
-	description: "Mouse tracking tag",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Clicktale.jpeg",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "ClickTale Id",
-		description: "Your ClickTale project id",
-		token: "ClickTaleId",
-		uv: ""
-	},
-	{
-		name: "Recording Ratio",
-		description: "What ratio of users to record - between 0 and 1",
-		token: "RecordingRatio",
-		uv: ""
-	},
-	{
-		name: "Partition Id",
-		description: "The clicktale partition - normally something like \"www09\"",
-		token: "Partition",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "ClickTale - Atlas - Legacy",
+		async: true,
+		description: "Mouse tracking tag",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Clicktale.jpeg",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "ClickTale Id",
+			description: "Your ClickTale project id",
+			token: "ClickTaleId",
+			uv: ""
+		},
+		{
+			name: "Recording Ratio",
+			description: "What ratio of users to record - between 0 and 1",
+			token: "RecordingRatio",
+			uv: ""
+		},
+		{
+			name: "Partition Id",
+			description: "The clicktale partition - normally something like \"www09\"",
+			token: "Partition",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 window.WRInitTime = (new Date()).getTime();
 
@@ -66,14 +66,14 @@ ct.onreadystatechange = function () {
 document.body.appendChild(ct);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

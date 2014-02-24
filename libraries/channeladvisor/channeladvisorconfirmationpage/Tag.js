@@ -1,47 +1,47 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag", {
-    config: {
-      /*DATA*/
-	name: "Channel Advisor - Confirmation Page",
-	async: true,
-	description: "Use this tag to track confirmation pages with ChannelAdvisor.",
-	html: "",
-	imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=ChannelAdvisor",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Client ID",
-		description: "The unique client id",
-		token: "client_id",
-		uv: ""
-	},
-	{
-		name: "Order Total",
-		description: "",
-		token: "total",
-		uv: "universal_variable.transaction.subtotal"
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Product IDs",
-		description: "",
-		token: "product_id_list",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	}
+	config: {
+		/*DATA*/
+		name: "Channel Advisor - Confirmation Page",
+		async: true,
+		description: "Use this tag to track confirmation pages with ChannelAdvisor.",
+		html: "",
+		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=ChannelAdvisor",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Client ID",
+			description: "The unique client id",
+			token: "client_id",
+			uv: ""
+		},
+		{
+			name: "Order Total",
+			description: "",
+			token: "total",
+			uv: "universal_variable.transaction.subtotal"
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Product IDs",
+			description: "",
+			token: "product_id_list",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
   var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" + this.getValueForToken("client_id") + "";
@@ -66,14 +66,14 @@ qubit.qtag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag"
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,53 +1,53 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonly.Tag", {
-    config: {
-      /*DATA*/
-	name: "Conversion Pixel - Revenue only",
-	async: true,
-	description: "This conversion pixel tracks revenue only. Use either this or the asynchronous Conversion Capture Code depending on the instructions you have been given by Marin.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Marin.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "Marin Client Id",
-		description: "Your unique marin client id",
-		token: "clientId",
-		uv: ""
-	},
-	{
-		name: "Marin Conversion Type Id",
-		description: "Each conversion type represents a page on the client’s website which is considered a goal",
-		token: "conversionTypeId",
-		uv: ""
-	},
-	{
-		name: "Order Id",
-		description: "A unique id for the order",
-		token: "orderId",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Total",
-		description: "The total value of the order",
-		token: "total",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Order currency",
-		description: "The order the currency is in. Can be hard coded to GBP if appropriate",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	}
+	config: {
+		/*DATA*/
+		name: "Conversion Pixel - Revenue only",
+		async: true,
+		description: "This conversion pixel tracks revenue only. Use either this or the asynchronous Conversion Capture Code depending on the instructions you have been given by Marin.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Marin.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "Marin Client Id",
+			description: "Your unique marin client id",
+			token: "clientId",
+			uv: ""
+		},
+		{
+			name: "Marin Conversion Type Id",
+			description: "Each conversion type represents a page on the client’s website which is considered a goal",
+			token: "conversionTypeId",
+			uv: ""
+		},
+		{
+			name: "Order Id",
+			description: "A unique id for the order",
+			token: "orderId",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Total",
+			description: "The total value of the order",
+			token: "total",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Order currency",
+			description: "The order the currency is in. Can be hard coded to GBP if appropriate",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var _mf = document.createElement("form");
 _mf.style.display = "none";
@@ -90,14 +90,14 @@ _ml.onreadystatechange = function () {
 document.body.appendChild(_ml);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

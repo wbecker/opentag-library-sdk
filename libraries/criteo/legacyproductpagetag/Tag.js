@@ -1,53 +1,53 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyproductpagetag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Legacy - Product Page Tag",
-	async: true,
-	description: "This is a mandatory tag and must be placed on all the advertiser product pages.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Criteo wi Parameter",
-		description: "Criteo wi Parameter",
-		token: "wi",
-		uv: ""
-	},
-	{
-		name: "Criteo Subdomain Parameter",
-		description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
-		token: "subdomain",
-		uv: ""
-	},
-	{
-		name: "Criteo Partner ID",
-		description: "Partner ID provided by Criteo",
-		token: "partner_id",
-		uv: ""
-	},
-	{
-		name: "Criteo Call Parameter",
-		description: "Call Parameter Provided by Criteo, e.g. pjl",
-		token: "call_parameter",
-		uv: ""
-	},
-	{
-		name: "Product ID",
-		description: "",
-		token: "product_id",
-		uv: "universal_variable.product.id"
-	}
+	config: {
+		/*DATA*/
+		name: "Legacy - Product Page Tag",
+		async: true,
+		description: "This is a mandatory tag and must be placed on all the advertiser product pages.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Criteo wi Parameter",
+			description: "Criteo wi Parameter",
+			token: "wi",
+			uv: ""
+		},
+		{
+			name: "Criteo Subdomain Parameter",
+			description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
+			token: "subdomain",
+			uv: ""
+		},
+		{
+			name: "Criteo Partner ID",
+			description: "Partner ID provided by Criteo",
+			token: "partner_id",
+			uv: ""
+		},
+		{
+			name: "Criteo Call Parameter",
+			description: "Call Parameter Provided by Criteo, e.g. pjl",
+			token: "call_parameter",
+			uv: ""
+		},
+		{
+			name: "Product ID",
+			description: "",
+			token: "product_id",
+			uv: "universal_variable.product.id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
 
@@ -91,14 +91,14 @@ document.body.appendChild(_cr_d2);
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,53 +1,53 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacylistingpage.Tag", {
-    config: {
-      /*DATA*/
-	name: "Legacy - Listing Page",
-	async: true,
-	description: "Add to a page with a listing of products, eg a Search or Category Page. This will pick off the first three values in the Listing Product IDs array and send them to Criteo.",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Criteo wi Parameter",
-		description: "Criteo wi Parameter",
-		token: "wi",
-		uv: ""
-	},
-	{
-		name: "Criteo Subdomain Parameter",
-		description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
-		token: "subdomain",
-		uv: ""
-	},
-	{
-		name: "Criteo Partner ID",
-		description: "Partner ID provided by Criteo",
-		token: "partner_id",
-		uv: ""
-	},
-	{
-		name: "Criteo Call Parameter",
-		description: "Call Parameter Provided by Criteo, e.g. pjl",
-		token: "call_parameter",
-		uv: ""
-	},
-	{
-		name: "Listing Product IDs",
-		description: "An array containing the product ids on the page",
-		token: "product_ids",
-		uv: "universal_variable.listing.items[#].id"
-	}
+	config: {
+		/*DATA*/
+		name: "Legacy - Listing Page",
+		async: true,
+		description: "Add to a page with a listing of products, eg a Search or Category Page. This will pick off the first three values in the Listing Product IDs array and send them to Criteo.",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Criteo wi Parameter",
+			description: "Criteo wi Parameter",
+			token: "wi",
+			uv: ""
+		},
+		{
+			name: "Criteo Subdomain Parameter",
+			description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
+			token: "subdomain",
+			uv: ""
+		},
+		{
+			name: "Criteo Partner ID",
+			description: "Partner ID provided by Criteo",
+			token: "partner_id",
+			uv: ""
+		},
+		{
+			name: "Criteo Call Parameter",
+			description: "Call Parameter Provided by Criteo, e.g. pjl",
+			token: "call_parameter",
+			uv: ""
+		},
+		{
+			name: "Listing Product IDs",
+			description: "An array containing the product ids on the page",
+			token: "product_ids",
+			uv: "universal_variable.listing.items[#].id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   function pcto_dis() {
@@ -99,14 +99,14 @@ document.body.appendChild(_cr_d2);
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

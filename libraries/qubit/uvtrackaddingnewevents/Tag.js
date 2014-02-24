@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.uvtrackaddingnewevents.Tag", {
-    config: {
-      /*DATA*/
-	name: "UV - track adding new events",
-	async: true,
-	description: "With this library tag it is possible to listen for events being added to the Universal Variable events parameter. Useful if you want to have multiple event trackers working off the same model. \n\nExample: uv.events.on('add', function () {\n  // run your code here\n});\n\nIf you have any trackers running off this tag, ensure that this tag is set as a dependency for them.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "UV - track adding new events",
+		async: true,
+		description: "With this library tag it is possible to listen for events being added to the Universal Variable events parameter. Useful if you want to have multiple event trackers working off the same model. \n\nExample: uv.events.on('add', function () {\n  // run your code here\n});\n\nIf you have any trackers running off this tag, ensure that this tag is set as a dependency for them.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 // Create UV events array if doesn't exist
@@ -49,14 +49,14 @@ uv.events.push = function (event) {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

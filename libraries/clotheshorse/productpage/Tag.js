@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("clotheshorse.productpage.Tag", {
-    config: {
-      /*DATA*/
-	name: "Product Page",
-	async: true,
-	description: "To be placed on all product pages of the website.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ClothesHorse.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Clothes Horse Client Token",
-		description: "The token specific to the client using Clothes Horse",
-		token: "client_token",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Product Page",
+		async: true,
+		description: "To be placed on all product pages of the website.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ClothesHorse.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Clothes Horse Client Token",
+			description: "The token specific to the client using Clothes Horse",
+			token: "client_token",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
     var ch212 = ch212 || []; 
     ch212['token'] = '' + this.getValueForToken("client_token") + ''; 
@@ -40,14 +40,14 @@ qubit.qtag.LibraryTag.define("clotheshorse.productpage.Tag", {
     })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

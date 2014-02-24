@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.landingpagetag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Landing Page Tag",
-	async: true,
-	description: "This is used to record incoming traffic from paid search.It  should be installed on any landing page URL used by your paid campaigns, and also any page which is indexed into the organic search results of a search engine. If in doubt, deploy the tag on every page of website.",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Marin Tracking ID",
-		description: "",
-		token: "id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Landing Page Tag",
+		async: true,
+		description: "This is used to record incoming traffic from paid search.It  should be installed on any landing page URL used by your paid campaigns, and also any page which is indexed into the organic search results of a search engine. If in doubt, deploy the tag on every page of website.",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Marin Tracking ID",
+			description: "",
+			token: "id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 var _mTrack = window._mTrack || [];
@@ -43,14 +43,14 @@ _mTrack.push(['trackPage']);
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zopim.zopimlivechat.Tag", {
-    config: {
-      /*DATA*/
-	name: "Zopim Livechat",
-	async: true,
-	description: "Real-time customer satisfaction made simple. Implement Zopim's live chat functionality on your site.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zopim.jpeg",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "Client ID",
-		description: "The unique client id, e.g. \"183c79emDOKRZl6272Y1DS6nmuZiWCDTf3e\"",
-		token: "client_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Zopim Livechat",
+		async: true,
+		description: "Real-time customer satisfaction made simple. Implement Zopim's live chat functionality on your site.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zopim.jpeg",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "Client ID",
+			description: "The unique client id, e.g. \"183c79emDOKRZl6272Y1DS6nmuZiWCDTf3e\"",
+			token: "client_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 window.$zopim || (function(d, s) {
   var z = $zopim = function(c) {
@@ -47,14 +47,14 @@ window.$zopim || (function(d, s) {
 })(document, 'script');
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("gosquared.gosquaredallpages.Tag", {
-    config: {
-      /*DATA*/
-	name: "GoSquared - all pages",
-	async: true,
-	description: "Real-time analytics for your website. GoSquared helps you understand and improve your online presence.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/gosquared.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Account ID",
-		description: "The ID specific to your GoSquared account.",
-		token: "account_no",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "GoSquared - all pages",
+		async: true,
+		description: "Real-time analytics for your website. GoSquared helps you understand and improve your online presence.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/gosquared.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Account ID",
+			description: "The ID specific to your GoSquared account.",
+			token: "account_no",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var GoSquared = {};
 GoSquared.acct = "" + this.getValueForToken("account_no") + "";
@@ -42,14 +42,14 @@ GoSquared.acct = "" + this.getValueForToken("account_no") + "";
 })(window); 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

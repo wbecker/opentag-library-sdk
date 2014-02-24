@@ -1,95 +1,95 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagetagdeprecated.Tag", {
-    config: {
-      /*DATA*/
-	name: "Confirmation Page Tag [DEPRECATED]",
-	async: true,
-	description: "DO NOT USE",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "TD Unique Identifier",
-		description: "Your TradeDoubler unique identifier",
-		token: "tduid_cookie_name",
-		uv: ""
-	},
-	{
-		name: "Product Categories",
-		description: "",
-		token: "productCategories",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Product IDs",
-		description: "List of all product IDs in basket",
-		token: "productIDs",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Product Names",
-		description: "List of all product names in basket",
-		token: "productNames",
-		uv: "universal_variable.transaction.line_items[#].product.name"
-	},
-	{
-		name: "Product Prices",
-		description: "List of each product unit sale price in basket",
-		token: "productPrices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Product Quantities",
-		description: "List of all product quantities",
-		token: "productQuantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Organization",
-		description: "Your TradeDoubler organization ID, provided by TradeDoubler.",
-		token: "organization",
-		uv: ""
-	},
-	{
-		name: "Event",
-		description: "Provided by TradeDoubler, this parameter is linked to our organization and used for reporting.",
-		token: "event",
-		uv: ""
-	},
-	{
-		name: "Currency",
-		description: "Transaction currency",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Order Number",
-		description: "Transaction Order ID",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Encoding",
-		description: "set to 3 unless encoding is not  UTF-8 - see TD manual for more info",
-		token: "encoding",
-		uv: ""
-	},
-	{
-		name: "Tracking type",
-		description: "Enter hard coded value s for sales tracking or l for lead tracking",
-		token: "tracking_type",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Confirmation Page Tag [DEPRECATED]",
+		async: true,
+		description: "DO NOT USE",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "TD Unique Identifier",
+			description: "Your TradeDoubler unique identifier",
+			token: "tduid_cookie_name",
+			uv: ""
+		},
+		{
+			name: "Product Categories",
+			description: "",
+			token: "productCategories",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Product IDs",
+			description: "List of all product IDs in basket",
+			token: "productIDs",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Product Names",
+			description: "List of all product names in basket",
+			token: "productNames",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		},
+		{
+			name: "Product Prices",
+			description: "List of each product unit sale price in basket",
+			token: "productPrices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Product Quantities",
+			description: "List of all product quantities",
+			token: "productQuantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Organization",
+			description: "Your TradeDoubler organization ID, provided by TradeDoubler.",
+			token: "organization",
+			uv: ""
+		},
+		{
+			name: "Event",
+			description: "Provided by TradeDoubler, this parameter is linked to our organization and used for reporting.",
+			token: "event",
+			uv: ""
+		},
+		{
+			name: "Currency",
+			description: "Transaction currency",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Order Number",
+			description: "Transaction Order ID",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Encoding",
+			description: "set to 3 unless encoding is not  UTF-8 - see TD manual for more info",
+			token: "encoding",
+			uv: ""
+		},
+		{
+			name: "Tracking type",
+			description: "Enter hard coded value s for sales tracking or l for lead tracking",
+			token: "tracking_type",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 (function ()
@@ -138,14 +138,14 @@ qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagetagdeprecated.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

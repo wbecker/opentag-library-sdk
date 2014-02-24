@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("hubspot.analytics.Tag", {
-    config: {
-      /*DATA*/
-	name: "Analytics",
-	async: true,
-	description: "For all Professional and Enterprise HubSpot customers that want to use HubSpot's website analytics on a non-HubSpot hosted website.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/HubSpot.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Hubspot ID",
-		description: "",
-		token: "id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Analytics",
+		async: true,
+		description: "For all Professional and Enterprise HubSpot customers that want to use HubSpot's website analytics on a non-HubSpot hosted website.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/HubSpot.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Hubspot ID",
+			description: "",
+			token: "id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   (function(d,s,i,r) {
     if (d.getElementById(i)){return;}
@@ -33,14 +33,14 @@ qubit.qtag.LibraryTag.define("hubspot.analytics.Tag", {
   })(document,"script","hs-analytics",300000);
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

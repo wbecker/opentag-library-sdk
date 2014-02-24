@@ -1,47 +1,47 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("merchenta.conversiontag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Conversion Tag",
-	async: true,
-	description: "Place this tag on the order confirmation page following a successful purchase.",
-	html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">PURCHASE</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n  <div class=\"mc_order_ref\">${order_id}</div>\n  <div class=\"mc_ordervalue\">${order_total}</div>\n</div>\n",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Merchenta Retailer Code",
-		description: "Your Merchenta account ID",
-		token: "Merchenta_Id",
-		uv: ""
-	},
-	{
-		name: "Merchant's Order Reference",
-		description: "A unique id for the order",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Total Order Value",
-		description: "The total cost of the order - may be left blank if is the same price as SKUs",
-		token: "order_total",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Product SKUs",
-		description: "The SKUs/IDs of the products being purchased",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.sku_code"
-	}
+	config: {
+		/*DATA*/
+		name: "Conversion Tag",
+		async: true,
+		description: "Place this tag on the order confirmation page following a successful purchase.",
+		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">PURCHASE</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n  <div class=\"mc_order_ref\">${order_id}</div>\n  <div class=\"mc_ordervalue\">${order_total}</div>\n</div>\n",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Merchenta Retailer Code",
+			description: "Your Merchenta account ID",
+			token: "Merchenta_Id",
+			uv: ""
+		},
+		{
+			name: "Merchant's Order Reference",
+			description: "A unique id for the order",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Total Order Value",
+			description: "The total cost of the order - may be left blank if is the same price as SKUs",
+			token: "order_total",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Product SKUs",
+			description: "The SKUs/IDs of the products being purchased",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   var i, ii, d, p = document.getElementById("mc_data");
@@ -69,14 +69,14 @@ var mc_api_url = "api.merchenta.com/merchenta/t";
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

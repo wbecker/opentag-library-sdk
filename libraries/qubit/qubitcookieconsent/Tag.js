@@ -1,39 +1,39 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.qubitcookieconsent.Tag", {
-    config: {
-      /*DATA*/
-	name: "Qubit Cookie Consent",
-	async: true,
-	description: "customisable  cookie consent drop-down slider",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: true,
-	url: "d3c3cq33003psk.cloudfront.net/consent/consent-widget-1.1.0.min.js",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Privacy & Cookies Policy Statement Link [compulsory]",
-		description: "add the URL of your Privacy & Cookies Policy Statement",
-		token: "linkHref",
-		uv: ""
-	},
-	{
-		name: "Main Text [optional]",
-		description: "Replace the main text with your own - Otherwise assign an empty value to this  variable",
-		token: "mainText",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Qubit Cookie Consent",
+		async: true,
+		description: "customisable  cookie consent drop-down slider",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: true,
+		url: "d3c3cq33003psk.cloudfront.net/consent/consent-widget-1.1.0.min.js",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Privacy & Cookies Policy Statement Link [compulsory]",
+			description: "add the URL of your Privacy & Cookies Policy Statement",
+			token: "linkHref",
+			uv: ""
+		},
+		{
+			name: "Main Text [optional]",
+			description: "Replace the main text with your own - Otherwise assign an empty value to this  variable",
+			token: "mainText",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
 var mainText = "For this website to run at its best, we ask the browser (like Google Chrome and Internet Explorer) for a little personal information. Nothing drastic, just enough to remember your preferences, login ID, and what you like to look at (on our site). Having this information to hand helps us understand your needs and improve our service to you.";
 
 var cookiesAndPrivacyStatementUrl = "" + this.getValueForToken("linkHref") + "";
@@ -145,10 +145,10 @@ qcw.onUserDismiss = function (reason)
     window._q_ping("consentDismiss", reason);
   }
 };
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

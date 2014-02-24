@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplayadvertisingsupport.Tag", {
-    config: {
-      /*DATA*/
-	name: "Google Analytics with display advertising support",
-	async: true,
-	description: "See https://support.google.com/analytics/answer/2444872 for details.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Profile ID",
-		description: "Your unique profile id for GA, e.g. UA-1234567",
-		token: "profile_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Google Analytics with display advertising support",
+		async: true,
+		description: "See https://support.google.com/analytics/answer/2444872 for details.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Profile ID",
+			description: "Your unique profile id for GA, e.g. UA-1234567",
+			token: "profile_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
   var _gaq = _gaq || [];
@@ -38,14 +38,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplayadvertis
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

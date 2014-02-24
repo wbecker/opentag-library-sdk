@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.combineduvlistener.Tag", {
-    config: {
-      /*DATA*/
-	name: "Combined UV Listener",
-	async: true,
-	description: "Until the UV Listener is released via qtag and qtracker, load this in as a dependency to get its features. This requires JSON.stringify and JSON.parse - that'll be handled when it's actually loaded in properly, but for now we're just getting a stopgap solution in.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "Combined UV Listener",
+		async: true,
+		description: "Until the UV Listener is released via qtag and qtracker, load this in as a dependency to get its features. This requires JSON.stringify and JSON.parse - that'll be handled when it's actually loaded in properly, but for now we're just getting a stopgap solution in.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   if (! (JSON && JSON.stringify && JSON.parse &&
@@ -321,14 +321,14 @@ qubit.qtag.LibraryTag.define("qubit.combineduvlistener.Tag", {
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

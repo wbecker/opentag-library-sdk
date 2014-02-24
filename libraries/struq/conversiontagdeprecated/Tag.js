@@ -1,53 +1,53 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.conversiontagdeprecated.Tag", {
-    config: {
-      /*DATA*/
-	name: "Conversion Tag DEPRECATED",
-	async: true,
-	description: "To be placed only on the confirmation page",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Struq Conversion Page ID",
-		description: "",
-		token: "id",
-		uv: ""
-	},
-	{
-		name: "Product IDs",
-		description: "",
-		token: "product_id_list",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Order Total",
-		description: "",
-		token: "order_total",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Discount",
-		description: "The order discount amount. Set to 0 if not used.",
-		token: "discount",
-		uv: ""
-	},
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	}
+	config: {
+		/*DATA*/
+		name: "Conversion Tag DEPRECATED",
+		async: true,
+		description: "To be placed only on the confirmation page",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Struq Conversion Page ID",
+			description: "",
+			token: "id",
+			uv: ""
+		},
+		{
+			name: "Product IDs",
+			description: "",
+			token: "product_id_list",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Order Total",
+			description: "",
+			token: "order_total",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Discount",
+			description: "The order discount amount. Set to 0 if not used.",
+			token: "discount",
+			uv: ""
+		},
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function (){
   var rnd, ifrm = document.createElement("IFRAME"), i = 0, ii = this.getValueForToken("product_id_list").length, id_string = "";
@@ -63,14 +63,14 @@ qubit.qtag.LibraryTag.define("struq.conversiontagdeprecated.Tag", {
 }())
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

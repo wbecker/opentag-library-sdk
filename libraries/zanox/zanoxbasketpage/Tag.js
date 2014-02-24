@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
-    config: {
-      /*DATA*/
-	name: "Zanox Basket Page",
-	async: true,
-	description: "Basket Page Master Tag",
-	html: "<div class=\"zx_${id} zx_mediaslot\"></div>\n",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "ID",
-		description: "client/page specific ID",
-		token: "id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Zanox Basket Page",
+		async: true,
+		description: "Basket Page Master Tag",
+		html: "<div class=\"zx_${id} zx_mediaslot\"></div>\n",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "ID",
+			description: "client/page specific ID",
+			token: "id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function ()
 {
@@ -52,14 +52,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag", {
-    config: {
-      /*DATA*/
-	name: "Generic Tag sending custom Field Name Objects",
-	async: true,
-	description: "This tag sends a collection of custom field name objects, allowing for any combination of hit types to be sent. Consider populating a window variable with this array in a custom script. For field object reference, see: http://goo.gl/z9gs4",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Web Property ID",
-		description: "Google Analytics Web Property ID for the Google Web Property you wish to track",
-		token: "web_property_id",
-		uv: ""
-	},
-	{
-		name: "Field Object Array",
-		description: "An array of field objects, each of which must define at least a 'hitType'",
-		token: "field_objects",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Generic Tag sending custom Field Name Objects",
+		async: true,
+		description: "This tag sends a collection of custom field name objects, allowing for any combination of hit types to be sent. Consider populating a window variable with this array in a custom script. For field object reference, see: http://goo.gl/z9gs4",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Web Property ID",
+			description: "Google Analytics Web Property ID for the Google Web Property you wish to track",
+			token: "web_property_id",
+			uv: ""
+		},
+		{
+			name: "Field Object Array",
+			description: "An array of field objects, each of which must define at least a 'hitType'",
+			token: "field_objects",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function(){
 
@@ -47,14 +47,14 @@ for (var i=0; i < this.getValueForToken("field_objects").length; i++){
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

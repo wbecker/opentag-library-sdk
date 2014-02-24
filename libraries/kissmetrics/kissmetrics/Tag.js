@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
-    config: {
-      /*DATA*/
-	name: "Kiss Metrics",
-	async: true,
-	description: "KISSMetrics tracking tag - ASync",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Kissmetrics.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "API Key",
-		description: "Your KISS metrics API key",
-		token: "API_KEY",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Kiss Metrics",
+		async: true,
+		description: "KISSMetrics tracking tag - ASync",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Kissmetrics.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "API Key",
+			description: "Your KISS metrics API key",
+			token: "API_KEY",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
   var _kmq = _kmq || [];
   (function(w, d) {
@@ -43,14 +43,14 @@ qubit.qtag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
   }(window, document))
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

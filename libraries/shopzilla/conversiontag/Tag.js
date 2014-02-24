@@ -1,53 +1,53 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("shopzilla.conversiontag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Conversion Tag",
-	async: true,
-	description: "Place only on the confirmation page",
-	html: "",
-	imageUrl: ".",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Order ID",
-		description: "",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Order Total",
-		description: "",
-		token: "order_total",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Order Quantity List",
-		description: "",
-		token: "quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "User Returning",
-		description: "",
-		token: "returning",
-		uv: "universal_variable.user.returning"
-	},
-	{
-		name: "Shopzilla Merchant ID",
-		description: "",
-		token: "merch_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Conversion Tag",
+		async: true,
+		description: "Place only on the confirmation page",
+		html: "",
+		imageUrl: ".",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Order Total",
+			description: "",
+			token: "order_total",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Order Quantity List",
+			description: "",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "User Returning",
+			description: "",
+			token: "returning",
+			uv: "universal_variable.user.returning"
+		},
+		{
+			name: "Shopzilla Merchant ID",
+			description: "",
+			token: "merch_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 var i = 0, ii = this.getValueForToken("quantities").length, totalQuantity = 0, customerType = (this.getValueForToken("returning")) ? 0 : 1;
@@ -67,14 +67,14 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

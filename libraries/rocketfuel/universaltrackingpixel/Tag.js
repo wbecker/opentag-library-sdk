@@ -1,35 +1,35 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
-    config: {
-      /*DATA*/
-	name: "Universal Tracking Pixel",
-	async: true,
-	description: "This tag is to fire on every page to provide general pageview tracking.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/rocketfuel.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "RocketFuel Merchant ID",
-		description: "The ID assigned to you by RocketFuel",
-		token: "merchant_id",
-		uv: ""
-	},
-	{
-		name: "RocketFuel Campaign ID",
-		description: "The campaign ID for the specific campaign this tag applies to.",
-		token: "campaign_id",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Universal Tracking Pixel",
+		async: true,
+		description: "This tag is to fire on every page to provide general pageview tracking.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/rocketfuel.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "RocketFuel Merchant ID",
+			description: "The ID assigned to you by RocketFuel",
+			token: "merchant_id",
+			uv: ""
+		},
+		{
+			name: "RocketFuel Campaign ID",
+			description: "The campaign ID for the specific campaign this tag applies to.",
+			token: "campaign_id",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function ()
 {
@@ -39,14 +39,14 @@ qubit.qtag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

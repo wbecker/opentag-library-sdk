@@ -1,47 +1,47 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyhomepagetag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Legacy - Home Page Tag",
-	async: true,
-	description: "The home page tag has to be integrated on the home page of the advertiser website.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: true,
-	parameters: [
-	{
-		name: "Criteo wi Parameter",
-		description: "Criteo wi parameter",
-		token: "wi",
-		uv: ""
-	},
-	{
-		name: "Criteo Partner ID",
-		description: "The partner ID number provided by criteo",
-		token: "partner_id",
-		uv: ""
-	},
-	{
-		name: "Criteo Subdomain",
-		description: "The subdomain used for this home page script, e.g. mydomain.widget.criteo.com",
-		token: "subdomain",
-		uv: ""
-	},
-	{
-		name: "Criteo Call Parameter",
-		description: "A specific call parameter provided by Criteo.",
-		token: "call_parameter",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Legacy - Home Page Tag",
+		async: true,
+		description: "The home page tag has to be integrated on the home page of the advertiser website.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: true,
+		parameters: [
+		{
+			name: "Criteo wi Parameter",
+			description: "Criteo wi parameter",
+			token: "wi",
+			uv: ""
+		},
+		{
+			name: "Criteo Partner ID",
+			description: "The partner ID number provided by criteo",
+			token: "partner_id",
+			uv: ""
+		},
+		{
+			name: "Criteo Subdomain",
+			description: "The subdomain used for this home page script, e.g. mydomain.widget.criteo.com",
+			token: "subdomain",
+			uv: ""
+		},
+		{
+			name: "Criteo Call Parameter",
+			description: "A specific call parameter provided by Criteo.",
+			token: "call_parameter",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
 function pcto_dis() {
@@ -84,14 +84,14 @@ document.body.appendChild(_cr_d2);
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

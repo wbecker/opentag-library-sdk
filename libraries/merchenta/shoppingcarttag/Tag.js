@@ -1,41 +1,41 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("merchenta.shoppingcarttag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Shopping Cart Tag",
-	async: true,
-	description: "Place this tag on the shopping cart or basket page (Optional).",
-	html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">CART</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n</div>\n",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Merchenta Retailer Code",
-		description: "Your Merchenta account ID",
-		token: "Merchenta_Id",
-		uv: ""
-	},
-	{
-		name: "Product SKUs",
-		description: "The SKUs/IDs of the products in the cart.",
-		token: "product_ids",
-		uv: "universal_variable.basket.line_items[#].product.sku_code"
-	},
-	{
-		name: "Order/Cart Reference (optional)",
-		description: "Order id for your cart - if your system doesn't provide one, just provide an empty string here.",
-		token: "order_id",
-		uv: "universal_variable.basket.id"
-	}
+	config: {
+		/*DATA*/
+		name: "Shopping Cart Tag",
+		async: true,
+		description: "Place this tag on the shopping cart or basket page (Optional).",
+		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">CART</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n</div>\n",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Merchenta Retailer Code",
+			description: "Your Merchenta account ID",
+			token: "Merchenta_Id",
+			uv: ""
+		},
+		{
+			name: "Product SKUs",
+			description: "The SKUs/IDs of the products in the cart.",
+			token: "product_ids",
+			uv: "universal_variable.basket.line_items[#].product.sku_code"
+		},
+		{
+			name: "Order/Cart Reference (optional)",
+			description: "Order id for your cart - if your system doesn't provide one, just provide an empty string here.",
+			token: "order_id",
+			uv: "universal_variable.basket.id"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function () {
   var i, ii, d, p = document.getElementById("mc_data");
@@ -67,14 +67,14 @@ var mc_api_url = "api.merchenta.com/merchenta/t";
 })();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

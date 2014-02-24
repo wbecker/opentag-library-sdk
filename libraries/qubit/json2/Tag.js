@@ -1,24 +1,24 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.json2.Tag", {
-    config: {
-      /*DATA*/
-	name: "JSON2",
-	async: true,
-	description: "The standard JSON2 library by Douglas Crockford.",
-	html: "",
-	imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=JSON2",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "JSON2",
+		async: true,
+		description: "The standard JSON2 library by Douglas Crockford.",
+		html: "",
+		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=JSON2",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 /*
     json2.js
@@ -508,14 +508,14 @@ if (typeof JSON !== 'object') {
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

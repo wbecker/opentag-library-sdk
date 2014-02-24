@@ -1,69 +1,69 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedconfirmationpagetag.Tag", {
-    config: {
-      /*DATA*/
-	name: "{DEPRECATED} Confirmation Page Tag",
-	async: true,
-	description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Products Ids",
-		description: "A list of product IDs currently in the basket",
-		token: "product_ids",
-		uv: "universal_variable.transaction.line_items[#].product.id"
-	},
-	{
-		name: "Amounts",
-		description: "A list of prices of items currently in the basket",
-		token: "amounts",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	},
-	{
-		name: "Currency",
-		description: "The current currency in the basket",
-		token: "currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Quantities",
-		description: "A list of the respective quantities of corresponding items currently in the basket.",
-		token: "quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Advertiser ID",
-		description: "Identifier relating to the specific client",
-		token: "advertiserid",
-		uv: ""
-	},
-	{
-		name: "Transaction ID",
-		description: "Identifier relating to the current transaction",
-		token: "transaction_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Checkout Total",
-		description: "The total value of items at checkout",
-		token: "checkout_total",
-		uv: "universal_variable.transaction.subtotal"
-	}
+	config: {
+		/*DATA*/
+		name: "{DEPRECATED} Confirmation Page Tag",
+		async: true,
+		description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Products Ids",
+			description: "A list of product IDs currently in the basket",
+			token: "product_ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		},
+		{
+			name: "Amounts",
+			description: "A list of prices of items currently in the basket",
+			token: "amounts",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		},
+		{
+			name: "Currency",
+			description: "The current currency in the basket",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Quantities",
+			description: "A list of the respective quantities of corresponding items currently in the basket.",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Advertiser ID",
+			description: "Identifier relating to the specific client",
+			token: "advertiserid",
+			uv: ""
+		},
+		{
+			name: "Transaction ID",
+			description: "Identifier relating to the current transaction",
+			token: "transaction_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Checkout Total",
+			description: "The total value of items at checkout",
+			token: "checkout_total",
+			uv: "universal_variable.transaction.subtotal"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
 var basket = {
    products: []
 };
@@ -81,10 +81,10 @@ basket.transaction = '' + this.getValueForToken("transaction_id") + '';
 basket.amount = '' + this.getValueForToken("checkout_total") + '';
 basket.currency = '' + this.getValueForToken("currency") + '';
 window.basket = basket;
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

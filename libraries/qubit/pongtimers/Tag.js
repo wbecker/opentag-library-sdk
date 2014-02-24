@@ -1,29 +1,29 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.pongtimers.Tag", {
-    config: {
-      /*DATA*/
-	name: "Pong Timers",
-	async: false,
-	description: "Times how long it takes to load pong and pings the stats back.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
-	locationDetail: "",
-	priv: true,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Pong URL",
-		description: "URL of the pong to be tested",
-		token: "pong_url",
-		uv: ""
-	}
+	config: {
+		/*DATA*/
+		name: "Pong Timers",
+		async: false,
+		description: "Times how long it takes to load pong and pings the stats back.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		locationDetail: "",
+		priv: true,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Pong URL",
+			description: "URL of the pong to be tested",
+			token: "pong_url",
+			uv: ""
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 (function() {
 
@@ -59,14 +59,14 @@ qubit.qtag.LibraryTag.define("qubit.pongtimers.Tag", {
 }());
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

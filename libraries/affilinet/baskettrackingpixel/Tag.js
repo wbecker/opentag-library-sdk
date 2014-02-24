@@ -1,71 +1,71 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("affilinet.baskettrackingpixel.Tag", {
-    config: {
-      /*DATA*/
-	name: "Basket Tracking Pixel",
-	async: true,
-	description: "The affilinet basket tracking system allows you to submit shopping basket information on item level to affilinet. \nThat information enables you to perform detailed statistical analyses and allows your publishers to optimise their \nmarketing activities even further. If you would like to make use of this tracking functionality, please call your \naccount manager to activate basket tracking and change the registersale call on your order confirmation page.",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/affilinet.png",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Affilinet Tracking Domain",
-		description: "Domain of the affilinet country you are working with, e.g.  partners.webmasterplan.com",
-		token: "affilinet_tracking_domain",
-		uv: ""
-	},
-	{
-		name: "Site",
-		description: "Your program ID",
-		token: "program_id",
-		uv: ""
-	},
-	{
-		name: "Order ID",
-		description: "Order ID",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Basket Items SKUs",
-		description: "",
-		token: "basket_items_skus",
-		uv: "universal_variable.transaction.line_items[#].product.sku_code"
-	},
-	{
-		name: "Basket Items Names",
-		description: "",
-		token: "basket_items_names",
-		uv: "universal_variable.transaction.line_items[#].product.name"
-	},
-	{
-		name: "Basket Items Categories",
-		description: "",
-		token: "basket_items_categories",
-		uv: "universal_variable.transaction.line_items[#].product.category"
-	},
-	{
-		name: "Basket Items Quantities",
-		description: "",
-		token: "basket_items_quantities",
-		uv: "universal_variable.transaction.line_items[#].quantity"
-	},
-	{
-		name: "Basket Items Prices",
-		description: "",
-		token: "basket_items_prices",
-		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-	}
+	config: {
+		/*DATA*/
+		name: "Basket Tracking Pixel",
+		async: true,
+		description: "The affilinet basket tracking system allows you to submit shopping basket information on item level to affilinet. \nThat information enables you to perform detailed statistical analyses and allows your publishers to optimise their \nmarketing activities even further. If you would like to make use of this tracking functionality, please call your \naccount manager to activate basket tracking and change the registersale call on your order confirmation page.",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/affilinet.png",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Affilinet Tracking Domain",
+			description: "Domain of the affilinet country you are working with, e.g.  partners.webmasterplan.com",
+			token: "affilinet_tracking_domain",
+			uv: ""
+		},
+		{
+			name: "Site",
+			description: "Your program ID",
+			token: "program_id",
+			uv: ""
+		},
+		{
+			name: "Order ID",
+			description: "Order ID",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Basket Items SKUs",
+			description: "",
+			token: "basket_items_skus",
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
+		},
+		{
+			name: "Basket Items Names",
+			description: "",
+			token: "basket_items_names",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		},
+		{
+			name: "Basket Items Categories",
+			description: "",
+			token: "basket_items_categories",
+			uv: "universal_variable.transaction.line_items[#].product.category"
+		},
+		{
+			name: "Basket Items Quantities",
+			description: "",
+			token: "basket_items_quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
+		},
+		{
+			name: "Basket Items Prices",
+			description: "",
+			token: "basket_items_prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 var iFrame = document.createElement('iframe');
 iFrame.style.display = 'none';
@@ -121,14 +121,14 @@ iFrameDom.getElementById("basket").innerHTML = basketItemsData;
 iFrameDom.getElementById('affilinetTrackingForm').submit();
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

@@ -1,28 +1,28 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("freespee.yetanotheroopsiforgottochangethedefaultstag.Tag", {
-    config: {
-      /*DATA*/
-	name: "Yet another \"oops I forgot to change the defaults\" tag",
-	async: true,
-	description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs. Now includes optional user ID support",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
-	locationDetail: "",
-	priv: true,
-	url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
-	usesDocWrite: false,
-	parameters: [
+	config: {
+		/*DATA*/
+		name: "Yet another \"oops I forgot to change the defaults\" tag",
+		async: true,
+		description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs. Now includes optional user ID support",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
+		locationDetail: "",
+		priv: true,
+		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
+		usesDocWrite: false,
+		parameters: [
 
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
 var basket = {
    products: []
 };
@@ -47,10 +47,10 @@ if (uid){
   var customer = window.customer || {};
   customer.identifier = uid;
 }
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });

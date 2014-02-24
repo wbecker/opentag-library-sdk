@@ -1,59 +1,59 @@
 //:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
-    config: {
-      /*DATA*/
-	name: "Sovendus [Required Fields Only]",
-	async: true,
-	description: "<div id=\"gutscheinconnection-container\"></div> should first be placed on the confirmation page, and positioned (using css) exactly where you'd like the banner to appear, before activating this tag (this version of the script is leaving out all optional parameters for faster implementation)",
-	html: "",
-	imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sovendus-logo.jpg",
-	locationDetail: "",
-	priv: false,
-	url: "",
-	usesDocWrite: false,
-	parameters: [
-	{
-		name: "Sovendus Shop ID",
-		description: "The Shop ID you have received from Sovendus - e.g. 2",
-		token: "shop_id",
-		uv: ""
-	},
-	{
-		name: "Sovendus Banner ID",
-		description: "If multiple banners - choose active banner here (e.g. 1) - usually no need to change this.",
-		token: "banner_id",
-		uv: ""
-	},
-	{
-		name: "Sovendus Order ID",
-		description: "Unique identifier of orders for accounting - e.g. 124578",
-		token: "order_id",
-		uv: "universal_variable.transaction.order_id"
-	},
-	{
-		name: "Sovendus Order Value",
-		description: "Order value -  use dot (.) as decimal separator & supply two decimal places e.g. 123.43",
-		token: "order_value",
-		uv: "universal_variable.transaction.total"
-	},
-	{
-		name: "Sovendus Order Currency",
-		description: "Order Currency - e.g. GBP",
-		token: "order_currency",
-		uv: "universal_variable.transaction.currency"
-	},
-	{
-		name: "Sovendus Used Coupon Code",
-		description: "The coupon code just encashed to track the success rate - e.g. ABC123",
-		token: "coupon_code",
-		uv: "universal_variable.transaction.voucher"
-	}
+	config: {
+		/*DATA*/
+		name: "Sovendus [Required Fields Only]",
+		async: true,
+		description: "<div id=\"gutscheinconnection-container\"></div> should first be placed on the confirmation page, and positioned (using css) exactly where you'd like the banner to appear, before activating this tag (this version of the script is leaving out all optional parameters for faster implementation)",
+		html: "",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sovendus-logo.jpg",
+		locationDetail: "",
+		priv: false,
+		url: "",
+		usesDocWrite: false,
+		parameters: [
+		{
+			name: "Sovendus Shop ID",
+			description: "The Shop ID you have received from Sovendus - e.g. 2",
+			token: "shop_id",
+			uv: ""
+		},
+		{
+			name: "Sovendus Banner ID",
+			description: "If multiple banners - choose active banner here (e.g. 1) - usually no need to change this.",
+			token: "banner_id",
+			uv: ""
+		},
+		{
+			name: "Sovendus Order ID",
+			description: "Unique identifier of orders for accounting - e.g. 124578",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
+		},
+		{
+			name: "Sovendus Order Value",
+			description: "Order value -  use dot (.) as decimal separator & supply two decimal places e.g. 123.43",
+			token: "order_value",
+			uv: "universal_variable.transaction.total"
+		},
+		{
+			name: "Sovendus Order Currency",
+			description: "Order Currency - e.g. GBP",
+			token: "order_currency",
+			uv: "universal_variable.transaction.currency"
+		},
+		{
+			name: "Sovendus Used Coupon Code",
+			description: "The coupon code just encashed to track the success rate - e.g. ABC123",
+			token: "coupon_code",
+			uv: "universal_variable.transaction.voucher"
+		}
 	]
-      /*~DATA*/
-    },
-    script: function () {
-      /*SCRIPT*/
+		/*~DATA*/
+	},
+	script: function() {
+		/*SCRIPT*/
 
 
 (function()
@@ -114,14 +114,14 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
 
 
 
-      /*~SCRIPT*/
-    },
-    pre: function () {
-      /*PRE*/
-      /*~PRE*/
-    },
-    post: function () {
-      /*POST*/
-      /*~POST*/
-    }
+		/*~SCRIPT*/
+	},
+	pre: function() {
+		/*PRE*/
+		/*~PRE*/
+	},
+	post: function() {
+		/*POST*/
+		/*~POST*/
+	}
 });
