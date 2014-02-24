@@ -1,4 +1,4 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("PACKAGE_NAME.Tag", {
     config: {
