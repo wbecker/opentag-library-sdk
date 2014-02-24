@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("quantcast.deprecatedquantcastconfirmationpage.Tag", {
     config: {
       /*DATA*/
-	id: 31157,
 	name: "DEPRECATED QuantCast - Confirmation page",
 	async: true,
 	description: "To be placed on the confirmation page instead of the regular Quantcast tag.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("quantcast.deprecatedquantcastconfirmationpage.Tag"
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 30157,
 		name: "Account Number",
 		description: "Your Quantcast account number",
 		token: "account_no",
 		uv: ""
 	},
 	{
-		id: 30158,
 		name: "Order ID",
 		description: "The unique order id for the transaction",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 30159,
 		name: "Order Revenue",
 		description: "The total revenue for the transaction (uses subtotal, not grand total)",
 		token: "revenue",

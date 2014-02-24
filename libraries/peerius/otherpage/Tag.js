@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.otherpage.Tag", {
     config: {
       /*DATA*/
-	id: 33167,
 	name: "Other Page",
 	async: true,
 	description: "Peerius tag for all other pages",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("peerius.otherpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32168,
 		name: "Peerius Language",
 		description: "Language of the page the tag is on",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 32188,
 		name: "Peerius Client Name",
 		description: "The name of the client for which the tag is to be implemented",
 		token: "client_id",

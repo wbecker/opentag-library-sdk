@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("olark.olarkchat.Tag", {
     config: {
       /*DATA*/
-	id: 110,
 	name: "Olark Chat",
 	async: true,
 	description: "In-page chat widget",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("olark.olarkchat.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 11000,
 		name: "Site Id",
 		description: "Olark Site Id",
 		token: "SITE_ID",

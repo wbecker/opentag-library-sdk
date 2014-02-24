@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("dcstorm.stormiqgenerictag.Tag", {
     config: {
       /*DATA*/
-	id: 30157,
 	name: "StormIQ Generic Tag",
 	async: true,
 	description: "To be placed on all pages except confirmation",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("dcstorm.stormiqgenerictag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29157,
 		name: "StormIQ ID",
 		description: "",
 		token: "storm_id",
 		uv: ""
 	},
 	{
-		id: 29158,
 		name: "StormIQ Channel",
 		description: "If this is not specified, leave blank",
 		token: "channel",

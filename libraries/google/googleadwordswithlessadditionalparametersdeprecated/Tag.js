@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("google.googleadwordswithlessadditionalparametersdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 33171,
 	name: "Google AdWords with less additional parameters DEPRECATED",
 	async: true,
 	description: "Tracks users that have converted who previously clicked through on an ad.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("google.googleadwordswithlessadditionalparametersde
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32212,
 		name: "Conversion ID",
 		description: "",
 		token: "conversion_id",
 		uv: ""
 	},
 	{
-		id: 32213,
 		name: "Conversion Label",
 		description: "",
 		token: "conversion_label",
 		uv: ""
 	},
 	{
-		id: 32214,
 		name: "Conversion Value",
 		description: "",
 		token: "conversion_value",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 32215,
 		name: "Conversion Format",
 		description: "",
 		token: "conversion_format",
 		uv: ""
 	},
 	{
-		id: 32216,
 		name: "Conversion Color",
 		description: "",
 		token: "conversion_color",

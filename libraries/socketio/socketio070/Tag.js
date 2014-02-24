@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("socketio.socketio070.Tag", {
     config: {
       /*DATA*/
-	id: 17,
 	name: "socket.io 0.7.0",
 	async: true,
 	description: "Socket.IO aims to make realtime apps possible in every browser and mobile device, blurring the differences between the different transport mechanisms. It's care-free realtime 100% in JavaScript.",

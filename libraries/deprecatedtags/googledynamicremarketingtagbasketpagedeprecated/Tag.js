@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.googledynamicremarketingtagbasketpagedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 39165,
 	name: "Google Dynamic Remarketing Tag - Basket Page [DEPRECATED]",
 	async: true,
 	description: "",

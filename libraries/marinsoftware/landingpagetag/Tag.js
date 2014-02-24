@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.landingpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 28160,
 	name: "Landing Page Tag",
 	async: true,
 	description: "This is used to record incoming traffic from paid search.It  should be installed on any landing page URL used by your paid campaigns, and also any page which is indexed into the organic search results of a search engine. If in doubt, deploy the tag on every page of website.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("marinsoftware.landingpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 27688,
 		name: "Marin Tracking ID",
 		description: "",
 		token: "id",

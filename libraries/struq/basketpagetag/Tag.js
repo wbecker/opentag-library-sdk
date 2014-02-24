@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.basketpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 26163,
 	name: "Basket Page Tag",
 	async: true,
 	description: "To be placed on the basket page only",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("struq.basketpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 25668,
 		name: "Pixel id",
 		description: "The identifier unique to each Struq tag",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 25669,
 		name: "Product Id List",
 		description: "",
 		token: "product_id_list",

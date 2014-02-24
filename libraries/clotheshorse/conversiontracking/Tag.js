@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("clotheshorse.conversiontracking.Tag", {
     config: {
       /*DATA*/
-	id: 33176,
 	name: "Conversion Tracking",
 	async: true,
 	description: "Single Javascript tag for conversion tracking",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("clotheshorse.conversiontracking.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32225,
 		name: "Clothes Horse Client Token",
 		description: "The token specific to the client using the tag",
 		token: "client_token",

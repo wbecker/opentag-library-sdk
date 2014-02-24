@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("stylefruits.confirmationpixel.Tag", {
     config: {
       /*DATA*/
-	id: 39681,
 	name: "Confirmation Pixel",
 	async: true,
 	description: "The stylefruits tracking code has to be integrated on the final page of your checkout process. The \ncode has to be generated dynamically for every order.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("stylefruits.confirmationpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38775,
 		name: "StyleFruits Partner ID",
 		description: "This is your partner-ID which must not be modified.",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 38776,
 		name: "Transaction Order Sub-Total",
 		description: "The gross value of the customer’s  shopping basket",
 		token: "order_total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 38777,
 		name: "Transaction Order ID",
 		description: "The dynamically  generated, unique order-ID of your shop  system.",
 		token: "order_id",

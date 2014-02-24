@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.googletagmanagerconverterdatalayeruv.Tag", {
     config: {
       /*DATA*/
-	id: 37167,
 	name: "Google Tag Manager Converter: dataLayer > UV",
 	async: true,
 	description: "Take the Google Tag Manager data layer and map it to UV.",

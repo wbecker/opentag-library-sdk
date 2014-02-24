@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.productpagetagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 35159,
 	name: "Product Page Tag DEPRECATED-",
 	async: true,
 	description: "To be placed on the product page only",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("struq.productpagetagdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34158,
 		name: "Product ID",
 		description: "ID for the product on the current page",
 		token: "product_id",

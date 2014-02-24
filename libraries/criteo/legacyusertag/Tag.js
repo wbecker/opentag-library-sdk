@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyusertag.Tag", {
     config: {
       /*DATA*/
-	id: 40,
 	name: "Legacy - User Tag",
 	async: true,
 	description: "The user tag is a special tag used on an ad hoc basis, most of the time with extra data.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("criteo.legacyusertag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 4000,
 		name: "Criteo wi Parameter",
 		description: "The wi Parameter provided by Criteo",
 		token: "wi",
 		uv: ""
 	},
 	{
-		id: 4001,
 		name: "Criteo Subdomain Parameter",
 		description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 4002,
 		name: "Criteo Call Parameter",
 		description: "Call parameter provided by Criteo",
 		token: "call_parameter",

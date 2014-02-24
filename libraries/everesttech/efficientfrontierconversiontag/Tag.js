@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("everesttech.efficientfrontierconversiontag.Tag", {
     config: {
       /*DATA*/
-	id: 26663,
 	name: "Efficient Frontier Conversion Tag",
 	async: true,
 	description: "To be placed only on the confirmation page",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("everesttech.efficientfrontierconversiontag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 26174,
 		name: "Efficient Frontier User ID",
 		description: "",
 		token: "user",
 		uv: ""
 	},
 	{
-		id: 26175,
 		name: "Efficient Frontier Segment ID",
 		description: "",
 		token: "seg",
 		uv: ""
 	},
 	{
-		id: 26176,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 26177,
 		name: "Order ID",
 		description: "",
 		token: "order_id",

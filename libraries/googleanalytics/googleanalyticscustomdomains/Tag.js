@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag", {
     config: {
       /*DATA*/
-	id: 30159,
 	name: "Google Analytics - Custom Domains",
 	async: true,
 	description: "Allows the collecting of visits to multiple domains in a single profile—as if they were a single site rather than two separate ones.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag",
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29168,
 		name: "GA Profile ID",
 		description: "Profile ID of your Google Analytics account",
 		token: "PROFILE_ID",
 		uv: ""
 	},
 	{
-		id: 29169,
 		name: "Domain URL",
 		description: "In the format www.yourdomain.com or subdomain.yourdomain.com",
 		token: "DOMAIN",

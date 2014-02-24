@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagproduct.Tag", {
     config: {
       /*DATA*/
-	id: 35199,
 	name: "OneTag - Product",
 	async: true,
 	description: "This must be placed on all the advertiser product pages.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("criteo.onetagproduct.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34422,
 		name: "Criteo Partner ID",
 		description: "The ID assigned to you by Criteo",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 34423,
 		name: "Customer ID",
 		description: "This MUST NOT include any personally-identifiable information. Send \"\" if there is no anonymous ID.",
 		token: "customer_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 34424,
 		name: "Site Type",
 		description: "\"m\" for mobile or \"t\" for tablet or \"d\" for desktop",
 		token: "site_type",
 		uv: ""
 	},
 	{
-		id: 34425,
 		name: "Product ID",
 		description: "The ID of the product currently being viewed",
 		token: "product_id",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
     config: {
       /*DATA*/
-	id: 150,
 	name: "ClickTale - Atlas - Legacy",
 	async: true,
 	description: "Mouse tracking tag",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 15000,
 		name: "ClickTale Id",
 		description: "Your ClickTale project id",
 		token: "ClickTaleId",
 		uv: ""
 	},
 	{
-		id: 15001,
 		name: "Recording Ratio",
 		description: "What ratio of users to record - between 0 and 1",
 		token: "RecordingRatio",
 		uv: ""
 	},
 	{
-		id: 15002,
 		name: "Partition Id",
 		description: "The clicktale partition - normally something like \"www09\"",
 		token: "Partition",

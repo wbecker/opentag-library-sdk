@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.testingdeprecatedtagsfolder.Tag", {
     config: {
       /*DATA*/
-	id: 39166,
 	name: "Testing Deprecated Tags Folder",
 	async: true,
 	description: "",

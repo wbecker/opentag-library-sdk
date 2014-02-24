@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 30165,
 	name: "RadiumOne - Confirmation Pages DEPRECATED",
 	async: true,
 	description: "",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29189,
 		name: "Product Quantity List",
 		description: "An array of all the product ids in the transaction",
 		token: "order_article",

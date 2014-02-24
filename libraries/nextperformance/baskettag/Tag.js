@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("nextperformance.baskettag.Tag", {
     config: {
       /*DATA*/
-	id: 24666,
 	name: "Basket Tag",
 	async: true,
 	description: "Tag to be inserted on the shopping carts pages, pre-confirmation.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("nextperformance.baskettag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24190,
 		name: "Account (zid)",
 		description: "zid value provided by NextPerformance",
 		token: "zid",

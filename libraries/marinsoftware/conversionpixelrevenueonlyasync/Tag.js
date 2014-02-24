@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonlyasync.Tag", {
     config: {
       /*DATA*/
-	id: 36671,
 	name: "Conversion Pixel - Revenue only async",
 	async: true,
 	description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together. This version has fewer metrics for only basic conversion tracking.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonlyasync.Tag"
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35740,
 		name: "Marin Conversion Type",
 		description: "",
 		token: "conversion_type",
 		uv: ""
 	},
 	{
-		id: 35741,
 		name: "Marin Tracking Id",
 		description: "Your unique tracking id",
 		token: "tracking_id",
 		uv: ""
 	},
 	{
-		id: 35742,
 		name: "Order Total",
 		description: "",
 		token: "total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 35743,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 35744,
 		name: "Currency",
 		description: "",
 		token: "currency",

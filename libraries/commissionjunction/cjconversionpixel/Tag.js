@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
     config: {
       /*DATA*/
-	id: 37161,
 	name: "CJ Conversion Pixel",
 	async: true,
 	description: "The conversion pixel code to enable Commission Junction to track purchases on the confirmation pages.",
@@ -15,63 +14,54 @@ qubit.qtag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36170,
 		name: "Item IDs",
 		description: "Item IDs",
 		token: "item_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 36171,
 		name: "Item SKUs",
 		description: "Item SKUs",
 		token: "item_skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 36172,
 		name: "Item Quantites",
 		description: "Item Quantites",
 		token: "item_quantites",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 36173,
 		name: "Item Prices",
 		description: "Item Prices",
 		token: "item_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 36174,
 		name: "Order ID",
 		description: "Order ID",
 		token: "orderid",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 36175,
 		name: "Enterprise ID",
 		description: "The Commission Junction Enterprise ID",
 		token: "cid",
 		uv: ""
 	},
 	{
-		id: 36176,
 		name: "Currency",
 		description: "Currency",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 36177,
 		name: "Action ID",
 		description: "Action ID",
 		token: "actionid",
 		uv: ""
 	},
 	{
-		id: 36178,
 		name: "Container Tag ID",
 		description: "Container Tag ID",
 		token: "containerid",

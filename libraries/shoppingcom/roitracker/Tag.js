@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("shoppingcom.roitracker.Tag", {
     config: {
       /*DATA*/
-	id: 33169,
 	name: "ROI Tracker",
 	async: true,
 	description: "A free campaign measurement tool available to all merchants enrolled in the Shopping.com Merchant \nProgram. Displays product and category – level performance data.",
@@ -15,63 +14,54 @@ qubit.qtag.LibraryTag.define("shoppingcom.roitracker.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32191,
 		name: "Shopping.com Client ID",
 		description: "The Shopping.com identifier for the client",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 32192,
 		name: "Shopping.com Order ID",
 		description: "The identifier for the order",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 32193,
 		name: "Shopping.com Order Subtotal",
 		description: "The order total minus shipping and tax",
 		token: "subtotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 32194,
 		name: "Shipping.com Order Description",
 		description: "A set of order notes",
 		token: "desc",
 		uv: ""
 	},
 	{
-		id: 32195,
 		name: "Shopping.com Product SKU List",
 		description: "An array of product SKU in the order",
 		token: "item_skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 32196,
 		name: "Shopping.com Product Name List",
 		description: "A list of product names",
 		token: "product_names",
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	},
 	{
-		id: 32197,
 		name: "Shopping.com Product Category List",
 		description: "A list of product categories",
 		token: "category_names",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 32198,
 		name: "Shipping.com Unit Sale Prices",
 		description: "A list of unit sale prices of items in basket",
 		token: "unit_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 32199,
 		name: "Shipping.com Item Quantities",
 		description: "A list of item quantities for items in the basket",
 		token: "item_quantities",

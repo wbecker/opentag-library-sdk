@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 30164,
 	name: "RadiumOne - Basket Page DEPRECATED",
 	async: true,
 	description: "",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29188,
 		name: "Product ID List",
 		description: "An array of product ids in the basket",
 		token: "order_article",

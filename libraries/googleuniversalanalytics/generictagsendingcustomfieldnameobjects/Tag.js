@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag", {
     config: {
       /*DATA*/
-	id: 36171,
 	name: "Generic Tag sending custom Field Name Objects",
 	async: true,
 	description: "This tag sends a collection of custom field name objects, allowing for any combination of hit types to be sent. Consider populating a window variable with this array in a custom script. For field object reference, see: http://goo.gl/z9gs4",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("googleuniversalanalytics.generictagsendingcustomfi
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35227,
 		name: "Web Property ID",
 		description: "Google Analytics Web Property ID for the Google Web Property you wish to track",
 		token: "web_property_id",
 		uv: ""
 	},
 	{
-		id: 35228,
 		name: "Field Object Array",
 		description: "An array of field objects, each of which must define at least a 'hitType'",
 		token: "field_objects",

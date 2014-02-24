@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("kenshoo.orderpixel.Tag", {
     config: {
       /*DATA*/
-	id: 28162,
 	name: "Order Pixel",
 	async: true,
 	description: ".",

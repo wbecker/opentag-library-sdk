@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediaforge.basket.Tag", {
     config: {
       /*DATA*/
-	id: 39171,
 	name: "Basket",
 	async: true,
 	description: "To be placed on the basket/cart page for cart abandonment targeting.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("mediaforge.basket.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38205,
 		name: "mediaFORGE Merchant ID",
 		description: "The ID that relates you to mediaFORGE",
 		token: "merchant_id",
 		uv: ""
 	},
 	{
-		id: 38206,
 		name: "Basket Product IDs",
 		description: "An array of the product ID/SKUs of all items in the basket",
 		token: "product_ids",
 		uv: "universal_variable.basket.line_items[#].product.sku_code"
 	},
 	{
-		id: 38207,
 		name: "Basket Total",
 		description: "The total value for all items in the basket",
 		token: "basket_total",

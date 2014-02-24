@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanlayticswithenhancedlinkattribution.Tag", {
     config: {
       /*DATA*/
-	id: 29666,
 	name: "Google Anlaytics with Enhanced Link Attribution",
 	async: true,
 	description: "Enhanced link attribution offers more-detailed reports, and disambiguates clicks to the same destination page that come from more than one element on the page. However, the additional detail comes at the cost of some speed in generating the report, so only turn it on if you need it.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanlayticswithenhancedlinkatt
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28704,
 		name: "GA Profile Id",
 		description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
 		token: "PROFILE_ID",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.uvtestpageinformation.Tag", {
     config: {
       /*DATA*/
-	id: 23661,
 	name: "UV Test - Page Information",
 	async: true,
 	description: "Test details about the current page",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("qubit.uvtestpageinformation.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 23205,
 		name: "Page Environment",
 		description: "",
 		token: "a",
 		uv: "universal_variable.page.environment"
 	},
 	{
-		id: 23206,
 		name: "Page Variation",
 		description: "",
 		token: "b",
 		uv: "universal_variable.page.variation"
 	},
 	{
-		id: 23207,
 		name: "Page Category",
 		description: "",
 		token: "c",
 		uv: "universal_variable.page.category"
 	},
 	{
-		id: 23208,
 		name: "Page Sub-Category",
 		description: "",
 		token: "d",
 		uv: "universal_variable.page.subcategory"
 	},
 	{
-		id: 23209,
 		name: "Page Revision",
 		description: "",
 		token: "e",

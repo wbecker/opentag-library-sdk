@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.mastertag.Tag", {
     config: {
       /*DATA*/
-	id: 30,
 	name: "Master Tag",
 	async: true,
 	description: "The Affiliate Window Master Tag should run on all pages.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("affiliatewindow.mastertag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 3000,
 		name: "Affiliate Window Merchant ID",
 		description: "Affiliate Window Merchant ID",
 		token: "MERCHANT_ID",

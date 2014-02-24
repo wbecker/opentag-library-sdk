@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacylistingpage.Tag", {
     config: {
       /*DATA*/
-	id: 22657,
 	name: "Legacy - Listing Page",
 	async: true,
 	description: "Add to a page with a listing of products, eg a Search or Category Page. This will pick off the first three values in the Listing Product IDs array and send them to Criteo.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("criteo.legacylistingpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 22157,
 		name: "Criteo wi Parameter",
 		description: "Criteo wi Parameter",
 		token: "wi",
 		uv: ""
 	},
 	{
-		id: 22158,
 		name: "Criteo Subdomain Parameter",
 		description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 22159,
 		name: "Criteo Partner ID",
 		description: "Partner ID provided by Criteo",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 22160,
 		name: "Criteo Call Parameter",
 		description: "Call Parameter Provided by Criteo, e.g. pjl",
 		token: "call_parameter",
 		uv: ""
 	},
 	{
-		id: 22161,
 		name: "Listing Product IDs",
 		description: "An array containing the product ids on the page",
 		token: "product_ids",

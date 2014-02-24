@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
     config: {
       /*DATA*/
-	id: 34676,
 	name: "Zanox - Confirmation page",
 	async: true,
 	description: "The Zanox confirmation page tag.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 33750,
 		name: "Program id",
 		description: "Unique identifier, e.g. 10292C1904329647",
 		token: "program_id",
 		uv: ""
 	},
 	{
-		id: 33751,
 		name: "Mode",
 		description: "e.g .2",
 		token: "mode",
 		uv: ""
 	},
 	{
-		id: 33752,
 		name: "User ID",
 		description: "",
 		token: "user_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 33754,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 33755,
 		name: "Currency",
 		description: "",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 33756,
 		name: "Subtotal",
 		description: "",
 		token: "subtotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 33757,
 		name: "Zanox Page ID",
 		description: "",
 		token: "zanox_page_id",

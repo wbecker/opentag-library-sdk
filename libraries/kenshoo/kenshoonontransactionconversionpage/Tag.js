@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("kenshoo.kenshoonontransactionconversionpage.Tag", {
     config: {
       /*DATA*/
-	id: 30174,
 	name: "Kenshoo Non-Transaction Conversion Page",
 	async: true,
 	description: "A pixel to enable tracking non-transaction conversions",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("kenshoo.kenshoonontransactionconversionpage.Tag", 
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29224,
 		name: "Kenshoo Number",
 		description: "The Kenshoo customer ID for the client",
 		token: "kenshooNo",
 		uv: ""
 	},
 	{
-		id: 29225,
 		name: "Tracking Type",
 		description: "The type of page/conversion the tracking pixel is applied to",
 		token: "pixelType",
 		uv: ""
 	},
 	{
-		id: 29226,
 		name: "Value Currency",
 		description: "The current currency",
 		token: "valueCurrency",

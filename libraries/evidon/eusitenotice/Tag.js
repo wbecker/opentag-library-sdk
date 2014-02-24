@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("evidon.eusitenotice.Tag", {
     config: {
       /*DATA*/
-	id: 36170,
 	name: "EU Site Notice",
 	async: true,
 	description: "This tag handles the Site Notice functionality for EU sites, both for implied and explicit consent notices. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon).",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("evidon.eusitenotice.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35225,
 		name: "Evidon Company ID",
 		description: "The ID assigned to you by Evidon",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 35226,
 		name: "Evidon Page ID",
 		description: "The unique identifier for the page this tag will be fired on",
 		token: "page_id",

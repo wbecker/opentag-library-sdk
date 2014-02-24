@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
     config: {
       /*DATA*/
-	id: 34660,
 	name: "Non basket/confirmation",
 	async: true,
 	description: "Conexance tag for non basket/confirmation pages. Requires tag ID (specifies which page).",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 33674,
 		name: "Tag Type",
 		description: "The type of the tag i.e. what value is getting picked up (for example '1' refers to product pages)",
 		token: "tag_type",
 		uv: ""
 	},
 	{
-		id: 33675,
 		name: "Value",
 		description: "The value picked up from the tag_type specific page i.e. product SKU",
 		token: "value",
 		uv: ""
 	},
 	{
-		id: 33676,
 		name: "Web1by1 Configuration Parameters Production/Test",
 		description: "The full URL  of your client-specific Web1by1 Configuration Parameters script (Production or test)",
 		token: "web1by1_config_script",
 		uv: ""
 	},
 	{
-		id: 33680,
 		name: "Web1by1 Functions Script",
 		description: "The full URL of the Web1by1 Functions script (i.e. http://www.your-website.com/w1x1.jpg)",
 		token: "web1by1_functions_script",

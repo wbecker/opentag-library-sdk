@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("opentag.blanktag.Tag", {
     config: {
       /*DATA*/
-	id: 35177,
 	name: "Blank Tag",
 	async: true,
 	description: "A blank tag",

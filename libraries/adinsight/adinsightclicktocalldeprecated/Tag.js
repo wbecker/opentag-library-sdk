@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("adinsight.adinsightclicktocalldeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 210,
 	name: "AdInsight Click to Call DEPRECATED",
 	async: true,
 	description: "DEPRECATED",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("adinsight.adinsightclicktocalldeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 21000,
 		name: "Account Id",
 		description: "Your AdInsight account id, generally a 3 digit number",
 		token: "Account_Id",

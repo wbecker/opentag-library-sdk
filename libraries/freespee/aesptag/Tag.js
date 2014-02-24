@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("freespee.aesptag.Tag", {
     config: {
       /*DATA*/
-	id: 33661,
 	name: "AESP TAG",
 	async: true,
 	description: "Blah",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("freespee.aesptag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32671,
 		name: "Test Param 1",
 		description: "Test",
 		token: "test_param2",

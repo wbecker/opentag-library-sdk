@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("facebook.facebookpixel.Tag", {
     config: {
       /*DATA*/
-	id: 33177,
 	name: "Facebook Pixel",
 	async: true,
 	description: "",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("facebook.facebookpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32226,
 		name: "FB Country Code",
 		description: "e.g. en_UK ( if not sure, use : en_US )",
 		token: "url_locale",
 		uv: ""
 	},
 	{
-		id: 32227,
 		name: "Pixel ID",
 		description: "Client Specific (e.g. 6007143437659)",
 		token: "pixel_id",
 		uv: ""
 	},
 	{
-		id: 32228,
 		name: "Value",
 		description: "if not on Transaction Page, use following hardcoded value  instead : 0.00",
 		token: "param_value",

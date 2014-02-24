@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.orderpagedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 33165,
 	name: "Order Page DEPRECATED",
 	async: true,
 	description: "DO NOT USE. Peerius tag for the order page",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("peerius.orderpagedeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32178,
 		name: "Peerius Language",
 		description: "The language of the page that the current tag is on",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 32179,
 		name: "Peerius Order No",
 		description: "Order number of the order on the page",
 		token: "order_no",
 		uv: ""
 	},
 	{
-		id: 32180,
 		name: "Peerius Currency",
 		description: "Currency of the order page",
 		token: "currency",
 		uv: ""
 	},
 	{
-		id: 32181,
 		name: "Peerius Order Subtotal",
 		description: "Subtotal of the items in the order",
 		token: "subtotal",
 		uv: ""
 	},
 	{
-		id: 32182,
 		name: "Peerius Order Shipping",
 		description: "The shipping cost for the order",
 		token: "shipping",
 		uv: ""
 	},
 	{
-		id: 32183,
 		name: "Peerius Order Total",
 		description: "The total of the order and other expenses like shipping",
 		token: "total",

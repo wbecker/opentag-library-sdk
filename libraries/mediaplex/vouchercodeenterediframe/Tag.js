@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
     config: {
       /*DATA*/
-	id: 36167,
 	name: "Voucher code entered iframe",
 	async: true,
 	description: "This iframe passes back the pageview along with the validated voucher code being used. It should be fired once, as soon as possible after validating a voucher (before confirmation).",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35217,
 		name: "Mediaplex Client ID",
 		description: "The ID assigned to you by Mediaplex",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 35218,
 		name: "Page Name",
 		description: "The name of the page being accessed. Typically all lowercase, with underscores",
 		token: "page_name",
 		uv: ""
 	},
 	{
-		id: 35219,
 		name: "Event Name",
 		description: "The name of the event triggered. Typically, this is a CamelCased version of the page name",
 		token: "event_name",
 		uv: ""
 	},
 	{
-		id: 35220,
 		name: "Voucher Code",
 		description: "The voucher code used in this order - leave blank if none.",
 		token: "promo_code",

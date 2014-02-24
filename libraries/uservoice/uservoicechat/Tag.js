@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("uservoice.uservoicechat.Tag", {
     config: {
       /*DATA*/
-	id: 90,
 	name: "User Voice Chat",
 	async: true,
 	description: "UserVoice creates simple online feedback, help desk and knowledge base software. Our insight and support platforms enable businesses to understand and engage with customers with ease.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("uservoice.uservoicechat.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 9000,
 		name: "Unique Id",
 		description: "Unique JavaScript File name",
 		token: "ID",

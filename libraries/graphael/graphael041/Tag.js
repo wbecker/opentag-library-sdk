@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("graphael.graphael041.Tag", {
     config: {
       /*DATA*/
-	id: 9,
 	name: "graphael 0.4.1",
 	async: true,
 	description: "GraphaÃ«l's goal is to help you create stunning charts on your website. It is based on RaphaÃ«l graphics library.",

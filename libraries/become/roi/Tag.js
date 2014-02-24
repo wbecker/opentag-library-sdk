@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("become.roi.Tag", {
     config: {
       /*DATA*/
-	id: 35184,
 	name: "ROI",
 	async: true,
 	description: "ROI script to be placed on the Confirmation Page",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("become.roi.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34328,
 		name: "Merchant ID",
 		description: "The ID specific to the merchant using the Become tag",
 		token: "become_merchant_id",
 		uv: ""
 	},
 	{
-		id: 34331,
 		name: "Transaction Order ID",
 		description: "The transaction order identifier for the purchase",
 		token: "order_number",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34335,
 		name: "Transaction Product Quantity List",
 		description: "A list of quantities for all purchased items in the transaction",
 		token: "product_quantity_list",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 34336,
 		name: "Transaction Product ID List",
 		description: "A list of product IDs on the transaction page",
 		token: "product_id_list",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 34337,
 		name: "Transaction Product Category List",
 		description: "A list of product categories on the transaction page",
 		token: "product_category_list",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 34338,
 		name: "Transaction Product Price List",
 		description: "A list of the prices for items in the transaction page (unit sale price)",
 		token: "product_price_list",

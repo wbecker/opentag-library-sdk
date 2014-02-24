@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediaforge.basic.Tag", {
     config: {
       /*DATA*/
-	id: 39167,
 	name: "Basic",
 	async: true,
 	description: "The Basic Tag might be placed on a home/landing page where no product or category specific information is available.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("mediaforge.basic.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38197,
 		name: "mediaFORGE Merchant ID",
 		description: "The ID that relates you to mediaFORGE",
 		token: "merchant_id",

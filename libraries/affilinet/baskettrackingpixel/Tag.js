@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("affilinet.baskettrackingpixel.Tag", {
     config: {
       /*DATA*/
-	id: 37172,
 	name: "Basket Tracking Pixel",
 	async: true,
 	description: "The affilinet basket tracking system allows you to submit shopping basket information on item level to affilinet. \nThat information enables you to perform detailed statistical analyses and allows your publishers to optimise their \nmarketing activities even further. If you would like to make use of this tracking functionality, please call your \naccount manager to activate basket tracking and change the registersale call on your order confirmation page.",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("affilinet.baskettrackingpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36203,
 		name: "Affilinet Tracking Domain",
 		description: "Domain of the affilinet country you are working with, e.g.  partners.webmasterplan.com",
 		token: "affilinet_tracking_domain",
 		uv: ""
 	},
 	{
-		id: 36204,
 		name: "Site",
 		description: "Your program ID",
 		token: "program_id",
 		uv: ""
 	},
 	{
-		id: 36205,
 		name: "Order ID",
 		description: "Order ID",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 36206,
 		name: "Basket Items SKUs",
 		description: "",
 		token: "basket_items_skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 36207,
 		name: "Basket Items Names",
 		description: "",
 		token: "basket_items_names",
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	},
 	{
-		id: 36208,
 		name: "Basket Items Categories",
 		description: "",
 		token: "basket_items_categories",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 36209,
 		name: "Basket Items Quantities",
 		description: "",
 		token: "basket_items_quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 36210,
 		name: "Basket Items Prices",
 		description: "",
 		token: "basket_items_prices",

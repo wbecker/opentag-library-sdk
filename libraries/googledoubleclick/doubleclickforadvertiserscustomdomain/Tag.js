@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserscustomdomain.Tag", {
     config: {
       /*DATA*/
-	id: 28159,
 	name: "DoubleClick for Advertisers - Custom Domain",
 	async: true,
 	description: "The non-conversion version of the DoubleClick tag with custom domain id",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserscustomd
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 27684,
 		name: "Subdomain",
 		description: "The name of your subdomain. Usually some digits.",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 27685,
 		name: "Double Click Id",
 		description: "Your unique identifier for your account",
 		token: "doubleclick_id",
 		uv: ""
 	},
 	{
-		id: 27686,
 		name: "Type",
 		description: "",
 		token: "type",
 		uv: ""
 	},
 	{
-		id: 27687,
 		name: "Category",
 		description: "",
 		token: "cat",

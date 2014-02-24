@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 24662,
 	name: "DEPRECATED SaleCycle Confirmation Page Tag",
 	async: true,
 	description: "The tag loads a 1px by 1px blank image in the page by calling the SaleCycle PixelCapture.aspx page, and should be implemented on the order completion page only, as close to the top of the page as possible within the <body> tags.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpagetag.T
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24184,
 		name: "Client ID",
 		description: "Implementation consultant will provide you with your Client ID",
 		token: "clientID",
 		uv: ""
 	},
 	{
-		id: 24185,
 		name: "Customer Email",
 		description: "",
 		token: "userEmail",

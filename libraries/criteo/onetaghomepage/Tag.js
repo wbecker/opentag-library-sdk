@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.onetaghomepage.Tag", {
     config: {
       /*DATA*/
-	id: 35197,
 	name: "OneTag - Home Page",
 	async: true,
 	description: "The home page tag has to be integrated on the home page of the advertiser website.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("criteo.onetaghomepage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34414,
 		name: "Criteo Partner ID",
 		description: "The ID assigned to you by Criteo",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 34415,
 		name: "Customer ID",
 		description: "This MUST NOT include any personally-identifiable information. Send \"\" if there is no anonymous ID.",
 		token: "customer_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 34416,
 		name: "Site Type",
 		description: "\"m\" for mobile or \"t\" for tablet or \"d\" for  desktop",
 		token: "site_type",

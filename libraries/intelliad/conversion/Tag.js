@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("intelliad.conversion.Tag", {
     config: {
       /*DATA*/
-	id: 39668,
 	name: "Conversion",
 	async: true,
 	description: "The intelliAd Conversion Tracking is specifically tailored for our system and provides you and our bid management tool extensive data on individual conversions.",
@@ -15,70 +14,60 @@ qubit.qtag.LibraryTag.define("intelliad.conversion.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38693,
 		name: "Transaction Order Total",
 		description: "The total amount for the conversion",
 		token: "order_total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 38694,
 		name: "Transaction Order Currency",
 		description: "The currency for the transaction",
 		token: "order_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 38695,
 		name: "Transaction Order ID",
 		description: "The unique identifier specifying the transaction.",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 38696,
 		name: "Transaction Product IDs",
 		description: "The array of product ID's corresponding to products in the transaction",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 38697,
 		name: "intelliAd Conversion Type",
 		description: "sale, lead, download, pageview, signup, social, call, cutom1 - custom49 for main types _[1-255] sub",
 		token: "order_type",
 		uv: ""
 	},
 	{
-		id: 38698,
 		name: "IntelliAd Custom Parameter 1",
 		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
 		token: "custom_param1",
 		uv: ""
 	},
 	{
-		id: 38699,
 		name: "IntelliAd Custom Parameter 2",
 		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
 		token: "custom_param2",
 		uv: ""
 	},
 	{
-		id: 38700,
 		name: "IntelliAd Custom Parameter 3",
 		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
 		token: "custom_param3",
 		uv: ""
 	},
 	{
-		id: 38701,
 		name: "IntelliAd Custom Parameter 4",
 		description: "Any value can be passed – used for intelliAd Reporting and Bidding (leave blank to ignore)",
 		token: "custom_param4",
 		uv: ""
 	},
 	{
-		id: 38722,
 		name: "IntelliAd Client ID",
 		description: "The id that relates the client to IntelliAd",
 		token: "client_id",

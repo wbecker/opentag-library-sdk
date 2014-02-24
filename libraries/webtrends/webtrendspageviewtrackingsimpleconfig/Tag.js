@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendspageviewtrackingsimpleconfig.Tag", {
     config: {
       /*DATA*/
-	id: 36199,
 	name: "Webtrends pageview tracking - simple config",
 	async: true,
 	description: "The main WebTrends tag with full configuration options. Should be place on every page. See http://help.webtrends.com/en/jstag/ for full details of the different parameters.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendspageviewtrackingsimpleconfig.Ta
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35341,
 		name: "SmartSource Site ID",
 		description: "The SmartSource Site id (DCSID).",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 35342,
 		name: "Data Collection Server URI",
 		description: "The hostname for the tracking pixels e.g. pdx-sdc.webtrends.com",
 		token: "domain",
 		uv: ""
 	},
 	{
-		id: 35343,
 		name: "Timezone",
 		description: "(int) The Web server time zone field contains the time zone of your web server. Use 0 for GMT.",
 		token: "timezone",
 		uv: ""
 	},
 	{
-		id: 35344,
 		name: "User ID",
 		description: "The id of the logged in user.",
 		token: "user_id",

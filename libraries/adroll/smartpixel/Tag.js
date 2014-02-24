@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("adroll.smartpixel.Tag", {
     config: {
       /*DATA*/
-	id: 34669,
 	name: "SmartPixel",
 	async: true,
 	description: "Asynchronously and independently registers a callback within the browser that will be called only at the end of the rendering process - adds an image to the head tag.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("adroll.smartpixel.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 33733,
 		name: "AdRoll Advertiser ID",
 		description: "ID for the Advertiser",
 		token: "adroll_adv_id",
 		uv: ""
 	},
 	{
-		id: 33734,
 		name: "AdRoll Pixel ID",
 		description: "ID for the AdRoll pixel",
 		token: "adroll_pix_id",

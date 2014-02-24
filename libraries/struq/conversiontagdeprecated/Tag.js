@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.conversiontagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 28658,
 	name: "Conversion Tag DEPRECATED",
 	async: true,
 	description: "To be placed only on the confirmation page",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("struq.conversiontagdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28158,
 		name: "Struq Conversion Page ID",
 		description: "",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 28159,
 		name: "Product IDs",
 		description: "",
 		token: "product_id_list",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 28160,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 28161,
 		name: "Discount",
 		description: "The order discount amount. Set to 0 if not used.",
 		token: "discount",
 		uv: ""
 	},
 	{
-		id: 28162,
 		name: "Order ID",
 		description: "",
 		token: "order_id",

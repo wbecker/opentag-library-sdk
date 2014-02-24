@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("salecycle.salecycleconfirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 32158,
 	name: "SaleCycle Confirmation Page Tag",
 	async: true,
 	description: "The tag loads a 1px by 1px blank image in the page by calling the SaleCycle PixelCapture.aspx page, and should be implemented on the order completion page only. Sends details of the user email and the order id.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("salecycle.salecycleconfirmationpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 31173,
 		name: "Client ID",
 		description: "Implementation consultant will provide you with your Client ID",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 31174,
 		name: "Customer Email",
 		description: "",
 		token: "customer_email",
 		uv: "universal_variable.user.email"
 	},
 	{
-		id: 31175,
 		name: "Order ID",
 		description: "The transaction order id",
 		token: "order_id",

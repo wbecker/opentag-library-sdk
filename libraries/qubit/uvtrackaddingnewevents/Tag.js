@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.uvtrackaddingnewevents.Tag", {
     config: {
       /*DATA*/
-	id: 33662,
 	name: "UV - track adding new events",
 	async: true,
 	description: "With this library tag it is possible to listen for events being added to the Universal Variable events parameter. Useful if you want to have multiple event trackers working off the same model. \n\nExample: uv.events.on('add', function () {\n  // run your code here\n});\n\nIf you have any trackers running off this tag, ensure that this tag is set as a dependency for them.",

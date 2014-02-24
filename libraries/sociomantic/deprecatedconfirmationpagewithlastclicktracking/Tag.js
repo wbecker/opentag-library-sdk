@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedconfirmationpagewithlastclicktracking.Tag", {
     config: {
       /*DATA*/
-	id: 36190,
 	name: "{DEPRECATED} Confirmation Page (with last click tracking)",
 	async: true,
 	description: "As confirmation page tag, but with last click tracking",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedconfirmationpagewithlastclic
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35311,
 		name: "Product ID List",
 		description: "A list of product IDs on the confirmation page",
 		token: "product_id_list",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 35312,
 		name: "Amounts",
 		description: "A list of transaction line item amounts",
 		token: "amt_list",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 35313,
 		name: "Currency",
 		description: "The currency of the transaction",
 		token: "trans_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 35314,
 		name: "Quantities",
 		description: "A list of transaction line item quantities",
 		token: "qty_list",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 35315,
 		name: "Advertiser ID",
 		description: "The ID relating to the client",
 		token: "advertiser_id",
 		uv: ""
 	},
 	{
-		id: 35316,
 		name: "Transaction ID",
 		description: "The ID relating to the transaction",
 		token: "trans_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 35317,
 		name: "Checkout Total",
 		description: "The total value of items at checkout",
 		token: "trans_total",

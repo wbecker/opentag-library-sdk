@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.confirmationtagwithlastclicktracking.Tag", {
     config: {
       /*DATA*/
-	id: 38166,
 	name: "Confirmation Tag (with last click tracking)",
 	async: true,
 	description: "As confirmation page tag, but with last click tracking. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
@@ -15,63 +14,54 @@ qubit.qtag.LibraryTag.define("sociomantic.confirmationtagwithlastclicktracking.T
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37186,
 		name: "Advertiser ID",
 		description: "An identifier for the client",
 		token: "advertiserid",
 		uv: ""
 	},
 	{
-		id: 37187,
 		name: "User ID",
 		description: "User's identifier - return false to safely exclude it",
 		token: "user_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 37188,
 		name: "Transaction ID",
 		description: "Identifier relating to the current transaction",
 		token: "transaction_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 37189,
 		name: "Checkout Total",
 		description: "The total value of items at checkout",
 		token: "checkout_total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 37190,
 		name: "Product Ids",
 		description: "A list of identifiers relating to products in the order",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 37191,
 		name: "Prices",
 		description: "A list of sale prices for each item in the order",
 		token: "prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 37192,
 		name: "Currency",
 		description: "The currency for the current order",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 37193,
 		name: "Quantities",
 		description: "A list of quantities for items relating to respective items currently in the order",
 		token: "quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 37202,
 		name: "User Email",
 		description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
 		token: "user_email",

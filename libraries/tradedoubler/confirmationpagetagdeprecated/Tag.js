@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagetagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 35178,
 	name: "Confirmation Page Tag [DEPRECATED]",
 	async: true,
 	description: "DO NOT USE",
@@ -15,84 +14,72 @@ qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagetagdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34291,
 		name: "TD Unique Identifier",
 		description: "Your TradeDoubler unique identifier",
 		token: "tduid_cookie_name",
 		uv: ""
 	},
 	{
-		id: 34292,
 		name: "Product Categories",
 		description: "",
 		token: "productCategories",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 34293,
 		name: "Product IDs",
 		description: "List of all product IDs in basket",
 		token: "productIDs",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 34294,
 		name: "Product Names",
 		description: "List of all product names in basket",
 		token: "productNames",
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	},
 	{
-		id: 34295,
 		name: "Product Prices",
 		description: "List of each product unit sale price in basket",
 		token: "productPrices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 34296,
 		name: "Product Quantities",
 		description: "List of all product quantities",
 		token: "productQuantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 34297,
 		name: "Organization",
 		description: "Your TradeDoubler organization ID, provided by TradeDoubler.",
 		token: "organization",
 		uv: ""
 	},
 	{
-		id: 34298,
 		name: "Event",
 		description: "Provided by TradeDoubler, this parameter is linked to our organization and used for reporting.",
 		token: "event",
 		uv: ""
 	},
 	{
-		id: 34299,
 		name: "Currency",
 		description: "Transaction currency",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 34300,
 		name: "Order Number",
 		description: "Transaction Order ID",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34301,
 		name: "Encoding",
 		description: "set to 3 unless encoding is not  UTF-8 - see TD manual for more info",
 		token: "encoding",
 		uv: ""
 	},
 	{
-		id: 34302,
 		name: "Tracking type",
 		description: "Enter hard coded value s for sales tracking or l for lead tracking",
 		token: "tracking_type",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.georequest.Tag", {
     config: {
       /*DATA*/
-	id: 38158,
 	name: "Geo Request",
 	async: true,
 	description: "A standardized template for making a request to Orca. Caches the result, and stores the parsed object (from cache or request) in window.qb_geo. But, the tag's asynchronous, so your best bet is to add a callback to window.qb_geo_cbs, and it'll get called when the object's available. NOTE: IE<8 doesn't have JSON, so you'll need to pull in the JSON2 tag as a dependency.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("qubit.georequest.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37157,
 		name: "Client ID",
 		description: "Client's tracking ID",
 		token: "client_id",

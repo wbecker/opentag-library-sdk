@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("google.googleremarketingconversionasync.Tag", {
     config: {
       /*DATA*/
-	id: 26160,
 	name: "Google Remarketing Conversion Async",
 	async: true,
 	description: "Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("google.googleremarketingconversionasync.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 25662,
 		name: "Google Conversion ID",
 		description: "Your Google id provided in the script",
 		token: "conversion_id",
 		uv: ""
 	},
 	{
-		id: 25663,
 		name: "Google Conversion Label",
 		description: "A alphanumeric label of your conversion tracking",
 		token: "label",

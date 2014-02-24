@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("decibel.allpagestag.Tag", {
     config: {
       /*DATA*/
-	id: 34674,
 	name: "All Pages Tag",
 	async: true,
 	description: "Decibel Insight’s ground-breaking visual analytics software introduces the most advanced, innovative and complete heatmapping tool in the world, designed to help businesses of all types and sizes generate better results from their websites.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("decibel.allpagestag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 33749,
 		name: "Decibel Account ID",
 		description: "The ID specific to your account given by Decibel",
 		token: "account_id",

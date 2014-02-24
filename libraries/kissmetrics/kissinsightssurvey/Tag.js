@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("kissmetrics.kissinsightssurvey.Tag", {
     config: {
       /*DATA*/
-	id: 180,
 	name: "KissInsights Survey",
 	async: true,
 	description: "KISSInsights customer survey slider",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("kissmetrics.kissinsightssurvey.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 18000,
 		name: "Account Id",
 		description: "The account id of your KISS subscription - the first number in the URL",
 		token: "account_id",
 		uv: ""
 	},
 	{
-		id: 18001,
 		name: "Website Id",
 		description: "The id of the particular website - the last part of the URL before ''.js",
 		token: "website_id",

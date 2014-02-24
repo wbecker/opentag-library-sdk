@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sessioncam.sessioncamv53.Tag", {
     config: {
       /*DATA*/
-	id: 36191,
 	name: "SessionCam v5.3",
 	async: true,
 	description: "SessionCam tag v5.3",

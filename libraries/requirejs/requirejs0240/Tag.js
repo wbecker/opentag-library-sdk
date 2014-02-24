@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("requirejs.requirejs0240.Tag", {
     config: {
       /*DATA*/
-	id: 16,
 	name: "require.js 0.24.0",
 	async: true,
 	description: "RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node. Using a modular script loader like RequireJS will improve the speed and quality of your code.",

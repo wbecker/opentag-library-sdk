@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.searchpage.Tag", {
     config: {
       /*DATA*/
-	id: 33166,
 	name: "Search Page",
 	async: true,
 	description: "Peerius tag for the search page",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("peerius.searchpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32157,
 		name: "Peerius Language",
 		description: "Language that the site is in",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 32158,
 		name: "Peerius Search Query",
 		description: "The search query string",
 		token: "query",
 		uv: ""
 	},
 	{
-		id: 32190,
 		name: "Peerius Client Name",
 		description: "The name of the client for which the tag is to be implemented",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 32209,
 		name: "Peerius Search Listing IDs",
 		description: "The ids of the products in the search listing",
 		token: "listing_ids",

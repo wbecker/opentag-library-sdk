@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("dcstorm.stormiqconfirmationpagetagnoshipping.Tag", {
     config: {
       /*DATA*/
-	id: 30158,
 	name: "StormIQ Confirmation Page Tag - NO SHIPPING",
 	async: true,
 	description: "To be placed on the confirmation page only",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("dcstorm.stormiqconfirmationpagetagnoshipping.Tag",
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29159,
 		name: "StormIQ ID",
 		description: "",
 		token: "storm_id",
 		uv: ""
 	},
 	{
-		id: 29160,
 		name: "StormIQ Channel",
 		description: "If not specified, leave blank",
 		token: "channel",
 		uv: ""
 	},
 	{
-		id: 29161,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 29162,
 		name: "Product ID's",
 		description: "",
 		token: "ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 29163,
 		name: "Product SKU's",
 		description: "",
 		token: "skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 29164,
 		name: "Product Quantities",
 		description: "",
 		token: "quants",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 29165,
 		name: "Product Colors",
 		description: "",
 		token: "colors",
 		uv: "universal_variable.transaction.line_items[#].product.color"
 	},
 	{
-		id: 29167,
 		name: "Product Values",
 		description: "",
 		token: "vals",

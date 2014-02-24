@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("facebook.facebookpixeldeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 33178,
 	name: "Facebook Pixel [DEPRECATED]",
 	async: true,
 	description: "",

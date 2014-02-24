@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.categorypage.Tag", {
     config: {
       /*DATA*/
-	id: 33160,
 	name: "Category Page",
 	async: true,
 	description: "Peerius tag for the category page (if using universal_variable: universal_variable.page.subcategory should be in - separated format e.g. * - * - * etc)",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("peerius.categorypage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32162,
 		name: "Peerius Language",
 		description: "Language of the page the tag is on",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 32185,
 		name: "Peerius Client Name",
 		description: "The name of the client for which the tag is to be implemented",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 32204,
 		name: "Peerius Subcategory Name",
 		description: "The name of the subcategory for the current page",
 		token: "subcategory",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.categorytag.Tag", {
     config: {
       /*DATA*/
-	id: 38165,
 	name: "Category Tag",
 	async: true,
 	description: "Information about what category page the user was interested in. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("sociomantic.categorytag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37175,
 		name: "Advertiser ID",
 		description: "An identifier for the client",
 		token: "advertiserid",
 		uv: ""
 	},
 	{
-		id: 37176,
 		name: "User ID",
 		description: "User's identifier - return false to safely exclude it",
 		token: "user_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 37177,
 		name: "Category Array",
 		description: "An array of relevant categories, matching the feed for this page",
 		token: "categories",
 		uv: ""
 	},
 	{
-		id: 37200,
 		name: "User Email",
 		description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
 		token: "user_email",

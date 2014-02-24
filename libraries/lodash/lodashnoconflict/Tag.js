@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
     config: {
       /*DATA*/
-	id: 35163,
 	name: "Lodash NoConflict",
 	async: true,
 	description: "Load Lodash from a CDN in noConflict. Compat mode is loaded, so works in IE8.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34166,
 		name: "Version",
 		description: "The version number you wish to use e.g. \"1.2.1\"",
 		token: "version",
 		uv: ""
 	},
 	{
-		id: 34167,
 		name: "NoConflict Key",
 		description: "The window variable name you want to assign Lodash to. E.g. \"_noConflict\"",
 		token: "key",

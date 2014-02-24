@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("freespee.yetanotheroopsiforgottochangethedefaultstag.Tag", {
     config: {
       /*DATA*/
-	id: 38167,
 	name: "Yet another \"oops I forgot to change the defaults\" tag",
 	async: true,
 	description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs. Now includes optional user ID support",

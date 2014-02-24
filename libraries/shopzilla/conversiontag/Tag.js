@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("shopzilla.conversiontag.Tag", {
     config: {
       /*DATA*/
-	id: 27157,
 	name: "Conversion Tag",
 	async: true,
 	description: "Place only on the confirmation page",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("shopzilla.conversiontag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 26657,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 26658,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 26659,
 		name: "Order Quantity List",
 		description: "",
 		token: "quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 26660,
 		name: "User Returning",
 		description: "",
 		token: "returning",
 		uv: "universal_variable.user.returning"
 	},
 	{
-		id: 26661,
 		name: "Shopzilla Merchant ID",
 		description: "",
 		token: "merch_id",

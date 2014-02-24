@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("emailvision.basketpagetaginactive.Tag", {
     config: {
       /*DATA*/
-	id: 26657,
 	name: "Basket Page Tag INACTIVE",
 	async: true,
 	description: "",

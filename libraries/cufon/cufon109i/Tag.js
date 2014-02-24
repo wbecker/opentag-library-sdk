@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("cufon.cufon109i.Tag", {
     config: {
       /*DATA*/
-	id: 21,
 	name: "cufon 1.09i",
 	async: true,
 	description: "Fast text replacement with canvas and VML - no Flash or images required.",

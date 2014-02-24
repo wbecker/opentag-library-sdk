@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("nextperformance.transactiontag.Tag", {
     config: {
       /*DATA*/
-	id: 24667,
 	name: "Transaction Tag",
 	async: true,
 	description: "Tag to be inserted on the order confirmation page, requires order ID, order number and amount excluding VAT.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("nextperformance.transactiontag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24191,
 		name: "Account (zid)",
 		description: "zid value provided by NextPerformance",
 		token: "zid",
 		uv: ""
 	},
 	{
-		id: 24192,
 		name: "Order ID",
 		description: "",
 		token: "orderId",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 24193,
 		name: "Order Total",
 		description: "",
 		token: "total",

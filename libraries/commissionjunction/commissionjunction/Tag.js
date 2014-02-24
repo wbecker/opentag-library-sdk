@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
     config: {
       /*DATA*/
-	id: 6,
 	name: "Commission Junction",
 	async: true,
 	description: "Commission Junction is a global leader in Affiliate Marketing, Online Marketing, and Search Engine Marketing.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 4,
 		name: "Commission Junction Enterprise ID",
 		description: "View the Enterprise ID in your CJ Account Manager>Account>Tracking Settings area",
 		token: "CID",
 		uv: ""
 	},
 	{
-		id: 34304,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34305,
 		name: "Type",
 		description: "Parameter that is paired with the Action ID, a number assigned by Commission Junction",
 		token: "TYPE",
 		uv: ""
 	},
 	{
-		id: 34306,
 		name: "Item IDs",
 		description: "",
 		token: "ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 34307,
 		name: "Item Amounts",
 		description: "",
 		token: "prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 34308,
 		name: "Item Quantities",
 		description: "",
 		token: "quants",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 34309,
 		name: "Currency",
 		description: "If not available in UV, hard code e.g. \"GBP\"",
 		token: "currency",

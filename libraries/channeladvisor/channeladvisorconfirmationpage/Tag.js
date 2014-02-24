@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag", {
     config: {
       /*DATA*/
-	id: 34659,
 	name: "Channel Advisor - Confirmation Page",
 	async: true,
 	description: "Use this tag to track confirmation pages with ChannelAdvisor.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag"
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 33670,
 		name: "Client ID",
 		description: "The unique client id",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 33671,
 		name: "Order Total",
 		description: "",
 		token: "total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 33672,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 33673,
 		name: "Product IDs",
 		description: "",
 		token: "product_id_list",

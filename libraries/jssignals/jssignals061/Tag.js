@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("jssignals.jssignals061.Tag", {
     config: {
       /*DATA*/
-	id: 19,
 	name: "js-signals 0.6.1",
 	async: true,
 	description: "A Signal is similar to an Event Emitter/Dispatcher or a Pub/Sub system, the main difference is that each event type has it's own controller and doesn't rely on strings to broadcast/subscribe to events.",

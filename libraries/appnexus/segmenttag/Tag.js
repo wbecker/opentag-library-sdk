@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("appnexus.segmenttag.Tag", {
     config: {
       /*DATA*/
-	id: 39667,
 	name: "Segment Tag",
 	async: true,
 	description: "",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("appnexus.segmenttag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38692,
 		name: "AppNexus Segment",
 		description: "Segment for AppNexus",
 		token: "segment",

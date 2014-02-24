@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("bluetriangle.bluetrianglepagetag.Tag", {
     config: {
       /*DATA*/
-	id: 24671,
 	name: "Blue Triangle Page Tag",
 	async: true,
 	description: "Page tag should be implemented on all pages. Blue Triangle will provide your client ID.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("bluetriangle.bluetrianglepagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24213,
 		name: "Client ID",
 		description: "Client ID provided by Blue Triangle. e.g. demo.btttag.com/BTT/btt.js, demo is your client ID",
 		token: "clientId",

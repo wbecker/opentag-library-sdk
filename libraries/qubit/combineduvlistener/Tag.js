@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.combineduvlistener.Tag", {
     config: {
       /*DATA*/
-	id: 38157,
 	name: "Combined UV Listener",
 	async: true,
 	description: "Until the UV Listener is released via qtag and qtracker, load this in as a dependency to get its features. This requires JSON.stringify and JSON.parse - that'll be handled when it's actually loaded in properly, but for now we're just getting a stopgap solution in.",

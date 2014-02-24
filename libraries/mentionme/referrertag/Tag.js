@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mentionme.referrertag.Tag", {
     config: {
       /*DATA*/
-	id: 39683,
 	name: "Referrer Tag",
 	async: true,
 	description: "The implementation can be either as a modal popup or embedded in the page using an iFrame, both of which lead to a popup where the customer can register to become a referrer. If the client requires, they can set the implementation parameter to 'embed', in which case the content is loaded into an iframe within the page. This is inserted within a DIV <div id=\"mmWrapper\"></div> which should be on the page. All parameters marked with * are optional (if not used populate with empty hardcoded value, even if default is 'uses universal variable')",
@@ -15,133 +14,114 @@ qubit.qtag.LibraryTag.define("mentionme.referrertag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38784,
 		name: "Email",
 		description: "The customer's email address e.g. waldosmith@mention-me.com",
 		token: "email",
 		uv: "universal_variable.user.email"
 	},
 	{
-		id: 38785,
 		name: "Order Number",
 		description: "The unique order identifier e.g. 752109",
 		token: "order_number",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 38786,
 		name: "Order Total",
 		description: "The total amount for the order e.g. 102",
 		token: "order_total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 38787,
 		name: "Order Currency",
 		description: "The three character currency code that the order total is in e.g. GBP",
 		token: "order_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 38788,
 		name: "Situation",
 		description: "Where you are including this tag within your site (e.g. postpurchase, homepage, dashboard)",
 		token: "situation",
 		uv: ""
 	},
 	{
-		id: 38789,
 		name: "Full Name*",
 		description: "The full name of the customer (leave blank if not used)",
 		token: "fullname",
 		uv: "universal_variable.user.name"
 	},
 	{
-		id: 38790,
 		name: "Customer ID*",
 		description: "The ID assigned to the customer (leave blank if not used)",
 		token: "customer_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 38791,
 		name: "Custom Field*",
 		description: "Any piece of custom data you wish to pass to MentionMe (leave blank if not used)",
 		token: "custom_field",
 		uv: ""
 	},
 	{
-		id: 38792,
 		name: "Coupon Code*",
 		description: "Coupon code ysed for the customer (leave blank if not used)",
 		token: "coupon_code",
 		uv: "universal_variable.transaction.voucher"
 	},
 	{
-		id: 38793,
 		name: "Address Line 1*",
 		description: "The customer's first line of address (leave blank if not used)",
 		token: "address_line1",
 		uv: "universal_variable.transaction.billing.address"
 	},
 	{
-		id: 38794,
 		name: "Address Line 2*",
 		description: "The customer's last line of address (leave blank if not used)",
 		token: "address_line2",
 		uv: ""
 	},
 	{
-		id: 38795,
 		name: "Address City",
 		description: "The customer's city (leave blank if not used)",
 		token: "address_city",
 		uv: "universal_variable.transaction.billing.city"
 	},
 	{
-		id: 38796,
 		name: "Address County*",
 		description: "The customer's country (leave blank if not used)",
 		token: "address_county",
 		uv: ""
 	},
 	{
-		id: 38797,
 		name: "Address Postcode*",
 		description: "The customer's postcode (leave blank if not used)",
 		token: "address_postcode",
 		uv: "universal_variable.transaction.billing.postcode"
 	},
 	{
-		id: 38798,
 		name: "Address Country*",
 		description: "The customer's country (leave blank if not used)",
 		token: "address_country",
 		uv: "universal_variable.transaction.billing.country"
 	},
 	{
-		id: 38799,
 		name: "Partner Code",
 		description: "The partner ID given to you by MentionMe (leave blank if not used)",
 		token: "partner_code",
 		uv: ""
 	},
 	{
-		id: 38800,
 		name: "Script Domain",
 		description: "Domain for the script 'tag-demo.mention-me.com' for testing and 'tag.mention-me.com' for production",
 		token: "domain",
 		uv: ""
 	},
 	{
-		id: 38801,
 		name: "Implementation*",
 		description: "Override the way the flow is implemented ('embed' or 'popup') (leave blank if not used)",
 		token: "implementation",
 		uv: ""
 	},
 	{
-		id: 38802,
 		name: "Segment*",
 		description: "String representing the customer segment 'new' or 'existing' (leave blank if not used)",
 		token: "segment",

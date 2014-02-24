@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mythings.customtag.Tag", {
     config: {
       /*DATA*/
-	id: 33663,
 	name: "Custom  Tag",
 	async: true,
 	description: "This is a custom myThings tracking tag in which the action number can be specified.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("mythings.customtag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32672,
 		name: "myThings Advertiser Token",
 		description: "Token provided by myThings",
 		token: "advertiser_token",
 		uv: ""
 	},
 	{
-		id: 32673,
 		name: "myThings Subdomain",
 		description: "Subdomain specified by myThings, if unsure use \"rainbow-uk\"",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 32674,
 		name: "myThings Action Number",
 		description: "The action number specified for the specific tag",
 		token: "action_number",

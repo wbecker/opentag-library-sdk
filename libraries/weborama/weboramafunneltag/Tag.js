@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("weborama.weboramafunneltag.Tag", {
     config: {
       /*DATA*/
-	id: 29667,
 	name: "Weborama - Funnel Tag",
 	async: true,
 	description: "This tag is typically placed on pages that will lead to a  conversion page. It is away to set measure the path which leads to a conversion.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("weborama.weboramafunneltag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28722,
 		name: "Funnel Id",
 		description: "Set your funnel id here",
 		token: "FUNNEL_ID",
 		uv: ""
 	},
 	{
-		id: 28723,
 		name: "Full Host",
 		description: "Set your host/domain here",
 		token: "FULL_HOST",
 		uv: ""
 	},
 	{
-		id: 28724,
 		name: "Site Id",
 		description: "Set your site id here",
 		token: "SITE",
 		uv: ""
 	},
 	{
-		id: 28725,
 		name: "Conversion Page",
 		description: "Enter funnel step Id here",
 		token: "CONVERSION_PAGE",

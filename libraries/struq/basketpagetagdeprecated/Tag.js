@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.basketpagetagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 35160,
 	name: "Basket Page Tag DEPRECATED-",
 	async: true,
 	description: "To be placed on the Basket Page",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("struq.basketpagetagdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34159,
 		name: "Basket Product ID Listing",
 		description: "An array of the product IDs in the basket",
 		token: "basket_pid_listing",

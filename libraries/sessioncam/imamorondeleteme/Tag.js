@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sessioncam.imamorondeleteme.Tag", {
     config: {
       /*DATA*/
-	id: 36192,
 	name: "i'm a moron, delete me",
 	async: true,
 	description: "Oli got lost. Delete this",

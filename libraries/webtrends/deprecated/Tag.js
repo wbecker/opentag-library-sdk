@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("webtrends.deprecated.Tag", {
     config: {
       /*DATA*/
-	id: 35180,
 	name: "DEPRECATED",
 	async: true,
 	description: "",

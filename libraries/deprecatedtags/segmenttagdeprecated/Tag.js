@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.segmenttagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 26161,
 	name: "Segment Tag [deprecated]",
 	async: true,
 	description: "",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("deprecatedtags.segmenttagdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 25664,
 		name: "AppNexus Segment",
 		description: "Segment id for use with AppNexus tag",
 		token: "segment",

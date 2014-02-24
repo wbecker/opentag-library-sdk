@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.confirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 35161,
 	name: "Confirmation Page Tag",
 	async: true,
 	description: "To be placed on the confirmation page only. Make sure that the order total is a valid number and has a dot as decimal point.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("struq.confirmationpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34160,
 		name: "Confirmation Product ID List",
 		description: "An array of all the confirmation IDs on the confirmation page",
 		token: "p_id_list",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 34161,
 		name: "Confirmation Order ID",
 		description: "The ID of the transaction",
 		token: "confirmation_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34162,
 		name: "Confirmation Order Total",
 		description: "The total cost of the transaction i.e. 233.33",
 		token: "confirmation_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 34163,
 		name: "Confirmation Currency",
 		description: "The currency of the conversion/transaction",
 		token: "confirmation_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 34168,
 		name: "Pixel ID",
 		description: "The id specific to the client",
 		token: "id",

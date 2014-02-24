@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("appnexus.conversiontag.Tag", {
     config: {
       /*DATA*/
-	id: 26158,
 	name: "Conversion Tag",
 	async: true,
 	description: "",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("appnexus.conversiontag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 25658,
 		name: "AppNexus ID",
 		description: "",
 		token: "appnexus_id",
 		uv: ""
 	},
 	{
-		id: 25659,
 		name: "AppNexus Segment",
 		description: "",
 		token: "appnexus_segment",

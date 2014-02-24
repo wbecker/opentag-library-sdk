@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("hubspot.analytics.Tag", {
     config: {
       /*DATA*/
-	id: 35179,
 	name: "Analytics",
 	async: true,
 	description: "For all Professional and Enterprise HubSpot customers that want to use HubSpot's website analytics on a non-HubSpot hosted website.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("hubspot.analytics.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34303,
 		name: "Hubspot ID",
 		description: "",
 		token: "id",

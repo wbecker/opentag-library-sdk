@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("google.exampleoflibrary.Tag", {
     config: {
       /*DATA*/
-	id: 1460462706390728705,
 	name: "Example of Library",
 	async: true,
 	description: "Just an example",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("google.exampleoflibrary.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 1460461723093827585,
 		name: "Conversion Value",
 		description: "The value of the conversion. This should be a number, or 0 if there is no value to the conversion",
 		token: "value",

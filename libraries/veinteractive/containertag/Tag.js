@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("veinteractive.containertag.Tag", {
     config: {
       /*DATA*/
-	id: 35174,
 	name: "Container Tag",
 	async: true,
 	description: "Tag to be placed on all pages",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("veinteractive.containertag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34283,
 		name: "VE Interactive ID",
 		description: "The ID for the tag in this format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX with dashes included",
 		token: "id",

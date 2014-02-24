@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googlewebfontloader.googlewebfontloader1019deprecated.Tag", {
     config: {
       /*DATA*/
-	id: 23,
 	name: "Google WebFont Loader 1.0.19 DEPRECATED",
 	async: true,
 	description: "Google Web Fonts lets you browse all the fonts available via the Google Web Fonts API. All fonts in the directory are available for use on your website under an open source license and are served by Google servers.",

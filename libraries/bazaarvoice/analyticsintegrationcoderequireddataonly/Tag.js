@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("bazaarvoice.analyticsintegrationcoderequireddataonly.Tag", {
     config: {
       /*DATA*/
-	id: 23664,
 	name: "Analytics Integration Code (Required Data Only)",
 	async: true,
 	description: "Uses required data only. Add JavaScript code to your transaction and conversion pages to send information to Bazaaarvoice analytics.",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("bazaarvoice.analyticsintegrationcoderequireddataon
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 23214,
 		name: "Client Code",
 		description: "represents your client code",
 		token: "client_code",
 		uv: ""
 	},
 	{
-		id: 23215,
 		name: "Display Code",
 		description: "represents your display code",
 		token: "display_code",
 		uv: ""
 	},
 	{
-		id: 23216,
 		name: "Order ID",
 		description: "",
 		token: "orderId",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 23217,
 		name: "Order Total",
 		description: "",
 		token: "total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 23218,
 		name: "Currency",
 		description: "",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 23219,
 		name: "Product ID List",
 		description: "",
 		token: "productIds",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 23220,
 		name: "Product SKU List",
 		description: "",
 		token: "productSkus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 23221,
 		name: "Product Quantity List",
 		description: "",
 		token: "quantities",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("facebook.facebookpixelwithcurrency.Tag", {
     config: {
       /*DATA*/
-	id: 37171,
 	name: "Facebook Pixel with Currency",
 	async: true,
 	description: "",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("facebook.facebookpixelwithcurrency.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36197,
 		name: "Country Code",
 		description: "",
 		token: "countrycode",
 		uv: ""
 	},
 	{
-		id: 36198,
 		name: "Pixel ID",
 		description: "",
 		token: "pixel_id",
 		uv: ""
 	},
 	{
-		id: 36199,
 		name: "Order Total",
 		description: "",
 		token: "order_value",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 36200,
 		name: "Order Currency",
 		description: "",
 		token: "currency",

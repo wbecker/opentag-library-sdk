@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("shoppingcom.popuppossurvey.Tag", {
     config: {
       /*DATA*/
-	id: 35193,
 	name: "Popup PoS Survey",
 	async: true,
 	description: "This will show a point of sale survey for customers to share their feedback about their shopping experience.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("shoppingcom.popuppossurvey.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34381,
 		name: "Shopping.com Merchant ID",
 		description: "The merchant ID which represents your site.",
 		token: "merchant_id",

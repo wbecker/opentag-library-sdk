@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
     config: {
       /*DATA*/
-	id: 39673,
 	name: "UV Breadcrumb Converter",
 	async: true,
 	description: "Converts UV page breadcrumbs to be in the new format.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38720,
 		name: "UV - Ignore Last Breadcrumb",
 		description: "Ignore the last breadcrumb",
 		token: "skip_last",
 		uv: ""
 	},
 	{
-		id: 38721,
 		name: "UV - Ignore First Breadcrumb",
 		description: "Ignore the first breadcrumb in the UV",
 		token: "skip_first",

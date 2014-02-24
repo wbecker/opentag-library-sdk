@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("quantcast.quantcastwitheventtracking.Tag", {
     config: {
       /*DATA*/
-	id: 30171,
 	name: "QuantCast - with event tracking",
 	async: true,
 	description: "Track custom events with QuantCast.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("quantcast.quantcastwitheventtracking.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29210,
 		name: "QuantCast Account Number",
 		description: "Your quantcast account number",
 		token: "account_no",
 		uv: ""
 	},
 	{
-		id: 29211,
 		name: "QuantCast Custom Page",
 		description: "The label for the custom page - e.g. \"Home\", \"Bracelets\"",
 		token: "custom_page",

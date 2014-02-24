@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", {
     config: {
       /*DATA*/
-	id: 34677,
 	name: "Web Tracking (Engage Conversion EOT)",
 	async: true,
 	description: "Web tracking if you use Engage Conversion Tracking EOT",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 33759,
 		name: "Page Name",
 		description: "The name of the page the tag is current on",
 		token: "page_name",
 		uv: ""
 	},
 	{
-		id: 33760,
 		name: "Branded Domains",
 		description: "The comma separated listed of qualified/unqualified branded domains i.e. www.a.com,b.com,www.c.com",
 		token: "branded_domains",
 		uv: ""
 	},
 	{
-		id: 33761,
 		name: "Secure Domain",
 		description: "The domain for secure pages on your site provided by your Org Admin",
 		token: "secure_domain",
 		uv: ""
 	},
 	{
-		id: 33762,
 		name: "Non-secure Domain",
 		description: "The domain for non-secure pages on your site provided by your Org Admin",
 		token: "non_secure_domain",
 		uv: ""
 	},
 	{
-		id: 33763,
 		name: "Engage Conversion Tracking COT Host",
 		description: "The host for the Engage Conversion Tracking meta tag e.g. engage5.sliverpop.com",
 		token: "cot_host",

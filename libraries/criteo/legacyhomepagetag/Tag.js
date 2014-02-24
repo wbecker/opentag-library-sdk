@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyhomepagetag.Tag", {
     config: {
       /*DATA*/
-	id: 37,
 	name: "Legacy - Home Page Tag",
 	async: true,
 	description: "The home page tag has to be integrated on the home page of the advertiser website.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("criteo.legacyhomepagetag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 3700,
 		name: "Criteo wi Parameter",
 		description: "Criteo wi parameter",
 		token: "wi",
 		uv: ""
 	},
 	{
-		id: 3701,
 		name: "Criteo Partner ID",
 		description: "The partner ID number provided by criteo",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 3702,
 		name: "Criteo Subdomain",
 		description: "The subdomain used for this home page script, e.g. mydomain.widget.criteo.com",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 3703,
 		name: "Criteo Call Parameter",
 		description: "A specific call parameter provided by Criteo.",
 		token: "call_parameter",

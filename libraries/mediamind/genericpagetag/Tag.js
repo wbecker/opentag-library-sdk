@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediamind.genericpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 29658,
 	name: "Generic Page Tag",
 	async: true,
 	description: "Tag to be placed on any unique page with an activity ID associated",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("mediamind.genericpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28681,
 		name: "MediaMind Page Activity ID",
 		description: "The ID unique to the page the tag is running on",
 		token: "activity_id",
 		uv: ""
 	},
 	{
-		id: 28690,
 		name: "Session ID",
 		description: "An ID unique to each user's session - can be set blank",
 		token: "session_id",

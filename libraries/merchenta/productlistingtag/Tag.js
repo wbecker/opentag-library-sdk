@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("merchenta.productlistingtag.Tag", {
     config: {
       /*DATA*/
-	id: 23157,
 	name: "Product Listing Tag",
 	async: true,
 	description: "Place this tag on a search results page or on product listing pages to track the products visitors are viewing.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("merchenta.productlistingtag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 22657,
 		name: "Merchenta Retailer Code",
 		description: "Your Merchenta account ID",
 		token: "Merchenta_ID",
 		uv: ""
 	},
 	{
-		id: 22658,
 		name: "Product SKUs",
 		description: "The SKU/ID of the products being viewed",
 		token: "Product_SKUs",

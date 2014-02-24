@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 30184,
 	name: "Sovendus [DEPRECATED]",
 	async: true,
 	description: "",
@@ -15,77 +14,66 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29286,
 		name: "Sovendus Shop ID",
 		description: "The Shop ID you have received from Sovendus.",
 		token: "shop_id",
 		uv: ""
 	},
 	{
-		id: 29287,
 		name: "Sovendus Session ID",
 		description: "The customer's session ID is used to find duplicate  requests.",
 		token: "session_id",
 		uv: ""
 	},
 	{
-		id: 29289,
 		name: "Sovendus Salutation",
 		description: "Optional. Used to prefill the coupon request form. (e.g. Mr)",
 		token: "salutation",
 		uv: ""
 	},
 	{
-		id: 29290,
 		name: "Sovendus First Name",
 		description: "Optional. Used to prefill the coupon request form.",
 		token: "first_name",
 		uv: ""
 	},
 	{
-		id: 29291,
 		name: "Sovendus Last Name",
 		description: "Optional. Used to prefill the coupon request form.",
 		token: "last_name",
 		uv: ""
 	},
 	{
-		id: 29292,
 		name: "Sovendus Customer Email",
 		description: "Optional. Used to prefill the coupon request form.",
 		token: "email",
 		uv: "universal_variable.user.email"
 	},
 	{
-		id: 29293,
 		name: "Sovendus Order ID",
 		description: "Unique identifier of orders for accounting.",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 29294,
 		name: "Sovendus Order Value",
 		description: "Order value for accounting. Please use the dot (.) as  decimal separator and supply two decimal plac",
 		token: "order_value",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 29295,
 		name: "Sovendus Order Currency",
 		description: "Order Currency",
 		token: "order_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 29296,
 		name: "Sovendus Coupon Code",
 		description: "The coupon code just encashed to track the success  rate",
 		token: "coupon_code",
 		uv: "universal_variable.transaction.voucher"
 	},
 	{
-		id: 29297,
 		name: "Sovendus CheckSum",
 		description: "See Sovendus Technical Integration Documentation on how to implement",
 		token: "checksum",

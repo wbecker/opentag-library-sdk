@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("emailvision.notused.Tag", {
     config: {
       /*DATA*/
-	id: 24676,
 	name: "Not Used",
 	async: true,
 	description: "",

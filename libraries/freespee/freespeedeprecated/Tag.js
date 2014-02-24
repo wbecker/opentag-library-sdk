@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("freespee.freespeedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 30181,
 	name: "FreeSpee [DEPRECATED]",
 	async: true,
 	description: "",

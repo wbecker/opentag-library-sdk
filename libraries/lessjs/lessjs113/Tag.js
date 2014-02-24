@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("lessjs.lessjs113.Tag", {
     config: {
       /*DATA*/
-	id: 12,
 	name: "less.js 1.1.3",
 	async: true,
 	description: "LESS extends CSS with dynamic behavior such as variables, mixins, operations and functions. LESS runs on both the client-side (IE 6+, Webkit, Firefox) and server-side, with Node.js.",

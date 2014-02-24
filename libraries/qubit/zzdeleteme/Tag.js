@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.zzdeleteme.Tag", {
     config: {
       /*DATA*/
-	id: 35657,
 	name: "zzdeleteme",
 	async: true,
 	description: "Charlie didn't think to just write a custom script for his testing.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("qubit.zzdeleteme.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35318,
 		name: "test",
 		description: "test",
 		token: "param",
 		uv: ""
 	},
 	{
-		id: 35319,
 		name: "test2",
 		description: "param",
 		token: "param",

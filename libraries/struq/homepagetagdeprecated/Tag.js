@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.homepagetagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 35157,
 	name: "Home Page Tag DEPRECATED-",
 	async: true,
 	description: "To be placed on the homepage only",

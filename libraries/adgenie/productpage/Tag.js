@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("adgenie.productpage.Tag", {
     config: {
       /*DATA*/
-	id: 33173,
 	name: "Product Page",
 	async: true,
 	description: "This tag should be placed on all product pages.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("adgenie.productpage.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 32221,
 		name: "adGENIE Client ID",
 		description: "The ID of the company using adGENIE tag",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 32222,
 		name: "adGENIE Product ID",
 		description: "The ID of the product on the page",
 		token: "product_id",

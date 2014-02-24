@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
     config: {
       /*DATA*/
-	id: 35658,
 	name: "Conversion Pixel",
 	async: true,
 	description: "The Steelhouse conversion pixel, for placing on confirmation pages. Bundled with the tracking pixel.",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34686,
 		name: "SteelHouse Advertiser ID",
 		description: "The ID assigned to you by SteelHouse",
 		token: "advertiser_id",
 		uv: ""
 	},
 	{
-		id: 34687,
 		name: "Order ID",
 		description: "The unique identifier for this order",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34688,
 		name: "Order Total",
 		description: "The total amount paid by the customer for this order",
 		token: "order_total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 34689,
 		name: "Order Currency",
 		description: "The currency used to pay for this order",
 		token: "order_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 34690,
 		name: "Product SKU List",
 		description: "An array containing the SKUs for each item in the order",
 		token: "skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 34691,
 		name: "Product Quantity List",
 		description: "An array containing quantities associated with each product in this order",
 		token: "quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 34692,
 		name: "Product Price List",
 		description: "An array containing sale prices for each product in the order",
 		token: "prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 34693,
 		name: "Additional Information",
 		description: "Arbitrary additional information you'd like to pass back to SteelHouse",
 		token: "custom",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 37660,
 	name: "Google Dynamic Remarketing Tag - Home and Category Page [DEPRECATED]",
 	async: true,
 	description: "",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("deprecatedtags.googledynamicremarketingtaghomeandc
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36667,
 		name: "Page Type",
 		description: "Page Type",
 		token: "page_category",
 		uv: "universal_variable.page.category"
 	},
 	{
-		id: 36668,
 		name: "Google Conversion ID",
 		description: "Google Conversion ID",
 		token: "google_conversion_id",
 		uv: ""
 	},
 	{
-		id: 36669,
 		name: "Google Conversion Label",
 		description: "Google Conversion Label",
 		token: "google_conversion_label",
 		uv: ""
 	},
 	{
-		id: 36676,
 		name: "Page Category",
 		description: "Page Category",
 		token: "page_subcategory",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
     config: {
       /*DATA*/
-	id: 36670,
 	name: "UV API - change listener",
 	async: true,
 	description: "Uses polling to check for changes to the UV, running callbacks when changes occur. Changes are detected on a deep level.",

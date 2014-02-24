@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("cryptojs.sha1.Tag", {
     config: {
       /*DATA*/
-	id: 39660,
 	name: "SHA1",
 	async: true,
 	description: "CryptoJS SHA-1 Hashing",

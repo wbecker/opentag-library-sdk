@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagconfirmation.Tag", {
     config: {
       /*DATA*/
-	id: 35196,
 	name: "OneTag - Confirmation",
 	async: true,
 	description: "This is a mandatory tag and must be executed on the confirmation page after user makes a payment.",
@@ -15,63 +14,54 @@ qubit.qtag.LibraryTag.define("criteo.onetagconfirmation.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34405,
 		name: "Criteo Partner ID",
 		description: "The ID assigned to you by Criteo",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 34406,
 		name: "Customer ID",
 		description: "This MUST NOT include any personally-identifiable information. Send \"\" if there is no anonymous ID.",
 		token: "customer_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 34407,
 		name: "Site Type",
 		description: "\"m\" for mobile or \"t\" for tablet or \"d\" for  desktop",
 		token: "site_type",
 		uv: ""
 	},
 	{
-		id: 34408,
 		name: "Order ID",
 		description: "The completed order's ID",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34409,
 		name: "Returning Customer",
 		description: "A boolean value, false if this is a first-time buyer.",
 		token: "old_customer",
 		uv: "universal_variable.user.returning"
 	},
 	{
-		id: 34410,
 		name: "Criteo Referral",
 		description: "\"1\" if this customer was referred via Criteo, \"0\" if not. Use \"1\" if deduplication is not used.",
 		token: "criteo_referral",
 		uv: ""
 	},
 	{
-		id: 34411,
 		name: "Product ID List",
 		description: "List of Product IDs for all products in the user's order",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 34412,
 		name: "Product Price List",
 		description: "List of prices for each product in the user's order",
 		token: "product_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 34413,
 		name: "Product Quantity List",
 		description: "List of quantities for each product in the user's order",
 		token: "product_quantities",

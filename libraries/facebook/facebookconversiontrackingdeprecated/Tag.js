@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("facebook.facebookconversiontrackingdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 34671,
 	name: "Facebook Conversion Tracking DEPRECATED",
 	async: true,
 	description: "Conversion tracking helps businesses measure the return on investment of their Facebook Ads by reporting on the actions people take after viewing those ads.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("facebook.facebookconversiontrackingdeprecated.Tag"
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 33736,
 		name: "Facebook Pixel Id",
 		description: "The unique tracking pixel id for the tag.",
 		token: "pixel_id",
 		uv: ""
 	},
 	{
-		id: 33737,
 		name: "Subtotal",
 		description: "The value of the conversion",
 		token: "subtotal",

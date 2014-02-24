@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("freespee.yieldify.Tag", {
     config: {
       /*DATA*/
-	id: 37162,
 	name: "Yieldify",
 	async: true,
 	description: "Yieldify is a software solution which allows you to maximise your opt-in rates and revenue from visitors leaving your website.",

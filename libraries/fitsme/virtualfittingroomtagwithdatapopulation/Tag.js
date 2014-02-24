@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.Tag", {
     config: {
       /*DATA*/
-	id: 36186,
 	name: "Virtual Fitting Room Tag - With Data Population",
 	async: true,
 	description: "This product page tag adds the code needed to populate the \"fitsme_launcher\" div and makes sure GA is properly prepared (if present). This tag also populates the FitsMeData object prior to loading the code.",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.Tag
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35293,
 		name: "Product SKU",
 		description: "The SKU identifying the current product",
 		token: "sku",
 		uv: "universal_variable.product.sku_code"
 	},
 	{
-		id: 35294,
 		name: "Product Title",
 		description: "The name of the product, localized if necessary.",
 		token: "name",
 		uv: "universal_variable.product.name"
 	},
 	{
-		id: 35295,
 		name: "Product Category",
 		description: "The primary category this product belongs in.",
 		token: "category",
 		uv: "universal_variable.product.category"
 	},
 	{
-		id: 35296,
 		name: "Product Subcategory",
 		description: "The secondary category this product belongs in.",
 		token: "subcategory",
 		uv: "universal_variable.product.subcategory"
 	},
 	{
-		id: 35297,
 		name: "Product Image URL",
 		description: "URL to a high-quality image representing this product.",
 		token: "prodimg",
 		uv: ""
 	},
 	{
-		id: 35298,
 		name: "Size ID Array",
 		description: "An array of sizeIDs of the same length and in the same order as the Size Title / Size Price arrays.",
 		token: "sizeids",
 		uv: ""
 	},
 	{
-		id: 35299,
 		name: "Size Title Array",
 		description: "An array of size titles of the same length and in the same order as the Size ID / Size Price arrays.",
 		token: "titles",
 		uv: ""
 	},
 	{
-		id: 35300,
 		name: "Size Price Array",
 		description: "An array of size prices of the same length and in the same order as the Size Title / Size ID arrays.",
 		token: "prices",

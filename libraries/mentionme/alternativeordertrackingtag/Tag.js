@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mentionme.alternativeordertrackingtag.Tag", {
     config: {
       /*DATA*/
-	id: 35164,
 	name: "Alternative Order Tracking Tag",
 	async: true,
 	description: "Generic tag for MentionMe. All parameters marked with * are optional (if not used populate with empty hardcoded value, even if default is 'uses universal variable')",
@@ -15,105 +14,90 @@ qubit.qtag.LibraryTag.define("mentionme.alternativeordertrackingtag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34171,
 		name: "Email",
 		description: "The email address of the customer",
 		token: "email",
 		uv: "universal_variable.user.email"
 	},
 	{
-		id: 34172,
 		name: "Order Number",
 		description: "The identifier relating to the order transaction",
 		token: "order_number",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34173,
 		name: "Order Total",
 		description: "The total value of the order",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 34174,
 		name: "Order Currency",
 		description: "The currency of the order",
 		token: "order_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 34175,
 		name: "Customer ID*",
 		description: "The identifier relating to the customer (leave as blank string \"\" if not used)",
 		token: "customer_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 34176,
 		name: "Custom Field*",
 		description: "Any piece of custom data you wish to pass to MentionMe (leave as blank string \"\" if not used)",
 		token: "custom_field",
 		uv: ""
 	},
 	{
-		id: 34177,
 		name: "Coupon Code*",
 		description: "The coupon code used byt the customer (leave as blank string \"\" if not used)",
 		token: "coupon_code",
 		uv: "universal_variable.transaction.voucher"
 	},
 	{
-		id: 34178,
 		name: "Address Line 1*",
 		description: "The first line of the customers address (leave as blank string \"\" if not used)",
 		token: "address_line1",
 		uv: "universal_variable.transaction.billing.address"
 	},
 	{
-		id: 34179,
 		name: "Address Line 2*",
 		description: "The customer's second address line (leave as blank string \"\" if not used)",
 		token: "address_line2",
 		uv: ""
 	},
 	{
-		id: 34180,
 		name: "Address City*",
 		description: "The customer's address city (leave as blank string \"\" if not used)",
 		token: "address_city",
 		uv: "universal_variable.transaction.billing.city"
 	},
 	{
-		id: 34181,
 		name: "Address County*",
 		description: "The customer's address county (leave as blank string \"\" if not used)",
 		token: "address_county",
 		uv: ""
 	},
 	{
-		id: 34198,
 		name: "Address Postcode*",
 		description: "The customer's address postcode (leave blank string \"\" if not used)",
 		token: "address_postcode",
 		uv: "universal_variable.transaction.billing.postcode"
 	},
 	{
-		id: 34199,
 		name: "Address Country*",
 		description: "The customer's address country (leave blank string \"\" if not used)",
 		token: "address_country",
 		uv: "universal_variable.transaction.billing.country"
 	},
 	{
-		id: 34200,
 		name: "Partner Code",
 		description: "The code given to you from MentionMe",
 		token: "partner_code",
 		uv: ""
 	},
 	{
-		id: 34209,
 		name: "Script Domain",
 		description: "Domain for the script: 'tag-demo.mention-me.com' for testing, 'tag.mention-me.com' for production",
 		token: "domain",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("merchantadvantage.chanalyticsproductpage.Tag", {
     config: {
       /*DATA*/
-	id: 37159,
 	name: "Chanalytics - Product Page",
 	async: true,
 	description: "To be placed on all product pages for MerchantAdvantage's Chanalytics tracking.",

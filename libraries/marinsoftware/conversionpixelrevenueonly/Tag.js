@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonly.Tag", {
     config: {
       /*DATA*/
-	id: 24658,
 	name: "Conversion Pixel - Revenue only",
 	async: true,
 	description: "This conversion pixel tracks revenue only. Use either this or the asynchronous Conversion Capture Code depending on the instructions you have been given by Marin.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonly.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 24158,
 		name: "Marin Client Id",
 		description: "Your unique marin client id",
 		token: "clientId",
 		uv: ""
 	},
 	{
-		id: 24159,
 		name: "Marin Conversion Type Id",
 		description: "Each conversion type represents a page on the client’s website which is considered a goal",
 		token: "conversionTypeId",
 		uv: ""
 	},
 	{
-		id: 24160,
 		name: "Order Id",
 		description: "A unique id for the order",
 		token: "orderId",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 24161,
 		name: "Order Total",
 		description: "The total value of the order",
 		token: "total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 24162,
 		name: "Order currency",
 		description: "The order the currency is in. Can be hard coded to GBP if appropriate",
 		token: "currency",

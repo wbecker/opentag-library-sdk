@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
     config: {
       /*DATA*/
-	id: 50,
 	name: "Price Runner Sale Pixel",
 	async: true,
 	description: "",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 5000,
 		name: "Enterprise ID",
 		description: "The Enterprise ID is an ID that enables a single integration across multiple Commission Junction products. This parameter is static and can be hard-coded into the URL call for the image.",
 		token: "enterprise_id",
 		uv: ""
 	},
 	{
-		id: 5001,
 		name: "Action ID",
 		description: "Parameter that is paired with the Action ID, a Commission Junction-assigned number that identifies an action that has occurred. The Action ID is static and can be hard-coded into the URL call for the image.",
 		token: "action_id",
 		uv: ""
 	},
 	{
-		id: 5002,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 5003,
 		name: "Product ID List",
 		description: "",
 		token: "ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 5004,
 		name: "Product Unit Price List",
 		description: "",
 		token: "unit_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_price"
 	},
 	{
-		id: 5005,
 		name: "Product Quantity List",
 		description: "",
 		token: "quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 5006,
 		name: "Currency",
 		description: "",
 		token: "currency",

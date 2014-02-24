@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.productpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 28659,
 	name: "Product Page tag",
 	async: true,
 	description: "To be placed on the product page only",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("struq.productpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28163,
 		name: "Pixel ID",
 		description: "",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 28164,
 		name: "Product ID",
 		description: "",
 		token: "product_id",

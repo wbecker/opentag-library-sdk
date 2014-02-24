@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("pubnub.pubnub312.Tag", {
     config: {
       /*DATA*/
-	id: 18,
 	name: "PubNub 3.1.2",
 	async: true,
 	description: "Globally Distributed real-time, publish and subscribe communication cloud for mobile, tablet and web applications.",

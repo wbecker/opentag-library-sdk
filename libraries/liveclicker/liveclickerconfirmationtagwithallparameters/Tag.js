@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("liveclicker.liveclickerconfirmationtagwithallparameters.Tag", {
     config: {
       /*DATA*/
-	id: 33657,
 	name: "Liveclicker - Confirmation tag with all parameters",
 	async: true,
 	description: "Should be placed on the confirmation page only.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("liveclicker.liveclickerconfirmationtagwithallparam
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32657,
 		name: "Liveclicker Account ID",
 		description: "",
 		token: "account_id",
 		uv: ""
 	},
 	{
-		id: 32658,
 		name: "Subtotal",
 		description: "",
 		token: "subtotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 32659,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 32660,
 		name: "Currency",
 		description: "",
 		token: "currency",

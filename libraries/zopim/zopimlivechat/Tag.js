@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zopim.zopimlivechat.Tag", {
     config: {
       /*DATA*/
-	id: 34670,
 	name: "Zopim Livechat",
 	async: true,
 	description: "Real-time customer satisfaction made simple. Implement Zopim's live chat functionality on your site.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("zopim.zopimlivechat.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 33735,
 		name: "Client ID",
 		description: "The unique client id, e.g. \"183c79emDOKRZl6272Y1DS6nmuZiWCDTf3e\"",
 		token: "client_id",

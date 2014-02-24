@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
     config: {
       /*DATA*/
-	id: 190,
 	name: "Kiss Metrics",
 	async: true,
 	description: "KISSMetrics tracking tag - ASync",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 19000,
 		name: "API Key",
 		description: "Your KISS metrics API key",
 		token: "API_KEY",

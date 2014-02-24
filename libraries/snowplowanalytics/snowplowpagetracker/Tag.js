@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.Tag", {
     config: {
       /*DATA*/
-	id: 37165,
 	name: "Snowplow PageTracker",
 	async: true,
 	description: "Snowplow Analytics is a web analytics platform. Rather than deliver a canned set of reports, Snowplow delivers your granular, event-level and customer-level data into your own data warehouse, so you can perform any analysis on that data you want, with any tool you want, including Tableau, Excel, R, ChartIO etc.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36189,
 		name: "Cloudfront Domain",
 		description: "Your cloudfront domain hosting Snowplow",
 		token: "cloudfront",
 		uv: ""
 	},
 	{
-		id: 36190,
 		name: "Site ID",
 		description: "The ID of your site",
 		token: "siteid",
 		uv: ""
 	},
 	{
-		id: 36191,
 		name: "Cookie Domain",
 		description: "The cookie domain for your tracking",
 		token: "cookiedomain",

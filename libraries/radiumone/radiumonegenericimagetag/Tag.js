@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumonegenericimagetag.Tag", {
     config: {
       /*DATA*/
-	id: 36197,
 	name: "RadiumOne - Generic image tag",
 	async: true,
 	description: "A generic RadiumOne image tag.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonegenericimagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35326,
 		name: "RadiumOne Tag ID",
 		description: "",
 		token: "id",

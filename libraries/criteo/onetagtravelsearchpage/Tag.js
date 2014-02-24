@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagtravelsearchpage.Tag", {
     config: {
       /*DATA*/
-	id: 35200,
 	name: "OneTag - Travel Search Page",
 	async: true,
 	description: "This is a search tag specifically built for travel enquiries, as it stores check-in and check-out dates.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("criteo.onetagtravelsearchpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34426,
 		name: "Criteo Partner ID",
 		description: "The ID assigned to you by Criteo",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 34427,
 		name: "Customer ID",
 		description: "This MUST NOT include any personally-identifiable information. Send \"\" if there is no anonymous ID.",
 		token: "customer_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 34428,
 		name: "Site Type",
 		description: "\"m\" for mobile or \"t\" for tablet or \"d\" for desktop",
 		token: "site_type",
 		uv: ""
 	},
 	{
-		id: 34429,
 		name: "Product ID List",
 		description: "List of Product IDs displayed on this page",
 		token: "product_ids",
 		uv: "universal_variable.listing.items[#].id"
 	},
 	{
-		id: 34430,
 		name: "Search Query",
 		description: "The keywords entered by the user which produced this listing",
 		token: "search_query",
 		uv: "universal_variable.listing.query"
 	},
 	{
-		id: 34431,
 		name: "Check-In Date",
 		description: "The date of check in, as a string \"YYYY-MM-DD\"",
 		token: "check_in",
 		uv: ""
 	},
 	{
-		id: 34432,
 		name: "Check-Out Date",
 		description: "The date of check out, as a string \"YYYY-MM-DD\"",
 		token: "check_out",

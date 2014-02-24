@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("spinejs.spinejs004.Tag", {
     config: {
       /*DATA*/
-	id: 10,
 	name: "spinejs 0.0.4",
 	async: true,
 	description: "Spine is a lightweight framework for building JavaScript web applications. Spine gives you a MVC structure and then gets out of your way, allowing you to concentrate on the fun stuff, building awesome web applications.",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
     config: {
       /*DATA*/
-	id: 36188,
 	name: "US Site Notice (In-Page)",
 	async: true,
 	description: "This tag handles the Standard Notice functionality for US sites by adding an AdChoices link in the specified location. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon). The placement requires an element ID, or a classname and an index, corresponding to the element the tag should be placed into.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35301,
 		name: "Evidon Company ID",
 		description: "The ID assigned to you by Evidon",
 		token: "cid",
 		uv: ""
 	},
 	{
-		id: 35302,
 		name: "Evidon Page ID",
 		description: "The unique ID for the page this notice will be fired on",
 		token: "pid",
 		uv: ""
 	},
 	{
-		id: 35303,
 		name: "Using Class Name",
 		description: "Enter true if providing class name and index, or false if providing an ID.",
 		token: "class",
 		uv: ""
 	},
 	{
-		id: 35304,
 		name: "Class Name/ID",
 		description: "The class name or id of the div the AdChoices link should be appended to.",
 		token: "name",
 		uv: ""
 	},
 	{
-		id: 35305,
 		name: "Index",
 		description: "The index of the specific instance of element to be appended to. Leave blank if using ID",
 		token: "index",

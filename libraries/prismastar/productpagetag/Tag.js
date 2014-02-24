@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("prismastar.productpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 35188,
 	name: "Product Page Tag",
 	async: true,
 	description: "To be placed on all product pages",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("prismastar.productpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34354,
 		name: "Gateway Prefix",
 		description: "Your gateway prefix assigned by your PrismaStar account manager",
 		token: "GATEWAY_PREFIX",
 		uv: ""
 	},
 	{
-		id: 34355,
 		name: "Customer Code",
 		description: "Your customer code assigned by your PrismaStar account manager",
 		token: "CUSTOMER_CODE",
 		uv: ""
 	},
 	{
-		id: 34357,
 		name: "Product ID",
 		description: "The product ID or SKU used in the data feeds",
 		token: "PRODUCT_ID",
 		uv: "universal_variable.product.id"
 	},
 	{
-		id: 34358,
 		name: "Price",
 		description: "The individual price of this item",
 		token: "ITEM_PRICE",
 		uv: "universal_variable.product.unit_sale_price"
 	},
 	{
-		id: 34359,
 		name: "Category",
 		description: "The product category used in the data feeds (Optional)",
 		token: "CATEGORY_CODE",

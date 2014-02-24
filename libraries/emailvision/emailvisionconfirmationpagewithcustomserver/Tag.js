@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustomserver.Tag", {
     config: {
       /*DATA*/
-	id: 33659,
 	name: "Emailvision - Confirmation page with custom server",
 	async: true,
 	description: "The Emailvision tag to be used on confirmation pages, with the option to fully specify a custom server.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustoms
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32662,
 		name: "Emailvision Client ID",
 		description: "",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 32663,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 32664,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 32665,
 		name: "Order Currency",
 		description: "",
 		token: "order_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 32666,
 		name: "Emailvision Conversion Flag",
 		description: "",
 		token: "conversion_flag",
 		uv: ""
 	},
 	{
-		id: 32667,
 		name: "Emailvision Page Name",
 		description: "",
 		token: "emailvision_page_name",
 		uv: ""
 	},
 	{
-		id: 32668,
 		name: "Emailvision Server",
 		description: "The server to send data to",
 		token: "server_name",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("conexance.confirmationpagewithuseremail.Tag", {
     config: {
       /*DATA*/
-	id: 36184,
 	name: "Confirmation page - with user email",
 	async: true,
 	description: "To be placed on the confirmation page. Tracks order transactions. Order number is compulsory all other parameters should be filled with 0 if unavailable. No currency symbols allowed.",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("conexance.confirmationpagewithuseremail.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35281,
 		name: "Web1by1 Function Script URL",
 		description: "The full URL of the Web1by1 functions script i.e. http://www.your-website.com/w1x1.js",
 		token: "web1by1_function_script",
 		uv: ""
 	},
 	{
-		id: 35282,
 		name: "Web1by1 Configuration Parameters  Script URL",
 		description: "The full URL of the Web1by1 configuration parameters script (either production or test)",
 		token: "web1by1_config_script",
 		uv: ""
 	},
 	{
-		id: 35283,
 		name: "Confirmation ID",
 		description: "The unique identifier corresponding to the current transaction",
 		token: "confirmation_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 35284,
 		name: "Order Sub-total",
 		description: "The total cost of the transaction (excluding shipping/tax)",
 		token: "order_total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 35285,
 		name: "Shipping Cost",
 		description: "The cost of shipping for the transaction",
 		token: "shipping_cost",
 		uv: "universal_variable.transaction.shipping_cost"
 	},
 	{
-		id: 35286,
 		name: "Tax",
 		description: "The cost of tax for the transaction",
 		token: "tax",
 		uv: "universal_variable.transaction.tax"
 	},
 	{
-		id: 35287,
 		name: "Other Costs",
 		description: "Other costs to be included in the tag",
 		token: "other",
 		uv: ""
 	},
 	{
-		id: 35289,
 		name: "User email",
 		description: "",
 		token: "email",

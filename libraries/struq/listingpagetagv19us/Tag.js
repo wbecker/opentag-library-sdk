@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.listingpagetagv19us.Tag", {
     config: {
       /*DATA*/
-	id: 39162,
 	name: "Listing Page Tag v1.9 (US)",
 	async: true,
 	description: "",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("struq.listingpagetagv19us.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38187,
 		name: "Struq Listing Page Pixel ID",
 		description: "",
 		token: "pixelid",
 		uv: ""
 	},
 	{
-		id: 38188,
 		name: "Product IDs",
 		description: "",
 		token: "products",

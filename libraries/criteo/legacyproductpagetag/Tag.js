@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyproductpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 38,
 	name: "Legacy - Product Page Tag",
 	async: true,
 	description: "This is a mandatory tag and must be placed on all the advertiser product pages.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("criteo.legacyproductpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 3800,
 		name: "Criteo wi Parameter",
 		description: "Criteo wi Parameter",
 		token: "wi",
 		uv: ""
 	},
 	{
-		id: 3801,
 		name: "Criteo Subdomain Parameter",
 		description: "The subdomain parameter provided by Criteo e.g. mydomain.widget.criteo.com",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 3802,
 		name: "Criteo Partner ID",
 		description: "Partner ID provided by Criteo",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 3803,
 		name: "Criteo Call Parameter",
 		description: "Call Parameter Provided by Criteo, e.g. pjl",
 		token: "call_parameter",
 		uv: ""
 	},
 	{
-		id: 3804,
 		name: "Product ID",
 		description: "",
 		token: "product_id",

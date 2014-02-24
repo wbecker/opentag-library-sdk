@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
     config: {
       /*DATA*/
-	id: 29663,
 	name: "Response Tap Click to Call",
 	async: true,
 	description: "Response Tap click to call script that replaces the phone number on your page.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28696,
 		name: "Account Id",
 		description: "Your Response Tap account id, generally a 3-4 digit number",
 		token: "ACCOUNT_ID",

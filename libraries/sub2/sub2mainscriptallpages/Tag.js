@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
     config: {
       /*DATA*/
-	id: 39674,
 	name: "Sub2 - Main Script - All Pages",
 	async: true,
 	description: "This script should fire on all pages and all other Sub2 scripts should be dependent upon this script",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38730,
 		name: "Client ID",
 		description: "e.g. xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 38731,
 		name: "Client Name",
 		description: "e.g. google",
 		token: "client_name",
 		uv: ""
 	},
 	{
-		id: 38732,
 		name: "Cookie Domain",
 		description: "e.g.  .google.co.uk",
 		token: "cookie_domain",

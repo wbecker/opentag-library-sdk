@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("buyat.conversiontagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 27159,
 	name: "Conversion Tag DEPRECATED",
 	async: true,
 	description: "",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("buyat.conversiontagdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 26668,
 		name: "BuyAt ID",
 		description: "",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 26669,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 26670,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 26671,
 		name: "BuyAt Conversion Data",
 		description: "Custom data specified by BuyAt",
 		token: "ppdata",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediaforge.category.Tag", {
     config: {
       /*DATA*/
-	id: 39170,
 	name: "Category",
 	async: true,
 	description: "To be placed of Product Listing pages",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("mediaforge.category.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38203,
 		name: "mediaFORGE Merchant ID",
 		description: "The ID that relates you to mediaFORGE",
 		token: "merchant_id",
 		uv: ""
 	},
 	{
-		id: 38204,
 		name: "Category ID",
 		description: "The name/ID that relates to the current product listing page",
 		token: "category_id",

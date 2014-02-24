@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("steelhouse.trackingpixelallpagesexceptproductandconfirmation.Tag", {
     config: {
       /*DATA*/
-	id: 35662,
 	name: "Tracking Pixel - All Pages Except Product and Confirmation",
 	async: true,
 	description: "The generic Steelhouse tracking pixel, to be placed on all pages except for product detail and confirmation pages.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("steelhouse.trackingpixelallpagesexceptproductandco
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34722,
 		name: "SteelHouse Advertiser ID",
 		description: "The ID assigned to you by SteelHouse",
 		token: "merchant_id",
 		uv: ""
 	},
 	{
-		id: 34723,
 		name: "Basket Subtotal",
 		description: "The value of all items currently in the user's basket. Use a custom variable if UV is not present",
 		token: "basket_subtotal",
 		uv: "universal_variable.basket.subtotal"
 	},
 	{
-		id: 34724,
 		name: "Basket Item Quantities",
 		description: "List of quantities for each product in the user's cart. Use a custom variable if UV is not present",
 		token: "basket_item_quantities",
 		uv: "universal_variable.basket.line_items[#].quantity"
 	},
 	{
-		id: 34725,
 		name: "Basket SKU List",
 		description: "List of SKUs correlating to every product in the basket. Use a custom variable if UV is not present",
 		token: "basket_skus_list",
 		uv: "universal_variable.basket.line_items[#].product.sku_code"
 	},
 	{
-		id: 34726,
 		name: "Additional Info",
 		description: "Any additional info to be passed along. Send an empty hard-coded variable to leave blank.",
 		token: "additional_info",

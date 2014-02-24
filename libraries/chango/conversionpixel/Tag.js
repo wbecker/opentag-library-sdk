@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("chango.conversionpixel.Tag", {
     config: {
       /*DATA*/
-	id: 37658,
 	name: "Conversion Pixel",
 	async: true,
 	description: "The conversion pixel passes back information about the order placed and should be placed only on the confirmation page.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("chango.conversionpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36658,
 		name: "Conversion ID",
 		description: "This is a value provided by Chango when they generate the conversion tag for you",
 		token: "cid",
 		uv: ""
 	},
 	{
-		id: 36659,
 		name: "Order ID",
 		description: "The unique Order ID for this transaction",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 36660,
 		name: "Order Value",
 		description: "The total value of the order",
 		token: "total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 36661,
 		name: "Product Quantities",
 		description: "An array of quantities associated with each unique product in the order",
 		token: "qtys",

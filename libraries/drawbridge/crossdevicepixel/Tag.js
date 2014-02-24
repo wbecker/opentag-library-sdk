@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("drawbridge.crossdevicepixel.Tag", {
     config: {
       /*DATA*/
-	id: 39687,
 	name: "Cross Device Pixel",
 	async: true,
 	description: "Needs to go on Confirmation page of the desktop site. This pixel will enable Drawbridge to track those users who have potentially clicked to go on the mobile site but then not converted, later that day they go on the desktop site to check very out again and this time make a purchase, using complex algorithms Drawbridge can track these users and provide data showing how many people are converting across mobile to desktop, a useful and unique data set previously unavailable on mobile anywhere.",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("drawbridge.crossdevicepixel.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 38822,
 		name: "Drawbridge Partner ID",
 		description: "The ID that Drawbridge have given you",
 		token: "pid",
 		uv: ""
 	},
 	{
-		id: 38823,
 		name: "Drawbridge Partner Signature",
 		description: "The code given to you by Drawbridge",
 		token: "p_signature",
 		uv: ""
 	},
 	{
-		id: 38824,
 		name: "Drawbridge App ID",
 		description: "The Drawbridge application ID",
 		token: "appid",
 		uv: ""
 	},
 	{
-		id: 38825,
 		name: "Transaction Order Sub-total",
 		description: "The order total minus any tax or shipping",
 		token: "order_subtotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 38826,
 		name: "Transaction Order ID",
 		description: "The ID given to the customer's specific transaction",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 38827,
 		name: "Transaction Order Currency",
 		description: "The currency for the current transaction",
 		token: "order_currency",

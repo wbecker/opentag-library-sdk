@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserssimple.Tag", {
     config: {
       /*DATA*/
-	id: 24159,
 	name: "DoubleClick for Advertisers - Simple",
 	async: true,
 	description: "The non-conversion version of the DoubleClick tag",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserssimple.
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 23664,
 		name: "Double Click Id",
 		description: "Your unique identifier for your account",
 		token: "doubleclick_id",
 		uv: ""
 	},
 	{
-		id: 23665,
 		name: "Type",
 		description: "",
 		token: "type",
 		uv: ""
 	},
 	{
-		id: 23666,
 		name: "Category",
 		description: "",
 		token: "cat",

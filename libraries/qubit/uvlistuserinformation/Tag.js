@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.uvlistuserinformation.Tag", {
     config: {
       /*DATA*/
-	id: 23660,
 	name: "UV List - User Information",
 	async: true,
 	description: "Test Universal Variables regarding users",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("qubit.uvlistuserinformation.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 23197,
 		name: "User Full Name",
 		description: "",
 		token: "a",
 		uv: "universal_variable.user.name"
 	},
 	{
-		id: 23198,
 		name: "User Username",
 		description: "",
 		token: "b",
 		uv: "universal_variable.user.username"
 	},
 	{
-		id: 23199,
 		name: "User ID",
 		description: "",
 		token: "c",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 23200,
 		name: "User Email",
 		description: "",
 		token: "d",
 		uv: "universal_variable.user.email"
 	},
 	{
-		id: 23201,
 		name: "User Language Preference",
 		description: "",
 		token: "e",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 23202,
 		name: "User is Returning",
 		description: "",
 		token: "f",
 		uv: "universal_variable.user.returning"
 	},
 	{
-		id: 23203,
 		name: "User Facebook ID",
 		description: "",
 		token: "g",
 		uv: "universal_variable.user.facebook_id"
 	},
 	{
-		id: 23204,
 		name: "User Twitter ID",
 		description: "",
 		token: "h",

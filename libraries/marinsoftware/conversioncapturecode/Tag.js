@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecode.Tag", {
     config: {
       /*DATA*/
-	id: 37665,
 	name: "Conversion Capture Code",
 	async: true,
 	description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecode.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36692,
 		name: "Product IDs",
 		description: "Product IDs",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 36693,
 		name: "Product Categories",
 		description: "Product Categories",
 		token: "product_categories",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 36694,
 		name: "Product Quantities",
 		description: "Product Quantities",
 		token: "product_quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 36695,
 		name: "Order ID",
 		description: "Order ID",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 36696,
 		name: "Order Total",
 		description: "Order Total",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 36699,
 		name: "Currency",
 		description: "Currency",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 36700,
 		name: "Marin Tracking ID",
 		description: "Marin Tracking ID",
 		token: "tracking_id",

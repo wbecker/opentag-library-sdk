@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleuniversalanalytics.googleuniversalanalyticsautosenduvevents.Tag", {
     config: {
       /*DATA*/
-	id: 39665,
 	name: "Google Universal Analytics - auto send UV events",
 	async: true,
 	description: "Automatically send UV events as GA events using Universal Analytics. Depends on the main Universal Analytics script.",

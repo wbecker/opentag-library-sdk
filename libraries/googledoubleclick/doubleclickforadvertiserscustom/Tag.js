@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserscustom.Tag", {
     config: {
       /*DATA*/
-	id: 27158,
 	name: "DoubleClick for Advertisers - Custom",
 	async: true,
 	description: "The conversion version of the DoubleClick tag",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserscustom.
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 26662,
 		name: "DoubleClick ID",
 		description: "",
 		token: "doubleclick_id",
 		uv: ""
 	},
 	{
-		id: 26663,
 		name: "DoubleClick Tag Type",
 		description: "",
 		token: "type",
 		uv: ""
 	},
 	{
-		id: 26664,
 		name: "DoubleClick Tag Category",
 		description: "",
 		token: "cat",
 		uv: ""
 	},
 	{
-		id: 26665,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 26666,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 26667,
 		name: "Custom Parameters",
 		description: "",
 		token: "custom",

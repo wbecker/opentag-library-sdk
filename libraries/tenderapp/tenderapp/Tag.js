@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("tenderapp.tenderapp.Tag", {
     config: {
       /*DATA*/
-	id: 5,
 	name: "Tender App",
 	async: true,
 	description: "Web 2.0 based support desk and knowlegebase software.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("tenderapp.tenderapp.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 3,
 		name: "Subdomain",
 		description: "Please enter your subdomain. Example: yourdomain.tenderapp.com",
 		token: "SUBDOMAIN",

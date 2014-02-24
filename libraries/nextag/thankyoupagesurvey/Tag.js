@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
     config: {
       /*DATA*/
-	id: 35185,
 	name: "Thankyou Page Survey",
 	async: true,
 	description: "The tag to display the NexTag survey on the thanyou page. Any popup dimension can be set to a blank string to take the default value.",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 34327,
 		name: "Nextag Seller ID",
 		description: "",
 		token: "nextag_seller_id",
 		uv: ""
 	},
 	{
-		id: 34329,
 		name: "Nextag Popup Left",
 		description: "Default: Horizontally Centred",
 		token: "pop_left",
 		uv: ""
 	},
 	{
-		id: 34330,
 		name: "Nextag Popup Top",
 		description: "Default: Vertically Centred",
 		token: "popup_top",
 		uv: ""
 	},
 	{
-		id: 34332,
 		name: "Nextag Popup Width",
 		description: "Default: 345px",
 		token: "popup_width",
 		uv: ""
 	},
 	{
-		id: 34333,
 		name: "Nextag Popup Height",
 		description: "Default: 205px",
 		token: "popup_height",
 		uv: ""
 	},
 	{
-		id: 34334,
 		name: "Nextag Popup Resize",
 		description: "Default: 0",
 		token: "popup_resize",

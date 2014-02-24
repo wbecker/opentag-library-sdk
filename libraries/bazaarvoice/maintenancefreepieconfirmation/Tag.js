@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("bazaarvoice.maintenancefreepieconfirmation.Tag", {
     config: {
       /*DATA*/
-	id: 39172,
 	name: "Maintenance Free PIE - Confirmation",
 	async: true,
 	description: "Bazaarvoice will collect encrypted transaction/interaction data directly from your site using this interaction tagging\nmethod. You can enable this feature by applying a small amount of JavaScript (JS) code, called the ROI beacon, to\nyour order confirmation page. Once the beacon tag is integrated, Bazaarvoice will collect the data needed to\ngenerate your PIEs.",
@@ -15,56 +14,48 @@ qubit.qtag.LibraryTag.define("bazaarvoice.maintenancefreepieconfirmation.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38208,
 		name: "Client Code",
 		description: "The code that relates the client to Bazaarvoice",
 		token: "client_code",
 		uv: ""
 	},
 	{
-		id: 38209,
 		name: "Display Code",
 		description: "The display code given to you by Bazaarvoice",
 		token: "display_code",
 		uv: ""
 	},
 	{
-		id: 38210,
 		name: "Transaction Order ID",
 		description: "The ID for the transaction",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 38211,
 		name: "Transaction Order Total",
 		description: "The total amount of the order excluding shipping + tax",
 		token: "order_total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 38212,
 		name: "User Email",
 		description: "The email of the user",
 		token: "user_email",
 		uv: "universal_variable.user.email"
 	},
 	{
-		id: 38213,
 		name: "Product SKU List",
 		description: "The list of SKUs for products in the order",
 		token: "product_sku_list",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 38214,
 		name: "Product Quantity List",
 		description: "The list of quantities for products in the transaction",
 		token: "product_quantity_list",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 38215,
 		name: "Product Price List",
 		description: "The list of product prices in the order",
 		token: "product_prices",

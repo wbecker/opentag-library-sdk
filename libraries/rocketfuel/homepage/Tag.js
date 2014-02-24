@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("rocketfuel.homepage.Tag", {
     config: {
       /*DATA*/
-	id: 36160,
 	name: "Home Page",
 	async: true,
 	description: "Place on the site's home page. Intended to fire once per session - requires custom implementation to enforce this.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("rocketfuel.homepage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35185,
 		name: "RocketFuel Merchant ID",
 		description: "The ID assigned to you by RocketFuel",
 		token: "merchant_id",
 		uv: ""
 	},
 	{
-		id: 35186,
 		name: "RocketFuel Campaign ID",
 		description: "The campaign ID for the specific campaign this tag applies to.",
 		token: "campaign_id",
 		uv: ""
 	},
 	{
-		id: 35187,
 		name: "Random Number",
 		description: "Random number for use as a cachebuster",
 		token: "random",

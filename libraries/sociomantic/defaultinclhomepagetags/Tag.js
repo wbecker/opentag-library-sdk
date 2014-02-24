@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.defaultinclhomepagetags.Tag", {
     config: {
       /*DATA*/
-	id: 38169,
 	name: "Default (incl homepage tags)",
 	async: true,
 	description: "Homepage tracking code as Default for all pages that can't be assigned to a specific page type. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("sociomantic.defaultinclhomepagetags.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37194,
 		name: "Advertiser ID",
 		description: "An identifier for the client",
 		token: "advertiserid",
 		uv: ""
 	},
 	{
-		id: 37195,
 		name: "User ID",
 		description: "User's identifier - return false to safely exclude it",
 		token: "user_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 37203,
 		name: "User Email",
 		description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
 		token: "user_email",

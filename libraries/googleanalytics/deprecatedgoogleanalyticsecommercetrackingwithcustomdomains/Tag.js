@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains.Tag", {
     config: {
       /*DATA*/
-	id: 30162,
 	name: "[DEPRECATED] Google Analytics E-Commerce Tracking with Custom Domains",
 	async: true,
 	description: "Enables ecommerce tracking of multiple domains within one Google Analytics account.",

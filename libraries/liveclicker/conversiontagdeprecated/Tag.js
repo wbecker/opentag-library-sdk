@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("liveclicker.conversiontagdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 26662,
 	name: "Conversion Tag DEPRECATED",
 	async: true,
 	description: "Should be placed on the confirmation page only",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("liveclicker.conversiontagdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 26172,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 26173,
 		name: "Liveclicker Account ID",
 		description: "",
 		token: "account_id",

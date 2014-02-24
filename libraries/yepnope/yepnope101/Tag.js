@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("yepnope.yepnope101.Tag", {
     config: {
       /*DATA*/
-	id: 14,
 	name: "yepnope 1.0.1",
 	async: true,
 	description: "yepnope is an asynchronous conditional resource loader that's super-fast, and allows you to load only the scripts that your users need.",

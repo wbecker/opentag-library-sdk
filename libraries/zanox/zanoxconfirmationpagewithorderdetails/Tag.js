@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", {
     config: {
       /*DATA*/
-	id: 35663,
 	name: "Zanox - Confirmation Page with Order Details",
 	async: true,
 	description: "The Zanox confirmation page tag with order details. Includes generic \"MasterTag\" tracking pixel.",
@@ -15,91 +14,78 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", 
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34727,
 		name: "Program ID",
 		description: "Unique identifier, e.g. 10292C1904329647",
 		token: "program_id",
 		uv: ""
 	},
 	{
-		id: 34728,
 		name: "User ID",
 		description: "The user's unique identifier. Will not track if left blank.",
 		token: "user_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 34729,
 		name: "Order ID",
 		description: "The unique identifier for this order",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34730,
 		name: "Currency",
 		description: "The currency in which this order was charged",
 		token: "order_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 34731,
 		name: "Subtotal",
 		description: "The order's total value",
 		token: "subtotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 34732,
 		name: "Zanox Partner ID",
 		description: "Required for Advanced Session Tracking. Pass an empty hard-coded variable otherwise.",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 34733,
 		name: "Product Categories",
 		description: "An array of categories for each product in the order",
 		token: "product_cats",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 34734,
 		name: "Product Names",
 		description: "An array of names for each product in the order",
 		token: "product_names",
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	},
 	{
-		id: 34735,
 		name: "Product IDs",
 		description: "An array of IDs for each product in the order",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 34736,
 		name: "Product Prices",
 		description: "An array of prices paid for each product in the order",
 		token: "product_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 34737,
 		name: "Product Quantities",
 		description: "An array of quantities purchased for each product in the order",
 		token: "product_qtys",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 34738,
 		name: "Product URLs",
 		description: "An array of urls for each product in the order. Pass an empty hard-coded variable if unavailable.",
 		token: "product_urls",
 		uv: "universal_variable.transaction.line_items[#].product.url"
 	},
 	{
-		id: 34739,
 		name: "Zanox Page ID",
 		description: "The page ID for the confirmation page. Zanox calls this the 'checkout' page.",
 		token: "page_id",

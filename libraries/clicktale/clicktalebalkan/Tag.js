@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
     config: {
       /*DATA*/
-	id: 39658,
 	name: "ClickTale - Balkan",
 	async: true,
 	description: "New Balkan version of ClickTale mouse tracking",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 38660,
 		name: "ClickTale URL",
 		description: "Fill this dynamically with HTTPS or HTTP URL using JavaScript variable",
 		token: "clicktale_url",

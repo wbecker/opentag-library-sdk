@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("intelligentreach.generictag.Tag", {
     config: {
       /*DATA*/
-	id: 26659,
 	name: "Generic Tag",
 	async: true,
 	description: "Tag to be applied to all pages",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("intelligentreach.generictag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 26159,
 		name: "Intelligent Reach ID",
 		description: "",
 		token: "id",

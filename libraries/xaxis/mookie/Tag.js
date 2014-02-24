@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("xaxis.mookie.Tag", {
     config: {
       /*DATA*/
-	id: 31658,
 	name: "Mookie",
 	async: true,
 	description: "Fires a pixel with transaction information and 5 custom parameters.",
@@ -15,77 +14,66 @@ qubit.qtag.LibraryTag.define("xaxis.mookie.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 30667,
 		name: "Xaxis Client ID",
 		description: "Client identifier",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 31176,
 		name: "Xaxis Tag Name",
 		description: "Name of the Xaxis tag - usually references the functionality",
 		token: "tag_name",
 		uv: ""
 	},
 	{
-		id: 31177,
 		name: "Xaxis Data Source",
 		description: "Where the data is captured from",
 		token: "data_source",
 		uv: ""
 	},
 	{
-		id: 31178,
 		name: "Xaxis Order Value",
 		description: "Basket or order value",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 31179,
 		name: "Xaxis Transaction ID",
 		description: "ID of the transaction",
 		token: "transaction_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 31180,
 		name: "Xaxis Transaction Currency",
 		description: "The currency of the transaction",
 		token: "transaction_currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 31657,
 		name: "Xaxis Custom Parameter 1",
 		description: "Custom parameter. Leave blank if not used.",
 		token: "param1",
 		uv: ""
 	},
 	{
-		id: 31658,
 		name: "Xaxis Custom Parameter 2",
 		description: "Custom parameter. Leave blank if not used.",
 		token: "param2",
 		uv: ""
 	},
 	{
-		id: 31659,
 		name: "Xaxis Custom Parameter 3",
 		description: "Custom parameter. Leave blank if not used.",
 		token: "param3",
 		uv: ""
 	},
 	{
-		id: 31660,
 		name: "Xaxis Custom Parameter 4",
 		description: "Custom parameter. Leave blank if not used.",
 		token: "param4",
 		uv: ""
 	},
 	{
-		id: 31661,
 		name: "Xaxis Custom Parameter 5",
 		description: "Custom parameter. Leave blank if not used.",
 		token: "param5",

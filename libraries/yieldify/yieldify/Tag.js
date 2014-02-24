@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("yieldify.yieldify.Tag", {
     config: {
       /*DATA*/
-	id: 37163,
 	name: "Yieldify",
 	async: true,
 	description: "Yieldify is a software solution which allows you to maximise your opt-in rates and revenue from visitors leaving your website.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("yieldify.yieldify.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 36179,
 		name: "Yieldify ID",
 		description: "Your Yieldify ID",
 		token: "yieldifyid",

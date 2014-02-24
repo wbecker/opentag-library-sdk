@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.brandpagedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 33161,
 	name: "Brand Page DEPRECATED",
 	async: true,
 	description: "DO NOT USE. Peerius tag for the brand page",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("peerius.brandpagedeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32174,
 		name: "Peerius Language",
 		description: "The language of the page the tag is on",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 32175,
 		name: "Peerius Page Brand",
 		description: "The brand relating to the current brand category",
 		token: "brand",

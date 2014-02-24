@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sub2.sub2basketpagedependsuponsub2mainscriptallpages.Tag", {
     config: {
       /*DATA*/
-	id: 39678,
 	name: "Sub2 - Basket Page (depends upon \"Sub2 - Main Script - All Pages\")",
 	async: true,
 	description: "This script should be placed on the basket page and fire each time the contents of that basket change",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("sub2.sub2basketpagedependsuponsub2mainscriptallpag
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38759,
 		name: "List of Product SKUs",
 		description: "List of Product SKUs",
 		token: "sku",
 		uv: "universal_variable.basket.line_items[#].product.sku_code"
 	},
 	{
-		id: 38760,
 		name: "List of Product IDs",
 		description: "List of Product IDs",
 		token: "product_id",
 		uv: "universal_variable.basket.line_items[#].product.id"
 	},
 	{
-		id: 38761,
 		name: "List of Product Names",
 		description: "List of Product Names",
 		token: "product_name",
 		uv: "universal_variable.basket.line_items[#].product.name"
 	},
 	{
-		id: 38762,
 		name: "List or Product Prices",
 		description: "List or Product Prices",
 		token: "unit_price",
 		uv: "universal_variable.basket.line_items[#].product.unit_price"
 	},
 	{
-		id: 38763,
 		name: "List of Product Quantities",
 		description: "List of Product Quantities",
 		token: "quantity",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("quantcast.quantcastwebmeasurementwithlabels.Tag", {
     config: {
       /*DATA*/
-	id: 36179,
 	name: "QuantCast Web Measurement - with labels",
 	async: true,
 	description: "Provides audience information showcasing your website’s traffic, demographic, geographic, affinities and business stats. This version includes the \"labels\" parameter.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("quantcast.quantcastwebmeasurementwithlabels.Tag", 
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35266,
 		name: "Account Number",
 		description: "Your QuantCast account number",
 		token: "account_no",
 		uv: ""
 	},
 	{
-		id: 35268,
 		name: "Labels",
 		description: "Labels for visitor segmentation, see Quantcast documentation for further info",
 		token: "labels",

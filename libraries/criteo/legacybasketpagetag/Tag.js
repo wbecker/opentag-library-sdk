@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacybasketpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 39,
 	name: "Legacy - Basket Page Tag",
 	async: true,
 	description: "The basket tag has to be integrated on the basket or checkout page.",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("criteo.legacybasketpagetag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 3900,
 		name: "Criteo wi Parameter",
 		description: "A Parameter wi provided by Criteo",
 		token: "wi",
 		uv: ""
 	},
 	{
-		id: 3902,
 		name: "Criteo Call Parameter",
 		description: "Call Parameter provided by Criteo",
 		token: "call_parameter",
 		uv: ""
 	},
 	{
-		id: 3903,
 		name: "Product IDs",
 		description: "",
 		token: "product_ids",
 		uv: "universal_variable.basket.line_items[#].product.id"
 	},
 	{
-		id: 3904,
 		name: "Product Unit Prices",
 		description: "",
 		token: "product_unit_prices",
 		uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 3905,
 		name: "Quantities",
 		description: "",
 		token: "quantities",
 		uv: "universal_variable.basket.line_items[#].quantity"
 	},
 	{
-		id: 1460577144001265665,
 		name: "Criteo",
 		description: "A Parameter wi provided by Criteo",
 		token: "wi",

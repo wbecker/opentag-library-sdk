@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("firefly.generictag.Tag", {
     config: {
       /*DATA*/
-	id: 33174,
 	name: "Generic Tag",
 	async: true,
 	description: "The standard Firefly tag",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("firefly.generictag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32223,
 		name: "Firefly Token",
 		description: "The token specific to the client using Firefly",
 		token: "client_id",

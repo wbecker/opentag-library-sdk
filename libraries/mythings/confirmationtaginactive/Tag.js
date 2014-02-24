@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
     config: {
       /*DATA*/
-	id: 25157,
 	name: "Confirmation Tag - INACTIVE",
 	async: true,
 	description: "",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24657,
 		name: "Order Product IDs",
 		description: "",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 24658,
 		name: "Order Product Prices",
 		description: "",
 		token: "product_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 24659,
 		name: "Order Product Quantities",
 		description: "",
 		token: "product_quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 24660,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 24661,
 		name: "Order Amount",
 		description: "",
 		token: "order_amount",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 24662,
 		name: "myThings Advertiser Token",
 		description: "",
 		token: "advertiser_token",

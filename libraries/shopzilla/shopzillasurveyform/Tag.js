@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("shopzilla.shopzillasurveyform.Tag", {
     config: {
       /*DATA*/
-	id: 23668,
 	name: "Shopzilla Survey Form",
 	async: true,
 	description: "The buyer survey comes in two parts – the point of sale survey, which collects feedback from customers that buy from your store, and the fulfilment survey, which follows up after goods have been delivered.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("shopzilla.shopzillasurveyform.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 23234,
 		name: "Account Number",
 		description: "The number at the end of Shopzilla script. e.g. 0000 in evaleu.shopzilla.com/js/pos_0000.js",
 		token: "account",

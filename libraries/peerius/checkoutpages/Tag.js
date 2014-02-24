@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.checkoutpages.Tag", {
     config: {
       /*DATA*/
-	id: 36159,
 	name: "Checkout Pages",
 	async: true,
 	description: "Peerius tag for the checkout pages",
@@ -15,63 +14,54 @@ qubit.qtag.LibraryTag.define("peerius.checkoutpages.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35176,
 		name: "Peerius Client Name",
 		description: "The name of the client for which the tag is to be implemented",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 35177,
 		name: "Peerius Language",
 		description: "Language of the page the tag is on",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 35178,
 		name: "Peerius Basket Currency",
 		description: "The currency of the confirmation page the tag is on",
 		token: "currency",
 		uv: "universal_variable.basket.currency"
 	},
 	{
-		id: 35179,
 		name: "Peerius Subtotal",
 		description: "The total value of the products at the checkout stage, minus any shipping",
 		token: "subtotal",
 		uv: "universal_variable.basket.subtotal"
 	},
 	{
-		id: 35180,
 		name: "Peerius Shipping Cost",
 		description: "The cost of shipping at the basket page stage",
 		token: "shipping",
 		uv: "universal_variable.basket.shipping_cost"
 	},
 	{
-		id: 35181,
 		name: "Peerius Checkout Total",
 		description: "The total of item and shipping cost in basket page",
 		token: "total",
 		uv: "universal_variable.basket.total"
 	},
 	{
-		id: 35182,
 		name: "Peerius Product IDs List",
 		description: "A list of product IDs in the basket",
 		token: "product_ids",
 		uv: "universal_variable.basket.line_items[#].product.id"
 	},
 	{
-		id: 35183,
 		name: "Peerius Product Quantities List",
 		description: "A list of quantities for items in the basket",
 		token: "product_quantities",
 		uv: "universal_variable.basket.line_items[#].quantity"
 	},
 	{
-		id: 35184,
 		name: "Peerius Unit Sale Price List",
 		description: "A list of unit sale prices for items in the basket",
 		token: "price_list",

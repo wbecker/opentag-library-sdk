@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
     config: {
       /*DATA*/
-	id: 24675,
 	name: "Emailvision - Confirmation",
 	async: true,
 	description: "The Emailvision tag to be used on confirmation pages.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24228,
 		name: "Emailvision Client ID",
 		description: "",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 24229,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 24230,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 24231,
 		name: "Order Currency",
 		description: "",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 24232,
 		name: "Emailvision Conversion Flag",
 		description: "",
 		token: "conv_tag",
 		uv: ""
 	},
 	{
-		id: 24233,
 		name: "Emailvision Page Name",
 		description: "",
 		token: "page_name",
 		uv: ""
 	},
 	{
-		id: 30160,
 		name: "PCT Server",
 		description: "The PCT server on Emailvision to send pings to",
 		token: "pct_server",

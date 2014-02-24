@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
     config: {
       /*DATA*/
-	id: 36200,
 	name: "Webtrends - Ecommerce tracking",
 	async: true,
 	description: "To be placed on pages where you wish to pass back transactional data. Should be dependent on the main Webtrends tracking tag.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35659,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 35660,
 		name: "Product Unit Sale Prices",
 		description: "",
 		token: "unit_sale_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 35661,
 		name: "Product IDs",
 		description: "",
 		token: "ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 35662,
 		name: "Product SKUs",
 		description: "",
 		token: "skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 35663,
 		name: "Product Categories",
 		description: "",
 		token: "categories",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 35665,
 		name: "Product Manufacturers",
 		description: "",
 		token: "manufacturers",
 		uv: "universal_variable.transaction.line_items[#].product.manufacturer"
 	},
 	{
-		id: 35666,
 		name: "Line Item Quantities",
 		description: "",
 		token: "quantities",

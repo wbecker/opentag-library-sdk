@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.producttag.Tag", {
     config: {
       /*DATA*/
-	id: 38170,
 	name: "Product Tag",
 	async: true,
 	description: "This tracking code needs to go on all product pages in order to know which products user was interested in. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("sociomantic.producttag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37196,
 		name: "Advertiser ID",
 		description: "An identifier for the client",
 		token: "advertiserid",
 		uv: ""
 	},
 	{
-		id: 37197,
 		name: "User ID",
 		description: "User's identifier - return false to safely exclude it",
 		token: "user_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 37198,
 		name: "Product ID",
 		description: "An identifier for the current product",
 		token: "product_id",
 		uv: "universal_variable.product.id"
 	},
 	{
-		id: 37204,
 		name: "User Email",
 		description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
 		token: "user_email",

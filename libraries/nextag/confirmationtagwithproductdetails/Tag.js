@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("nextag.confirmationtagwithproductdetails.Tag", {
     config: {
       /*DATA*/
-	id: 35183,
 	name: "Confirmation Tag with product details",
 	async: true,
 	description: "ROI Tag without product details",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("nextag.confirmationtagwithproductdetails.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34321,
 		name: "Nextag ID",
 		description: "",
 		token: "nextag_id",
 		uv: ""
 	},
 	{
-		id: 34322,
 		name: "Order Sub-Total",
 		description: "",
 		token: "order_subtotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 34323,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34324,
 		name: "Product Categories",
 		description: "",
 		token: "cats",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 34325,
 		name: "Product Names",
 		description: "",
 		token: "names",
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	},
 	{
-		id: 34326,
 		name: "Product Quantities",
 		description: "",
 		token: "quantities",

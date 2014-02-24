@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("veinteractive.confirmationpixel.Tag", {
     config: {
       /*DATA*/
-	id: 35175,
 	name: "Confirmation Pixel",
 	async: true,
 	description: "Tag to be added only to the confirmation page",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("veinteractive.confirmationpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34284,
 		name: "VE Interactive ID",
 		description: "The ID for the tag in this format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX with dashes included",
 		token: "id",

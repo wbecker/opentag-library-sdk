@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsremarketing.Tag", {
     config: {
       /*DATA*/
-	id: 36172,
 	name: "Google Analytics Remarketing",
 	async: true,
 	description: "A Google Analytics tracking tag which reports information to the doubleclick servers for remarketing purposes.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsremarketing.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35231,
 		name: "GA Profile Id",
 		description: "Please enter your Google Analytics profile Id here. Example: UA-123123-12",
 		token: "PROFILE_ID",

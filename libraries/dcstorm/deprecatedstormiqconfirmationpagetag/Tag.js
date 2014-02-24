@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("dcstorm.deprecatedstormiqconfirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 30173,
 	name: "DEPRECATED StormIQ Confirmation Page Tag",
 	async: true,
 	description: "To be placed on the confirmation page only",
@@ -15,63 +14,54 @@ qubit.qtag.LibraryTag.define("dcstorm.deprecatedstormiqconfirmationpagetag.Tag",
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29215,
 		name: "StormIQ ID",
 		description: "",
 		token: "storm_id",
 		uv: ""
 	},
 	{
-		id: 29216,
 		name: "StormIQ Channel",
 		description: "If not specified, leave blank",
 		token: "channel",
 		uv: ""
 	},
 	{
-		id: 29217,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 29218,
 		name: "Product ID's",
 		description: "",
 		token: "ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 29219,
 		name: "Product SKU's",
 		description: "",
 		token: "skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 29220,
 		name: "Product Quantities",
 		description: "",
 		token: "quants",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 29221,
 		name: "Product Colors",
 		description: "",
 		token: "colors",
 		uv: "universal_variable.transaction.line_items[#].product.color"
 	},
 	{
-		id: 29222,
 		name: "Product Values",
 		description: "",
 		token: "vals",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 29223,
 		name: "Shipping Cost",
 		description: "",
 		token: "shipping",

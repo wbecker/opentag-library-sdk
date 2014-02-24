@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("drawbridge.drawbridge.Tag", {
     config: {
       /*DATA*/
-	id: 39685,
 	name: "Drawbridge",
 	async: true,
 	description: "Drawbridge provides advertisers with the unique capability of reaching 3rd party Desktop audiences on mobile devices.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("drawbridge.drawbridge.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 38805,
 		name: "Drawbridge Partner ID",
 		description: "The partner ID given to you by Drawbridge",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 38806,
 		name: "Drawbridge Partner Sign",
 		description: "The partner sign provided to you by Drawbridge",
 		token: "partner_sign",
 		uv: ""
 	},
 	{
-		id: 38807,
 		name: "Drawbridge App ID",
 		description: "The application ID provided to you by Drawbridge",
 		token: "app_id",
 		uv: ""
 	},
 	{
-		id: 38808,
 		name: "Drawbridge Label",
 		description: "The label for the specific implementation of Drawbridge",
 		token: "label",

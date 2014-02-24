@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mythings.visitortag.Tag", {
     config: {
       /*DATA*/
-	id: 23665,
 	name: "Visitor Tag",
 	async: true,
 	description: "This tag should be placed on ALL pages",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("mythings.visitortag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 23222,
 		name: "myThings Advertiser Token",
 		description: "Value of mtAdvertiserToken",
 		token: "token",
 		uv: ""
 	},
 	{
-		id: 23223,
 		name: "myThings Subdomain",
 		description: "subdomian provided for tracking",
 		token: "subdomain",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("shopzilla.shopzillapossurvey.Tag", {
     config: {
       /*DATA*/
-	id: 36664,
 	name: "Shopzilla POS Survey",
 	async: true,
 	description: "Survey to be placed after a user has made a purchase.",
@@ -15,63 +14,54 @@ qubit.qtag.LibraryTag.define("shopzilla.shopzillapossurvey.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35702,
 		name: "Merchant id",
 		description: "Your unique merchant id for Shopzilla",
 		token: "merchant_id",
 		uv: ""
 	},
 	{
-		id: 35703,
 		name: "Passin Y",
 		description: "Adjust horizontal position by pixel.",
 		token: "passin_y",
 		uv: ""
 	},
 	{
-		id: 35704,
 		name: "Passin X",
 		description: "Adjust horizontal position by pixel.",
 		token: "passin_x",
 		uv: ""
 	},
 	{
-		id: 35705,
 		name: "Total",
 		description: "",
 		token: "total",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 35706,
 		name: "Zip code",
 		description: "",
 		token: "zip_code",
 		uv: "universal_variable.transaction.billing.postcode"
 	},
 	{
-		id: 35707,
 		name: "Product SKUs",
 		description: "",
 		token: "skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 35708,
 		name: "Product URLs",
 		description: "",
 		token: "urls",
 		uv: "universal_variable.transaction.line_items[#].product.url"
 	},
 	{
-		id: 35709,
 		name: "Product Prices",
 		description: "",
 		token: "unit_sale_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 35710,
 		name: "Order id",
 		description: "",
 		token: "order_id",

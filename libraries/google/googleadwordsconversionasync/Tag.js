@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
     config: {
       /*DATA*/
-	id: 24669,
 	name: "Google AdWords Conversion Async",
 	async: true,
 	description: "Tracks users that have converted who previously clicked through on an ad.",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24207,
 		name: "Conversion ID",
 		description: "Your Google id provided in the script",
 		token: "conversion_id",
 		uv: "koko"
 	},
 	{
-		id: 24208,
 		name: "Conversion Label",
 		description: "A alphanumeric label of your conversion tracking",
 		token: "label",
 		uv: ""
 	},
 	{
-		id: 24209,
 		name: "Conversion Value",
 		description: "The value of the conversion. This should be a number, or 0 if there is no value to the conversion",
 		token: "value",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 1460298932030537729,
 		name: "Conversion KOKO",
 		description: "Your KOKO id provided in the script",
 		token: "conversion_id_KOKO",
 		uv: "koko other"
 	},
 	{
-		id: 1460299048617508866,
 		name: "Conversion ID",
 		description: "Your Google id provided in the script",
 		token: "conversion_id",
 		uv: "koko"
 	},
 	{
-		id: 1460299147296899073,
 		name: "Conversion KOKO",
 		description: "Your KOKO id provided in the script",
 		token: "conversion_id_KOKO",

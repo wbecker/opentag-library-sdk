@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("jquery.asynchronous.Tag", {
     config: {
       /*DATA*/
-	id: 29660,
 	name: "Asynchronous",
 	async: true,
 	description: "Load any specific version of jQuery asynchronously",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("jquery.asynchronous.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28691,
 		name: "jQuery version",
 		description: "jQuery version e.g. 1.8.3",
 		token: "version",

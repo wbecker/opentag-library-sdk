@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricselementtracking.Tag", {
     config: {
       /*DATA*/
-	id: 36195,
 	name: "CoreMetrics - Element Tracking",
 	async: true,
 	description: "Track custom elements with CoreMetrics. Note that this tag depends on other CoreMetrics tags having already loaded on the page.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricselementtracking.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35324,
 		name: "Element ID",
 		description: "The unique identifier or name for the Element and the value that is displayed in the Elements report",
 		token: "element_id",
 		uv: ""
 	},
 	{
-		id: 35325,
 		name: "Element Category",
 		description: "The category passed in the Element tag is used to populate the Element Categories report.",
 		token: "element_category",

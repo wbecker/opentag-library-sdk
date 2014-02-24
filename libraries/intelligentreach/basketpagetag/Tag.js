@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("intelligentreach.basketpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 26658,
 	name: "Basket Page Tag",
 	async: true,
 	description: "The tag is placed on basket page only.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("intelligentreach.basketpagetag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 26157,
 		name: "Basket SKU List",
 		description: "",
 		token: "productSku",
 		uv: "universal_variable.basket.line_items[#].product.sku_code"
 	},
 	{
-		id: 26158,
 		name: "Intelligent Reach ID",
 		description: "",
 		token: "id",

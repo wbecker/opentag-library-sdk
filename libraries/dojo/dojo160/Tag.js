@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("dojo.dojo160.Tag", {
     config: {
       /*DATA*/
-	id: 3,
 	name: "Dojo 1.6.0",
 	async: false,
 	description: "Dojo saves you time, delivers powerful performance, and scales with your development process. Itâ€™s the toolkit experienced developers turn to for building superior desktop and mobile web experiences.",

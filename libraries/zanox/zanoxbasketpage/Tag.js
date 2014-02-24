@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
     config: {
       /*DATA*/
-	id: 36657,
 	name: "Zanox Basket Page",
 	async: true,
 	description: "Basket Page Master Tag",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35657,
 		name: "ID",
 		description: "client/page specific ID",
 		token: "id",

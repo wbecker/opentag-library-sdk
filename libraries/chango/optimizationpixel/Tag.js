@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("chango.optimizationpixel.Tag", {
     config: {
       /*DATA*/
-	id: 37657,
 	name: "Optimization Pixel",
 	async: true,
 	description: "Chango's optimization pixel is a site-wide data gathering tool used to improve retargeting services. It should fire on every page.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("chango.optimizationpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36657,
 		name: "Account ID",
 		description: "Your Chango Account ID",
 		token: "id",

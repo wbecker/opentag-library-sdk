@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.json2.Tag", {
     config: {
       /*DATA*/
-	id: 37170,
 	name: "JSON2",
 	async: true,
 	description: "The standard JSON2 library by Douglas Crockford.",

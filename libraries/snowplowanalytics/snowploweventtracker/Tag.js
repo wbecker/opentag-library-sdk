@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("snowplowanalytics.snowploweventtracker.Tag", {
     config: {
       /*DATA*/
-	id: 37168,
 	name: "Snowplow EventTracker",
 	async: true,
 	description: "Tag for getting SnowPlow to track all UV events into your custom SnowPlow system. Must be set to depend on the SnowPlow PageTracker.",

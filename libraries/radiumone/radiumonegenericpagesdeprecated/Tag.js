@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumonegenericpagesdeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 30163,
 	name: "RadiumOne - Generic Pages DEPRECATED",
 	async: true,
 	description: "",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonegenericpagesdeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29187,
 		name: "Shop ID",
 		description: "The unique ID for the store",
 		token: "shop_id",

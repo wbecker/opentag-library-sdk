@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("netbooster.remarketingpixel.Tag", {
     config: {
       /*DATA*/
-	id: 24674,
 	name: "Re-Marketing Pixel",
 	async: true,
 	description: "",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("netbooster.remarketingpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24225,
 		name: "Pixel ID",
 		description: "",
 		token: "pixel_id",
 		uv: ""
 	},
 	{
-		id: 24226,
 		name: "Partner ID",
 		description: "",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 24227,
 		name: "Client ID",
 		description: "",
 		token: "client_id",

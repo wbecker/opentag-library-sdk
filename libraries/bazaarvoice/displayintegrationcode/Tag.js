@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("bazaarvoice.displayintegrationcode.Tag", {
     config: {
       /*DATA*/
-	id: 23663,
 	name: "Display Integration Code",
 	async: true,
 	description: "Requirement: 1) Place the following code on every product page where you want to display the ratings summary. <div id=\"BVRRSummaryContainer\"></div> 2) Place the following code on every product page where you want to display review content. <div id=\"BVRRContainer\"></div>",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("bazaarvoice.displayintegrationcode.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 23211,
 		name: "Client Code",
 		description: "Represents your client code",
 		token: "client_code",
 		uv: ""
 	},
 	{
-		id: 23212,
 		name: "Display Code",
 		description: "Represents your display code",
 		token: "display_code",
 		uv: ""
 	},
 	{
-		id: 23213,
 		name: "Product ID",
 		description: "The ID of the product displayed on the page",
 		token: "product_id",

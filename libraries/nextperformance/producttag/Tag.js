@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("nextperformance.producttag.Tag", {
     config: {
       /*DATA*/
-	id: 24665,
 	name: "Product Tag",
 	async: true,
 	description: "Tag to be inserted on the product pages, requires product ID.  For dynamic banners campaigns, the website's ID must be the same as in the product feed.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("nextperformance.producttag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24188,
 		name: "Account (zid)",
 		description: "zid value provided by NextPerformance",
 		token: "zid",
 		uv: ""
 	},
 	{
-		id: 24189,
 		name: "Product ID",
 		description: "",
 		token: "productId",

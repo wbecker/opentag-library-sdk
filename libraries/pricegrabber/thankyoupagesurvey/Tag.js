@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("pricegrabber.thankyoupagesurvey.Tag", {
     config: {
       /*DATA*/
-	id: 35181,
 	name: "Thank You Page Survey",
 	async: true,
 	description: "Adjust the values of popup_pos_x, popup_pos_y to change the location of the popup layer on your confirmation page",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("pricegrabber.thankyoupagesurvey.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34310,
 		name: "PriceGrabber Account Number",
 		description: "",
 		token: "account_number",
 		uv: ""
 	},
 	{
-		id: 34311,
 		name: "PriceGrabber Popup X",
 		description: "",
 		token: "x",
 		uv: ""
 	},
 	{
-		id: 34312,
 		name: "PriceGrabber Popup Y",
 		description: "",
 		token: "y",
 		uv: ""
 	},
 	{
-		id: 34313,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 34314,
 		name: "PriceGrabber Popup Email",
 		description: "",
 		token: "email",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 30170,
 	name: "{DEPRECATED} Basket Page Tag",
 	async: true,
 	description: "Product ID is required on the basket page, along with additional information like quantity, amount, currency",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29205,
 		name: "Product Ids",
 		description: "A list of identifiers relating to products in the basket",
 		token: "product_ids",
 		uv: "universal_variable.basket.line_items[#].product.id"
 	},
 	{
-		id: 29206,
 		name: "Amounts",
 		description: "A list of amounts for each item in the basket",
 		token: "amounts",
 		uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 29207,
 		name: "Currency",
 		description: "The currency for the current basket",
 		token: "currency",
 		uv: "universal_variable.basket.currency"
 	},
 	{
-		id: 29208,
 		name: "Quantities",
 		description: "A list of quantities for items relating to respective items currently in the basket",
 		token: "quantities",
 		uv: "universal_variable.basket.line_items[#].quantity"
 	},
 	{
-		id: 29209,
 		name: "Advertiser Id",
 		description: "An identifier for the client",
 		token: "advertiserid",

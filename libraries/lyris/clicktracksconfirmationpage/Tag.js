@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("lyris.clicktracksconfirmationpage.Tag", {
     config: {
       /*DATA*/
-	id: 25657,
 	name: "Click Tracks Confirmation Page",
 	async: true,
 	description: "",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("lyris.clicktracksconfirmationpage.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 25157,
 		name: "Click Tracks ID",
 		description: "",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 27690,
 		name: "Order Total",
 		description: "",
 		token: "order_total",

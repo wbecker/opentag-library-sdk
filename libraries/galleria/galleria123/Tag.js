@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("galleria.galleria123.Tag", {
     config: {
       /*DATA*/
-	id: 11,
 	name: "galleria 1.2.3",
 	async: true,
 	description: "Galleria is a JavaScript image gallery framework built on top of the jQuery library. The aim is to simplify the process of creating professional image galleries for the web and mobile devices.",

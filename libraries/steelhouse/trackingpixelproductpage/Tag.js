@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("steelhouse.trackingpixelproductpage.Tag", {
     config: {
       /*DATA*/
-	id: 34675,
 	name: "Tracking Pixel - Product Page",
 	async: true,
 	description: "The generic Steelhouse tracking pixel for product pages only.",
@@ -15,98 +14,84 @@ qubit.qtag.LibraryTag.define("steelhouse.trackingpixelproductpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34672,
 		name: "SteelHouse Advertiser ID",
 		description: "The ID assigned to you by SteelHouse",
 		token: "merchant_id",
 		uv: ""
 	},
 	{
-		id: 34673,
 		name: "Product Name",
 		description: "The name of the product the customer is currently viewing",
 		token: "product_name",
 		uv: "universal_variable.product.name"
 	},
 	{
-		id: 34674,
 		name: "Product Category",
 		description: "The category which the current product belongs to",
 		token: "product_category",
 		uv: "universal_variable.product.category"
 	},
 	{
-		id: 34675,
 		name: "Product Brand",
 		description: "The name of the manufacturer of the current product",
 		token: "product_brand",
 		uv: "universal_variable.product.manufacturer"
 	},
 	{
-		id: 34676,
 		name: "Product Price",
 		description: "The price of the current product",
 		token: "product_price",
 		uv: "universal_variable.product.unit_price"
 	},
 	{
-		id: 34677,
 		name: "Currency",
 		description: "The currency that the price is displayed in",
 		token: "product_price_currency",
 		uv: "universal_variable.product.currency"
 	},
 	{
-		id: 34678,
 		name: "Product Image",
 		description: "A URL pointing to an image of the product",
 		token: "product_image_url",
 		uv: "universal_variable.product.image_url"
 	},
 	{
-		id: 34679,
 		name: "Product SKU",
 		description: "The SKU code for the product",
 		token: "product_sku",
 		uv: "universal_variable.product.sku_code"
 	},
 	{
-		id: 34680,
 		name: "Inventory Count",
 		description: "The number of this product available for sale",
 		token: "product_inventory_count",
 		uv: "universal_variable.product.stock"
 	},
 	{
-		id: 34681,
 		name: "End Date",
 		description: "The end date for this price. Send an empty hard-coded variable to leave blank.",
 		token: "product_availability_ends",
 		uv: ""
 	},
 	{
-		id: 34682,
 		name: "Basket Subtotal",
 		description: "The value of all items currently in the user's basket. Use a custom variable if UV is not present",
 		token: "basket_subtotal",
 		uv: "universal_variable.basket.subtotal"
 	},
 	{
-		id: 34683,
 		name: "Basket Item Quantities",
 		description: "List of quantities for each product in the user's cart. Use a custom variable if UV is not present",
 		token: "basket_item_quantities",
 		uv: "universal_variable.basket.line_items[#].quantity"
 	},
 	{
-		id: 34684,
 		name: "Additional Info",
 		description: "Any additional info to be passed along. Send an empty hard-coded variable to leave blank.",
 		token: "additional_info",
 		uv: ""
 	},
 	{
-		id: 34685,
 		name: "Basket SKU List",
 		description: "List of SKUs correlating to every product in the basket. Use a custom variable if UV is not present",
 		token: "basket_skus_list",

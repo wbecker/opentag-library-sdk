@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mediamind.confirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 28661,
 	name: "Confirmation Page Tag",
 	async: true,
 	description: "To be placed on the confirmation page only",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("mediamind.confirmationpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28666,
 		name: "MediaMind Confirmation Page Activity ID",
 		description: "",
 		token: "activity_id",
 		uv: ""
 	},
 	{
-		id: 28667,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 28668,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 28670,
 		name: "Product ID List",
 		description: "",
 		token: "ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 28671,
 		name: "Product SKU List",
 		description: "",
 		token: "skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 28672,
 		name: "Product Quantity List",
 		description: "",
 		token: "quants",

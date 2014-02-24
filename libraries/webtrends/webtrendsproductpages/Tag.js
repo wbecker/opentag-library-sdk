@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendsproductpages.Tag", {
     config: {
       /*DATA*/
-	id: 36659,
 	name: "Webtrends - Product pages",
 	async: true,
 	description: "To be placed on product pages. Should be dependent on the main Webtrends tracking tag.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsproductpages.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35672,
 		name: "Product SKU",
 		description: "",
 		token: "sku",
 		uv: "universal_variable.product.sku_code"
 	},
 	{
-		id: 35673,
 		name: "Product ID",
 		description: "",
 		token: "id",
 		uv: "universal_variable.product.id"
 	},
 	{
-		id: 35674,
 		name: "Product Category",
 		description: "",
 		token: "category",
 		uv: "universal_variable.product.category"
 	},
 	{
-		id: 35675,
 		name: "Product Manufacturer",
 		description: "",
 		token: "manufacturer",
 		uv: "universal_variable.product.manufacturer"
 	},
 	{
-		id: 35676,
 		name: "Product Subcategory",
 		description: "",
 		token: "subcategory",

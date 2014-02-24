@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 34673,
 	name: "Confirmation Page Tag",
 	async: true,
 	description: "Tag must be implemented on the confirmation page after user has made payment.",
@@ -15,35 +14,30 @@ qubit.qtag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 33744,
 		name: "AdRoll Advertiser ID",
 		description: "The identifier for the advertiser",
 		token: "adroll_ad_id",
 		uv: ""
 	},
 	{
-		id: 33745,
 		name: "AdRoll Pixel ID",
 		description: "The identifier for the pixel",
 		token: "adroll_pix_id",
 		uv: ""
 	},
 	{
-		id: 33746,
 		name: "Transaction Order Total",
 		description: "The total value of the order",
 		token: "total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 33747,
 		name: "Transaction Order ID",
 		description: "The identifier relating to the transaction",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 33748,
 		name: "Transaction User ID",
 		description: "The identifier relating to the user",
 		token: "user_id",

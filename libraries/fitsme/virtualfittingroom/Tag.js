@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("fitsme.virtualfittingroom.Tag", {
     config: {
       /*DATA*/
-	id: 36187,
 	name: "Virtual Fitting Room",
 	async: true,
 	description: "This product page tag adds the code needed to populate the \"fitsme_launcher\" div and makes sure GA is properly prepared (if present). It requires the FitsMeData object to be populated, either server-side or in a custom script which this depends on.",

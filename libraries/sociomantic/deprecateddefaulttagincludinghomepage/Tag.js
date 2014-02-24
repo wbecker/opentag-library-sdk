@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecateddefaulttagincludinghomepage.Tag", {
     config: {
       /*DATA*/
-	id: 30166,
 	name: "{DEPRECATED} Default Tag (including Home Page)",
 	async: true,
 	description: "Homepage tracking code as Default for all pages that can't be assigned to a specific page type",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecateddefaulttagincludinghomepage.
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29190,
 		name: "Advertiser Token",
 		description: "Your Sociomantic customer ID. Please only use the token that has been created and sent to you.",
 		token: "TOKEN",

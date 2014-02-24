@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("fandist.digitalanimal.Tag", {
     config: {
       /*DATA*/
-	id: 39672,
 	name: "Digital Animal",
 	async: true,
 	description: "This will enable fandi.st to show you what impact your Campaigns are having on your site.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("fandist.digitalanimal.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38719,
 		name: "Fandi.st Client ID",
 		description: "The ID relating the script to you",
 		token: "client_id",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("monetate.monetate.Tag", {
     config: {
       /*DATA*/
-	id: 37166,
 	name: "Monetate",
 	async: true,
 	description: "Generic Monetate tag to be added on all pages.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("monetate.monetate.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 36192,
 		name: "Monetate ID",
 		description: "Your unique id, e.g. a-64624593",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 36193,
 		name: "Monetate Domain",
 		description: "e.g. qubitproducts.com",
 		token: "domain",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sizzle.sizzle144.Tag", {
     config: {
       /*DATA*/
-	id: 28,
 	name: "sizzle 1.4.4",
 	async: true,
 	description: "A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library.",

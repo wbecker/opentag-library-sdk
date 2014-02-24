@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyconfirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 36,
 	name: "Legacy - Confirmation Page Tag",
 	async: true,
 	description: "This is a mandatory tag and must be executed on the confirmation page after user made payment.",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("criteo.legacyconfirmationpagetag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 3600,
 		name: "Criteo wi parameter",
 		description: "Criteo wi parameter value",
 		token: "wi",
 		uv: ""
 	},
 	{
-		id: 3602,
 		name: "Criteo call parameter value",
 		description: "Criteo call parameter value",
 		token: "call_parameter",
 		uv: ""
 	},
 	{
-		id: 3603,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 3604,
 		name: "Product IDs",
 		description: "",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 3605,
 		name: "Product Unit Sale Prices",
 		description: "",
 		token: "product_unit_prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 3606,
 		name: "Quantities",
 		description: "",
 		token: "quantities",

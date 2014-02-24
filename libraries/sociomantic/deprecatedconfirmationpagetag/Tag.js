@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedconfirmationpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 30169,
 	name: "{DEPRECATED} Confirmation Page Tag",
 	async: true,
 	description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedconfirmationpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29198,
 		name: "Products Ids",
 		description: "A list of product IDs currently in the basket",
 		token: "product_ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 29199,
 		name: "Amounts",
 		description: "A list of prices of items currently in the basket",
 		token: "amounts",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 29200,
 		name: "Currency",
 		description: "The current currency in the basket",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 29201,
 		name: "Quantities",
 		description: "A list of the respective quantities of corresponding items currently in the basket.",
 		token: "quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 29202,
 		name: "Advertiser ID",
 		description: "Identifier relating to the specific client",
 		token: "advertiserid",
 		uv: ""
 	},
 	{
-		id: 29203,
 		name: "Transaction ID",
 		description: "Identifier relating to the current transaction",
 		token: "transaction_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 29204,
 		name: "Checkout Total",
 		description: "The total value of items at checkout",
 		token: "checkout_total",

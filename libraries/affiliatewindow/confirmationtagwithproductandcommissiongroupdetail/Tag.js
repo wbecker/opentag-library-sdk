@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductandcommissiongroupdetail.Tag", {
     config: {
       /*DATA*/
-	id: 24668,
 	name: "Confirmation Tag with Product and Commission Group Detail",
 	async: true,
 	description: "Use this if you have different commission groups per product.",
@@ -15,91 +14,78 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductandcommi
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24194,
 		name: "Affiliate Window Merchant ID",
 		description: "Affiliate Window Merchant ID",
 		token: "merchant_id",
 		uv: ""
 	},
 	{
-		id: 24195,
 		name: "Affiliate Window Test Mode",
 		description: "Enter 0 if the code is on production mode; Test mode uses value 1.",
 		token: "testmode",
 		uv: ""
 	},
 	{
-		id: 24196,
 		name: "Order Sub Total",
 		description: "The total cost of the order",
 		token: "orderTotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 24197,
 		name: "Order Id",
 		description: "A unique id for the order",
 		token: "orderId",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 24198,
 		name: "Voucher",
 		description: "The voucher by which the order was discounted",
 		token: "voucher",
 		uv: "universal_variable.transaction.voucher"
 	},
 	{
-		id: 24199,
 		name: "Order Currency",
 		description: "The currency the order was paid with",
 		token: "orderCurrency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 24200,
 		name: "Product Ids",
 		description: "The id of each product purchased",
 		token: "productId",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 24201,
 		name: "Product Name",
 		description: "The name of each product purchased",
 		token: "productName",
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	},
 	{
-		id: 24202,
 		name: "Product Unit Price",
 		description: "The price of each product purchased",
 		token: "productUnitPrice",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 24203,
 		name: "Product Quantities",
 		description: "The quantity of each product purchased",
 		token: "quantity",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 24204,
 		name: "Product SKUs",
 		description: "The SKUs for each product in the order",
 		token: "productSku",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 24205,
 		name: "Product Categories",
 		description: "The category for each product purchased",
 		token: "productCategory",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 24206,
 		name: "Product Commission Groups",
 		description: "The commission group for every product purchased",
 		token: "commission_groups",

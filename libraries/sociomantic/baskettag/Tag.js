@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.baskettag.Tag", {
     config: {
       /*DATA*/
-	id: 38164,
 	name: "Basket Tag",
 	async: true,
 	description: "Product ID is required on the basket page, along with additional information like quantity, amount, currency. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("sociomantic.baskettag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37169,
 		name: "Advertiser ID",
 		description: "An identifier for the client",
 		token: "advertiserid",
 		uv: ""
 	},
 	{
-		id: 37170,
 		name: "User Email",
 		description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
 		token: "user_email",
 		uv: "universal_variable.user.email"
 	},
 	{
-		id: 37171,
 		name: "Product Ids",
 		description: "A list of identifiers relating to products in the basket",
 		token: "product_ids",
 		uv: "universal_variable.basket.line_items[#].product.id"
 	},
 	{
-		id: 37172,
 		name: "Prices",
 		description: "A list of sale prices for each item in the basket",
 		token: "prices",
 		uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 37173,
 		name: "Currency",
 		description: "The currency for the current basket",
 		token: "currency",
 		uv: "universal_variable.basket.currency"
 	},
 	{
-		id: 37174,
 		name: "Quantities",
 		description: "A list of quantities for items relating to respective items currently in the basket",
 		token: "quantities",
 		uv: "universal_variable.basket.line_items[#].quantity"
 	},
 	{
-		id: 37199,
 		name: "User ID",
 		description: "User's ID - return false to safely exclude it",
 		token: "user_id",

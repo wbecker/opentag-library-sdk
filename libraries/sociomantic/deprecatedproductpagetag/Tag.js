@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedproductpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 30167,
 	name: "{DEPRECATED} Product Page Tag",
 	async: true,
 	description: "This tracking code needs to go on all product pages in order to know which\nproducts user was interested in",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedproductpagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29191,
 		name: "Advertiser Token",
 		description: "Your Sociomantic customer ID. Please only use the token that has been created and sent to you.",
 		token: "ADVERTISER_TOKEN",
 		uv: ""
 	},
 	{
-		id: 29194,
 		name: "Product Id",
 		description: "Product identifier",
 		token: "PRODUCT_ID",

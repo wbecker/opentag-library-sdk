@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.qubitqtrackerresenduniversalvariable.Tag", {
     config: {
       /*DATA*/
-	id: 33660,
 	name: "QuBit QTracker - resend Universal Variable",
 	async: true,
 	description: "Ties in with QuBit QTracker, re-sending Universal Variables to QTracker when they exist on the page. This is useful when the Universal Variable is not declared before OpenTag.",

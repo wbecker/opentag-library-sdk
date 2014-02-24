@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("steelhouse.smarterpixel.Tag", {
     config: {
       /*DATA*/
-	id: 39164,
 	name: "Smarter Pixel",
 	async: true,
 	description: "The SteelHouse SmarterPixel is an all-in-one tracking solution intended to be deployed on every page of the site.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("steelhouse.smarterpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38191,
 		name: "SteelHouse Merchant ID",
 		description: "The merchant ID provided by SteelHouse",
 		token: "merchant_id",

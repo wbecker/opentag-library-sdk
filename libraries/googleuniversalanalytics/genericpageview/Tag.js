@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleuniversalanalytics.genericpageview.Tag", {
     config: {
       /*DATA*/
-	id: 35660,
 	name: "Generic Page View",
 	async: true,
 	description: "This tag registers a pageview, and is intended for any page other than confirmation pages.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("googleuniversalanalytics.genericpageview.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34707,
 		name: "Web Property ID",
 		description: "Google Analytics Web Property ID for the Google Web Property you wish to track",
 		token: "web_property_id",
 		uv: ""
 	},
 	{
-		id: 35229,
 		name: "Site URL",
 		description: "Web site URL, without 'www.'",
 		token: "url",

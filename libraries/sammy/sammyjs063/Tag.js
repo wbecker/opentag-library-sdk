@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("sammy.sammyjs063.Tag", {
     config: {
       /*DATA*/
-	id: 20,
 	name: "sammy.js 0.6.3",
 	async: true,
 	description: "Sammy is built on a system of plugins and adapters . Only include the code you need. It's also easy to extract your own code into reusable plugins.",

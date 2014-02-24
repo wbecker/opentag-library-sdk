@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("gosquared.gosquaredallpages.Tag", {
     config: {
       /*DATA*/
-	id: 33658,
 	name: "GoSquared - all pages",
 	async: true,
 	description: "Real-time analytics for your website. GoSquared helps you understand and improve your online presence.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("gosquared.gosquaredallpages.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32661,
 		name: "Account ID",
 		description: "The ID specific to your GoSquared account.",
 		token: "account_no",

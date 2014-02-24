@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("getsatisfaction.feedbacktab.Tag", {
     config: {
       /*DATA*/
-	id: 24158,
 	name: "Feedback Tab",
 	async: true,
 	description: "Collect and prioritize product-specific customer feedback by adding a feedback tab to any (or every) page of your site.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("getsatisfaction.feedbacktab.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 23659,
 		name: "Company Name",
 		description: "Your Company name/id with Get Satisfaction",
 		token: "COMPANY",
 		uv: ""
 	},
 	{
-		id: 23660,
 		name: "Placement Location",
 		description: "Location where the tab should be displayed",
 		token: "PLACEMENT",
 		uv: ""
 	},
 	{
-		id: 23661,
 		name: "Default Color",
 		description: "Color code of the tab. Make sure to include # in it",
 		token: "COLOR",
 		uv: ""
 	},
 	{
-		id: 23662,
 		name: "Style",
 		description: "The default type that will be chosen",
 		token: "STYLE",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("merchenta.visittag.Tag", {
     config: {
       /*DATA*/
-	id: 201,
 	name: "Visit Tag",
 	async: true,
 	description: "Use this tag to track visits to your home page or landing pages.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("merchenta.visittag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 20100,
 		name: "Merchenta Retailer Code",
 		description: "Your Merchenta account ID",
 		token: "Merchenta_Id",

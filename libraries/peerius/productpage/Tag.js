@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.productpage.Tag", {
     config: {
       /*DATA*/
-	id: 33159,
 	name: "Product Page",
 	async: true,
 	description: "Peerius tag for the product page",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("peerius.productpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32167,
 		name: "Peerius Language",
 		description: "Language of the page the tag is on",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 32189,
 		name: "Peerius Client Name",
 		description: "The name of the client for which the tag is to be implemented",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 32208,
 		name: "Peerius Product ID",
 		description: "The id for the product on the current product page",
 		token: "product_id",

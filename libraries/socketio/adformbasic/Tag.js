@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("socketio.adformbasic.Tag", {
     config: {
       /*DATA*/
-	id: 29664,
 	name: "AdForm - Basic",
 	async: true,
 	description: "To be placed on any page except order confirmation pages.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("socketio.adformbasic.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28697,
 		name: "Adform Campaign ID",
 		description: "The unique client ID for the AdForm tracking script",
 		token: "campaignid",
 		uv: ""
 	},
 	{
-		id: 28699,
 		name: "AdForm Point ID",
 		description: "Point ID for the tag. Usually unique to page type.",
 		token: "pointid",

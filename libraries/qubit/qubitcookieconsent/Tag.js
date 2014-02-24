@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.qubitcookieconsent.Tag", {
     config: {
       /*DATA*/
-	id: 35162,
 	name: "Qubit Cookie Consent",
 	async: true,
 	description: "customisable  cookie consent drop-down slider",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("qubit.qubitcookieconsent.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34169,
 		name: "Privacy & Cookies Policy Statement Link [compulsory]",
 		description: "add the URL of your Privacy & Cookies Policy Statement",
 		token: "linkHref",
 		uv: ""
 	},
 	{
-		id: 34170,
 		name: "Main Text [optional]",
 		description: "Replace the main text with your own - Otherwise assign an empty value to this  variable",
 		token: "mainText",

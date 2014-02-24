@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplayadvertisingsupport.Tag", {
     config: {
       /*DATA*/
-	id: 36668,
 	name: "Google Analytics with display advertising support",
 	async: true,
 	description: "See https://support.google.com/analytics/answer/2444872 for details.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplayadvertis
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35726,
 		name: "Profile ID",
 		description: "Your unique profile id for GA, e.g. UA-1234567",
 		token: "profile_id",

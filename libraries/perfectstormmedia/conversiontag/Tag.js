@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("perfectstormmedia.conversiontag.Tag", {
     config: {
       /*DATA*/
-	id: 27160,
 	name: "Conversion Tag",
 	async: true,
 	description: "",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("perfectstormmedia.conversiontag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 26672,
 		name: "Perfect Storm Client Name",
 		description: "",
 		token: "client_name",
 		uv: ""
 	},
 	{
-		id: 26673,
 		name: "Order Total",
 		description: "",
 		token: "order_total",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 26674,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 26675,
 		name: "Product ID List",
 		description: "",
 		token: "product_list",

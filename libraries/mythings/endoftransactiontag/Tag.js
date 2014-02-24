@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mythings.endoftransactiontag.Tag", {
     config: {
       /*DATA*/
-	id: 23667,
 	name: "End of Transaction Tag",
 	async: true,
 	description: "The tag should be placed on the end of transaction page.",
@@ -15,49 +14,42 @@ qubit.qtag.LibraryTag.define("mythings.endoftransactiontag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 23227,
 		name: "MyThings Advertiser Token",
 		description: "advertiser token provided by myThings",
 		token: "token",
 		uv: ""
 	},
 	{
-		id: 23228,
 		name: "MyThings Subdomain",
 		description: "subdomain value provided by myThings eg. \"rainbow-uk\"",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 23229,
 		name: "Product ID List",
 		description: "",
 		token: "productIds",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 23230,
 		name: "Product Unit Price List",
 		description: "",
 		token: "productUnitPrice",
 		uv: "universal_variable.transaction.line_items[#].product.unit_price"
 	},
 	{
-		id: 23231,
 		name: "Quantity List",
 		description: "",
 		token: "quantities",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	},
 	{
-		id: 23232,
 		name: "Order ID",
 		description: "",
 		token: "orderId",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 23233,
 		name: "Order Sub Total",
 		description: "",
 		token: "total",

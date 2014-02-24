@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("visualwebsiteoptimizer.visualwebsiteoptimizer.Tag", {
     config: {
       /*DATA*/
-	id: 36666,
 	name: "Visual Website Optimizer",
 	async: true,
 	description: "Visual Website Optimizer is an A/B testing tool that allows marketing professionals to create different versions of their websites and landing pages using a point-and-click editor (no HTML knowledge needed!) and then see which version produces maximum conversion rate or sales.",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("visualwebsiteoptimizer.visualwebsiteoptimizer.Tag"
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 35716,
 		name: "Account ID",
 		description: "The ID of the account used for Visual Website Optimizer",
 		token: "accountid",
 		uv: ""
 	},
 	{
-		id: 35717,
 		name: "Library Tolerance",
 		description: "The tolerance level for the library",
 		token: "library_tolerance",
 		uv: ""
 	},
 	{
-		id: 35718,
 		name: "Settings Tolerance",
 		description: "The settings tolerance value",
 		token: "settings_tolerance",
 		uv: ""
 	},
 	{
-		id: 35719,
 		name: "Use Existing jQuery",
 		description: "Whether to use the version of jQuery already existing on the page",
 		token: "use_jquery",

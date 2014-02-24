@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.conversiontagv19.Tag", {
     config: {
       /*DATA*/
-	id: 38163,
 	name: "Conversion Tag v1.9",
 	async: true,
 	description: "",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("struq.conversiontagv19.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37165,
 		name: "Struq Conversion Pixel ID",
 		description: "",
 		token: "pixelid",
 		uv: ""
 	},
 	{
-		id: 37166,
 		name: "Order Total",
 		description: "",
 		token: "ordertotal",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 37167,
 		name: "Order ID",
 		description: "",
 		token: "orderid",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 37168,
 		name: "Products",
 		description: "",
 		token: "products",

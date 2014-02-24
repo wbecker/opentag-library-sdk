@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticssingledomain.Tag", {
     config: {
       /*DATA*/
-	id: 4,
 	name: "Google Analytics - Single domain",
 	async: true,
 	description: "Google Analytics is the enterprise class web analytics solution that gives you rich insights into your website traffic and marketing effectiveness. Powerful, flexible and easy to use features now let you see and analyze your traffic data in an entirely new way. With Google Analytics, you're more prepared to write better targeted ads, strengthen your marketing initiatives and create higher converting websites.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticssingledomain.Tag", 
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 2,
 		name: "GA Profile Id",
 		description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
 		token: "PROFILE_ID",

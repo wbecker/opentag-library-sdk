@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("nextperformance.homepagetag.Tag", {
     config: {
       /*DATA*/
-	id: 24664,
 	name: "Home Page Tag",
 	async: true,
 	description: "Tag to be inserted on the home page.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("nextperformance.homepagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24187,
 		name: "Account (zid)",
 		description: "zid value provided by NextPerformance",
 		token: "id",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 34672,
 	name: "Zanox - Confirmation page DEPRECATED",
 	async: true,
 	description: "The Zanox confirmation page tag.",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 33738,
 		name: "Zanox Mode",
 		description: "e.g .2",
 		token: "mode",
 		uv: ""
 	},
 	{
-		id: 33739,
 		name: "User ID",
 		description: "",
 		token: "user_id",
 		uv: "universal_variable.user.user_id"
 	},
 	{
-		id: 33740,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 33741,
 		name: "Currency",
 		description: "",
 		token: "currency",
 		uv: "universal_variable.transaction.currency"
 	},
 	{
-		id: 33742,
 		name: "Subtotal",
 		description: "",
 		token: "subtotal",
 		uv: "universal_variable.transaction.subtotal"
 	},
 	{
-		id: 33743,
 		name: "Zanox Page ID",
 		description: "",
 		token: "zanox_page_id",

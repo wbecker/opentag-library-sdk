@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("hellobar.hellobar.Tag", {
     config: {
       /*DATA*/
-	id: 24157,
 	name: "Hello Bar",
 	async: true,
 	description: "The Hello bar is a Web Toolbar that Helps You Get More Clicks on Your Website. Delopy this simple notification bar to better engage your users.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("hellobar.hellobar.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 23657,
 		name: "Account Id",
 		description: "Your account id with Hello Bar",
 		token: "ACCOUNT_ID",
 		uv: ""
 	},
 	{
-		id: 23658,
 		name: "Bar Id",
 		description: "Your Bar's id number",
 		token: "BAR_ID",

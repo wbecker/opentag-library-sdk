@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("google.googleremarketingconversionasyncwithadditionalparameters.Tag", {
     config: {
       /*DATA*/
-	id: 35186,
 	name: "Google Remarketing Conversion Async, with additional parameters",
 	async: true,
 	description: "Contains additional parameters including color, language, and format.",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("google.googleremarketingconversionasyncwithadditio
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34339,
 		name: "Google Conversion ID",
 		description: "Your Google id provided in the script",
 		token: "conversion_id",
 		uv: ""
 	},
 	{
-		id: 34340,
 		name: "Google Conversion Label",
 		description: "A alphanumeric label of your conversion tracking",
 		token: "label",
 		uv: ""
 	},
 	{
-		id: 34341,
 		name: "Google Conversion Language",
 		description: "e.g. \"en\"",
 		token: "lang",
 		uv: ""
 	},
 	{
-		id: 34342,
 		name: "Google Conversion Format",
 		description: "The format of the conversion, e.g. \"3\"",
 		token: "format",
 		uv: ""
 	},
 	{
-		id: 34343,
 		name: "Google Conversion Color",
 		description: "The related color to the conversion, e.g. \"ffffff\"",
 		token: "color",
 		uv: ""
 	},
 	{
-		id: 34344,
 		name: "Google Conversion Value",
 		description: "The value associated with the conversion.",
 		token: "value",

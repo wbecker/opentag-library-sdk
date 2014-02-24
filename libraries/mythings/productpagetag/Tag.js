@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("mythings.productpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 23666,
 	name: "Product Page Tag",
 	async: true,
 	description: "Only place the following tag on ALL products pages",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("mythings.productpagetag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 23224,
 		name: "Advertiser Token",
 		description: "advertiser token provided by myThings",
 		token: "token",
 		uv: ""
 	},
 	{
-		id: 23225,
 		name: "Subdomain",
 		description: "subdomain value provided by myThings",
 		token: "subdomain",
 		uv: ""
 	},
 	{
-		id: 23226,
 		name: "Product ID",
 		description: "",
 		token: "productId",

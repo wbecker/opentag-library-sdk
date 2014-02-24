@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.supertag.Tag", {
     config: {
       /*DATA*/
-	id: 36177,
 	name: "SuperTag",
 	async: true,
 	description: "There are tags, most commonly Google AdWords and DoubleClick for Advertisers, which might have a huge number of different variants depending on a parameter in the URL, the landing page, or some other custom function. The aim of this script here is to make it much easier to handle them so you don't have to go through the grid of coding it yourself.",

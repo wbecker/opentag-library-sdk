@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("netbooster.conversionpixel.Tag", {
     config: {
       /*DATA*/
-	id: 29668,
 	name: "Conversion pixel",
 	async: true,
 	description: "",
@@ -15,28 +14,24 @@ qubit.qtag.LibraryTag.define("netbooster.conversionpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28726,
 		name: "Pixel ID",
 		description: "",
 		token: "pixel_id",
 		uv: ""
 	},
 	{
-		id: 28727,
 		name: "Client ID",
 		description: "",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 28728,
 		name: "Order ID",
 		description: "",
 		token: "order_id",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 28729,
 		name: "Partner ID",
 		description: "",
 		token: "partner_id",

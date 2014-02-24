@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.realtimeping.Tag", {
     config: {
       /*DATA*/
-	id: 35202,
 	name: "Realtime Ping",
 	async: true,
 	description: "Used for realtime stats in Deliver. Must have QTracker as a dependency.",

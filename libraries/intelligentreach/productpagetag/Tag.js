@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("intelligentreach.productpagetag.Tag", {
     config: {
       /*DATA*/
-	id: 26660,
 	name: "Product Page Tag",
 	async: true,
 	description: "This tag should be applied to product pages only",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("intelligentreach.productpagetag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 26160,
 		name: "Intelligent Reach ID",
 		description: "",
 		token: "id",
 		uv: ""
 	},
 	{
-		id: 26161,
 		name: "Product ID",
 		description: "",
 		token: "product_id",

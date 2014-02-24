@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.Tag", {
     config: {
       /*DATA*/
-	id: 37169,
 	name: "Snowplow EcommTracker",
 	async: true,
 	description: "SnowPlow eCommerce tracking tag to collect transaction data into your SnowPlow system. Must have a dependency set on the PageTracker.",

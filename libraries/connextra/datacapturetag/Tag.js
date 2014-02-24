@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("connextra.datacapturetag.Tag", {
     config: {
       /*DATA*/
-	id: 39664,
 	name: "Data Capture Tag",
 	async: true,
 	description: "The Data Capture feature will allow Connextra to locate content relating to the Account Name and the \namount bet or deposited from your website and store into Connextra stats for analytical purposes. For \ndata protection, you are required to encrypt any sensitive information about your customers.",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("connextra.datacapturetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 38689,
 		name: "Connextra Client ID",
 		description: "Your Connextra account ID",
 		token: "client_id",
 		uv: ""
 	},
 	{
-		id: 38690,
 		name: "Connextra Page Type",
 		description: "The page type you want this view to track as",
 		token: "page_type",
 		uv: ""
 	},
 	{
-		id: 38691,
 		name: "Connextra Config Server",
 		description: "The Connextra address which holds your configuration data.",
 		token: "conf_server",

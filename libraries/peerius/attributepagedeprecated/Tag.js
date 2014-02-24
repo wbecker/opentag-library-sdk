@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("peerius.attributepagedeprecated.Tag", {
     config: {
       /*DATA*/
-	id: 33162,
 	name: "Attribute Page DEPRECATED",
 	async: true,
 	description: "DO NOT USE. Peerius tag for the attribute page",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("peerius.attributepagedeprecated.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32159,
 		name: "Peerius Language",
 		description: "Language of the page with the tag on it",
 		token: "lang",
 		uv: "universal_variable.user.language"
 	},
 	{
-		id: 32176,
 		name: "Peerius Category Attribute Name",
 		description: "The name of the attribute of the category i.e. \"style\"",
 		token: "name",
 		uv: ""
 	},
 	{
-		id: 32177,
 		name: "Peerius Category Attribute Value",
 		description: "The value of the Peerius category attribute name",
 		token: "value",

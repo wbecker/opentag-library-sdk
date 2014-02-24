@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingwithdomainlinker.Tag", {
     config: {
       /*DATA*/
-	id: 24659,
 	name: "E-Commerce Tracking (With Domain Linker)",
 	async: true,
 	description: "Before Google Analytics can report ecommerce activity for your website, you must enable ecommerce tracking on the profile settings page for your website.",
@@ -15,98 +14,84 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingwithdomainlinker.
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24163,
 		name: "GA Profile Id",
 		description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
 		token: "PROFILE_ID",
 		uv: ""
 	},
 	{
-		id: 24164,
 		name: "Store Name",
 		description: "Partner or store affiliation (May be left blank)",
 		token: "storeName",
 		uv: ""
 	},
 	{
-		id: 24165,
 		name: "Order Id",
 		description: "Internal unique order id number for this transaction.",
 		token: "orderId",
 		uv: "universal_variable.transaction.order_id"
 	},
 	{
-		id: 24166,
 		name: "Order Total",
 		description: "Total dollar amount of the transaction.",
 		token: "orderTotal",
 		uv: "universal_variable.transaction.total"
 	},
 	{
-		id: 24167,
 		name: "Order Tax Amount",
 		description: "Tax amount of the transaction (Optional - can be given a blank value if not available)",
 		token: "orderTax",
 		uv: "universal_variable.transaction.tax"
 	},
 	{
-		id: 24168,
 		name: "Order Shipping",
 		description: "Shipping charge for the transaction (Optional)",
 		token: "orderShipping",
 		uv: "universal_variable.transaction.shipping_cost"
 	},
 	{
-		id: 24169,
 		name: "Order Shipping City",
 		description: "City to associate with transaction.",
 		token: "orderShippingCity",
 		uv: "universal_variable.transaction.delivery.city"
 	},
 	{
-		id: 24170,
 		name: "Order Shipping State",
 		description: "State to associate with transaction.",
 		token: "orderShippingState",
 		uv: "universal_variable.transaction.delivery.state"
 	},
 	{
-		id: 24171,
 		name: "Order Shipping Country",
 		description: "Country to associate with transaction.",
 		token: "orderShippingCountry",
 		uv: "universal_variable.transaction.delivery.country"
 	},
 	{
-		id: 24172,
 		name: "Item SKUs",
 		description: "Item's SKU code.",
 		token: "itemSkus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 24173,
 		name: "Item Names",
 		description: "Product name. Required to see data in the product detail report.",
 		token: "itemNames",
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	},
 	{
-		id: 24174,
 		name: "Item Categories",
 		description: "Product category (Optional)",
 		token: "itemCategories",
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	},
 	{
-		id: 24175,
 		name: "Item Unit Prices",
 		description: "Product price - use the discounted rate that the user is actually buying at.",
 		token: "itemUnitPrices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 24176,
 		name: "Item Quantities",
 		description: "Purchase quantity",
 		token: "itemQuantities",

@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
     config: {
       /*DATA*/
-	id: 30161,
 	name: "zanox Generic MasterTag",
 	async: true,
 	description: "The MasterTag for all pages. Different IDs needed for each page type.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 29171,
 		name: "zanox Page ID",
 		description: "Unique ID for the page",
 		token: "zanoxPageId",

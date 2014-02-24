@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("audiencescience.gatewaytag.Tag", {
     config: {
       /*DATA*/
-	id: 24663,
 	name: "Gateway Tag",
 	async: true,
 	description: "",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("audiencescience.gatewaytag.Tag", {
 	usesDocWrite: true,
 	parameters: [
 	{
-		id: 24186,
 		name: "CSID",
 		description: "advertiser-code (CSID) provided by AudienceScience",
 		token: "clientID",

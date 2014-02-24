@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("google.googleretargetingconversionasyncwithcustomparameters.Tag", {
     config: {
       /*DATA*/
-	id: 33170,
 	name: "Google Retargeting Conversion Async with custom parameters",
 	async: true,
 	description: "Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
@@ -15,14 +14,12 @@ qubit.qtag.LibraryTag.define("google.googleretargetingconversionasyncwithcustomp
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32210,
 		name: "Conversion ID",
 		description: "",
 		token: "conversion_id",
 		uv: ""
 	},
 	{
-		id: 32211,
 		name: "Conversion Label",
 		description: "",
 		token: "conversion_label",

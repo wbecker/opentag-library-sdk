@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.homepagetag.Tag", {
     config: {
       /*DATA*/
-	id: 28657,
 	name: "Homepage Tag",
 	async: true,
 	description: "To be placed on the homepage only",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("struq.homepagetag.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 28157,
 		name: "Pixel ID",
 		description: "",
 		token: "id",

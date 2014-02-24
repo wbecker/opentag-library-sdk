@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("clotheshorse.productpage.Tag", {
     config: {
       /*DATA*/
-	id: 33175,
 	name: "Product Page",
 	async: true,
 	description: "To be placed on all product pages of the website.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("clotheshorse.productpage.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 32224,
 		name: "Clothes Horse Client Token",
 		description: "The token specific to the client using Clothes Horse",
 		token: "client_token",

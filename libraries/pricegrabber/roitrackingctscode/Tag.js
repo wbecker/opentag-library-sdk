@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
     config: {
       /*DATA*/
-	id: 35182,
 	name: "ROI Tracking (CTS Code)",
 	async: true,
 	description: "Tracking tag to be placed on the confirmation page",
@@ -15,42 +14,36 @@ qubit.qtag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 34315,
 		name: "Account ID",
 		description: "",
 		token: "account_id",
 		uv: ""
 	},
 	{
-		id: 34316,
 		name: "Manufacturers",
 		description: "",
 		token: "manufacturers",
 		uv: "universal_variable.transaction.line_items[#].product.manufacturer"
 	},
 	{
-		id: 34317,
 		name: "Prices",
 		description: "",
 		token: "prices",
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	},
 	{
-		id: 34318,
 		name: "SKUs",
 		description: "",
 		token: "skus",
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	},
 	{
-		id: 34319,
 		name: "ID List",
 		description: "",
 		token: "ids",
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	},
 	{
-		id: 34320,
 		name: "Quantity List",
 		description: "",
 		token: "quants",

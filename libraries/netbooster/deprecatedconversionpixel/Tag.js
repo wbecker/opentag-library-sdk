@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("netbooster.deprecatedconversionpixel.Tag", {
     config: {
       /*DATA*/
-	id: 24673,
 	name: "[DEPRECATED] Conversion Pixel",
 	async: true,
 	description: "",
@@ -15,21 +14,18 @@ qubit.qtag.LibraryTag.define("netbooster.deprecatedconversionpixel.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 24221,
 		name: "Pixel ID",
 		description: "",
 		token: "pixel_id",
 		uv: ""
 	},
 	{
-		id: 24223,
 		name: "Partner ID",
 		description: "",
 		token: "partner_id",
 		uv: ""
 	},
 	{
-		id: 24224,
 		name: "Client ID",
 		description: "",
 		token: "client_id",

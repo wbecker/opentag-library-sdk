@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("jquery.172deprecated.Tag", {
     config: {
       /*DATA*/
-	id: 22157,
 	name: "1.7.2 Deprecated",
 	async: true,
 	description: "Released March 21st, 2012",

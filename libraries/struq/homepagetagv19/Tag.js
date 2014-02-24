@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("struq.homepagetagv19.Tag", {
     config: {
       /*DATA*/
-	id: 38159,
 	name: "Homepage Tag v1.9",
 	async: true,
 	description: "",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("struq.homepagetagv19.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 37158,
 		name: "Struq Homepage Tracking ID",
 		description: "The Struq Homepage tracking pixel ID",
 		token: "pixelid",

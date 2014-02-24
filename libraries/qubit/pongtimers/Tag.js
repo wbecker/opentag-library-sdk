@@ -1,9 +1,8 @@
-//:include tagsdk-0.0.1.js
+//:include tagsdk-current.js
 
 qubit.qtag.LibraryTag.define("qubit.pongtimers.Tag", {
     config: {
       /*DATA*/
-	id: 36182,
 	name: "Pong Timers",
 	async: false,
 	description: "Times how long it takes to load pong and pings the stats back.",
@@ -15,7 +14,6 @@ qubit.qtag.LibraryTag.define("qubit.pongtimers.Tag", {
 	usesDocWrite: false,
 	parameters: [
 	{
-		id: 35276,
 		name: "Pong URL",
 		description: "URL of the pong to be tested",
 		token: "pong_url",
