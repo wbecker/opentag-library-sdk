@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("stylefruits.confirmationpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39681,
 	name: "Confirmation Pixel",
 	async: true,
@@ -35,11 +36,18 @@ qubit.qtag.LibraryTag.define("stylefruits.confirmationpixel.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

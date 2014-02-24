@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvlistproductlistingpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23659,
 	name: "UV List - Product Listing Page",
 	async: true,
@@ -98,8 +99,10 @@ qubit.qtag.LibraryTag.define("qubit.uvlistproductlistingpage.Tag", {
 		uv: "universal_variable.listing.items[#].sku_code"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 console.log("" + this.getValueForToken("a") + "");
 console.log("" + this.getValueForToken("b") + "");
@@ -115,9 +118,14 @@ console.log("" + this.getValueForToken("k") + "");
 console.log("" + this.getValueForToken("l") + "");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

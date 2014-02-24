@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.basketpagetagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35160,
 	name: "Basket Page Tag DEPRECATED-",
 	async: true,
@@ -21,10 +22,14 @@ qubit.qtag.LibraryTag.define("struq.basketpagetagdeprecated.Tag", {
 		uv: "universal_variable.basket.line_items[#].product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var _struqPI = _struqPI || [];
 var productArr = [];
 for (var i = 0, ii = this.getValueForToken("basket_pid_listing").length; i < ii; i++) {
@@ -44,7 +49,10 @@ _struqPI.push(['injectTrackingPixel', {
     timeoutMs: 2000
   }
 }]);
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

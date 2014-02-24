@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("facebook.facebookpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33177,
 	name: "Facebook Pixel",
 	async: true,
@@ -35,14 +36,21 @@ qubit.qtag.LibraryTag.define("facebook.facebookpixel.Tag", {
 		uv: "universal_variable.transaction.total"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var fb_param = {};
 fb_param.pixel_id = '' + this.getValueForToken("pixel_id") + '';
 fb_param.value = '' + this.getValueForToken("param_value") + '';
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

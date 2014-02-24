@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("freespee.yetanotheroopsiforgottochangethedefaultstag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 38167,
 	name: "Yet another \"oops I forgot to change the defaults\" tag",
 	async: true,
@@ -15,10 +16,14 @@ qubit.qtag.LibraryTag.define("freespee.yetanotheroopsiforgottochangethedefaultst
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var basket = {
    products: []
 };
@@ -43,7 +48,10 @@ if (uid){
   var customer = window.customer || {};
   customer.identifier = uid;
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

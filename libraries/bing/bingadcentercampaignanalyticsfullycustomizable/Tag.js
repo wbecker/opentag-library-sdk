@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("bing.bingadcentercampaignanalyticsfullycustomizable.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 28662,
 	name: "Bing AdCenter Campaign Analytics - Fully Customizable",
 	async: true,
@@ -56,11 +57,18 @@ qubit.qtag.LibraryTag.define("bing.bingadcentercampaignanalyticsfullycustomizabl
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

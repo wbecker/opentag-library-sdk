@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("quantcast.quantcastwebmeasurement.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23662,
 	name: "QuantCast Web Measurement",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("quantcast.quantcastwebmeasurement.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window._qevents = window._qevents || [];
 
@@ -37,9 +40,14 @@ _qevents.push( { qacct:"" + this.getValueForToken("id") + ""} );
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

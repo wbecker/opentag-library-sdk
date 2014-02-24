@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("intelliad.impressionpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39669,
 	name: "Impression Pixel",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("intelliad.impressionpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   (function () {
     var t = (new Date()).getTime();
@@ -93,9 +96,14 @@ qubit.qtag.LibraryTag.define("intelliad.impressionpixel.Tag", {
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

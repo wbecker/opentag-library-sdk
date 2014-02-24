@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvlistuserinformation.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23660,
 	name: "UV List - User Information",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("qubit.uvlistuserinformation.Tag", {
 		uv: "universal_variable.user.twitter_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 console.log("" + this.getValueForToken("a") + "");
 console.log("" + this.getValueForToken("b") + "");
@@ -83,9 +86,14 @@ console.log("" + this.getValueForToken("g") + "");
 console.log("" + this.getValueForToken("h") + "");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

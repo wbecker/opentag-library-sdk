@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("adinsight.adinsightclicktocalldeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 210,
 	name: "AdInsight Click to Call DEPRECATED",
 	async: true,
@@ -21,12 +22,19 @@ qubit.qtag.LibraryTag.define("adinsight.adinsightclicktocalldeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.adiInit = "" + this.getValueForToken("Account_Id") + ""
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

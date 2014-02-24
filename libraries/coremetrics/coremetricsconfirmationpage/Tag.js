@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricsconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35171,
 	name: "CoreMetrics - Confirmation page",
 	async: true,
@@ -154,12 +155,18 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsconfirmationpage.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   var i = 0, ii = this.getValueForToken("product_ids").length;
@@ -219,5 +226,6 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsconfirmationpage.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

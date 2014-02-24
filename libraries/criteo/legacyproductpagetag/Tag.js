@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyproductpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 38,
 	name: "Legacy - Product Page Tag",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("criteo.legacyproductpagetag.Tag", {
 		uv: "universal_variable.product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
 
@@ -94,9 +97,14 @@ document.body.appendChild(_cr_d2);
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

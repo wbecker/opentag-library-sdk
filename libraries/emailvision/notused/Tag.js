@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("emailvision.notused.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24676,
 	name: "Not Used",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("emailvision.notused.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   function setCookie(domain, label, val, minutes) {
@@ -30,9 +33,14 @@ qubit.qtag.LibraryTag.define("emailvision.notused.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

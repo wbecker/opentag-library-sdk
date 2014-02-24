@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mentionme.refereetagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35166,
 	name: "Referee Tag [Deprecated]",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("mentionme.refereetagdeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var baseUrl = "https://" + this.getValueForToken("script_domain") + "/api/v2/refereefind/" + this.getValueForToken("partner_code") + "?";
 var mmScript = document.createElement("script");
@@ -86,9 +89,14 @@ mmScript.src = baseUrl + paramArr.join("&");
 document.body.appendChild(mmScript);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

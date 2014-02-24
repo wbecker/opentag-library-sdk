@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.json2.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37170,
 	name: "JSON2",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("qubit.json2.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 /*
     json2.js
@@ -506,9 +509,14 @@ if (typeof JSON !== 'object') {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

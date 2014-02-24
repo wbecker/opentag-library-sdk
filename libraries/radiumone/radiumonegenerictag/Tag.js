@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumonegenerictag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36196,
 	name: "RadiumOne - Generic tag",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonegenerictag.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   var img = new Image();
@@ -24,9 +27,14 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonegenerictag.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

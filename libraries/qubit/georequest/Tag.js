@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.georequest.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 38158,
 	name: "Geo Request",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("qubit.georequest.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   function createCookie(name, value) {
       document.cookie = name + "=" + escape(value) + expires + "; path=/";
@@ -79,9 +82,14 @@ qubit.qtag.LibraryTag.define("qubit.georequest.Tag", {
   }
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

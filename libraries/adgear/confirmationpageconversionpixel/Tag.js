@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37157,
 	name: "Confirmation Page Conversion Pixel",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   if (typeof ADGEAR == "undefined") {
@@ -66,9 +69,14 @@ qubit.qtag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

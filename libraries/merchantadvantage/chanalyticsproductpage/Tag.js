@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("merchantadvantage.chanalyticsproductpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37159,
 	name: "Chanalytics - Product Page",
 	async: true,
@@ -15,11 +16,18 @@ qubit.qtag.LibraryTag.define("merchantadvantage.chanalyticsproductpage.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

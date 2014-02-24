@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("jquery.164deprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 2,
 	name: "1.6.4 Deprecated",
 	async: false,
@@ -15,11 +16,18 @@ qubit.qtag.LibraryTag.define("jquery.164deprecated.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

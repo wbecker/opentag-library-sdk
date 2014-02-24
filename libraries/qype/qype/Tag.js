@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qype.qype.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 8,
 	name: "Qype",
 	async: true,
@@ -35,14 +36,21 @@ qubit.qtag.LibraryTag.define("qype.qype.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 var qypetoolConfig = {reviewCount: this.getValueForToken("REVIEW_COUNT"), showStars: this.getValueForToken("SHOW_STARS")}
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("bizrate.bizratenonbuyersurvey.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35192,
 	name: "BizRate Non-Buyer Survey",
 	async: true,
@@ -21,11 +22,18 @@ qubit.qtag.LibraryTag.define("bizrate.bizratenonbuyersurvey.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

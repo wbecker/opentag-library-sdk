@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagcategorypage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35198,
 	name: "OneTag - Category Page",
 	async: true,
@@ -49,12 +50,18 @@ qubit.qtag.LibraryTag.define("criteo.onetagcategorypage.Tag", {
 		uv: "universal_variable.page.subcategory"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   //Criteo suggests that this list should only be 3 products long.
@@ -81,5 +88,6 @@ qubit.qtag.LibraryTag.define("criteo.onetagcategorypage.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

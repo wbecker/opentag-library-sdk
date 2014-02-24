@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.legacylistingpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 22657,
 	name: "Legacy - Listing Page",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("criteo.legacylistingpage.Tag", {
 		uv: "universal_variable.listing.items[#].id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   function pcto_dis() {
@@ -102,9 +105,14 @@ document.body.appendChild(_cr_d2);
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

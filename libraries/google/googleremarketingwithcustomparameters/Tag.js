@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleremarketingwithcustomparameters.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36662,
 	name: "Google Remarketing with custom parameters",
 	async: true,
@@ -49,12 +50,18 @@ qubit.qtag.LibraryTag.define("google.googleremarketingwithcustomparameters.Tag",
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	window.google_trackConversion({
 	  google_conversion_id: "" + this.getValueForToken("conversion_id") + "",
 	  google_conversion_label: "" + this.getValueForToken("label") + "",
@@ -65,5 +72,6 @@ qubit.qtag.LibraryTag.define("google.googleremarketingwithcustomparameters.Tag",
 	  },
 	  google_remarketing_only: true
 	});
-    }/*~POST*/
+      /*~POST*/
+    }
 });

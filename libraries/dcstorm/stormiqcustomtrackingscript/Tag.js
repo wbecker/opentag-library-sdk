@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("dcstorm.stormiqcustomtrackingscript.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36185,
 	name: "StormIQ Custom Tracking Script",
 	async: true,
@@ -35,17 +36,24 @@ qubit.qtag.LibraryTag.define("dcstorm.stormiqcustomtrackingscript.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var __stormJs = 't1.stormiq.com/dcv4/jslib/' + this.getValueForToken("storm_id") + '.js';
 var __ch =  '' + this.getValueForToken("channel") + '';
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

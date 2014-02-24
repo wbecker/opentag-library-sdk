@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36188,
 	name: "US Site Notice (In-Page)",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   (function() {
     var lnk;
@@ -89,9 +92,14 @@ qubit.qtag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

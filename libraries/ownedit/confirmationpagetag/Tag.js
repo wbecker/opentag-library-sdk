@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("ownedit.confirmationpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 28158,
 	name: "Confirmation Page Tag",
 	async: true,
@@ -119,12 +120,18 @@ qubit.qtag.LibraryTag.define("ownedit.confirmationpagetag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 function post_to_owned_it() {
     var details = {
         "customer_email": "" + this.getValueForToken("USER_EMAIL") + "",
@@ -149,5 +156,6 @@ function post_to_owned_it() {
     post_it(details);
 }
 onLoadCallBack(post_to_owned_it);
-    }/*~POST*/
+      /*~POST*/
+    }
 });

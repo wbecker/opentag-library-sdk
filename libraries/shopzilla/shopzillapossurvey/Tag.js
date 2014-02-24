@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("shopzilla.shopzillapossurvey.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36664,
 	name: "Shopzilla POS Survey",
 	async: true,
@@ -77,10 +78,14 @@ qubit.qtag.LibraryTag.define("shopzilla.shopzillapossurvey.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 // Offset. Input blank to default to center.
 var passX = "" + this.getValueForToken("passin_x") + "";
 var passY = "" + this.getValueForToken("passin_y") + "";
@@ -107,7 +112,10 @@ for (var i = 0; i < Math.min(5, ' + this.getValueForToken("skus") + '.length); i
 };
 
 var productsPurchased = productsPurchasedArr.join("|");
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

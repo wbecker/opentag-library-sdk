@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.homepagetagv19us.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39161,
 	name: "Homepage Tag v1.9 (US)",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("struq.homepagetagv19us.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window._struqPI = window._struqPI || [];
 _struqPI.push(['injectTrackingPixel', { trackingPixelId: '' + this.getValueForToken("pixelid") + '', route: '/s/ga/', collectData: false, options: { timeoutMs: 2000, firstPartyDomain: '', firstPartyCookie: '', firstPartyUid: '' }}]);
@@ -32,9 +35,14 @@ struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 
 document.getElementsByTagName('head')[0].appendChild(struq);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

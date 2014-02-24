@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("peerius.orderpagedeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33165,
 	name: "Order Page DEPRECATED",
 	async: true,
@@ -56,10 +57,14 @@ qubit.qtag.LibraryTag.define("peerius.orderpagedeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var PeeriusCallbacks = {
   track: {
     type: "order",
@@ -82,7 +87,10 @@ for (var i = 0; i < ii; i++) {
     price: window.universal_variable.basket.line_items[i].product.unit_sale_price
   });
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

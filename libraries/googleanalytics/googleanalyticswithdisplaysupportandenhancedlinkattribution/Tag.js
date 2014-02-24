@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplaysupportandenhancedlinkattribution.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39679,
 	name: "Google Analytics with display support and enhanced link attribution",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplaysupporta
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _gaq = _gaq || [];
 var pluginUrl = "//www.google-analytics.com/plugins/ga/inpage_linkid.js";
@@ -36,9 +39,14 @@ _gaq.push(['_trackPageview']);
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

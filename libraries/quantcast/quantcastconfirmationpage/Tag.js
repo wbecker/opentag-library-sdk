@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("quantcast.quantcastconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 32657,
 	name: "QuantCast - Confirmation Page",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("quantcast.quantcastconfirmationpage.Tag", {
 		uv: "universal_variable.transaction.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _qevents = _qevents || []; 
 
@@ -63,9 +66,14 @@ _qevents.push({
 });
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

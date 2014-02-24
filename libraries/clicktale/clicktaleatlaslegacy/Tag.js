@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 150,
 	name: "ClickTale - Atlas - Legacy",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window.WRInitTime = (new Date()).getTime();
 
@@ -67,9 +70,14 @@ ct.onreadystatechange = function () {
 document.body.appendChild(ct);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

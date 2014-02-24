@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediaforge.basket.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39171,
 	name: "Basket",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("mediaforge.basket.Tag", {
 		uv: "universal_variable.basket.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   var script = document.createElement("script");
   var productArr = [];
@@ -48,9 +51,14 @@ qubit.qtag.LibraryTag.define("mediaforge.basket.Tag", {
   document.body.appendChild(script);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

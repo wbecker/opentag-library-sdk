@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("decibel.allpagestag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34674,
 	name: "All Pages Tag",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("decibel.allpagestag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   var _da_ = _da_ || [];
   _da_['da_accountId'] = '' + this.getValueForToken("account_id") + '';
@@ -35,9 +38,14 @@ qubit.qtag.LibraryTag.define("decibel.allpagestag.Tag", {
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

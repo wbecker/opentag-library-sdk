@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("responsys.riconversiontracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39661,
 	name: "RI Conversion Tracking",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("responsys.riconversiontracking.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 var customerID = "" + this.getValueForToken("customer_id") + "";
@@ -96,9 +99,14 @@ document.head.appendChild(image);
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

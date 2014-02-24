@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39686,
 	name: "Google Remarketing Only Aynsc",
 	async: true,
@@ -21,12 +22,18 @@ qubit.qtag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	var poll = function() {
 	  if (window.google_trackConversion) {
 	    window.google_trackConversion({
@@ -39,5 +46,6 @@ qubit.qtag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
 	  }
 	};
 	poll();
-    }/*~POST*/
+      /*~POST*/
+    }
 });

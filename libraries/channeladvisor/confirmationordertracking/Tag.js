@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("channeladvisor.confirmationordertracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36667,
 	name: "Confirmation - Order Tracking",
 	async: true,
@@ -63,12 +64,18 @@ qubit.qtag.LibraryTag.define("channeladvisor.confirmationordertracking.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function () {
   window._caq = window._caq || [];
   var products = [];
@@ -88,5 +95,6 @@ qubit.qtag.LibraryTag.define("channeladvisor.confirmationordertracking.Tag", {
     Products: products
   }]);
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

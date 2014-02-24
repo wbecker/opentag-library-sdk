@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sovendus.sovendusallfields.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30657,
 	name: "Sovendus [All Fields]",
 	async: true,
@@ -91,8 +92,10 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusallfields.Tag", {
 		uv: "universal_variable.user.email"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function()
@@ -157,9 +160,14 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusallfields.Tag", {
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

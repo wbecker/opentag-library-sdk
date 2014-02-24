@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mentionme.refereetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39682,
 	name: "Referee Tag",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("mentionme.refereetag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var baseUrl = "https://" + this.getValueForToken("script_domain") + "/api/v2/refereefind/" + this.getValueForToken("partner_code") + "?";
 var mmScript = document.createElement("script");
@@ -78,9 +81,14 @@ mmScript.src = baseUrl + paramArr.join("&");
 document.body.appendChild(mmScript);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

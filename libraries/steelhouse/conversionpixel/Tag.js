@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35658,
 	name: "Conversion Pixel",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   function shaddslashes(e) {
     "use strict";
@@ -254,9 +257,14 @@ qubit.qtag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
     })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

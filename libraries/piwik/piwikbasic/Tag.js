@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("piwik.piwikbasic.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29669,
 	name: "Piwik - Basic",
 	async: true,
@@ -28,15 +29,22 @@ qubit.qtag.LibraryTag.define("piwik.piwikbasic.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var _paq = _paq || [];
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var piwikTracker = Piwik.getTracker('' + this.getValueForToken("piwik_url") + ''+"piwik.php", 1);
 piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
-    }/*~POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35663,
 	name: "Zanox - Confirmation Page with Order Details",
 	async: true,
@@ -105,8 +106,10 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", 
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
     //Define a function to ensure all product details are HTML encoded.
@@ -180,9 +183,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", 
 
   
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

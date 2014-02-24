@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.productlistingtagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35158,
 	name: "Product Listing Tag DEPRECATED-",
 	async: true,
@@ -21,10 +22,14 @@ qubit.qtag.LibraryTag.define("struq.productlistingtagdeprecated.Tag", {
 		uv: "universal_variable.listing.items[#].id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var _struqPI = _struqPI || [];
 var productArr = [];
 for (var i = 0, ii = this.getValueForToken("product_id_list").length; i < ii; i++) {
@@ -44,7 +49,10 @@ _struqPI.push(['injectTrackingPixel', {
     timeoutMs: 2000
   }
 }]);
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("emailvision.basketpagetaginactive.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26657,
 	name: "Basket Page Tag INACTIVE",
 	async: true,
@@ -15,11 +16,18 @@ qubit.qtag.LibraryTag.define("emailvision.basketpagetaginactive.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

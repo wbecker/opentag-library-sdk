@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("peerius.searchpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33166,
 	name: "Search Page",
 	async: true,
@@ -42,10 +43,14 @@ qubit.qtag.LibraryTag.define("peerius.searchpage.Tag", {
 		uv: "universal_variable.listing.items[#].id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var PeeriusCallbacks = {
   track: {
     type: "searchresults",
@@ -62,7 +67,10 @@ for (var i = 0; i < ii; i++) {
     refCode: this.getValueForToken("listing_ids")[i]
   });
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

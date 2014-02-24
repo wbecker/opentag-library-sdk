@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("conexance.basketpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34662,
 	name: "Basket Page",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("conexance.basketpage.Tag", {
 		uv: "universal_variable.basket.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
 
@@ -76,9 +79,14 @@ var require = function(url, cb) {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

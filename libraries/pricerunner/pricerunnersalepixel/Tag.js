@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 50,
 	name: "Price Runner Sale Pixel",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var img = document.createElement("img");
@@ -91,9 +94,14 @@ qubit.qtag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("salecycle.salecycleconfirmationpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 32158,
 	name: "SaleCycle Confirmation Page Tag",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("salecycle.salecycleconfirmationpagetag.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var src = [
@@ -54,9 +57,14 @@ qubit.qtag.LibraryTag.define("salecycle.salecycleconfirmationpagetag.Tag", {
 })()
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

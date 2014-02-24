@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagsearchresultpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35201,
 	name: "OneTag - Search Result Page",
 	async: true,
@@ -49,12 +50,18 @@ qubit.qtag.LibraryTag.define("criteo.onetagsearchresultpage.Tag", {
 		uv: "universal_variable.listing.items[#].id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   //Criteo suggests that this list should only be 3 products long.
@@ -81,5 +88,6 @@ qubit.qtag.LibraryTag.define("criteo.onetagsearchresultpage.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34673,
 	name: "Confirmation Page Tag",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
 		uv: "universal_variable.user.user_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window.adroll_adv_id = "" + this.getValueForToken("adroll_ad_id") + "";
 window.adroll_pix_id = "" + this.getValueForToken("adroll_pix_id") + "";
@@ -76,9 +79,14 @@ window.adroll_custom_data = {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("drawbridge.drawbridge.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39685,
 	name: "Drawbridge",
 	async: true,
@@ -42,15 +43,22 @@ qubit.qtag.LibraryTag.define("drawbridge.drawbridge.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var drawbridge_partner_id = "" + this.getValueForToken("partner_id") + "";
 var drawbridge_partner_sign = "" + this.getValueForToken("partner_sign") + "";
 var drawbridge_app_id = "" + this.getValueForToken("app_id") + "";
 var drawbridge_label = "" + this.getValueForToken("label") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

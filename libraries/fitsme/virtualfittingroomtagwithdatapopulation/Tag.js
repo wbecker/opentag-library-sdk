@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36186,
 	name: "Virtual Fitting Room Tag - With Data Population",
 	async: true,
@@ -70,10 +71,14 @@ qubit.qtag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.Tag
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 (function () {
   var fm_categories = (function () {
     var temp = [];
@@ -111,7 +116,10 @@ qubit.qtag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.Tag
   _gaq.push(['_setAllowLinker', true]);
   _gaq.push(['_setAllowHash', false]);
 })();
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

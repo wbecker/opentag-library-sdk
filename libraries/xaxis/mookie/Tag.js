@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("xaxis.mookie.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 31658,
 	name: "Mookie",
 	async: true,
@@ -91,8 +92,10 @@ qubit.qtag.LibraryTag.define("xaxis.mookie.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var img = new Image(0, 0),
   arr = [],
@@ -115,9 +118,14 @@ for (var key in obj) {
 img.src = "//t.mookie1.com/t/v1/event?" + arr.join("&");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

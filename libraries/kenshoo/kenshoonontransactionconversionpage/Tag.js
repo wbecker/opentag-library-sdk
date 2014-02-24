@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("kenshoo.kenshoonontransactionconversionpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30174,
 	name: "Kenshoo Non-Transaction Conversion Page",
 	async: true,
@@ -35,11 +36,18 @@ qubit.qtag.LibraryTag.define("kenshoo.kenshoonontransactionconversionpage.Tag", 
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

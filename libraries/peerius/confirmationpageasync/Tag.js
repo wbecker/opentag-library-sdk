@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("peerius.confirmationpageasync.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39680,
 	name: "Confirmation Page (Async)",
 	async: true,
@@ -91,10 +92,14 @@ qubit.qtag.LibraryTag.define("peerius.confirmationpageasync.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var PeeriusCallbacks = {
   track: {
     type: "order",
@@ -117,10 +122,13 @@ for (var i = 0; i < ii; i++) {
     price: this.getValueForToken("unit_sale_price_list")[i]
   });
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var orderString = JSON.stringify(PeeriusCallbacks.track.order);
 var order = encodeURIComponent(orderString);
 Peerius.sendAjax("" + this.getValueForToken("url_start") + "" + "/order/add.pagex?order=" + order);
-    }/*~POST*/
+      /*~POST*/
+    }
 });

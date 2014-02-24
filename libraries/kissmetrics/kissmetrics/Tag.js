@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 190,
 	name: "Kiss Metrics",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   var _kmq = _kmq || [];
   (function(w, d) {
@@ -42,9 +45,14 @@ qubit.qtag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
   }(window, document))
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

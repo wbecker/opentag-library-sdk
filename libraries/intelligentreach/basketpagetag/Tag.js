@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("intelligentreach.basketpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26658,
 	name: "Basket Page Tag",
 	async: true,
@@ -28,10 +29,14 @@ qubit.qtag.LibraryTag.define("intelligentreach.basketpagetag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 istCompanyId = "" + this.getValueForToken("id") + "";
 istItemCount = this.getValueForToken("productSku").length;
 istBasketItems = "";
@@ -46,7 +51,10 @@ for(var i = 0; i < this.getValueForToken("productSku").length; i++) {
 istUserDefinedFieldOne = "";
 istUserDefinedFieldTwo = "";
 istUserDefinedFieldThree = "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

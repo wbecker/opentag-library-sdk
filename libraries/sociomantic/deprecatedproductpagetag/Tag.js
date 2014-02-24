@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedproductpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30167,
 	name: "{DEPRECATED} Product Page Tag",
 	async: true,
@@ -28,15 +29,22 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedproductpagetag.Tag", {
 		uv: "universal_variable.product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var product = {
 identifier: '' + this.getValueForToken("PRODUCT_ID") + ''
 };
 window.product = product;
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

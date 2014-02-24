@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("getsatisfaction.feedbacktab.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24158,
 	name: "Feedback Tab",
 	async: true,
@@ -42,12 +43,18 @@ qubit.qtag.LibraryTag.define("getsatisfaction.feedbacktab.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var feedback_widget_options = {};
 feedback_widget_options.display = "overlay";  
 feedback_widget_options.company = "" + this.getValueForToken("COMPANY") + "";
@@ -55,5 +62,6 @@ feedback_widget_options.placement = "" + this.getValueForToken("PLACEMENT") + ""
 feedback_widget_options.color = "" + this.getValueForToken("COLOR") + "";
 feedback_widget_options.style = "" + this.getValueForToken("STYLE") + "";
 var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-    }/*~POST*/
+      /*~POST*/
+    }
 });

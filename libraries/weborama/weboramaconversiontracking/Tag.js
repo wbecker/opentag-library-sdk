@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("weborama.weboramaconversiontracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 28157,
 	name: "Weborama - Conversion Tracking",
 	async: true,
@@ -91,12 +92,18 @@ qubit.qtag.LibraryTag.define("weborama.weboramaconversiontracking.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var adperftrackobj = {
     client : "" + this.getValueForToken("CLIENT_ID") + "",
     amount : "" + this.getValueForToken("AMOUNT") + "",
@@ -114,5 +121,6 @@ var adperftrackobj = {
     conversion_page : this.getValueForToken("CONVERSION_PAGE")
 }
 try{adperfTracker.track( adperftrackobj );}catch(err){}
-    }/*~POST*/
+      /*~POST*/
+    }
 });

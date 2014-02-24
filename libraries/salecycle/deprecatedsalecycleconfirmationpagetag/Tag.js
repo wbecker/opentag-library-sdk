@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24662,
 	name: "DEPRECATED SaleCycle Confirmation Page Tag",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpagetag.T
 		uv: "universal_variable.user.email"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var src = [
@@ -43,9 +46,14 @@ qubit.qtag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpagetag.T
 })()
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

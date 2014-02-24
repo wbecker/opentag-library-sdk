@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonly.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24658,
 	name: "Conversion Pixel - Revenue only",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonly.Tag", {
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _mf = document.createElement("form");
 _mf.style.display = "none";
@@ -93,9 +96,14 @@ _ml.onreadystatechange = function () {
 document.body.appendChild(_ml);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

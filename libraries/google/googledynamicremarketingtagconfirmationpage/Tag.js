@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googledynamicremarketingtagconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37662,
 	name: "Google Dynamic Remarketing Tag - Confirmation Page",
 	async: true,
@@ -56,11 +57,18 @@ qubit.qtag.LibraryTag.define("google.googledynamicremarketingtagconfirmationpage
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

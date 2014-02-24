@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("hubspot.analytics.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35179,
 	name: "Analytics",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("hubspot.analytics.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   (function(d,s,i,r) {
     if (d.getElementById(i)){return;}
@@ -32,9 +35,14 @@ qubit.qtag.LibraryTag.define("hubspot.analytics.Tag", {
   })(document,"script","hs-analytics",300000);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

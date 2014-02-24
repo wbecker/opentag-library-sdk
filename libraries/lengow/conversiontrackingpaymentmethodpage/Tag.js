@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("lengow.conversiontrackingpaymentmethodpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30182,
 	name: "Conversion Tracking - Payment Method Page",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("lengow.conversiontrackingpaymentmethodpage.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(){
 var lengowProductNamesString = "";
@@ -79,9 +82,14 @@ lengowTrackPixel.src = "https://tracking.lengow.com/lead.php?idClient=" + this.g
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

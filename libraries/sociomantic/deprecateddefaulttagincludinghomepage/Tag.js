@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecateddefaulttagincludinghomepage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30166,
 	name: "{DEPRECATED} Default Tag (including Home Page)",
 	async: true,
@@ -21,11 +22,18 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecateddefaulttagincludinghomepage.
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

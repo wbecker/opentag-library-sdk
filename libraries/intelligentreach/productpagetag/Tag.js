@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("intelligentreach.productpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26660,
 	name: "Product Page Tag",
 	async: true,
@@ -28,13 +29,20 @@ qubit.qtag.LibraryTag.define("intelligentreach.productpagetag.Tag", {
 		uv: "universal_variable.product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 istCompanyId = "" + this.getValueForToken("id") + "";
 istItem = "" + this.getValueForToken("product_id") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

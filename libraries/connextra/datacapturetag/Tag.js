@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("connextra.datacapturetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39664,
 	name: "Data Capture Tag",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("connextra.datacapturetag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
       var cxt_conf = cxt_conf || {};
       cxt_conf.clientId = cxt_conf.clientId || '' + this.getValueForToken("client_id") + '';
@@ -56,9 +59,14 @@ qubit.qtag.LibraryTag.define("connextra.datacapturetag.Tag", {
       })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

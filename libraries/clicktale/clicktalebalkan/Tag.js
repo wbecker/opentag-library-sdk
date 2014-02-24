@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39658,
 	name: "ClickTale - Balkan",
 	async: true,
@@ -21,12 +22,19 @@ qubit.qtag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.WRInitTime=(new Date()).getTime();
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

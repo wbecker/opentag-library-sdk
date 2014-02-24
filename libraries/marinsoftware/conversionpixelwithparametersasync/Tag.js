@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelwithparametersasync.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39158,
 	name: "Conversion Pixel with parameters - async",
 	async: true,
@@ -119,8 +120,10 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelwithparametersasync.T
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _mTrack = window._mTrack || [];
   var items = [];
@@ -160,9 +163,14 @@ var _mTrack = window._mTrack || [];
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

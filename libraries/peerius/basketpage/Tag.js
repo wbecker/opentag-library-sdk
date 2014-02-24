@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("peerius.basketpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33163,
 	name: "Basket Page",
 	async: true,
@@ -56,10 +57,14 @@ qubit.qtag.LibraryTag.define("peerius.basketpage.Tag", {
 		uv: "universal_variable.basket.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var PeeriusCallbacks = {
   track: {
     type: "basket",
@@ -78,7 +83,10 @@ for (var i = 0; i < ii; i++) {
     qty: this.getValueForToken("item_quantities")[i]
   });
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

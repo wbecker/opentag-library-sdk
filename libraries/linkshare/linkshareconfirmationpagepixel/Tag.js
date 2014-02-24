@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("linkshare.linkshareconfirmationpagepixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24672,
 	name: "LinkShare Confirmation Page Pixel",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("linkshare.linkshareconfirmationpagepixel.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.name"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
 
@@ -84,9 +87,14 @@ qubit.qtag.LibraryTag.define("linkshare.linkshareconfirmationpagepixel.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

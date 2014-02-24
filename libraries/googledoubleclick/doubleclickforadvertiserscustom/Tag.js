@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserscustom.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 27158,
 	name: "DoubleClick for Advertisers - Custom",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserscustom.
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var fl_if = document.createElement("iframe");
 
@@ -69,9 +72,14 @@ fl_if.style.display = "none";
 document.body.appendChild(fl_if);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.googleremarketingwithcustomparametersdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36661,
 	name: "Google Remarketing with custom parameters DEPRECATED",
 	async: true,
@@ -35,12 +36,18 @@ qubit.qtag.LibraryTag.define("deprecatedtags.googleremarketingwithcustomparamete
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var options = {
   google_conversion_id: "" + this.getValueForToken("conversion_id") + "",
   google_conversion_label: "" + this.getValueForToken("label") + "",
@@ -50,5 +57,6 @@ var options = {
 console.debug(options);
 
 window.google_trackConversion(options);
-    }/*~POST*/
+      /*~POST*/
+    }
 });

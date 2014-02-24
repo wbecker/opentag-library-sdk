@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 25157,
 	name: "Confirmation Tag - INACTIVE",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var i = 0, productIDArray = this.getValueForToken("product_ids"), productPriceArray = this.getValueForToken("product_prices"), productQuantityArray = this.getValueForToken("product_quantities"), productIDArrayLength = productIDArray.length, productArray = [];
 
@@ -87,9 +90,14 @@ document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok="+mtAdvertise
 javascript'%3E%3C/script%3E"));
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

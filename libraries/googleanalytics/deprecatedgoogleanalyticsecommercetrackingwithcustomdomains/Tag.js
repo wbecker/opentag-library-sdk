@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30162,
 	name: "[DEPRECATED] Google Analytics E-Commerce Tracking with Custom Domains",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecommerce
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -54,9 +57,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecommerce
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductdetailandpvparameter.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39671,
 	name: "Confirmation Tag with Product Detail and PV parameter",
 	async: true,
@@ -105,10 +106,14 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductdetailan
 		uv: "universal_variable.transaction.line_items[#].product.category"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 (function () {
     var awinImgSrc = [
         "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.getValueForToken("merchant_id") + "&amount=",
@@ -163,7 +168,10 @@ var AWIN = {
     }
   }
 };
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

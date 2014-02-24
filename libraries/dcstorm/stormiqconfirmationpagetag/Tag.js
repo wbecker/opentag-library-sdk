@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("dcstorm.stormiqconfirmationpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30175,
 	name: "StormIQ Confirmation Page Tag",
 	async: true,
@@ -84,14 +85,20 @@ qubit.qtag.LibraryTag.define("dcstorm.stormiqconfirmationpagetag.Tag", {
 		uv: "universal_variable.transaction.shipping_cost"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.__stormJs ='t1.stormiq.com/dcv4/jslib/' + this.getValueForToken("storm_id") + '.js'; 
 window.__ch ='' + this.getValueForToken("channel") + '';
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var i = 0, ii = this.getValueForToken("ids").length;
 
 for (; i < ii; i++) {
@@ -113,5 +120,6 @@ saleTrack.addSaleItem({
 saleTrack.curcode = '' + this.getValueForToken("currency") + '';
 saleTrack.orderid = "" + this.getValueForToken("order_id") + ""; 
 saleTrack.logSale(1);
-    }/*~POST*/
+      /*~POST*/
+    }
 });

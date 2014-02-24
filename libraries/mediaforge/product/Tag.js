@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediaforge.product.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39168,
 	name: "Product",
 	async: true,
@@ -28,13 +29,20 @@ qubit.qtag.LibraryTag.define("mediaforge.product.Tag", {
 		uv: "universal_variable.product.sku_code"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

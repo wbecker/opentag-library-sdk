@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("everesttech.efficientfrontierconversiontag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26663,
 	name: "Efficient Frontier Conversion Tag",
 	async: true,
@@ -42,12 +43,18 @@ qubit.qtag.LibraryTag.define("everesttech.efficientfrontierconversiontag.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 try {
   window.ef_event_type = "transaction";
   window.ef_transaction_properties = "ev_Very_Revenue=" + this.getValueForToken("order_total") + "&ev_Very_Order=1&ev_transid=" + this.getValueForToken("order_id") + "";
@@ -57,5 +64,6 @@ try {
   window.ef_pixel_host="pixel.everesttech.net";
   effp();
 } catch(err) {}
-    }/*~POST*/
+      /*~POST*/
+    }
 });

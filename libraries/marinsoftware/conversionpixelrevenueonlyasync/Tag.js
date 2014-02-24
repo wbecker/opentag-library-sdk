@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonlyasync.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36671,
 	name: "Conversion Pixel - Revenue only async",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonlyasync.Tag"
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   window._mTrack = window._mTrack || [];
@@ -77,9 +80,14 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversionpixelrevenueonlyasync.Tag"
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

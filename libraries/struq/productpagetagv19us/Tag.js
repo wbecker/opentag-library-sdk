@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.productpagetagv19us.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39163,
 	name: "Product Page Tag v1.9 (US)",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("struq.productpagetagv19us.Tag", {
 		uv: "universal_variable.product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window._struqPI = window._struqPI || [];
 _struqPI.push(['injectTrackingPixel', {
@@ -48,9 +51,14 @@ document.getElementsByTagName('head')[0].appendChild(struq);
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

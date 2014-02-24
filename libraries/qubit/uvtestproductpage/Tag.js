@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvtestproductpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23657,
 	name: "UV Test - Product Page",
 	async: true,
@@ -105,8 +106,10 @@ qubit.qtag.LibraryTag.define("qubit.uvtestproductpage.Tag", {
 		uv: "universal_variable.product.color"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 console.log("" + this.getValueForToken("a") + "");
 console.log("" + this.getValueForToken("b") + "");
@@ -123,9 +126,14 @@ console.log("" + this.getValueForToken("l") + "");
 console.log("" + this.getValueForToken("m") + "");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

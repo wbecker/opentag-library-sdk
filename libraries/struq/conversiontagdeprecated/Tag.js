@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.conversiontagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 28658,
 	name: "Conversion Tag DEPRECATED",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("struq.conversiontagdeprecated.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function (){
   var rnd, ifrm = document.createElement("IFRAME"), i = 0, ii = this.getValueForToken("product_id_list").length, id_string = "";
@@ -66,9 +69,14 @@ qubit.qtag.LibraryTag.define("struq.conversiontagdeprecated.Tag", {
 }())
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("monetate.monetate.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37166,
 	name: "Monetate",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("monetate.monetate.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var monetateT = new Date().getTime();
 (function() {
@@ -43,9 +46,14 @@ var monetateT = new Date().getTime();
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

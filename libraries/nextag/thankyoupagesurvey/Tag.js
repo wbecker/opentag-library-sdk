@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35185,
 	name: "Thankyou Page Survey",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
     (function () {
@@ -91,9 +94,14 @@ qubit.qtag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
 
     // <script  src="https://merchants.nextag.com/seller/review/popup_include.js">
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

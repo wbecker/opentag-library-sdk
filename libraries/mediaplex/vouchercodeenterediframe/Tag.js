@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36167,
 	name: "Voucher code entered iframe",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
 		uv: "universal_variable.basket.voucher"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(){
 
@@ -59,9 +62,14 @@ qubit.qtag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

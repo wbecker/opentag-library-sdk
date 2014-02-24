@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvtestbasketpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23658,
 	name: "UV Test - Basket Page",
 	async: true,
@@ -119,8 +120,10 @@ qubit.qtag.LibraryTag.define("qubit.uvtestbasketpage.Tag", {
 		uv: "universal_variable.basket.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 console.log("" + this.getValueForToken("a") + "");
 console.log("" + this.getValueForToken("b") + "");
@@ -139,9 +142,14 @@ console.log("" + this.getValueForToken("n") + "");
 console.log("" + this.getValueForToken("o") + "");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

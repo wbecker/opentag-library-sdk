@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("netbooster.conversionpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29668,
 	name: "Conversion pixel",
 	async: true,
@@ -42,16 +43,23 @@ qubit.qtag.LibraryTag.define("netbooster.conversionpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
    img = new Image(); 
    img.src = "//conversion-pixel.invitemedia.com/pixel?pixelID=" + this.getValueForToken("pixel_id") + "&clientID=" + this.getValueForToken("client_id") + "&partnerID=" + this.getValueForToken("partner_id") + "&key=conv&orderID=" + this.getValueForToken("order_id") + "&returnType=js";
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

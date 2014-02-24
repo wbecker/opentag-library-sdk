@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29663,
 	name: "Response Tap Click to Call",
 	async: true,
@@ -21,12 +22,19 @@ qubit.qtag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.adiInit = "" + this.getValueForToken("ACCOUNT_ID") + ""
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

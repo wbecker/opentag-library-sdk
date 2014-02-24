@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30170,
 	name: "{DEPRECATED} Basket Page Tag",
 	async: true,
@@ -49,10 +50,14 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var basket = {
    products: []
 };
@@ -67,7 +72,10 @@ for (var i = 0, ii = this.getValueForToken("product_ids").length; i < ii; i++) {
 }
 
 window.basket = basket;
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

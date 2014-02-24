@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediamind.genericpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29658,
 	name: "Generic Page Tag",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("mediamind.genericpagetag.Tag", {
 		uv: "universal_variable.user.user_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var ebRand = Math.random() * 1000000;
 var ebSession = "" + this.getValueForToken("session_id") + "";
@@ -44,9 +47,14 @@ var ebSession = "" + this.getValueForToken("session_id") + "";
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

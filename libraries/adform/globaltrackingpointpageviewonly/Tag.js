@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("adform.globaltrackingpointpageviewonly.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36183,
 	name: "Global Tracking Point (Pageview only)",
 	async: true,
@@ -35,17 +36,24 @@ qubit.qtag.LibraryTag.define("adform.globaltrackingpointpageviewonly.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var adfname = '' + this.getValueForToken("page_name") + '';
 var _adftrack = {
     pm: '' + this.getValueForToken("campaign_id") + '',
     pagename: encodeURIComponent(adfname),
     divider: encodeURIComponent('' + this.getValueForToken("divider") + '')
 };
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

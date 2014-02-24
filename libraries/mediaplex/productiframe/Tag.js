@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediaplex.productiframe.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36169,
 	name: "Product iframe",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("mediaplex.productiframe.Tag", {
 		uv: "universal_variable.product.sku_code"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(){
 
@@ -73,9 +76,14 @@ qubit.qtag.LibraryTag.define("mediaplex.productiframe.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

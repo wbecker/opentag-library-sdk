@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricselementtracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36195,
 	name: "CoreMetrics - Element Tracking",
 	async: true,
@@ -28,15 +29,22 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricselementtracking.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 cmCreateElementTag("" + this.getValueForToken("element_id") + "", "" + this.getValueForToken("element_category") + "");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

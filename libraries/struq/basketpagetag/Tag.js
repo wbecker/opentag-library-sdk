@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.basketpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26163,
 	name: "Basket Page Tag",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("struq.basketpagetag.Tag", {
 		uv: "universal_variable.basket.line_items[#].product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _struqPI = _struqPI || [];
 
@@ -57,9 +60,14 @@ script.src = "//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js
 document.body.appendChild(script);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustomserver.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33659,
 	name: "Emailvision - Confirmation page with custom server",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustoms
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   var src = "//" + this.getValueForToken("server_name") + "/P?";
@@ -87,9 +90,14 @@ qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustoms
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

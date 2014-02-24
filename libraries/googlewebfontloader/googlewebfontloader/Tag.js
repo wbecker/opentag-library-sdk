@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googlewebfontloader.googlewebfontloader.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34157,
 	name: "Google WebFont Loader",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("googlewebfontloader.googlewebfontloader.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   WebFontConfig = {
     google: { families: [ '' + this.getValueForToken("font_family") + '' ] }
@@ -38,9 +41,14 @@ qubit.qtag.LibraryTag.define("googlewebfontloader.googlewebfontloader.Tag", {
   })(); 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

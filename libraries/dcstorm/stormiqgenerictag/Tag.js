@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("dcstorm.stormiqgenerictag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30157,
 	name: "StormIQ Generic Tag",
 	async: true,
@@ -28,13 +29,20 @@ qubit.qtag.LibraryTag.define("dcstorm.stormiqgenerictag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.__stormJs ='t1.stormiq.com/dcv4/jslib/' + this.getValueForToken("storm_id") + '.js'; 
 window.__ch = '' + this.getValueForToken("channel") + '';
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

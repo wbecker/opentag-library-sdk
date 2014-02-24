@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mythings.endoftransactiontag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23667,
 	name: "End of Transaction Tag",
 	async: true,
@@ -63,10 +64,14 @@ qubit.qtag.LibraryTag.define("mythings.endoftransactiontag.Tag", {
 		uv: "universal_variable.transaction.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 (function () {
   var products = [];
   for(var i = 0; i < this.getValueForToken("productIds").length; i++) {
@@ -91,7 +96,10 @@ qubit.qtag.LibraryTag.define("mythings.endoftransactiontag.Tag", {
 
   window.mtHost = (("https:" == document.location.protocol) ? "https://" + this.getValueForToken("subdomain") + "" : "http://" + this.getValueForToken("subdomain") + "") + ".mythings.com";
   window.mtAdvertiserToken = "" + this.getValueForToken("token") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

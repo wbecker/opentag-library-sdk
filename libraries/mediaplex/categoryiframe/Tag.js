@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediaplex.categoryiframe.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36164,
 	name: "Category iframe",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("mediaplex.categoryiframe.Tag", {
 		uv: "universal_variable.page.subcategory"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(){
 
@@ -66,9 +69,14 @@ qubit.qtag.LibraryTag.define("mediaplex.categoryiframe.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

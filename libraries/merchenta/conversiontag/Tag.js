@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("merchenta.conversiontag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 203,
 	name: "Conversion Tag",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("merchenta.conversiontag.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.sku_code"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var i, ii, d, p = document.getElementById("mc_data");
@@ -71,9 +74,14 @@ var mc_api_url = "api.merchenta.com/merchenta/t";
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

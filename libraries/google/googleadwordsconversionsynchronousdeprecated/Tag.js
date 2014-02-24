@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 130,
 	name: "Google AdWords Conversion Synchronous (Deprecated)",
 	async: true,
@@ -77,17 +78,24 @@ qubit.qtag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprecate
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 	var google_conversion_id =this.getValueForToken("conversion_id"); 
 	var google_conversion_language = "" + this.getValueForToken("language") + ""; 
 	var google_conversion_format = "" + this.getValueForToken("format") + "";
 	var google_conversion_color = "" + this.getValueForToken("conversion_color") + ""; 
 	var google_conversion_label = "" + this.getValueForToken("label") + ""; 
 	var google_conversion_value = this.getValueForToken("value");
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

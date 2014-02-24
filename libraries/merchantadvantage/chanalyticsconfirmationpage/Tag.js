@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("merchantadvantage.chanalyticsconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37160,
 	name: "Chanalytics - Confirmation Page",
 	async: true,
@@ -56,10 +57,14 @@ qubit.qtag.LibraryTag.define("merchantadvantage.chanalyticsconfirmationpage.Tag"
 		uv: "universal_variable.transaction.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 function createAppendPixel(src) {
   var pixel = document.createElement('img');
   pixel.src = src;
@@ -77,7 +82,10 @@ for (var i = 0; i < this.getValueForToken("prod_ids").length; i++){
                     "&zman=" + "" + this.getValueForToken("order_id") + "" +
                     "&zmat=" + "" + this.getValueForToken("order_tot") + "");
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

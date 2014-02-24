@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("lengow.conversiontrackingconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30183,
 	name: "Conversion Tracking - Confirmation Page",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("lengow.conversiontrackingconfirmationpage.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(){
 var lengowTrackPixel = new Image();
@@ -53,9 +56,14 @@ lengowTrackPixel.alt= "";
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

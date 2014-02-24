@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricsloginpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35187,
 	name: "CoreMetrics - Login pages",
 	async: true,
@@ -70,12 +71,18 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsloginpages.Tag", {
 		uv: "universal_variable.user.email"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   // Top level settings  
@@ -99,5 +106,6 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsloginpages.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

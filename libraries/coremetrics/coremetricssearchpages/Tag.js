@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricssearchpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35167,
 	name: "CoreMetrics - Search Pages",
 	async: true,
@@ -70,12 +71,18 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricssearchpages.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   // Client Setup
@@ -96,5 +103,6 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricssearchpages.Tag", {
 
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

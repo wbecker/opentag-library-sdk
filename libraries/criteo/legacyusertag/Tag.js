@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyusertag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 40,
 	name: "Legacy - User Tag",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("criteo.legacyusertag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var img = document.createElement("img");
@@ -53,9 +56,14 @@ qubit.qtag.LibraryTag.define("criteo.legacyusertag.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("chango.optimizationpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37657,
 	name: "Optimization Pixel",
 	async: true,
@@ -21,12 +22,19 @@ qubit.qtag.LibraryTag.define("chango.optimizationpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var __cho__ = {"pid":this.getValueForToken("id")};
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

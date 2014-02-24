@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 27657,
 	name: "Conversion Capture Code [DEPRECATED]",
 	async: true,
@@ -112,8 +113,10 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.Tag"
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   window._mTrack = window._mTrack || [];
@@ -154,9 +157,14 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.Tag"
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

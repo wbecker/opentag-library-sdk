@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("steelhouse.trackingpixelallpagesexceptproductandconfirmation.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35662,
 	name: "Tracking Pixel - All Pages Except Product and Confirmation",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("steelhouse.trackingpixelallpagesexceptproductandco
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 function shaddslashes(e){"use strict";if(e!=undefined){e=e.replace(/%/g,"%25%32%35");e=e.replace(/\\/g,"%5C");e=e.replace(/\'/g,"%27");e=e.replace(/\"/g,"%22");e=e.replace(/\?/g,"%25%33%46");e=e.replace(/&/g,"%25%32%36");e=e.replace(/\+/g,"%25%32%42")}return e}(function(){"use strict";var e=null,t="3.4.0",
 
@@ -99,9 +102,14 @@ shadditional="" + this.getValueForToken("additional_info") + "",
 m,g,y;try{m=top.document.referer!==""?encodeURIComponent(top.document.referrer.substring(0,256)):""}catch(w){m=document.referrer!==null?encodeURIComponent(document.referrer.toString().substring(0,256)):""}try{g=window&&window.top&&document.location&&window.top.location===document.location?document.location:window&&window.top&&window.top.location&&""!==window.top.location?window.top.location:document.location}catch(E){g=document.location}try{y=parent.location.href!==""?encodeURIComponent(parent.location.href.toString().substring(0,256)):""}catch(S){try{y=g!==null?encodeURIComponent(g.toString().substring(0,256)):""}catch(x){y=""}}a=encodeURIComponent(a);e={add:function(e,t,n,r){r=r||false;if(e.addEventListener){e.addEventListener(t,n,r)}else if(e.attachEvent){e.attachEvent("on"+t,n)}},load:function(){var e,g=document.createElement("script"),w=null,E=document.getElementsByTagName("script"),S=Number(E.length)-1,x=document.getElementsByTagName("script")[S];if(typeof e==="undefined"){e=Math.floor(Math.random()*1e17)}w="px.steelhousemedia.com/st?"+"shver="+t+"&shaid="+n+"&shpn="+r+"&shpc="+i+"&shpb="+s+"&shpp="+o+"&shpcur="+u+"&shpi="+a+"&shps="+f+"&shpic="+l+"&shpau="+c+"&shcv="+h+"&shcq="+p+"&shcp="+d+"&shcpq="+v+"&tdr="+m+"&plh="+y+"&cb="+e+shadditional;g.type="text/javascript";g.src=("https:"===document.location.protocol?"https://":"http://")+w;x.parentNode.insertBefore(g,x)}};e.load()})()
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

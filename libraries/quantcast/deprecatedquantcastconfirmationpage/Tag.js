@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("quantcast.deprecatedquantcastconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 31157,
 	name: "DEPRECATED QuantCast - Confirmation page",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("quantcast.deprecatedquantcastconfirmationpage.Tag"
 		uv: "universal_variable.transaction.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _qevents = _qevents || []; 
 
@@ -57,9 +60,14 @@ _qevents.push({
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

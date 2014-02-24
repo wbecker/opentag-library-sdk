@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfieldsonlydeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24660,
 	name: "E-Commerce Tracking (Required Fields Only) DEPRECATED",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfieldsonl
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -93,9 +96,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfieldsonl
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

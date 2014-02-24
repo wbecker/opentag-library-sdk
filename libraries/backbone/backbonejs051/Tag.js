@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("backbone.backbonejs051.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 15,
 	name: "backbone.js 0.5.1",
 	async: true,
@@ -15,13 +16,20 @@ qubit.qtag.LibraryTag.define("backbone.backbonejs051.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 null
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 null
-    }/*~POST*/
+      /*~POST*/
+    }
 });

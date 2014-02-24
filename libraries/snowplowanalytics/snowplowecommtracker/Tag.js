@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37169,
 	name: "Snowplow EcommTracker",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var sp_t=window.universal_variable.transaction;
 
@@ -50,9 +53,14 @@ _snaq.push(['trackTrans']);
 }
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

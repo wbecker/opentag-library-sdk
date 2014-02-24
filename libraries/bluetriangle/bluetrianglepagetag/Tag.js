@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("bluetriangle.bluetrianglepagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24671,
 	name: "Blue Triangle Page Tag",
 	async: true,
@@ -21,11 +22,18 @@ qubit.qtag.LibraryTag.define("bluetriangle.bluetrianglepagetag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.googleremarketingconversionasyncold.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24670,
 	name: "Google Remarketing Conversion Async - old",
 	async: true,
@@ -35,16 +36,23 @@ qubit.qtag.LibraryTag.define("deprecatedtags.googleremarketingconversionasyncold
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 window.google_trackConversion({
   google_conversion_id: "" + this.getValueForToken("conversion_id") + "",
   google_conversion_label: "" + this.getValueForToken("label") + "",
   google_custom_params: {}
 });
-    }/*~POST*/
+      /*~POST*/
+    }
 });

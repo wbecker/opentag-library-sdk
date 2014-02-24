@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("conexance.confirmationpagewithuseremail.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36184,
 	name: "Confirmation page - with user email",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("conexance.confirmationpagewithuseremail.Tag", {
 		uv: "universal_variable.user.email"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
 
@@ -102,9 +105,14 @@ qubit.qtag.LibraryTag.define("conexance.confirmationpagewithuseremail.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

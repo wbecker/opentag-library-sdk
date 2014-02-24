@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediaforge.category.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39170,
 	name: "Category",
 	async: true,
@@ -28,13 +29,20 @@ qubit.qtag.LibraryTag.define("mediaforge.category.Tag", {
 		uv: "universal_variable.page.subcategory"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

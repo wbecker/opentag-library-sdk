@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30658,
 	name: "Sovendus [Required Fields Only]",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
 		uv: "universal_variable.transaction.voucher"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function()
@@ -118,9 +121,14 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

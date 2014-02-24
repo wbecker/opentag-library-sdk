@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("PACKAGE_NAME.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
       imageUrl: "https://example.com/img/example-logo.png",
       description: "DESCRIPTION.",
       name: "TAG_NAME",
@@ -10,12 +11,19 @@ qubit.qtag.LibraryTag.define("PACKAGE_NAME.Tag", {
       html: "",
       parameters: [
       ]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
       //write your code here that will be executed after all filters pass
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

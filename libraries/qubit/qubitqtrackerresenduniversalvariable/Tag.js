@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.qubitqtrackerresenduniversalvariable.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33660,
 	name: "QuBit QTracker - resend Universal Variable",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("qubit.qubitqtrackerresenduniversalvariable.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   (function() {
     // Wait for UV and then resend data to QTracker
@@ -34,9 +37,14 @@ qubit.qtag.LibraryTag.define("qubit.qubitqtrackerresenduniversalvariable.Tag", {
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 6,
 	name: "Commission Junction",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
   (function () {
@@ -107,9 +110,14 @@ width="20">*/
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

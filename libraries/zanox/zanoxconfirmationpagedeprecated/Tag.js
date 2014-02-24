@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34672,
 	name: "Zanox - Confirmation page DEPRECATED",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
     // Fire the confirmation tag
@@ -89,9 +92,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
 
   
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

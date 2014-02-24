@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingwithdomainlinker.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24659,
 	name: "E-Commerce Tracking (With Domain Linker)",
 	async: true,
@@ -112,8 +113,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingwithdomainlinker.
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -151,9 +154,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingwithdomainlinker.
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

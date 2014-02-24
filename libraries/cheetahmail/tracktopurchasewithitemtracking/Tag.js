@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("cheetahmail.tracktopurchasewithitemtracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36176,
 	name: "Track-to-Purchase with Item Tracking",
 	async: true,
@@ -84,8 +85,10 @@ qubit.qtag.LibraryTag.define("cheetahmail.tracktopurchasewithitemtracking.Tag", 
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function(){
@@ -104,9 +107,14 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mythings.customtag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33663,
 	name: "Custom  Tag",
 	async: true,
@@ -35,10 +36,14 @@ qubit.qtag.LibraryTag.define("mythings.customtag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 function _mt_ready(){
    if (typeof(MyThings) != "undefined") {
        MyThings.Track({
@@ -50,7 +55,10 @@ function _mt_ready(){
 
 var mtHost = (("https:" == document.location.protocol) ? "https" : "http") + "://" + this.getValueForToken("subdomain") + ".mythings.com";
 var mtAdvertiserToken = "" + this.getValueForToken("advertiser_token") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

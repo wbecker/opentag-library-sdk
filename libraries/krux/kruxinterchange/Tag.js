@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("krux.kruxinterchange.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 170,
 	name: "Krux Interchange",
 	async: true,
@@ -42,10 +43,14 @@ qubit.qtag.LibraryTag.define("krux.kruxinterchange.Tag", {
 		uv: "universal_variable.page.subcategory"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var KRUXSetup = {
    pubid:"" + this.getValueForToken("publisher_id") + "",
    site:"" + this.getValueForToken("site_url") + "",
@@ -53,7 +58,10 @@ var KRUXSetup = {
    subSection:"" + this.getValueForToken("subsection") + "",
    async:true
 };
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

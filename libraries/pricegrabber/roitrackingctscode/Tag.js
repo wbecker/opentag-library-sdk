@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35182,
 	name: "ROI Tracking (CTS Code)",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
   (function () {
@@ -85,9 +88,14 @@ qubit.qtag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

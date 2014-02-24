@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("hellobar.hellobar.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24157,
 	name: "Hello Bar",
 	async: true,
@@ -28,12 +29,19 @@ qubit.qtag.LibraryTag.define("hellobar.hellobar.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 new HelloBar(this.getValueForToken("ACCOUNT_ID"),this.getValueForToken("BAR_ID"));
-    }/*~POST*/
+      /*~POST*/
+    }
 });

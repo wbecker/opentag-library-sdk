@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37161,
 	name: "CJ Conversion Pixel",
 	async: true,
@@ -77,8 +78,10 @@ qubit.qtag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   for (var i = 0, ii = this.getValueForToken("item_ids").length; i < ii; i++) {
@@ -94,9 +97,14 @@ qubit.qtag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

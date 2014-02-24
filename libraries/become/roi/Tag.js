@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("become.roi.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35184,
 	name: "ROI",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("become.roi.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var become_merchant_id = '' + this.getValueForToken("become_merchant_id") + '';
 var become_order_num = '' + this.getValueForToken("order_number") + ''; 
@@ -78,9 +81,14 @@ script.src = "https://partner.become.com/roi-tracker2/conversion.js";
 document.body.appendChild(script);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

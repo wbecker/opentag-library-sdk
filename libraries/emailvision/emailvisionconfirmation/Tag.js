@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24675,
 	name: "Emailvision - Confirmation",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var src = "//" + this.getValueForToken("pct_server") + ".emv2.com/P?emv_client_id=" + this.getValueForToken("client_id") + "&emv_value=";
@@ -86,9 +89,14 @@ qubit.qtag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

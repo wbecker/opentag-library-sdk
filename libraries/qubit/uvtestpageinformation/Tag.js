@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvtestpageinformation.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23661,
 	name: "UV Test - Page Information",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("qubit.uvtestpageinformation.Tag", {
 		uv: "universal_variable.page.revision"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 console.log("" + this.getValueForToken("a") + "");
 console.log("" + this.getValueForToken("b") + "");
@@ -59,9 +62,14 @@ console.log("" + this.getValueForToken("d") + "");
 console.log("" + this.getValueForToken("e") + "");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

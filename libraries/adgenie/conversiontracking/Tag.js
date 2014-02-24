@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("adgenie.conversiontracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33172,
 	name: "Conversion Tracking",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("adgenie.conversiontracking.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var img = new Image(), arr = [];
 
@@ -56,9 +59,14 @@ img.src = "https://adverts.adgenie.co.uk/conversion.php?companyId=" + "" + this.
 document.body.appendChild(img);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

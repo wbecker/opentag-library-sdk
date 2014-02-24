@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("zopim.zopimlivechat.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34670,
 	name: "Zopim Livechat",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("zopim.zopimlivechat.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window.$zopim || (function(d, s) {
   var z = $zopim = function(c) {
@@ -46,9 +49,14 @@ window.$zopim || (function(d, s) {
 })(document, 'script');
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("gosquared.gosquaredallpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33658,
 	name: "GoSquared - all pages",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("gosquared.gosquaredallpages.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var GoSquared = {};
 GoSquared.acct = "" + this.getValueForToken("account_no") + "";
@@ -41,9 +44,14 @@ GoSquared.acct = "" + this.getValueForToken("account_no") + "";
 })(window); 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36171,
 	name: "Generic Tag sending custom Field Name Objects",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("googleuniversalanalytics.generictagsendingcustomfi
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(){
 
@@ -47,9 +50,14 @@ for (var i=0; i < this.getValueForToken("field_objects").length; i++){
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

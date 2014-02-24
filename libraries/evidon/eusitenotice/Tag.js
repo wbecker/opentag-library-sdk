@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("evidon.eusitenotice.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36170,
 	name: "EU Site Notice",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("evidon.eusitenotice.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   (function() {
     var hn = document.createElement('script'); hn.type = 'text/javascript'; hn.async = true; hn.setAttribute('data-ev-hover-pid', this.getValueForToken("page_id")); hn.setAttribute('data-ev-hover-ocid', this.getValueForToken("client_id"));
@@ -38,9 +41,14 @@ qubit.qtag.LibraryTag.define("evidon.eusitenotice.Tag", {
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

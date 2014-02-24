@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("bazaarvoice.analyticsintegrationcoderequireddataonly.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23664,
 	name: "Analytics Integration Code (Required Data Only)",
 	async: true,
@@ -70,12 +71,18 @@ qubit.qtag.LibraryTag.define("bazaarvoice.analyticsintegrationcoderequireddataon
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function () {
   var data = {
     "orderId": "" + this.getValueForToken("orderId") + "",
@@ -91,5 +98,6 @@ qubit.qtag.LibraryTag.define("bazaarvoice.analyticsintegrationcoderequireddataon
   }
   $BV.SI.trackTransactionPageView(data);
 })();
-    }/*~POST*/
+      /*~POST*/
+    }
 });

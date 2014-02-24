@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sub2.sub2confirmationpagedependsuponsub2mainscriptallpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39676,
 	name: "Sub2 - Confirmation Page (depends upon \"Sub2 - Main Script - All pages\")",
 	async: true,
@@ -196,8 +197,10 @@ qubit.qtag.LibraryTag.define("sub2.sub2confirmationpagedependsuponsub2mainscript
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function ()
@@ -229,9 +232,14 @@ qubit.qtag.LibraryTag.define("sub2.sub2confirmationpagedependsuponsub2mainscript
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

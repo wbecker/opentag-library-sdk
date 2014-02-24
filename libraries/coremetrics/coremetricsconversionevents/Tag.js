@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricsconversionevents.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36194,
 	name: "CoreMetrics - Conversion Events",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsconversionevents.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   cmCreateConversionEventTag(
     "" + this.getValueForToken("event_id") + "",
@@ -53,9 +56,14 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsconversionevents.Tag", {
   );
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

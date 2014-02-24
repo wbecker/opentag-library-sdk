@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 140,
 	name: "Kenshoo Thank-You Page Tracking",
 	async: true,
@@ -63,12 +64,18 @@ qubit.qtag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.Tag", {
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
   var params = new Array();
   params[0] = 'id=' + this.getValueForToken("id") + '';
@@ -79,5 +86,6 @@ qubit.qtag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.Tag", {
   params[5] = 'valueCurrency=' + this.getValueForToken("currency") + '';
   window.k_trackevent(params, '' + this.getValueForToken("ks_num") + '');
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

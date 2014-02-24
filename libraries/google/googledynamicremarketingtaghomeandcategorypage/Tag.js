@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googledynamicremarketingtaghomeandcategorypage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37664,
 	name: "Google Dynamic Remarketing Tag - Home and Category Page",
 	async: true,
@@ -35,11 +36,18 @@ qubit.qtag.LibraryTag.define("google.googledynamicremarketingtaghomeandcategoryp
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

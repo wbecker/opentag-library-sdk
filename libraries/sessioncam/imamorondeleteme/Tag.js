@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sessioncam.imamorondeleteme.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36192,
 	name: "i'm a moron, delete me",
 	async: true,
@@ -15,11 +16,18 @@ qubit.qtag.LibraryTag.define("sessioncam.imamorondeleteme.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

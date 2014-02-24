@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("silverpop.webtracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34668,
 	name: "Web Tracking",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("silverpop.webtracking.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   var x = document.createElement("script");
   x.src = (document.location.protocol === "https:") 
@@ -53,9 +56,14 @@ qubit.qtag.LibraryTag.define("silverpop.webtracking.Tag", {
   document.getElementsByTagName("head")[0].appendChild(x);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

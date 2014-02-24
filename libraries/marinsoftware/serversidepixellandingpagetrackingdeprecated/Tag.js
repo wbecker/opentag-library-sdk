@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.serversidepixellandingpagetrackingdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24657,
 	name: "Server Side Pixel - Landing Page Tracking (Deprecated)",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("marinsoftware.serversidepixellandingpagetrackingde
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _ml = document.createElement("script");
 _ml.src = "//tracker.marinsm.com/tracker/" + this.getValueForToken("clientId") + ".js";
@@ -50,9 +53,14 @@ _ml.onreadystatechange = function () {
 document.body.appendChild(_ml);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

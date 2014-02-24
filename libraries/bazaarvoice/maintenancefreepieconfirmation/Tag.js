@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("bazaarvoice.maintenancefreepieconfirmation.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39172,
 	name: "Maintenance Free PIE - Confirmation",
 	async: true,
@@ -70,12 +71,18 @@ qubit.qtag.LibraryTag.define("bazaarvoice.maintenancefreepieconfirmation.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function () {
   var data = {
     "orderId": "" + this.getValueForToken("order_id") + "",
@@ -94,5 +101,6 @@ qubit.qtag.LibraryTag.define("bazaarvoice.maintenancefreepieconfirmation.Tag", {
 
   $BV.SI.trackTransactionPageView(data);
 })();
-    }/*~POST*/
+      /*~POST*/
+    }
 });

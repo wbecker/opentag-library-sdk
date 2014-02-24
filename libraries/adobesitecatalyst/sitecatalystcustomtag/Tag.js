@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("adobesitecatalyst.sitecatalystcustomtag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 31659,
 	name: "SiteCatalyst Custom Tag",
 	async: true,
@@ -161,12 +162,18 @@ qubit.qtag.LibraryTag.define("adobesitecatalyst.sitecatalystcustomtag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var s = window.s;
 
 s.pageName = "" + this.getValueForToken("page_name") + "";
@@ -193,5 +200,6 @@ s.eVar4 = "" + this.getValueForToken("evar4") + "";
 s.eVar5 = "" + this.getValueForToken("evar5") + "";
 
 window.s_code = s.t();
-    }/*~POST*/
+      /*~POST*/
+    }
 });

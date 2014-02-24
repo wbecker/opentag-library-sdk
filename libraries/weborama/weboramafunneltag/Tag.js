@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("weborama.weboramafunneltag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29667,
 	name: "Weborama - Funnel Tag",
 	async: true,
@@ -42,12 +43,18 @@ qubit.qtag.LibraryTag.define("weborama.weboramafunneltag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var adperftrackobj = {
     funnel_id : this.getValueForToken("FUNNEL_ID"),
     fullhost : '' + this.getValueForToken("FULL_HOST") + '',
@@ -55,5 +62,6 @@ var adperftrackobj = {
     conversion_page : this.getValueForToken("CONVERSION_PAGE")
 }
 try{ adperfTracker.track( adperftrackobj ); }catch(err){}
-    }/*~POST*/
+      /*~POST*/
+    }
 });

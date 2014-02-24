@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagbasketpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35195,
 	name: "OneTag - Basket Page",
 	async: true,
@@ -56,12 +57,18 @@ qubit.qtag.LibraryTag.define("criteo.onetagbasketpage.Tag", {
 		uv: "universal_variable.basket.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   var products = [];
@@ -89,5 +96,6 @@ qubit.qtag.LibraryTag.define("criteo.onetagbasketpage.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

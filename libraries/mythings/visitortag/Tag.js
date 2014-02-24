@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mythings.visitortag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23665,
 	name: "Visitor Tag",
 	async: true,
@@ -28,10 +29,14 @@ qubit.qtag.LibraryTag.define("mythings.visitortag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 function _mt_ready(){
    if (typeof(MyThings) != "undefined") {
        MyThings.Track({
@@ -43,7 +48,10 @@ function _mt_ready(){
 
   window.mtHost = (("https:" == document.location.protocol) ? "https://" + this.getValueForToken("subdomain") + "" : "http://" + this.getValueForToken("subdomain") + "") + ".mythings.com";
   window.mtAdvertiserToken = "" + this.getValueForToken("token") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

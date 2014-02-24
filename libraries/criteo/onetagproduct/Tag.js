@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.onetagproduct.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35199,
 	name: "OneTag - Product",
 	async: true,
@@ -42,12 +43,18 @@ qubit.qtag.LibraryTag.define("criteo.onetagproduct.Tag", {
 		uv: "universal_variable.product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   var user_id = "" + this.getValueForToken("customer_id") + "";
@@ -65,5 +72,6 @@ qubit.qtag.LibraryTag.define("criteo.onetagproduct.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

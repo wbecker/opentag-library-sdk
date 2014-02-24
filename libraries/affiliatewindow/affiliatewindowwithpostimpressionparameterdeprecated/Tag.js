@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.affiliatewindowwithpostimpressionparameterdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34664,
 	name: "Affiliate Window with Post Impression Parameter deprecated",
 	async: true,
@@ -126,10 +127,14 @@ qubit.qtag.LibraryTag.define("affiliatewindow.affiliatewindowwithpostimpressionp
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 (function () {
 
     var i, cg, cg_groups = {}, parts;
@@ -209,7 +214,10 @@ qubit.qtag.LibraryTag.define("affiliatewindow.affiliatewindowwithpostimpressionp
     };
 
 })();
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

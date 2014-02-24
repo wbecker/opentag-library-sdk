@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("bazaarvoice.displayintegrationcode.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23663,
 	name: "Display Integration Code",
 	async: true,
@@ -35,14 +36,21 @@ qubit.qtag.LibraryTag.define("bazaarvoice.displayintegrationcode.Tag", {
 		uv: "universal_variable.product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 $BV.ui("rr", "show_reviews", {
   productId: "" + this.getValueForToken("product_id") + ""
 });
-    }/*~POST*/
+      /*~POST*/
+    }
 });

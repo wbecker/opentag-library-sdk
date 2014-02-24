@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.localcurrencysettingdependency.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39684,
 	name: "Local Currency Setting (Dependency)",
 	async: true,
@@ -21,16 +22,23 @@ qubit.qtag.LibraryTag.define("googleanalytics.localcurrencysettingdependency.Tag
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   window._gaq = window._gaq || [];
   _gaq.push(['_set', ‘currencyCode’, ‘this.getValueForToken("currency")’]);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

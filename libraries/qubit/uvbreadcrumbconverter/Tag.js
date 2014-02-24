@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39673,
 	name: "UV Breadcrumb Converter",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
 
@@ -118,9 +121,14 @@ qubit.qtag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

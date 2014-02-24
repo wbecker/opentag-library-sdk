@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("conexance.categorypagedeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34661,
 	name: "Category Page DEPRECATED",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("conexance.categorypagedeprecated.Tag", {
 		uv: "universal_variable.page.category"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 
@@ -46,9 +49,14 @@ qubit.qtag.LibraryTag.define("conexance.categorypagedeprecated.Tag", {
   w1x1.iSet(2, "" + this.getValueForToken("page_category") + "");
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

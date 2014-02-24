@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleadwordswithadditionalparametersdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33179,
 	name: "Google AdWords with additional parameters DEPRECATED",
 	async: true,
@@ -56,12 +57,18 @@ qubit.qtag.LibraryTag.define("google.googleadwordswithadditionalparametersdeprec
 		uv: "universal_variable.transaction.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	window.google_trackConversion({
 	  google_conversion_id: this.getValueForToken("conversion_id"),
 	  google_conversion_label: "" + this.getValueForToken("conversion_label") + "",
@@ -70,5 +77,6 @@ qubit.qtag.LibraryTag.define("google.googleadwordswithadditionalparametersdeprec
 	  google_conversion_language: "" + this.getValueForToken("conversion_language") + "",
 	  google_conversion_value: this.getValueForToken("conversion_value")
 	});
-    }/*~POST*/
+      /*~POST*/
+    }
 });

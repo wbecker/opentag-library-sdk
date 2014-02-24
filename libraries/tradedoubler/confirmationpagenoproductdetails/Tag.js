@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagenoproductdetails.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36180,
 	name: "Confirmation Page - No Product Details",
 	async: true,
@@ -56,11 +57,18 @@ qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagenoproductdetails.Tag"
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

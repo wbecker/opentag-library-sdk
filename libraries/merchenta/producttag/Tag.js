@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("merchenta.producttag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 200,
 	name: "Product Tag",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("merchenta.producttag.Tag", {
 		uv: "universal_variable.product.sku_code"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var mc_api_url = "api.merchenta.com/merchenta/t";
 (function() {
@@ -46,9 +49,14 @@ var mc_api_url = "api.merchenta.com/merchenta/t";
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

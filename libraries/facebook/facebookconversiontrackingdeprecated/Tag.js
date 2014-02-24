@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("facebook.facebookconversiontrackingdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34671,
 	name: "Facebook Conversion Tracking DEPRECATED",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("facebook.facebookconversiontrackingdeprecated.Tag"
 		uv: "universal_variable.transaction.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var fb_param = {};
 fb_param.pixel_id = '' + this.getValueForToken("pixel_id") + '';
@@ -43,9 +46,14 @@ fb_param.value = '' + this.getValueForToken("subtotal") + '';
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

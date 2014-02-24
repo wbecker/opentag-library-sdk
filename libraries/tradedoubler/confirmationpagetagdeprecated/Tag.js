@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagetagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35178,
 	name: "Confirmation Page Tag [DEPRECATED]",
 	async: true,
@@ -98,8 +99,10 @@ qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagetagdeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function ()
@@ -148,9 +151,14 @@ qubit.qtag.LibraryTag.define("tradedoubler.confirmationpagetagdeprecated.Tag", {
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

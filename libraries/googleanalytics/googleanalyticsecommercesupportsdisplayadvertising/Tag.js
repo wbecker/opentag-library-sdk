@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercesupportsdisplayadvertising.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36669,
 	name: "Google Analytics Ecommerce - supports display advertising",
 	async: true,
@@ -105,8 +106,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercesupportsdi
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -143,9 +146,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercesupportsdi
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

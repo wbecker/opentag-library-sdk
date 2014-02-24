@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("cryptojs.sha1.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39660,
 	name: "SHA1",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("cryptojs.sha1.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 if (!(window.CryptoJS && typeof(window.CryptoJS.SHA1) === "function")){
 /*
@@ -37,9 +40,14 @@ k)-899497514);j=k;k=e;e=g<<30|g>>>2;g=h;h=c}b[0]=b[0]+h|0;b[1]=b[1]+g|0;b[2]=b[2
 }
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

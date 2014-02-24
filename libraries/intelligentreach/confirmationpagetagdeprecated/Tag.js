@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("intelligentreach.confirmationpagetagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34,
 	name: "Confirmation Page Tag - Deprecated",
 	async: true,
@@ -63,10 +64,14 @@ qubit.qtag.LibraryTag.define("intelligentreach.confirmationpagetagdeprecated.Tag
 		uv: "universal_variable.transaction.voucher"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 istCompanyId = "" + this.getValueForToken("id") + "";
 istOrderId = this.getValueForToken("orderId");
 istTotal = this.getValueForToken("orderTotal");
@@ -92,7 +97,10 @@ istUserDefinedFieldTwo = "";
 istUserDefinedFieldThree = "";
 istVoucherCode = this.getValueForToken("voucher");
 istLastAffiliateCode = "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.homepagetagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35157,
 	name: "Home Page Tag DEPRECATED-",
 	async: true,
@@ -15,10 +16,14 @@ qubit.qtag.LibraryTag.define("struq.homepagetagdeprecated.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var _struqPI = _struqPI || [];
 
 _struqPI.push(['injectTrackingPixel', {
@@ -29,7 +34,10 @@ _struqPI.push(['injectTrackingPixel', {
     timeoutMs: 2000
   }
 }]);
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

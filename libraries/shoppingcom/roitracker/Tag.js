@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("shoppingcom.roitracker.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33169,
 	name: "ROI Tracker",
 	async: true,
@@ -77,10 +78,14 @@ qubit.qtag.LibraryTag.define("shoppingcom.roitracker.Tag", {
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var _roi = _roi || [];
 
 _roi.push(['_setMerchantId', '' + this.getValueForToken("client_id") + '']);
@@ -100,7 +105,10 @@ for (var i = 0, ii = this.getValueForToken("item_skus").length; i < ii; i++) {
 }
 
 _roi.push(['_trackTrans']);
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

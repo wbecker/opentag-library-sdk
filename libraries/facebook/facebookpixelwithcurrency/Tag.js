@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("facebook.facebookpixelwithcurrency.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37171,
 	name: "Facebook Pixel with Currency",
 	async: true,
@@ -42,15 +43,22 @@ qubit.qtag.LibraryTag.define("facebook.facebookpixelwithcurrency.Tag", {
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var fb_param = {};
 fb_param.pixel_id = '' + this.getValueForToken("pixel_id") + '';
 fb_param.value = '' + this.getValueForToken("order_value") + '';
 fb_param.currency = '' + this.getValueForToken("currency") + '';
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

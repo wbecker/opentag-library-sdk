@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductandcommissiongroupdetail.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24668,
 	name: "Confirmation Tag with Product and Commission Group Detail",
 	async: true,
@@ -105,10 +106,14 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductandcommi
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 (function () {
 
     var i, cg, cg_groups = {}, parts;
@@ -183,7 +188,10 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithproductandcommi
     };
 
 })();
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

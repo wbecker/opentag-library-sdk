@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediaplex.conversioniframe.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36168,
 	name: "Conversion iframe",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("mediaplex.conversioniframe.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(){
   var item_count = 0;
@@ -82,9 +85,14 @@ qubit.qtag.LibraryTag.define("mediaplex.conversioniframe.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

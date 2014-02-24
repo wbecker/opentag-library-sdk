@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("quantcast.quantcastwitheventtracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30171,
 	name: "QuantCast - with event tracking",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("quantcast.quantcastwitheventtracking.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window._qevents = window._qevents || [];
 
@@ -48,9 +51,14 @@ window._qevents = window._qevents || [];
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mentionme.alternativeordertrackingtag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35164,
 	name: "Alternative Order Tracking Tag",
 	async: true,
@@ -119,8 +120,10 @@ qubit.qtag.LibraryTag.define("mentionme.alternativeordertrackingtag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var baseUrl = "https://" + this.getValueForToken("domain") + "/api/v2/order/" + this.getValueForToken("partner_code") + "?";
 var paramArr = [];
@@ -168,9 +171,14 @@ function beginningZero(digit) {
 }
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

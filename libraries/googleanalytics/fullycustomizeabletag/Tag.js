@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.fullycustomizeabletag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39663,
 	name: "Fully Customizeable Tag",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.fullycustomizeabletag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
  
  var _gaq = _gaq || [];
@@ -47,9 +50,14 @@ for (var i = 0; i < this.getValueForToken("commands").length; i++){
  
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

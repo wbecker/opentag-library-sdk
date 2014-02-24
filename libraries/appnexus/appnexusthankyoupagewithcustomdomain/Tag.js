@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("appnexus.appnexusthankyoupagewithcustomdomain.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36178,
 	name: "AppNexus - Thank you page with custom domain",
 	async: true,
@@ -56,11 +57,18 @@ qubit.qtag.LibraryTag.define("appnexus.appnexusthankyoupagewithcustomdomain.Tag"
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

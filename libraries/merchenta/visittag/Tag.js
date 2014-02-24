@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("merchenta.visittag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 201,
 	name: "Visit Tag",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("merchenta.visittag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var mc_api_url = "api.merchenta.com/merchenta/t";
 (function() {
@@ -39,9 +42,14 @@ var mc_api_url = "api.merchenta.com/merchenta/t";
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

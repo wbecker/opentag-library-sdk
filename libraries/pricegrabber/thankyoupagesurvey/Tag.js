@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("pricegrabber.thankyoupagesurvey.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35181,
 	name: "Thank You Page Survey",
 	async: true,
@@ -49,16 +50,23 @@ qubit.qtag.LibraryTag.define("pricegrabber.thankyoupagesurvey.Tag", {
 		uv: "universal_variable.user.email"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.popup_pos_x = Number("" + this.getValueForToken("x") + "");
 window.popup_pos_y = Number("" + this.getValueForToken("y") + "");
 
 window.popup_order_number = "" + this.getValueForToken("order_id") + "";
 window.popup_email = "" + this.getValueForToken("email") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

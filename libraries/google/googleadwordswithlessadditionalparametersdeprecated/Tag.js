@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleadwordswithlessadditionalparametersdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33171,
 	name: "Google AdWords with less additional parameters DEPRECATED",
 	async: true,
@@ -49,12 +50,18 @@ qubit.qtag.LibraryTag.define("google.googleadwordswithlessadditionalparametersde
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	window.google_trackConversion({
 	  google_conversion_id: this.getValueForToken("conversion_id"),
 	  google_conversion_label: "" + this.getValueForToken("conversion_label") + "",
@@ -62,5 +69,6 @@ qubit.qtag.LibraryTag.define("google.googleadwordswithlessadditionalparametersde
 	  google_conversion_format: "" + this.getValueForToken("conversion_format") + "",
 	  google_conversion_color: "" + this.getValueForToken("conversion_color") + "";
 	});
-    }/*~POST*/
+      /*~POST*/
+    }
 });

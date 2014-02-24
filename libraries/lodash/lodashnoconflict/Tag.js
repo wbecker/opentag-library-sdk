@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35163,
 	name: "Lodash NoConflict",
 	async: true,
@@ -28,12 +29,19 @@ qubit.qtag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 window.this.getValueForToken("key") = window._.noConflict();
-    }/*~POST*/
+      /*~POST*/
+    }
 });

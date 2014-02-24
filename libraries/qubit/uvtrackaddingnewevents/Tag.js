@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvtrackaddingnewevents.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33662,
 	name: "UV - track adding new events",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("qubit.uvtrackaddingnewevents.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 // Create UV events array if doesn't exist
@@ -47,9 +50,14 @@ uv.events.push = function (event) {
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

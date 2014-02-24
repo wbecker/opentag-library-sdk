@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.zzdeleteme.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35657,
 	name: "zzdeleteme",
 	async: true,
@@ -28,13 +29,20 @@ qubit.qtag.LibraryTag.define("qubit.zzdeleteme.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 console.log("" + this.getValueForToken("param") + "");
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

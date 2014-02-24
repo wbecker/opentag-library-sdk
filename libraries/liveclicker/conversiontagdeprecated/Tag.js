@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("liveclicker.conversiontagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26662,
 	name: "Conversion Tag DEPRECATED",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("liveclicker.conversiontagdeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var revenue = parseFloat(this.getValueForToken("order_total"))*100;
@@ -41,9 +44,14 @@ qubit.qtag.LibraryTag.define("liveclicker.conversiontagdeprecated.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

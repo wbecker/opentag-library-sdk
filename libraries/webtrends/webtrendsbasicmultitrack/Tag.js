@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36198,
 	name: "Webtrends - basic multiTrack",
 	async: true,
@@ -21,17 +22,24 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 Webtrends.multiTrack({
   args: this.getValueForToken("data")
 });
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

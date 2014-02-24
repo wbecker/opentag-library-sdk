@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.realtimeping.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35202,
 	name: "Realtime Ping",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("qubit.realtimeping.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
 
@@ -154,9 +157,14 @@ qubit.qtag.LibraryTag.define("qubit.realtimeping.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

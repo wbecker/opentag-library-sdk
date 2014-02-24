@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36670,
 	name: "UV API - change listener",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function() {
@@ -260,9 +263,14 @@ qubit.qtag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

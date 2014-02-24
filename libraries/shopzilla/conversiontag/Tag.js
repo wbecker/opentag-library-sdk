@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("shopzilla.conversiontag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 27157,
 	name: "Conversion Tag",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("shopzilla.conversiontag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 var i = 0, ii = this.getValueForToken("quantities").length, totalQuantity = 0, customerType = (this.getValueForToken("returning")) ? 0 : 1;
@@ -70,9 +73,14 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

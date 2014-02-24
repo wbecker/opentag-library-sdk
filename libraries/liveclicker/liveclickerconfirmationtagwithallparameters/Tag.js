@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("liveclicker.liveclickerconfirmationtagwithallparameters.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33657,
 	name: "Liveclicker - Confirmation tag with all parameters",
 	async: true,
@@ -42,11 +43,18 @@ qubit.qtag.LibraryTag.define("liveclicker.liveclickerconfirmationtagwithallparam
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("peerius.confirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36158,
 	name: "Confirmation Page",
 	async: true,
@@ -84,10 +85,14 @@ qubit.qtag.LibraryTag.define("peerius.confirmationpage.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var PeeriusCallbacks = {
   track: {
     type: "order",
@@ -110,7 +115,10 @@ for (var i = 0; i < ii; i++) {
     price: this.getValueForToken("price_list")[i]
   });
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

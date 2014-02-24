@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 24669,
 	name: "Google AdWords Conversion Async",
 	async: true,
@@ -56,12 +57,18 @@ qubit.qtag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 		uv: "koko other"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	window.google_trackConversion({
 	    google_conversion_id: this.getValueForToken("conversion_id"),
 	    google_conversion_label: "" + this.getValueForToken("label") + "",
@@ -70,5 +77,6 @@ qubit.qtag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 	    google_is_call: true,
 	    google_custom_params: {}
 	});
-    }/*~POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithcustomparameters.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30659,
 	name: "Confirmation Tag with Custom Parameters",
 	async: true,
@@ -119,10 +120,14 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithcustomparameter
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 (function () {
 
     var i, cg, cg_groups = {}, parts;
@@ -200,7 +205,10 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithcustomparameter
     };
 
 })();
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

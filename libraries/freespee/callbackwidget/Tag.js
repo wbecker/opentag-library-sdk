@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("freespee.callbackwidget.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30180,
 	name: "CallBack Widget",
 	async: true,
@@ -63,10 +64,14 @@ qubit.qtag.LibraryTag.define("freespee.callbackwidget.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var __fs_conf = __fs_conf || [];
  
     __fs_conf.push(['setAdv', {
@@ -76,7 +81,10 @@ var __fs_conf = __fs_conf || [];
                                'cbw_caller_id': '' + this.getValueForToken("cbw_caller_id") + '', 
                                'cbw_visible_number': '' + this.getValueForToken("cbw_visible_number") + ''
                               }]);
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

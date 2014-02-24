@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sub2.sub2basketpagedependsuponsub2mainscriptallpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39678,
 	name: "Sub2 - Basket Page (depends upon \"Sub2 - Main Script - All Pages\")",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("sub2.sub2basketpagedependsuponsub2mainscriptallpag
 		uv: "universal_variable.basket.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function ()
@@ -89,9 +92,14 @@ qubit.qtag.LibraryTag.define("sub2.sub2basketpagedependsuponsub2mainscriptallpag
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

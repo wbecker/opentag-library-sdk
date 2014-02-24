@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplayadvertisingsupport.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36668,
 	name: "Google Analytics with display advertising support",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplayadvertis
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
   var _gaq = _gaq || [];
@@ -37,9 +40,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticswithdisplayadvertis
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.onetaghomepage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35197,
 	name: "OneTag - Home Page",
 	async: true,
@@ -35,12 +36,18 @@ qubit.qtag.LibraryTag.define("criteo.onetaghomepage.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   var user_id = "" + this.getValueForToken("customer_id") + "";
@@ -58,5 +65,6 @@ qubit.qtag.LibraryTag.define("criteo.onetaghomepage.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

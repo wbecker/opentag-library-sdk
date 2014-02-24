@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleadsense.googleadsense.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36665,
 	name: "Google Adsense",
 	async: true,
@@ -49,12 +50,18 @@ qubit.qtag.LibraryTag.define("googleadsense.googleadsense.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	(function() {
 	    window.adsbygoogle = window.adsbygoogle || [];
 
@@ -72,5 +79,6 @@ qubit.qtag.LibraryTag.define("googleadsense.googleadsense.Tag", {
 	    window.adsbygoogle.push({});
 
 	}());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

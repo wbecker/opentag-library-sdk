@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanlayticswithenhancedlinkattribution.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29666,
 	name: "Google Anlaytics with Enhanced Link Attribution",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanlayticswithenhancedlinkatt
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _gaq = _gaq || [];
 var pluginUrl = 
@@ -37,9 +40,14 @@ _gaq.push(['_trackPageview']);
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

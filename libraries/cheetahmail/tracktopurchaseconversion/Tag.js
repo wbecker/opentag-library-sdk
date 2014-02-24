@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("cheetahmail.tracktopurchaseconversion.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36175,
 	name: "Track-to-Purchase Conversion",
 	async: true,
@@ -70,11 +71,18 @@ qubit.qtag.LibraryTag.define("cheetahmail.tracktopurchaseconversion.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

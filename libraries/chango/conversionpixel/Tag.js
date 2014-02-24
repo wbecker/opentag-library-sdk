@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("chango.conversionpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37658,
 	name: "Conversion Pixel",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("chango.conversionpixel.Tag", {
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
     var __chconv__ = {
       "order_id":"" + this.getValueForToken("order_id") + "",
@@ -66,9 +69,14 @@ qubit.qtag.LibraryTag.define("chango.conversionpixel.Tag", {
     })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

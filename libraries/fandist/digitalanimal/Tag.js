@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("fandist.digitalanimal.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39672,
 	name: "Digital Animal",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("fandist.digitalanimal.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   (function () {
     var uv = window.universal_variable || {};
@@ -32,9 +35,14 @@ qubit.qtag.LibraryTag.define("fandist.digitalanimal.Tag", {
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34677,
 	name: "Web Tracking (Engage Conversion EOT)",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   var x = document.createElement("script");
   x.src = (document.location.protocol === "https:") 
@@ -60,9 +63,14 @@ qubit.qtag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", {
   document.getElementsByTagName("head")[0].appendChild(x);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

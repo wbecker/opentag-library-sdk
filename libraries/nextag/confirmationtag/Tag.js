@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("nextag.confirmationtag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26162,
 	name: "Confirmation Tag",
 	async: true,
@@ -35,14 +36,21 @@ qubit.qtag.LibraryTag.define("nextag.confirmationtag.Tag", {
 		uv: "universal_variable.transaction.order_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.id = '' + this.getValueForToken("nextag_id") + '';
 window.rev = '' + this.getValueForToken("order_total") + '';
 window.order = '' + this.getValueForToken("order_id") + '';
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

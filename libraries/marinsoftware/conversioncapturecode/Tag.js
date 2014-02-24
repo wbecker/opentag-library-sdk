@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecode.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37665,
 	name: "Conversion Capture Code",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecode.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   window._mTrack = window._mTrack || [];
@@ -107,9 +110,14 @@ qubit.qtag.LibraryTag.define("marinsoftware.conversioncapturecode.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

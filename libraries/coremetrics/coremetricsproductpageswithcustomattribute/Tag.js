@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricsproductpageswithcustomattribute.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39688,
 	name: "CoreMetrics - Product pages (with Custom Attribute)",
 	async: true,
@@ -77,12 +78,18 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsproductpageswithcustomattri
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   // Client Setup
@@ -108,5 +115,6 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsproductpageswithcustomattri
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

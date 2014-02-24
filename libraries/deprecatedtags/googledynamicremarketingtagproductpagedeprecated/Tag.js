@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.googledynamicremarketingtagproductpagedeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37659,
 	name: "Google Dynamic Remarketing Tag - Product Page [DEPRECATED]",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("deprecatedtags.googledynamicremarketingtagproductp
 		uv: "universal_variable.page.subcategory"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
    var google_tag_params = {
@@ -78,9 +81,14 @@ qubit.qtag.LibraryTag.define("deprecatedtags.googledynamicremarketingtagproductp
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

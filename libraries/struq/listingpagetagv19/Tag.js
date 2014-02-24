@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("struq.listingpagetagv19.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 38161,
 	name: "Listing Page Tag v1.9",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("struq.listingpagetagv19.Tag", {
 		uv: "universal_variable.listing.items[#].id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window._struqPI = window._struqPI || [];
 var productArr = [];
@@ -52,9 +55,14 @@ struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 
 document.getElementsByTagName('head')[0].appendChild(struq);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

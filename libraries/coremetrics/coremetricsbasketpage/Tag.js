@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricsbasketpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35170,
 	name: "CoreMetrics - Basket page",
 	async: true,
@@ -91,12 +92,18 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsbasketpage.Tag", {
 		uv: "universal_variable.basket.line_items[#].product.category"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   var i = 0, ii = this.getValueForToken("product_ids").length;
@@ -131,5 +138,6 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsbasketpage.Tag", {
   window.cmDisplayShops();
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

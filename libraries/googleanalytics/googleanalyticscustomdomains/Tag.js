@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30159,
 	name: "Google Analytics - Custom Domains",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag",
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
  
  var _gaq = _gaq || [];
@@ -45,9 +48,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag",
  
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30161,
 	name: "zanox Generic MasterTag",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 		window._zx = window._zx || [];
 		window._zx.push({"id":"" + this.getValueForToken("zanoxPageId") + ""});
@@ -45,9 +48,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
                 waitForZanoxDiv();
 	
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37165,
 	name: "Snowplow PageTracker",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _snaq = _snaq || [];
 
@@ -52,9 +55,14 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp
 })();
  
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

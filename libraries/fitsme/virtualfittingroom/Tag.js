@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("fitsme.virtualfittingroom.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36187,
 	name: "Virtual Fitting Room",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("fitsme.virtualfittingroom.Tag", {
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAllowLinker', true]);
@@ -30,9 +33,14 @@ _gaq.push(['_setAllowHash', false]);
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

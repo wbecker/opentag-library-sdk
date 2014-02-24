@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendslinktagging.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36658,
 	name: "Webtrends link tagging",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendslinktagging.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
 
@@ -74,9 +77,14 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendslinktagging.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithoutproductdetails.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 32,
 	name: "Confirmation Tag without Product Details",
 	async: true,
@@ -63,10 +64,14 @@ qubit.qtag.LibraryTag.define("affiliatewindow.confirmationtagwithoutproductdetai
 		uv: "universal_variable.transaction.currency"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var AWIN = {
   Tracking: {
     Sale: {
@@ -79,7 +84,10 @@ var AWIN = {
     }
   }
 };
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

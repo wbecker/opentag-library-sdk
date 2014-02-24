@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleretargetingconversionasyncwithcustomparameters.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33170,
 	name: "Google Retargeting Conversion Async with custom parameters",
 	async: true,
@@ -28,17 +29,24 @@ qubit.qtag.LibraryTag.define("google.googleretargetingconversionasyncwithcustomp
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	window.google_trackConversion({
 	  google_conversion_id: this.getValueForToken("conversion_id"),
 	  google_conversion_label: "" + this.getValueForToken("conversion_label") + "",
 	  google_custom_params: window.google_tag_params || {},
 	  google_remarketing_only: true
 	});
-    }/*~POST*/
+      /*~POST*/
+    }
 });

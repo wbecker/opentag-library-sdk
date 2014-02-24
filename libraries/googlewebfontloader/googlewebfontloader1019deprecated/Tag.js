@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googlewebfontloader.googlewebfontloader1019deprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 23,
 	name: "Google WebFont Loader 1.0.19 DEPRECATED",
 	async: true,
@@ -15,11 +16,18 @@ qubit.qtag.LibraryTag.define("googlewebfontloader.googlewebfontloader1019depreca
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

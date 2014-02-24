@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googledynamicremarketingtagbasketorsthelse.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37661,
 	name: "Google Dynamic Remarketing Tag - Basket or Sth else",
 	async: true,
@@ -56,11 +57,18 @@ qubit.qtag.LibraryTag.define("google.googledynamicremarketingtagbasketorsthelse.
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

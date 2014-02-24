@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("criteo.legacyconfirmationpagetagextradetails.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34665,
 	name: "Legacy - Confirmation Page Tag - Extra details",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("criteo.legacyconfirmationpagetagextradetails.Tag",
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var src, newUser, isNotPostClick, params;
@@ -105,9 +108,14 @@ qubit.qtag.LibraryTag.define("criteo.legacyconfirmationpagetagextradetails.Tag",
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

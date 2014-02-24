@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("lyris.clicktracksgenerictag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 28161,
 	name: "Click Tracks Generic Tag",
 	async: true,
@@ -21,11 +22,18 @@ qubit.qtag.LibraryTag.define("lyris.clicktracksgenerictag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

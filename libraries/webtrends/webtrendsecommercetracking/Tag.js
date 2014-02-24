@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36200,
 	name: "Webtrends - Ecommerce tracking",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function() 
@@ -129,9 +132,14 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

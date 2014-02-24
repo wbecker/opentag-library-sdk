@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleuniversalanalytics.googleuniversalanalyticsautosenduvevents.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39665,
 	name: "Google Universal Analytics - auto send UV events",
 	async: true,
@@ -15,8 +16,10 @@ qubit.qtag.LibraryTag.define("googleuniversalanalytics.googleuniversalanalyticsa
 	parameters: [
 
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window.uv_listener.push(["on", "event", function (event) {
 
@@ -40,9 +43,14 @@ window.uv_listener.push(["on", "event", function (event) {
 }]);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

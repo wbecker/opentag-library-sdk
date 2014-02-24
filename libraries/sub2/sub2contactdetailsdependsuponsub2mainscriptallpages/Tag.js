@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sub2.sub2contactdetailsdependsuponsub2mainscriptallpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39675,
 	name: "Sub2 - Contact Details (depends upon \"Sub2 - Main Script - All pages\")",
 	async: true,
@@ -77,8 +78,10 @@ qubit.qtag.LibraryTag.define("sub2.sub2contactdetailsdependsuponsub2mainscriptal
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 (function ()
@@ -102,9 +105,14 @@ qubit.qtag.LibraryTag.define("sub2.sub2contactdetailsdependsuponsub2mainscriptal
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

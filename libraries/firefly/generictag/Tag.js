@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("firefly.generictag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33174,
 	name: "Generic Tag",
 	async: true,
@@ -21,13 +22,20 @@ qubit.qtag.LibraryTag.define("firefly.generictag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.fireflyAPI = {};
 fireflyAPI.token = "" + this.getValueForToken("client_id") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

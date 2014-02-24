@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mediamind.basketpagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29657,
 	name: "Basket Page Tag",
 	async: true,
@@ -56,8 +57,10 @@ qubit.qtag.LibraryTag.define("mediamind.basketpagetag.Tag", {
 		uv: "universal_variable.basket.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var ebRev = "" + this.getValueForToken("order_total") + "";
 var ebOrderID = "" + this.getValueForToken("order_id") + "";
@@ -89,9 +92,14 @@ var ebRand = Math.random() * 1000000;
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("merchenta.shoppingcarttag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 202,
 	name: "Shopping Cart Tag",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("merchenta.shoppingcarttag.Tag", {
 		uv: "universal_variable.basket.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function () {
   var i, ii, d, p = document.getElementById("mc_data");
@@ -68,9 +71,14 @@ var mc_api_url = "api.merchenta.com/merchenta/t";
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

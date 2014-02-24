@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("qubit.pongtimers.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36182,
 	name: "Pong Timers",
 	async: false,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("qubit.pongtimers.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
 
@@ -58,9 +61,14 @@ qubit.qtag.LibraryTag.define("qubit.pongtimers.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

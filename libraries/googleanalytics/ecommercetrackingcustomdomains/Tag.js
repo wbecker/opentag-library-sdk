@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingcustomdomains.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30160,
 	name: "Ecommerce Tracking - Custom Domains",
 	async: true,
@@ -119,8 +120,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingcustomdomains.Tag
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -158,9 +161,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.ecommercetrackingcustomdomains.Tag
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

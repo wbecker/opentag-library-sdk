@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30164,
 	name: "RadiumOne - Basket Page DEPRECATED",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
 		uv: "universal_variable.basket.line_items[#].product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 
@@ -52,9 +55,14 @@ qubit.qtag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

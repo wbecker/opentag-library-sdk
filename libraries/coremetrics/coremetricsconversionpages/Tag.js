@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("coremetrics.coremetricsconversionpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35172,
 	name: "CoreMetrics - Conversion Pages",
 	async: true,
@@ -84,12 +85,18 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsconversionpages.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function() {
 
   // Top level settings  
@@ -120,5 +127,6 @@ qubit.qtag.LibraryTag.define("coremetrics.coremetricsconversionpages.Tag", {
   );
 
 }());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

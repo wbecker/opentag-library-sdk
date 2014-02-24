@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("intelliad.seotracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39670,
 	name: "SEO Tracking",
 	async: true,
@@ -35,13 +36,20 @@ qubit.qtag.LibraryTag.define("intelliad.seotracking.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var ia_tc = "" + this.getValueForToken("campaign_id") + "";
 var ia_sc = "" + this.getValueForToken("ad_id") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleaffiliatenetworkconversion.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29659,
 	name: "Google Affiliate Network Conversion",
 	async: true,
@@ -56,11 +57,18 @@ qubit.qtag.LibraryTag.define("google.googleaffiliatenetworkconversion.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

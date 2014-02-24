@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("clotheshorse.productpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33175,
 	name: "Product Page",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("clotheshorse.productpage.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
     var ch212 = ch212 || []; 
     ch212['token'] = '' + this.getValueForToken("client_token") + ''; 
@@ -39,9 +42,14 @@ qubit.qtag.LibraryTag.define("clotheshorse.productpage.Tag", {
     })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

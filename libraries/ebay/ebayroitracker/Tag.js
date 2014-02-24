@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("ebay.ebayroitracker.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39662,
 	name: "eBay ROI Tracker",
 	async: true,
@@ -77,12 +78,18 @@ qubit.qtag.LibraryTag.define("ebay.ebayroitracker.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 var _roi = _roi || []; 
  
 _roi.push(['_setMerchantId', '' + this.getValueForToken("ebay_merchant_id") + '']);
@@ -102,5 +109,6 @@ this.getValueForToken("product_quantity")[i] // Item quantity
  
 
 _roi.push(['_trackTrans']);
-    }/*~POST*/
+      /*~POST*/
+    }
 });

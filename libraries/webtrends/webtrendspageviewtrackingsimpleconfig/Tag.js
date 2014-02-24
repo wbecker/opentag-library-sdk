@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendspageviewtrackingsimpleconfig.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36199,
 	name: "Webtrends pageview tracking - simple config",
 	async: true,
@@ -42,10 +43,14 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendspageviewtrackingsimpleconfig.Ta
 		uv: "universal_variable.user.user_id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 window.webtrendsAsyncInit = function() {
 
   var options = {
@@ -63,7 +68,10 @@ window.webtrendsAsyncInit = function() {
   dcs.track();
 
 };
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

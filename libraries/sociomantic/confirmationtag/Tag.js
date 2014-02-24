@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sociomantic.confirmationtag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 38168,
 	name: "Confirmation Tag",
 	async: true,
@@ -77,10 +78,14 @@ qubit.qtag.LibraryTag.define("sociomantic.confirmationtag.Tag", {
 		uv: "universal_variable.user.email"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var basket = {
    products: []
 };
@@ -127,7 +132,10 @@ if (user_id && user_id.toLowerCase() !== "false"){
   var parts = document.cookie.split("qb_sm_uid=");
   if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

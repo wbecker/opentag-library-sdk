@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("perfectstormmedia.conversiontag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 27160,
 	name: "Conversion Tag",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("perfectstormmedia.conversiontag.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var img = document.createElement("img");
 img.height = 1;
@@ -63,9 +66,14 @@ document.body.appendChild(img);
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("evidon.ussitenoticewithimpliedconsentinpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36189,
 	name: "US Site Notice with Implied Consent (In-Page)",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("evidon.ussitenoticewithimpliedconsentinpage.Tag", 
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   (function() {
     var lnk;
@@ -85,9 +88,14 @@ qubit.qtag.LibraryTag.define("evidon.ussitenoticewithimpliedconsentinpage.Tag", 
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

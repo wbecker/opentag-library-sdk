@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedcategorypagetag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30168,
 	name: "{DEPRECATED} Category Page Tag",
 	async: true,
@@ -35,15 +36,22 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedcategorypagetag.Tag", {
 		uv: "universal_variable.page.subcategory"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var product = {
 category : [ '' + this.getValueForToken("CATEGORY") + '', '' + this.getValueForToken("SUBCATEGORY") + '']
 };
 window.product = product;
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

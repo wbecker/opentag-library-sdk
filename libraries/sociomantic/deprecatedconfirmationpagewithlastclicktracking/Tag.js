@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sociomantic.deprecatedconfirmationpagewithlastclicktracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36190,
 	name: "{DEPRECATED} Confirmation Page (with last click tracking)",
 	async: true,
@@ -63,10 +64,14 @@ qubit.qtag.LibraryTag.define("sociomantic.deprecatedconfirmationpagewithlastclic
 		uv: "universal_variable.transaction.subtotal"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var sale = {
   confirmed: true
 };
@@ -88,7 +93,10 @@ basket.transaction = '' + this.getValueForToken("trans_id") + '';
 basket.amount = '' + this.getValueForToken("trans_total") + '';
 basket.currency = '' + this.getValueForToken("trans_currency") + '';
 window.basket = basket;
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

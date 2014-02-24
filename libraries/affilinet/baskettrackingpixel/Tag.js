@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("affilinet.baskettrackingpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37172,
 	name: "Basket Tracking Pixel",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("affilinet.baskettrackingpixel.Tag", {
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var iFrame = document.createElement('iframe');
 iFrame.style.display = 'none';
@@ -127,9 +130,14 @@ iFrameDom.getElementById("basket").innerHTML = basketItemsData;
 iFrameDom.getElementById('affilinetTrackingForm').submit();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

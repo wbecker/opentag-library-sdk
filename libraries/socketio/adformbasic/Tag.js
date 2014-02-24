@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("socketio.adformbasic.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29664,
 	name: "AdForm - Basic",
 	async: true,
@@ -28,10 +29,14 @@ qubit.qtag.LibraryTag.define("socketio.adformbasic.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 (function() {
  console.log("Im just a pre!");
   window._adftrack = {
@@ -40,7 +45,10 @@ qubit.qtag.LibraryTag.define("socketio.adformbasic.Tag", {
   };
 
 })();
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

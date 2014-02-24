@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36660,
 	name: "Webtrends - Scenario analysis",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window.dcsMultiTrack({
   "WT.si_n": "" + this.getValueForToken("name") + "",
@@ -53,9 +56,14 @@ window.dcsMultiTrack({
 });
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

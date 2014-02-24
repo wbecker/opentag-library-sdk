@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30184,
 	name: "Sovendus [DEPRECATED]",
 	async: true,
@@ -91,8 +92,10 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   var sovendusNewDate = new Date();
   var sovendusTimestamp = sovendusNewDate.getTime();
@@ -124,9 +127,14 @@ qubit.qtag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
   })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

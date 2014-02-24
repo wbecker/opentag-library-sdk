@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("deprecatedtags.deprecatedgoogleremarketingconversiontagsynchronous.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 60,
 	name: "[Deprecated] Google Remarketing Conversion Tag - Synchronous",
 	async: true,
@@ -49,16 +50,23 @@ qubit.qtag.LibraryTag.define("deprecatedtags.deprecatedgoogleremarketingconversi
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var google_conversion_id = this.getValueForToken("conversion_id");
 var google_conversion_language = "" + this.getValueForToken("conversion_language") + "";
 var google_conversion_color = "" + this.getValueForToken("conversion_color") + "";
 var google_conversion_label = "" + this.getValueForToken("conversion_label") + "";
 var google_conversion_format = "" + this.getValueForToken("conversion_format") + "";
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39157,
 	name: "Social Measurement Conversion Beacon (Required fields only)",
 	async: true,
@@ -70,12 +71,18 @@ qubit.qtag.LibraryTag.define("bazaarvoice.socialmeasurementconversionbeaconrequi
 		uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 (function(){try{
 var item_count = 0;
 var items = (function(){
@@ -98,5 +105,6 @@ orderNumberOfItems: String(item_count),
 orderItems: items
 });
 }catch(e){window.console && window.console.log(e)}}());
-    }/*~POST*/
+      /*~POST*/
+    }
 });

@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercecustomdomainsonlyrequiredparameters.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34657,
 	name: "Google Analytics Ecommerce - Custom Domains, only required parameters",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercecustomdoma
 		uv: "universal_variable.transaction.total"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -109,9 +112,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticsecommercecustomdoma
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

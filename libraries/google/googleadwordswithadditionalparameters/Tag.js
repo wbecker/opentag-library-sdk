@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("google.googleadwordswithadditionalparameters.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 38657,
 	name: "Google AdWords with additional parameters",
 	async: true,
@@ -63,12 +64,18 @@ qubit.qtag.LibraryTag.define("google.googleadwordswithadditionalparameters.Tag",
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 	window.google_trackConversion({
 	  google_conversion_id: this.getValueForToken("conversion_id"),
 	  google_conversion_label: "" + this.getValueForToken("conversion_label") + "",
@@ -78,5 +85,6 @@ qubit.qtag.LibraryTag.define("google.googleadwordswithadditionalparameters.Tag",
 	  google_conversion_value: this.getValueForToken("conversion_value"),
 	  google_remarketing_only: this.getValueForToken("remarketing")
 	});
-    }/*~POST*/
+      /*~POST*/
+    }
 });

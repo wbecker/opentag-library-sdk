@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("peerius.otherpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 33167,
 	name: "Other Page",
 	async: true,
@@ -28,16 +29,23 @@ qubit.qtag.LibraryTag.define("peerius.otherpage.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
 var PeeriusCallbacks = PeeriusCallbacks || {};
 PeeriusCallbacks.track = {
   type: "other", 
   lang: "" + this.getValueForToken("lang") + ""
 }
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

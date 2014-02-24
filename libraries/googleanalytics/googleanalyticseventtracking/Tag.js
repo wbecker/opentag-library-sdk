@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticseventtracking.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34658,
 	name: "Google Analytics Event Tracking",
 	async: true,
@@ -49,16 +50,23 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticseventtracking.Tag",
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
   window._gaq = window._gaq || [];
   window._gaq.push(['_trackEvent', '' + this.getValueForToken("category") + '', '' + this.getValueForToken("action") + '', '' + this.getValueForToken("label") + '', this.getValueForToken("value"), this.getValueForToken("non_interaction")]);
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

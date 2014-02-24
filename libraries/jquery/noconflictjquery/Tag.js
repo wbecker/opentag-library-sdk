@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("jquery.noconflictjquery.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 29662,
 	name: "Noconflict jQuery",
 	async: true,
@@ -28,12 +29,19 @@ qubit.qtag.LibraryTag.define("jquery.noconflictjquery.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
 window.this.getValueForToken("jquery_name") = $.noConflict(true);
-    }/*~POST*/
+      /*~POST*/
+    }
 });

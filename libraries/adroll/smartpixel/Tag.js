@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("adroll.smartpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34669,
 	name: "SmartPixel",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("adroll.smartpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 window.adroll_adv_id = "" + this.getValueForToken("adroll_adv_id") + "";
 window.adroll_pix_id = "" + this.getValueForToken("adroll_pix_id") + "";
@@ -49,9 +52,14 @@ window.adroll_pix_id = "" + this.getValueForToken("adroll_pix_id") + "";
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

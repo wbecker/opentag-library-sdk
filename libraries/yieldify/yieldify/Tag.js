@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("yieldify.yieldify.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 37163,
 	name: "Yieldify",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("yieldify.yieldify.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function(d) {
 var e = d.createElement('script');
@@ -32,9 +35,14 @@ d.getElementsByTagName("head")[0].appendChild(e);
 }(document));
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

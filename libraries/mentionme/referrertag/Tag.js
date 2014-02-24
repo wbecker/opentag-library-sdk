@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mentionme.referrertag.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 39683,
 	name: "Referrer Tag",
 	async: true,
@@ -147,8 +148,10 @@ qubit.qtag.LibraryTag.define("mentionme.referrertag.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var baseUrl = "https://" + this.getValueForToken("domain") + "/api/v2/referreroffer/" + this.getValueForToken("partner_code") + "?";
 var paramArr = [];
@@ -200,9 +203,14 @@ function beginningZero(digit) {
 }
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

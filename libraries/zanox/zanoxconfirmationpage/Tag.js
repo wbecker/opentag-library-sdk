@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34676,
 	name: "Zanox - Confirmation page",
 	async: true,
@@ -63,8 +64,10 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
     // Fire the confirmation tag
@@ -108,9 +111,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
 
   
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

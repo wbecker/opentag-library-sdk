@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34659,
 	name: "Channel Advisor - Confirmation Page",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag"
 		uv: "universal_variable.transaction.line_items[#].product.id"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
   var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" + this.getValueForToken("client_id") + "";
@@ -68,9 +71,14 @@ qubit.qtag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag"
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

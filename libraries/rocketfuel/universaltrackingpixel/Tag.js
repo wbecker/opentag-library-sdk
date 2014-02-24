@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36174,
 	name: "Universal Tracking Pixel",
 	async: true,
@@ -28,8 +29,10 @@ qubit.qtag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function ()
 {
@@ -39,9 +42,14 @@ qubit.qtag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
 })();
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

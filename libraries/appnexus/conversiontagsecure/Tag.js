@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("appnexus.conversiontagsecure.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 26159,
 	name: "Conversion Tag (Secure)",
 	async: true,
@@ -28,11 +29,18 @@ qubit.qtag.LibraryTag.define("appnexus.conversiontagsecure.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

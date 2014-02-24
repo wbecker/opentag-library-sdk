@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscrossdomain.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34678,
 	name: "Google Analytics - Cross domain",
 	async: true,
@@ -35,8 +36,10 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscrossdomain.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
  
   var _gaq = _gaq || [];
@@ -53,9 +56,14 @@ qubit.qtag.LibraryTag.define("googleanalytics.googleanalyticscrossdomain.Tag", {
  
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

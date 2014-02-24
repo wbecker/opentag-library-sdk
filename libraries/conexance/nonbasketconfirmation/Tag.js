@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 34660,
 	name: "Non basket/confirmation",
 	async: true,
@@ -42,8 +43,10 @@ qubit.qtag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 (function() {
 
@@ -73,9 +76,14 @@ qubit.qtag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
 }());
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

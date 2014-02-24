@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("mentionme.referrertagdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35165,
 	name: "Referrer Tag [Deprecated]",
 	async: true,
@@ -154,8 +155,10 @@ qubit.qtag.LibraryTag.define("mentionme.referrertagdeprecated.Tag", {
 		uv: ""
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 var baseUrl = "https://" + this.getValueForToken("domain") + "/api/v2/referreroffer/" + this.getValueForToken("partner_code") + "?";
 var paramArr = [];
@@ -208,9 +211,14 @@ function beginningZero(digit) {
 }
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

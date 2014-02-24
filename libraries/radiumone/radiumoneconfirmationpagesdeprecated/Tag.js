@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 30165,
 	name: "RadiumOne - Confirmation Pages DEPRECATED",
 	async: true,
@@ -21,8 +22,10 @@ qubit.qtag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag
 		uv: "universal_variable.transaction.line_items[#].quantity"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
 
@@ -50,9 +53,14 @@ qubit.qtag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag
 
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

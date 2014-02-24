@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("zanox.zanoxproductpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 35173,
 	name: "Zanox - Product Pages",
 	async: true,
@@ -70,8 +71,10 @@ qubit.qtag.LibraryTag.define("zanox.zanoxproductpages.Tag", {
 		uv: "universal_variable.product.url"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 
     // Populate product fields
@@ -105,9 +108,14 @@ qubit.qtag.LibraryTag.define("zanox.zanoxproductpages.Tag", {
     waitForZanoxDiv();
   
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });

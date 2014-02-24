@@ -1,7 +1,8 @@
 //:include tagsdk-0.0.1.js
 
 qubit.qtag.LibraryTag.define("webtrends.webtrendsproductpages.Tag", {
-    config: {/*DATA*/
+    config: {
+      /*DATA*/
 	id: 36659,
 	name: "Webtrends - Product pages",
 	async: true,
@@ -49,8 +50,10 @@ qubit.qtag.LibraryTag.define("webtrends.webtrendsproductpages.Tag", {
 		uv: "universal_variable.product.subcategory"
 	}
 	]
-    },/*~DATA*/
-    script: function () {/*SCRIPT*/
+      /*~DATA*/
+    },
+    script: function () {
+      /*SCRIPT*/
 
 dcsMultiTrack({
   "WT.pn_sku": "" + this.getValueForToken("sku") + "",
@@ -61,9 +64,14 @@ dcsMultiTrack({
 });
 
 
-    },/*~SCRIPT*/
-    pre: function () {/*PRE*/
-    },/*~PRE*/
-    post: function () {/*POST*/
-    }/*~POST*/
+      /*~SCRIPT*/
+    },
+    pre: function () {
+      /*PRE*/
+      /*~PRE*/
+    },
+    post: function () {
+      /*POST*/
+      /*~POST*/
+    }
 });
