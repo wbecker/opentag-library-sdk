@@ -8,7 +8,7 @@ cd $current/../../
 echo "Changing dir to:" $(pwd)
 
 SRC=$1
-TAG="Tag"
+TAG="current"
 TOOLS="shared"
 HTML="$TOOLS/bin/html"
 SRC_BASE="libraries,shared/js"
@@ -21,7 +21,7 @@ echo "Cleaning: Removing dist"
 echo
 
 rm -rf dist
-mkdir dist
+mkdir $SRC/dist
 
 echo "Build: Generating full package (with dependencies): dist/out-all-src.js"
 
