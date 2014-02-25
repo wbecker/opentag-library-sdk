@@ -12,7 +12,7 @@ TAG="current"
 TOOLS="shared"
 HTML="$TOOLS/bin/html"
 SRC_BASE="libraries,shared/js"
-
+EXCLUDE=".*/dist.*,.*/build.*"
 
 echo "================================================================================"
 echo "Tag name: $TAG"
@@ -32,6 +32,7 @@ java -jar $TOOLS/bin/MiniMerge.jar \
  --source-base "$SRC_BASE"\
  -s $SRC\
  --info\
+ --exclude-file-path-patterns "$EXCLUDE"\
  -v
 
 echo "================================================================================"
@@ -46,6 +47,7 @@ java -jar $TOOLS/bin/MiniMerge.jar \
  --source-base "$SRC_BASE"\
  -s $SRC\
  --info\
+ --exclude-file-path-patterns "$EXCLUDE"\
  -v
 
 echo "================================================================================"
@@ -57,6 +59,7 @@ java -jar $TOOLS/bin/MiniMerge.jar \
  -o $HTML/scripts.htmlf \
  -i .js \
  --source-base "$SRC_BASE"\
+ --exclude-file-path-patterns "$EXCLUDE"\
  -s $SRC\
  --info\
  --index\
@@ -84,4 +87,4 @@ rm $HTML/scripts.htmlf
 
 echo "Done. Open index.html file in a browser."
 
-open $HTML/index.html
+#open $HTML/index.html

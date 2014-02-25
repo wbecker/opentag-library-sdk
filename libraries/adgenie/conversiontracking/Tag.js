@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 
-qubit.qtag.LibraryTag.define("adgenie.conversiontrackingkoko.Tag", {
+qubit.qtag.LibraryTag.define("adgenie.conversiontracking.Tag", {
 	config: {
 		/*DATA*/
-		name: "Conversion Tracking KOKO",
+		name: "Conversion Tracking changed",
 		async: true,
 		description: "This should be called when a customer has successfully completed a transaction.",
 		html: "",
