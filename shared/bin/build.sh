@@ -7,6 +7,15 @@ echo $current
 cd $current/../../
 echo "Changing dir to:" $(pwd)
 
+if [ $# -eq 0 ]; then
+	echo
+	echo "MISSING ARGUMENT !"
+	echo "Specify package to build. Example:"
+	echo "build.sh libraries/google/adwordstag"
+	echo
+	exit
+fi
+
 SRC=$1
 TAG="current"
 TOOLS="shared"
