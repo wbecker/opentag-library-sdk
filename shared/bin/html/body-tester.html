@@ -240,7 +240,9 @@
     e.className = "config-header";
     anchor.appendChild(e);
     for(var prop in config) {
-      if (prop !== "parameters" && prop !== "PACKAGE") {
+      if (prop !== "parameters" &&
+              prop !== "PACKAGE" &&
+              prop !== "dependencies") {
         var e = document.createElement("div");
         var p = config[prop];
         e.innerHTML = configTemplate;
