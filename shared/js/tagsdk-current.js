@@ -2730,9 +2730,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param {type} tryDefaults
    * @returns {Boolean}
    */
-  TagHelper.allParameterVariablesReadyForTag = 
-          function(tag, tryDefaults) {
-    var useDefaults = tag.config.usingDefaults && tryDefaults;
+  TagHelper.allParameterVariablesReadyForTag = function(tag, tryDefaults) {
+    var useDefaults = tryDefaults;
     var log = tag.log;
     var allReady = true;
     var vars = tag.getPageVariables();
@@ -2742,21 +2741,21 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       
       try {
         var parameter = findParamatersForVariable(tag, pageVar)[0];
-        var exists = pageVar.exists();
-        if (!exists && useDefaults) {
-          exists = Utils.variableExists(parameter.defaultValue);
-          exists = exists || pageVar.exists(true);
+        var exist = pageVar.exists();
+        if (!exist && useDefaults) {
+          exist = Utils.variableExists(parameter.defaultValue);
+          exist = exist || pageVar.exists(true);
         }
 
         /*log*/
         var name = pageVar.config.name ? pageVar.config.name : "[unnamed]";
 
         Timed.maxFrequent(function() {
-          log.FINEST("Variable '" + name + "' exists? " + exists);
+          log.FINEST("Variable '" + name + "' exists? " + exist);
         }, 5000, _lock_obj);
         /*~log*/
         
-        if (!exists) {
+        if (!exist) {
           allReady = false;
           break;
         }
@@ -3038,15 +3037,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.dependencies = config.dependencies.concat(this.dependencies);
       }
       
-      if (config.script) {
-        if (typeof(config.script) === "function") {
-          this.script = this.config.script;
-        } else {
-          var expr = this.replaceTokensWithValues(String(config.script));
-          this.script = Utils.expressionToFunction(expr);
-        }
-      }
-      
       this.onInit();
     }
   }
@@ -3067,6 +3057,15 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @private
    */
   GenericLoader.prototype._executeScript = function () {
+    if (this.config && this.config.script) {
+        if (typeof(this.config.script) === "function") {
+          this.script = this.config.script;
+        } else {
+          var expr = this.replaceTokensWithValues(String(this.config.script));
+          this.script = Utils.expressionToFunction(expr);
+        }
+      }
+    
     this.log.INFO("executing main script...");
     var success = false;
     try {
@@ -3218,6 +3217,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       finished = true;
     }
     
+    if (this.unexpectedFail) {
+      finished = true;
+    }
+    
     if (!finished) {
       Timed.setTimeout(this.runOnce.bind(this), 40);
     } else {
@@ -3226,7 +3229,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       //now check if failures occured
       if (this.loadingDependenciesFailed ||
           this.scriptLoadingFailed ||
-          this.injectHTMLFailed) {
+          this.injectHTMLFailed ||
+          this.unexpectedFail) {
         this.log.ERROR("script execution has failed! Tag in fail state.");
         this.scriptExecuted = -(new Date().valueOf());
         this.setStatus("FAILED_TO_EXECUTE");
@@ -3379,7 +3383,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     FAILED_TO_LOAD_DEPENDENCIES: 128,
     FAILED_TO_LOAD_URL: 256,
     FAILED_TO_EXECUTE: 512,
-    TIMED_OUT: 1024
+    TIMED_OUT: 1024,
+    UNEXPECTED_FAIL: 2048
   };
   
   /**
@@ -3640,6 +3645,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     } catch (ex) {
       this.log.ERROR("load(): unexpected exception occured: \n"
               + ex + "\ntrying to finish... ");//L
+      throw ex;
     }
     
     waitForDependencies.call(this);
@@ -3718,6 +3724,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     } catch (ex) {
       this.log.ERROR("loadURLs thrown unexpected exception! : " + ex);
       this.loadURLsNotFinished = false;
+      this.setStatus("UNEXPECTED_FAIL");
+      this.unexpectedFail = new Date().valueOf();
     }
   };
   
@@ -3977,15 +3985,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   BaseTag.prototype.valueForToken = function (token) {
     var param = this.getParameterByTokenName(token);
     if (param) {
-      var variable = this.getVariableForParameter(param);
-      var defaultValue = undefined;
-      if (this.config.usingDefaults) {
-        defaultValue = param.defaultValue;
-      }
-      if (variable) {
-        defaultValue = variable.getRelativeValue(true, defaultValue);
-      }
-      return defaultValue;
+      return this.getParameterValue(param);
     }
     return undefined;
   };
@@ -4091,7 +4091,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     FAILED_TO_LOAD_DEPENDENCIES: 256,
     FAILED_TO_LOAD_URL: 512,
     FAILED_TO_EXECUTE: 1024,
-    TIMED_OUT: 2048
+    TIMED_OUT: 2048,
+    UNEXPECTED_FAIL: 4096
   };
   
   /**
@@ -4150,10 +4151,15 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     if (this.status & s.FAILED_TO_EXECUTE)
         this.statusStack.push(
                 "Script failed to execute.");
-        
+
     if (this.status & s.TIMED_OUT)
         this.statusStack.push(
                 "Script timed out awaiting for dependencies.");
+
+    if (this.status & s.UNEXPECTED_FAIL) {
+      this.statusStack.push(
+                "Script occured UNEXPECTED exception and is failed.");
+    }
   };
   
   /**
@@ -4223,7 +4229,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {unresolved}
    */
   BaseTag.prototype.replaceTokensWithValues = function (string) {
-    var ret = string;
     var params = this.config.parameters;
     
     if (params) for (var i = 0; i < params.length; i++) {
@@ -4233,10 +4238,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       if (variable) {
         var token = params[i].token;
         var value = this.valueForToken(token);
-        ret = variable.replaceToken(token, string, value);
+        string = variable.replaceToken(token, string, value);
       }
     }
-    return ret;
+    return string;
   };
   
   /**
@@ -4259,18 +4264,20 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param {type} name
    * @returns {Object}
    */
-  BaseTag.prototype.getParameterValue = function (name) {
-    var param = this.getParameter(name);
+  BaseTag.prototype.getParameterValue = function (parameterOrName) {
+    var param = (typeof(parameterOrName) === "string") ?
+        this.getParameter(parameterOrName) : parameterOrName;
     if (param) {
       var variable = this.getVariableForParameter(param);
+
       if (variable) {
-        var value = variable.getValue();
-        if (value !== undefined) {
+        try {
+          var value = Utils.gevalAndReturn(param.defaultValue);
+          value = variable.getRelativeValue(true, value);
           return value;
-        } else if (param.hasOwnProperty("defaultValue")) {
-          return param.defaultValue;
-        } else {
-          return variable.getDefaultValue();
+        } catch (ex) {
+          this.log.ERROR("error while trying to resolve variable value:" + ex);
+          throw ex;
         }
       }
     }
@@ -6180,25 +6187,6 @@ var JSON = {};
     Utils.setIfUnset(config, LibraryTag.defaultConfig);
     
     LibraryTag.superclass.call(this, config);
-    if (config) {
-      if (config.pre) {
-        if (typeof(config.pre) === "function") {
-          this.pre = this.config.pre;
-        } else {
-          var expr = this.replaceTokensWithValues(String(this.config.pre));
-          this.pre = Utils.expressionToFunction(expr);
-        }
-      }
-      
-      if (config.post) {
-        if (typeof(config.post) === "function") {
-          this.post = this.config.post;
-        } else {
-          var expr = this.replaceTokensWithValues(String(this.config.post));
-          this.post = Utils.expressionToFunction(expr);
-        }
-      }
-    }
   }
   
   LibraryTag.superclass = qubit.opentag.BaseTag;
@@ -6273,6 +6261,15 @@ var JSON = {};
     LibraryTag.superclass.prototype.before.call(this);
     this.log.INFO("Running PRE script execution...");
     try {
+      var cfg = this.config;
+      if (cfg && cfg.pre) {
+        if (typeof(cfg.pre) === "function") {
+          this.pre = cfg.pre;
+        } else {
+          var expr = this.replaceTokensWithValues(String(cfg.pre));
+          this.pre = Utils.expressionToFunction(expr);
+        }
+      }
       this.pre();
     } catch (ex) {
       this.log.ERROR(this.config.name + " exception while running pre: " + ex);
@@ -6288,6 +6285,15 @@ var JSON = {};
     LibraryTag.superclass.prototype.after.call(this, success);
     this.log.INFO("Running POST script execution...");
     try {
+      var cfg = this.config;
+      if (cfg && cfg.post) {
+        if (typeof(cfg.post) === "function") {
+          this.post = cfg.post;
+        } else {
+          var expr = this.replaceTokensWithValues(String(cfg.post));
+          this.post = Utils.expressionToFunction(expr);
+        }
+      }
       this.post();
     } catch (ex) {
       this.log.ERROR(this.config.name + " exception while running pre: " + ex);
