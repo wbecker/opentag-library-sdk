@@ -100,4 +100,4 @@ rm $HTML/scripts.htmlf
 
 echo "Done. Open index.html file in a browser."
 
-open $HTML/index.html
+open index.html
