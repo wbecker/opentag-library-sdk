@@ -1,109 +1,1464 @@
+/**
+ * @author Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+ */
+(function () {
+  /**
+   * Bind function should be already native in most browsers.
+   * If not, we must use very basic replacement here.
+   * We may inject recommended by:
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+   * /Global_Objects/Function/bind
+   * Template, but for now it will stay simple.
+   * It is recommended that you pass specific arguments using closures.
+   * 
+   * @param {type} ctx
+   * @param {type} ref
+   * @returns {unresolved}
+   */
+  Function.prototype.bind = Function.prototype.bind || function (ctx) {
+    var _this = this;
+    return function () {
+      return _this.apply(ctx, arguments);
+    };
+  };
+}());
+
+var global = window || (function () { return eval("this"); }());
+global.NAMESPACE = global;
+
+global.qubit = {
+  VERSION: "0.0.1",
+  EMAIL: "peter.fronc@qubitdigital.com"
+};
+
+//shortcuts
+var EMPTY_FUN = function () {};
+var UNDEF = undefined;
+
+
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ */
+
+(function () {
+  
+  /**
+   * @class qubit.opentag.Utils
+   * @singleton
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   */
+  function Utils() {}
+
+  /**
+   * ## Utility method getting the browser's URL.
+   * @returns {document.location.href}
+   */
+  Utils.getUrl = function () {
+    return document.location.href;
+  };
+
+  Utils.getQueryParam = function (param) {
+    var i, ii, params, url, query, queries, splitQuery;
+    url = Utils.getUrl();
+    if (url.indexOf("?") > 0) {
+      queries = url.substring(url.indexOf("?") + 1).split("&");
+      for (i = 0, ii = queries.length; i < ii; i += 1) {
+        query = queries[i];
+        if (query.indexOf("=") > 0) {
+          splitQuery = query.split("=");
+          if ((splitQuery.length === 2) && (splitQuery[0] === param)) {
+            return splitQuery[1];
+          }
+        }
+      }
+    }
+    return null;
+  };
+  
+  /**
+   * 
+   * @param {Object} value
+   * @returns {Boolean}
+   */
+  Utils.variableExists = function (value) {
+    return (value !== undefined) && (value !== null);
+  };
+
+  /**
+   * 
+   * @param {String} elementId
+   * @returns {unresolved}
+   */
+  Utils.getElementValue = function (elementId) {
+    var el = document.getElementById(elementId);
+    if (el) {
+      return el.textContent || el.innerText;
+    }
+    return null;
+  };
+  
+  //private helper for objectCopy
+  var travelArray = [];
+  function existsInPath(object, max) {
+    for(var i=0; i < max && i < travelArray.length; i++) {
+      if (object === travelArray[i][0]) {
+        //console.log(object+"");
+        return travelArray[i];
+      }
+    }
+    return false;
+  }
+  /**
+   * Copy object.
+   * deep option must be passed to protect from circural references.
+   * 
+   * @param {Object} obj
+   * @param {Number} deep
+   * @param {Boolean} starting point
+   * @returns {unresolved}
+   */
+  Utils.objectCopy = function(obj, maxDeep, lessStrict, start) {
+    if (maxDeep !== undefined && !maxDeep) {
+      return;
+    } else if (maxDeep !== undefined) {
+      maxDeep--;
+    }
+    
+    if (!(obj instanceof Object))
+      return obj;
+    
+    if (lessStrict) {
+      if (obj instanceof Node ||
+          obj === window) {
+          //dont copy those objects, they are read only
+        return obj;
+      }
+    }
+
+    var copy = (obj instanceof Array) ? [] : {};
+    if (start === undefined) {
+      travelArray = [];
+      start = 0;
+    }
+    
+    if (copy instanceof Array) {
+      for (var i = 0; i < obj.length; i++) {
+        var object = obj[i];
+        travelArray[start] = [object, copy, i];
+        var exists = existsInPath(object, start);
+        if (!exists) {
+          copy.push(Utils.objectCopy(object, maxDeep, lessStrict, start + 1));
+        } else {
+          //pass existing copy!
+          copy.push(exists[1][exists[2]]);
+        }
+      }
+    } else {
+      for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+          var object = obj[prop];
+          travelArray[start] = [object, copy, i];
+          var exists = existsInPath(object, start);
+          if (!exists) {
+            copy[prop] = Utils.objectCopy(object, maxDeep, lessStrict, start + 1);
+          } else {
+            //pass existing copy!
+            copy[prop] = exists[1][exists[2]];
+          }
+        }
+      }
+    }
+    return copy;
+  };
+  
+  /**
+   * 
+   * @param {opentag.qubit.BaseTag} tag
+   * @returns {Boolean}
+   */
+  Utils.determineIfSync = function (tag) {
+    var i, ii, script, scripts, src;
+    scripts = document.getElementsByTagName("script");
+    for (i = 0, ii = scripts.length; i < ii; i += 1) {
+      script = scripts[i];
+      src = script.getAttribute("src");
+      //removed "opentag", white labelling!!!
+      if (!!src && (src.indexOf("" + 
+          tag.config.opentagClientId + "-" + tag.config.profileName +
+          ".js") > 0)) {
+        return (script.getAttribute("async") === null && 
+            //handle ie7
+            (script.getAttribute("defer") === false ||
+            //handle ie8
+            script.getAttribute("defer") === "" ||
+            //handle chrome/firefox
+            script.getAttribute("defer") === null));
+      } 
+    }
+    return true;
+  };
+  
+  /**
+   * @delete
+   * COPY FROM OLD.
+   * This function replaces following patterns ONLY:
+   * a.b.c[#] + "ZZZ ${T}[i] YYY" -> "ZZZ a.b.c[i] YYY"
+   * a.b.c[#] + "ZZZ ${T}.length YYY" -> "ZZZ a.b.c.length YYY"
+   * 
+   * It is a VERY private function.
+   * 
+   * @param {qubit.opentag.pagevariable.BaseVariable} pageVar
+   * @param {String} token
+   * @param {String} str
+   * @returns {String}
+   */
+  Utils.substituteArray = function (pageVar, token, str) {
+    var start, end, index, tok;
+    index = pageVar.value.indexOf("[#]");
+    start = pageVar.value.substring(0, index);
+    end = pageVar.value.substring(index + 3);
+    str = str.replace(new RegExp(token + "\\.length", "g"), start + ".length"); 
+    str = str.replace(new RegExp(token + "(\\[.*?\\])", "g"), start + "$1" + end);
+    return str;
+  };
+
+  /**
+   * Prepares string to be quoted and evaluable.
+   * @param {String} string
+   * @returns {String} quoted string or the input parameter if parameter is not
+   *  a string.
+   */
+  Utils.prepareQuotedString = function (string) {
+    if (typeof(string) === "string") {
+      return "\"" + (string.replace(/\"/g, "\\\"")) + "\"";
+    } else {
+      return string;
+    }
+  };
+
+  /**
+   * Function builds desired name space.
+   * It will not override existing elements.
+   * @param {String} path
+   * @param {Object} instance
+   * @param {Object} pckg
+   * @param {Boolean} noOverride
+   * @returns {Object}
+   */
+  Utils.namespace = function (path, instance, pckg, noOverride) {
+    var files = path.split("."),
+      //access eval INDIRECT so it is called globally
+      current = Utils.NAMESPACE_BASE || (function () {return eval("this"); }()),
+      last = null,
+      lastName = null,
+      i;
+    
+    current = pckg || current;
+    
+    for (i = 0; i < files.length - 1; i += 1) {
+      last = current;
+      lastName = files[i];
+      current[lastName] = current[lastName] || {};
+      current = current[lastName];
+    }
+    
+    last = current;
+    lastName = files[files.length - 1];
+    
+    if (instance) {
+      if (last[lastName] === undefined || !noOverride) {
+        last[lastName] = instance;
+      }
+    } else {
+       last[lastName] = last[lastName] || {};
+    }
+    
+    return last[lastName];
+  };
+
+  /**
+   * 
+   * @param {type} path
+   * @param {type} base
+   * @returns {window|Window}
+   */
+  Utils.getObjectUsingPath = function (path, base) {
+    base = base || window;
+    var parts = path.split(".");
+    for (var i = 0; i< parts.length; i++) {
+      base = base[parts[i]];
+    }
+    return base;
+  };
+
+  /**
+   * Utility for simple class declaration (not definition).
+   * It does similiar job as namespace with addition of adding CLASS_NAME
+   * and PACKAGE_NAME on prototype. It also sets superclass to extending class
+   * instance.
+   * 
+   * @param {String} path
+   * @param {Object} instance
+   * @param {Function} extendingClass
+   * @param {Object} pckg
+   * @param {Object} config
+   * @returns {Object} the class instance
+   */
+  Utils.clazz = function (path, instance, extendingClass, pckg, config) {
+    Utils.namespace(path, instance, pckg, true);
+    if (typeof(extendingClass) === "function") {
+      instance.superclass = extendingClass;
+      instance.prototype = new instance.superclass(config);
+    }
+    if (instance.prototype) {
+      var names = path.split(".");
+      instance.prototype.CLASS_NAME = names[names.length - 1];
+      names.splice(names.length - 1, 1);
+      instance.prototype.PACKAGE_NAME = names.join(".");
+    }
+    return instance;
+  };
+
+/**
+ * 
+ * @param {String} expr expression used for function
+ * @param {String} argzString optional arguments part, example: "arg1, arg2"
+ * @returns {Function} function made from expression block
+ */
+  Utils.expressionToFunction = function (expr, argzString) {
+    argzString = argzString || "";
+    var funTemplate = "function (" + argzString + ") {" + expr + "}";
+    return Utils.gevalAndReturn(funTemplate);
+  };
+  
+  /**
+   * Utility for class creation.
+   * 
+   * @param {Object} config
+   * @param {String} classPath
+   * @param {Function} extendingClass
+   * @returns {Object} defined class
+   */
+  Utils.defineClass = function (config, classPath, extendingClass) {
+    
+    var names = classPath.split(".");
+    var className = names[names.length - 1];
+    
+    //create class
+    //@TODO create eval fix and do proper wrap.
+    var clazz;
+    var funTemplate = "(function " + className + "() {" +
+      "  if (" + classPath + "._CONSTRUCTOR) {" +
+      "    " + classPath + "._CONSTRUCTOR.apply(this, arguments);" +
+      "  } else {" +
+      "    if (" + classPath + ".superclass) {" +
+      "      " + classPath + ".superclass.apply(this, arguments)" +
+      "    }" + 
+      "  }" +
+      "})";
+    
+    clazz = Utils.gevalAndReturn(funTemplate);
+
+//or anonymous:
+//    var clazz = function () {
+//      if (CONSTR) {
+//         CONSTR.apply(this, arguments);
+//      } else if (clazz.superclass) {
+//        clazz.superclass.apply(this, arguments);
+//      }
+//    };
+
+    var CONSTRUCTOR = config.CONSTRUCTOR;
+    
+    clazz._CONSTRUCTOR = CONSTRUCTOR;
+    clazz.superclass = extendingClass;
+    
+    //publish class
+    this.clazz(classPath, clazz, extendingClass);
+    
+    //pass prototype objects
+    for (var prop in config) {
+      if (config.hasOwnProperty(prop)
+              && prop !== "CONSTRUCTOR") {
+        clazz.prototype[prop] = config[prop];
+      }
+    }
+    return clazz;
+  };
+  
+  /**
+   * Important compat utility for keys listing on objects.
+   * @param {Object} obj
+   * @returns {Array}
+   */
+  Utils.keys = function (obj) {
+    if (obj instanceof Object) {
+      if (Object.keys) {
+        return Object.keys(obj);
+      }
+      var keys = [];
+      for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+          keys.push(prop);
+        }
+      }
+      return keys;
+    } else {
+      throw "keys() called on non-object!";
+    }
+  };
+
+
+  /**
+   * Cross-browser source element resolving function from DOM event object.
+   * 
+   * @param {Object} evt
+   * @returns {Node}
+   */
+  Utils.getSrcElement = function (evt) {
+    var elem;
+    evt = evt || window.event;
+    if (evt.srcElement) {
+      elem = evt.srcElement;
+    } else if (evt.target) {
+      elem = evt.target;
+    }
+    return elem;
+  };
+
+  /*
+   * Local function taking as argument and array and a string that will be 
+   * added to the array if it does not equal (===) to any of items.
+   * 
+   * @param {Array} array
+   * @param {Object} obj
+   * @returns {Number} objects position in array,
+   *  if doesnt exist it will return -1. It means that object was appended at 
+   *  the end of array.
+   * if exists it will return its popsition.
+   */
+  Utils.addToArrayIfNotExist = function (array, obj) {
+    var i = 0, exists = false;
+    for (; i < array.length; i += 1) {
+      if (array[i] === obj) {
+        exists = true;
+        break;
+      }
+    }
+    if (!exists) {
+      array.push(obj);
+      i = -1;
+    }
+    return i;
+  };
+  
+  /*
+   * Local function taking as argument and array and a string that will be 
+   * added to the array if it does not equal (===) to any of items.
+   * 
+   * @param {Array} array
+   * @param {Object} obj
+   * @returns {Number} objects position in array,
+   *  if doesnt exist it will return -1. It means that object was appended at 
+   *  the end of array.
+   * if exists it will return its popsition.
+   */
+  Utils.indexInArray = function (array, obj) {
+    var i = 0, exists = false;
+    for (; i < array.length; i++) {
+      if (array[i] === obj) {
+        exists = true;
+        break;
+      }
+    }
+    return exists ? i : -1;
+  };
+  
+  /*
+   * Local function taking as argument and array and a string that will be  
+   * removed from the array if it equals (===) to any of array items.
+   * 
+   * @param {Array} array
+   * @param {Object} obj
+   */
+  Utils.removeFromArray = function (array, obj) {
+    var i = 0;
+    for (; i < array.length; i += 1) {
+      if (array[i] === obj) {
+        array.splice(i, 1);
+      }
+    }
+  };
+  
+  /**
+   * Cross browser add className wrapper.
+   * Nowadays, browsers support "classList" property - still not all of them.
+   * 
+   * @param {Node} node
+   * @param {String} name
+   */
+  Utils.addClass = function (node, name) {
+    var classes;
+    try {
+      node.classList.add(name);
+    } catch (ex) {
+      classes = node.className.split(" ");
+      Utils.addToArrayIfNotExist(classes, name);
+      node.className = classes.join(" ");
+    }
+  };
+  
+  /**
+   * Cross browser remove className wrapper.
+   * Nowadays, browsers support "classList" property - still not all of them.
+   * 
+   * @param {Node} node
+   * @param {String} name
+   */
+  Utils.removeClass = function (node, name) {
+    var classes;
+    try {
+      node.classList.remove(name);
+    } catch (ex) {
+      classes = node.className.split(" ");
+      removeFromArray(classes, name);
+      node.className = classes.join(" ");
+    }
+  };
+  
+  /**
+   * @TODO refactor this. Now comaptible with old code.
+   * @param {type} expression
+   * @returns {undefined}
+   */
+  Utils.gevalAndReturn = function (expression) {
+    Utils.gevalAndReturn.___var_test___ = undefined;
+    expression  =
+      ("qubit.opentag.Utils.gevalAndReturn.___var_test___ = (" +
+        expression + ")");
+    Utils.geval(expression);
+    return Utils.gevalAndReturn.___var_test___;
+  };
+  
+  /**
+   * Utility useful to apply default values on config objects, it sets
+   * values from src on obj if unset on obj.
+   * @param {type} obj
+   * @param {type} src
+   * @returns {undefined}
+   */
+  Utils.setIfUnset = function (obj, src) {
+    if (obj && src) {
+      for (var prop in src) {
+        if (src.hasOwnProperty(prop) && !obj.hasOwnProperty(prop)) {
+          obj[prop] = src[prop];
+        }
+      }
+    }
+  };
+  
+  /**
+   * @TODO refactor this. Now comaptible with old code.
+   * @param {type} expression
+   * @returns {undefined}
+   */
+  Utils.geval = function (expression) {
+    if (window.execScript) {
+      window.execScript(expression);
+    } else {
+      (function () {return window["eval"].call(window, expression); }());
+    }
+  };
+  
+  Utils.ANON_VARS = [];
+  /**
+   * 
+   * @param {type} obj
+   * @returns {String}
+   */
+  Utils.getAnonymousAcessor = function (obj) {
+    var index = Utils.indexInArray(obj, Utils.ANON_VARS);
+    if (index === -1) {
+      index = Utils.addAnonymousAcessor(obj);
+    }
+    
+    return "qubit.opentag.Utils.ANON_VARS[" + index + "]";
+  };
+  
+  /**
+   * 
+   * @param {type} obj
+   * @returns {Number}
+   */
+  Utils.addAnonymousAcessor = function (obj) {
+    return Utils.addToArrayIfNotExist(Utils.ANON_VARS, obj);
+  };
+  
+  Utils.namespace("qubit.opentag");
+  
+  qubit.opentag.Utils = qubit.opentag.Utils || Utils;
+}());
+/*NO LOG*/
+
+/* jshint white: false */
+
+(function () {
+  
+  var Utils = qubit.opentag.Utils;
+  var c = window.console;
+  
+  /**
+   * @class qubit.opentag.Log
+   * 
+   * ## Logging class
+   * 
+   * ALWAYS USE LOGGER IN A SEPARATE LINES. Lines containing logger 
+   * may be deleted by compression process.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * @param prefix {String} typical prefix to be used for each logger instance
+   * @param clazz {Object} class object or function returning special
+   * prefixed logging contents.
+   * @param collectLocally {Boolean} should collect logs locally
+   */
+  function Log(prefix, clazz, collectLocally) {
+    
+    this.collectLogs = !!Log.COLLECT;
+    this.collectLocally = collectLocally;
+    /**
+     * Collection of logging inputs:
+     * 
+     * [message, styling, ifPlain, type, level]
+     * 
+     * @property
+     * @type Array
+     */
+    this.collection = [];
+    
+    this.getPrefix = function () {
+      var clz = "";
+      if (clazz) {
+        if (typeof(clazz) === "function") {
+          clz = clazz(this.ref);
+        } else if (clazz.CLASS_NAME) {
+          clz = clazz.CLASS_NAME;
+        } else if (clazz.constructor && clazz.constructor.name) {
+          clz = clazz.constructor.name;
+        }
+        if (clz) {
+          clz += " -> ";
+        }
+      }
+      return (prefix || "") + clz;
+    };
+  }
+
+  /**
+   * Static property used to define finest level.
+   * @property {Number} [LEVEL_FINEST=4]
+   */
+  Log.LEVEL_FINEST = 4;
+  /**
+   * Static property used to define fine level.
+   * @property {Number} [LEVEL_FINE=3]
+   */
+  Log.LEVEL_FINE = 3;
+  /**
+   * Static property used to define informative level.
+   * @property {Number} [LEVEL_INFO=2]
+   */
+  Log.LEVEL_INFO = 2;
+  /**
+   * Static property used to define severe level.
+   * @property {Number} [LEVEL_WARN=1]
+   */
+  Log.LEVEL_WARN = 1;
+  /**
+   * Static property used to define severe level.
+   * @property {Number} [LEVEL_ERROR=0]
+   */
+  Log.LEVEL_ERROR = 0;
+  
+  /**
+   * @property {Number} [LEVEL_NONE=-1]
+   * Static property used to define no logging level.
+   */
+  Log.LEVEL_NONE = -1;
+  
+  /**
+   * @property LEVEL
+   * 
+   * `Log.LEVEL` property is used to controll globally current and default loggin
+   * level.
+   * Choose from Log.LEVEL_* properties to adjust system logging output.
+   * 
+   * Example:
+
+
+        var Log = qubit.opentag.Log;
+        qubit.opentag.Log.LEVEL = Log.LEVEL_FINEST;
+
+   *  will enable all logs to 
+   * be at output.
+   * 
+ 
+
+        var Log = qubit.opentag.Log;
+        Log.LEVEL = Log.LEVEL_NONE;
+   * will disable any logs.
+   */
+  Log.LEVEL = Log.LEVEL_NONE;
+  Log.LEVEL = Log.LEVEL_FINE;/*D*///line deleted during merge
+  Log.COLLECT_LEVEL = Log.LEVEL_FINE;
+  Log.COLLECT = true;
+  
+  var collection = [];
+  
+  /**
+   * Collection of logging inputs globally.
+   * Contents for each element:
+   * 
+   * [message, styling, ifPlain, type, level]
+   * 
+   * @static
+   * @property
+   * @type Array
+   */
+  Log.logsCollection = collection;
+  /**
+   * 
+   * @param {type} level
+   * @param {type} delay
+   */
+  Log.rePrintAll = function (level, delay, noClean, array) {
+    var oldLevel = Log.LEVEL;
+    
+    if (level !== undefined) {
+      Log.LEVEL = level;
+    }
+    
+    try {
+      if (Log.COLLECT) {
+        try {
+          if (!noClean) {
+            window.console.clear();
+          }
+        } catch (ex) {
+          
+        }
+        var collection = array || Log.logsCollection;
+        var counter = 0;
+        for (var i = 0; i < collection.length; i++) {
+          (function (j) {
+            var log = collection[j];
+            var logLevel = log[4];
+            if (logLevel !== undefined && Log.LEVEL >= logLevel) {
+              counter++;
+              if (!delay) {
+                Log.prototype.print.apply(Log, log);
+              } else {
+                qubit.opentag.Timed.setTimeout(function () {
+                  if (level !== undefined) {
+                    Log.LEVEL = level;
+                  }
+                  try {
+                    Log.prototype.print.apply(Log, log);
+                  } finally {
+                    Log.LEVEL = oldLevel;
+                  }
+                }, counter * delay);
+              }
+            }
+          })(i);
+        }
+      }
+    } catch (ex) {
+      //for sanity
+    } finally {
+      Log.LEVEL = oldLevel;
+    }
+  };
+  
+  /**
+   * Use styling by default.
+   */
+  Log.noStyling = false;
+  
+  /**
+   * @protected
+   * Print method.
+   * Override this method if you prefer different logging output.
+   * By default all messages are redirected to console.
+   * This method is used by all logging methods as final output.
+   * 
+   * @param {String} message Message to be logged. 
+   */
+  Log.prototype.print = function (message, style, plain, type, level) {
+    if (level !== undefined && Log.LEVEL < level) {
+      return;
+    }
+    
+    if (c && c.log) {
+      if (style || !plain){
+        if (style && !Log.noStyling) {
+          try{
+            c[type]("%c" + message, style);
+          } catch (ex) {
+            c.log("%c" + message, style);
+          }
+        } else {
+          try{
+            c[type](message);
+          } catch (ex) {
+            c.log(message);
+          }
+        }
+      } else {
+        try{
+          c[type](message);
+        } catch (ex) {
+          c.log(message);
+        }
+      }
+    }
+  };
+  
+  /**
+   * 
+   * @param {type} toPrint
+   * @param {type} level
+   * @returns {unresolved}
+   */
+  Log.prototype.collect = function (toPrint, level) {
+    if (level === undefined) {
+      level = Log.COLLECT_LEVEL;
+    }
+    
+    var collected = false;
+    var collectingGlobally = 
+            (this.collectLogs && Log.COLLECT && Log.COLLECT_LEVEL >= +level);
+    
+    if (collectingGlobally) {
+      collection.push(toPrint);
+      collected = true;
+    }
+    
+    if (this.collectLocally && collectingGlobally) {
+      this.collection.push(toPrint);
+      collected = true;
+    }
+    
+    return collected ? toPrint : null;
+  };
+  
+  /**
+   * 
+   */
+  Log.clearAllLogs = function () {
+    try {
+      console.clear();
+    } catch (e) {
+    } finally {
+      collection.splice(0, collection.length);
+    }
+  };
+
+  Log.getCollectedByLevel = function (level, altCollection) {
+    altCollection = altCollection || collection;
+    var results = [];
+    for (var i = 0; i < altCollection.length; i++) {
+      var log = altCollection[i];
+      var msg = log[0];
+      var lvl = msg[4];
+      if (lvl === level) {
+        results.push(log);
+      }
+    }
+    return results;
+  };
+
+  /**
+   * 
+   * @param {type} level
+   * @param {type} delay
+   * @param {type} clean
+   */
+  Log.prototype.rePrint = function (level, delay, clean) {
+    Log.rePrintAll(level, delay, !clean, this.collection);
+  };
+
+  /**
+   * @private
+   * @static
+   * @param {type} log
+   * @param {type} prefix
+   * @param {type} type
+   * @param {type} message
+   * @param {type} plain
+   * @param {type} style
+   * @param {type} plainStyle
+   * @param {type} level
+   * @returns {_L5.logger}
+   */
+  function logger(log, prefix, type, message, plain, style, plainStyle, level) {
+    var toPrint;
+    var pass = Log.LEVEL >= level;
+    if (Log.COLLECT_LEVEL >= 0 || pass) {
+      if (plain) {
+        toPrint = [message, plainStyle, true, type];
+      } else {
+        toPrint = [
+          prefix+ log.getPrefix() + message,
+          style,
+          false,
+          type
+        ];
+      }
+      toPrint[4] = level;
+      log.collect(toPrint, level);
+      if (pass) {
+        log.print.apply(log, toPrint);
+      }
+    }
+  }
+  
+  //it is important it is not in one line. New build will strip logs for release
+  /**
+   * @method
+   * Finest level logging function.
+   * 
+   * @param {String} message Message to be logged.
+   * @param {Boolean} plain If true, message object will be logged as plain as 
+   *    passed directly to console. It's usefull if your console supports JSON 
+   *    style browsing objects.
+   */
+  Log.prototype.
+    FINEST = function (message, plain) {
+      logger (this, "FINEST: ", false, message, plain, "color:#CCCCCC;", false,
+        Log.LEVEL_FINEST);
+    };
+    
+  /**
+   * @method
+   * Fine level logging function.
+   * 
+   * @param {String} message Message to be logged.
+   * @param {Boolean} plain If true, message object will be logged as plain as 
+   *    passed directly to console. It's usefull if your console supports JSON 
+   *    style browsing objects.
+   */
+  Log.prototype.
+    FINE = function (message, plain) {
+      logger (this, "FINE: ", false, message, plain, "color:#999999;", false,
+        Log.LEVEL_FINE);
+    };
+  
+  /**
+   * @method
+   * Information level logging function.
+   * 
+   * @param {String} message Message to be logged.
+   * @param {Boolean} plain If true, message object will be logged as plain as 
+   *    passed directly to console. It's usefull if your console supports JSON 
+   *    style browsing objects.
+   * @param style {String} CSS styling - inline.
+   */
+  Log.prototype.
+    INFO = function (message, plain, style) {
+      logger (this, "INFO: ", "info", message, plain, style, style,
+        Log.LEVEL_INFO);
+    };
+  
+  /**
+   * @method
+   * Severe/Error level logging function.
+   * 
+   * @param {String} message Message to be logged.
+   * @param {Boolean} plain If true, message object will be logged as plain as 
+   *    passed directly to console. It's usefull if your console supports JSON 
+   *    style browsing objects.
+   */
+  Log.prototype.
+    WARN = function (message, plain) {
+      logger (this, "WARN: ", "warn", message, plain, "color:#26A110;", false,
+        Log.LEVEL_WARN);
+    };
+    
+  /**
+   * @method
+   * Severe/Error level logging function.
+   * 
+   * @param {String} message Message to be logged.
+   * @param {Boolean} plain If true, message object will be logged as plain as 
+   *    passed directly to console. It's usefull if your console supports JSON 
+   *    style browsing objects.
+   */
+  Log.prototype.
+    ERROR = function (message, plain) {
+      logger(this, "ERROR: ", "error", message, plain, "color:red;", false,
+        Log.LEVEL_ERROR);
+    };
+
+  Utils.namespace("qubit.opentag.Log", Log);
+}());
+
+
+
+(function(){
+  var Utils = qubit.opentag.Utils;
+  var log = new qubit.opentag.Log("Tags -> ");
+  
+  /**
+   * @singleton
+   * @class qubit.opentag.Tags
+   * Global tags repository. This singleton object contains and manages all tags
+   * in available scope. Each tag instance will automatically register in this
+   * object.
+   * @return {qubit.opentag.Tags} qubit.opentag.Tags object
+   */
+  var Tags = {};
+
+  /**
+   * Returns all tags grouped by logical state, it collects ALL tags from ALL
+   * Containers - tags unregistered will not be included. 
+   * @returns {Object}
+   */
+  Tags.getAllTagsByState = function () {
+    return qubit.opentag.Container.getAllTagsByState(Tags.getTags());
+  };
+  
+  /**
+   * Find tag by name
+   * @param {String} match string, String.match() function will be used.
+   * @returns {Array(qubit.opentag.BaseTag)}
+   */
+  Tags.findTagByName = function (match) {
+    var tags = this.getTags();
+    var results = [];
+    for(var i = 0; i < tags.length; i++) {
+      if (tags[i].config.name === match) {
+        results.push(tags[i]);
+      }
+    }
+    return results;
+  };
+  
+  /**
+   * Find tag by name
+   * @param {String} match string, String.match() function will be used.
+   * @returns {Array(qubit.opentag.BaseTag)}
+   */
+  Tags.findTagByMatch = function (match) {
+    var tags = this.getTags();
+    var results = [];
+    for(var i = 0; i < tags.length; i++) {
+      if (tags[i].config.name.match(match)) {
+        results.push(tags[i]);
+      }
+    }
+    return results;
+  };
+  /**
+   * Get all opentag instances map.
+   * 
+   * @returns Object
+   */
+  Tags.getTags = function () {
+    log.FINEST("getTags");
+    return qubit.opentag.BaseTag.getTags();
+  };
+  
+  /**
+   * Reset all tags. It will make all tags ready to rerun like they never
+   *  were run!
+   * 
+   * @returns Object
+   */
+  Tags.resetAllTags = function () {
+    log.WARN("reseting all tags!");
+    var tags = Tags.getTags();
+    for (var i = 0; i < tags.length; i++) {
+      tags[i].reset();
+    }
+  };
+
+  /**
+   * 
+   * @returns {Array}
+   */
+  Tags.getContainersPageVariables = function () {
+    var containers = Tags.getContainers();
+    var vars = [];
+    for(var i =0; i < containers.length; i++) {
+      vars = vars.concat(containers.getPageVariables());
+    }
+    return vars;
+  };
+  
+  /**
+   * 
+   * @returns {Array}
+   */
+  Tags.getAllPageVariables = function () {
+    var tags = Tags.getTags();
+    var vars = [];
+    for(var i = 0; i < tags.length; i++) {
+      vars = vars.concat(tags[i].getPageVariables());
+    }
+    return vars;
+  };
+
+  /**
+   * Function used to get all page variables instances having same name.
+   * 
+   * @param {String} name token name that identifies the variable.
+   * @return {qubit.opentag.pagevariable.BaseVariable} object qubit.opentag.pagevariable.BaseVariable
+   * instance. 
+   */
+  Tags.getPageVariableByName = function (name) {
+    var vars = Tags.getAllPageVariables();
+    var rets = [];
+    for (var i = 0; i < vars.length; i++) {
+      if (vars[i].config.name === name) {
+        rets.push(vars[i]);
+      }
+    }
+    return rets;
+  };
+  
+  /**
+   * 
+   * @param {type} tag
+   * @returns {Array}
+   */
+  Tags.getLoadTime = function (tag) {
+    var start = tag.loadStarted;
+    var end = tag.runIsFinished;
+    if (isNaN(end)) {
+      return {tag: tag, loadTime: null};
+    } else {
+      return {tag: tag, loadTime: (end - start)};
+    }
+  };
+
+  /**
+   * 
+   * @param {type} tags
+   */
+  Tags.getLoadTimes = function (tags) {
+    var ret = [];
+    if (tags instanceof qubit.opentag.BaseTag) {
+      ret.push([Tags.getLoadTime(tags[prop])]);
+      return ret;
+    }
+    
+    tags = tags || qubit.opentag.Tags.getTags();
+    
+    var array = tags instanceof Array;
+    
+    if (array) {
+      for(var i = 0; i < tags.length; i++) {
+        if (tags[i] instanceof qubit.opentag.BaseTag) {
+          ret.push(Tags.getLoadTime(tags[i]));
+        }
+      }
+    } else {
+      for(var prop in tags) {
+        if (tags[prop] instanceof qubit.opentag.BaseTag) {
+          ret.push(Tags.getLoadTime(tags[prop]));
+        }
+      }
+    }
+    return ret;
+  };
+    
+  
+  /**
+   * Containers getter.
+   * @returns {Array(qubit.opentag.Container)}
+   */
+  Tags.getContainers = function () {
+    return qubit.opentag.Container.getContainers();
+  };
+
+  Utils.namespace("qubit.opentag.Tags", Tags);
+  
+  qubit.opentag.Log.LEVEL = qubit.opentag.Log.LEVEL_NONE;
+  qubit.opentag.Log.COLLECT_LEVEL = 3;
+  
+  qubit.opentag.Log.LEVEL = 2;
+  qubit.opentag.Log.COLLECT_LEVEL = 3;
+  
+  log.INFO("*** Welcome to Qubit TagSDK ***", true,
+           "font-size: 22px; color:#CCC;"+//L
+           "text-shadow:#fff 0px 1px 0, #555 0 -1px 0;");//L
+})();
+
+
+
+(function(){
+    var Utils = qubit.opentag.Utils;
+    var log = new qubit.opentag.Log("Timer -> ");
+    
+    /**
+     * Timer implementation. It is intended to replace (wrap) the setTimeout
+     * method so overuse can be controlled. It shall support rate setup and 
+     * runtime adjustment (slowing down etc.).
+     * 
+     * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+     * 
+     * @class qubit.opentag.Timer
+     * @param {Object} config
+     * @returns {qubit.opentag.Timer}
+     */
+    function Timer (config) {
+      if (config) {
+        log.FINEST("Config:");
+        log.FINEST(config, true);
+       /**
+        * @private
+        * Please use setRate to update timers rate
+        * @type Number
+        */
+        this._rate = config.rate || 10;
+        this._smallestRate = -1;
+        if (config.start) {
+          this.startPooling();
+        }
+        this.config = config;
+      }
+      this._lck_obj = {};
+      this._binded_pool = this._pool.bind(this);
+    }
+    
+    Timer.superclass = null;
+    Timer.prototype = {};
+    Timer.prototype.CLASS_NAME = "Timer";
+    Timer.prototype.PACKAGE_NAME = "qubit.opentag";
+    
+    /**
+     * @property
+     * Array of pairs `{Date, Function}`
+     * `Date` stands for timed out date.
+     * `Function` is afunction refernece to call.
+     */
+    Timer.prototype.timers = [];
+    
+    /**
+     * Function starts pooling.
+     * @param smallestRate {Number} optional smallest rate argument, it will 
+     *  be used as temporal rate if dynamic option is set on timer and not 
+     *  smaller than minimal rate set on timer
+     */
+    Timer.prototype.startPooling = function (smallestRate) {
+      if (smallestRate && this.config.dynamic) {
+        if(this._smallestRate < 0 || this._smallestRate > smallestRate){
+          //@TODO in futurewe can add more precise instrument than estimate
+          this._smallestRate = Math.min(Math.floor(smallestRate/2), 1500);
+        }
+      }
+      if (!this.started) {
+        this.started = true;
+        setTimeout(this._binded_pool, 0);
+      }
+    };
+    
+    /**
+     * @private
+       */
+    Timer.prototype._pool = function () {
+      this.maxFrequent(function () {
+        var name = "";
+        if (this.config && this.config.name) {
+          name = "[" + this.config.name + "]";
+        }
+        log.FINEST(name + "Pooling in progress...");
+      }, 5000, this._lck_obj);
+      
+      this.callTimers();
+      
+      if (this.timers.length !== 0) {
+        var rate = (this._smallestRate > this._rate) ?
+                            this._smallestRate : this._rate;
+        setTimeout(this._binded_pool, rate);
+      } else {
+        this.started = false;
+        this._smallestRate = -1;
+      }
+    };
+    
+    /**
+     * Worker clearing outdated timers. Used internally.
+     * May be also called to instantly validate timers.
+       */
+    Timer.prototype.callTimers = function () {
+      this.lastCalled = new Date().valueOf();
+      for (var i = 0; i < this.timers.length; i++) {
+        var timer = this.timers[i];
+        var stamp = new Date().valueOf();
+        if (stamp >= timer.time) {
+          timer.execute();
+          this.timers.splice(i,1);
+          --i;
+        }
+      }
+    };
+    
+    Timer.prototype.cancellAll = function () {
+      this.timers = [];
+      log.WARN("Cancelling all stack.");
+    };
+    
+    /**
+     * Function setting maximum interval time for this instance clock.
+     * All setTiemout and setInterval will be no more often run than rate value.
+     * @param {Number} time ms
+       */
+    Timer.prototype.setRate = function (time) {
+      this._rate = time;
+    };
+    
+/**
+     * 
+     * @param {type} fun
+     * @param {type} time
+     * @param {type} lockObj
+     * @return {undefined}
+     */
+    Timer.prototype.maxFrequent = function(fun, time, lockObj) {
+      lockObj = lockObj || this.maxFrequent;
+      var last = lockObj.____last__timed__max__frequent____;
+      
+      if (!last || (new Date().valueOf() - last) > time) {
+        last = new Date().valueOf();
+        lockObj.____last__timed__max__frequent____ = last;
+        fun();
+      }
+    };
+    
+    /**
+     * Function that does not allow to run processes too often.
+     * @param {type} fun
+     * @param {type} time
+     * @param {type} lockObj
+     * @returns {Boolean}
+     */
+    Timer.prototype.runIfNotScheduled = function(fun, time, lockObj) {
+      if (lockObj.__lastRun__ &&
+            (new Date().valueOf() < (time + lockObj.__lastRun__))) {
+        return this.schedule(fun, time, lockObj);
+      } else {
+        lockObj.__lastRun__ = new Date().valueOf();
+        fun();
+        return true;
+      }
+    };
+    
+    /**
+     * Scheduler that schedules only if not already scheduled.
+     * @param {type} fun
+     * @param {type} time
+     * @param {type} lockObj
+     * @returns {Boolean}
+     */
+    Timer.prototype.schedule = function(fun, time, lockObj) {
+      if (lockObj.___scheduled___)  {
+        return false;
+      } else {
+        lockObj.___scheduled___ = new Date().valueOf();
+        this.setTimeout(function () {
+          lockObj.___scheduled___ = false;
+          lockObj.__lastRun__ = new Date().valueOf();
+          fun();
+        }, time);
+        return true;
+      }
+    };
+    
+    var ids = 1;
+    /**
+     * Set timeout method.
+     * Run `call' function after minimum of `time` in miliseconds.
+     * @param {Function} call Function callback.
+     * @param {Number} time Tiemout value in miliseconds.
+     * @returns {unresolved}
+     */
+    Timer.prototype.setTimeout = function (call, time) {
+      var timer = {
+        id: ids++,
+        time: new Date().valueOf() + (+time),
+        execute: call
+      };
+      this.timers.push(timer);
+      this.startPooling(time);
+      return timer;
+    };
+    
+    /**
+     * Set interval method.
+     * Run `call' function every minimum of `time` in miliseconds.
+     * @param {Function} call Function callback.
+     * @param {Number} time Interval value in miliseconds.
+     * @returns {unresolved}
+     */
+    Timer.prototype.setInterval = function (call, time) {
+      log.FINEST("Native wrapper");
+      return setInterval(call, time);
+    };
+
+    Utils.namespace("qubit.opentag.Timer", Timer); //singleton!
+})();
+
+
+
+
+(function(){
+    var Utils = qubit.opentag.Utils;
+    
+    Utils.namespace("qubit.opentag.Timed", new qubit.opentag.Timer({
+      rate: 20,
+      dynamic: true
+    }));
+    
+    /**
+     * Singleton instance of qubit.opentag.Timer class with default rate of 20ms.
+     * 
+     * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+     * @class qubit.opentag.Timed
+     * @singleton
+     * @static
+     * @extends qubit.opentag.Timer
+     */
+    var Timed = qubit.opentag.Timed;
+    
+    /**
+     * 
+     * @param {type} test
+     * @param {type} callback
+     * @param {type} often
+     * @return {undefined}
+     */
+    Timed.tillTrue = function(test, callback, often) {
+      var runner = function () {
+        if (!test()) {
+          Timed.setTimeout(runner, often || 33);
+        } else {
+          callback();
+        }
+      };
+      
+      runner();
+    };
+    
+})();
 
 var q = {};
 
 
-q.cookie = {};
-
-q.cookie.PageView = {};
-q.cookie.PageView.update = function () {
-  var a, r;
-  r = function _() {
-    return (Math.floor(1 + Math.random() * 65536)).toString(36).substring(1);
-  };
-  if (!window.__pageViewId__) {
-    a = new Date().getTime().toString(36);
-    window.__pageViewId__ = a + r() + r() + r();
-  }
-  return window.__pageViewId__;
-};
-
-
 q.html = {};
-
-
-/*global escape, unescape*/
-
-
-q.html.simplecookie = {};
-
-q.html.simplecookie.readCookie = function (name) {
-  var r, cookie, value, cookies, nameSearchString, i, ii;
-  nameSearchString = name + "=";
-  cookies = document.cookie.split(';');
-  r = /^\s+|\s+$/g;
-  for (i = 0, ii = cookies.length; i < ii; i += 1) {
-    cookie = cookies[i].replace(r, '');
-    if (cookie.indexOf(nameSearchString) === 0) {
-      value = unescape(cookie.substring(nameSearchString.length));
-      if (value.length === 0) {
-        return null;
-      }
-      return value;
-    }
-  }
-  return null;
-};
-q.html.simplecookie.readAllCookies = function (name) {
-  var r, cookie, value, cookies, nameSearchString, i, ii, values;
-  nameSearchString = name + "=";
-  cookies = document.cookie.split(';');
-  r = /^\s+|\s+$/g;
-  values = [];
-  for (i = 0, ii = cookies.length; i < ii; i += 1) {
-    cookie = cookies[i].replace(r, '');
-    if (cookie.indexOf(nameSearchString) === 0) {
-      value = unescape(cookie.substring(nameSearchString.length));
-      if (value.length > 0) {
-        values.push(value);
-      }
-    }
-  }
-  return values;
-};
-q.html.simplecookie.writeCookie = function (name, value, days, domain) {
-  var date, expires, cookie;
-  if (days) {
-    date = new Date();
-    date.setTime(date.getTime() + (days * 86400000));
-    expires = "; expires=" + date.toGMTString();
-  } else {
-    expires = "";
-  }
-  cookie = escape(name) + "=" + escape(value) + expires + "; path=/;";
-  if (domain) {
-    cookie += " domain=" + domain;
-  }
-  document.cookie = cookie;
-};
-/*EXCLUDE: SESSION*/
-
-
-q.cookie.SimpleSessionCounter = {};
-//Qubit Session Tracker
-q.cookie.SimpleSessionCounter._cookieName = "_qst_s";
-q.cookie.SimpleSessionCounter._sessionCookie = "_qsst_s";
-q.cookie.SimpleSessionCounter.update = function (domain) {
-  var c, s, ga, mins = 30;
-  c = q.html.simplecookie.readCookie(
-    q.cookie.SimpleSessionCounter._cookieName
-  );
-  s = q.html.simplecookie.readCookie(
-    q.cookie.SimpleSessionCounter._sessionCookie
-  );
-  if (!c) {
-    c = 1;
-  } else {
-    c = parseInt(c, 10);
-    if (!s || (parseInt(s, 10) < (new Date().getTime() - mins * 60 * 1000))) {
-      c += 1;
-    }
-  }
-  q.html.simplecookie.writeCookie(q.cookie.SimpleSessionCounter._cookieName, 
-      c, 365, domain);
-  q.html.simplecookie.writeCookie(q.cookie.SimpleSessionCounter._sessionCookie, 
-    new Date().getTime().toString(), null, domain);
-  return c;
-};
 
 
 q.html.fileLoader = {};
@@ -212,6 +1567,123 @@ q.html.fileLoader.tidyUrl = function (path) {
   }
   return "//" + path;
 };
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var log = new qubit.opentag.Log("BaseFilter -> ");
+  var counter = 0;
+  /**
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.filter.BaseFilter
+   * Base filter class.
+   * @param config {Object} config object used to build instance
+   */
+  function BaseFilter (config) {
+    this.config = {
+      /**
+       * @cfg order
+       */
+      order: 0,
+      /**
+       * @cfg include
+       */
+      include: true,
+      /**
+       * @cfg {String} [name="Filter-<timestamp>"]
+       */
+      name: "Filter-" + (counter++),
+      /**
+       * If defined, it will be used to resolve script state
+       */
+      script: undefined
+    };
+    
+    if (config) {
+      for (var prop in config) {
+        if (config.hasOwnProperty(prop)) {
+          this.config[prop] = config[prop];
+        }
+      }
+    }
+    //dummy log
+    this.log = log;//L
+  }
+  
+  BaseFilter.prototype.CLASS_NAME = "BaseFilter";
+  BaseFilter.prototype.PACKAGE_NAME = "qubit.opentag.filter";
+  
+  BaseFilter.status = {
+    DISABLED: -2,
+    PASS: -1, //positive numbers are used for timeout
+    FAIL: 0
+  };
+  
+  /**
+   * 
+   * @returns {undefined}
+   */
+  BaseFilter.prototype.reset = function () {
+    this.enable();
+  };
+  
+  /**
+   * 
+   */
+  BaseFilter.prototype.disable = function () {
+    this.config.disabled = true;
+  };
+  
+  /**
+   * 
+   */
+  BaseFilter.prototype.enable = function () {
+    this.config.disabled = false;
+  };
+  
+  /**
+   * 
+   * @returns {Boolean}
+   */
+  BaseFilter.prototype.match = function () {
+    return true;
+  };
+  
+  /**
+   * Filter function used to test filter if passes ikts conditions.
+   * Opnetag uses two conditions when checking filters status:
+   * 1) Checks if filter matches(apply) for page
+   * 2) If filter applies to page, it will run getStatus() to determine status type.
+   * @returns {Boolean}
+   */
+  BaseFilter.prototype.getStatus = function () {
+    var passed = BaseFilter.status.PASS;
+    
+    if (this.config.disabled) {
+      return BaseFilter.status.DISABLED;
+    }
+    
+    if (this.config.script) {
+      passed = this.config.script.apply(this.arguments);
+    } else {
+      //process default config
+    }
+    if (isNaN(+passed)) {
+      this.log.WARN("filters should use a numerical status as a return " +
+              "for getStatus():" +//L
+              " BaseFilter.status. Filter will fail. Returned: " + passed);//L
+      passed = BaseFilter.status.FAIL;
+    }
+    this.lastState = +passed;
+    
+    return passed;
+  };
+  
+  Utils.namespace("qubit.opentag.filter.BaseFilter", BaseFilter);
+}());
 /*jslint evil: true */
 
 
@@ -365,6 +1837,2900 @@ q.html.HtmlInjector.getAttributes = function (node) {
     }
     return map;
   }
+};
+
+
+
+
+
+(function(){
+    var Utils = qubit.opentag.Utils;
+    var log = new qubit.opentag.Log("TagsUtils -> ");
+    var BaseFilter = qubit.opentag.filter.BaseFilter;
+    var HtmlInjector = q.html.HtmlInjector;
+    var FileLoader = q.html.fileLoader;
+    
+    /**
+     * Singleton object used as static utility class.
+     * @singleton
+     * @class qubit.opentag.TagsUtils
+     */
+    var TagsUtils = {};
+    
+    /**
+     * 
+     * @returns {Document.body|Node|document.body|HTMLElement|Element|Node.body}
+     */
+    TagsUtils.documentIsLoaded = function () {
+      return !!document.getElementsByTagName("body")[0];
+    };
+    
+    var loadedURLs = {};
+    
+    var STATE = {
+      SUCCESS: "success",
+      FAIL: "failure",
+      INIT: "not started"
+    };
+    
+    /**
+     * 
+     * @param {type} config
+     * @return {undefined}
+     */
+    TagsUtils.loadScript = function (config) {
+      var url = config.url;
+      
+      var loadingCheck = function (passedUrlFromLoader, loadError, loadFailed) {
+        loadedURLs[url].error = loadError;
+        if (loadFailed) {
+          log.ERROR("Loading process error:");
+          log.ERROR(loadError, true);
+          loadedURLs[url].state = STATE.FAIL;
+          config.onerror();
+        } else {
+          loadedURLs[url].state = STATE.SUCCESS;
+          config.onsuccess();
+        }
+      };
+      
+      if (loadedURLs[url]) {
+        if (config.noMultipleLoad) {
+          log.FINE(url + " is already loaded, with state: " +
+                  loadedURLs[url].state);//L
+          return loadingCheck(
+            url,
+            loadedURLs[url].error,
+            loadedURLs[url].state === STATE.FAIL
+          );
+        }
+        loadedURLs[url].count += 1;
+      } else {
+        loadedURLs[url] = {
+          count: 1,
+          state: null
+        };
+      }
+      
+      var write = !config.async;
+      
+      if (config.secure) {
+        //if loader is asked to be secure, it means to not to write
+        //if document is LOADED (thats dangerous)
+        var loaded = TagsUtils.documentIsLoaded();
+        if (write && loaded) {
+          log.WARN("Script configured for synchronous injection while " +
+                  "document seems to be already loaded. Secure option " +//L
+                  "applies. Script will be appended in standard way.");//L
+        }
+        write = write && !loaded;
+      }
+      
+      if (write) {
+        log.WARN("Adding script element by using document.write. IE will" +
+                " error check fail broken url's.");//L
+        TagsUtils.writeScriptURL(
+          url,
+          function (allOk, error) {
+            loadingCheck(url, error, !allOk);
+          });
+      } else {
+        q.html.fileLoader.load(
+          url,
+          false,
+          loadingCheck,
+          config.node,
+          config.async
+        );
+      }
+    };
+    
+    
+    var docWriteMethods = null;
+    
+    /**
+     * Function holding document.write out and let any writes to be collected
+     * into passed array as argument.
+     * 
+     * @param {type} array
+     * @param {type} log
+       */
+    TagsUtils.redirectDocumentWritesToArray = function (array, log) {
+      var text = array;
+      log && log.FINE("redirecting document.write methods...");
+      docWriteMethods = docWriteMethods || {
+        write: document.write,
+        writeln: document.writeln
+      };
+      
+      document.write = function (t) {
+        text.push(t);
+        log && log.FINE("Received call from document.write with:" + t);
+      };
+      document.writeln = function (t) {
+        text.push(t);
+        log && log.FINE("Received call from document.writeln with:" + t);
+      };
+    };
+    
+    /**
+     * Function flushes all doc write redirects from the array passed (appended
+     * string) and brings back normal document.write method.
+     * 
+     * @param {type} array
+     * @param {type} location
+     * @param {type} append
+     * @param {type} log
+     * @param {} unlock
+     * @returns {Boolean} true if flushing location was ready and strings were
+     *                    appended.
+     */
+    TagsUtils.flushRedirectsFromArrayAndReverseDocWrite =
+            function (array, location, append, log, unlock) {
+      var el = location;
+      if (el) {
+        HtmlInjector.inject(el, append, 
+          array.join("\n"), function () {});
+      } else {
+        var message = "Flushing location not found!";
+        log && log.ERROR(message);
+        return false;
+      }
+      return true;
+    };
+
+    /**
+     * Unlocks document writes to normal state.
+     */
+    TagsUtils.unlockDocumentWrites = function () {
+      if (docWriteMethods) {
+        log && log.FINEST("Bringing back document.write");     
+        document.write = docWriteMethods.write;
+        document.writeln = docWriteMethods.writeln;
+        docWriteMethods = null;
+      }
+    };
+
+    var wsCounter = 0;
+    /**
+     * Old opentag was lacing checking on write scripts
+     * @param {type} url
+     * @param {type} callback
+     */
+    TagsUtils.writeScriptURL = function (url, callback) {
+      //@TODO review it.
+      var callName = "_" + wsCounter++;;
+      var accessorName = TagsUtils.PACKAGE_NAME +
+              ".TagsUtils.writeScriptURL.callbacks." + callName;
+      
+      TagsUtils.writeScriptURL.callbacks[callName] = callback;
+      
+      TagsUtils.writeScriptURL.callbacks[callName] = function (error) {
+        if (error) {
+          callback(false, "error while loading script " + url);
+        } else {
+          callback(true);
+        }
+        TagsUtils.writeScriptURL.callbacks[callName] = undefined;
+        delete TagsUtils.writeScriptURL.callbacks[callName];
+      };
+      
+      var jsIE = "if(this.readyState === \"loaded\" || " +
+              "this.readyState === \"complete\"){ try {" +
+               accessorName + "(true)" +
+              "} catch (ex) {}}";
+      
+      var jsNonIE = "try{" + accessorName + "(false)}catch(ex){}";
+      var jsNonIEerr = "try{" + accessorName +
+              "(true)}catch(ex){}";
+      
+      var scr = "scr", value;
+      url = FileLoader.tidyUrl(url);
+      value = "<" + scr + "ipt onload='" + jsNonIE +
+              "'  onerror='" + jsNonIEerr +
+              "' onreadystatechange='" + jsIE +
+              "' type='text/javascript' " +
+              " src='" + url + "'>" +
+              //@TODO consider adding async option here
+              //(doies it  really make sense?)
+        "</" + scr + "ipt>";
+      document.write(value);
+    };
+    
+    TagsUtils.writeScriptURL.callbacks = {};
+    
+    /**
+     * Entry method used to check if all filters used by this tag are passed.
+     * BaseTag searches for filters in this.config.**package**.filters location.
+     * The location should indicate all filters used by this tag.
+     * The **package* config property is a crucial tags property used to
+     * configure antiore tags. Filters can be added at runtime and via config
+     * object as an array.
+     * @param filters {Array} Array of filters to be analysed.
+     * @param tagReferenced {qubit.opentag.BaseTag} tag that check is
+     *  performed on
+     * @returns {BaseFilter.status} numerical status.
+     */
+    TagsUtils.filtersStatus = function (filters, tagReferenced) {
+      var decision = BaseFilter.status.PASS;
+      if (!filters || (filters.length === 0)) {
+        return decision;
+      }
+      
+      //loop and execute - MATCH
+      var lastFilterResponded = null;
+      var disabledFiltersPresent = false;
+      var waitingResponse = 0;
+      for (var i = 0; i < filters.length; i++) {
+        var filter = filters[i];
+        if (filter.match()) {
+          var response = filter.getStatus(tagReferenced.session);
+          // positive response means that filter tells to WAIT for execution
+          // and try in 'response' miliseconds
+          if (response > 0) {
+            if (waitingResponse === 0 || waitingResponse > response) {
+              waitingResponse = response;
+            }
+          } else if (response === BaseFilter.status.DISABLED) {
+            this.log.WARN("filter with name " + filter.config.name +
+                    " is disabled");//L
+            disabledFiltersPresent = true;
+          } else {
+            lastFilterResponded = filter;
+          }
+        }
+      }
+      
+      var onlyAwaitingFiltersPresent = false;
+      if (lastFilterResponded === null) {
+        onlyAwaitingFiltersPresent = true;
+        if (!disabledFiltersPresent) {
+          //all filters failed
+          decision = BaseFilter.status.FAIL;
+        } else {
+          //none passed but one of filters was disabled
+          decision = BaseFilter.status.PASS;
+        }
+      } else {
+        //some filters matched, review status of final matched filter
+        if (lastFilterResponded.config.include) {
+          //last response was to INCLUDE this tag
+          decision = response;
+        } else {
+          //last response was to EXCLUDE this tag
+          decision = response === BaseFilter.status.PASS ?
+            BaseFilter.status.FAIL : BaseFilter.status.PASS;
+        }
+      }
+      
+      //if all passed, 
+      //after standard checks, check if any filter called to wait
+      if (waitingResponse > 0 && (decision === BaseFilter.status.PASS ||
+              onlyAwaitingFiltersPresent)) {
+        decision = waitingResponse;
+      }
+      
+      return decision;
+    };
+
+    /**
+     * 
+     * @param {type} location
+     * @param {type} append
+     * @param {type} html
+     * @param {type} callback
+     */
+    TagsUtils.injectHTML = function (location, append, html, callback) {
+      return HtmlInjector.inject(
+              location,
+              (!append) ? 1 : 0,
+              html,
+              callback || function () {});
+    };
+    
+    /**
+     * Resolves injection location for thye document and a tag.
+     * 
+     * @param {type} tag
+     * @returns {Element} document element location for a tag.
+     */
+    TagsUtils.getHTMLLocationForTag = function (tag) {
+      var el;
+      var name = tag.config.locationObject;
+      switch (name) {
+        case "head":
+           el = document.getElementsByTagName("head")[0];
+           break;
+         case "body":
+           el = document.body;
+           break;
+         default:
+           if (name) {
+             el = document.getElementById(name);
+           } else {
+             el = document.body;
+           }
+      }
+      
+      return el;
+    };
+    
+    TagsUtils.CLASS_NAME = "TagsUtils";
+    TagsUtils.PACKAGE_NAME = "qubit.opentag";
+    
+    Utils.namespace("qubit.opentag.TagsUtils", TagsUtils);
+})();
+
+
+(function () {
+  
+  var Utils = qubit.opentag.Utils;
+  
+  var BV_COUNTER = 0;  
+  /**
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.pagevariable.BaseVariable
+   * @param config {Object} config object used to build instance
+   */
+  function BaseVariable (config) {
+    //defaults
+    this.config = {};
+    
+    /*log*/
+    //Add for all detailed logger and collector
+    var log = new qubit.opentag.Log("", function () {
+      return this.CLASS_NAME + "[" + this.config.name + "]";
+    }.bind(this));
+    
+    log.print = function (message, style, plain, type) {
+      qubit.opentag.Log.prototype.print.apply(log, arguments);
+      this.logs.push(message);
+    }.bind(this);
+    
+    this.log = log;
+    this.logs = [];
+    /*~log*/
+    
+    if (config) {
+      this.uniqueId = "BV" + BV_COUNTER++;
+      BaseVariable.ALL_VARIABLES[this.uniqueId] = this;
+      
+      for (var prop in config) {
+        this.config[prop] = config[prop];
+      }
+      
+      if (config.value !== undefined) {
+        this.value = config.value;
+      }
+      
+      if (config.defaultValue !== undefined) {
+        this.defaultValue = config.defaultValue;
+      }
+    }
+    
+    this.parameter = null;
+  }
+  
+  BaseVariable.ALL_VARIABLES = {};
+  
+  BaseVariable.prototype.CLASS_NAME = "BaseVariable";
+  BaseVariable.prototype.PACKAGE_NAME = "qubit.opentag.pagevariable";
+  
+  /**
+   * BaseVariable returns exactly whats set.
+   * @returns {Object}
+   */
+  BaseVariable.prototype.getValue = function () {
+    return this.value;
+  };
+  
+  /**
+   * Naturally, the value is always string, as its used to deduct real value.
+   * @param {String} string
+   */
+  BaseVariable.prototype.setValue = function (string) {
+    this.value = string;
+  };
+
+  /**
+   * BaseVariable returns exactly whats set.
+   * @returns {Object}
+   */
+  BaseVariable.prototype.getDefaultValue = function () {
+    return this.defaultValue;
+  };
+  
+  /**
+   * Naturally, the value is always string, as its used to deduct real value.
+   * @param {String} string
+   */
+  BaseVariable.prototype.setDefaultValue = function (string) {
+    this.defaultValue = string;
+  };
+  
+  /**
+   * Variable logical (!) existance indicator.
+   * @param {Boolean} useDefaults  if should check that defaults count in
+   * @returns {Boolean}
+   */
+  BaseVariable.prototype.exists = function (useDefaults) {
+    var exists = Utils.variableExists(this.getValue());
+    if (useDefaults) {
+      exists = exists || Utils.variableExists(this.getDefaultValue());
+    }
+    return exists;
+  };
+  
+  /**
+   * Relative value is a value fallbing back in order:
+   * 1) try normal value
+   * 2) try defaults value suggested by argument
+   * 3) try fallback defaults of variable instance
+   * 
+   * @param {Boolean} defaults Try internal defaults if all fails
+   * @param {Object} defaultValue Alternative value if does not exist. Note, it
+   *        has higher priority than variable defaults.
+   * @returns {Object}
+   */
+  BaseVariable.prototype.getRelativeValue = function (defaults, defaultValue) {
+    var pageValue = this.getValue();
+    
+    if (!Utils.variableExists(pageValue)) {
+      pageValue = defaultValue;
+    }
+    if (defaults && !Utils.variableExists(pageValue)) {
+      pageValue = this.getDefaultValue();
+    }
+    return pageValue;
+  };
+  
+  /**
+   * 
+   * @param {type} token
+   * @param {type} string
+   * @param {type} useExpressionAccessor
+   * @param {type} altValue
+   * @returns {String} replacement
+   */
+  BaseVariable.prototype.replaceToken =
+          function(token, string, altValue, useExpressionAccessor) {
+    var exists = this.exists();
+    var value = exists ? this.getValue() : altValue;
+    token = "\\$\\{" + token + "\\}";
+    
+    if ((useExpressionAccessor || (value instanceof Array))) {
+      var acessorString;
+      if (exists) {
+        acessorString = this.getValueAccessorString();
+      } else {
+        acessorString = Utils.getAnonymousAcessor(value);
+      }
+      return string.replace(new RegExp(token, "g"), acessorString);
+    } else {
+      return string.replace(new RegExp(token, "g"), value);
+    }
+  };
+  
+  /**
+   * Variable instance accessor string. It is easy to access directly variable
+   *  by evaluating this string.
+   * @returns {String}
+   */
+  BaseVariable.prototype.getAccessorString = function () {
+    return "qubit.opentag.pagevariable.BaseVariable.ALL_VARIABLES." +
+              this.uniqueId;
+  };
+  
+  
+  
+  /**
+   * Variable value accessor string. It is easy to access variable VALUE
+   *  by evaluating this string.
+   * @returns {String}
+   */
+  BaseVariable.prototype.getValueAccessorString = function () {
+    return this.getAccessorString() + ".getValue()";
+  };
+
+  Utils.namespace("qubit.opentag.pagevariable.BaseVariable", BaseVariable);
+}());
+
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var Timed = qubit.opentag.Timed;
+  
+  /**
+   * Exression type variable class.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.pagevariable.Expression
+   * @extends qubit.opentag.pagevariable.BaseVariable
+   * @param config {Object} config object used to build instance
+   */
+  function Expression(config) {
+    this._lockExprObject = {};
+    Expression.superclass.apply(this, arguments);
+  }
+  
+  Expression.superclass = qubit.opentag.pagevariable.BaseVariable;
+  Expression.prototype = new Expression.superclass();
+  Expression.prototype.CLASS_NAME = "Expression";
+  Expression.prototype.PACKAGE_NAME = "qubit.opentag.pagevariable";
+
+  Expression.prototype.getValue = function() {
+    var ret;
+    try {
+      if (this.value.indexOf("[#]") === -1) {
+        ret = Utils.gevalAndReturn(this.value);
+      } else {
+        ret = Expression.parseUVArray(this.value);
+      }
+    } catch (e) {
+      var msg = "could not read value of expression: " + this.value +
+              " , exact cause: " + e;
+      if (this._failMsg !== msg) {
+        this._failMsg = msg;
+        this.log.WARN(this._failMsg);
+      }
+      ret = null;
+    }
+    /*log*/
+    Timed.maxFrequent(function () {
+      this.log.FINEST("getting value from expression: " + ret);
+    }.bind(this), 3000, this._lockExprObject);
+    /*~log*/
+    return ret;
+  };
+  
+  /**
+   * Modern, get value function for hashed UV (universla variables)
+   * @param {type} uv
+   * @returns {Array}
+   */
+  Expression.parseUVArray = function (uv) {
+    var parts = uv.split("[#]");
+    var array = Utils.gevalAndReturn(parts[0]);
+    var collection = [];
+    var pathOfElements = parts[1];
+    
+    if (pathOfElements.indexOf(".") === 0) {
+      pathOfElements = pathOfElements.replace(".","");
+    }
+    
+    for(var i = 0; i < array.length; i++) {
+      var element = Utils.getObjectUsingPath(pathOfElements, array[i]);
+      collection.push(element);
+    }
+    
+    return collection;
+  };
+
+  /**
+   * Function replacing token for expression.
+   * 
+   * @param {type} token
+   * @param {type} string
+   * @param {type} altValue
+   * @param {type} exp
+   * @returns {String} replaced string
+   */
+  Expression.prototype.replaceToken =
+          function(token, string, altValue, exp) {
+    if ((this.getValue() instanceof Array)) {
+      exp = true;
+    }
+    //UV case! this is a hack abit - copied logic from origins
+    return Expression.superclass.prototype
+       .replaceToken.call(this, token, string, altValue, exp);
+  };
+  
+  Utils.namespace("qubit.opentag.pagevariable.Expression", Expression);
+}());
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  
+  /**
+   * DOM text content class.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.pagevariable.DOMText
+   * @extends qubit.opentag.pagevariable.BaseVariable
+   * @param config {Object} config object used to build instance
+   */
+  function DOMText(config) {
+    DOMText.superclass.apply(this, arguments);
+  }
+  
+  DOMText.superclass = qubit.opentag.pagevariable.BaseVariable;
+  DOMText.prototype = new DOMText.superclass();
+  DOMText.prototype.CLASS_NAME = "DOMText";
+  DOMText.prototype.PACKAGE_NAME = "qubit.opentag.pagevariable";
+  
+  /**
+   * Get the element text value with specified ID.
+   * @returns {unresolved}
+   */
+  DOMText.prototype.getValue = function () {
+    this.log.FINEST("reading DOM element contents value");
+    return Utils.getElementValue(this.value);
+  };
+  
+  Utils.namespace("qubit.opentag.pagevariable.DOMText", DOMText);
+}());
+
+
+/*global escape, unescape*/
+
+
+q.html.simplecookie = {};
+
+q.html.simplecookie.readCookie = function (name) {
+  var r, cookie, value, cookies, nameSearchString, i, ii;
+  nameSearchString = name + "=";
+  cookies = document.cookie.split(';');
+  r = /^\s+|\s+$/g;
+  for (i = 0, ii = cookies.length; i < ii; i += 1) {
+    cookie = cookies[i].replace(r, '');
+    if (cookie.indexOf(nameSearchString) === 0) {
+      value = unescape(cookie.substring(nameSearchString.length));
+      if (value.length === 0) {
+        return null;
+      }
+      return value;
+    }
+  }
+  return null;
+};
+q.html.simplecookie.readAllCookies = function (name) {
+  var r, cookie, value, cookies, nameSearchString, i, ii, values;
+  nameSearchString = name + "=";
+  cookies = document.cookie.split(';');
+  r = /^\s+|\s+$/g;
+  values = [];
+  for (i = 0, ii = cookies.length; i < ii; i += 1) {
+    cookie = cookies[i].replace(r, '');
+    if (cookie.indexOf(nameSearchString) === 0) {
+      value = unescape(cookie.substring(nameSearchString.length));
+      if (value.length > 0) {
+        values.push(value);
+      }
+    }
+  }
+  return values;
+};
+q.html.simplecookie.writeCookie = function (name, value, days, domain) {
+  var date, expires, cookie;
+  if (days) {
+    date = new Date();
+    date.setTime(date.getTime() + (days * 86400000));
+    expires = "; expires=" + date.toGMTString();
+  } else {
+    expires = "";
+  }
+  cookie = escape(name) + "=" + escape(value) + expires + "; path=/;";
+  if (domain) {
+    cookie += " domain=" + domain;
+  }
+  document.cookie = cookie;
+};
+
+
+
+
+(function () {
+  
+  var SimpleCookie = q.html.simplecookie;
+  var Utils = qubit.opentag.Utils;
+  
+  /**
+   * Cookie variable class.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.pagevariable.Cookie
+   * @extends qubit.opentag.pagevariable.BaseVariable
+   * @param config {Object} config object used to build instance
+   */
+  function Cookie(config) {
+    Cookie.superclass.apply(this, arguments);
+  }
+  
+  Cookie.superclass = qubit.opentag.pagevariable.BaseVariable;
+  Cookie.prototype = new Cookie.superclass();
+  Cookie.prototype.CLASS_NAME = "Cookie";
+  Cookie.prototype.PACKAGE_NAME = "qubit.opentag.pagevariable";
+  
+  /**
+   * 
+   * @returns {String} cookie value
+   */
+  Cookie.prototype.getValue = function () {
+    this.log.FINEST("reading cookie value");
+    return SimpleCookie.readCookie(this.value);
+  };
+  
+  Utils.namespace("qubit.opentag.pagevariable.Cookie", Cookie);
+}());
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  
+  /**
+   * URL query variable class.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.pagevariable.URLQuery
+   * @extends qubit.opentag.pagevariable.BaseVariable
+   * @param config {Object} config object used to build instance
+   */
+  function URLQuery(config) {
+    URLQuery.superclass.apply(this, arguments);
+  }
+  
+  URLQuery.superclass = qubit.opentag.pagevariable.BaseVariable;
+  URLQuery.prototype = new URLQuery.superclass();
+  URLQuery.prototype.CLASS_NAME = "URLQuery";
+  URLQuery.prototype.PACKAGE_NAME = "qubit.opentag.pagevariable";
+  
+  URLQuery.prototype.getValue = function () {
+    return Utils.getQueryParam(this.value);
+  };
+  
+  Utils.namespace("qubit.opentag.pagevariable.URLQuery", URLQuery);
+}());
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * @author Piotr (Peter) Fronc <peter.fronc@qubitproducts.com>
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var TagsUtils = qubit.opentag.TagsUtils;
+  var Timed = qubit.opentag.Timed;
+  var BaseVariable = qubit.opentag.pagevariable.BaseVariable;
+  var Expression = qubit.opentag.pagevariable.Expression;
+  var DOMText = qubit.opentag.pagevariable.DOMText;
+  var Cookie = qubit.opentag.pagevariable.Cookie;
+  var URLQuery = qubit.opentag.pagevariable.URLQuery;
+
+  var log = new qubit.opentag.Log("TagHelper -> ");
+
+  /**
+   * @class qubit.opentag.TagHelper
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   */
+  function TagHelper() {
+    
+  };
+
+  /**
+   * Injects HTML fragments for tag.
+   * Tag fill FAIL if any exception will be thrown.
+   * @param {type} tag
+   * @param {type} callback
+   * @param {type} tryWrite
+   * @param {type} altHtml
+   */
+  TagHelper.injectHTMLForLoader = 
+          function(tag, callback, tryWrite, altHtml) {
+    var config = tag.config;
+    var html = (altHtml !== undefined) ? altHtml : config.html;
+
+    if (html) {
+      var append = (config.locationPlaceHolder === "end");
+
+      var location = TagsUtils.getHTMLLocationForTag(tag);
+
+      tag.log.FINE("injecting html into page:");
+      tag.log.FINE(html);
+      tag.injectHTMLNotFinished = true;
+      
+      try {
+        if (location) {
+          TagsUtils.injectHTML(location, append, html, function() {
+            tag.log.FINE("finished html injection.");
+            tag.injectHTMLNotFinished = false;
+            if (callback) {
+              try {
+                callback();
+              } catch (e) {
+                tag.log.ERROR("error while trying to run callback after" +
+                        " html injection: " + e);//L
+              }
+            }
+          }.bind(tag));
+        } else if (tryWrite) {
+            document.write(html);
+            tag.injectHTMLNotFinished = false;
+        } else {
+          tag.injectHTMLFailed = new Date().valueOf();
+          tag.log.ERROR("location was not found and html is " + 
+                  "told to not to write at runtime. Please check tag's " +//L
+                  "configuration.");//L
+        }
+      } catch (ex) {
+        tag.injectHTMLNotFinished = false;
+        //@TODO do we fail tags when exceptions are thrown?
+        tag.injectHTMLFailed = new Date().valueOf();
+        tag.log.ERROR("error while trying to inject html: " + ex);
+      }
+    }
+  };
+    
+  /**
+   * @private
+   * @param {type} tag
+   * @param {type} varRef
+   * @returns {Array}
+   */
+  function findParamatersForVariable(tag, varRef) {
+    var ret = [];
+    try {
+      var params = tag.config.parameters;
+      if (params)
+        for (var i = 0; i < params.length; i++) {
+          if (params[i].variable === varRef) {
+            ret.push(params[i]);
+          }
+        }
+    } catch (ex) {}
+    return ret;
+  }
+  
+  var _lock_obj = {};
+  /**
+   * 
+   * @param {type} tag
+   * @param {type} tryDefaults
+   * @returns {Boolean}
+   */
+  TagHelper.allParameterVariablesReadyForTag = 
+          function(tag, tryDefaults) {
+    var useDefaults = tag.config.usingDefaults && tryDefaults;
+    var log = tag.log;
+    var allReady = true;
+    var vars = tag.getPageVariables();
+
+    for (var i = 0; i < vars.length; i++) {
+      var pageVar = vars[i];
+      
+      try {
+        var parameter = findParamatersForVariable(tag, pageVar)[0];
+        var exists = pageVar.exists();
+        if (!exists && useDefaults) {
+          exists = Utils.variableExists(parameter.defaultValue);
+          exists = exists || pageVar.exists(true);
+        }
+
+        /*log*/
+        var name = pageVar.config.name ? pageVar.config.name : "[unnamed]";
+
+        Timed.maxFrequent(function() {
+          log.FINEST("Variable '" + name + "' exists? " + exists);
+        }, 5000, _lock_obj);
+        /*~log*/
+        
+        if (!exists) {
+          allReady = false;
+          break;
+        }
+      } catch (ex) {
+        /*log*/
+        Timed.maxFrequent(function() {
+          log.ERROR("Error checking variable existence ");
+          log.ERROR([pageVar, ex]);
+        }, 5000, _lock_obj);
+        /*~log*/
+        allReady = false;
+        break;
+      }
+    }
+    
+    /*log*/
+    if (allReady && !_lock_obj.alreadyNotified) {
+      _lock_obj = {};
+      _lock_obj.alreadyNotified = true;
+    }
+
+    Timed.maxFrequent(function() {
+      log.FINEST("Checking page variables, variables are ready: " + allReady);
+      if (!allReady) {
+        log.FINE("Variables not ready, waiting...");
+      } else {
+        _lock_obj.clear = true;
+        log.FINE("Variables ready.");
+      }
+    }, 2000, _lock_obj);
+    /*~log*/
+    
+    return allReady;
+  };
+  
+  
+  var JS_VALUE = "2";
+  var QUERY_PARAM = "3";
+  var COOKIE_VALUE = "4";
+  var ELEMENT_VALUE = "5";
+  
+  /**
+   * 
+   * @param {type} param
+   * @returns {_L3.BaseVariable}
+   */
+  TagHelper.getVariableForParameter = function(param) {
+    if (param.hasOwnProperty("variable")) {
+      if (param.variable instanceof BaseVariable) {
+        //normally instance is expected
+        return param.variable;
+      } else if (param.variable) {
+        //if not, check if config available and set it
+        switch (param.variable.type) {
+          case JS_VALUE:
+            return param.variable = new Expression(param.variable);
+          case QUERY_PARAM:
+            return param.variable = new URLQuery(param.variable);
+          case COOKIE_VALUE:
+            return param.variable = new Cookie(param.variable);
+          case ELEMENT_VALUE:
+            return param.variable = new DOMText(param.variable);
+          default:
+            return param.variable = new BaseVariable(param.variable);
+        }
+      }
+    } else if (param.uv) {
+      return param.variable = new Expression({
+        name: param.uv,
+        value: param.uv
+      });
+    }
+    return null;
+  };
+  
+  
+  
+  
+  
+  TagHelper.CLASS_NAME = "TagHelper";
+  TagHelper.PACKAGE_NAME = "qubit.opentag";
+  
+  Utils.namespace("qubit.opentag.TagHelper", TagHelper);
+}());
+
+
+
+
+
+
+
+
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ */
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var TagsUtils = qubit.opentag.TagsUtils;
+  var Timed = qubit.opentag.Timed;
+  var TagHelper = qubit.opentag.TagHelper;
+  var log = new qubit.opentag.Log("GenericLoader -> ");
+  var nameCounter = 0;
+
+  /*
+   * @TODO - extract lower generic class for a script loader so it is better 
+   * separated by logic.
+   * For now this is base tag only and its good.
+   */
+
+  /**
+   * @class qubit.opentag.GenericLoader
+   * 
+   * GenericLoader class is a generic javascript and html package.
+   * It provides very rich API for controlling flow and execution of javascript
+   * and HTML. Loader is extensively used by BaseTag class that inherit its
+   * functionality.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @param {Object} config Please see properties for configuration options.
+   *  Each property can be set at initialization time via config object.
+   */
+  function GenericLoader(config) {
+    /*log*/
+    //advanced logger section for tag
+    var log = new qubit.opentag.Log("", function () {
+      return this.CLASS_NAME + "[" + this.config.name + "]";
+    }.bind(this), "collectLogs");
+    
+    /**
+     * Dedicated logger. It collects plenty of useful information about startup
+     * and execution. See qubit.opentag.Log for Log API.
+     * @property {qubit.opentag.Log}
+     */
+    this.log = log;
+    /*~log*/
+    
+    this.urlsLoaded = 0;
+    this.urlsFailed = 0;
+    
+    this.config = {
+      /**
+       * Name of the tag. Note that Tag's name must be unique in container.
+       * Default value will be always set if not passed in:
+       * "Tag-" + new Date().valueOf()
+       * Always remember to use name for your Tags.
+       * @cfg name
+       * @type {String}
+       */
+      name: "Tag-" + nameCounter++,
+      /**
+       * Should this tag be asynchronous?
+       * @cfg async
+       * @type Boolean
+       */
+      async: false,
+      /**
+       * Is this tag active?
+       * @cfg inactive
+       * @type Boolean
+       */
+      inactive: false,
+      /**
+       * Is this script nominated as a using document.write method?
+       * @cfg usesDocumentWrite
+       * @type Boolean
+       */
+      usesDocumentWrite: false,
+      /**
+       * Does this tag has defined custom timeout value defined?
+       * @cfg timeout
+       * @type Number
+       */
+      timeout: this.LOADING_TIMEOUT,
+      /**
+       * Package property indicates where this tag will reside
+       * (in what namespace). 
+       * @cfg dependencies
+       * @type Array array of qubit.opentag.GenericLoader or String naming the scripts in
+       * container instance (logical names used).
+       */
+      dependencies: [],
+      /**
+       * Optional url string value or array of strings defining dependant
+       * script urls to be loaded.
+       * This is one of tag's dependencies that tag will not be fired uhnless is
+       * satisfied.
+       * @cfg url
+       * @type Array array of URL strings or just a url string
+       */
+      url: null,
+      /**
+       * If true, the tag can be instantiated only once.
+       * @cfg singleton
+       * @type Boolean
+       */
+      singleton: false,
+      /**
+       * 
+       */
+      locationPlaceHolder: "end",
+      /**
+       * 
+       */
+      locationObject: "body",
+      /**
+       * By default we do care for not loading scripts with same href value.
+       * Set this property to false in order to load script any time its 
+       * defined in any Tag's config.url object.
+       */
+      noMultipleLoad: false, //@TODO question if we save on reloading! I guess
+                             //we do!
+      /**
+       * Property telling if load process should trigger dependencies loading
+       * automatically.
+       * Default is that none of dependencies are auto-loaded.
+       * For external scripts properties please use external tools
+       * or build system.
+       * @property Boolean
+       */
+      loadDependenciesOnLoad: false
+  };
+    
+    /**
+     * If checked, tag will be instructed to secure doc write's
+     * @property {Boolean}
+     */
+    this.secureWrite = false;
+    
+    /**
+     * Dependencies of this tag. Other tag INSTANCES (if any!).
+     * @property Array[qubit.opentag.GenericLoader]
+     */
+    this.dependencies = [];
+    
+    /**
+     * Lock object used for limited timing purposes. It is as persistent as 
+     * tmp files.
+     * @private
+     * @property Object
+     */
+    this._lockObject = {
+      count: 0
+    };
+    /**
+     * @private
+     * @type type
+     */
+    this._lockObjectDepsLoaded = {};
+    
+    /**
+     * 
+     * @type Array
+     */
+    this.genericDependencies = this.genericDependencies || [];
+    
+    if (config) {
+      this.log.FINE("instance...");
+      if (!config.name) {
+        var n = "Tag-" + nameCounter++;
+        this.config.name = n;
+        this.log.WARN("Name was not specified for tag. Assigning auto: " + n);
+      }
+      
+      this.setStatus("INITIAL");
+      
+      for (var prop in config) {
+        this.config[prop] = config[prop];
+      }
+      
+      if (config.genericDependencies) {
+        this.genericDependencies = 
+          this.genericDependencies.concat(config.genericDependencies);
+      }
+      if (config.dependencies) {
+        this.dependencies = config.dependencies.concat(this.dependencies);
+      }
+      
+      if (config.script) {
+        if (typeof(config.script) === "function") {
+          this.script = this.config.script;
+        } else {
+          var expr = this.replaceTokensWithValues(String(config.script));
+          this.script = Utils.expressionToFunction(expr);
+        }
+      }
+      
+      this.onInit();
+    }
+  }
+  
+  /**
+   * @event Empty on init event. Run at the end of constructors body.
+   */
+  GenericLoader.prototype.onInit = function () {};
+  
+  /**
+   *  Default timeout for script to load.
+   * @property {Number} LOADING_TIMEOUT
+   */
+  GenericLoader.prototype.LOADING_TIMEOUT = 10 * 1000;
+  
+  /**
+   * Private method delegating script execution. It calls `this.
+   * @private
+   */
+  GenericLoader.prototype._executeScript = function () {
+    this.log.INFO("executing main script...");
+    var success = false;
+    try {
+      this.script();
+      success = true;
+      this.log.INFO("executed without errors.");
+    } catch (ex) {
+      this.log.INFO("error while executing: " + ex);
+      this.log.ERROR("There was and error while executing instance of tag: "
+              + this.CLASS_NAME + " from package: " + this.PACKAGE_NAME);//L
+      this.log.ERROR(ex, true);
+    } finally {
+      if (!this.afterRun) {
+        this.afterRun = true;
+        this.after(success);
+      }
+    }
+  };
+  
+  /**
+   * @private
+   * @returns {Boolean}
+   */
+  GenericLoader.prototype._flushDocWritesForOrAfterExecution = function () {
+    // check if any stack from secured doc.write left before calling main
+    // function
+    try {
+      if (this.securedWrites) {
+        this.log.FINE("Script finished, injecting document.write contents - " +
+          this.securedWrites.join("\n").length + " chars");//L
+        var append = (this.config.locationPlaceHolder === "end");
+        return TagsUtils.flushRedirectsFromArrayAndReverseDocWrite(
+            this.securedWrites,
+            TagsUtils.getHTMLLocationForTag(this),
+            append,
+            this.log);
+      }
+      this.securedWrites = false;
+    } catch (ex) {
+      this.log.ERROR("Unexpected exception during flushing." + ex);
+    }
+    return true;
+  };
+  
+  /**
+   * Object logger.
+   */
+  GenericLoader.prototype.log = function () {};
+  
+  /**
+   * Function will return true and only true when tag has started and finished
+   * its duty (it does not indicate if job was sucessful and main script was
+   * executed see `this.scriptExecuted` property if you need to check if
+   * script was run).
+   * @return {Boolean} 
+   */
+  GenericLoader.prototype.finished = function () {
+    return !!this.runIsFinished;
+  };
+  
+  /**
+   * Executing function as a tag exit point. If all parameters exist and all
+   * fileters are passed this function will be called in order to execute
+   * the tag. See also see `before` and `after` functions
+   */
+  GenericLoader.prototype.script = function () {
+    this.log.INFO("Script run.");
+  };
+  
+  /**
+   * Callback triggered always before loading tag.
+   * Can be called only once, any repeated calls will have no effect.
+   */
+  GenericLoader.prototype.before = function () {
+    this.log.FINE("running before handler...");
+    this.beforeRun = true;
+    try{ 
+      this.onBefore();
+    } catch (ex) {
+      this.log.ERROR("onBefore error: " + ex);
+    }
+  };
+  
+  /**
+   * @event onBefore before event.
+   */
+  GenericLoader.prototype.onBefore = function () {};
+
+  /**
+   * Callback triggered always after loading - if succesful.
+   * Can be called only once, any repeated calls will have no effect.
+   * @param success {Boolean} If the script executed without errors
+   */
+  GenericLoader.prototype.after = function (success) {
+    this.log.FINE("running after handler...");
+    this.afterRun = true;
+    try{ 
+      this.onAfter(success);
+    } catch (ex) {
+      this.log.ERROR("onAfter error: " + ex);
+    }
+  };
+  
+  /**
+   * @event onAfter after event.
+   * @param success {Boolean} If the script executed without errors
+   */
+  GenericLoader.prototype.onAfter = function (success) {};
+  
+  /**
+   * By using this function one can be sure that script will be executed only
+   * once.
+   */
+  GenericLoader.prototype.runOnce = function () {
+    if (!this.scriptExecuted) {
+      this.run();
+    } else {
+      this.log.FINEST("runOnce has been already executed.");
+    }
+  };
+  
+  /**
+   * Starting point for loading tag. Tags can often contain resources that have
+   * to be fetched and this function initialises such processes where it is 
+   * necessary. This function can be called only once, after that, each call
+   * will be ignored.
+   * If there is no dependencies to load, script will be invoked immediately.
+   */
+  GenericLoader.prototype.run = function () {
+    this.setStatus("STARTED");
+    
+    //make sure its loaded before execution
+    this.load();
+   
+    var finished = false;
+    if (this.loadedDependencies) {
+      //dependencies ready
+      if (!this.beforeRun) {
+        this.beforeRun = true;
+        try {
+            this.before();
+        } catch (ex) {
+          this.log.ERROR(ex, true);
+          //keep it going, dont block tag bof pre failure.
+        }
+      }
+      finished = this.loadExecutionDependencies();
+    } else if (this.loadingDependenciesFailed) {//wait for deps
+      finished = true;
+    }
+    
+    if (!finished) {
+      Timed.setTimeout(this.runOnce.bind(this), 40);
+    } else {
+      this.runIsFinished = new Date().valueOf();
+      this._flushDocWritesForOrAfterExecution();
+      //now check if failures occured
+      if (this.loadingDependenciesFailed ||
+          this.scriptLoadingFailed ||
+          this.injectHTMLFailed) {
+        this.log.ERROR("script execution has failed! Tag in fail state.");
+        this.scriptExecuted = -(new Date().valueOf());
+        this.setStatus("FAILED_TO_EXECUTE");
+      } else {
+        //no failures, run!
+        this.log.FINE("Executing...");
+        this.scriptExecuted = new Date().valueOf();
+        this.setStatus("EXECUTED");
+        this._executeScript();
+      }
+      //unlock possibly locked doc write
+      TagsUtils.unlockDocumentWrites();
+      GenericLoader.LOCK_DOC_WRITE = false;
+      this.log.INFO("* stopped [" +
+              ((this.scriptExecuted > 0) ? "executed" : "not executed") +//L
+              "] *");//L
+    }
+  };
+  
+  /**
+   * 
+   * @returns {Boolean}
+   */
+  GenericLoader.prototype.waitForDocWriteProtection = function () {
+    if (this.willSecureDocumentWrite()) {
+      //we can use more generic check
+      if (!GenericLoader.LOCK_DOC_WRITE) {
+        GenericLoader.LOCK_DOC_WRITE = this;
+        this._secureWriteAndCollectForExecution();
+      } else if (GenericLoader.LOCK_DOC_WRITE !== this) {
+        if (!this._lockedDocWriteInformed) {
+          this._lockedDocWriteInformed = true;
+          this.log.WARN("Tag will wait till document.write be available.");
+          this.log.FINE(GenericLoader.LOCK_DOC_WRITE, true);
+        }
+        return true;
+      }
+    }
+    return false;
+  };
+  
+  /**
+   * 
+   * @returns {undefined}
+   */
+  GenericLoader.prototype.runWithoutDependencies = function () {
+    if (this.loadExecutionDependencies()) {
+      this._executeScript();
+    } else {
+      Timed.setTimeout(this.runWithoutDependencies.bind(this), 33);
+    }
+  };
+  
+  /**
+   * 
+   * @returns {Boolean}
+   */
+  GenericLoader.prototype.loadExecutionDependencies = function () {
+    //if dependencies are okay, execute entire execution logic:
+    // 1) load URLs
+    // 2) after 1) inject HTML (can have some async stuff)
+    // 3) 1& -> 2 finished : execute main script
+    
+    if (!this._loadedDependenciesInformed) {
+      //show this message once
+      this._loadedDependenciesInformed = true;
+      this.log.INFO("tag is loaded, trying execution...");
+    }
+
+    if(this.waitForDocWriteProtection()) {
+      return false;
+    }
+
+    //check if url/urls are specified, delay if any
+    this._triggerURLsLoading();
+
+    //check if 1) is finished.
+    if (!this.loadURLsNotFinished) {
+      //once URL(s) are loaded/finished, try html injection
+      //check if html injection is done, and start it if not started
+      this._triggerHTMLInjection();
+
+      //if URL is finished, and after that HTML injection is done...
+      if (!this.injectHTMLNotFinished) {
+        //check if 1) & 2) is finished.
+        this.log.INFO("url and html awaiting has ended...");
+        return true;
+      }
+    }
+
+    return false;
+  };
+  
+  /**
+   * @private
+   * Function will trigger URL loading, it can be called effectively only once.
+   * It means that after one call, it will have no effect.
+   */
+  GenericLoader.prototype._triggerURLsLoading = function () {
+    if (!this._urlLoadTriggered && this.config.url) {
+      this._urlLoadTriggered = true;
+      this.log.INFO("tag has url option set to: " +
+               this.config.url);//L
+      this.log.INFO("loading url and delaying execution till link is loaded");
+      this.loadURLs(this.runOnce.bind(this));
+    }
+  };
+  
+  /**
+   * @private
+   * Function will trigger HTML inject, it can be called effectively only once.
+   * It means that after one call, it will have no effect.
+   */
+  GenericLoader.prototype._triggerHTMLInjection = function () {
+    if (!this._injectHTMLTriggered && this.config.html) {
+      this._injectHTMLTriggered = true;
+      this.log.FINE("tag has html option set to: " +
+               this.config.html);//L
+      this.log.INFO("injecting html and delaying execution till is ready");
+      this.injectHTML();
+    }
+  };
+  
+  /**
+   * Status properties used as a tag LED interface. Do not use it for internal
+   * checks. This is quite usefull metric ordered status indicator.
+   * 
+   * consider this example:
+   * 
+   * 
+   *    this.status > GenericLoader.prototype.STATUS.FAILED_TO_LOAD_DEPENDENCIES
+   *    
+   * It translates to script being fully loaded with dependenciess and passed 
+   * filters, but unfortune to have url script loading problems or final script 
+   * execution itself.
+   * 
+   * This is very useful when creating automated debugging tools.
+   * 
+   * @property
+   */
+  GenericLoader.prototype.STATUS = {
+    INITIAL: 0,
+    STARTED: 1,
+    LOADING_DEPENDENCIES: 2,
+    LOADED_DEPENDENCIES: 4,
+    LOADING_URL: 8,
+    LOADED_URL: 16,
+    EXECUTED: 32,
+    FILTERS_FAILED: 64,
+    FAILED_TO_LOAD_DEPENDENCIES: 128,
+    FAILED_TO_LOAD_URL: 256,
+    FAILED_TO_EXECUTE: 512,
+    TIMED_OUT: 1024
+  };
+  
+  /**
+   * 
+   * @param {type} statusName
+   */
+  GenericLoader.prototype.setStatus = function (statusName) {
+    //this.log.FINEST("Updating status.");
+    this.status = (this.status | this.status[statusName]);
+  };
+  
+  /**
+   * Property representing binary table with this tag's status
+   * @property {GenericLoader.prototype.STATUS} status
+   */
+  GenericLoader.prototype.status = GenericLoader.prototype.STATUS.INITIAL;
+  
+  /**
+   * Private loader marker, it basically tells that loading of dependencies
+   * was successful.
+   * @private
+   */
+  GenericLoader.prototype._markLoadedSuccesfuly = function () {
+    this.loadedDependencies = new Date().valueOf();
+    this.onLoadSuccess();
+  };
+  
+  /**
+   * @private
+   */
+  GenericLoader.prototype._secureWriteAndCollectForExecution = function () {
+    if (!this.securedWrites) {
+      this.securedWrites = [];
+      TagsUtils.redirectDocumentWritesToArray(this.securedWrites, this.log);
+    }
+  };
+  
+  /**
+   * This is anonymous function that is good to be known if more
+   * knowledge on how tag are loaded is necessary.
+   * This function is directly used by `this.load()`
+   * It is not avaialble on object's instance.
+   * @private
+   */
+  function waitForDependencies() {
+    /**
+     * It indicates ONLY if waitForDependencies has finished it's job - NOT
+     * if started.
+     * @property
+     * @type Boolean
+     */
+    this.waitForDependenciesFinished = new Date().valueOf();
+    
+    if (this.dependenciesLoaded()) {
+      /**
+       * @property {Number} loaded Property telling if and when all loading
+       * has been finished.
+       */
+      this._markLoadedSuccesfuly();
+    } else {
+      if (this.loadingIsTimedOut()) {
+        this.loadingTimedOut = new Date().valueOf();
+        if (this.dependenciesLoaded(true)) {//give last chance for defaults
+          this._markLoadedSuccesfuly();
+        } else {
+          this.log.ERROR("timed out while loading dependencies.");
+          this.setStatus("TIMED_OUT");
+          this.loadingDependenciesFailed = new Date().valueOf();
+          this.onLoadError();
+        }
+      } else {
+        //wait for dependencies, no matter what.
+        //@TODO let it be done by a nicer tool... single timeout processor
+        this.waitForDependenciesFinished = false;
+        Timed.setTimeout(waitForDependencies.bind(this), 75);
+      }
+    }
+    if (!this.waitForDependenciesFinished) {
+      /*log*/ //make some nice counter logs
+      var diff = (new Date().valueOf() - this.loadStarted);
+      var freq = 4000;
+      var curr = diff/this.config.timeout;
+      var steps = Math.ceil(this.config.timeout/freq);
+      
+      this._lockObject.curr = curr;
+      
+      Timed.maxFrequent(function () {
+        this.log.FINE("Waiting for dependencies, counting... "
+                + this._lockObject.count++ + " (" + steps + ")");//L
+      }.bind(this), freq, this._lockObject);
+      /*~log*/
+    } else {
+      this.setStatus("LOADED_DEPENDENCIES");
+    }
+  };
+  
+  /**
+   * Checker indicating if all dependencies are satisfied.
+   * @param {Boolean} timedout Timed out indicator. It asks for condition
+   *        if it is under timedout circumstances (in this class doesnt matter).
+   * @param {Array} arrayToAdd optional failures to write array
+   * @returns {Boolean}
+   */
+  GenericLoader.prototype.dependenciesLoaded = function (timedout, arrayToAdd) {
+    var failures = arrayToAdd || [];
+
+    if (!this.injectionLocationReady()) {
+      failures.push("html location");
+    }
+    for(var i = 0; i < this.dependencies.length; i++) {
+      var state = this.dependencies[i].scriptExecuted;
+      if (!state || +state <= 0) {
+        var name = this.dependencies[i].config ?
+          this.dependencies[i].config.name : "anonymous";
+        failures.push("TAG -> " + name);
+      }
+    }
+    
+    for(var i = 0; i < this.genericDependencies.length; i++) {
+      var ready = this.genericDependencies[i](this);
+      if (!ready) {
+        failures.push("this.genericDependencies[" + i + "]");
+      }
+    }
+    
+    if (failures !== "") {
+      /*log*/
+      Timed.maxFrequent(function () {
+          var awaitingList = failures.join(", ");
+          if (awaitingList) {
+            this.log.FINE("Dependencies check: Waiting for: " + awaitingList);
+          } else {
+            this.log.FINE("Dependencies check: No basic dependencies.");
+          }
+      }.bind(this), 5000, this._lockObjectDepsLoaded);
+      /*~log*/
+    }
+    
+    return failures.length === 0;
+  };
+
+  /**
+   * 
+   * @returns {_L15.GenericLoader.prototype@call;loadAsynchronously}
+   */
+  GenericLoader.prototype.waitForHTMLLocation = function () {
+    //tag must wait for location if asynchronous, or instructed to protect
+    //writes
+    return this.loadAsynchronously() || this.willSecureDocumentWrite();
+  };
+  
+  /**
+   * This function, unlikely as `waitForHTMLLocation` checks phisically if
+   * loaction for injections is ready.
+   * Injection location is necessary for:
+   * - html injector
+   * - document writes flushing
+   * @returns {unresolved}
+   */
+  GenericLoader.prototype.injectionLocationReady = function () {
+    // if this is synchronous script then mark location as any time ready
+    // ---> (!this.waitForHTMLLocation()) <---
+    // please note, if location is not present, document.write action will be
+    // performed
+    var ready = (!this.waitForHTMLLocation()) ||
+            !!TagsUtils.getHTMLLocationForTag(this);
+    return ready;
+  };
+  
+  /**
+   * Method indicating if loading is timed out.
+   * @returns {Boolean}
+   */
+  GenericLoader.prototype.loadingIsTimedOut = function () {
+    if (this.config.timeout < 0) {
+      return false;
+    }
+    return (new Date().valueOf() - this.loadStarted) > 
+      this.config.timeout;
+  };
+  
+  /**
+   * Function used as a worker for processing tag's dependencies and
+   * loading them. It is a looping trigger to call "load" on dependencies.
+   */
+  GenericLoader.prototype.loadDependencies = function () {
+    var deps = this.dependencies;
+    for (var i = 0; i < deps.length; i++) {
+      deps[i].load();
+    }
+  };
+  
+  /**
+   * @event
+   * If there is any loading error, Tag SDK will call this function with the
+   * error as a parameter. Override wherever necessary.
+   * @param {String} error Error string.
+   */
+  GenericLoader.prototype.onLoadError = function (error) {};
+  
+  /**
+   * @event
+   * Run when the tag script is loaded (not dependencies.)
+   */
+  GenericLoader.prototype.onScriptLoadSuccess = function () {};
+  
+  /**
+   * @param error
+   */
+  GenericLoader.prototype.onScriptLoadError = function (error) {};
+  
+  /**
+   * @event
+   * Triggered when tag is fully loaded, together with dependencies.
+   */
+  GenericLoader.prototype.onLoadSuccess = function () {};
+  
+  /**
+   * @event onBeforeLoad event will run before load().
+   */
+  GenericLoader.prototype.onBeforeLoad = function () {};
+  
+  /**
+   * Function used to load this tag itself and its dependencies if 
+   * this.config.loadDependenciesOnLoad is set to true.
+   * It does not load URL being a part of tag execution process.
+   * This function does not trigger any real loading in this base class however
+   * bonds logically loading entry point.
+   * It will trigger process awaiting for all dependencies to be satisfied.
+   * 
+   * Can be run only once. `load` function is an entry point for any process 
+   * leading to run/execute the tag.
+   * 
+   */
+  GenericLoader.prototype.load = function () {
+    if (this.loadStarted) {
+      return;
+    } else {
+      this.loadStarted = new Date().valueOf();
+      try {
+        this.onBeforeLoad();
+      } catch (ex) {
+        this.log.ERROR("onBeforeLoad error: " + ex);
+      }
+    }
+
+    this.setStatus("LOADING_DEPENDENCIES");
+    this.log.INFO("Load started.");
+    
+    try {
+      /**
+       * @property {Number} loadStarted Timestamp telling when loading process has
+       * started.
+       */
+      if (this.config.loadDependenciesOnLoad) {
+        this.loadDependencies();
+      }
+    } catch (ex) {
+      this.log.ERROR("load(): unexpected exception occured: \n"
+              + ex + "\ntrying to finish... ");//L
+    }
+    
+    waitForDependencies.call(this);
+  };
+  
+  /**
+   * Private helper - handler for single script load
+   * @private
+   * @param {type} success
+   * @param {type} urls
+   * @param {type} callback
+   */
+  GenericLoader.prototype._singleUrlLoadHandler = function (success, urls, callback) {
+    ++this.urlsLoaded;
+
+    if (!success) {
+      ++this.urlsFailed;
+    }
+
+    if (this.urlsLoaded === urls.length) {
+      this.loadURLsNotFinished = false;
+      if (success && this.urlsFailed === 0) {
+        this.log.INFO("succesfully loaded " + this.urlsLoaded + " urls.");
+        this.setStatus("LOADED_URL");
+        this.urlsLoaded = new Date().valueOf();
+        try {
+          if (callback) {
+            callback(true);
+          }
+        } finally {
+          this.onScriptLoadSuccess();
+        }
+      } else {
+        this.log.ERROR("error loading urls. Failed " + this.urlsFailed);
+        this.setStatus("FAILED_TO_LOAD_URL");
+        this.urlsLoaded = -new Date().valueOf();
+        try{
+          this.scriptLoadingFailed = true;
+          if (callback) {
+            callback(false);
+          }
+        } finally {
+          this.onScriptLoadError();
+        }
+      }
+    }
+  };
+  
+  /**
+   * Script URLs loader. This method will load all scripts in this tag defined
+   * in config object or overriding urlz parameter.
+   * @param {type} callback
+   * @param {type} urlz
+   */
+  GenericLoader.prototype.loadURLs = function (callback, urlz) {
+    var urls = urlz || this.config.url;    
+    
+    this.setStatus("LOADING_URL");
+    this.log.FINE("loading URLs ...");
+    
+    try {
+      if (urls && !(urls instanceof Array)) {
+        urls = [urls];
+      }
+      
+      for (var i = 0; i < urls.length; i++) {
+        this.loadURLsNotFinished = true;
+        this.log.FINE("loading URL: " + urls[i] + " ...");
+        var url = urls[i];
+        url = this.prepareURL(url);
+        this.loadURL(function (success) {
+          this._singleUrlLoadHandler(success, urls, callback);
+        }.bind(this), url);
+        
+      }
+    } catch (ex) {
+      this.log.ERROR("loadURLs thrown unexpected exception! : " + ex);
+      this.loadURLsNotFinished = false;
+    }
+  };
+  
+  GenericLoader.prototype.prepareURL = function (url) {
+    return url;
+  };
+
+  GenericLoader.prototype.prepareHTML = function (html) {
+    return html;
+  };
+  
+  /**
+   * Script URL loader. A private method,
+   * created for GenericLoader to load script.
+   * @param callback {Function} callback optional
+   * @param url {String} url, overriding URL to use
+   */
+  GenericLoader.prototype.loadURL = function (callback, url) {
+    var passedUrl = url;
+    this.setStatus("LOADING_URL");
+    TagsUtils.loadScript({
+      onsuccess: function () {
+        this.log.FINE("succesfully loaded " + passedUrl);
+        try {
+          if (callback) {
+            callback(true);
+          }
+        } catch (ex) {
+          this.log.ERROR("error at callback for " + passedUrl + ":" + ex);
+        }
+      }.bind(this),
+      onerror: function () {
+        this.log.ERROR("error loading " + passedUrl);
+        try{
+          if (callback) {
+            callback(false);
+          }
+        } catch (ex) {
+          this.log.ERROR("error at callback for error at " +
+                  passedUrl + ":" + ex);//L
+        }
+      }.bind(this),
+      url: passedUrl,
+      node: this.config.urlLocation || document.body,
+      async: this.loadAsynchronously(),
+      secure: true,
+      noMultipleLoad: this.config.noMultipleLoad
+    });
+  };
+  
+  GenericLoader.prototype.reset = function () {
+    this.log.WARN("resetting tag!");
+    var u = undefined;
+    this.status = 0;
+    this.urlsLoaded = 0;
+    this.urlsFailed = 0;
+    this.loadStarted = u;
+    this.loadingTimedOut = u;
+    this.runIsFinished = u;
+    this.scriptExecuted = u;
+    this.waitForDependenciesFinished = u;
+    this.afterRun = u;
+    this.securedWrites = u;
+    this.beforeRun = u;
+    this.loadedDependencies = u;
+    this.scriptLoadingFailed = u;
+    this.injectHTMLFailed = u;
+    this.loadingDependenciesFailed = u;
+    this.filtersRunTriggered = u;
+    this._loadedDependenciesInformed = u;
+    this._lockedDocWriteInformed = u;
+    this.loadURLsNotFinished = u;
+    this._urlLoadTriggered = u;
+    this._injectHTMLTriggered = u;
+    this.secureWrite = u;
+    this.setStatus("INITIAL");
+  };
+  
+  /**
+   * 
+   * @returns {Boolean}\
+   */
+  GenericLoader.prototype.loadAsynchronously = function () {
+//    var becauseOfDocWriteOverrideAndMakeItAsync = 
+//            (this.config.url && this.config.url.length > 0);
+//    return becauseOfDocWriteOverrideAndMakeItAsync ||
+//      !!(this.config.async || this.forceAsynchronous);
+    //@TODO add more sophisticated async judgement:
+    // any URL loading should be triggereing async
+    // any html containing scripts with src also shouold cause delay
+    // only CHROME has synchronous onload callbvacks, but chrome is not the only
+    // browser.
+    return !!(this.config.async || this.forceAsynchronous);
+  };
+  
+  /**
+   * 
+   * @returns {_L15.GenericLoader.prototype@call;loadAsynchronously|Boolean}
+   */
+  GenericLoader.prototype.willSecureDocumentWrite = function () {
+    return (this.config.usesDocumentWrite || this.secureWrite);
+  };
+  
+  /**
+   * HTML injection trigger for tag. It will try to inject html and update
+   * on tags state.
+   * @param {type} callback
+   */
+  GenericLoader.prototype.injectHTML = function (callback) {
+     //on sync - try to dpc.write
+    var tryWriteIfNoLocation = !this.waitForHTMLLocation();
+    // tryWriteIfNoLocation set to true will cause immediate document.write
+    // call if location was not found!
+    var html = this.prepareHTML(this.config.html);
+    if (html) {
+      TagHelper.injectHTMLForLoader(this, callback, tryWriteIfNoLocation, html);
+    }
+  };
+  
+  GenericLoader.prototype.CLASS_NAME = "GenericLoader";
+  GenericLoader.prototype.PACKAGE_NAME = "qubit.opentag";
+  
+  Utils.namespace("qubit.opentag.GenericLoader", GenericLoader);
+}());
+
+
+
+
+
+
+
+
+
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ */
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var TagsUtils = qubit.opentag.TagsUtils;
+  var Timed = qubit.opentag.Timed;
+  var BaseFilter = qubit.opentag.filter.BaseFilter;
+  var GenericLoader = qubit.opentag.GenericLoader;
+  var TagHelper = qubit.opentag.TagHelper;
+  var log = new qubit.opentag.Log("BaseTag -> ");
+
+  /*
+   * @TODO - extract lower generic class for a script loader so it is better 
+   * separated by logic.
+   * For now this is base tag only and its good.
+   */
+
+  /**
+   * @class qubit.opentag.BaseTag
+   * @extends qubit.opentag.GenericLoader
+   * 
+   * Father class of any tag, it has properties and API shared by all tags.
+   * To check if object is a tag its instance must be compared to this class
+   * prototype.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @param {Object} config Please see properties for configuration options.
+   *  Each property can be set at initialization time via config object.
+   */
+  function BaseTag(config) {
+    
+    var defaults = {
+     /**
+      * how much filter should be timed out value. By default - never if
+      * filters is configured to await.
+      * @cfg filterTimeout
+      * @type Number
+      */
+      filterTimeout: this.config.filterTimeout || this.FILTER_WAIT_TIMEOUT,
+      /**
+       * Package property indicates where this tag will reside
+       * (in what namespace). 
+       * @cfg package
+       * @type Object 
+       */
+      PACKAGE: this.config.PACKAGE,
+      /**
+       * Is this tag dedupe?
+       * @cfg dedupe
+       * @type Boolean
+       */
+      dedupe: false,
+      /**
+       * If the tag requires consent tag.
+       * @cfg dedupe
+       * @type Boolean
+       */
+      needsConsent: false
+    };
+    
+    Utils.setIfUnset(config, defaults);
+    
+    BaseTag.superclass.apply(this, arguments);
+  
+    /**
+     * Named page variables. These variables are not strictly bonded to any
+     * parameters. 
+     * @property Array[qubit.opentag.filter.BaseFilter]
+     */
+    this.namedPageVariables = {};
+    
+    /**
+     * Local filters of this tag.
+     * Use getFilters for fetching all filters applying to this tag.
+     * @property Array[qubit.opentag.filter.BaseFilter]
+     */
+    this.filters = [];
+    
+    /**
+     * session object, if any attached
+     * @property {qubit.opentag.Session}
+     */
+    this.session = null;
+    
+    if (config) {
+      this.setStatus("INITIAL");
+
+      try {
+        BaseTag.registerTag(this);
+      } catch (ex) {
+        this.log.WARN("Problem with registering tag " + this.config.name);
+        this.log.WARN(ex, true);
+        // RETHINK THIS, it looks usefull but a bit circural...
+      }
+      
+      if (config.filters) {
+        this.filters = config.filters.concat(this.filters);
+      }
+      
+      this.onTagInit();
+    }
+  }
+  
+  BaseTag.superclass = GenericLoader;
+  BaseTag.prototype = new BaseTag.superclass();
+  BaseTag.prototype.CLASS_NAME = "BaseTag";
+  BaseTag.prototype.PACKAGE_NAME = "qubit.opentag";
+  
+  /**
+   * @event Empty on init event. Run at the end of constructors body.
+   */
+  BaseTag.prototype.onTagInit = function () {};
+  
+  /**
+   * 
+   * @param {type} token
+   * @returns 
+   */
+  BaseTag.prototype.valueForToken = function (token) {
+    var param = this.getParameterByTokenName(token);
+    if (param) {
+      var variable = this.getVariableForParameter(param);
+      var defaultValue = undefined;
+      if (this.config.usingDefaults) {
+        defaultValue = param.defaultValue;
+      }
+      if (variable) {
+        defaultValue = variable.getRelativeValue(true, defaultValue);
+      }
+      return defaultValue;
+    }
+    return undefined;
+  };
+  
+  /**
+   *  Default timeout for script to load.
+   * @property {Number} LOADING_TIMEOUT
+   */
+  BaseTag.prototype.LOADING_TIMEOUT = 5 * 1000;
+  
+  /**
+   *  Default timeout for script filter to wait.
+   *  Default value is -1 which means: awaiting filters are never timed out.
+   * @property {Number} FILTER_WAIT_TIMEOUT
+   */
+  BaseTag.prototype.FILTER_WAIT_TIMEOUT = -1;
+
+  /**
+   * It gets ALL filters related to this tag in theirs order of load.
+   * @returns {Array}
+   */
+  BaseTag.prototype.getFilters = function () {
+    return this.filters;
+  };
+
+  /**
+   * Function used to run a tag. It is a wrapper around run function, before
+   * running the tag, it does check on filters with `filtersStatus`.
+   * Note that run triggers entire process for loading dependencies and the
+   * tag if url based.
+   * @returns {BaseFilter.status}
+   */
+  BaseTag.prototype.runIfFiltersPass = function () {
+    
+    var status = this.filtersStatus();
+    this.setStatus("FILTER_ACTIVE");
+    
+    if (!this.filtersRunTriggered) {
+      this.filtersRunTriggered = new Date().valueOf();
+    }
+    
+    //it is a number of BaseFilter.status type or time when to stop checking
+    if (status === BaseFilter.status.PASS) {
+      this.log.FINE("tag passed filters tests");
+      this.run();
+    } else if(status === BaseFilter.status.FAIL) {
+      this.log.FINE("tag failed to pass filters");
+      this.setStatus("FILTERS_FAILED");
+    } else if (status > 0) {
+      var tout = this.config.filterTimeout;
+      if (tout < 0 || 
+              ((new Date().valueOf() - this.filtersRunTriggered) > tout)) {
+        //try again in [status] ms in future
+        //if status is lesser than 0 its passing call and the end.
+        if (!this._awaitingForFilterInformed) {
+          this.log.INFO("filters found indicating for tag to wait " +
+                  "for applicable conditions - waiting...");//L
+          this._awaitingForFilterInformed = new Date().valueOf();
+          
+          try {
+            this.onFilterDelayed();
+          } catch (ex) {
+            this.log.ERROR("error running onFilterDelayed:" + ex);
+          }
+        }
+        Timed.setTimeout(this.runIfFiltersPass.bind(this), status);
+      } else {
+        this.setStatus("FILTERS_FAILED");
+        this.filtersRunTimedOut = new Date().valueOf();
+        this.log.WARN("awaiting for filters timed out.");
+      }
+    }
+    return status;
+  };
+
+  /**
+   * Status properties used as a tag LED interface. Do not use it for internal
+   * checks. This is quite usefull metric ordered status indicator.
+   * 
+   * consider this example:
+   * 
+   * 
+   *    this.status > BaseTag.prototype.STATUS.FAILED_TO_LOAD_DEPENDENCIES
+   *    
+   * It translates to script being fully loaded with dependenciess and passed 
+   * filters, but unfortune to have url script loading problems or final script 
+   * execution itself.
+   * 
+   * This is very useful when creating automated debugging tools.
+   * 
+   * @class qubit.opentag.BaseTag.prototype.STATUS
+   */
+  BaseTag.prototype.STATUS = {
+    INITIAL: 0,
+    FILTER_ACTIVE: 1,
+    STARTED: 2,
+    LOADING_DEPENDENCIES: 4,
+    LOADED_DEPENDENCIES: 8,
+    LOADING_URL: 16,
+    LOADED_URL: 32,
+    EXECUTED: 64,
+    FILTERS_FAILED: 128,
+    FAILED_TO_LOAD_DEPENDENCIES: 256,
+    FAILED_TO_LOAD_URL: 512,
+    FAILED_TO_EXECUTE: 1024,
+    TIMED_OUT: 2048
+  };
+  
+  /**
+   * 
+   * @param {type} statusName
+   */
+  BaseTag.prototype.setStatus = function (statusName) {
+    BaseTag.superclass.prototype.setStatus.call(this, statusName);
+    this.statusStack = [];
+    var s = this.STATUS;
+    
+    if (this.status & s.INITIAL)
+        this.statusStack
+              .push("Initial state.");
+      
+    if (this.status & s.FILTERS_FAILED)
+        this.statusStack.push(
+                "Filters failed to pass.");
+
+    if (this.status & s.STARTED)
+        this.statusStack.push(
+                "Tag is initialized and loading has been started.");
+
+    if (this.status & s.LOADING_DEPENDENCIES)
+        this.statusStack.push(
+                "Dependencies are being loaded.");
+
+    if (this.status & s.LOADED_DEPENDENCIES)
+        this.statusStack.push(
+                "Dependencies loading process has been finished.");
+
+    if (this.status & s.LOADING_URL)
+        this.statusStack.push(
+                "External URL is being loaded.");
+
+    if (this.status & s.LOADED_URL)
+        this.statusStack.push(
+                "External URL has been loaded.");
+
+    if (this.status & s.EXECUTED)
+        this.statusStack.push(
+                "Main script has been executed.");
+        
+    if (this.status & s.FILTER_ACTIVE)
+        this.statusStack
+              .push("Tag running for filters triggered.");
+      
+    if (this.status & s.FAILED_TO_LOAD_DEPENDENCIES)
+        this.statusStack.push(
+                "Dependencies has failed to load.");
+
+    if (this.status & s.FAILED_TO_LOAD_URL)
+        this.statusStack.push(
+                "URL location failed to load.");
+
+    if (this.status & s.FAILED_TO_EXECUTE)
+        this.statusStack.push(
+                "Script failed to execute.");
+        
+    if (this.status & s.TIMED_OUT)
+        this.statusStack.push(
+                "Script timed out awaiting for dependencies.");
+  };
+  
+  /**
+   * Event triggered if tag has run filter delaying request.
+   * Filters delaying execution will trigger this event once only.
+   * @event onFilterDelayed
+   */
+  BaseTag.prototype.onFilterDelayed = function () {};
+  
+  /**
+   * Property representing binary table with this tag's status
+   * @property {BaseTag.prototype.STATUS} status
+   */
+  BaseTag.prototype.status = BaseTag.prototype.STATUS.INITIAL;
+    
+  /**
+   * 
+   * @param tryDefaults {type} name
+   * @returns {Boolean}
+   */
+  BaseTag.prototype.pageVariablesLoaded = function (tryDefaults) {
+    return TagHelper.allParameterVariablesReadyForTag(this, tryDefaults);
+  };
+  
+  /**
+   * Checker indicating if all dependencies are satisfied.
+   * @param timedout {Boolean}
+   * @param arrayToAdd {Array}
+   * @returns {Boolean}
+   */
+  BaseTag.prototype.dependenciesLoaded = function (timedout, arrayToAdd) {
+    var failures = arrayToAdd || [];
+    var tryDefaults = timedout;
+    
+    if (!this.pageVariablesLoaded(tryDefaults)) {
+      failures.push("page variables");
+    }
+    
+    return BaseTag.superclass.prototype
+            .dependenciesLoaded.call(this, timedout, failures);
+  };
+  
+  /**
+   * 
+   * @param {String} url
+   * @returns {String}
+   */
+  BaseTag.prototype.prepareURL = function (url) {
+    return this.replaceTokensWithValues(url);
+  };
+
+  /**
+   * 
+   * @param {String} html
+   * @returns {String}
+   */
+  BaseTag.prototype.prepareHTML = function (html) {
+    if (html) {
+      html = this.replaceTokensWithValues(html);
+    }
+    return html;
+  };
+  
+  /**
+   * 
+   * @param {type} string
+   * @returns {unresolved}
+   */
+  BaseTag.prototype.replaceTokensWithValues = function (string) {
+    var ret = string;
+    var params = this.config.parameters;
+    
+    if (params) for (var i = 0; i < params.length; i++) {
+      var parameter = params[i];
+      var variable = this.getVariableForParameter(parameter);
+      
+      if (variable) {
+        var token = params[i].token;
+        var value = this.valueForToken(token);
+        ret = variable.replaceToken(token, string, value);
+      }
+    }
+    return ret;
+  };
+  
+  /**
+   * 
+   * @param {type} name
+   * @returns {Object}
+   */
+  BaseTag.prototype.getParameter = function (name) {
+    var params = this.config.parameters;
+    if (params) for (var i = 0; i < params.length; i++) {
+      if (params[i].name === name) {
+        return params[i];
+      }
+    }
+    return null;
+  };
+  
+  /**
+   * 
+   * @param {type} name
+   * @returns {Object}
+   */
+  BaseTag.prototype.getParameterValue = function (name) {
+    var param = this.getParameter(name);
+    if (param) {
+      var variable = this.getVariableForParameter(param);
+      if (variable) {
+        var value = variable.getValue();
+        if (value !== undefined) {
+          return value;
+        } else if (param.hasOwnProperty("defaultValue")) {
+          return param.defaultValue;
+        } else {
+          return variable.getDefaultValue();
+        }
+      }
+    }
+    return undefined;
+  };
+  /**
+   * Entry method used to check if all filters used by this tag are passed.
+   * BaseTag searches for filters in this.config.**package**.filters location.
+   * The location should indicate all filters used by this tag.
+   * The **package* config property is a crucial tags property used to
+   * configure antiore tags.
+   * @returns {BaseFilter.prototype.status}
+   */
+  BaseTag.prototype.filtersStatus = function () {
+    return TagsUtils.filtersStatus(this.filters, this);
+  };
+  
+  /**
+   * Adding filter function.
+   * @param filter {qubit.opentag.filter.BaseFilter}
+   */
+  BaseTag.prototype.addFilter = function (filter) {
+    this.filters.push(filter);
+  };
+  
+  /**
+   * Reset tag methodf, it will bring tag to its initial state so it can be
+   * re-run clean. It does not reset logs!
+   * Used for debugging purposes.
+   */
+  BaseTag.prototype.reset = function () {
+    BaseTag.superclass.prototype.reset.call(this);
+    this.resetFilters();
+    this.dedupePingSent = undefined;
+    this.pingSent = undefined;
+  };
+  
+  /**
+   * Function will reset filters.
+   * Check more on filter implementations for information how 
+   * different filters are reset.
+   */
+  BaseTag.prototype.resetFilters = function () {
+    for (var i = 0; i < this.filters.length; i++) {
+      this.filters[i].reset();
+    }
+  };
+  
+  /**
+   * Function getting script parameter value by token name.
+   * 
+   * [See parameters guide for more details](#!/guide/defining_parameter)
+   * 
+   * @param {String} name Token name used to search for value.
+   * @returns {Object}
+   */
+  BaseTag.prototype.getParameterByTokenName = function (name) {
+    if (this.config.parameters) {
+      var params = this.config.parameters;
+      for (var i = 0; i < params.length; i++) {
+        if (params[i].token === name) {
+          return params[i];
+        }
+      }
+    }
+    return null;
+  };
+  
+  /**
+   * Removing filter function.
+   * @param filter {qubit.opentag.filter.BaseFilter}
+   */
+  BaseTag.prototype.removeFilter = function (filter) {
+    this.log.ERROR("not implemented yet!");
+  };
+  
+  var tags = [];
+  /**
+   * Method used to register a qubit.opentag.BaseTag
+   * @param {type} tag
+   */
+  BaseTag.registerTag = function (tag) {
+    log.FINEST("registering tag named \"" +
+            tag.config.name + "\", instance of:");//L
+    log.FINEST(tag, true);
+    var index = Utils.addToArrayIfNotExist(tags, tag);
+    if (index !== -1) {
+      log.WARN("tag already exists in Tags registry.");
+    }
+    if (index === -1) {
+      tag._tagIndex = tags.length - 1;
+    } else {
+      tag._tagIndex = index;
+    }
+  };
+  
+  BaseTag.prototype.unregisterTag = function () {
+    BaseTag.unregisterTag(this);
+  };
+  
+  /**
+   * 
+   * @param {type} tag
+   * @returns {undefined}
+   */
+  BaseTag.unregisterTag = function (tag) {
+    log.FINEST("Un-registering tag named \"" +
+            tag.config.name + "\", instance of:");//L
+    log.FINEST(tag, true);
+    var index = Utils.removeFromArray(tags, tag);
+    if (!index || index.length === 0) {
+      log.FINE("tag is already unregisterd.");
+    }
+
+    tag._tagIndex = -1;
+  };
+  
+  /**
+   * 
+   * @returns {Array}
+   */
+  BaseTag.getTags = function () {
+    return tags;
+  };
+  
+  /**
+   * 
+   * @returns {Array}
+   */
+  BaseTag.prototype.getTags = function () {
+    return tags;
+  };
+  
+  /**
+   * 
+   * @returns {Array} BaseVariable
+   */
+  BaseTag.prototype.getPageVariables = function () {
+    var params = this.config.parameters;
+    var vars = [];
+    
+    if (params) for (var i = 0; i < params.length; i++) {
+      var v = this.getVariableForParameter(params[i]);
+      if (v !== null) {
+        Utils.addToArrayIfNotExist(vars, v);
+      }
+    }
+    //add named variables
+    for (var key in this.namedPageVariables) {
+      Utils.addToArrayIfNotExist(vars, this.namedPageVariables[key]);
+    }
+    
+    return vars;
+  };
+  
+  /**
+   * 
+   * @returns {String}
+   */
+  BaseTag.prototype.getAccessorString = function () {
+    return "qubit.opentag.BaseTag.getTags()[" + this._tagIndex + "]";
+  };
+  
+  /**
+   * @param param {Object}
+   */
+  BaseTag.prototype.getVariableForParameter = function(param) {
+    return TagHelper.getVariableForParameter(param);
+  };
+  
+  Utils.namespace("qubit.opentag.BaseTag", BaseTag);
+}());
+
+
+q.cookie = {};
+
+q.cookie.PageView = {};
+q.cookie.PageView.update = function () {
+  var a, r;
+  r = function _() {
+    return (Math.floor(1 + Math.random() * 65536)).toString(36).substring(1);
+  };
+  if (!window.__pageViewId__) {
+    a = new Date().getTime().toString(36);
+    window.__pageViewId__ = a + r() + r() + r();
+  }
+  return window.__pageViewId__;
+};
+/*global XDomainRequest */
+
+
+
+
+q.html.PostData = function (url, data, type) {
+
+  var _post, agent, isIe, isIe9, isOldIe, fullUrl, loaded, 
+    retry, retryDelay, retryCount;
+
+  retryCount = 5;
+  retryDelay = 2000;
+  loaded = false;
+
+  retry = function () {
+    if (retryCount > 0) {
+      setTimeout(function () {
+        if (!loaded) {
+          retryCount -= 1;
+          _post();
+        }
+      }, retryDelay);
+    }
+  };
+
+  agent = navigator.userAgent.toLowerCase();
+  isIe = agent.indexOf("msie") !== -1;
+  isIe9 = agent.indexOf("msie 9") !== -1;
+  isOldIe = ((agent.indexOf('msie 7') !== -1) ||
+    (agent.indexOf('msie 6') !== -1));
+  fullUrl = ("https:" === document.location.protocol ? "https:" : "http:") +
+    url;
+  type = type || "POST";
+
+  _post = function () {
+    var xhr;
+    try {
+      xhr = null;
+
+      try {
+        xhr = new XMLHttpRequest();
+      } catch (e1) {
+
+      }
+
+      if (xhr && !isIe) {
+        xhr.open(type, fullUrl, true);
+      } else if (typeof XDomainRequest !== "undefined") {
+        xhr = new XDomainRequest();
+        xhr.open(type, fullUrl);
+      } else {
+        xhr = null;
+      }
+
+      try {
+        xhr.withCredentials = false;
+      } catch (e2) {
+
+      }
+      if (xhr.setRequestHeader) {
+        xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+      }
+      xhr.onload = function () {
+        loaded = true;
+      };
+      xhr.onreadystatechange = function () {};
+      xhr.ontimeout = function () {};
+      xhr.onerror = function () {};
+      xhr.onprogress = function () {};
+
+      xhr.send(data);
+
+    } catch (err) {
+      try {
+        try {
+          q.html.fileLoader.load(fullUrl);
+        } catch (err2) {
+          if (window.console && window.console.log) {
+            window.console.log(err);
+          }
+        }
+      } catch (e) {
+      }
+    }
+    retry();
+  };
+  if (isOldIe) {
+    q.html.fileLoader.load(fullUrl);
+    return;
+  } else {
+    _post();
+  }
+};
+/*EXCLUDE: NO-SEND*/
+
+
+
+
+
+(function () {
+  
+  var Utils = qubit.opentag.Utils;
+  var log = new qubit.opentag.Log("Ping -> ");
+  
+  /**
+   * Ping processing class.
+   * It requires opentag instance passed to work correctly.
+   * 
+   * @class qubit.opentag.Ping
+   */
+  function Ping() {}
+  
+  /**
+   * 
+   * @param {Object} config Container config
+   * @param loadTimes {Array} Array of load time elements [time, BaseTag]
+   */
+  Ping.prototype.send = function (config, loadTimes) { 
+    var pingString = 
+            "c=" + config.clientId + "&" +
+            "p=" + config.containerId + "&" +
+            "l=" + config.tellLoadTimesProbability + "&" +
+            "pv=" + q.cookie.PageView.update() + "&" +
+            "d=";
+            
+    var pingStrings = [];
+    
+    for (var i = 0; i < loadTimes.length; i++) {
+      var tag = loadTimes[i].tag;
+      var loadTime = loadTimes[i].loadTime;
+      var loaderId = tag.config.ID;
+      
+      if (!tag.pingSent && loaderId && loadTime !== null) {
+        if (loaderId !== undefined) {
+          pingStrings.push('"' + loaderId + '":' + loadTime);
+          tag.pingSent = true;
+        } else {
+          log.WARN("send: tag `" + tag.config.name +
+                  "` has no ID assigned! Time load will not be sent.");//L
+        }
+      } else if (tag.pingSent) {
+        log.FINEST("send: ping already sent for `" + tag.config.name +
+                "`, ignoring.");//L
+      } else if (loadTime === null) {
+        log.FINEST("send:tried to send null load times for `" +
+                tag.config.name + "`, ignoring.");//L
+      }
+    }
+        
+    //sending part
+    if (config.pingServerUrl && pingStrings.length > 0) {
+      pingString += encodeURIComponent("{" + pingStrings.join(',') + "}");
+      var url = "//" + config.pingServerUrl + "/tag2?" + pingString;
+      log.FINE("send: sending pings " + url);
+      q.html.PostData(url, null, "GET");
+    } else {
+      if (!pingStrings.length) {
+        log.FINE("send: no pings to sent");
+      }
+      if (!config.pingServerUrl) {
+        log.WARN("send: config.pingServerUrl is unset!");
+      }
+    }
+  };
+  
+  /**
+   * Disabled.
+   * @private
+   * @param {Object} config
+   */
+  Ping.prototype.sendErrors = function (config, errors) {
+    //@TODO add on-demand errors sending so client can easily invoke 
+    //"qubut.opentag.Tags.sendAllErrors()
+    log.WARN("FIXME: should i be sending errors? ERRORS SENDING IS DISABLED.");
+//    var loaderId, err, msg, errMsgs = [];
+//    
+//    for (var i = 0; i < errors.length; i++) {
+//      var tag = errors[i];
+//      err = errors[loaderId];
+//      errMsgs.push("{r: '" + err.reason + "',u:'" + err.url + 
+//        "',l:'" + err.lineNumber + "'}");
+//    }
+//    if (errMsgs.length > 0) {
+//      log.INFO("about to send errors: " + errMsgs.join(","));
+//
+//      msg = "c=" + config.opentagClientId + "&" + 
+//        "p=" + config.containerId + "&" +
+//        "pv=" + q.cookie.PageView.update() + "&" +
+//        "e=" + ("[" + errMsgs.join(",") + "]");
+//      if (config.pingServerUrl) {
+//        q.html.PostData("//" + config.pingServerUrl + "/tag_err?" +
+//          msg, null, "GET");
+//      }
+//    }
+  };
+
+  /*session*/
+
+  /**
+   * 
+   * @param {type} config
+   * @param {Object} loadTimes
+   */
+  Ping.prototype.sendDedupe = function (config, loadTimes) {
+    var pingString = "c=" + config.clientId + "&" +
+      "p=" + config.containerId + "&" +
+      "l=" + (config.tellLoadTimesProbability) + "&" +
+      "pv=" + q.cookie.PageView.update() + "&" +
+      "dd=";
+
+    var pingStrings = [];
+
+    for (var i = 0; i < loadTimes.length; i++) {
+      var tag = loadTimes[i].tag;
+      var loaderId = tag.config.ID;
+
+      if (loaderId === undefined) {
+        log.WARN("sendDedupe: tag `" + tag.config.name +
+                "` has no ID assigned! Deduplicaton time load " +//L
+                "will not be sent.");//L
+      } else if (!tag.dedupePingSent) {
+        pingStrings.push(loaderId);
+        tag.dedupePingSent = true;
+      }
+    }
+
+    if (pingStrings.length > 0 && config.pingServerUrl) {
+      pingString += encodeURIComponent("[" + pingStrings.join(',') + "]");
+      q.html.PostData("//" + config.pingServerUrl + 
+        "/tag2?" + pingString, null, "GET");
+    } else {
+      if (!pingStrings.length) {
+        log.FINE("sendDedupe: no dedupe pings to sent");
+      }
+      if (!config.pingServerUrl) {
+        log.WARN("sendDedupe: config.pingServerUrl is unset!");
+      }
+    }
+  };
+  
+  /*~session*/
+  
+  Utils.namespace("qubit.opentag.Ping", Ping);
+}());
+/*EXCLUDE: SESSION*/
+
+
+q.cookie.SimpleSessionCounter = {};
+//Qubit Session Tracker
+q.cookie.SimpleSessionCounter._cookieName = "_qst_s";
+q.cookie.SimpleSessionCounter._sessionCookie = "_qsst_s";
+q.cookie.SimpleSessionCounter.update = function (domain) {
+  var c, s, ga, mins = 30;
+  c = q.html.simplecookie.readCookie(
+    q.cookie.SimpleSessionCounter._cookieName
+  );
+  s = q.html.simplecookie.readCookie(
+    q.cookie.SimpleSessionCounter._sessionCookie
+  );
+  if (!c) {
+    c = 1;
+  } else {
+    c = parseInt(c, 10);
+    if (!s || (parseInt(s, 10) < (new Date().getTime() - mins * 60 * 1000))) {
+      c += 1;
+    }
+  }
+  q.html.simplecookie.writeCookie(q.cookie.SimpleSessionCounter._cookieName, 
+      c, 365, domain);
+  q.html.simplecookie.writeCookie(q.cookie.SimpleSessionCounter._sessionCookie, 
+    new Date().getTime().toString(), null, domain);
+  return c;
 };
 /*EXCLUDE: JSON*/
 /*
@@ -873,1473 +5239,6 @@ var JSON = {};
         };
     }
 }());
-/*global XDomainRequest */
-
-
-
-
-q.html.PostData = function (url, data, type) {
-
-  var _post, agent, isIe, isIe9, isOldIe, fullUrl, loaded, 
-    retry, retryDelay, retryCount;
-
-  retryCount = 5;
-  retryDelay = 2000;
-  loaded = false;
-
-  retry = function () {
-    if (retryCount > 0) {
-      setTimeout(function () {
-        if (!loaded) {
-          retryCount -= 1;
-          _post();
-        }
-      }, retryDelay);
-    }
-  };
-
-  agent = navigator.userAgent.toLowerCase();
-  isIe = agent.indexOf("msie") !== -1;
-  isIe9 = agent.indexOf("msie 9") !== -1;
-  isOldIe = ((agent.indexOf('msie 7') !== -1) ||
-    (agent.indexOf('msie 6') !== -1));
-  fullUrl = ("https:" === document.location.protocol ? "https:" : "http:") +
-    url;
-  type = type || "POST";
-
-  _post = function () {
-    var xhr;
-    try {
-      xhr = null;
-
-      try {
-        xhr = new XMLHttpRequest();
-      } catch (e1) {
-
-      }
-
-      if (xhr && !isIe) {
-        xhr.open(type, fullUrl, true);
-      } else if (typeof XDomainRequest !== "undefined") {
-        xhr = new XDomainRequest();
-        xhr.open(type, fullUrl);
-      } else {
-        xhr = null;
-      }
-
-      try {
-        xhr.withCredentials = false;
-      } catch (e2) {
-
-      }
-      if (xhr.setRequestHeader) {
-        xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-      }
-      xhr.onload = function () {
-        loaded = true;
-      };
-      xhr.onreadystatechange = function () {};
-      xhr.ontimeout = function () {};
-      xhr.onerror = function () {};
-      xhr.onprogress = function () {};
-
-      xhr.send(data);
-
-    } catch (err) {
-      try {
-        try {
-          q.html.fileLoader.load(fullUrl);
-        } catch (err2) {
-          if (window.console && window.console.log) {
-            window.console.log(err);
-          }
-        }
-      } catch (e) {
-      }
-    }
-    retry();
-  };
-  if (isOldIe) {
-    q.html.fileLoader.load(fullUrl);
-    return;
-  } else {
-    _post();
-  }
-};
-
-
-(function () {
-  var DOMContentLoaded,
-    isReady = false,
-    readyWait = 1,
-    readyList,
-    readyComplete, 
-    bindReadyComplete, 
-    doScrollCheck;
-  readyComplete = function (wait) {
-    var f;
-    // A third-party is pushing the ready event forwards
-    if (wait === true) {
-      readyWait -= 1;
-    }
-  
-    // Make sure that the DOM is not already loaded
-    if (!readyWait || (wait !== true && !isReady)) {
-      // Make sure body exists, at least, 
-      // in case IE gets a little overzealous (ticket #5443).
-      if (!document.body) {
-        return setTimeout(readyComplete, 1);
-      }
-  
-      // Remember that the DOM is ready
-      isReady = true;
-  
-      // If a normal DOM Ready event fired, decrement, and wait if need be
-      if (wait !== true) {
-        readyWait -= 1;
-        if (readyWait > 0) {
-          return;
-        }
-      }
-  
-      // While there are functions bound, to execute
-      while (readyList.length > 0) {
-        f = readyList.shift();
-        f();
-      }
-    }
-  };
-  
-
-  //The DOM ready check for Internet Explorer
-  doScrollCheck = function () {
-    if (isReady) {
-      return;
-    }
-
-    try {
-      // If IE is used, use the trick by Diego Perini
-      // http://javascript.nwbox.com/IEContentLoaded/
-      document.documentElement.doScroll("left");
-    } catch (e) {
-      setTimeout(doScrollCheck, 1);
-      return;
-    }
-
-    // and execute any waiting functions
-    readyComplete();
-  };
-  
-  bindReadyComplete = function () {
-    if (readyList) {
-      return;
-    }
-  
-    readyList = [];
-  
-    // Catch cases where $(document).ready() is called after the
-    // browser event has already occurred.
-    if (document.readyState === "complete") {
-      // Handle it asynchronously to allow scripts 
-      // the opportunity to delay ready
-      return setTimeout(readyComplete, 1);
-    }
-  
-    // Mozilla, Opera and webkit nightlies currently support this event
-    if (document.addEventListener) {
-      // Use the handy event callback
-      document.addEventListener("DOMContentLoaded", DOMContentLoaded, false);
-  
-      // A fallback to window.onload, that will always work
-      window.addEventListener("load", readyComplete, false);
-  
-    // If IE event model is used
-    } else if (document.attachEvent) {
-      // ensure firing before onload,
-      // maybe late but safe also for iframes
-      document.attachEvent("onreadystatechange", DOMContentLoaded);
-  
-      // A fallback to window.onload, that will always work
-      window.attachEvent("onload", readyComplete);
-  
-      // If IE and not a frame
-      // continually check to see if the document is ready
-      var toplevel = false;
-  
-      try {
-        toplevel = (window.frameElement === null) || 
-          (window.frameElement === undefined);
-      } catch (e) {}
-  
-      if (document.documentElement.doScroll && toplevel) {
-        doScrollCheck();
-      }
-    }
-  };
-  
-  //Handle when the DOM is ready
-  q.html.ready = function (fn) {
-    // Attach the listeners
-    bindReadyComplete();
-
-    // Add the callback
-    if (isReady) {
-      setTimeout(fn, 1);
-    } else {
-      readyList.push(fn);
-    }
-  };
-  
-  //Cleanup functions for the document ready method
-  if (document.addEventListener) {
-    DOMContentLoaded = function () {
-      document.removeEventListener("DOMContentLoaded", 
-          DOMContentLoaded, false);
-      readyComplete();
-    };
-
-  } else if (document.attachEvent) {
-    DOMContentLoaded = function () {
-      // Make sure body exists, at least, in case IE gets a 
-      // little overzealous (ticket #5443).
-      if (document.readyState === "complete") {
-        document.detachEvent("onreadystatechange", DOMContentLoaded);
-        readyComplete();
-      }
-    };
-  }
-}());
-
-
-q.html.UVCommonValues = {};
-
-q.html.UVCommonValues.keys = [
-  "version",
-  "page",
-  "category",
-  "subcategory",
-  "user",
-  "name",
-  "username",
-  "user_id",
-  "email",
-  "language",
-  "returning",
-  "facebook_id",
-  "twitter_id",
-  "listing",
-  "items",
-  "id",
-  "sku",
-  "url",
-  "manufacturer",
-  "color",
-  "currency",
-  "unit_price",
-  "unit_sale_price",
-  "basket",
-  "subtotal",
-  "subtotal_include_tax",
-  "tax",
-  "shipping_cost",
-  "total",
-  "line_items",
-  "product",
-  "sku_code",
-  "quantity",
-  "environment",
-  "variation",
-  "revision",
-  "age",
-  "gender",
-  "first_order",
-  "registered_today",
-  "registered_in_current_session",
-  "registration_date",
-  "last_order_date",
-  "last_transaction_payment_type"];
-
-q.html.UVCommonValues.values = [
-  "",
-  true,
-  false,
-  "true",
-  "false",
-  "GBP",
-  "USD",
-  "production"
-];
-
-
-
-
-/*jslint evil: true*/
-/*global window, console, q */
-
-
-(function () {
-  var UVCompressor = {}, level, uv;
-
-  // Cover for browsers without array indexOf
-  var indexOfArray = function (inputArray, elt, from) {
-    var len = inputArray.length;
-    from = Number(arguments[2]) || 0;
-    from = (from < 0) ? Math.ceil(from) : Math.floor(from);
-    if (from < 0) {
-      from += len;
-    }
-    for (; from < len; from += 1) {
-      if (inputArray.hasOwnProperty(from) && inputArray[from] === elt) {
-        return from;
-      }
-    }
-    return -1;
-  };
-
-  UVCompressor.replaceCommonValues = function (subjectVariable) {
-    // Iterates over universal variable replacing keynames found in UVCommon Values with
-    // corresponding ID's from UVCommonValues.js
-    var i = 0, ii = subjectVariable.length, returnArray = [],
-      rawKeyName, keyName, returnObject = {}, keyID;
-
-    if (subjectVariable.constructor === Array) {
-      for (; i < ii; i += 1) {
-        returnArray.push(UVCompressor.replaceCommonValues(subjectVariable[i]));
-      }
-      return returnArray;
-    } else if (subjectVariable.constructor === Object) {
-      for (rawKeyName in subjectVariable) {
-        if (subjectVariable[rawKeyName] !== undefined &&
-          subjectVariable[rawKeyName] !== null &&
-          (typeof subjectVariable[rawKeyName] !== "string" ||
-            subjectVariable[rawKeyName].trim().length > 0)) {
-          keyName = rawKeyName.trim();
-          keyID = indexOfArray(q.html.UVCommonValues.keys, keyName);
-          keyName = (keyID === -1 || level === 0) ? keyName : keyID;
-          returnObject[keyName] = UVCompressor
-            .replaceCommonValues(subjectVariable[rawKeyName]);
-        }
-      }
-      return returnObject;
-    } else {
-      if (typeof subjectVariable === "string") {
-        subjectVariable = subjectVariable.trim();
-      }
-      return subjectVariable;
-    }
-  };
-
-  UVCompressor.restoreCommonValues = function (subjectVariable) {
-    var i = 0, ii = subjectVariable.length, returnArray = [],
-      keyName, returnObject = {}, key;
-
-    if (subjectVariable.constructor === Array) {
-      for (; i < ii; i += 1) {
-        returnArray.push(UVCompressor.restoreCommonValues(subjectVariable[i]));
-      }
-      return returnArray;
-    } else if (subjectVariable.constructor === Object) {
-      for (key in subjectVariable) {
-        if (subjectVariable.hasOwnProperty(key)) {
-          keyName = (isNaN(Number(key))) ? key : q.html.UVCommonValues.keys[Number(key)];
-          returnObject[keyName] = UVCompressor
-            .restoreCommonValues(subjectVariable[key]);
-        }
-      }
-      return returnObject;
-    } else {
-      return subjectVariable;
-    }
-
-  };
-
-  UVCompressor.compress = function (options) {
-    // Level 0 - Remove empty string/ null variables
-    // Level 1 - Replace keys with ids
-
-    level = (options.compressionLevel === undefined) ? 1 : options.compressionLevel;
-    uv = options.universalVariable;
-
-    return JSON.stringify(UVCompressor.replaceCommonValues(uv));
-
-  };
-
-  UVCompressor.decompress = function (compressedObjectJSON) {
-    var compressedObject = JSON.parse(compressedObjectJSON);
-    return JSON.stringify(UVCompressor.restoreCommonValues(compressedObject));
-  };
-
-  q.html.UVCompressor = UVCompressor;
-
-}());
-/*UVListener package*/
-
-
-(function () {
-
-  var UVListener = {
-      callbacks: {},
-      unfired_events: [],
-      early_callbacks: null,
-      currentUV: null
-    },
-    uv,
-    uvLocation = "universal_variable",
-    starterId = 0,
-    POLL_DELAY_MS = 500,
-    timer;
-
-  /*** INTERNAL FUNCTIONS ***/
-
-  UVListener._isArray = function (input) {
-    return (Object.prototype.toString.call(input) === "[object Array]");
-  };
-
-  // Determines if a given subelement (denoted by keyString) has changed
-  UVListener._targetChanged = function (keyString, old, newObject) {
-    var oldAsObject, oldTarget, newTarget;
-    if (newObject === null) {
-      if (old === "null") {
-        return false;
-      } else {
-        return true;
-      }
-    } else if (newObject === undefined) {
-      if (old === newObject) {
-        return false;
-      } else {
-        return true;
-      }
-    } else {
-      oldAsObject = JSON.parse(old);
-      oldTarget = UVListener._getNested(oldAsObject, keyString);
-      newTarget = UVListener._getNested(newObject, keyString);
-      return !UVListener._jsonIsEqual(oldTarget, newTarget);
-    }
-  };
-
-  // Go through all the things that have been pushed 
-  // before the API has loaded
-  UVListener._processCallbacks = function () {
-    var i;
-    if (UVListener.early_callbacks && UVListener.early_callbacks.length > 0) {
-      for (i = 0; i < UVListener.early_callbacks.length; i += 1) {
-        UVListener.push(UVListener.early_callbacks[i]);
-      }
-      UVListener.early_callbacks = null;
-    }
-  };
-
-  // Get all the keys out of a string in an array format
-  UVListener._keyStringToArr = function (keyString) {
-    keyString = keyString.trim();
-    // 
-    if (keyString === "") {
-      return [];
-    } else {
-      // convert indexes to properties
-      keyString = keyString.replace(/\[(\w+)\]/g, ".$1");
-      // strip a leading dot
-      keyString = keyString.replace(/^\./, ""); 
-      return keyString.split(".");
-    }
-  };
-
-  // Get the value of a nested thing in an object.
-  // e.g. UVListener._getNested(universal_variable, "transaction.total")
-  UVListener._getNested = function (object, keyString) {
-    var arr = UVListener._keyStringToArr(keyString),
-      n;
-    while (arr.length > 0) {
-      n = arr.shift();
-      if (object.hasOwnProperty(n)) {
-        object = object[n];
-      } else {
-        return;
-      }
-    }
-    return object;
-  };
-
-  // Compare the two arguments using JSON.stringify
-  UVListener._jsonIsEqual = function (obj1, obj2) {
-    if (typeof obj1 !== "string") {
-      obj1 = JSON.stringify(obj1, UVListener._stripEvents);
-    }
-    if (typeof obj2 !== "string") {
-      obj2 = JSON.stringify(obj2, UVListener._stripEvents);
-    }
-    return obj1 === obj2;
-  };
-
-  // Causes JSON.stringify to skip the events object, if passed as the second
-  // argument: JSON.stringify(object, UVListener._stripEvents)
-  UVListener._stripEvents = function (key, value) {
-    if (key !== "events") {
-      return value;
-    } else {
-      return undefined;
-    }
-  };
-
-  UVListener._on = function (type, func) {
-    var typeArray, key;
-    // Separate type from keyString
-    typeArray = type.split(":");
-    type = typeArray[0];
-    key = typeArray[1];
-    UVListener.callbacks[type] = UVListener.callbacks[type] || [];
-    // Include keyString in the callback object (if specified)
-    if (key) {
-      UVListener.callbacks[type].push({
-        keyString: key,
-        func: func
-      });
-    } else {
-      UVListener.callbacks[type].push({
-        func: func
-      });
-    }
-  };
-
-  UVListener._trigger = function (type, data) {
-    var i, keyString;
-    // Are there any callbacks which might be relevant?
-    if (UVListener.callbacks[type]) {
-      // Loop through all potentially relevant callbacks
-      for (i = 0; i < UVListener.callbacks[type].length; i += 1) {
-        // Make sure the callback has a function we can use
-        if (typeof UVListener.callbacks[type][i].func === "function") {
-          // Determine if there's an associated keyString
-          keyString = UVListener.callbacks[type][i].keyString;
-          if (keyString) {
-            // Handle the keyString if we know how
-            if (type === "change" && 
-                UVListener._targetChanged(keyString, UVListener.currentUV, uv)) {
-              UVListener.callbacks[type][i].func(data);
-            } // Place logic for other types which use keyStrings here.
-          // If there's no keyString, just callback 
-          } else {
-            UVListener.callbacks[type][i].func(data);
-          }
-        } 
-      }
-    }
-  };
-
-  // Modified push function for uv.events array
-  UVListener._eventsPush = function (evt) {
-    var i, ii;
-    uv.events[uv.events.length] = evt;
-    evt.time = evt.time || (new Date()).getTime();
-    if (UVListener.callbacks.event) {
-      i = 0; ii = UVListener.callbacks.event.length;
-      for (i; i < ii; i += 1) {
-        UVListener.callbacks.event[i].func(evt);
-      }
-    }
-    evt.has_fired = true;
-  };
-
-  UVListener._getUnfiredEvents = function () {
-    var i = 0;
-    for (i = 0; i < uv.events.length; i += 1) {
-      if (!uv.events[i].has_fired) {
-        //Event hasn't fired, re-insert it now that push is redefined.
-        UVListener.unfired_events.push(uv.events.splice(i, 1)[0]);
-        i -= 1; //The remaining events have shifted backward.
-      }
-    }
-  };
-
-  UVListener._fireEvents = function () {
-    while (UVListener.unfired_events.length > 0) {
-      uv.events.push(UVListener.unfired_events.shift());
-    }
-  };
-
-  UVListener._resetEventsPush = function () {
-    uv.events = uv.events || [];
-    if (uv.events.push.toString().indexOf("[native code]") !== -1) {
-      uv.events.push = UVListener._eventsPush;
-      UVListener._getUnfiredEvents();
-      UVListener._fireEvents();
-    }
-  };
-
-  UVListener._checkForChanges = function () {
-    // Only check if we actually have some callbacks registered
-    if (UVListener.callbacks.change && UVListener.callbacks.change.length > 0) {
-      if (!UVListener._jsonIsEqual(UVListener.currentUV, uv)) {
-        // If UV changed, trigger "change" callbacks.
-        UVListener._trigger("change", uv);
-        // After triggering, log the new UV as current.
-        UVListener.currentUV = JSON.stringify(uv, UVListener._stripEvents);
-      }
-    }
-  };
-
-  UVListener._setUVLocation = function (newLoc) {
-    uvLocation = newLoc;
-    UVListener._initUV();
-  };
-
-  UVListener._initUV = function () {
-    window[uvLocation] = window[uvLocation] || {
-      events: []
-    };
-    uv = window[uvLocation];
-    if (!uv.events) {
-      uv.events = [];
-    }
-  };
-
-  /*** INTENDED API ***/
-
-  /* USAGE
-    Change listening:
-
-    Fire a callback function on any change to UV:
-      window.uv_listener.push(["on", "change", callback]);
-
-    Fire a callback function on any change to specific part of UV:
-      window.uv_listener.push(["on", "change:keyString", callback])
-    where "keyString" is a property path within the UV. For example:
-      "change:transaction" will fire if the transaction object is changed
-      "change:basket.line_items.length" will fire if products are added to ore
-        removed from the basket
-
-    Event listening:
-      window.uv_listener.push(["on", "event", callback])
-    Note that the callback is expected to take an argument (the event object)
-      and also do the processing to determine if the event is relevant.
-  */
-
-  UVListener.push = function (data) {
-    if (!UVListener._isArray(data)) {
-      return;
-    }
-    if (data[0] === "on") {
-      UVListener._on(data[1], data[2]);
-    } else if (data[0] === "trigger" && data[1]) {
-      UVListener._trigger(data[1]);
-    }
-  };
-
-  /*** INITIALIZATION ***/
-
-  UVListener.init = function (testing, uvLoc) {
-    if (uvLoc) {
-      uvLocation = uvLoc;
-    }
-    UVListener._initUV();
-    // Hold onto anything pushed to uv_listener before initialization
-    // This is a little awkward now that the desired uv_listener is an object
-    if (!window.uv_listener || UVListener._isArray(window.uv_listener)) {
-      // Store the current uv_listener if the old is an array
-      UVListener.early_callbacks = window.uv_listener || null;
-      window.uv_listener = UVListener;
-      if (!testing) {
-        UVListener.start();
-      }
-    } else {
-      if (uvLoc) {
-        // If init is called with a specified location, ensure we're using that
-        // This is necessary because typically qTracker will come second,
-        // and it would not actually update window.UVListener, but it's also the
-        // place where we tend to set custom locations.
-        window.uv_listener._setUVLocation(uvLocation);
-      }
-    }
-    
-  };
-
-  UVListener.start = function () {
-    // Store a dump of the current UV
-    UVListener.currentUV = JSON.stringify(uv, UVListener._stripEvents);
-
-    // Begin polling
-    timer = setInterval(function () {
-      UVListener._resetEventsPush();
-      UVListener._checkForChanges();
-    }, POLL_DELAY_MS);
-    
-    // Process things added before the API loads
-    UVListener._processCallbacks();
-  };
-
-  q.html.UVListener = UVListener;
-}());
-
-/**
- * @author Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
- */
-(function () {
-  /**
-   * Bind function should be already native in most browsers.
-   * If not, we must use very basic replacement here.
-   * We may inject recommended by:
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
-   * /Global_Objects/Function/bind
-   * Template, but for now it will stay simple.
-   * It is recommended that you pass specific arguments using closures.
-   * 
-   * @param {type} ctx
-   * @param {type} ref
-   * @returns {unresolved}
-   */
-  Function.prototype.bind = Function.prototype.bind || function (ctx) {
-    var _this = this;
-    return function () {
-      _this.apply(ctx, arguments);
-    };
-  };
-}());
-
-
-var global = (function () { return eval("this"); }());
-global.NAMESPACE = global;
-
-
-/*
- * Opentag, a tag deployment platform
- * Copyright 2011-2013, Qubit Group
- * http://opentag.qubitproducts.com
- */
-
-(function () {
-  
-  /**
-   * @class qubit.qtag.Utils
-   * @singleton
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   */
-  function Utils() {}
-
-  /**
-   * ## Utility method getting the browser's URL.
-   * @returns {document.location.href}
-   */
-  Utils.getUrl = function () {
-    return document.location.href;
-  };
-
-  Utils.getQueryParam = function (param) {
-    var i, ii, params, url, query, queries, splitQuery;
-    url = Utils.getUrl();
-    if (url.indexOf("?") > 0) {
-      queries = url.substring(url.indexOf("?") + 1).split("&");
-      for (i = 0, ii = queries.length; i < ii; i += 1) {
-        query = queries[i];
-        if (query.indexOf("=") > 0) {
-          splitQuery = query.split("=");
-          if ((splitQuery.length === 2) && (splitQuery[0] === param)) {
-            return splitQuery[1];
-          }
-        }
-      }
-    }
-    return null;
-  };
-  
-  /**
-   * 
-   * @param {Object} value
-   * @returns {Boolean}
-   */
-  Utils.variableExists = function (value) {
-    return (value !== undefined) && (value !== null);
-  };
-
-  /**
-   * 
-   * @param {String} elementId
-   * @returns {unresolved}
-   */
-  Utils.getElementValue = function (elementId) {
-    var el = document.getElementById(elementId);
-    if (el) {
-      return el.textContent || el.innerText;
-    }
-    return null;
-  };
-  
-  /**
-   * 
-   * @param {qtag.qubit.BaseTag} tag
-   * @returns {Boolean}
-   */
-  Utils.determineIfSync = function (tag) {
-    var i, ii, script, scripts, src;
-    scripts = document.getElementsByTagName("script");
-    for (i = 0, ii = scripts.length; i < ii; i += 1) {
-      script = scripts[i];
-      src = script.getAttribute("src");
-      //removed "opentag", white labelling!!!
-      if (!!src && (src.indexOf("" + 
-          tag.config.qTagClientId + "-" + tag.config.profileName +
-          ".js") > 0)) {
-        return (script.getAttribute("async") === null && 
-            //handle ie7
-            (script.getAttribute("defer") === false ||
-            //handle ie8
-            script.getAttribute("defer") === "" ||
-            //handle chrome/firefox
-            script.getAttribute("defer") === null));
-      } 
-    }
-    return true;
-  };
-  
-  /**
-   * 
-   * @param {qubit.qtag.pagevariable.BaseVariable} pageVar
-   * @param {String} token
-   * @param {String} str
-   * @returns {String}
-   */
-  Utils.substituteArray = function (pageVar, token, str) {
-    var start, end, index, tok;
-    index = pageVar.value.indexOf("[#]");
-    start = pageVar.value.substring(0, index);
-    end = pageVar.value.substring(index + 3);
-    str = str.replace(new RegExp(token + "\\.length", "g"), start + ".length"); 
-    str = str.replace(new RegExp(token + "(\\[.*?\\])", "g"), start + "$1" + end);
-    return str;
-  };
-
-  /**
-   * Prepares string to be quoted and evaluable.
-   * @param {String} string
-   * @returns {String} quoted string or the input parameter if parameter is not
-   *  a string.
-   */
-  Utils.prepareQuotedString = function (string) {
-    if (typeof(string) === "string") {
-      return "\"" + (string.replace(/\"/g, "\\\"")) + "\"";
-    } else {
-      return string;
-    }
-  };
-
-  /**
-   * 
-   * @param {String} path
-   * @param {Object} instance
-   * @param {Object} pckg
-   * @param {Boolean} noOverride
-   * @returns {Object}
-   */
-  Utils.namespace = function (path, instance, pckg, noOverride) {
-    var files = path.split("."),
-      //access eval INDIRECT so it is called globally
-      current = Utils.NAMESPACE_BASE || (function () {return eval("this"); }()),
-      last = null,
-      lastName = null,
-      i;
-    
-    current = pckg || current;
-    
-    for (i = 0; i < files.length - 1; i += 1) {
-      last = current;
-      lastName = files[i];
-      current[lastName] = current[lastName] || {};
-      current = current[lastName];
-    }
-    
-    last = current;
-    lastName = files[files.length - 1];
-    
-    if (instance) {
-      if (last[lastName] === undefined || !noOverride) {
-        last[lastName] = instance;
-      }
-    } else {
-       last[lastName] = last[lastName] || {};
-    }
-    
-    return last[lastName];
-  };
-
-  /**
-   * Utility for simple class declaration (not definition).
-   * It does similiar job as namespace with addition of adding CLASS_NAME
-   * and PACKAGE_NAME on prototype. It also sets superclass to extending class
-   * instance.
-   * 
-   * @param {String} path
-   * @param {Object} instance
-   * @param {Function} extendingClass
-   * @param {Object} pckg
-   * @param {Object} config
-   * @returns {undefined}
-   */
-  Utils.clazz = function (path, instance, extendingClass, pckg, config) {
-    Utils.namespace(path, instance, pckg, true);
-    if (typeof(extendingClass) === "function") {
-      instance.superclass = extendingClass;
-      instance.prototype = new instance.superclass(config);
-    }
-    if (instance.prototype) {
-      var names = path.split(".");
-      instance.prototype.CLASS_NAME = names[names.length - 1];
-      names.splice(names.length - 1, 1);
-      instance.prototype.PACKAGE_NAME = names.join(".");
-    }
-    return 
-  };
-
-  /**
-   * Utility for class creation.
-   * 
-   * @param {Object} config
-   * @param {String} classPath
-   * @param {Function} extendingClass
-   * @returns {undefined}
-   */
-  Utils.defineClass = function (config, classPath, extendingClass) {
-    
-    var names = classPath.split(".");
-    var className = names[names.length - 1];
-
-    //create class
-    //@TODO create eval fix and do proper wrap.
-    var clazz = eval("(function " + className + "() {" +
-      "  if (" + classPath + ".superclass) {" +
-      "    " + classPath + ".superclass.apply(this, arguments)" +
-      "  }" + 
-      "  if (" + classPath + "._CONSTRUCTOR) {" +
-      "    " + classPath + "._CONSTRUCTOR.apply(this, arguments);" +
-      "  } else {" +
-      "    " +
-      "  }" +
-      "})"
-    );
-
-//or anonymous:
-
-//    var clazz = function () {
-//      if (CONSTR) {
-//         CONSTR.apply(this, arguments);
-//      } else if (clazz.superclass) {
-//        clazz.superclass.apply(this, arguments);
-//      }
-//    };
-
-    var _CONSTRUCTOR = config.CONSTRUCTOR;
-    
-    clazz._CONSTRUCTOR = _CONSTRUCTOR;
-    clazz.superclass = extendingClass;
-    
-    //publish class
-    this.clazz(classPath, clazz, extendingClass);
-    
-    //pass prototype objects
-    for (var prop in config) {
-      if (config.hasOwnProperty(prop) && prop !== "_CONSTRUCTOR") {
-        clazz.prototype[prop] = config[prop];
-      }
-    }
-    return clazz;
-  };
-  
-  /**
-   * Important compat utility for keys listing on objects.
-   * @param {Object} obj
-   * @returns {Array}
-   */
-  Utils.keys = function (obj) {
-    if (obj instanceof Object) {
-      if (Object.keys) {
-        return Object.keys(obj);
-      }
-      var keys = [];
-      for (var prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-          keys.push(prop);
-        }
-      }
-      return keys;
-    } else {
-      throw "keys() called on non-object!";
-    }
-  };
-
-
-  /**
-   * Cross-browser source element resolving function from DOM event object.
-   * 
-   * @param {Object} evt
-   * @returns {Node}
-   */
-  Utils.getSrcElement = function (evt) {
-    var elem;
-    evt = evt || window.event;
-    if (evt.srcElement) {
-      elem = evt.srcElement;
-    } else if (evt.target) {
-      elem = evt.target;
-    }
-    return elem;
-  };
-
-  /*
-   * Local function taking as argument and array and a string that will be 
-   * added to the array if it does not equal (===) to any of items.
-   * 
-   * @param {Array} array
-   * @param {Object} obj
-   * @returns {Number} objects position in array,
-   *  if doesnt exist it will return -1. It means that object was appended at 
-   *  the end of array.
-   * if exists it will return its popsition.
-   */
-  Utils.addToArrayIfNotExist = function (array, obj) {
-    var i = 0, exists = false;
-    for (; i < array.length; i += 1) {
-      if (array[i] === obj) {
-        exists = true;
-        break;
-      }
-    }
-    if (!exists) {
-      array.push(obj);
-      i = -1;
-    }
-    return i;
-  };
-  
-  /*
-   * Local function taking as argument and array and a string that will be  
-   * removed from the array if it equals (===) to any of array items.
-   * 
-   * @param {Array} array
-   * @param {Object} obj
-   * @returns {undefined}
-   */
-  Utils.removeFromArray = function (array, obj) {
-    var i = 0;
-    for (; i < array.length; i += 1) {
-      if (array[i] === obj) {
-        array.splice(i, 1);
-      }
-    }
-  };
-  
-  /**
-   * Cross browser add className wrapper.
-   * Nowadays, browsers support "classList" property - still not all of them.
-   * 
-   * @param {Node} node
-   * @param {String} name
-   * @returns {undefined}
-   */
-  Utils.addClass = function (node, name) {
-    var classes;
-    try {
-      node.classList.add(name);
-    } catch (ex) {
-      classes = node.className.split(" ");
-      addToArrayIfNotExist(classes, name);
-      node.className = classes.join(" ");
-    }
-  };
-  
-  /**
-   * Cross browser remove className wrapper.
-   * Nowadays, browsers support "classList" property - still not all of them.
-   * 
-   * @param {Node} node
-   * @param {String} name
-   * @returns {undefined}
-   */
-  Utils.removeClass = function (node, name) {
-    var classes;
-    try {
-      node.classList.remove(name);
-    } catch (ex) {
-      classes = node.className.split(" ");
-      removeFromArray(classes, name);
-      node.className = classes.join(" ");
-    }
-  };
-  
-
-  Utils.namespace("qubit.qtag");
-  
-  qubit.qtag.Utils = qubit.qtag.Utils || Utils;
-}());
-/*NO LOG*/
-
-/* jshint white: false */
-
-(function () {
-  
-  var Utils = qubit.qtag.Utils;
-  var c = window.console;
-  
-  /**
-   * @class qubit.qtag.Log
-   * 
-   * ## Logging class
-   * 
-   * ALWAYS USE LOGGER IN A SEPARATE LINES. Lines containing logger 
-   * may be deleted by compression process.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   */
-  function Log(prefix, clazz) {
-    this.getPrefix = function () {
-      var clz = "";
-      if (clazz) {
-        if (typeof clazz === "function") {
-          clz = clazz(this.ref);
-        } else if (clazz.CLASS_NAME) {
-          clz = clazz.CLASS_NAME;
-        } else if (clazz.constructor && clazz.constructor.name) {
-          clz = clazz.constructor.name;
-        }
-        if (clz) {
-          clz += " -> ";
-        }
-      }
-      return (prefix || "") + clz;
-    };
-  }
-
-  /**
-   * Static property used to define finest level.
-   * @property {Number} [LEVEL_FINEST=4]
-   */
-  Log.LEVEL_FINEST = 4;
-  /**
-   * Static property used to define fine level.
-   * @property {Number} [LEVEL_FINE=3]
-   */
-  Log.LEVEL_FINE = 3;
-  /**
-   * Static property used to define informative level.
-   * @property {Number} [LEVEL_INFO=2]
-   */
-  Log.LEVEL_INFO = 2;
-  /**
-   * Static property used to define severe level.
-   * @property {Number} [LEVEL_WARN=1]
-   */
-  Log.LEVEL_WARN = 1;
-  /**
-   * Static property used to define severe level.
-   * @property {Number} [LEVEL_ERROR=0]
-   */
-  Log.LEVEL_ERROR = 0;
-  
-  /**
-   * @property {Number} [LEVEL_NONE=-1]
-   * Static property used to define no logging level.
-   */
-  Log.LEVEL_NONE = -1;
-  
-  /**
-   * @property LEVEL
-   * 
-   * `Log.LEVEL` property is used to controll globally current and default loggin
-   * level.
-   * Choose from Log.LEVEL_* properties to adjust system logging output.
-   * 
-   * Example:
-
-
-        var Log = qubit.qtag.Log;
-        qubit.qtag.Log.LEVEL = Log.LEVEL_FINEST;
-
-   *  will enable all logs to 
-   * be at output.
-   * 
- 
-
-        var Log = qubit.qtag.Log;
-        Log.LEVEL = Log.LEVEL_NONE;
-   * will disable any logs.
-   */
-  Log.LEVEL = Log.LEVEL_NONE;
-  Log.LEVEL = Log.LEVEL_FINE;/*D*///line deleted during merge
-  
-  /**
-   * @protected
-   * Print method.
-   * Override this method if you prefer different logging output.
-   * By default all messages are redirected to console.
-   * This method is used by all logging methods as final output.
-   * 
-   * @param {String} message Message to be logged. 
-   * @returns {undefined}
-   */
-  Log.prototype.print = function (message, style, plain) {
-    if (c && c.log) {
-      if (style || !plain){
-        c.log("%c" + message, style +";font-family: ;");
-      } else {
-        c.log(message);
-      }
-    }
-  };
-  
-  //it is important it is not in one line. New build will strip logs for release
-  /**
-   * @method
-   * Finest level logging function.
-   * 
-   * @param {String} message Message to be logged.
-   * @param {Boolean} plain If true, message object will be logged as plain as 
-   *    passed directly to console. It's usefull if your console supports JSON 
-   *    style browsing objects.
-   * @returns {undefined}
-   */
-  Log.prototype.
-    FINEST = function (message, plain) {
-      if (Log.LEVEL >= Log.LEVEL_FINEST) {
-        if (plain) {
-          this.print(message, false, true);
-        } else {
-          this.print("FINEST: " + this.getPrefix() + message, "color:#CCCCCC;");
-        }
-      }
-    };
-    
-  /**
-   * @method
-   * Fine level logging function.
-   * 
-   * @param {String} message Message to be logged.
-   * @param {Boolean} plain If true, message object will be logged as plain as 
-   *    passed directly to console. It's usefull if your console supports JSON 
-   *    style browsing objects.
-   * @returns {undefined}
-   */
-  Log.prototype.
-    FINE = function (message, plain) {
-      if (Log.LEVEL >= Log.LEVEL_FINE) {
-        if (plain) {
-          this.print(message, false, true);
-        } else {
-          this.print("FINE: " + this.getPrefix() + message, "color:#999999;");
-        }
-      }
-    };
-  
-  /**
-   * @method
-   * Information level logging function.
-   * 
-   * @param {String} message Message to be logged.
-   * @param {Boolean} plain If true, message object will be logged as plain as 
-   *    passed directly to console. It's usefull if your console supports JSON 
-   *    style browsing objects.
-   * @returns {undefined}
-   */
-  Log.prototype.
-    INFO = function (message, plain, style) {
-      if (Log.LEVEL >= Log.LEVEL_INFO) {
-        if (plain) {
-          this.print(message, false, true);
-        } else {
-          this.print("INFO: " + this.getPrefix() + message, ";");
-        }
-      }
-    };
-  
-  /**
-   * @method
-   * Severe/Error level logging function.
-   * 
-   * @param {String} message Message to be logged.
-   * @param {Boolean} plain If true, message object will be logged as plain as 
-   *    passed directly to console. It's usefull if your console supports JSON 
-   *    style browsing objects.
-   * @returns {undefined}
-   */
-  Log.prototype.
-    WARN = function (message, plain) {
-      if (Log.LEVEL >= Log.LEVEL_WARN) {
-        if (plain) {
-          this.print(message, false, true);
-        } else {
-          this.print("WARN: " + this.getPrefix() + message, "color:#26A110;");
-        }
-      }
-    };
-    
-  /**
-   * @method
-   * Severe/Error level logging function.
-   * 
-   * @param {String} message Message to be logged.
-   * @param {Boolean} plain If true, message object will be logged as plain as 
-   *    passed directly to console. It's usefull if your console supports JSON 
-   *    style browsing objects.
-   * @returns {undefined}
-   */
-  Log.prototype.
-    ERROR = function (message, plain) {
-      if (Log.LEVEL >= Log.LEVEL_ERROR) {
-        if (plain) {
-          this.print(message, false, true);
-        } else {
-          this.print("ERROR: " + this.getPrefix() + message, "color:red;");
-        }
-      }
-    };
-  
-  Utils.namespace("qubit.qtag.Log", Log);
-}());
-
-
-
-/*EXCLUDE: NO-SEND*/
-
-(function () {
-  
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * Ping processing class.
-   * It requires QTag instance passed to work correctly.
-   * 
-   * @class qubit.qtag.Ping
-   * @param {qubit.qtag.deprecated.QTag} tag QTag instance
-   */
-  function Ping(tag) {
-    this.tagManager = tag;
-  }
-  
-  /**
-   * 
-   * @param {Object} config
-   * @returns {undefined}
-   */
-  Ping.prototype.sendLoadTimes = function (config) {
-    var loaderId, pingString, pingStrings, times, loadTimes;
-    if (!this.tagManager.isTellingLoadTimes) {
-      return;
-    }
-    pingString = "c=" + config.qTagClientId + "&" +
-      "p=" + config.profileName + "&" +
-      "l=" + (config.tellLoadTimesProbability) + "&" +
-      "pv=" + q.cookie.PageView.update() + "&" +
-      "d=";
-    pingStrings = [];
-    loadTimes = this.tagManager.loadTimes;
-    for (loaderId in loadTimes) {
-      if (loadTimes.hasOwnProperty(loaderId)) {
-        times = this.tagManager.loadTimes[loaderId];
-        pingStrings.push('"' + loaderId + '":' + (times.end - times.start));
-        delete this.tagManager.loadTimes[loaderId];
-      }
-    }
-    pingString += encodeURIComponent("{" + pingStrings.join(',') + "}");
-    if (config.pingServerUrl) {
-      q.html.PostData("//" + config.pingServerUrl + 
-        "/tag2?" + pingString, null, "GET");
-    }
-    this.sendErrors(config); 
-  };
-  
-  /**
-   * 
-   * @param {Object} config
-   * @returns {undefined}
-   */
-  Ping.prototype.sendErrors = function (config) {
-    if (!window.openTag_sendErrors) {
-      return;
-    }
-    var loaderId, err, msg, errMsgs = [];
-    for (loaderId in this.tagManager.errors) {
-      if (this.tagManager.errors.hasOwnProperty(loaderId)) {
-        err = this.tagManager.errors[loaderId];
-        errMsgs.push("{r: '" + err.reason + "',u:'" + err.url + 
-          "',l:'" + err.lineNumber + "'}");
-      }
-    }
-    if (errMsgs.length > 0) {
-      if (window.console && window.console.log) {
-        window.console.log(errMsgs.join(","));
-      }
-      msg = "c=" + config.qTagClientId + "&" + 
-        "p=" + config.profileName + "&" +
-        "pv=" + q.cookie.PageView.update() + "&" +
-        "e=" + ("[" + errMsgs.join(",") + "]");
-      if (config.pingServerUrl) {
-        q.html.PostData("//" + config.pingServerUrl + "/tag_err?" +
-          msg, null, "GET");
-      }
-    }
-  };
-
-  /*session*/
-  /**
-   * 
-   * @param {type} loaders
-   * @param {Object} config
-   * @returns {undefined}
-   */
-  Ping.prototype.handleDedupe = function (loaders, config) {
-    this.sendDedupePings(this.determineDedupeLoaders(loaders), config);
-  };
-
-  /**
-   * 
-   * @param {type} currentLoaders
-   * @param {type} filters
-   * @returns {Array}
-   */
-  Ping.prototype.determineDedupeLoaders = function (currentLoaders, filters) {
-    var loaders, i, ii, loader;
-
-    loaders = [];
-    for (i in currentLoaders) {
-      if (currentLoaders.hasOwnProperty(i)) {
-        loader = currentLoaders[i];
-        if ((loader.dedupe === this.tagManager.DEDUPE_URL_FILTER) && 
-            (loader.state === this.tagManager.NOT_LOADED)) {
-          loaders.push(loader);
-        }
-      }
-    }
-    return loaders;
-  };
-
-  /**
-   * 
-   * @param {type} loaders
-   * @param {Object} config
-   * @returns {undefined}
-   */
-  Ping.prototype.sendDedupePings = function (loaders, config) {
-    var i, ii, loader, pingString, pingStrings;
-    if (this.tagManager.isTellingLoadTimes) {
-      pingString = "c=" + config.qTagClientId + "&" +
-        "p=" + config.profileName + "&" +
-        "l=" + (config.tellLoadTimesProbability) + "&" +
-        "pv=" + q.cookie.PageView.update() + "&" +
-        "dd=";
-      pingStrings = [];
-      for (i = 0, ii = loaders.length; i < ii; i += 1) {
-        loader = loaders[i];
-        pingStrings.push(loader.id);
-      }
-      pingString += encodeURIComponent("[" + pingStrings.join(',') + "]");
-      if (config.pingServerUrl && pingStrings.length > 0) {
-        q.html.PostData("//" + config.pingServerUrl + 
-          "/tag2?" + pingString, null, "GET");
-      }
-    }
-  };
-  
-  /*~session*/
-  Utils.namespace("qubit.qtag.Ping", Ping);
-}());
 /*EXCLUDE: SESSION*/
 
 
@@ -2351,20 +5250,20 @@ global.NAMESPACE = global;
    * Session utilities singleton class.
    * Cannot be instantieted nor extended.
    * 
-   * @class qubit.qtag.Session
+   * @class qubit.opentag.Session
    * @singleton
    */
   var Session = {};
 
   var SimpleCookie = q.html.simplecookie,
-    Utils = qubit.qtag.Utils;
+    Utils = qubit.opentag.Utils;
 
   Session.setupSession = function (config) {
     var session, i, cookie, cookieText, cookieName, now;
     session = {};
     session.sessionCount = q.cookie.SimpleSessionCounter
-            .update(config.qtag_domain);
-    cookieName = "qtag_" + config.profileName;
+            .update(config.cookieDomain);
+    cookieName = "opentag_" + config.containerId;
     cookie = SimpleCookie.readCookie(cookieName);
 
     if (cookie) {
@@ -2452,13 +5351,13 @@ global.NAMESPACE = global;
     session.referrer = cookie.referrer;
 
     SimpleCookie.writeCookie(cookieName, cookieText, -100, "");
-    SimpleCookie.writeCookie(cookieName, cookieText, 365, config.qtag_domain);
+    SimpleCookie.writeCookie(cookieName, cookieText, 365, config.cookieDomain);
 
     session.setVariable = function (key, value, time) {
       var t = (!!time) ? time : 0;
       cookie.__v[key] = [value, t];
       SimpleCookie.writeCookie(cookieName, JSON.stringify(cookie), 365, 
-          config.qtag_domain);
+          config.cookieDomain);
     };
     session.getCookie = SimpleCookie.readCookie;
     session.getVariable = function (key) {
@@ -2546,1218 +5445,51 @@ global.NAMESPACE = global;
     return document.location.host;
   };
 
-  Utils.namespace("qubit.qtag.Session", Session);
+  Utils.namespace("qubit.opentag.Session", Session);
 
 }());
 
-/*debug*/ //there is a cross reference conflict with tagManager - unfortunately.
-// Create the container corresponding to this tagManager script (1-1)
 
-(function () {
 
+
+
+
+
+
+
+
+
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ */
+
+(function(){
+  var Utils = qubit.opentag.Utils;
+  var BaseVariable = qubit.opentag.pagevariable.BaseVariable;
+  var BaseTag = qubit.opentag.BaseTag;
+  var Timed = qubit.opentag.Timed;
+  var Tags = qubit.opentag.Tags;
+  var Session = qubit.opentag.Session;//:session
   var SimpleCookie = q.html.simplecookie;
-  var Utils = qubit.qtag.Utils;
-  var QTag;
-  
-  /**
-   * @class qubit.qtag.DebugTool
-   * ## DebugTool class
-   * DebugTool creates the interface for pleasant tags
-   * navigation and issues tracking.
-   * It works out magically 
-   * 
-   * @param {qubit.qtag.BaseTag} tag tag manager instance that debug
-   * tool can use for inspection.
-   */
-  function DebugTool(tag) {
-    QTag = qubit.qtag.deprecated.QTag; //cross dependency problems
-    this.tagManager = tag;
-    return this;
-  }
-  
-  /**
-   * The init method.
-   * @method init
-   * @description awesome init 
-   * @returns {undefined}
-   */
-  DebugTool.prototype.init = function () {
-    this.loadDependencies(function () {
-      // Create the Container model that has a 1-1 relationship
-      // with this tagManager script
-      DebugTool.Lodash = window.__qubitLodash;
-      DebugTool.Backbone = window.__qubitBackbone;
+  var log = new qubit.opentag.Log("Container -> ");
 
-      this.initContainer();
-      // Add the Container model to the global Account collection
-      // this allows for viewing multiple Containers
-      window.__qubitOpentagDebug = window.__qubitOpentagDebug ||
-        new DebugTool.Backbone.Collection();
-      window.__qubitOpentagDebug.add(this.container);
-      
-      this.tagManager.setup();
-    }.bind(this));
-  };
-  
-  /** 
-   * @description
-   * Gets page variables.
-   * 
-   * @returns {qubit.qtag.BasePageVariable}
-   */
-  DebugTool.prototype.getPageVars = function () {
-    return this.tagManager.getConfig().pageVars;
-  };
-  
-  /**
-   * 
-   * @returns {_L5.DebugTool.tagManager.getConfig.filters}
-   */
-  DebugTool.prototype.getFilters = function () {
-    return this.tagManager.getConfig().filters;
-  };
-  
-  /**
-   * 
-   * @returns {_L5.DebugTool.tagManager.getConfig.scriptLoaders}
-   */
-  DebugTool.prototype.getScriptLoaders = function () {
-    return this.tagManager.getConfig().scriptLoaders;
-  };
-  
-  /**
-   * 
-   * @returns {_L5.DebugTool.tagManager.getConfig.qTagClientId}
-   */
-  DebugTool.prototype.getQTagClientId = function () {
-    return this.tagManager.getConfig().qTagClientId;
-  };
-  
-  /**
-   * 
-   * @param {type} qTagLoader
-   * @returns {undefined}
-   */
-  DebugTool.prototype.markFailed = function (qTagLoader) {
-    // Hack due to nature of sync param checking ##
-    this.container.tags.get(qTagLoader.id).parameters.each(function (parameter) {
-      parameter.set("state", "failure");
-    });
-  };
-
-  // Function to escape HTML
-  // Used to escape custom starters/scripts for tool
-  /**
-   * 
-   * @param {type} html
-   * @returns {Node.innerHTML}
-   */
-  DebugTool.escapeHTML = function (html) {
-    return document.createElement("div")
-      .appendChild(document.createTextNode(html))
-      .parentNode
-      .innerHTML;
-  };
-
-  /**
-   * 
-   * @param {type} e
-   * @param {type} pageVar
-   * @param {type} qTagLoader
-   * @returns {undefined}
-   */
-  DebugTool.prototype.processExpressionError = function (e, pageVar, qTagLoader) {
-    var parameter, pageVarId;
-    if (qTagLoader.DONE_LOADING) {
-      DebugTool.Lodash.each(this.getPageVars(), function (v, k) {
-        if (v === pageVar) {
-          pageVarId = k;
-        }
-      });
-      parameter = this.container.parameters.get(pageVarId);
-      this.appendError(parameter, {
-        "context": "Error evaluating expression",
-        "message": e.message
-      });
-    }
-  };
-
-  DebugTool.prototype.initContainer = function () {
-    var _, Backbone, ErrorModel, globalFilters, globalParameters,
-      Container, container, Tag, Tags, getTags,
-      Filter, Filters, getFilters, filterCollection,
-      Parameter, Parameters, getParameters, parameterCollection,
-      Dependency, Dependencies, getDependencies;
-      
-    var _this = this; //It was a LUCK it was referring correctly before(!)
-    
-    _        = DebugTool.Lodash;
-    Backbone = DebugTool.Backbone;
-
-    // Model & Collection definitions
-    Container = Backbone.Model.extend({
-      toJSON: function (options) {
-        var obj = _.clone(this.attributes);
-        obj.tags = this.tags.toJSON();
-        obj.filters = this.filters.toJSON();
-        obj.parameters = this.parameters.toJSON();
-        return obj;
-      }
-    });
-
-    ErrorModel = Backbone.Model.extend({
-      initialize: function () {
-        var errors = [], self = this;
-        errors.push = function (error) {
-          self.trigger("error", error.context, error.message);
-          return Array.prototype.push.call(this, error);
-        };
-        this.set("errors", errors);
-      }
-    });
-
-    Parameter = ErrorModel.extend({
-      defaults: {
-        value: null,
-        state: "pending"
-      }
-    });
-
-    Filter = ErrorModel.extend({
-      defaults: {
-        matches: false
-      }
-    });
-
-    Dependency = ErrorModel.extend({
-      defaults: {
-        state: "pending"
-      }
-    });
-
-    Tag = ErrorModel.extend({
-      defaults: {
-        state: "pending"
-      },
-      toJSON: function (options) {
-        var obj = _.clone(this.attributes);
-        obj.parameters = this.parameters.toJSON();
-        obj.filters = this.filters.toJSON();
-        obj.dependencies = this.dependencies.toJSON();
-        return obj;
-      }
-    });
-
-    Tags = Backbone.Collection.extend({
-      model: Tag,
-      comparator: function (a) {
-        return a.get("name");
-      }
-    });
-    Filters = Backbone.Collection.extend({
-      model: Filter,
-      comparator: function (a) {
-        return -a.get("priority");
-      }
-    });
-    Parameters = Backbone.Collection.extend({ model: Parameter });
-    Dependencies = Backbone.Collection.extend({ model: Dependency });
-
-    // Model & Collection instantiations
-    globalFilters = new Filters();
-    globalParameters = new Parameters();
-
-    // Returns a collection of Filter models related to a tag
-    // while adding to the container's global filter collection
-    getFilters = function (scriptLoader) {
-      var filterCollection = new Filters();
-
-      _.each(_this.getFilters(), function (filterInst) {
-        var filter, filterOptions, middle, patternType;
-
-        if (_.indexOf(filterInst.scriptLoaderKeys, scriptLoader.id) === -1) {
-          return;
-        }
-
-        filterOptions = {
-          id: filterInst.id,
-          name: filterInst.name,
-          pattern: filterInst.pattern,
-          priority: filterInst.priority,
-          type: (filterInst.filterType === QTag.FILTER_TYPE_INCLUDE) ?
-            "include" : "exclude",
-          customScript: "",
-          customStarter: filterInst.starter || "", // always have starter?
-          starterTriggered: false
-        };
-
-        filterOptions.description = "Tag is " + filterOptions.type + "d";
-        middle = " based on the URL matching the ";
-        patternType = filterInst.patternType;
-        if (patternType.length === 3) {
-          filterOptions.basedOn = "session variables";
-          filterOptions.customScript = filterInst.pattern;
-          filterOptions.pattern = "";
-          filterOptions.description +=
-            " based on custom script:<br/>" +
-            "<pre><code class='language-javascript'>" +
-            DebugTool.escapeHTML(filterInst.pattern) +
-            "</code></pre><br/>" +
-            "and custom starter:<br/>" +
-            "<pre><code class='language-javascript'>" +
-            DebugTool.escapeHTML(filterInst.starter) +
-            "</code></pre>";
-          if (patternType === QTag.DEDUPE_FN) {
-            filterOptions.basedOn += " (dedupe)";
-          }
-        } else if (patternType.length < 3) {
-          // Always matches
-          if (patternType === QTag.ALL || patternType === "1" + QTag.ALL) {
-            filterOptions.basedOn = "always matches";
-            filterOptions.description += " on every URL";
-          }
-          // Substring
-          if (patternType.indexOf(QTag.SUBSTRING) !== -1) {
-            filterOptions.basedOn = "substring";
-            filterOptions.description += middle + "substring <em>" +
-              filterInst.pattern + "</em> (case insensitive)";
-          }
-          // Regex
-          if (patternType.indexOf(QTag.REGEX) !== -1) {
-            filterOptions.basedOn = "regex";
-            filterOptions.description += middle + "regular expression <em>" +
-              filterInst.pattern + "</em> (case sensitive)";
-          }
-          // Matches exactly
-          if (patternType.indexOf(QTag.EXACT_MATCH) !== -1) {
-            filterOptions.basedOn = "matches exactly";
-            filterOptions.description += middle + "pattern <em>" +
-              filterInst.pattern + "</em> exactly (case insensitive)";
-          }
-          // Is dedupe filter
-          if (patternType.length === 2) {
-            filterOptions.basedOn += " (dedupe)";
-          }
-        }
-
-        // If already exists in container use that
-        // (Only for default id -1 at this stage)
-        if (globalFilters.contains(filterInst.id)) {
-          filter = globalFilters.get(filterInst.id);
-        } else {
-          filter = new Filter(filterOptions);
-          globalFilters.add(filter);
-        }
-
-        filterCollection.add(filter);
-      });
-
-      return filterCollection;
-    };
-
-    // Returns a collection of Parameter models for a tag
-    // while adding to the container's global parameter collection
-    getParameters = function (scriptLoader) {
-      var parameterCollection = new Parameters();
-      _.each(_this.getPageVars(), function (pageVar, pageVarId) {
-        var parameterOptions, parameter, types = {};
-
-        if (!_.has(scriptLoader.pageVars, pageVarId)) {
-          return;
-        }
-
-        types[QTag.JS_VALUE] = "javascript expression";
-        types[QTag.QUERY_PARAM] = "query parameter";
-        types[QTag.COOKIE_VALUE] = "cookie value";
-        types[QTag.ELEMENT_VALUE] = "DOM element";
-
-        parameterOptions = {
-          id: pageVarId,
-          name: pageVar.name,
-          type: types[pageVar.type],
-          expression: pageVar.value,
-          token: scriptLoader.pageVars[pageVarId]
-        };
-
-        // If already exists in container use that
-        if (globalParameters.contains(pageVarId)) {
-          parameter = globalParameters.get(pageVarId);
-        } else {
-          parameter = new Parameter(parameterOptions);
-          globalParameters.add(parameter);
-        }
-
-        parameterCollection.add(parameter);
-      });
-
-      return parameterCollection;
-    };
-
-    // Returns a collection of Dependency models for a tag
-    getDependencies = function (scriptLoader) {
-      var dependencyIdArray, dependencies, dependencyName;
-      dependencyIdArray = scriptLoader.dependencies;
-      dependencies = new Dependencies();
-
-      if (dependencyIdArray.length) {
-        _.each(dependencyIdArray, function (dependencyId) {
-          dependencyName =
-            _.find(_this.getScriptLoaders(),
-              function (scriptLoader) {
-                return scriptLoader.id === String(dependencyId);
-              }).name;
-          dependencies.add({
-            id: String(dependencyId),
-            name: dependencyName
-          });
-        });
-      }
-
-      return dependencies;
-    };
-
-    // Returns a collection of Tag models
-    getTags = function () {
-      var tagCollection = new Tags();
-      _.each(_this.getScriptLoaders(), function (scriptLoader) {
-        var tag, tagOptions, key;
-
-        tagOptions = {
-          id: scriptLoader.id,
-          name: scriptLoader.name,
-          needsConsent: scriptLoader.needsConsent,
-          async: scriptLoader.async,
-          usesDocWrite: scriptLoader.usesDocWrite,
-          position: (scriptLoader.positionId === 1) ?
-            "start" : "end",
-          dedupe: false,
-          loadTime: null
-        };
-
-        if (scriptLoader.html.length) {
-          tagOptions.type = "html";
-          tagOptions.html = scriptLoader.html;
-          switch (scriptLoader.locationId) {
-          case 1:
-            tagOptions.location = "head";
-            break;
-          case 2:
-            tagOptions.location = "body";
-            break;
-          case 3:
-            tagOptions.location = "element";
-            tagOptions.locationDetail = scriptLoader.locationDetail;
-            break; // TODO: Otherwise body?
-          }
-        } else {
-          tagOptions.type = "url";
-          tagOptions.pre = scriptLoader.pre;
-          tagOptions.url = scriptLoader.url;
-          tagOptions.post = scriptLoader.post;
-        }
-
-        // Checks if tag has dedupe checked
-        _.each(_this.getFilters(), function (filter) {
-          if (_.indexOf(filter.scriptLoaderKeys, scriptLoader.id) !== -1) {
-            if (_this.tagManager.getFilterType(filter) !== QTag.NORMAL_FILTER) {
-              tagOptions.dedupe = true;
-            }
-          }
-        });
-
-        tag = new Tag(tagOptions);
-        tag.parameters = getParameters(scriptLoader);
-        tag.filters = getFilters(scriptLoader);
-        tag.dependencies = getDependencies(scriptLoader);
-
-        tagCollection.add(tag);
-      });
-
-      return tagCollection;
-    };
-
-    container = new Container({
-      clientId: _this.tagManager.getConfig().qTagClientId,
-      name: _this.tagManager.getConfig().containerName,
-      id: _this.tagManager.getConfig().profileName,
-      delayDocWrite: _this.tagManager.getConfig().delayDocWrite,
-      async: !Utils.determineIfSync(_this.tagManager)
-    });
-
-    container.tags = getTags();
-    container.filters = globalFilters;
-    container.parameters = globalParameters;
-
-    this.container = container;
-  };
-
-  // When it changes a Tag's state it changes it's state in all
-  // depender's versions too
-  DebugTool.prototype.changeTagAndDependencyState = function (id, state) {
-    var tags = this.container.tags;
-    tags.get(id).set("state", state);
-    tags.each(function (tag) {
-      if (tag.dependencies.get(id)) {
-        tag.dependencies.get(id).set("state", state);
-      }
-    });
-  };
-
-  // Add error object to specified model's 'errors' attribute
-  // if it doesn't already exist
-  DebugTool.prototype.appendError = function (model, error) {
-    var _ = DebugTool.Lodash, currentContexts;
-    currentContexts = _.pluck(model.get("errors"), "context");
-    // Check it doesn't already exist
-    if (_.indexOf(currentContexts, error.context) !== -1) {
-      return;
-    }
-    return model.get("errors").push(error);
-  };
-
-  DebugTool.prototype.addError = function (object, exception, message) {
-    this.appendError(object, {
-      "message": exception.message,
-      "context": message
-    });
-  };
-
-  DebugTool.prototype.addFilterError = function (filter, exception, message) {
-    var filterModel = this.container.filters.get(filter.id);
-    this.addError(filterModel, {
-      "message": exception.message,
-      "context": message
-    });
-  };
-
-  DebugTool.prototype.addTagError = function (tag, exception, message) {
-    this.appendError(tag, {
-      "message":
-        (Object.prototype.toString.apply(exception) === "[object Object]") ?
-         JSON.stringify(exception) : exception,
-      "context": message
-    });
-  };
-
-  /* ***********************************************************************
-   * 
-   * 
-   *  
-   *      STATIC HELPERS AREA 
-   *
-   *
-   *
-   * ***********************************************************************/
-  // Adds the debug-tool iframe to the DOM
-  
-  /**
-   * Adds debbuger tool to a page.
-   * 
-   * @returns undefined
-   */
-  DebugTool.addTool = function () {
-    var tool, cfBase = "//cdnjs.cloudflare.com/ajax/libs/",
-      requirePath = cfBase + "require.js/2.1.8/require.min.js";
-
-    tool = {
-      // Initialize addition of debug-tool iframe to the DOM
-      init: function () {
-        // Don't load tool inside an iframe
-        if (window.self !== window.top) {
-          return;
-        }
-        tool.create();
-        tool.waitForBody();
-        return tool;
-      },
-
-      // Wait for client site's body to insert debug-tool iframe
-      waitForBody: function () {
-        if (document.body) {
-          tool.add(document.body);
-        } else {
-          setTimeout(tool.waitForBody, 10);
-        }
-      },
-
-      // Wait for head in dynamic debug-tool iframe so we can load
-      // scripts into it
-      waitForIframeHead: function () {
-        var toolWindow = tool.el && tool.el.contentWindow;
-        if (toolWindow && toolWindow.document &&
-            toolWindow.document.getElementsByTagName("head")[0]) {
-          tool.insertiFrameScripts(
-            toolWindow.document.getElementsByTagName("head")[0]
-          );
-        } else {
-          setTimeout(tool.waitForIframeHead, 10);
-        }
-      },
-
-      // Create the dynamic iframe
-      create: function () {
-        var iframe;
-        iframe = tool.el = document.createElement("iframe");
-        iframe.id = "qubit-opentag-debug-tool";
-        iframe.frameBorder = 0;
-        tool.addStyleSheet(tool.css);
-      },
-
-      // Add the dynamic iframe to the DOM
-      add: function (body) {
-        body.appendChild(tool.el);
-        // Make sure iframe has DOCTYPE declaration for
-        // Browsers that don't have DOCTYPE frame inheritance
-        tool.el.contentWindow.document.open();
-        tool.el.contentWindow.document.write(
-          "<!doctype html>" +
-            "<html>" +
-              "<head></head>" +
-              "<body></body>" +
-            "</html>"
-        );
-        tool.el.contentWindow.document.close();
-        tool.el.style.display = "none";
-        tool.waitForIframeHead();
-      },
-
-      // Insert scripts to the iframe's head
-      insertiFrameScripts: function (iframeHead) {
-        var charset, toolJs, meta;
-        if (/MSIE/.test(navigator.userAgent)) {
-          meta = document.createElement("meta");
-          meta.setAttribute("http-equiv", "X-UA-Compatible");
-          meta.setAttribute("content", "IE=edge,chrome=1");
-          iframeHead.appendChild(meta);
-        }
-        // UTF-8 meta tag
-        charset = document.createElement("meta");
-        charset.setAttribute("http-equiv", "Content-Type");
-        charset.setAttribute("content", "text/html; charset=utf-8");
-        // Add require data-main Debug tool built app
-        toolJs = document.createElement("script");
-        toolJs.src = requirePath; 
-        toolJs.setAttribute("data-main",
-            "https://d30zzqe6nnxnd7.cloudfront.net/debug-tool/debug-tool.min.js");
-        // TODO: If Mobile / Old Browser
-        iframeHead.appendChild(charset);
-        iframeHead.appendChild(toolJs);
-      },
-
-      css:
-        "#qubit-opentag-debug-tool {" +
-          "z-index: 2147483646;" +
-          "width: 250px;" +
-          "height: 100%;" +
-          "position: fixed;" +
-          "top: 0; right: 0;" +
-          "overflow-y: hidden;" +
-        "}",
-
-      addStyleSheet: function (css) {
-        var head, styleElement;
-        head = document.getElementsByTagName('head')[0];
-        styleElement = document.createElement('style');
-        styleElement.setAttribute('type', 'text/css');
-        if (styleElement.styleSheet) {
-          styleElement.styleSheet.cssText = css;
-        } else {
-          styleElement.appendChild(document.createTextNode(css));
-        }
-        head.appendChild(styleElement);
-        return styleElement;
-      }
-    };
-
-    return tool.init();
-  };
-
-  DebugTool.prototype.loadDependencies = function (callback) {
-    var pollForAccount;
-    // Only load tool & JS libraries once
-    if (!DebugTool.depsLoaded) {
-      DebugTool.depsLoaded = true;
-      // Load scripts that the debug-tool models require
-      this.initToolScripts(function (_, Backbone) {
-        // Puts Qubit version Backbone on the window so that multiple qtags
-        // can use only one script
-        window.__qubitLodash = _;
-        window.__qubitBackbone = Backbone;
-        callback();
-      });
-
-      if (DebugTool.showDebugTool()) {
-        // Add debug-tool iframe to body
-        DebugTool.addTool();
-      }
-    } else {
-      // There is an Opentag script already on the page:
-      // Wait for first loaded tagManager script to load libraries, then
-      // add to window.__qubitOpentagDebug Collection
-      pollForAccount = function () { // TODO: Check synchronous Container
-        if (window.__qubitOpentagDebug) {
-          callback();
-        } else {
-          setTimeout(pollForAccount, 50);
-        }
-      };
-      pollForAccount();
-    }
-  };
-
-  // Asynchronously load scripts for debug-tool Models in order
-  DebugTool.prototype.initToolScripts = function (callback) {///
-    var loadScripts, onComplete, callScript,
-      cfBase = "//cdnjs.cloudflare.com/ajax/libs/";
-
-    var lodashPath = cfBase + "lodash.js/1.3.1/lodash.compat.min.js";
-    var backbonePath = cfBase + "backbone.js/1.0.0/backbone-min.js";
-    var scriptsToLoad = [lodashPath, backbonePath];
-
-    if (Utils.determineIfSync(this.tagManager)) {
-      this.initToolScriptsSync(scriptsToLoad);
-
-      callback(
-        window._.noConflict(),
-        window.Backbone.noConflict()
-      );
-    } else {
-      onComplete = function () {
-        // Pass no conflicted frameworks to callback
-        callback(
-          window._.noConflict(),
-          window.Backbone.noConflict()
-        );
-      };
-
-      callScript = function (url, callback) {
-        var called = false;
-        return function () {
-          if (!called && (!this.readyState ||
-            this.readyState === "loaded" || //needed in IE8
-            this.readyState === "complete")) {
-            called = true;
-            callback();
-          }
-        };
-      };
-
-      loadScripts = function (scripts, callback) {
-        var loadNext, filePath, script, head;
-        loadNext = function () {
-          if (!scripts.length) {
-            return onComplete();
-          }
-          filePath = scripts.shift();
-          script = document.createElement("script");
-          script.src = filePath;
-          script.async = "async";
-          script.onload = script.onreadystatechange = 
-            callScript(filePath, loadNext);
-          head = document.head || document.getElementsByTagName('head')[0];
-          head.appendChild(script);
-        };
-        loadNext();
-      };
-
-      loadScripts(scriptsToLoad);
-    }
-  };
-
-  DebugTool.prototype.initToolScriptsSync = function (scripts) {
-    var scriptString, request, script, head, i;
-    for (i = 0; i < scripts.length; i += 1) {
-      request = new XMLHttpRequest();
-      request.open('GET', scripts[i], false);
-      request.send(null);
-
-      if (request.status === 200) {
-        script = document.createElement("script");
-        script.innerHTML = request.responseText;
-        head = document.head || document.getElementsByTagName("head")[0];
-        head.appendChild(script);
-      }
-    }
-  };
-
-  DebugTool.showDebugTool = function () {
-    return SimpleCookie.readCookie("opentag_debug_tool") ||
-      (document.location.href.indexOf("opentag_debug_tool") >= 0);
-  };
-  
-  Utils.namespace("qubit.qtag.DebugTool", DebugTool);
-  
-}());
-/*~debug*/
-
-
-
-/*
- * Opentag, a tag deployment platform
- * Copyright 2011-2013, Qubit Group
- * http://opentag.qubitproducts.com
+/* consent hack from old qtag - will be updated by requires renewing consent
+ * @TODO seriously, clean this up in opentag!
  */
-
-(function () {
-  
-  /**
-   * @class qubit.Tags
-   * @singleton
-   * 
-   * Single storage object.
-   * Tags class is used to gather information about tags in the system.
-   * It stores references to tags and allows accessing them from one central
-   * place.
-   * This class cannot be instantieited.
-   * @type Plain object.
-   */
-  var Tags = {},
-    log = new qubit.qtag.Log("Tags: "),/*L*/
-    Utils = qubit.qtag.Utils,
-    tags = {},
-    tagsArray = [],
-    containers = {};
-  
-  /**
-   * 
-   * @param {qubit.qtag.deprecated.QTag} tag
-   * @returns {undefined}
-   */
-  Tags.registerTag = function (tag) {
-    var id = tag.getConfig().profileName;
-    //note, qubit.qtag pname is its id inreality
-    if (tags[id]) {
-      log.INFO("Tag with ID: " + id + " already exists. Overriding entry.");
-    }
-    
-    tags[id] = tag;
-    
-    Utils.addToArrayIfNotExist(tagsArray, tag);
-  };
-  
-  /**
-   * 
-   * @param {String} id
-   * @returns {unresolved}
-   */
-  Tags.getTag = function (id) {
-    log.FINE("getTag with id:" + id);
-    return tags[id];
-  };
-  
-  /**
-   * Get all QTag instances.
-   * 
-   * @returns Array[QTag]
-   */
-  Tags.getAllTags = function () {
-    log.FINE("getTags");
-    return tags;
-  };
-  
-  /**
-   * Page variable
-   * @param {String} tagId
-   * @param {String} scriptId
-   * @param {String} varId
-   * @returns {Object}
-   */
-  Tags.getVariableValue = function (tagId, scriptId, varId) {
-    try {
-      log.FINE("getVariableValue():");
-      log.FINE([tagId, scriptId, varId], true);
-      var tag = tags[tagId];
-      var config = tag.getConfig();
-      var script = config.scriptLoaders[scriptId];
-      var pv = config.pageVars[varId];
-
-      if (Utils.variableExists(pv.pageValue)) {
-        log.FINE("Returning profile scope value of page variable:");
-        log.FINE(pv.pageValue, true);
-        return pv.pageValue;
-      }
-
-      var defVal = String(script.pageVars[varId].defaultValue);
-      //Utils.prepareQuotedString(script.pageVars[varId].defaultValue);
-      log.FINE("Returning SCRIPT DEFAULT value of page variable:");
-      log.FINE(defVal, true);
-      return defVal; //can be undefined!
-    } catch (e) {
-      log.ERROR("Unexpected error while getting variable: " + e);
-      log.ERROR([tagId, scriptId, varId], true);
-    }
-  };
-
-  /**
-   * Function used to set any object at variable value, it will recognise
-   * 
-   * @param {String} name token name that identifies the variable.
-   * @param {qubit.qtag.pagevariable.BaseVariable} object qubit.qtag.pagevariable.BaseVariable
-   * instance. 
-   * @returns {undefined}
-   */
-  Tags.setPageVariable = function (name, object) {
-    throw "implement";
-  };
-  /**
-   * Function used to get page variable instance.
-   * 
-   * @param {String} name token name that identifies the variable.
-   * @return {qubit.qtag.pagevariable.BaseVariable} object qubit.qtag.pagevariable.BaseVariable
-   * instance. 
-   */
-  Tags.getPageVariable = function (name) {
-    throw "implement";
-  };
-  /**
-   * Function used to set any object as variable value, it will recognise
-   * it's type and convert it to qubit.qtag.pagevariable.BaseVariable.
-   * @param {String} name token name that identifies the variable.
-   * @param {Object} object Any object
-   * @returns {undefined}
-   */
-  Tags.setPageVariableByValue = function (name, object) {
-    throw "implement";
-  };
-
-  
-  /**
-   * @property 
-   * @type Array
-   */
-  Tags.containers = [];
-
-  Tags.registerContainer = function (container) {
-    containers[container.name] = container;
-  };
-
-  //load once only
-  Utils.namespace("qubit.Tags", Tags);
-})();
-(function () {
-  
-  var json = {};
-
-  function checkIfInstanceOf(object, instances) {
-    for (var i = 0; i < instances.length; i++) {
-      if ((typeof(instances[i]) === "function") && /*ie case*/
-            object instanceof instances[i]) {
-        return true;
+  window.opentag_consentGiven = function () {
+    Container.consentIsGiven = true;
+    var all = Container.getContainers();
+    for (var i = 0; i < all.length; i++) {
+      try {
+        all[i].run();
+      } catch (ex) {
+        log.ERROR("error running consent dependant containers: " + ex);
       }
     }
-    return false;
-  }
-  json.checkIfInstanceOf = checkIfInstanceOf;
+  }.bind(this);
   
-  function checkIfTypeOf(object, types) {
-    for (var i = 0; i < types.length; i++) {
-      if (typeof(object) === types[i]) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function checkIfNameOf(string, names) {
-    for (var i = 0; i < names.length; i++) {
-      if (string === names[i]) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function objectExistsInParentElements(object, parentElements) {
-    if (object instanceof Object) {
-      for (var i = 0; i < parentElements.length; i++) {
-        if (parentElements[i] === object) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-  
-  function removeFromArray(object, array) {
-    for (var i = 0; i < array.length; i++) {
-      if (array[i] === object) {
-        array.splice(i, 1);
-      }
-    }
-    return array;
-  }
-
-  function jsonString(object) {
-    return "\"" + object.replace(/\\/g, "\\\\").replace(/\"/g, "\\\"") + "\"";
-  }
-
-  var _serialize = function (object, config, parentElements, level, levelMax) {
-    if (!isNaN(levelMax) && level >= levelMax) {
-      return undefined;
-    }
-    var excludedInstances, excludedTypes, excludedNames, own,
-            includeFunctions = false, excludeOnTrue, dateAsString = true,
-            raw = false;
-    
-    if (config) {
-      raw = config.raw; //json type as default
-      excludedInstances = config.excludedInstances;
-      excludedTypes = config.excludedTypes;
-      excludedNames = config.excludedNames;
-      own = config.hasOwn;
-      includeFunctions = config.includeFunctions;
-      excludeOnTrue = config.excludeOnTrue;
-      dateAsString = config.dateAsString;
-    }
-    
-    if (object instanceof Date) {
-      return (!raw || dateAsString) ?
-        jsonString(object.toISOString()) : object.valueOf();
-    } else if (!includeFunctions && typeof object === "function") {
-      return undefined;
-    } else if (typeof object === "number") {
-      return String(object);
-    } else if (typeof object === "string") {
-      return jsonString(object);
-    } else if (object === null) {
-      return "null";
-    } else if (object === undefined) {
-      return raw ? "undefined" : undefined;
-    } else if (typeof prop === "boolean") {
-      return String(object);
-    }
-    
-    if (objectExistsInParentElements(object, parentElements)) {
-      return undefined;//"\"[parent contained]\"";
-    }
-    
-    parentElements.push(object);
-    ++level;
-    
-    if (object instanceof Array) {
-      var strings = [];
-      for (var i = 0; i < object.length; i++) {
-        if (excludeOnTrue) {
-          try {
-            if (excludeOnTrue(object)) {
-              continue;
-            }
-          } catch (ex) {}
-        }
-        if (excludedInstances && checkIfInstanceOf(object, excludedInstances)) {
-          continue;
-        }
-        if (excludedTypes && checkIfTypeOf(object, excludedTypes)) {
-          continue;
-        }
-        var el = _serialize(object[i], config, parentElements, level, levelMax);
-        if (el !== undefined) {
-          strings.push(el);
-        }
-      }
-      removeFromArray(object, parentElements);
-      return  "[" + strings.join(",") + "]";
-    }
-
-    var parts = [];
-    for (var key in object) {
-      var prop = object[key];
-      if (own && !object.hasOwnProperty(key)) {
-        continue;
-      }
-      if (excludeOnTrue) {
-        try {
-          if (excludeOnTrue(object)) {
-            continue;
-          }
-        } catch (ex) {}
-      }
-      if (excludedInstances && checkIfInstanceOf(prop, excludedInstances)) {
-        continue;
-      }
-      if (excludedTypes && checkIfTypeOf(prop, excludedTypes)) {
-        continue;
-      }
-      if (excludedNames && checkIfNameOf(key, excludedNames)) {
-        continue;
-      }
-      var objEl = _serialize(prop, config, parentElements, level, levelMax);
-      if (objEl !== undefined) {
-        var elString = ("\"" + key.replace(/\"/g, "\\\"") + "\":") + objEl;
-        parts.push(elString);
-      }
-    }
-    removeFromArray(object, parentElements);
-    return "{" + parts.join(",") + "}";
-  };
-
-  /**
-   * Exclusive and luxury javascript serializer.
-   * 
-   * Config object assignment:
-   * 
-   * <pre>
-   *   config.excludedInstances Instanceof will be called
-   *      on  excludeInstancess functions array
-   *   config.excludedTypes array of objects that typeof
-   *    will be called in order to exclude properties on object
-   *   config.excludedNames array of strings that will be check
-   *    on object's properties
-   *   config.hasOwn if hasOwnProperty should apply for objects 
-   *        (default false)
-   *   config.includeFunctions if 
-   *      functions should be included (default false)
-   *   config.excludeOnTrue function that will take
-   *      current objects property and must return boolean, if returns true,
-   *      object will be added to serialized string
-   *   config.level if specified, ho maximally deep
-   *    properties generation can go.
-   *   config.dateAsString = treat dates as strings (default true)
-   *   config.raw dont use "json" specific output and serialize real values
-   *     (undefines, dates as numbers)
-   * </pre>
-   * 
-   * @param {type} object
-   * @param {Object} config
-   * @returns {String}
-   */
-  json.serialize = function (object, config) {
-    var parentElements = [];
-    var level;
-    if (config) {
-      level = config.level;
-    }
-    return _serialize(object, config, parentElements, 0, level);
-  };
-
-  window.json = json;
-}());
-
-
-(function(){
-  var Utils = qubit.qtag.Utils;
-  var log = new qubit.qtag.Log("Tags -> ");
-  
-  var tags = [];
-  var containers = [];
-  
-  /**
-   * @singleton
-   * @class qubit.qtag.Tags
-   * Global tags repository. This singleton object contains and manages all tags
-   * in available scope. Each tag instance will automatically register in this
-   * object.
-   * @return {qubit.qtag.Tags} qubit.qtag.Tags object
-   */
-  var Tags = {};
-  
-  /**
-   * Method used to register a qubit.qtag.BaseTag
-   * @param {type} tag
-   * @returns {undefined}
-   */
-  Tags.registerTag = function (tag) {
-    log.FINE("registering tag instance:");
-    log.FINE(tag, true);
-    if (Utils.addToArrayIfNotExist(tags, tag) !== -1) {
-      log.INFO("tag already exists in Tags registry.");
-    }
-  };
-  
-  /**
-   * Find tag by name
-   * @param {String} match string, String.match() function will be used.
-   * @returns {Array(qubit.qtag.BaseTag)}
-   */
-  Tags.findTagByName = function (match) {
-    var results = [];
-    for(var i = 0; i < tags.length; i++) {
-      if (tags[i].config.name.match(match)) {
-        results.push(tags[i]);
-      }
-    }
-    return results;
-  };
-  
-  /**
-   * Get all QTag instances map.
-   * 
-   * @returns Object
-   */
-  Tags.getTags = function () {
-    log.FINE("getTags");
-    return tags;
-  };
-
-  /**
-   * Function used to set any object at variable value, it will recognise
-   * 
-   * @param {String} name token name that identifies the variable.
-   * @param {qubit.qtag.pagevariable.BaseVariable} object qubit.qtag.pagevariable.BaseVariable
-   * instance. 
-   * @returns {undefined}
-   */
-  Tags.setPageVariable = function (name, object) {
-    throw "implement";
-  };
-  /**
-   * Function used to get page variable instance.
-   * 
-   * @param {String} name token name that identifies the variable.
-   * @return {qubit.qtag.pagevariable.BaseVariable} object qubit.qtag.pagevariable.BaseVariable
-   * instance. 
-   */
-  Tags.getPageVariable = function (name) {
-    throw "implement";
-  };
-  /**
-   * Function used to set any object as variable value, it will recognise
-   * it's type and convert it to qubit.qtag.pagevariable.BaseVariable.
-   * @param {String} name token name that identifies the variable.
-   * @param {Object} object Any object
-   * @returns {undefined}
-   */
-  Tags.setPageVariableByValue = function (name, object) {
-    throw "implement";
-  };
-
-  /**
-   * Registering container function.
-   * @param {type} container
-   * @returns {undefined}
-   */
-  Tags.registerContainer = function (container) {
-    Utils.addToArrayIfNotExist(containers, container);
-  };
-  
-  /**
-   * Containers getter.
-   * @returns {Array(qubit.qtag.Container)}
-   */
-  Tags.getContainers = function () {
-    return containers;
-  };
-
-  Utils.namespace("qubit.qtag.Tags", Tags);
-  
-  log.print(
-        "*** Welcome to Qubit TagSDK ***",
-        "font-size: 22px; color:#CCC;"+
-        "text-shadow:#fff 0px 1px 0, #555 0 -1px 0;");
-})();
-
-
-
-/*
- * Opentag, a tag deployment platform
- * Copyright 2011-2013, Qubit Group
- * http://opentag.qubitproducts.com
- */
-
-(function(){
-  var Utils = qubit.qtag.Utils;
-  var log = new qubit.qtag.Log("Container -> ");
-
   /**
    * Tags Container class
    * Tags are normally grouped into container objects which define some of
@@ -3766,11 +5498,28 @@ global.NAMESPACE = global;
    * 
    * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
-   * @class qubit.qtag.Container
-   * @param {config} config
+   * @class qubit.opentag.Container
+   * @param config {Object} config object used to build instance
    * 
    */
   function Container (config) {
+    this.runQueue = [];
+    
+    /*log*/
+    var log = new qubit.opentag.Log("", function () {
+      return this.CLASS_NAME + "[" + this.config.name + "]";
+    }.bind(this), true);
+    
+    this.log = log;
+    /*~log*/
+    
+    /**
+     * Tags that are bound to this container.
+     * @property {Map<qubit.opentag.BaseTag>}
+     */
+    this.tags = {};
+    this.pageVariables = [];
+
     this.config = {/*CFG*/
       /**
        * @cfg cookieDomain
@@ -3780,11 +5529,11 @@ global.NAMESPACE = global;
        */
       cookieDomain: "",
       /**
-       * @cfg maximumLength
+       * @cfg maxCookieLength
        * Maximum cookie length to be used by this tag. Set it to lower value
        * if serving pages use very long cookies.
        */
-      maximumLength: 3000,
+      maxCookieLength: 3000,
       /**
        * @cfg gzip
        * True by default, indicates if tags should be zipped with gzip standard.
@@ -3799,24 +5548,21 @@ global.NAMESPACE = global;
       /**
        * @cfg clientId
        * A client ID associated with this container.
-       * Its old qTagClientId value.
+       * Its old opentagClientId value.
+       * Client ID, it is required for correct pings to be sent [ping]
        */
       clientId: "",
       /**
        * @cfg name
-       * Container name. (Old containerName)
-       */
-      name: "Opentag",
-      /**
-       * @cfg profileName
        * Profile name (same as old profileName).
+       * [ping]
        */
-      profileName: "",
+      name: "",
       /**
        * @cfg
        * Seems that this setting triggers propability of isTellingLoadTimes
        * being set to true. You can choose values from 0.0 to 1.0 (float).
-       * Old tellLoadTimesProbability
+       * Old tellLoadTimesProbability [ping]
        */
       tellLoadTimesProbability: 0,
       /**
@@ -3828,28 +5574,20 @@ global.NAMESPACE = global;
       /**
        * @cfg trackSession
        * Indicates if container should track session.
-       * Old qtag_track_session.
+       * Old opentag_track_session.
        */
       trackSession: false,
       /**
-       * @cfg containerDomain
-       * Domain for cookies used. Pages may use subdomains, in such a case its
-       * good to specify master domain for cookie writer. Example:
-       * 
-       * Website uses subdomains: sub1.page.com and sub2.page.com, for such a
-       * dsubddomains, cookie domain must be configured and in this case it
-       *  would be ".page.com"
-       * Old qtag_domain. 
+       * Container DB ID, this is vaue required for correct ping and session
+       * work.
        */
-      containerDomain: ""
+      containerId: ""
     };/*~CFG*/
-
+    
+    this.ignoreTagsState = false;
+    
     if (config) {
-
-      for (var prop in config) {
-        this.config = config[prop];
-      }
-
+      this.setConfig(config);
       /**
        * Property indicates if tag is telling load times. Tag's
        * implementation does attach timestamps for all their loading.
@@ -3861,39 +5599,88 @@ global.NAMESPACE = global;
       this.isTellingLoadTimes =
           this.config.tellLoadTimesProbability > Math.random();
 
-      this.setConfig(config);
-      
-      qubit.qtag.Tags.registerContainer(this);
-      
+      Container.registerContainer(this);
+      this.log.FINE("container registered.");
+      /*no-send*/
+      this.ping = new qubit.opentag.Ping(this.config);
+      /*~no-send*/
+      /*session*///@TODO add maybe better session condition here(much better...)
+      this.session = Session.setupSession(this.config);
+      if (this.session) {
+        this.log.INFO("Session attached:");
+        this.log.INFO(this.session, true);
+      }
+      /*~session*/
     }
     
     return this;
   }
 
+    
+  var containers = [];
   /**
-   * Tags that are bound to this container.
-   * @property {Map<qubit.qtag.BaseTag>}
+   *  Registering container function.
+   * @static
+   * @param {type} ref
    */
-  Container.prototype.tags = {};
-  Container.prototype.pageVariables = {};
+  Container.registerContainer = function (ref) {
+    Utils.addToArrayIfNotExist(containers, ref);
+  };
 
+  /**
+   * Tells if has consent accepted (by defaults checks cookie)
+   * @returns {Boolean}
+   */
+  Container.prototype.hasConsent = function () {
+    return SimpleCookie.readCookie("qubitconsent") === "Accepted";
+  };
+
+  /**
+   *  Registering container function. Same as `Container.registerContainer`.
+   * @param {type} ref
+   */
+  Container.prototype.registerContainer = Container.registerContainer;
+
+  /**
+   * @param {type} ref
+   * @returns {Array}
+   */
+  Container.prototype.getContainers = function (ref) {
+    return containers;
+  };
+  
+  /**
+   * @static
+   */
+  Container.getContainers = Container.prototype.getContainers;
+  
   /**
    * Function registering tag instance.
    * Registered tag will have injected extra configuration.
    * Container registers tags BY NAME. This is quite more strict than
-   * qubit.qtag.Tags
-   * @param {qubit.qtag.BaseTag} tag
-   * @returns {undefined}
+   * qubit.opentag.Tags. Container will not allow registering tag if there is 
+   * already a tag with same name in container (!).
+   * @param {qubit.opentag.BaseTag} tag
    */
   Container.prototype.registerTag = function (tag) {
     var name = tag.config.name;
     if (this.tags[name]) {
-      log.FINE("Tag with name `" + name + "` already is registered!");
+      this.log.FINE("Tag with name `" + name + "` already is registered!");
     } else {
       this.tags[name] = tag;
     }
   };
-
+  /**
+   * Function registering tag instance.
+   * It does same job like `registerTag` but the input is an array.
+   * @param {Array<qubit.opentag.BaseTag>} tags
+   */
+  Container.prototype.registerTags = function (tags) {
+    for (var i = 0; i < tags.length; i++) {
+      this.registerTag(tags[i]);
+    }
+  };
+  
   /**
    * Config setter for current instance.
    * Use this setter as config changes will affect registered tags.
@@ -3901,88 +5688,147 @@ global.NAMESPACE = global;
    * affect tags registered and this method will remember to update
    * them accordingly.
    * @param {Object} config with values to be set.
-   * @returns {undefined}
    */
   Container.prototype.setConfig = function (config) {
-    log.FINEST("Setting configuration:");
-    log.FINEST(config, true);
+    this.log.FINEST("Setting configuration:");
+    this.log.FINEST(config, true);
     for (var prop in config) {
-      this.config = config[prop];
+      this.config[prop] = config[prop];
     }
   };
   
   /**
    * Container and tags loading entry point.
    * 
-   * @param {Object} config
-   * @returns {undefined}
    */
-  Container.prototype.startLoading = function (config) {
-    log.FINE("starting loading")
-    this.runFilteredTags();
+  Container.prototype.run = function () {
+    this.log.FINE("starting loading");
+    this.runTags({
+      command: "runIfFiltersPass"
+    });
+  };
+
+  /**
+   * Container and tags loading entry point.
+   * This method will trigger running all filters without filters check - any 
+   * tags awaiting for filter condition will be tried to run WITHOUT that 
+   * condition (ie. all filters disabled)!
+   */
+  Container.prototype.runWithoutFilters = function () {
+    this.log.FINE("starting loading");
+    this.runTags({
+      command: "run"
+    });
   };
 
   /**
    * Function that will find tag by using it's name and return it if found.
    * @param {String} name
-   * @returns {qubit.qtag.BaseTag} tag with specified name,
+   * @returns {qubit.opentag.BaseTag} tag with specified name,
    *  undefined otherwise.
    */
   Container.prototype.getTagByname = function (name) {
     return this.tags[name];
   };
-
+  
   /**
-   * Function updates current state of page variables.
-   * @returns {undefined}
+   * Function detecting if TagSDK was loaded synchronously or not.
+   * @returns {Boolean}
    */
-  Container.prototype.updatePageVariables = function () {
-    throw "implement!"
-  };
-
-  /**
-   * Gets page variable by using variable name.
-   * Page variables are bound to container. Typically, page variables
-   * are available across web page context.
-   * @param {String} name
-   * @returns {undefined}
-   */
-  Container.prototype.getPageVariableValue = function (name) {
-    return this.pageVariables[name].getValue();
+  Container.prototype.containerScriptLoadedSynchronously = function () {
+    var i, ii, script, scripts, src;
+    scripts = document.getElementsByTagName("script");
+    for (i = 0, ii = scripts.length; i < ii; i += 1) {
+      script = scripts[i];
+      src = script.getAttribute("src");
+      //removed "opentag", white labelling!!!
+      if (!!src && (src.indexOf("" + 
+          this.config.clientId + "-" + this.config.profileName +
+          ".js") > 0)) {
+        return (script.getAttribute("async") === null && 
+            //handle ie7
+            (script.getAttribute("defer") === false ||
+            //handle ie8
+            script.getAttribute("defer") === "" ||
+            //handle chrome/firefox
+            script.getAttribute("defer") === null));
+      } 
+    }
+    return true;
   };
   
   /**
    * Function calling tags to start execution.
-   * @returns {undefined}
+   * @param config
    */
-  Container.prototype.runFilteredTags = function () {
+  Container.prototype.runTags = function (config) {
     /**
      * Timestamp indicating if and when tags running was executed.
      * @property runningStarted
      * @type Number
      */
+    var containerIsSynchronous = this.containerScriptLoadedSynchronously();
+    
+    var command = "runIfFiltersPass";
+    if (config && config.command) {
+      command = config.command;
+    }
+    
     this.runningStarted = new Date().valueOf();
-    log.FINE("running started at " + this.runningStarted);
+    this.log.FINE("triggering runningStarted at " + this.runningStarted);
+    
     for (var name in this.tags) {
       try {
-        log.FINE("running tag named: " + name);
-        this.tags[name].runIfFiltersPass();
+        var tag = this.tags[name];
+        //ignore tag state or check if clean and unstarted
+        if (this._includedToRun(tag)) {
+          this.log.FINE("triggering tag named: " + name);
+          
+          if (!containerIsSynchronous) {
+            tag.forceAsynchronous = true;
+          }
+          
+          if (this.config.delayDocWrite) {
+            tag.secureWrite = true;
+          }
+            //attach session if necessary
+          tag.session = tag.session || this.session;//:session
+          tag[command]();
+        }
       } catch (ex) {
-        log.ERROR("Error running tag with name `" +
-                this.tags[name] +
-                "`. Error: " + ex)
+        this.log.ERROR("Error running tag with name '" + name +
+                "'.\n Error: " + ex);//L
       }
     }
     this.waitForAllTagsToFinish();
   };
 
   /**
+   * @private
+   * If container can include the tag in running suite.
+   * @param {qubit.opentag.BaseTag} tag tag to test if can be included
+   * @returns {Boolean}
+   */
+  Container.prototype._includedToRun = function(tag) {
+    var consentOk = Container.consentIsGiven ||
+        (!tag.config.needsConsent) || this.hasConsent();
+    var atInitialState = (tag.status === BaseTag.prototype.STATUS.INITIAL);
+    return this.ignoreTagsState || (consentOk && atInitialState);
+  };
+
+  /**
    * Function used to trigger timer that awaits the tags to finish their
    * running.
-   * @returns {undefined}
    */
   Container.prototype.waitForAllTagsToFinish = function () {
-    if (this.allTagsFinished()) {
+    if (this._waitForAllTagsToFinishWaiting) {
+      return;
+    }
+    
+    var finished = this.allTagsFinished();
+    
+    if (!this._showFinishedOnce && finished) {
+      this._showFinishedOnce = true;
       /**
        * Property telling if and when all tags has been detected to finish
        * thir running.
@@ -3990,23 +5836,86 @@ global.NAMESPACE = global;
        * @type Number
        */
       this.runningFinished = new Date().valueOf();
-      log.INFO("Tags have ended their processing.");
-      log.INFO("Finished in " + (this.runningFinished - this.runningStarted) +
-               "ms");
-      var runScripts = [], failedScripts = [];
-      for (var prop in this.tags) {
-        if (this.tags[prop].scriptExecuted > 0) {
-          runScripts.push(this.tags[prop]);
-        } else {
-          failedScripts.push(this.tags[prop]);
-        }
+      
+      /*log*/ // let us now print some results
+      var results = this.getAllTagsByState();
+      var awaitingLen = results.awaiting === null ?
+                                  0 : Utils.keys(results.awaiting).length;
+      var styling =  " ;color: #0F7600;font-si_waitForAllTagsToFinishWaitingze: 12px;font-weight:bold; ";
+
+      this.log.INFO("********************************************************",
+        0, styling);
+      this.log.INFO("Startup tags have ended their processing.", 0, styling);
+
+      this.log.INFO("Finished in " +
+          (this.runningFinished - this.runningStarted) + "ms.", 0, styling);
+      
+      if (results.run) {
+        var len = Utils.keys(results.run).length;
+        this.log.INFO("Successfully run tags[" + len + "]:", 0, styling);
+        this.log.INFO(results.run, true);
+      } else {
+        this.log.INFO("No successfully run tags.", 0, styling);
       }
-      log.INFO("sucessfully run tags:");
-      log.INFO(runScripts, true);
-      log.INFO("failed tags:");
-      log.INFO(failedScripts, true);
+      
+      if (results.failed) {
+        var len = Utils.keys(results.failed).length;
+        var addRed = results.failed === null ? "" : "color: #DF5500;";
+        this.log.INFO("Failed to run[" + len + "]:", 0,  styling + addRed);
+        this.log.INFO(results.failed, true);
+      } else {
+        this.log.INFO("No failed tags.", 0,  styling);
+      }
+      
+      if (results.awaiting) {
+        var len = Utils.keys(results.awaiting).length;
+        this.log.INFO("There is still " + awaitingLen +
+                " tag(s) ready to be fired by" +
+                " awaiting filters that can run.",
+                0, styling + "color: #DC9500;");
+        this.log.INFO("Filter ready tags[" + len + "]:", 0, styling +
+                "color: #DC9500;");//L
+        this.log.INFO(results.awaiting, true);
+      } else {
+        this.log.INFO("No filter ready tags.", 0, styling);
+      }
+
+      if (results.consent) {
+        var len = Utils.keys(results.consent).length;
+        this.log.INFO("Consent awaiting tags[" + len + "]:", 0, styling);
+        this.log.INFO(results.consent, true);
+      } else {
+        this.log.INFO("No consent awaiting tags.", 0, styling);
+      }
+      
+      if (results.other) {
+        var len = Utils.keys(results.other).length;
+        this.log.INFO("Other unloaded tags[" + len + "]:", 0, styling);
+        this.log.INFO(results.other, true);
+      } else {
+        this.log.INFO("No unloaded tags.", 0, styling);
+      }
+      
+      this.log.INFO("********************************************************",
+                    0, styling);
+      /*~log*/
+      
+      /*no-send*/
+      this.sendPingsNotTooOften();
+      /*~no-send*/
+    } else if (!finished) {
+        this._waitForAllTagsToFinishWaiting = true;
+        this._showFinishedOnce = false;
+        
+        Timed.setTimeout(function () {
+          this._waitForAllTagsToFinishWaiting = false;
+          this.waitForAllTagsToFinish();
+        }.bind(this), 100);
+        
     } else {
-      qubit.qtag.Timed.setTimeout(this.waitForAllTagsToFinish.bind(this), 30);
+      this.log.INFO("********************************************************");
+      this.log.WARN("All tags seem to finished current jobs.");
+      this.log.INFO("********************************************************");
     }
   };
   
@@ -4014,812 +5923,241 @@ global.NAMESPACE = global;
    * 
    * @returns {undefined}
    */
-  Container.prototype.allTagsFinished = function () {
-    for(var prop in this.tags) {
-      var tag = this.tags[prop];
-      if (tag instanceof qubit.qtag.BaseTag) {
-        if (tag.filtersPassed() && !tag.finished()) {
-          return false;
-        }
+  Container.prototype.resetAllTags = function () {
+    log.WARN("reseting all tags!");
+    for (var prop in this.tags) {
+      if (this.tags.hasOwnProperty(prop)) {
+        this.tags[prop].reset();
       }
     }
-    return true;
   };
-
-  Container.prototype.CLASS_NAME = "Container";
-  Container.prototype.PACKAGE_NAME = "qubit.qtag";
-
-  Utils.namespace("qubit.qtag.Container", Container);
-})();
-
-
-
-(function(){
-    var Utils = qubit.qtag.Utils;
-    var log = new qubit.qtag.Log("Timer -> ");
-    
-    /**
-     * Timer implementation. It is intended to replace (wrap) the setTimeout
-     * method so overuse can be controlled. It shall support rate setup and 
-     * runtime adjustment (slowing down etc.).
-     * 
-     * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-     * 
-     * @class qubit.qtag.Timer
-     * @param {Object} config
-     * @returns {qubit.qtag.Timer}
-     */
-    function Timer (config) {
-      if (config) {
-        log.FINEST("Config:");
-        log.FINEST(config, true);
-       /**
-        * @private
-        * Please use setRate to update timers rate
-        * @type Number
-        */
-        this._rate = config.rate || 30;
-        if (config.start) {
-          this.startPooling();
-        }
-      }
-    }
-    
-    Timer.superclass = null;
-    Timer.prototype = {};
-    Timer.prototype.CLASS_NAME = "Timer";
-    Timer.prototype.PACKAGE_NAME = "qubit.qtag";
-    
-    /**
-     * @property
-     * Array of pairs `{Date, Function}`
-     * `Date` stands for timed out date.
-     * `Function` is afunction refernece to call.
-     */
-    Timer.prototype.timers = [];
-    
-    /**
-     * Function starts pooling.
-     * @returns {undefined}
-     */
-    Timer.prototype.startPooling = function () {
-      if (!this.started) {
-        this.started = true;
-        this._pool();
-      }
-    };
-    
-    /**
-     * @private
-     * @returns {undefined}
-     */
-    Timer.prototype._pool = function () {
-      log.FINEST("Pooling in progress...");
-      this.callTimers();
-      if (this.timers.length !== 0) {
-        setTimeout(this._pool.bind(this), this._rate);
-      } else {
-        this.started = false;
-      }
-    };
-    
-    /**
-     * Worker clearing outdated timers. Used internally.
-     * May be also called to instantly validate timers.
-     * @returns {undefined}
-     */
-    Timer.prototype.callTimers = function () {
-      for (var i = 0; i < this.timers.length; i++) {
-        var timer = this.timers[i];
-        var stamp = new Date().valueOf();
-        if (stamp >= timer.time) {
-          log.FINEST("Executing timer with ID: " + timer.id);
-          log.FINEST(timer, true);
-          timer.execute();
-          this.timers.splice(i,1);
-          --i;
-        }
-      }
-    };
-    
-    /**
-     * Function setting maximum interval time for this instance clock.
-     * All setTiemout and setInterval will be no more often run than rate value.
-     * @param {Number} time ms
-     * @returns {undefined}
-     */
-    Timer.prototype.setRate = function (time) {
-      this._rate = time;
-    }
-    
-    var ids = 1;
-    /**
-     * Set timeout method.
-     * Run `call' function after minimum of `time` in miliseconds.
-     * @param {Function} call Function callback.
-     * @param {Number} time Tiemout value in miliseconds.
-     * @returns {unresolved}
-     */
-    Timer.prototype.setTimeout = function (call, time) {
-      var timer = {
-        id: ids++,
-        time: new Date().valueOf() + +time,
-        execute: call
-      };
-      this.timers.push(timer);
-      this.startPooling();
-      return timer;
-    };
-    
-    /**
-     * Set interval method.
-     * Run `call' function every minimum of `time` in miliseconds.
-     * @param {Function} call Function callback.
-     * @param {Number} time Interval value in miliseconds.
-     * @returns {unresolved}
-     */
-    Timer.prototype.setInterval = function (call, time) {
-      log.FINEST("Native wrapper");
-      return setInterval(call, time);
-    };
-
-    Utils.namespace("qubit.qtag.Timer", Timer); //singleton!
-})();
-
-
-
-
-(function(){
-    var Utils = qubit.qtag.Utils;
-    
-    /**
-     * Singleton instance of qubit.qtag.Timer class with default rate of 20ms.
-     * 
-     * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-     * @class qubit.qtag.Timed
-     * @singleton
-     * @static
-     * @extends qubit.qtag.Timer
-     */
-    function Timed(){}
-    
-    Utils.namespace("qubit.qtag.Timed", new qubit.qtag.Timer({
-      rate: 50
-    }));
-})();
-
-
-
-(function(){
-    var Utils = qubit.qtag.Utils;
-    var log = new qubit.qtag.Log("TagsUtils -> ");
-    
-    /**
-     * Singleton object used as static utility class.
-     * @singleton
-     * @class qubit.qtag.TagsUtils
-     */
-    var TagsUtils = {};
-    
-    TagsUtils.loadScript = function (config) {
-      
-      var loadingCheck = function (url, loadError, loadFailed) {
-        if (loadFailed) {
-          log.ERROR("Loading process error:");
-          log.ERROR(loadError, true);
-          config.onerror();
-        } else {
-          config.onsuccess();
-        }
-      };
-      
-      return q.html.fileLoader.load(
-        config.url,
-        false,//this.getTimerStarter(qTagLoader),
-        loadingCheck,//this.getTimerEnder(qTagLoader),
-        config.node,//qTagLoader.parentNode,
-        config.async//qTagLoader.async
-      );
-    };
-    
-    TagsUtils.CLASS_NAME = "TagsUtils";
-    TagsUtils.PACKAGE_NAME = "qubit.qtag";
-    
-    Utils.namespace("qubit.qtag.TagsUtils", TagsUtils);
-})();
-
-
-
-
-
-/*
- * Opentag, a tag deployment platform
- * Copyright 2011-2013, Qubit Group
- * http://opentag.qubitproducts.com
- */
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  var Tags = qubit.qtag.Tags;
-  var TagsUtils = qubit.qtag.TagsUtils;
-  var Timed = qubit.qtag.Timed;
-  var log = new qubit.qtag.Log("BaseTag -> ");
-
+  
   /**
-   * @class qubit.qtag.BaseTag
    * 
-   * Father class of any tag, it has properties and API shared by all tags.
-   * To check if object is a tag its instance must be compared to this class
-   * prototype.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @param {Object} config Please see properties for configuration options.
-   *  Each property can be set at initialization time via config object.
+   * @returns {undefined}
    */
-  function BaseTag(config) {
-    
-    //makes top class dependant.
-    this.log = new qubit.qtag.Log("", function () {
-      return this.CLASS_NAME + "[" + this.config.name + "]";
-    }.bind(this));
-    
-    this.config = {
-      /**
-       * Name of the tag. Note that Tag's name must be unique in container.
-       * Default value will be always set if not passed in:
-       * "Tag-" + new Date().valueOf()
-       * Always remember to use name for your Tags.
-       * @cfg name
-       * @type {String}
-       */
-      name: "Tag-" + new Date().valueOf(),
-      /**
-       * Should this tag be asynchronous?
-       * @cfg async
-       * @type Boolean
-       */
-      async: false,
-      /**
-       * Is this tag active?
-       * @cfg inactive
-       * @type Boolean
-       */
-      inactive: false,
-      /**
-       * Is this tag dedupe?
-       * @cfg dedupe
-       * @type Boolean
-       */
-      dedupe: false,
-      /**
-       * Is this script nominated as a using document.write method?
-       * @cfg usingWrite
-       * @type Boolean
-       */
-      usingWrite: false,
-      /**
-       * Does this tag has defined custom timeout value defined?
-       * @cfg timeout
-       * @type Number
-       */
-      timeout: this.DEFAULT_VARIABLE_TIMEOUT,
-      /**
-       * Package property indicates where this tag will reside
-       * (in what namespace). 
-       * @cfg dependencies
-       * @type Array array of qubit.qtag.BaseTag or String naming the scripts in
-       * container instance (logical names used).
-       */
-      dependencies: [],
-      /**
-       * Page variables mapping object, it should contain `String to String`
-       * or `String to Number` mappings only.
-       * @cfg 
-       */
-      pageVariables: {},
-      /**
-       * Package property indicates where this tag will reside
-       * (in what namespace). 
-       * @cfg package
-       * @type Object 
-       */
-      package: undefined,
-      /**
-       * If true, the tag can be instantiated only once.
-       * @cfg singleton
-       * @type Boolean
-       */
-      singleton: false
-    };
-    
-    /**
-     * Local filters of this tag.
-     * Use getFilters for fetching all filters applying to this tag.
-     * @private filters
-     * @property Array[qubit.qtag.]
-     */
-    this._filters = [];
-    
-    if (config) {
-      for (var prop in config) {
-        this.config[prop] = config[prop];
-      }
+  Container.prototype.reset = function () {
+    log.WARN("reseting container!");
+    this.runningFinished = undefined;
+    this._waitForAllTagsToFinishWaiting = undefined;
+    this.runningStarted = undefined;
+    this._showFinishedOnce = undefined;
+    this.resetAllTags();
+  };
+  
+  /*no-send*/
+  /**
+   * 
+   * @returns {undefined}
+   */
+  Container.prototype.sendPingsNotTooOften = function () {
+    this._sndLck = this._sndLck || {};
+    Timed.runIfNotScheduled(this.sendPings.bind(this), 2000, this._sndLck);
+  };
+  
+  /**
+   * Function sends pings.
+   */
+  Container.prototype.sendPings = function () {
+    if (this.isTellingLoadTimes) {
+      var results = this.getAllTagsByState();
+      var _this = this;
       
-      //if container is passed - register itself.
-      if (config.container) {
-        try {
-          config.container.registerTag(this);
-        } catch (ex) {
-          this.log.ERROR("Error while registering tag in container!");
-          this.log.ERROR(ex, true);
-          throw ex;
+      if (results.run) {
+        //send "just run" load times
+        var loadTimes = Tags.getLoadTimes(results.run);
+        this.log.INFO("sending standard load pings");
+        this.ping.send(this.config, loadTimes);
+      }
+    
+      //unfinished. said to be unused
+      this.ping.sendErrors(this.config, results.failed);
+      
+      /*session*/
+      if (results.awaiting) {
+        var loadTimes = Tags.getLoadTimes(results.awaiting);
+        var deduplicatedTagsToBeSent = [];
+        for (var i = 0; i < loadTimes.length; i++) {
+          (function (j) {
+            var tag = loadTimes[j].tag;
+            var after = tag.onAfter;
+
+            if (tag.config.dedupe) {
+              deduplicatedTagsToBeSent.push(loadTimes[j]);
+            }
+
+            tag.onAfter = function (success) {
+              after.call(tag, success);
+              _this.sendPingsNotTooOften();
+              if (success) {
+                tag.log.INFO("SENDING LOAD STATS");
+              }
+            };
+          }(i));
+        }
+
+        if (deduplicatedTagsToBeSent.length > 0) {
+          this.log.INFO("sending deduplication pings");
+          this.ping.sendDedupe(this.config, deduplicatedTagsToBeSent);
         }
       }
-      
-      try {
-        Tags.registerTag(this);
-      } catch (ex) {
-        // RETHINK THIS, it looks usefull but...
+      /*~session*/
+    }
+  };
+  /*~no-send*/
+  /**
+   * @static
+   * Function returns ordered tags by:
+   * - being executed (run)
+   * - being not executed (other)
+   * - being awaiting active, filter delayed etc. (awaiting)
+   * @returns {Object}
+   */
+  Container.prototype.getAllTagsByState = function () {
+    return Container.getAllTagsByState(this.tags);
+  };
+  
+  /**
+   * @static
+   * Function returns ordered tags by:
+   * - being executed (run)
+   * - being not executed (other)
+   * - being awaiting active, filter delayed etc. (awaiting)
+   * @param {qubit.opentag.BaseTag} tags to be used
+   * @returns {Object}
+   */
+  Container.getAllTagsByState = function (tags) {
+    var runScripts = null, other = null, filterReady = null, failed = null,
+            consent = null;
+    
+    var FILTERS_FAILED = BaseTag.prototype.STATUS.FILTERS_FAILED;
+    for (var prop in tags) {
+      var tag = tags[prop];
+      if (tag instanceof BaseTag) {
+        var name = tag.config.name;
+        if (tag.scriptExecuted > 0) {
+          runScripts = runScripts || {};
+          attachRenamedIfExist(runScripts, tag, name);
+        } else if (tag.scriptExecuted < 0 || tag.status > FILTERS_FAILED) {
+            failed = failed || {};
+            attachRenamedIfExist(failed, tag, name);
+        } else if (tag.filtersStatus() > 0) {
+          filterReady = filterReady || {};
+          attachRenamedIfExist(filterReady, tag, name);
+        } else if (tag.config.needsConsent) {
+            //consent needing unloaded
+            consent = consent || {};
+            attachRenamedIfExist(consent, tag, name);
+        } else {
+          other = other || {};
+          attachRenamedIfExist(other, tag, name);
+        }
       }
     }
+    
+    return {
+      run: runScripts,
+      failed: failed,
+      awaiting: filterReady,
+      consent: consent,
+      other: other
+    };
+  };
+  
+  var steps = {};
+  function attachRenamedIfExist(obj, src, name) {
+    if (obj[name]) {
+      steps[name] = steps[name] || 1;
+      name += "(" + steps[name] + ")";
+      steps[name]++;
+    }
+    obj[name] = src;
   }
   
   /**
-   *  Default timeout for page variables
-   * that this tag instance depends on.
-   * @property {Number} DEFAULT_VARIABLE_TIMEOUT
-   */
-  BaseTag.prototype.DEFAULT_VARIABLE_TIMEOUT = 5000;
-  
-  /**
-   *  Default timeout for script to load.
-   * @property {Number} DEFAULT_LOADING_TIMEOUT
-   */
-  BaseTag.prototype.DEFAULT_LOADING_TIMEOUT = 5 * 60 * 1000;
-  
-  /**
-   * Private method delegating script execution. It calls `this.
-   * @private
-   * @returns {undefined}
-   */
-  BaseTag.prototype._executeScript = function () {
-    this.log.INFO("executing main script...");
-    try {
-      this.script();
-      this.log.INFO("executed without errors.")
-    } catch (ex) {
-      this.log.INFO("error while executing: " + ex);
-      this.log.ERROR("There was and error while executing instance of tag: "
-              + this.CLASS_NAME + " from package: " + this.PACKAGE_NAME);
-      this.log.ERROR(ex, true);
-      throw ex;
-    } finally {
-      this.after();
-    }
-  };
-  
-  BaseTag.prototype.log = function () {};
-  
-  /**
-   * It gets ALL filters related to this tag in theirs order of load.
-   * @returns {Array}
-   */
-  BaseTag.prototype.getFilters = function () {
-    return [];
-  };
-  
-  /**
-   * Function will return true and only true when tag has started and finished
-   * its duty (it does not indicate if job was sucessful and main script was
-   * executed see `this.scriptExecuted` property).
-   * @return {Boolean} 
-   */
-  BaseTag.prototype.finished = function () {
-    return !!this.runIsFinished;
-  };
-  
-  /**
-   * Executing function as a tag exit point. If all parameters exist and all
-   * fileters are passed this function will be called in order to execute
-   * the tag. See also see `before` and `after` functions
-   * @returns {undefined}
-   */
-  BaseTag.prototype.script = function () {
-    this.log.WARN("Tag has empty script().");
-  };
-  
-  /**
-   * Callback triggered always before loading tag.
-   * Can be called only once, any repeated calls will have no effect.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.before = function () {
-    if (this.beforeRun) {
-      return;
-    }
-    this.beforeRun = true;
-  };
-  
-  /**
-   * Callback triggered always after loading - if succesful.
-   * Can be called only once, any repeated calls will have no effect.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.after = function () {
-    if (this.afterRun) {
-      return;
-    }
-    this.afterRun = true;
-  };
-  
-  /**
-   * Function used to run a tag. It is a wrapper around run function, before
-   * running the tag, it does check on filters with `filtersPassed`.
-   * Note that run triggers entire process for loading dependencies and the
-   * tag if url based.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.runIfFiltersPass = function () {
-    if (this.filtersPassed()) {
-      this.setStatus(BaseTag.STATUS.STARTED);
-      this.run();
-    } else {
-      this.setStatus(BaseTag.STATUS.FILTERS_FAILED);
-    }
-  };
-  
-  /**
-   * Starting point for loading tag. Tags can often contain resources that have
-   * to be fetched and this function initialises such processes where it is 
-   * necessary. This function can be called only once, after that, each call
-   * will be ignored.
-   * If there is no dependencies to load, script will be invoked immediately.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.run = function () {
-    /**
-     * Indicates ONLY if run method has finished it's job.
-     * It DOES NOT indicate if run job was not started.
-     * @property 
-     */
-    this.runIsFinished = true;
-    try {
-      //once only run, no protection needed
-      this.before();
-    } catch (ex) {
-      this.log.ERROR(ex, true);
-      throw ex;//? we throw?
-    }
-    
-    //once only run, no protection needed
-    this.load();
-    
-    if (this.loadedDependencies) {
-      this.log.INFO("tag is loaded, starting execution");
-      if (!this._urlLoadTriggered && this.config.url) {
-        this._urlLoadTriggered = true;
-        this.log.INFO("tag has url option set to: " +
-                 this.config.url);//L
-        this.log.INFO("loading the url and delaying execution till url is loaded");
-        this.loadURL();
-      }
-      
-      if (!this.loadURLNotFinished) {
-        this.log.INFO("tag is ready to execute main script...")
-        if (this.scriptLoadingFailed) {
-          this.log.ERROR("script URL dependency FAILED to load execution");
-          this.scriptExecuted = -(new Date().valueOf());
-          this.setStatus(BaseTag.STATUS.FAILED_TO_EXECUTE);
-        } else {
-          this.scriptExecuted = new Date().valueOf();
-          this.setStatus(BaseTag.STATUS.EXECUTED);
-          this._executeScript();
-        }
-      } else {
-        this.runIsFinished = false;
-      } 
-    } else if (!this.loadingDependenciesFailed) {
-      this.runIsFinished = false;
-    }
-    
-    if (!this.runIsFinished) {
-      Timed.setTimeout(this.run.bind(this), 80);
-    } else {
-      this.log.WARN("* POOLING DONE CHECK * POOLING DONE CHECK * POOLING DONE CHECK *");
-    }
-  };
-  
-  /**
-   * Status properties used as a tag LED interface. Do not use it for internal
-   * checks. This is quite usefull metric ordered status indicator.
    * 
-   * consider this example:
-   * 
-   * 
-   *    this.status > BaseTag.STATUS.FAILED_TO_LOAD_DEPENDENCIES
-   *    
-   * It translates to script being fully loaded with dependenciess and passed 
-   * filters, but unfortune to have url script loading problems or final script 
-   * execution itself.
-   * 
-   * This is very useful when creating automated debugging tools.
-   * 
-   * @class qubit.qtag.BaseTag.STATUS
-   */
-  BaseTag.STATUS = {
-    INITIAL: 0,
-    FILTERS_FAILED: 1,
-    STARTED: 2,
-    LOADING_DEPENDENCIES: 4,
-    LOADED_DEPENDENCIES: 8,
-    LOADING_URL: 16,
-    LOADED_URL: 32,
-    EXECUTED: 64,
-    FAILED_TO_LOAD_DEPENDENCIES: 128,
-    FAILED_TO_LOAD_URL: 256,
-    FAILED_TO_EXECUTE: 512
-  };
-  
-  BaseTag.prototype.setStatus = function (status) {
-    this.status = (this.status | status);
-  };
-  
-  
-  /**
-   * Property representing binary table with this tag's status
-   * @property {BaseTag.STATUS} status
-   */
-  BaseTag.prototype.status = BaseTag.STATUS.INITIAL;
-  
-  /**
-   * This is anonymous function that is good to be known if more
-   * knowledge on how tag are loaded is necessary.
-   * This function is directly used by `this.load()`
-   * It is not avaialble on object's instance.
-   * @private
-   */
-  function waitForDependencies() {
-    /**
-     * It indicates ONLY if waitForDependencies has finished it's job - NOT
-     * if started.
-     * @property
-     * @type Boolean
-     */
-    this.waitForDependenciesFinished = true;
-    if (this.dependenciesLoaded()) {
-      /**
-       * @property {Number} loaded Property telling if and when all loading
-       * has been finished.
-       */
-      this.loadedDependencies = new Date().valueOf();
-      this.onLoadSuccess();
-    } else {
-      if (this.loadingIsTimedOut()) {
-        this.log.ERROR("timed out while loading dependencies for tag: ");
-        this.loadingDependenciesFailed = new Date().valueOf();
-        this.onLoadError();
-      } else {
-        //wait for dependencies, no matter what.
-        //@TODO let it be done by a nicer tool... single timeout processor
-        this.waitForDependenciesFinished = false;
-        Timed.setTimeout(waitForDependencies.bind(this), 75);
-      }
-    }
-    if (!this.waitForDependenciesFinished) {
-      this.log.INFO("Waiting for dependencies has been finished.");//L
-    }
-  };
-  
-  /**
-   * Checker indicating if all dependencies are satisfied.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.dependenciesLoaded = function () {
-    return true;
-  };
-  
-  /**
-   * Method indicating if loading is timed out.
    * @returns {Boolean}
    */
-  BaseTag.prototype.loadingIsTimedOut = function () {
-    return (new Date().valueOf() - this.loadStarted) > 
-            this.config.timeout;
-  };
-  
-  /**
-   * Function used as a worker for processing tag's dependencies and
-   * loading them. It is a looping trigger to call "load" on dependencies.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.loadDependencies = function () {
-    var deps = this.getDependencies();
-    for (var i = 0; i < deps.length; i++) {
-      deps[i].load();
-    }
-  };
-  
-  /**
-   * @event
-   * If there is any loading error, Tag SDK will call this function with the
-   * error as a parameter. Override wherever necessary.
-   * @param {String} error Error string.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.onLoadError = function (error) {
-    //empty
-  };
-  
-  /**
-   * @event
-   * Run when the tag script is loaded (not dependencies.)
-   * @returns {undefined}
-   */
-  BaseTag.prototype.onScriptLoadSuccess = function () {
-    
-  };
-  
-  /**
-   * 
-   * @returns {undefined}
-   */
-  BaseTag.prototype.onScriptLoadError = function (error) {
-    
-  };
-  
-  /**
-   * @event
-   * Triggered when tag is fully loaded, together with dependencies.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.onLoadSuccess = function () {
-  };
-  
-  /**
-   * Dependencies getter function. Normally dependencies are expected to be a
-   * list of script names in current container or instances references.
-   * 
-   * @returns {undefined}
-   */
-  BaseTag.prototype.getDependencies = function () {
-    throw "implement getting dependencies!";
-  };
-  
-  /**
-   * Function used to load this tag itself and its dependencies.
-   * Can be run only once. `load` function is an entry point for any process 
-   * leading to run/execute the tag.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.load = function () {
-    
-    if (this.loadStarted) {
-      return;
-    }
-    
-    this.setStatus(BaseTag.STATUS.LOADING_DEPENDENCIES);
-    
-    this.log.INFO("Load started.");
-    
-    try {
-      /**
-       * @property {Number} loadStarted Timestamp telling when loading process has
-       * started.
-       */
-      this.loadStarted = new Date().valueOf();
-      this.loadDependencies();
-    } catch (ex) {
-      this.log.ERROR("load(): unexpected exception occured: " + ex);
-    }
-    
-    waitForDependencies.call(this);
-  };
-  
-  /**
-   * Script URL loader. A private method,
-   * created for BaseTag to load script.
-   * @param {Function} optional callback
-   * @param {String} url, overriding URL to use
-   * @returns {undefined}
-   */
-  BaseTag.prototype.loadURL = function (callback, url) {
-    var passedUrl = url || this.config.url;
-    this.loadURLNotFinished = true;
-    this.setStatus(BaseTag.STATUS.LOADING_URL);
-    try {
-      TagsUtils.loadScript({
-        onsuccess: function () {
-          this.log.INFO("succesfully loaded " + passedUrl);
-          this.setStatus(BaseTag.STATUS.LOADED_URL);
-          this.loadURLNotFinished = false;
-          this.urlLoaded = new Date().valueOf();
-          try {
-            if (callback) {
-              callback(true);
-            }
-          } finally {
-            this.onScriptLoadSuccess();
+  Container.prototype.allTagsFinished = function () {
+    for(var prop in this.tags) {
+      if (this.tags.hasOwnProperty(prop)) {
+        var tag = this.tags[prop];
+        if (tag instanceof qubit.opentag.BaseTag) {
+          //tag.filtersStatus() < 0 === filters are passed
+          // === 0 FAILED
+          // > 0 filter is awaiting
+          if (tag.filtersStatus() < 0 && !tag.finished()) {
+            return false;
           }
-        }.bind(this),
-        onerror: function () {
-          this.log.ERROR("error loading " + passedUrl);
-          this.setStatus(BaseTag.STATUS.FAILED_TO_LOAD_URL);
-          this.loadURLNotFinished = false;
-          this.urlLoaded = -new Date().valueOf();
-          try{
-            this.scriptLoadingFailed = true;
-            if (callback) {
-              callback(false);
-            }
-          } finally {
-            this.onScriptLoadError();
-          }
-        }.bind(this),
-        url: passedUrl,
-        node: this.config.urlLocation || document.body,
-        async: this.config.async
-      });
-    } catch (ex) {
-      this.loadURLNotFinished = false;
+        }
+      }
     }
-  };
-  
-  /**
-   * Entry method used to check if all filters used by this tag are passed.
-   * BaseTag searches for filters in this.config.**package**.filters location.
-   * The location should indicate all filters used by this tag.
-   * The **package* config property is a crucial tags property used to
-   * configure antiore tags.
-   * @returns {undefined}
-   */
-  BaseTag.prototype.filtersPassed = function () {
-    //get filters!
-    
-    //order them
-    //loop and execute - MATCH
-    // if all passed return TRUE
     return true;
   };
   
   /**
-   * Adding filter function.
-   * @param {qubit.qtag.filter.BaseFilter}
-   * @returns {undefined}
+   * 
+   * @param {type} configs
    */
-  BaseTag.prototype.addFilter = function (filter) {
-    throw "add filters!"
+  Container.prototype.addPageVariables = function (configs) {
+    for (var i = 0; i < configs.length; i++) {
+      if (configs[i] instanceof BaseVariable) {
+        this.pageVariables.push(configs[i]);
+      } else {
+        this.pageVariables.push(new BaseVariable(configs[i]));
+      }
+    }
   };
+  
+  
   
   /**
-   * Function getting script parameter value by token name.
-   * 
-   * [See parameters guide for more details](#!/guide/defining_parameter)
-   * 
-   * @param {String} name Token name used to search for value.
-   * @returns {undefined}
+   * Gets this container related page variables.
+   * @returns {Array}
    */
-  BaseTag.prototype.getParameterByTokenName = function (name) {
-    throw "add implementation!"
+  Container.prototype.getPageVariables = function () {
+  var vars = [];
+  for (var prop in this.tags) {
+    if (this.tags.hasOwnProperty(prop)) {
+      var tVars = this.tags[prop].getPageVariables();
+      for (var i = 0; i < tVars.length; i++) {
+        Utils.addToArrayIfNotExist(vars, tVars[i]);
+      }
+    }
+  }
+    return vars;
   };
-  
+
   /**
-   * Removing filter function.
-   * @param {qubit.qtag.filter.BaseFilter}
-   * @returns {undefined}
+   * Function used to get all containers page variables instances having the 
+   * name as specified.
+   * 
+   * @param {String} name token name that identifies the variable.
+   * @return {qubit.opentag.pagevariable.BaseVariable} 
+   *            object qubit.opentag.pagevariable.BaseVariable instance. 
    */
-  BaseTag.prototype.removeFilter = function (filter) {
-    throw "add filters!"
+  Container.getPageVariableByName = function (name) {
+    var vars = this.getAllPageVariables();
+    var rets = [];
+    for (var i = 0; i < vars.length; i++) {
+      if (vars[i].config.name === name) {
+        rets.push(vars[i]);
+      }
+    }
+    return rets;
   };
   
-  Utils.namespace("qubit.qtag.BaseTag", BaseTag);
-}());
+  Container.prototype.CLASS_NAME = "Container";
+  Container.prototype.PACKAGE_NAME = "qubit.opentag";
+
+  Utils.namespace("qubit.opentag.Container", Container);
+})();
 
 
 
 (function () {
-  var Utils = qubit.qtag.Utils;
-  var log = new qubit.qtag.Log("LibraryTag -> ");
+  var Utils = qubit.opentag.Utils;
+  var log = new qubit.opentag.Log("LibraryTag -> ");
   
   /**
    * ## Library tag instance class.
@@ -4833,23 +6171,45 @@ global.NAMESPACE = global;
    * 
    * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
-   * @class qubit.qtag.LibraryTag
-   * @extends qubit.qtag.BaseTag
-   * @param {Object} config
+   * @class qubit.opentag.LibraryTag
+   * @extends qubit.opentag.BaseTag
+   * @param config {Object} config object used to build instance
    */
   function LibraryTag(config) {
-    LibraryTag.superclass.apply(this, arguments);
+    
+    Utils.setIfUnset(config, LibraryTag.defaultConfig);
+    
+    LibraryTag.superclass.call(this, config);
+    if (config) {
+      if (config.pre) {
+        if (typeof(config.pre) === "function") {
+          this.pre = this.config.pre;
+        } else {
+          var expr = this.replaceTokensWithValues(String(this.config.pre));
+          this.pre = Utils.expressionToFunction(expr);
+        }
+      }
+      
+      if (config.post) {
+        if (typeof(config.post) === "function") {
+          this.post = this.config.post;
+        } else {
+          var expr = this.replaceTokensWithValues(String(this.config.post));
+          this.post = Utils.expressionToFunction(expr);
+        }
+      }
+    }
   }
   
-  LibraryTag.superclass = qubit.qtag.BaseTag;
+  LibraryTag.superclass = qubit.opentag.BaseTag;
   LibraryTag.prototype = new LibraryTag.superclass();
   LibraryTag.prototype.CLASS_NAME = "LibraryTag";
-  LibraryTag.prototype.PACKAGE_NAME = "qubit.qtag";
+  LibraryTag.prototype.PACKAGE_NAME = "qubit.opentag";
   
   /**
    * @property {Object}
    */
-  LibraryTag.prototype.config = {
+  LibraryTag.defaultConfig = {
     /*DATA*/
     /**
      * Optional, vendor's name.
@@ -4857,7 +6217,7 @@ global.NAMESPACE = global;
      */
     vendor: null,
     /**
-     * Optional, image URL for library tag logo icon.
+     * Optional, image URL for library tag this.log. icon.
      * Image should be an 64x64 pixel sized.
      * @cfg {String} [imageUrl=null]
      */
@@ -4894,7 +6254,7 @@ global.NAMESPACE = global;
    * @event 
    */
   LibraryTag.prototype.pre = function () {
-    
+    this.log.FINEST("emtpy pre called");
   };
   
   /**
@@ -4902,428 +6262,743 @@ global.NAMESPACE = global;
    * @event
    */
   LibraryTag.prototype.post = function () {
-    
+    this.log.FINEST("emtpy post called");
   };
   
   /**
    * Callback triggered always before loading tag.
    * Can be called only once, any repeated calls will have no effect.
-   * @returns {undefined}
    */
   LibraryTag.prototype.before = function () {
-    if (this.beforeRun) {
-      return;
-    }
-    this.beforeRun = true;
-    log.INFO("Running PRE script execution...");
+    LibraryTag.superclass.prototype.before.call(this);
+    this.log.INFO("Running PRE script execution...");
     try {
       this.pre();
     } catch (ex) {
-      log.ERROR(this.config.name + "exception while running pre: " + ex);
+      this.log.ERROR(this.config.name + " exception while running pre: " + ex);
     }
   };
   
   /**
    * Callback triggered always before loading tag.
    * Can be called only once, any repeated calls will have no effect.
-   * @returns {undefined}
+   * @param success if tag execution was successful
    */
-  LibraryTag.prototype.after = function () {
-    if (this.afterRun) {
-      return;
-    }
-    this.afterRun = true;
-    log.INFO("Running POST script execution...");
+  LibraryTag.prototype.after = function (success) {
+    LibraryTag.superclass.prototype.after.call(this, success);
+    this.log.INFO("Running POST script execution...");
     try {
       this.post();
     } catch (ex) {
-      log.ERROR(this.config.name + "exception while running pre: " + ex);
+      this.log.ERROR(this.config.name + " exception while running pre: " + ex);
     }
   };
   
   
   /**
    * Utils.defineClass wrapper for LibraryTag.
-   * It has same effect as:
-   * 
-   * 
-   *    qubit.qtag.Utils.defineClass(config, namespace, qubit.qtag.LibraryTag);
    * @static
    * @param {String} namespace full class name (with package) 
-   * @param {String} config prototype config
+   * @param {String} libConfig prototype config
    * @return {Function} reference to extended class
    */
-  LibraryTag.define = function (namespace, config) {
+  LibraryTag.define = function (namespace, libConfig) {
+    
     //config must be set in runtime - for each instance
-    var clazzConfig = config.config;
-    var constr = config.CONSTRUCTOR;
-    config.config = undefined;
-    config.CONSTRUCTOR = function () {
-      for(var prop in clazzConfig) {
-        this.config[prop] = clazzConfig[prop];
-        if (constr) {
-          constr.apply(this, arguments);
+    var libraryDefaultConfig = libConfig.config;
+    var constr = libConfig.CONSTRUCTOR;
+    
+    //prepare new config that does not override .config object in Library class
+    var prototypeTemplate = {};
+   
+    for (var prop in libConfig) {
+      if (prop !== "config") {
+        prototypeTemplate[prop] = libConfig[prop];
+      }
+    }
+    
+    //add new constructor
+    prototypeTemplate.CONSTRUCTOR = function (cfg) {
+      //update instance properties for new defaults
+      cfg = cfg || {};
+      for(var prop in libraryDefaultConfig) {
+        if (!cfg.hasOwnProperty(prop)) {
+          cfg[prop] = libraryDefaultConfig[prop];
         }
       }
+      //run library standard constructor
+      qubit.opentag.LibraryTag.call(this, cfg);
+      //any additional constructor? run it.
+      if (constr) {
+          constr.apply(this, arguments);
+      }
     };
-    var ret = qubit.qtag.Utils.defineClass(config, namespace, LibraryTag);
+    
+    var ret = qubit.opentag.Utils
+            .defineClass(prototypeTemplate, namespace, LibraryTag);
+    
     //register them also in qubit scope.
-    Utils.namespace("qubit.qtag.libraries." + namespace, ret);
+    Utils.namespace("qubit.opentag.libraries." + namespace, ret);
     return ret;
   };
   
-  Utils.namespace("qubit.qtag.LibraryTag", LibraryTag);
+  Utils.namespace("qubit.opentag.LibraryTag", LibraryTag);
 }());
 
 
-(function(){
-  var Utils = qubit.qtag.Utils;
-  var log = new qubit.qtag.Log("ConsentCookie: ");
-
+(function () {
+  var Utils = qubit.opentag.Utils;
+  
   /**
-   * ConsentCookie class
-   * It is responsible for rendering and processing any cookie consent on
-   * a page.
+   * PatternType static class.
    * 
    * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
-   * @class qubit.qtag.consent.ConsentCookie
+   * @class qubit.opentag.filter.pattern.PatternType
+   * @singleton
+   * @type type
    */
-  function ConsentCookie (config) {
-    this.config = {
-      /**
-       * @cfg {ConsentCookie.MODES} [mode=ConsentCookie.MODES.notification]
-       * Cookie consent mode.
-       */
-      mode: ConsentCookie.MODES.notification,
-      /**
-       * @cfg {Number} [askAgain=2 * 60 * 1000]
-       * Ask again time setting.
-       */
-      askAgain: 2 * 60 * 1000,
-      /**
-       * @cfg {Number} [sampleRate=100]
-       * Sample rate percentage.
-       */
-      sampleRate: 100,
-      /**
-       * @cfg {String} 
-       * [cookieAndPrivacyPolicyText="privacy and cookies policy"]
-       * Cookie and privacy polict text.
-       */
-      cookieAndPrivacyPolicyText: "privacy and cookies policy",
-      /**
-       * @cfg {String} 
-       * [cookieAndPrivacyPolicyLink="http://www.yoursite.com/privacy"]
-       * Cookieand privacy policy link.
-       */
-      cookieAndPrivacyPolicyLink: "http://www.yoursite.com/privacy",
-      /**
-       * @cfg {Boolean} 
-       * [hideStatusOnConsentGiven=true]
-       * Should it hide status on consent given.
-       */
-      hideStatusOnConsentGiven: true
-    };
+  var PatternType = {
+    /**
+     * @property {Object} CONTAINS
+     */
+    CONTAINS: "Contains",
+    /**
+     * @property {Object} MATCHES_EXACTLY
+     */
+    MATCHES_EXACTLY: "Matches Exactly",
+    /**
+     * @property {Object} STARTS_WITH
+     */
+    STARTS_WITH: "Starts with",
+    /**
+     * @property {Object} ENDS_WITH
+     */
+    ENDS_WITH: "Ends with",
+    /**
+     * @property {Object} REGULAR_EXPRESSION
+     */
+    REGULAR_EXPRESSION: "Regular Expression",
+    /**
+     * @property {Object} ALL_URLS
+     */
+    ALL_URLS: "All URLs"
+  };
+  
+  Utils.namespace("qubit.opentag.filter.pattern.PatternType", PatternType);
+}());
 
+
+
+
+
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var BaseFilter = qubit.opentag.filter.BaseFilter;
+  var Timed = qubit.opentag.Timed;
+  var PatternType = qubit.opentag.filter.pattern.PatternType;
+  
+  var log = new qubit.opentag.Log("URLFilter -> ");
+  
+  /**
+   * URLFilter filter type.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.filter.URLFilter
+   * @extends qubit.opentag.filter.BaseFilter
+   * @param config {Object} config object used to build instance
+   */
+  function URLFilter(config) {
+    this._lockObject = {};
+    var defaultConfig = {
+      /**
+       * Pattern type. See qubit.opentag.filter.pattern.PatternType for more 
+       * choices. Defaults to PatternType.CONTAINS.
+       * @cfg {String}
+       */
+      patternType: PatternType.CONTAINS,
+      /**
+       * URL pattern that this filter will match
+       * @cfg {String}
+       */
+      pattern: ""
+    };
+    
     if (config) {
       for(var prop in config) {
+        if (config.hasOwnProperty(prop)) {
+          defaultConfig[prop] = config[prop];
+        }
+      }
+    }
+    
+    URLFilter.superclass.call(this, defaultConfig);
+
+    this.log = log;//L
+  }
+  
+  URLFilter.superclass = BaseFilter;
+  URLFilter.prototype = new URLFilter.superclass();
+  URLFilter.prototype.CLASS_NAME = "URLFilter";
+  URLFilter.prototype.PACKAGE_NAME = "qubit.opentag.filter";
+  
+  /**
+   * 
+   * @returns {unresolved}
+   */
+  URLFilter.prototype.match = function () {
+    var url = Utils.getUrl();
+    var match = null;
+    var pattern = this.config.pattern;
+    
+    switch (this.config.patternType) {
+      case PatternType.CONTAINS:
+        match = url.toLowerCase().match(pattern.toLowerCase());
+        break;
+      case PatternType.MATCHES_EXACTLY:
+        match = (url.toLowerCase() === this.config.pattern.toLowerCase());
+        break;
+      case PatternType.STARTS_WITH:
+        match = (url.toLowerCase().indexOf(pattern.toLowerCase()) === 0);
+        break;
+      case PatternType.ENDS_WITH:
+        match = ((url.lastIndexOf(pattern.toLowerCase()) + pattern.length) ===
+                   url.length);
+        break;
+      case PatternType.REGULAR_EXPRESSION:
+        match = new RegExp(pattern).test(url);
+        break;
+      case PatternType.ALL_URLS:
+        match = true;
+        break;
+    }
+    /*log*/
+    Timed.maxFrequent(function() {
+      this.log.FINEST("[ Filter " + this.config.name +
+              "] Checking if patternType '" +//L
+              this.config.patternType + "' match '" +//L
+              pattern + "' pattern: " +//L
+              (match ? ("Yes -> " + match) : "No") +//L
+              ", include: " + (this.config.include));//L
+    }.bind(this), 1000, this._lockObject);
+    /*~log*/
+    return match !== null;
+  };
+  
+  Utils.namespace("qubit.opentag.filter.URLFilter", URLFilter);
+}());
+
+
+
+var counter = 0;
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var BaseFilter = qubit.opentag.filter.BaseFilter;
+  var log = new qubit.opentag.Log("SessionVariable -> ");
+
+  /**
+   * SessionVariable filter type.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.filter.SessionVariableFilter
+   * @extends qubit.opentag.filter.BaseFilter
+   * @param config {Object} config object used to build instance
+   */
+  function SessionVariableFilter(config) {
+    var defaultConfig = {
+      /**
+       * @TODO: Review those custom "starters" - conceptually its incorrect.
+       * @cfg {Function}
+       * @param {type} session
+       * @param {type} cb
+       */
+      customStarter: this._customStarter,
+      /**
+       * @cfg {Function}
+       * @param {type} session
+       * @returns {Boolean}
+       */
+      customScript: function (session) {return true;},
+      /**
+       * Filter instance can be reused by other tags, if so, once custom starter
+       * runs, all status queries will immediately pass custom starter level and
+       * customScript will be used by default.
+       * Default: true, reset filter each time after being triggered 
+       * (customstarter).
+       * @cfg {Boolean}
+       */
+      reuse: true
+    };
+    
+    /**
+     * qubit.opentag.Session session object - if attached.
+     * @property {qubit.opentag.Session} session
+     */
+    this.session = null;
+    
+    if (config) {
+      for(var prop in config) {
+        if (config.hasOwnProperty(prop)) {
+          defaultConfig[prop] = config[prop];
+        }
+      }
+    }
+    
+    SessionVariableFilter.superclass.call(this, defaultConfig);
+    this.log = log;//L
+  }
+  
+  SessionVariableFilter.superclass = BaseFilter;
+  SessionVariableFilter.prototype = new SessionVariableFilter.superclass();
+  SessionVariableFilter.prototype.CLASS_NAME = "SessionVariableFilter";
+  SessionVariableFilter.prototype.PACKAGE_NAME = "qubit.opentag.filter";
+  
+  /**
+   * @private
+   * Custom starter interface - compatibility with old QTag
+   * @param {type} session
+   * @param {type} ready
+   * @returns {undefined}
+   */
+  SessionVariableFilter.prototype._customStarter = function(session, ready) {
+    ready();
+  };
+  
+  /**
+   * @private
+   * @returns {STATUS}
+   */
+  SessionVariableFilter.prototype._customScriptResponse = function () {
+    var filterPassed = false;
+    
+    try {
+      filterPassed = this.config.customScript(this.session);
+    } catch (ex) {
+      this.log.ERROR("error running custom script: " + ex);
+    }
+    
+    if (filterPassed) {
+      return BaseFilter.status.PASS;
+    } else {
+      return BaseFilter.status.FAIL;
+    }
+  };
+  
+  /**
+   * Filter function.
+   * @param {qubit.opentag.Session} session optional session
+   */
+  SessionVariableFilter.prototype.getStatus = function (session) {
+    this.session = session;
+    var pass = SessionVariableFilter.superclass.prototype.getStatus.call(this);
+    
+    if (pass === BaseFilter.status.PASS) {
+      var runFilterWhenReady = this.config.customStarter || this._customStarter;
+      if (runFilterWhenReady) {
+        //trigger "customStarter", only once
+        if (!this._runFilterWhenReadyRun) {
+          this._runFilterWhenReadyRun = true;
+          //filter WILL wait till this.ready is marked
+          //this is compatibility layer for opentag filters
+          this.ready = false;
+          runFilterWhenReady(this.session, function () {
+            this.ready = true;
+          }.bind(this));
+        }
+        
+        if (this.ready) {
+          //reset starter - disabled
+          if (!this.config.reuse) {
+            this._runFilterWhenReadyRun = false;
+          }
+          pass = this._customScriptResponse();
+        } else {
+          pass = 100; //whoever calls, test me again in 100ms!
+        }
+      }
+    }
+  
+    return pass;
+  };
+  
+  SessionVariableFilter.prototype.reset = function () {
+    SessionVariableFilter.superclass.prototype.reset.call(this);
+    this._runFilterWhenReadyRun = undefined;
+  };
+  
+  Utils.namespace("qubit.opentag.filter.SessionVariableFilter",
+    SessionVariableFilter);
+}());
+
+
+
+
+
+
+
+
+
+
+
+
+(function() {
+  var Utils = qubit.opentag.Utils;
+  var PatternType = qubit.opentag.filter.pattern.PatternType;
+  var URLFilter = qubit.opentag.filter.URLFilter;
+  var SessionVariableFilter = qubit.opentag.filter.SessionVariableFilter;
+  var LibraryTag = qubit.opentag.LibraryTag;
+  var DOMText = qubit.opentag.pagevariable.DOMText;
+  var URLQuery = qubit.opentag.pagevariable.URLQuery;
+  var Cookie = qubit.opentag.pagevariable.Cookie;
+  var Expression = qubit.opentag.pagevariable.Expression;
+  
+  var log = new qubit.opentag.Log("OldTagRunner -> ");
+  
+  /**
+   * @class qubit.opentag.OldTagRunner
+   * @param config {Object} config object used to build instance
+   */
+  function OldTagRunner(config) {
+    log.INFO("init, config passed:");
+    log.INFO(config, true);
+    this.config = {
+      filters: [],
+      profileName: "",
+      qTagClientId: "",
+      pageVars: {},
+      scriptLoaders: {},
+      tellLoadTimesProbability: 0,
+      pingServerUrl: "",
+      qtag_domain: "",
+      delayDocWrite: false,
+      maxCookieLength: 3000,
+      containerName: ""
+    };
+
+    /*session*/
+    this.config.qtag_track_session = true;
+    /*~session*/
+
+    for (var prop in config) {
+      if (config.hasOwnProperty(prop)) {
         this.config[prop] = config[prop];
       }
     }
   }
-
-  ConsentCookie.prototype.CLASS_NAME = "ConsentCookie";
-  ConsentCookie.prototype.PACKAGE_NAME = "qubit.qtag.consent";
-
+  
   /**
-   * Modes.
-   * @class qubit.qtag.consent.ConsentCookie.MODES
-   * @static
-   * @singleton
-   * Code:
-   
-      ConsentCookie.MODES = {
-        notification: "Notification Only",
-        implicit: "Implicit consent",
-        explicit: "Explicit Consent"
+   * old configuration runner. 
+   */
+  OldTagRunner.prototype.run = function() {
+    if (!this._run) {
+      this._run = new Date().valueOf();
+      log.FINE("entering run");
+      this.container = new qubit.opentag.Container({
+        cookieDomain: this.config.qtag_domain,
+        maxCookieLength: this.config.maxCookieLength,
+        delayDocWrite: this.config.delayDocWrite,
+        gzip: true,
+        clientId: this.config.qTagClientId,
+        containerId: this.config.profileName,
+        name: this.config.containerName,
+        tellLoadTimesProbability: this.config.tellLoadTimesProbability,
+        pingServerUrl: this.config.pingServerUrl,
+        trackSession: this.config.qtag_track_session
+      });
+      var tags = this.getTags();
+      this.container.registerTags(tags);
+      this.container.run();
+    }
+  };
+
+  OldTagRunner.prototype.getTags = function () {
+    var filters = this.config.filters;
+    var tagDefinitions = this.config.scriptLoaders;
+    var pageVars = this.config.pageVars;
+
+    var tags = [];
+
+    for (var prop in tagDefinitions) {
+      if (tagDefinitions.hasOwnProperty(prop)) {
+        
+        var loader = tagDefinitions[prop];
+        //property is at same time tag's ID used elsewhere
+        
+        //collect filters for tag
+        var filterDefinitions = findFilters(filters, prop);
+        //collect parameters
+        var parameterDefinitions = findParameters(loader, pageVars);
+        
+        //@TODO must decide here! if custom!
+        // create instance
+        
+        var location = "";
+        if (loader.loactionId === 1) {
+          location = "head";
+        } else if (loader.loactionId === 2) {
+          location = "body";
+        } else if (loader.loactionId === 3){
+          location = loader.locationDetail;
+        }
+        
+        var cfg = {
+          name: loader.name,
+          filters: filterDefinitions,
+          parameters: parameterDefinitions,
+          ID: loader.id,
+          url: loader.url,
+          html: loader.html,
+          locationPlaceHolder: ((+loader.positionId) === 1),
+          locationObject: location,
+          async: loader.async,
+          needsConsent: loader.needsConsent,
+          usesDocWrite: loader.usesDocWrite,
+          genericDependencies: loader.genericDependencies
+        };
+        
+        //these strings could contain tokens and may not be valid strings
+        if (typeof(loader.pre) === "string") {
+          cfg.pre = loader.pre;
+        }
+        if (typeof(loader.post) === "string") {
+          cfg.post = loader.post;
+        }
+        
+        var tag = new LibraryTag(cfg);
+        
+        //those mean there is real library definition p-assed
+        if (loader.script) {
+          if (typeof(loader.script) === "function") {
+            tag.script = loader.script;
+          } else {
+            tag.script = Utils.expressionToFunction(loader.script);
+          }
+        }
+        if (typeof(loader.pre) === "function") {
+          tag.pre = loader.pre;
+        }
+        if (typeof(loader.post) === "function") {
+          tag.post = loader.post;
+        }
+        
+        //attach to original "loader" array to pick it at dependencies check
+        tagDefinitions[prop].instance = tag;
+        
+        //add the tag
+        tags.push(tag);
       }
-   */
-  ConsentCookie.MODES = {
-    notification: "Notification Only",
-    implicit: "Implicit consent",
-    explicit: "Explicit Consent"
+    }
+    
+    //all tags ready, finally, attach dependencies (defined by IDs here)
+    for (var prop in tagDefinitions) {
+      if (tagDefinitions.hasOwnProperty(prop)) {
+        var dependencies = [];
+        var loader = tagDefinitions[prop];
+        if (loader.dependencies) {
+          for (var j = 0; j < loader.dependencies.length; j++) {
+            var tagId = loader.dependencies[j];
+            var dependency = tagDefinitions[tagId].instance;
+            dependencies.push(dependency);
+          }
+          var tag = loader.instance;
+          tag.dependencies = dependencies.concat(tag.dependencies);
+        }
+      }
+    }
+    return tags;
   };
 
+
+
+  var V_JS_VALUE = "2";
+  var V_QUERY_PARAM = "3";
+  var V_COOKIE_VALUE = "4";
+  var V_ELEMENT_VALUE = "5";
   /**
-   * Notification widget HTML & CSS fragments
-   * @class qubit.qtag.consent.ConsentCookie.NOTIFICATION_WIDGET
-   * @static
-   * @singleton
+   * Finds parameters for "loader" and attaches its variables.
+   * 
+   * @param {type} loader
+   * @param {type} variables
+   * @returns {Array}
    */
-  ConsentCookie.NOTIFICATION_WIDGET = {
-    /**
-     * @property {String} HTML
-     */
-    HTML:
-      "<div class=\"content\">\n" +
-      "  <h1>Privacy and Cookies</h1>\n" +
-      "  <p>\n" +
-      "    For this website to run at its best, we ask the browser\n" +
-      "    (like Google Chrome and Internet Explorer) for a little \n" +
-      "    personal information. Nothing drastic, just enough to \n" +
-      "    remember your preferences, login ID, and what you like to \n" +
-      "    look at (on our site). Having this information to hand  \n" +
-      "    helps us understand your needs and improve our\n" +
-      "    service to you. \n" +
-      "  </p>\n" +
-      "  <p>\n" +
-      "  If you would like to learn more about the information we \n" +
-      "  store, how it is used or how to disable Cookies please read our\n" +
-      "    <a href=\"{{cookieAndprivacyPolicyUrl}}\" \n" +
-      "      target = \"_blank\"\n" +
-      "      id=\"{{cookieAndPrivacyAndPolicyId}}\">\n" +
-      "      {{cookieAndprivacyPolicyText}}\n" +
-      "    </a>.\n" +
-      "  </p>\n" +
-      "</div>",
-    /**
-     * @property {String} IFRAME_CSS
-     */
-    IFRAME_CSS:
-      "top: 0;\n" +
-      "left: 0;\n" +
-      "height: 185px;\n" +
-      "width: 100%;\n" +
-      "box-shadow: 0 0 20px 0px #888;\n" +
-      "z-index: 2147483647;",
-    /**
-     * @property {String} CONTENT_CSS
-     */
-    CONTENT_CSS:
-      "body {\n" +
-      "  padding-top: 8px;\n" +
-      "  text-align: center;\n" +
-      "  background: url(https://d3c3cq33003psk.cloudfront.net/consent/img/cbg_w.png) repeat;\n" +
-      "  font-size: 12px;\n" +
-      "  line-height: 17px;\n" +
-      "  font-family: arial, helvetica;\n" +
-      "  color: #555;\n" +
-      "  text-shadow: 0px 0px 1px #CCC;\n" +
-      "}\n" +
-      ".content {\n" +
-      "  text-align: left;\n" +
-      "  width: 800px;\n" +
-      "  margin: 0 auto;\n" +
-      "  padding-top: 5px;\n" +
-      "}\n" +
-      "body p {\n" +
-      "  margin: 5px 0px;\n" +
-      "}\n" +
-      "a {\n" +
-      "  color: #2e9dc5;\n" +
-      "}\n" +
-      "h1 {\n" +
-      "  font-size: 1.4em;\n" +
-      "}\n" +
-      ".action-footer {\n" +
-      "  margin-top: 0px;\n" +
-      "}\n" +
-      ".action-footer .button {\n" +
-      "  padding: 5px 8px;\n" +
-      "  line-height: 16px;\n" +
-      "  cursor: pointer;\n" +
-      "}\n" +
-      "#{{closeButtonId}} {\n" +
-      "  vertical-align: middle\n" +
-      "  color: #939598;\n" +
-      "  padding: 5px 10px 5px 10px;\n" +
-      "  font-size: 13px;\n" +
-      "  text-decoration: none;\n" +
-      "  margin-top: 0px;\n" +
-      "  float: right;\n" +
-      "  cursor: pointer;\n" +
-      "  border: 1px solid #EEE;\n" +
-      "  background: #EEE;\n" +
-      "  border-radius: 5px;\n" +
-      "}\n" +
-      ".action-footer #{{acceptButtonId}} {\n" +
-      "  -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;\n" +
-      "  -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;\n" +
-      "  box-shadow:inset 0px 1px 0px 0px #bbdaf7;\n" +
-      "  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #35b7de), color-stop(1, #0189a1) );\n" +
-      "  background:-moz-linear-gradient( center top, #35b7de 5%, #0189a1 100% );\n" +
-      "  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#35b7de\", endColorstr=\"#0189a1\");\n" +
-      "  background-color:#35b7de;\n" +
-      "  -moz-border-radius:4px;\n" +
-      "  -webkit-border-radius:4px;\n" +
-      "  border-radius:4px;\n" +
-      "  border:1px solid #0189a1;\n" +
-      "  display:inline-block;\n" +
-      "  color:#fff;\n" +
-      "  font-weight:normal;\n" +
-      "  text-decoration:none;\n" +
-      "  vertical-align: middle;\n" +
-      "  float:right;\n" +
-      "}\n" +
-      ".action-footer #{{acceptButtonId}}:hover {\n" +
-      "  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0189a1), color-stop(1, #35b7de) );\n" +
-      "  background:-moz-linear-gradient( center top, #0189a1 5%, #35b7de 100% );\n" +
-      "  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#0189a1\", endColorstr=\"#35b7de\");\n" +
-      "  background-color:#0189a1;\n" +
-      "}\n" +
-      ".action-footer #{{acceptButtonId}}:active {\n" +
-      "  position:relative;\n" +
-      "  top: 1px;\n" +
-      "}\n" +
-      ".action-footer #{{declineButtonId}} {\n" +
-      "  color: #555;\n" +
-      "  float:right;\n" +
-      "  margin-right: 15px;\n" +
-      "}",
-    /**
-     * @property {String} ACCEPT_BUTTON
-     */
-    ACCEPT_BUTTON: "Enable Cookies",
-    /**
-     * @property {String} DECLINE_BUTTON
-     */
-    DECLINE_BUTTON: "No, Thank You"
+  function findParameters(loader, variables) {
+    var parameters = loader.pageVars;
+    var ret = [];
+    for (var prop in parameters) {
+      if (parameters.hasOwnProperty(prop)) {
+        var param = parameters[prop];
+        var variableDefinition = variables[prop];
+        
+        if (variableDefinition) {
+          var variable;
+          var varCfg = {
+            name: variableDefinition.name,
+            value: variableDefinition.value
+          };
+          //hard coded value????
+          switch (variableDefinition.type) {
+            case V_JS_VALUE:
+              variable = new Expression(varCfg);
+              break;
+            case V_QUERY_PARAM:
+              variable = new URLQuery(varCfg);
+              break;
+            case V_COOKIE_VALUE:
+              variable = new Cookie(varCfg);
+              break;
+            case V_ELEMENT_VALUE:
+              variable = new DOMText(varCfg);
+              break;
+            default:
+              //hard coded val???
+          }
+          
+          var parameter = {
+            token: param.token
+          };
+        
+          if (param.defaultValue) {
+            parameter.defaultValue = param.defaultValue;
+          }
+          
+          if (variable) {
+            parameter.variable = variable;
+          }
+          
+          ret.push(parameter);
+        }
+      }
+    }
+    return ret;
   };
 
-  /**
-   * Status widget HTML & CSS fragments
-   * @class qubit.qtag.consent.ConsentCookie.STATUS_WIDGET
-   * @static
-   * @singleton
+  /*
+   * Filter type getter.
+   * @type String
    */
-  ConsentCookie.STATUS_WIDGET = {
-    /**
-     * @property {String} HTML
-     */
-    HTML:
-      "<div class=\"content\">\n" +
-      "  <div class=\"icon\"></div>\n" +
-      "  <div id=\"{{cookieStatusId}}\"></div>\n" +
-      "</div>",
-    /**
-     * @property {String} IFRAME_CSS
-     */
-    IFRAME_CSS:
-      "bottom: 0;\n" +
-      "left: 0;\n" +
-      "height: 20px;\n" +
-      "width: 100%;\n" +
-      "z-index: 2147483647;",
-    /**
-     * @property {String} CONTENT_CSS
-     */
-    CONTENT_CSS:
-      "body {\n" +
-      "  background: transparent;\n" +
-      "  margin: 0;\n" +
-      "  padding: 0;\n" +
-      "  font-family: arial, helvetica;\n" +
-      "  text-align: center;\n" +
-      "  vertical-align: middle;\n" +
-      "  font-size: 12px;\n" +
-      "  line-height: 18px;\n" +
-      "}\n" +
-      ".content {\n" +
-      "  width: 800px;\n" +
-      "  margin: 0 auto;\n" +
-      "  text-align: left;\n" +
-      "}\n" +
-      "html>body #{{cookieStatusId}} {\n" +
-      "  width: auto;\n" +
-      "}\n" +
-      "#{{cookieStatusId}} {\n" +
-      "  padding: 1px 10px 0px 22px;\n" +
-      "  width: 11.5em;\n" +
-      "  cursor: pointer; !important\n" +
-      "}\n" +
-      ".icon {\n" +
-      "  background-image: url(\"https://d3c3cq33003psk.cloudfront.net/consent/img/background-image.png\");\n" +
-      "  width: 20px;\n" +
-      "  height: 20px;\n" +
-      "  position: absolute;\n" +
-      "  background-position: 6px -116px;\n" +
-      "  background-repeat: no-repeat;\n" +
-      "  z-index: 199999;\n" +
-      "}\n" +
-      ".declined #{{cookieStatusId}} {\n" +
-      "  -webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;\n" +
-      "  box-shadow:inset 0px 1px 0px 0px #f5978e;\n" +
-      "  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );\n" +
-      "  background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );\n" +
-      "  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#f24537\", endColorstr=\"#c62d1f\");\n" +
-      "  background-color:#f24537;\n" +
-      "  -moz-border-radius:5px 5px 0px 0px;\n" +
-      "  -webkit-border-radius:5px 5px 0px 0px;\n" +
-      "  border-radius:5px 5px 0px 0px;\n" +
-      "  border:1px solid #d02718;\n" +
-      "  display:inline-block;\n" +
-      "  color:#ffffff;\n" +
-      "  font-family:arial;\n" +
-      "  font-size:12px;\n" +
-      "  text-decoration:none;\n" +
-      "}\n" +
-      ".declined #{{cookieStatusId}}:hover {\n" +
-      "  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );\n" +
-      "  background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );\n" +
-      "  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#c62d1f\", endColorstr=\"#f24537\");\n" +
-      "  background-color:#c62d1f;\n" +
-      "}\n" +
-      ".declined #{{cookieStatusId}}:active {\n" +
-      "  position:relative;\n" +
-      "  top: 1px;\n" +
-      "}\n" +
-      ".accepted #{{cookieStatusId}} {\n" +
-      "  -moz-box-shadow:inset 0px 1px 0px 0px #6ebf26;\n" +
-      "  -webkit-box-shadow:inset 0px 1px 0px 0px #6ebf26;\n" +
-      "  box-shadow:inset 0px 1px 0px 0px #6ebf26;\n" +
-      "  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7ca814), color-stop(1, #5e8007) );\n" +
-      "  background:-moz-linear-gradient( center top, #7ca814 5%,#5e8007 100% );\n" +
-      "  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#7ca814\", endColorstr=\"#5e8007\");\n" +
-      "  background-color:#7ca814;\n" +
-      "  -moz-border-radius:5px 5px 0px 0px;\n" +
-      "  -webkit-border-radius:5px 5px 0px 0px;\n" +
-      "  border-radius:5px 5px 0px 0px;\n" +
-      "  border:1px solid #619908;\n" +
-      "  display:inline-block;\n" +
-      "  color:#ffffff;\n" +
-      "  font-family:arial;\n" +
-      "  font-size:12px;\n" +
-      "  font-weight:normal;\n" +
-      "  text-decoration:none;\n" +
-      "}\n" +
-      ".accepted #{{cookieStatusId}}:hover {\n" +
-      "  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5e8007), color-stop(1, #7ca814) );\n" +
-      "  background:-moz-linear-gradient( center top, #5e8007 5%, #7ca814 100% );\n" +
-      "  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#5e8007\", endColorstr=\"#7ca814\");\n" +
-      "  background-color:#5e8007;\n" +
-      "}\n" +
-      ".accepted #{{cookieStatusId}}:active {\n" +
-      "  position:relative;\n" +
-      "  top: 1px;\n" +
-      "}",
-    /**
-     * @property {String} ACCEPT_BUTTON
-     */
-    ACCEPT_BUTTON: "Cookies Enabled",
-    /**
-     * @property {String} DECLINE_BUTTON
-     */
-    DECLINE_BUTTON: "Cookies Disabled"
+  var NORMAL_FILTER = "1";
+  var DEDUPE_URL_FILTER = "2";
+  var DEDUPE_SESSION_FILTER = "3";
+  var getFilterType = function(filter) {
+    var x = parseInt(filter.patternType, 10);
+    if ((x < 10) || (x === 100)) {
+      return NORMAL_FILTER;
+    }
+    if ((x >= 10) && (x < 20)) {
+      return DEDUPE_URL_FILTER;
+    }
+    if (x === 110) {
+      return DEDUPE_SESSION_FILTER;
+    }
   };
 
-  Utils.namespace("qubit.qtag.consent.ConsentCookie", ConsentCookie);
+  /*
+   * Function loops through filters for the tag and return a set of filters
+   *  belonging to tags scripts.
+   * @param {type} id
+   * @param {type} filters
+   * @returns {Array}
+   */
+  function findFilters(filters, id) {
+    log.FINE("getting filters");
+    var filtersToReturn = [];
+    for (var i = 0; i < filters.length; i++) {
+      var filter = filters[i];
+      
+      var idx = Utils.indexInArray(filter.scriptLoaderKeys, id);
+      if (idx !== -1) {
+        //  NORMAL_FILTER = "1";
+        //  DEDUPE_URL_FILTER = "2";//dedupe has sense only for session
+        //  DEDUPE_SESSION_FILTER = "3";
+        var session = false;
+        switch (getFilterType(filter)) {
+          case NORMAL_FILTER:
+          case DEDUPE_URL_FILTER:
+            break;
+          case DEDUPE_SESSION_FILTER:
+            session = true;
+            break;
+        }
+
+        if (session) {
+          filter.instance = new SessionVariableFilter({
+            include: (+filter.filterType === 1),
+            name: filter.name,
+            customStarter: filter.starter,
+            customScript: filter.pattern
+          });
+        } else {
+          filter.instance = new URLFilter({
+            include: (+filter.filterType === 1),
+            name: filter.name,
+            patternType: resolvePatternType(filter),
+            pattern: filter.pattern
+          });
+        }
+        filtersToReturn.push(filter.instance);
+      }
+    }
+    var sortFun = function(a, b) {
+      return +a.priority > +b.priority;
+    };
+    return filtersToReturn.sort(sortFun);
+  }
+
+  /*
+   * Pattern type resolver for old QTag system.
+   * It translates match pattern numbers from database to meaningful states.
+   */
+  var ALL = "1";
+  var SUBSTRING = "2";
+  var REGEX = "3";
+  var EXACT_MATCH = "4";
+  var FN = "100";
+  var DEDUPE_FN = "110";
+  
+  function resolvePatternType(filter) {
+    switch (filter.patternType) {
+      case FN:
+      case DEDUPE_FN:
+        return null;
+        //session execution it was...
+        break;
+      case EXACT_MATCH:
+      case "1" + EXACT_MATCH:
+        return PatternType.MATCHES_EXACTLY;
+        break;
+      case SUBSTRING:
+      case "1" + SUBSTRING:
+        return PatternType.CONTAINS;
+        break;
+      case REGEX:
+      case "1" + REGEX:
+        return PatternType.REGULAR_EXPRESSION;
+        break;
+      case ALL:
+      case "1" + ALL:
+        return PatternType.ALL_URLS;
+        break;
+      default:
+        return null;
+    }
+  }
+
+
+  OldTagRunner.prototype.CLASS_NAME = "OldTagRunner";
+  OldTagRunner.prototype.PACKAGE_NAME = "qubit.opentag";
+
+  Utils.namespace("qubit.opentag.OldTagRunner", OldTagRunner);
 })();
 
 
 
 (function () {
-  var Utils = qubit.qtag.Utils;
+  var Utils = qubit.opentag.Utils;
   
   /**
    * Class representing a custom tag type. It inherits all default behaviour
@@ -5332,393 +7007,44 @@ global.NAMESPACE = global;
    * ## How to implement basic tag.
    * 
    * 
-   * See qtag.qubit.BaseTag-cfg for more details on config object.
+   * See opentag.qubit.BaseTag-cfg for more details on config object.
    * 
    * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
-   * @class qubit.qtag.CustomTag
-   * @extends qubit.qtag.BaseTag
-   * @param {Object} config
+   * @class qubit.opentag.CustomTag
+   * @extends qubit.opentag.BaseTag
+   * @param config {Object} config object used to build instance
    */
   function CustomTag(config) {
-    CustomTag.superclass.apply(this, arguments);
-    this.config = {
+    
+    var defaults = {
       url: null,
       html: "",
       location: "beggining",
-      locationObjectId: null,
-      locationObject: "body",
-      
+      locationObject: "body"
     };
+    
+    Utils.setIfUnset(config, defaults);
+    
+    CustomTag.superclass.call(this, config);
   }
   
-  CustomTag.superclass = qubit.qtag.BaseTag;
+  CustomTag.superclass = qubit.opentag.BaseTag;
   CustomTag.prototype = new CustomTag.superclass();
   CustomTag.prototype.CLASS_NAME = "CustomTag";
   
-  Utils.namespace("qubit.qtag.CustomTag", CustomTag);
-}());
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.filter.BaseFilter
-   * Base filter class.
-   * @param {Object} config
-   */
-  function BaseFilter (config) {
-    this.config = {
-      /**
-       * @cfg order
-       */
-      order: 0,
-      /**
-       * @cfg include
-       */
-      include: true,
-      /**
-       * @cfg {String} [name="Filter-<timestamp>"]
-       */
-      name: "Filter-" + new Date().valueOf(),
-      /**
-       * @cfg {String} type
-       */
-      type: ""
-    };
-    if (config) {
-      for (var prop in config) {
-        this.config[prop] = config[prop];
-      }
-    }
-  }
-  
-  BaseFilter.prototype.CLASS_NAME = "BaseFilter";
-  BaseFilter.prototype.PACKAGE_NAME = "qubit.qtag.filter";
-  
-  /**
-   * Filter function.
-   * @returns {Boolean}
-   */
-  BaseFilter.prototype.filter = function () {
-    return true;
-  };
-  
-  Utils.namespace("qubit.qtag.filter.BaseFilter", BaseFilter);
-}());
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * PatternType static class.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.filter.pattern.PatternType
-   * @singleton
-   * @type type
-   */
-  var PatternType = {
-    /**
-     * @property {Object} CONTAINS
-     */
-    CONTAINS: {
-      name: "Contains Type",
-    },
-    /**
-     * @property {Object} MATCHES
-     */
-    MATCHES: {
-      name: "Matches Exactly"
-    },
-    /**
-     * @property {Object} STARTS
-     */
-    STARTS: {
-      name: "Starts "
-    }
-  };
-  
-  Utils.namespace("qubit.qtag.filter.pattern.PatternType", PatternType);
-}());
-
-
-
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * SessionVariable filter type.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.filter.SessionVariableFilter
-   * @extends qubit.qtag.filter.BaseFilter
-   * @param {Object} config
-   */
-  function SessionVariableFilter(config) {
-    this.config = {
-      /**
-       * @cfg {String}
-       */
-      patternType: "pattern here",
-      /**
-       * @cfg {String}
-       */
-      pattern: "pattern type here"
-    };
-    
-    if (config) {
-      for(var prop in config) {
-        this.config[prop] = config[prop];
-      }
-    }
-  }
-  
-  SessionVariableFilter.superclass = qubit.qtag.filter.BaseFilter;
-  SessionVariableFilter.prototype = new SessionVariableFilter.superclass();
-  SessionVariableFilter.prototype.CLASS_NAME = "SessionVariableFilter";
-  SessionVariableFilter.prototype.PACKAGE_NAME = "qubit.qtag.filter";
-  
-  /**
-   * Filter function.
-   * @returns {undefined}
-   */
-  SessionVariableFilter.prototype.filter = function () {
-    throw "not implemented yet!";
-  };
-  
-  Utils.namespace("qubit.qtag.filter.SessionVariableFilter", SessionVariableFilter);
-}());
-
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * URLFilter filter type.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.filter.URLFilter
-   * @extends qubit.qtag.filter.BaseFilter
-   * @param {Object} config
-   */
-  function URLFilter(config) {
-    this.config = {
-      /**
-       * @cfg {String}
-       */
-      patternType: "pattern here",
-      /**
-       * @cfg {String}
-       */
-      pattern: "pattern type here"
-    };
-    
-    if (config) {
-      for(var prop in config) {
-        this.config[prop] = config[prop];
-      }
-    }
-  }
-  
-  URLFilter.superclass = qubit.qtag.filter.BaseFilter;
-  URLFilter.prototype = new URLFilter.superclass();
-  URLFilter.prototype.CLASS_NAME = "URLFilter";
-  URLFilter.prototype.PACKAGE_NAME = "qubit.qtag.filter";
-  
-  /**
-   * Filter function.
-   * @returns {undefined}
-   */
-  URLFilter.prototype.filter = function () {
-    throw "not implemented yet!";
-  };
-  
-  Utils.namespace("qubit.qtag.filter.URLFilter", URLFilter);
-}());
-
-
-(function () {
-  
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.pagevariable.BaseVariable
-   * @param {Object} config
-   */
-  function BaseVariable (config) {
-    if (config) {
-      this.value = config.value;
-    }
-  }
-  
-  BaseVariable.prototype.CLASS_NAME = "BaseVariable";
-  BaseVariable.prototype.PACKAGE_NAME = "qubit.qtag.pagevariable";
-  
-  /**
-   * BaseVariable returns exactly whats set.
-   * @returns {Object}
-   */
-  BaseVariable.prototype.getValue = function () {
-    return this.value;
-  };
-  
-  /**
-   * Naturally, the value is always string, as its used to deduct real value.
-   * @param {String} string
-   * @returns {undefined}
-   */
-  BaseVariable.prototype.setValue = function (string) {
-    this.value = string;
-  };
-
-  Utils.namespace("qubit.qtag.pagevariable.BaseVariable", BaseVariable);
-}());
-
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * Cookie variable class.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.pagevariable.Cookie
-   * @extends qubit.qtag.pagevariable.BaseVariable
-   * @param {Object} config
-   */
-  function Cookie(config) {
-    Cookie.superclass.apply(this, arguments);
-  }
-  
-  Cookie.superclass = qubit.qtag.pagevariable.BaseVariable;
-  Cookie.prototype = new Cookie.superclass();
-  Cookie.prototype.CLASS_NAME = "Cookie";
-  Cookie.prototype.PACKAGE_NAME = "qubit.qtag.pagevariable";
-  
-  /**
-   * 
-   * @returns {undefined}
-   */
-  Cookie.prototype.getValue = function () {
-    //qubit.cookieutils.getCookie(this.value);
-  };
-  
-  Utils.namespace("qubit.qtag.pagevariable.Cookie", Cookie);
-}());
-
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * DOM text content class.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.pagevariable.DOMText
-   * @extends qubit.qtag.pagevariable.BaseVariable
-   * @param {Object} config
-   */
-  function DOMText(config) {
-    DOMText.superclass.apply(this, arguments);
-  }
-  
-  DOMText.superclass = qubit.qtag.pagevariable.BaseVariable;
-  DOMText.prototype = new DOMText.superclass();
-  DOMText.prototype.CLASS_NAME = "DOMText";
-  DOMText.prototype.PACKAGE_NAME = "qubit.qtag.pagevariable";
-  
-  /**
-   * Get the element text value with specified ID.
-   * @returns {unresolved}
-   */
-  DOMText.prototype.getValue = function () {
-    var el = document.getElementById(this.value);
-    return el.innerHTML;
-  };
-  
-  Utils.namespace("qubit.qtag.pagevariable.DOMText", DOMText);
-}());
-
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * Exression type variable class.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.pagevariable.Expression
-   * @extends qubit.qtag.pagevariable.BaseVariable
-   * @param {Object} config
-   */
-  function Expression(config) {
-    Expression.superclass.apply(this, arguments);
-  }
-  
-  Expression.superclass = qubit.qtag.pagevariable.BaseVariable;
-  Expression.prototype = new Expression.superclass();
-  Expression.prototype.CLASS_NAME = "Expression";
-  Expression.prototype.PACKAGE_NAME = "qubit.qtag.pagevariable";
-  
-  Utils.namespace("qubit.qtag.pagevariable.Expression", Expression);
-}());
-
-
-
-(function () {
-  var Utils = qubit.qtag.Utils;
-  
-  /**
-   * URL query variable class.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.qtag.pagevariable.URLQuery
-   * @extends qubit.qtag.pagevariable.BaseVariable
-   * @param {Object} config
-   */
-  function URLQuery(config) {
-    URLQuery.superclass.apply(this, arguments);
-  }
-  
-  URLQuery.superclass = qubit.qtag.pagevariable.BaseVariable;
-  URLQuery.prototype = new URLQuery.superclass();
-  URLQuery.prototype.CLASS_NAME = "URLQuery";
-  URLQuery.prototype.PACKAGE_NAME = "qubit.qtag.pagevariable";
-  
-  Utils.namespace("qubit.qtag.pagevariable.URLQuery", URLQuery);
+  Utils.namespace("qubit.opentag.CustomTag", CustomTag);
 }());
 
 
 (function(){
-    var Utils = qubit.qtag.Utils;
-    var log = new qubit.qtag.Log("TagParameter: ");
+    var Utils = qubit.opentag.Utils;
+    var log = new qubit.opentag.Log("TagParameter: ");
     
     /**
      * Tag Parameter class.
      * It is used to represent Tag parameter objects.
-     * @class qubit.qtag.TagParameter
+     * @class qubit.opentag.TagParameter
      */
     function TagParameter () {
       this.config = {
@@ -5757,7 +7083,7 @@ global.NAMESPACE = global;
     }
 
     TagParameter.prototype.CLASS_NAME = "TagParameter";
-    TagParameter.prototype.PACKAGE_NAME = "qubit.qtag";
+    TagParameter.prototype.PACKAGE_NAME = "qubit.opentag";
     
     /**
      * Function getting this parameters current value.
@@ -5769,5 +7095,5 @@ global.NAMESPACE = global;
       
     };
     
-    Utils.namespace("qubit.qtag.TagParameter", TagParameter);
+    Utils.namespace("qubit.opentag.TagParameter", TagParameter);
 })();

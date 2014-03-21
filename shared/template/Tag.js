@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
 
-qubit.qtag.LibraryTag.define("PACKAGE_NAME.Tag", {
+qubit.opentag.LibraryTag.define("PACKAGE_NAME.Tag", {
 	config: {
 		/*DATA*/
 		imageUrl: "https://example.com/img/example-logo.png",
