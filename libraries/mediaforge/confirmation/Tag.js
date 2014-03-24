@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("mediaforge.confirmation.Tag", {
 		name: "Confirmation",
 		async: true,
 		description: "To be place on order confirmation pages",
-		html: "<script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?orderNumber=${order_id}&price=${order_total}\"></script>",
+		html: "<!--@SCRIPT-SRC@--><script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?orderNumber=${order_id}&price=${order_total}\"></script>",
 		imageUrl: ".",
 		locationDetail: "",
 		priv: false,

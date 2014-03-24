@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("webtrends.deprecated.Tag", {
 		name: "DEPRECATED",
 		async: true,
 		description: "",
-		html: "<script type=\"text/javascript\" src=\"/cs/static/js/webtrends/webtrends.js\"></script><!-- Version: 9.3.0 -->\n\n\n\n\n\n",
+		html: "<!--@SCRIPT-SRC@--><script type=\"text/javascript\" src=\"/cs/static/js/webtrends/webtrends.js\"></script><!-- Version: 9.3.0 -->\n\n\n\n<script type=\"text/javascript\">	\n//<![CDATA[\n  var _tag=new WebTrends();\n  _tag.dcsGetId();\n//]]>	\n</script>\n\n<script type=\"text/javascript\">\n//<![CDATA[\n  _tag.dcsCustom=function(){\n    // Add custom parameters here.\n    //_tag.DCSext.param_name=param_value;\n  }	\n  _tag.dcsCollect();\n//]]>	\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
 		locationDetail: "",
 		priv: true,
@@ -19,19 +19,6 @@ qubit.opentag.LibraryTag.define("webtrends.deprecated.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-	
-//<![CDATA[
-  var _tag=new WebTrends();
-  _tag.dcsGetId();
-//]]>	
-
-//<![CDATA[
-  _tag.dcsCustom=function(){
-    // Add custom parameters here.
-    //_tag.DCSext.param_name=param_value;
-  }	
-  _tag.dcsCollect();
-//]]>	
 		/*~SCRIPT*/
 	},
 	pre: function() {

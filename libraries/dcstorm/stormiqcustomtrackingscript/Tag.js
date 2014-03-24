@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqcustomtrackingscript.Tag", {
 		name: "StormIQ Custom Tracking Script",
 		async: true,
 		description: "Extension of generic StormIQ tag that allows for a tracking script to be included after inclusion of StormIQ",
-		html: "<script type=\"text/javascript\" src=\"${track_url}\"></script>\n",
+		html: "<!--@SCRIPT-SRC@--><script type=\"text/javascript\">\nvar __stormJs = 't1.stormiq.com/dcv4/jslib/${storm_id}.js';\nvar __ch =  '${channel}';\n</script><script type=\"text/javascript\" src=\"${track_url}\"></script>\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/dc_storm.png",
 		locationDetail: "",
 		priv: false,
@@ -36,9 +36,6 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqcustomtrackingscript.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-var __stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken("storm_id") + '.js';
-var __ch =  '' + this.valueForToken("channel") + '';
 		/*~SCRIPT*/
 	},
 	pre: function() {

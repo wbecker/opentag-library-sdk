@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("qype.qype.Tag", {
 		name: "Qype",
 		async: true,
 		description: "Qype is a local review site - http://www.qype.co.uk/.",
-		html: "<script type=\"text/javascript\" src=\"http://www.qype.co.uk/qypetool/city_widget/world.en.js\"></script>",
+		html: "<!--@SCRIPT-SRC@--><script type=\"text/javascript\">var qypetoolConfig = {reviewCount: ${REVIEW_COUNT}, showStars: ${SHOW_STARS}}</script><script type=\"text/javascript\" src=\"http://www.qype.co.uk/qypetool/city_widget/world.en.js\"></script>",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=QYPE",
 		locationDetail: "${DIV_ID}",
 		priv: false,
@@ -36,7 +36,6 @@ qubit.opentag.LibraryTag.define("qype.qype.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-var qypetoolConfig = {reviewCount: this.valueForToken("REVIEW_COUNT"), showStars: this.valueForToken("SHOW_STARS")
 		/*~SCRIPT*/
 	},
 	pre: function() {
