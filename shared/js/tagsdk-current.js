@@ -3610,6 +3610,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   /**
    * Function used to load this tag itself and its dependencies if 
    * this.config.loadDependenciesOnLoad is set to true.
+   * The dependencies are typically other tags, if this option is set to true,
+   * this function will try to load other dependenciess - normally tag WAITS
+   * for other dependencies to be present (ie. does not load them automatically,
+   * that job is mostly managed by containers).
+   * 
    * It does not load URL being a part of tag execution process.
    * This function does not trigger any real loading in this base class however
    * bonds logically loading entry point.
@@ -3716,9 +3721,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.log.FINE("loading URL: " + urls[i] + " ...");
         var url = urls[i];
         url = this.prepareURL(url);
-        this.loadURL(function (success) {
+        this.loadURL(url, function (success) {
           this._singleUrlLoadHandler(success, urls, callback);
-        }.bind(this), url);
+        }.bind(this));
         
       }
     } catch (ex) {
@@ -3743,7 +3748,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param callback {Function} callback optional
    * @param url {String} url, overriding URL to use
    */
-  GenericLoader.prototype.loadURL = function (callback, url) {
+  GenericLoader.prototype.loadURL = function (url, callback) {
     var passedUrl = url;
     this.setStatus("LOADING_URL");
     TagsUtils.loadScript({
