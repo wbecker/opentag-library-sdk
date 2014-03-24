@@ -122,7 +122,7 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
   var e = null,
 
     //this next line would make a CSV from an array for f later on
-    //stock_counts = this.valueForToken("stock_counts").join(","),
+    //stock_counts = ${stock_counts}.join(","),
     t = "3.4.0",
     n = "" + this.valueForToken("advertiser_id") + "",
     r = "" + this.valueForToken("order_id") + "",

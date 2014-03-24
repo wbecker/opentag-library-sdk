@@ -196,12 +196,12 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconfirmationpage.Tag", {
 
   // Connect the user who's just purchased with the session cookie
   window.cmCreateRegistrationTag(
-    "' + this.valueForToken("registration_id") + '",
-    "' + this.valueForToken("email") + '",
-    "' + this.valueForToken("city") + '",
-    "' + this.valueForToken("state") + '",
-    "' + this.valueForToken("post_code") + '",
-    "' + this.valueForToken("country") + '"
+    "" + this.valueForToken("registration_id") + "",
+    "" + this.valueForToken("email") + "",
+    "" + this.valueForToken("city") + "",
+    "" + this.valueForToken("state") + "",
+    "" + this.valueForToken("post_code") + "",
+    "" + this.valueForToken("country") + ""
   );
 
 }());

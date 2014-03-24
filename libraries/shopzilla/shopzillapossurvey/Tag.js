@@ -86,18 +86,18 @@ if (passX !== "" && passY !== ""){
   var passin_y = Number(passY);
 }
 
-var orderId = "' + this.valueForToken("order_id") + '"; 
-var cartTotal = ' + this.valueForToken("total") + ';
-var billingZipCode = "' + this.valueForToken("zip_code") + '";
+var orderId = "" + this.valueForToken("order_id") + ""; 
+var cartTotal = this.valueForToken("total");
+var billingZipCode = "" + this.valueForToken("zip_code") + "";
 
 var productsPurchasedArr = [];
 
-for (var i = 0; i < Math.min(5, ' + this.valueForToken("skus") + '.length); i++) {
+for (var i = 0; i < Math.min(5, this.valueForToken("skus").length); i++) {
   var item = "";
-  item += "URL= " + ' + this.valueForToken("urls") + '[i];
-  item += "^SKU= " + ' + this.valueForToken("skus") + '[i];
-  // item += "^GTIN= " + ' + this.valueForToken("ids") + '[i]; // Global Trade Item Number - ignore this
-  item += "^PRICE= " + ' + this.valueForToken("unit_sale_prices") + '[i];
+  item += "URL= " + this.valueForToken("urls")[i];
+  item += "^SKU= " + this.valueForToken("skus")[i];
+  // item += "^GTIN= " + ${ids}[i]; // Global Trade Item Number - ignore this
+  item += "^PRICE= " + this.valueForToken("unit_sale_prices")[i];
   productsPurchasedArr.push(item)
 };
 

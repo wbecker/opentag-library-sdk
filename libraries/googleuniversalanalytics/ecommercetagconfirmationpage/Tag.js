@@ -117,14 +117,14 @@ ga('ecommerce:addTransaction', {
 
 //Loop through transaction items. Don't pollute the globe!
 (function(){
-  for(var i = 0; i < ' + this.valueForToken("item_names") + '.length; i++){
+  for(var i = 0; i < this.valueForToken("item_names").length; i++){
     ga('ecommerce:addItem', {
-      'id': "' + this.valueForToken("order_id") + '", //Required
-      'name': String(' + this.valueForToken("item_names") + '[i]), //Required
-      'sku': String(' + this.valueForToken("item_skus") + '[i]),
-      'category': String(' + this.valueForToken("item_cats") + '[i]),
-      'price': String(' + this.valueForToken("item_prices") + '[i]),
-      'quantity': String(' + this.valueForToken("item_quantities") + '[i])
+      'id': "" + this.valueForToken("order_id") + "", //Required
+      'name': String(this.valueForToken("item_names")[i]), //Required
+      'sku': String(this.valueForToken("item_skus")[i]),
+      'category': String(this.valueForToken("item_cats")[i]),
+      'price': String(this.valueForToken("item_prices")[i]),
+      'quantity': String(this.valueForToken("item_quantities")[i])
     });
   }
 })();

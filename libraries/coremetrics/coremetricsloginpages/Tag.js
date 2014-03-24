@@ -92,8 +92,8 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsloginpages.Tag", {
 
   // Connect the user who's just purchased with the session cookie
   window.cmCreateRegistrationTag(
-    "' + this.valueForToken("registration_id") + '",
-    "' + this.valueForToken("email") + '"
+    "" + this.valueForToken("registration_id") + "",
+    "" + this.valueForToken("email") + ""
   );
 
 }());

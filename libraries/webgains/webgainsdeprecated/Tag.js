@@ -117,9 +117,9 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.Tag", {
     for (i=0; i < this.valueForToken("unit_prices").length; i++)
     {
       /* if there's a dynamic event id specific to each item - it will be used */
-      if (' + this.valueForToken("product_event_id") + '.length  !== 0)
+      if (this.valueForToken("product_event_id").length  !== 0)
       {
-        wgItemsString = wgItemsString + ' + this.valueForToken("product_event_id") + '[i] + "::" + (Number(' + this.valueForToken("unit_prices") + '[i]) * Number(' + this.valueForToken("unit_quantity") + '[i])) + "::" + ' + this.valueForToken("unit_quantity") + '[i] + "x" + ' + this.valueForToken("unit_names") + '[i] + "::" + ' + this.valueForToken("product_id_list") + '[i] + "::" + "' + this.valueForToken("voucher_code") + '";
+        wgItemsString = wgItemsString + this.valueForToken("product_event_id")[i] + "::" + (Number(this.valueForToken("unit_prices")[i]) * Number(this.valueForToken("unit_quantity")[i])) + "::" + this.valueForToken("unit_quantity")[i] + "x" + this.valueForToken("unit_names")[i] + "::" + this.valueForToken("product_id_list")[i] + "::" + "" + this.valueForToken("voucher_code") + "";
       }
       /* othwerwise - if there's not an event id specific to each item - the static client-id value will be used*/
       else
