@@ -68,8 +68,6 @@
     }
   }
   
-  
-  
   function loadConfig() {
     var librariesNode = document.getElementById("libraries");
     var vendors = qubit.opentag.libraries;
