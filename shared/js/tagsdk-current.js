@@ -3079,7 +3079,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.log.ERROR(ex, true);
     } finally {
       if (!this.afterRun) {
-        this.afterRun = true;
+        this.afterRun =  new Date().valueOf();
         this.after(success);
       }
     }
@@ -3141,7 +3141,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.before = function () {
     this.log.FINE("running before handler...");
-    this.beforeRun = true;
+    this.beforeRun = new Date().valueOf();
     try{ 
       this.onBefore();
     } catch (ex) {
@@ -3161,7 +3161,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.after = function (success) {
     this.log.FINE("running after handler...");
-    this.afterRun = true;
+    this.afterRun =  new Date().valueOf();
     try{ 
       this.onAfter(success);
     } catch (ex) {
@@ -3180,7 +3180,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * once.
    */
   GenericLoader.prototype.runOnce = function () {
-    if (!this.scriptExecuted) {
+    if (!this._runOnceTriggered && !this.scriptExecuted) {
+      this._runOnceTriggered = new Date().valueOf();
       this.run();
     } else {
       this.log.FINEST("runOnce has been already executed.");
@@ -3199,36 +3200,47 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     
     //make sure its loaded before execution
     this.load();
-   
-    var finished = false;
+    
     if (this.loadedDependencies) {
       //dependencies ready
-      if (!this.beforeRun) {
-        this.beforeRun = true;
-        try {
-            this.before();
-        } catch (ex) {
-          this.log.ERROR(ex, true);
-          //keep it going, dont block tag bof pre failure.
-        }
+      try {
+          this.before();
+      } catch (ex) {
+        this.log.ERROR(ex, true);
+        //keep it going, dont block tag bof pre failure.
       }
-      finished = this.loadExecutionDependencies();
-    } else if (this.loadingDependenciesFailed) {//wait for deps
-      finished = true;
+      
+      //dependencies are satisfied (prams, variables etc.) - trigger run
+      this._triggerExecutionProcess();
+      
+    } else if (this.loadingDependenciesFailed) {
+      this.log.ERROR("script execution failed before running");
+      this.log.ERROR("dependencies FAILED to load! Tag in fail state.");
+      this.scriptExecuted = -(new Date().valueOf());
+      this.setStatus("FAILED_TO_EXECUTE");
+    } else {
+      Timed.setTimeout(this.run.bind(this), 30);
     }
+  };
+  
+  /**
+   * @private
+   * @returns {undefined}
+   */
+  GenericLoader.prototype._triggerExecutionProcess = function () {
+    var finished = this.loadExecutionDependencies();
     
-    if (this.unexpectedFail) {
-      finished = true;
+    if (this.unexpectedFail) {//wait for deps
+      finished = true; //override, done, error
     }
     
     if (!finished) {
-      Timed.setTimeout(this.runOnce.bind(this), 40);
+      Timed.setTimeout(this._triggerExecutionProcess.bind(this), 30);
     } else {
       this.runIsFinished = new Date().valueOf();
       this._flushDocWritesForOrAfterExecution();
       //now check if failures occured
-      if (this.loadingDependenciesFailed ||
-          this.scriptLoadingFailed ||
+      if (this.scriptLoadingFailed ||
           this.injectHTMLFailed ||
           this.unexpectedFail) {
         this.log.ERROR("script execution has failed! Tag in fail state.");
@@ -3784,28 +3796,30 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype.reset = function () {
     this.log.WARN("resetting tag!");
     var u = undefined;
-    this.status = 0;
-    this.urlsLoaded = 0;
-    this.urlsFailed = 0;
+    this._injectHTMLTriggered = u;
+    this._loadedDependenciesInformed = u;
+    this._lockedDocWriteInformed = u;
+    this._runOnceTriggered = u;
+    this._urlLoadTriggered = u;
+    this.afterRun = u;
+    this.beforeRun = u;
+    this.filtersRunTriggered = u;
+    this.injectHTMLFailed = u;
     this.loadStarted = u;
+    this.loadURLsNotFinished = u;
+    this.loadedDependencies = u;
+    this.loadingDependenciesFailed = u;
     this.loadingTimedOut = u;
     this.runIsFinished = u;
     this.scriptExecuted = u;
-    this.waitForDependenciesFinished = u;
-    this.afterRun = u;
-    this.securedWrites = u;
-    this.beforeRun = u;
-    this.loadedDependencies = u;
     this.scriptLoadingFailed = u;
-    this.injectHTMLFailed = u;
-    this.loadingDependenciesFailed = u;
-    this.filtersRunTriggered = u;
-    this._loadedDependenciesInformed = u;
-    this._lockedDocWriteInformed = u;
-    this.loadURLsNotFinished = u;
-    this._urlLoadTriggered = u;
-    this._injectHTMLTriggered = u;
     this.secureWrite = u;
+    this.securedWrites = u;
+    this.status = 0;
+    this.unexpectedFail = u;
+    this.urlsFailed = 0;
+    this.urlsLoaded = 0;
+    this.waitForDependenciesFinished = u;
     this.setStatus("INITIAL");
   };
   
@@ -4014,6 +4028,17 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   BaseTag.prototype.getFilters = function () {
     return this.filters;
+  };
+  
+  /**
+   * 
+   * @returns {undefined}
+   */
+  BaseTag.prototype.runOnceIfFiltersPass = function () {
+    if (!this._runOnceIfFiltersPassTriggered && !this.scriptExecuted) {
+      this._runOnceIfFiltersPassTriggered = new Date().valueOf();
+      this.runIfFiltersPass();
+    }
   };
 
   /**
@@ -4318,6 +4343,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.resetFilters();
     this.dedupePingSent = undefined;
     this.pingSent = undefined;
+    this._runOnceIfFiltersPassTriggered = undefined;
   };
   
   /**
@@ -5495,7 +5521,7 @@ var JSON = {};
     var all = Container.getContainers();
     for (var i = 0; i < all.length; i++) {
       try {
-        all[i].run();
+        all[i].runOnce();
       } catch (ex) {
         log.ERROR("error running consent dependant containers: " + ex);
       }
@@ -5716,7 +5742,7 @@ var JSON = {};
   Container.prototype.run = function () {
     this.log.FINE("starting loading");
     this.runTags({
-      command: "runIfFiltersPass"
+      command: "runOnceIfFiltersPass"
     });
   };
 
