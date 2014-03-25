@@ -11,19 +11,40 @@
   }
 </style>
 
+<script>
+  function showButtonHandler(node) {
+    node.parentNode.className = ('library ' + node.innerHTML);
+    (node.innerHTML === 'show')  ? node.innerHTML='hide' : node.innerHTML='show';
+  }
+  function onFocusInput(node) {
+    if (!node.entered) {
+      node.entered = true;
+      node.className = '';
+      node.value = '';
+    }
+  }
+  function onBlurInput(node) {
+    if (!node.value) {
+      node.value = 'enter value...';
+      node.entered = false;
+      node.className = 'red';
+    }
+  }
+</script>
+    
 <div id="trash" style="display:none">
   <div id="vendor-template"></div>
   <div id="library-template">
     <div class="library-title">
     </div>
-    <button class="showhide" onclick="this.parentNode.className = ('library ' + this.innerHTML); (this.innerHTML === 'show') ? this.innerHTML='hide' : this.innerHTML='show';">show</button>
-    <button class="test-library" onmousedown='testTag(this.parentNode);'>run</button>
+    <button class="showhide" onclick="showButtonHandler(this)">show</button>
+    <button class="test-library" onmousedown="testTag(this.parentNode)">run</button>
     <div class="contents"></div>
   </div>
   <div id="parameter-template">
     <div class="parameter">
       <label></label>
-      <input type="text" onfocus="if(!this.entered) {this.entered = true;this.className='';this.value='';}" onblur="if(!this.value) {this.value = 'enter value...'; this.entered = false;this.className='red'}"></input>
+      <input type="text" onfocus=" onFocusInput(this)" onblur="onBlurInput(this)"></input>
     </div>
   </div>
     <div id="config-template">
@@ -32,130 +53,7 @@
       <input type="text" onffocus="if(!this.entered) {this.entered = true;this.value='';}" onbblur="if(!this.value) {this.value = 'enter value...'; this.entered = false;}"></input>
     </div>
   </div>
-  
-  <style>
-    a.showhide {
-      
-    }
-    button.showhide {
-      display: block;
-      float: right;
-      clear: right;
-    }
-    button.test-library {
-      display: block;
-      float: right;
-    }
-    .red {
-      background-color: #ff9999;
-    }
-    .library {
-      border-radius: 5px;
-      overflow: hidden;
-      background: #eee;
-      margin-bottom: 3px;
-      font-weight: normal;
-      color: #656565;
-    }
-    .library .contents{
-      float: left;
-    }
-    .library-title {
-      width: auto;
-      float: left;
-      clear: left;
-      font-size: 13px;
-      text-indent: 6px;
-      line-height: 22px;
-    }
-    .parameter {
-      border-radius: 5px;
-      font-family: "Verdana";
-      overflow: hidden;
-      padding: 3px;
-      background: white;
-      border: 1px solid rgb(196, 196, 196);
-      margin: 2px 5px;
-    }
-    .parameter label {
-      display: block;
-      clear: left;
-      float: left;
-      width: 316px;
-      font: 8pt normal;
-      text-indent: 12px;
-      line-height: 16pt;
-      font-family: "Verdana";
-    }
-    .parameter input {
-      float: left;
-      width: 256px;
-      border: #cccccc 1px solid;
-      border-radius: 3px;
-    }
-    
-    .config {
-      border-radius: 5px;
-      font-family: "Verdana";
-      overflow: hidden;
-      padding: 3px;
-      background: white;
-      border: 1px solid white;
-      margin: 2px 5px;
-    }
-    .config label {
-      display: block;
-      clear: left;
-      float: left;
-      width: 316px;
-      font: 8pt normal;
-      text-indent: 12px;
-      line-height: 16pt;
-      font-family: "Verdana";
-    }
-    .config input {
-      float: left;
-      width: 256px;
-      border: #cccccc 1px solid;
-      border-radius: 3px;
-    }
-
-    .parameter-header {
-      line-height: 22px;
-      text-indent: 12px;
-    }
-    
-    .config-header {
-      line-height: 22px;
-      text-indent: 12px;
-    }
-    
-    .hide .contents {
-      display: none;
-    }
-    .hide #sources {
-      display: none;
-    }
-    .hide .library {
-      display: none;
-    }
-    .vendor {
-      border-radius: 5px;
-      background: #FAFAFA;
-      padding: 3px 3px 1px 4px;
-      line-height: 20px;
-      font-size: 12px;
-      font-weight: bolder;
-      color: gray;
-      text-indent: 16px;
-    }
-    .plain {
-      color: gray;
-      text-decoration: none;
-    }
-  </style>
 </div>
-
 <script>
   function main() {
     var html = "<div>";
@@ -169,164 +67,16 @@
       }
     }
     html += "</div>";
-    
     document.getElementById("sources").innerHTML = html;
   }
 </script>
 
 <div id="tester">
   <div id="libraries"></div>
-  <style>
-    #libraries {
-      width: 700px;
-      float: left;
-      background: white;
-      padding : 8px;
-    }
-  </style>
-  
   <div id="page-variables"></div>
-  <style>
-    #page-variables {
-      width: 700px;
-      float: left;
-      background: white;
-    }
-  </style>
 </div>
+<script src='script.js'></script>
+<link media="all" type="text/css" rel="stylesheet" href="style.css">
 <script>
-  //utils
-  var libraryTemplate = document.getElementById("library-template").innerHTML;
-  function addLibrary(anchor, libraryClass) {
-    var instance = new libraryClass({});
-    instance.unregisterTag();
-    var libraryNode = document.createElement("div");
-    libraryNode.innerHTML = libraryTemplate;
-    libraryNode.children[0].innerHTML = instance.config.name;
-    libraryNode.className = "library hide";
-    libraryNode.reference = instance;
-    libraryNode.classReference = libraryClass;
-    
-    anchor.appendChild(libraryNode);
-
-    var params = instance.config.parameters;
-    addParameters(libraryNode.children[3], params);
-    addConfig(libraryNode.children[3], instance.config);
-    
-  }
-  
-  var parameterTemplate = document.getElementById("parameter-template").innerHTML;
-  function addParameters(anchor ,params) {
-    var e = document.createElement("div");
-    e.innerHTML = "Parameters";
-    e.className = "parameter-header";
-    anchor.appendChild(e);
-    for(var i = 0; i < params.length; i++) {
-      e = document.createElement("div");
-      var p = params[i];
-      e.innerHTML = parameterTemplate;
-      e.getElementsByTagName("input")[0].pindex = i;
-      e.getElementsByTagName("label")[0].innerHTML = p.name;
-      e.getElementsByTagName("input")[0].value = "enter value...";
-      e.getElementsByTagName("input")[0].className = "red";
-      anchor.appendChild(e);
-    }
-  }
-  
-  var configTemplate = document.getElementById("config-template").innerHTML;
-  function addConfig(anchor ,config) {
-    var e = document.createElement("div");
-    e.innerHTML = "Config options";
-    e.className = "config-header";
-    anchor.appendChild(e);
-    for(var prop in config) {
-      if (prop !== "parameters" &&
-              prop !== "PACKAGE" &&
-              prop !== "dependencies") {
-        var e = document.createElement("div");
-        var p = config[prop];
-        e.innerHTML = configTemplate;
-        e.children[0].className = "config";
-        e.getElementsByTagName("input")[0].cname = prop;
-       e.getElementsByTagName("label")[0].innerHTML = prop;
-        if (p !== undefined) {
-          e.getElementsByTagName("input")[0].value = p;
-        }
-        e.getElementsByTagName("input")[0].entered = true;
-        anchor.appendChild(e);
-      }
-    }
-  }
-  
-</script>
-<script>
-  function loadConfig() {
-    var librariesNode = document.getElementById("libraries");
-    var vendors = qubit.opentag.libraries;
-    for(var vprop in vendors) {
-      var vendor = vendors[vprop];
-      var vendorNode = document.createElement("div");
-      vendorNode.innerHTML = "<a class='plain' href='#-2'>" + vprop +"</a>";
-      
-      vendorNode.children[0].onclick = function () {
-        var hs = !this.ishidden ? "hide" : "show";
-        this.ishidden = !this.ishidden;
-        this.parentNode.className = "vendor " + hs;
-      };
-      
-      for (var lprop in vendor) {
-        var libraryClass = vendor[lprop].Tag;
-        var ctest = new libraryClass();
-        ctest.unregisterTag();
-        if ((ctest) instanceof qubit.opentag.LibraryTag) {
-          vendorNode.className = "vendor";
-          addLibrary(vendorNode, libraryClass);
-        }
-      }
-      librariesNode.appendChild(vendorNode);
-    }
-  }
-  
-  loadConfig();
-  
-  function testTag(block) {
-    var config = {
-    };
-    
-    var clazz = block.classReference;
-    var ref = block.reference;
-    var inputs = block.getElementsByTagName("input");
-    
-    config.parameters = [];
-    
-    for (var i = 0; i < inputs.length; i++) {
-      if (inputs[i].className.indexOf("red") !== -1) {
-        alert("Please fill all red fields first");
-        return;
-      } else {
-        if (inputs[i].hasOwnProperty("pindex")) { 
-          var idx = inputs[i].pindex;
-          config.parameters[idx] = {
-            token: ref.config.parameters[idx].token,
-            variable: {
-              value: inputs[i].value
-            }
-          };
-          
-        } else if (inputs[i].hasOwnProperty("cname")) {
-          config[inputs[i].cname] = inputs[i].value;
-        }
-      }
-    }
-    
-    
-    var instance = new clazz(config);
-    instance.run();
-    
-    instance.log.INFO("Currently executed tag instance is exposed as: window.instance");
-    
-    window.instance = instance;
-  }
-  
-  
+   window.callScript();
 </script>

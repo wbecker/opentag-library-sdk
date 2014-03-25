@@ -1,0 +1,148 @@
+
+a.showhide {
+
+}
+button.showhide {
+  display: block;
+  float: right;
+  clear: right;
+}
+button {
+  height: 24px;
+  line-height: 12px;
+  width: 64px;
+}
+button.test-library {
+  display: block;
+  float: right;
+}
+.red {
+  background-color: #ff9999;
+}
+.library {
+  border-radius: 5px;
+  background: #eee;
+  margin-bottom: 3px;
+  font-weight: normal;
+  color: #656565;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+}
+.library .contents{
+  float: left;
+  overflow: auto;
+}
+.library-title {
+  width: auto;
+  float: left;
+  clear: left;
+  font-size: 13px;
+  text-indent: 6px;
+  line-height: 22px;
+  overflow: hidden;
+}
+
+.parameter {
+  border-radius: 5px;
+  font-family: "Verdana";
+  overflow: hidden;
+  padding: 3px;
+  background: white;
+  border: 1px solid rgb(196, 196, 196);
+  margin: 2px 5px;
+  height :20px;
+}
+.parameter label {
+  display: block;
+  clear: left;
+  float: left;
+  width: 316px;
+  font: 8pt normal;
+  text-indent: 12px;
+  line-height: 16pt;
+  font-family: "Verdana";
+}
+.parameter input {
+  float: right;
+  clear: right;
+  width: 256px;
+  border: #cccccc 1px solid;
+  border-radius: 3px;
+}
+
+.config {
+  border-radius: 5px;
+  font-family: "Verdana";
+  overflow: hidden;
+  padding: 3px;
+  background: white;
+  border: 1px solid white;
+  margin: 2px 5px;
+}
+.config label {
+  display: block;
+  clear: left;
+  float: left;
+  width: 316px;
+  font: 8pt normal;
+  text-indent: 12px;
+  line-height: 16pt;
+  font-family: "Verdana";
+}
+.config input {
+  float: left;
+  width: 256px;
+  border: #cccccc 1px solid;
+  border-radius: 3px;
+}
+
+.parameter-header {
+  line-height: 22px;
+  text-indent: 12px;
+}
+
+.config-header {
+  line-height: 22px;
+  text-indent: 12px;
+}
+
+.hide .contents {
+  display: none;
+}
+.hide #sources {
+  display: none;
+}
+.hide .library {
+  display: none;
+}
+.vendor {
+  border-radius: 5px;
+  background: #FAFAFA;
+  padding: 3px 3px 1px 4px;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: bolder;
+  color: gray;
+  text-indent: 16px;
+}
+.plain {
+  color: gray;
+  text-decoration: none;
+}
+
+#sources{
+  padding: 8px;
+}
+#page-variables {
+  width: 700px;
+  float: left;
+  background: white;
+}
+#libraries {
+  width: 700px;
+  float: left;
+  background: white;
+  padding : 8px;
+  overflow: auto;
+}
