@@ -2547,10 +2547,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
 
 
+
 (function () {
   
   var SimpleCookie = q.html.simplecookie;
   var Utils = qubit.opentag.Utils;
+  var Timed = qubit.opentag.Timed;
+
   
   /**
    * Cookie variable class.
@@ -2563,6 +2566,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   function Cookie(config) {
     Cookie.superclass.apply(this, arguments);
+    this._lockObject = {};
   }
   
   Cookie.superclass = qubit.opentag.pagevariable.BaseVariable;
@@ -2575,8 +2579,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {String} cookie value
    */
   Cookie.prototype.getValue = function () {
-    this.log.FINEST("reading cookie value");
-    return SimpleCookie.readCookie(this.value);
+    var val = SimpleCookie.readCookie(this.value);
+    Timed.maxFrequent(function () {
+      this.log.FINEST("reading cookie value: " + val);
+    }.bind(this), 2000, this._lockObject);
+    return val;
   };
   
   Utils.namespace("qubit.opentag.pagevariable.Cookie", Cookie);
@@ -3189,55 +3196,99 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
+   * OIt tells how many times tag was run.
+   */
+  GenericLoader.prototype.runCounter = 0;
+  /**
    * Starting point for loading tag. Tags can often contain resources that have
    * to be fetched and this function initialises such processes where it is 
    * necessary. This function can be called only once, after that, each call
    * will be ignored.
    * If there is no dependencies to load, script will be invoked immediately.
+   * @param {Boolean} ignoreDependencies if true, loader will not wait 
+   * for dependencies to load
    */
-  GenericLoader.prototype.run = function () {
-    this.setStatus("STARTED");
+  GenericLoader.prototype.run = function (ignoreDependencies) {
+    if (this.runIsStarted) {
+      this.log.FINE("loader is currently in progress, try again later.");
+      return;
+    }
+    
+    if (this.status !== 0) {
+      this.log.FINE("Running again. Run count: " + (this.runCounter + 1));
+      this.reset();
+    }
+    
+    this.runIsStarted = true;
+    this.runCounter++;
     
     //make sure its loaded before execution
-    this.load();
+    this.load(ignoreDependencies);
     
+    if (ignoreDependencies) {
+      this.execute();
+    } else {
+      this.waitForDependenciesAndExecute();
+    }
+  };
+
+  /**
+   * Function will execute immmediatelly if dependencies are satisfied,
+   *  will wait otherwise till fail or load.
+   */
+  GenericLoader.prototype.waitForDependenciesAndExecute = function () {
     if (this.loadedDependencies) {
       //dependencies ready
-      try {
-          this.before();
-      } catch (ex) {
-        this.log.ERROR(ex, true);
-        //keep it going, dont block tag bof pre failure.
-      }
-      
-      //dependencies are satisfied (prams, variables etc.) - trigger run
-      this._triggerExecutionProcess();
-      
+      this.execute();      
     } else if (this.loadingDependenciesFailed) {
       this.log.ERROR("script execution failed before running");
       this.log.ERROR("dependencies FAILED to load! Tag in fail state.");
       this.scriptExecuted = -(new Date().valueOf());
+      this._markFinished();
       this.setStatus("FAILED_TO_EXECUTE");
     } else {
-      Timed.setTimeout(this.run.bind(this), 30);
+      Timed.setTimeout(this.waitForDependenciesAndExecute.bind(this), 30);
     }
   };
   
+  
   /**
+   * Executes the tag's execution block, it does not check on dependencies.
+   * It is final execution stage entry.
+   */
+  GenericLoader.prototype.execute = function () {
+    try {
+        this.before();
+    } catch (ex) {
+      this.log.ERROR(ex, true);
+      //keep it going, dont block tag bof pre failure.
+    }
+    this._triggerExecution();
+  };
+  
+  /**
+   * Private helper function for `this.execute`, because some of execution
+   * (scripts, html elemnts awaiting) can be delayed, this function will
+   * help waiting for those delayed execution parts to run.
    * @private
    * @returns {undefined}
    */
-  GenericLoader.prototype._triggerExecutionProcess = function () {
-    var finished = this.loadExecutionDependencies();
+  GenericLoader.prototype._triggerExecution = function () {
+    if (this.scriptExecuted) {
+      return; //execution can be called only if script execution state is unset
+    }
+    
+    var finished = this
+            .loadExecutionURLsAndHTML(this._triggerExecution.bind(this));
     
     if (this.unexpectedFail) {//wait for deps
       finished = true; //override, done, error
     }
     
     if (!finished) {
-      Timed.setTimeout(this._triggerExecutionProcess.bind(this), 30);
+      Timed.setTimeout(this._triggerExecution.bind(this), 30);
     } else {
-      this.runIsFinished = new Date().valueOf();
+      this._markFinished();
       this._flushDocWritesForOrAfterExecution();
       //now check if failures occured
       if (this.scriptLoadingFailed ||
@@ -3263,10 +3314,21 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
-   * 
+   * Private marking helper for loader, its is used to mark loaders job
+   * as finished, no matter if job was successful or not.
+   * @private
+   */
+  GenericLoader.prototype._markFinished = function () {
+    this.runIsFinished = new Date().valueOf();
+    this.runIsStarted = false;
+  };
+  
+  /**
+   * This function queries tag if document write execution should be
+   * secured. Dependeing on config and tag's state it will return true or false.
    * @returns {Boolean}
    */
-  GenericLoader.prototype.waitForDocWriteProtection = function () {
+  GenericLoader.prototype.shouldWaitForDocWriteProtection = function () {
     if (this.willSecureDocumentWrite()) {
       //we can use more generic check
       if (!GenericLoader.LOCK_DOC_WRITE) {
@@ -3285,39 +3347,36 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
-   * 
+   * This function will run loader without waiting for it's dependences.
+   * It will behave exactly as `this.run(true)`
    * @returns {undefined}
    */
   GenericLoader.prototype.runWithoutDependencies = function () {
-    if (this.loadExecutionDependencies()) {
-      this._executeScript();
-    } else {
-      Timed.setTimeout(this.runWithoutDependencies.bind(this), 33);
-    }
+    this.run(true);
   };
   
   /**
    * 
    * @returns {Boolean}
    */
-  GenericLoader.prototype.loadExecutionDependencies = function () {
+  GenericLoader.prototype.loadExecutionURLsAndHTML = function (callback) {
     //if dependencies are okay, execute entire execution logic:
     // 1) load URLs
     // 2) after 1) inject HTML (can have some async stuff)
     // 3) 1& -> 2 finished : execute main script
     
-    if (!this._loadedDependenciesInformed) {
+    if (!this._loadExecutionURLsAndHTMLInformed) {
       //show this message once
-      this._loadedDependenciesInformed = true;
+      this._loadExecutionURLsAndHTMLInformed = true;
       this.log.INFO("tag is loaded, trying execution...");
     }
 
-    if(this.waitForDocWriteProtection()) {
+    if(this.shouldWaitForDocWriteProtection()) {
       return false;
     }
 
     //check if url/urls are specified, delay if any
-    this._triggerURLsLoading();
+    this._triggerURLsLoading(callback);
 
     //check if 1) is finished.
     if (!this.loadURLsNotFinished) {
@@ -3340,14 +3399,15 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @private
    * Function will trigger URL loading, it can be called effectively only once.
    * It means that after one call, it will have no effect.
+   * @param {Function} callback
    */
-  GenericLoader.prototype._triggerURLsLoading = function () {
+  GenericLoader.prototype._triggerURLsLoading = function (callback) {
     if (!this._urlLoadTriggered && this.config.url) {
       this._urlLoadTriggered = true;
       this.log.INFO("tag has url option set to: " +
                this.config.url);//L
       this.log.INFO("loading url and delaying execution till link is loaded");
-      this.loadURLs(this.runOnce.bind(this));
+      this.loadURLs(callback);
     }
   };
   
@@ -3405,7 +3465,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.setStatus = function (statusName) {
     //this.log.FINEST("Updating status.");
-    this.status = (this.status | this.status[statusName]);
+    this.status = (this.status | this.STATUS[statusName]);
   };
   
   /**
@@ -3636,7 +3696,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * leading to run/execute the tag.
    * 
    */
-  GenericLoader.prototype.load = function () {
+  GenericLoader.prototype.load = function (ignoreDependencies) {
     if (this.loadStarted) {
       return;
     } else {
@@ -3656,7 +3716,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        * @property {Number} loadStarted Timestamp telling when loading process has
        * started.
        */
-      if (this.config.loadDependenciesOnLoad) {
+      if (!ignoreDependencies && this.config.loadDependenciesOnLoad) {
         this.loadDependencies();
       }
     } catch (ex) {
@@ -3794,10 +3854,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   GenericLoader.prototype.reset = function () {
-    this.log.WARN("resetting tag!");
+    this.log.FINE("resetting tag.");
     var u = undefined;
     this._injectHTMLTriggered = u;
-    this._loadedDependenciesInformed = u;
+    this._loadExecutionURLsAndHTMLInformed = u;
     this._lockedDocWriteInformed = u;
     this._runOnceTriggered = u;
     this._urlLoadTriggered = u;
@@ -3820,6 +3880,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.urlsFailed = 0;
     this.urlsLoaded = 0;
     this.waitForDependenciesFinished = u;
+    this.runIsStarted = u;
     this.setStatus("INITIAL");
   };
   
@@ -3862,6 +3923,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     if (html) {
       TagHelper.injectHTMLForLoader(this, callback, tryWriteIfNoLocation, html);
     }
+  };
+  
+  GenericLoader.prototype.runClone = function () {
+    var clone = new GenericLoader(this.config);
+    clone.run();
   };
   
   GenericLoader.prototype.CLASS_NAME = "GenericLoader";

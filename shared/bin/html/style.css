@@ -34,13 +34,14 @@ button.test-library {
   overflow: auto;
 }
 .library-title {
-  width: auto;
+  width: 300px;
   float: left;
   clear: left;
   font-size: 13px;
   text-indent: 6px;
   line-height: 22px;
   overflow: hidden;
+  height: auto;
 }
 
 .parameter {
@@ -51,7 +52,7 @@ button.test-library {
   background: white;
   border: 1px solid rgb(196, 196, 196);
   margin: 2px 5px;
-  height :20px;
+  height: 20px;
 }
 .parameter label {
   display: block;
@@ -92,7 +93,8 @@ button.test-library {
   font-family: "Verdana";
 }
 .config input {
-  float: left;
+  float: right;
+  clear: right;
   width: 256px;
   border: #cccccc 1px solid;
   border-radius: 3px;
@@ -140,10 +142,56 @@ button.test-library {
   float: left;
   background: white;
 }
+
 #libraries {
   width: 700px;
   float: left;
   background: white;
   padding : 8px;
   overflow: auto;
+}
+
+.pre {
+  width: 100%;
+  background: #99ccff;
+}
+.pre a {
+  
+}
+.pre textarea {
+  width: 99%;
+  height: 48px;
+}
+
+
+.post {
+  width: 100%;
+  background: #99ccff;
+}
+.post a {
+  
+}
+.post textarea {
+  width: 99%;
+  height: 48px;
+}
+
+
+.script {
+  width: 100%;
+  background: #99ccff;
+  
+}
+.script a {
+  
+}
+
+.script textarea {
+  width: 99%;
+  height: 100px;
+}
+
+.save-to-main {
+  width: 160px;
+  float: right;
 }

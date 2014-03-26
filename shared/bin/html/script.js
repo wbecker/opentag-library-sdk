@@ -5,7 +5,10 @@
       
     }
   }
-
+  /**
+   * 
+   * @type @exp;document@call;getElementById@pro;innerHTML
+   */
   var libraryTemplate = document.getElementById("library-template").innerHTML;
   function addLibrary(anchor, libraryClass) {
     var instance = new libraryClass({});
@@ -20,8 +23,11 @@
     anchor.appendChild(libraryNode);
 
     var params = instance.config.parameters;
-    addParameters(libraryNode.children[3], params);
-    addConfig(libraryNode.children[3], instance.config);
+    var contents = libraryNode.children[4];
+    
+    addParameters(contents, params);
+    addConfig(contents, instance.config);
+    addPrePostTemplate(contents, instance);
     
   }
   
@@ -43,6 +49,10 @@
     }
   }
   
+  /**
+   * 
+   * @type @exp;document@call;getElementById@pro;innerHTML
+   */
   var configTemplate = document.getElementById("config-template").innerHTML;
   function addConfig(anchor ,config) {
     var e = document.createElement("div");
@@ -68,6 +78,44 @@
     }
   }
   
+  /**
+   * 
+   * @type @exp;document@call;getElementById@pro;innerHTML
+   */
+  var prePostTemplate = document.getElementById("pre-post-script-template").innerHTML;
+  function addPrePostTemplate(anchor, tag) {
+    var e = document.createElement("div");
+    e.innerHTML = prePostTemplate;
+    var txtAreas = e.getElementsByTagName("textarea");
+    //we know order
+    var pre = txtAreas[0];
+    var post = txtAreas[1];
+    var script = txtAreas[2];
+    
+    var pre_value = tag.config.pre ? tag.config.pre : String(tag.pre);
+    var post_value = tag.config.post ? tag.config.post : String(tag.post);
+    var script_value = tag.config.script ? tag.config.script : String(tag.script);
+    
+    pre.value = String(pre_value);
+    post.value = String(post_value);
+    script.value = String(script_value);
+    
+    pre.style.display = "none";
+    post.style.display = "none";
+    script.style.display = "none";
+    
+    tag.preNode = pre;
+    tag.postNode = post;
+    tag.scriptNode = script;
+    
+    //@TODO add case config.prop is a function...
+    anchor.appendChild(e);
+  }
+  
+  /**
+   * 
+   * @returns {undefined}
+   */
   function loadConfig() {
     var librariesNode = document.getElementById("libraries");
     var vendors = qubit.opentag.libraries;
@@ -83,58 +131,137 @@
       };
       
       for (var lprop in vendor) {
-        var libraryClass = vendor[lprop].Tag;
-        var ctest = new libraryClass();
-        ctest.unregisterTag();
-        if ((ctest) instanceof qubit.opentag.LibraryTag) {
-          vendorNode.className = "vendor";
-          addLibrary(vendorNode, libraryClass);
+        try {
+          var libraryClass = vendor[lprop].Tag;
+          var ctest = new libraryClass();
+          ctest.unregisterTag();
+          if ((ctest) instanceof qubit.opentag.LibraryTag) {
+            vendorNode.className = "vendor";
+            addLibrary(vendorNode, libraryClass);
+          }
+        } catch (ex) {
+          //must prompt
+          if (window.console && console.log) {
+            console.log("Failed to load tag configuration," +
+                    " possible syntax error:" + ex);
+          } else {
+            alert("Failed to load tag configuration," +
+                    " possible syntax error:" + ex);
+          }
         }
       }
       librariesNode.appendChild(vendorNode);
     }
   }
-
-  function testTag(block) {
-    var config = {
-    };
-
-    var clazz = block.classReference;
-    var ref = block.reference;
-    var inputs = block.getElementsByTagName("input");
-
-    config.parameters = [];
-
-    for (var i = 0; i < inputs.length; i++) {
-
-      if (inputs[i].className.indexOf("red") !== -1) {
-        alert("Please fill all red fields first");
-        return;
-      } else {
-        if (inputs[i].pindex !== undefined) { 
-          var idx = inputs[i].pindex;
-          config.parameters[idx] = {
-            token: ref.config.parameters[idx].token,
-            variable: {
-              value: inputs[i].value
-            }
-          };
-          
-        } else if (inputs[i].cname !== undefined) {
-          config[inputs[i].cname] = inputs[i].value;
-        }
-      }
-    }
-    
-    
-    var instance = new clazz(config);
-    instance.run();
-    
-    instance.log.INFO("Currently executed tag instance is exposed as: window.instance");
-    
-    window.instance = instance;
-  }
   
 window.callScript = function () {
   loadConfig();
 };
+
+
+//================================================================== UTILS
+
+function fitTextarea(txta) {
+    txta.style.overflow = 'hidden';//IE...
+    txta.style.height = "0px";
+    txta.scrollHeight;//...workaround
+    txta.style.height = (25 + txta.scrollHeight) + "px";
+    txta.style.overflow = '';//...
+}
+
+function toggleShowSibling(start) {
+  var next = start.nextSibling;
+  while(next && !next.style) {
+    next = next.nextSibling;
+  }
+  
+  if (next) {
+    if (next.style.display === "none") {
+      next.style.display = "";
+      fitTextarea(next);
+    } else {
+      next.style.display = "none";
+    }
+  }
+}
+
+  /**
+   * 
+   * @param {type} referencingNode
+   * @returns {undefined}
+   */
+  function testTag(referencingNode) {
+    try {
+      var config = {};
+
+      var clazz = referencingNode.classReference;
+      var tagRef = referencingNode.reference;
+      var inputs = referencingNode.getElementsByTagName("input");
+
+      config.parameters = [];
+
+      for (var i = 0; i < inputs.length; i++) {
+
+        if (inputs[i].className.indexOf("red") !== -1) {
+          alert("Please fill all red fields first");
+          return;
+        } else {
+          if (inputs[i].pindex !== undefined) {
+            var idx = inputs[i].pindex;
+            config.parameters[idx] = {
+              token: tagRef.config.parameters[idx].token,
+              variable: {
+                value: inputs[i].value
+              }
+            };
+
+          } else if (inputs[i].cname !== undefined) {
+            config[inputs[i].cname] = inputs[i].value;
+          }
+        }
+      }
+
+      var preVal = tagRef.preNode.value;
+      if (String(preVal) !== tagRef.config.pre &&
+              String(preVal) !== String(tagRef.pre)) {
+        config.pre = extractFunctionOrString(preVal);
+      }
+
+      var postVal = tagRef.postNode.value;
+      if (String(postVal) !== tagRef.config.post &&
+              String(postVal) !== String(tagRef.post)) {
+        config.post = extractFunctionOrString(postVal);
+      }
+
+      var scriptVal = tagRef.scriptNode.value;
+      if (String(scriptVal) !== tagRef.config.script &&
+              String(scriptVal) !== String(tagRef.script)) {
+        config.script = extractFunctionOrString(scriptVal);
+      }
+
+      var instance = new clazz(config);
+      instance.run();
+
+      instance.log.INFO("Currently executed tag instance is exposed as: window.instance");
+
+      window.instance = instance;
+    } catch (ex) {
+      alert("Error while executing configuration:" + ex);
+    }
+  }
+  
+  function saveConfig(refNode){
+    alert("Saving is not implemented yet.");
+  }
+  
+  
+  window.__tmp__qubit__test_page_8_ = null;
+  function extractFunctionOrString (expr) {
+    var nexpr = String(expr).trim();
+    if (nexpr.indexOf("function") === 0) {
+      qubit.opentag.Utils.geval("window.__tmp__qubit__test_page_8_=" + nexpr);
+      return window.__tmp__qubit__test_page_8_;
+    } else {
+      return expr;
+    }
+  }
