@@ -257,7 +257,7 @@ function toggleShowSibling(start) {
   
   window.__tmp__qubit__test_page_8_ = null;
   function extractFunctionOrString (expr) {
-    var nexpr = String(expr).trim();
+    var nexpr = qubit.opentag.Utils.trim(expr);
     if (nexpr.indexOf("function") === 0) {
       qubit.opentag.Utils.geval("window.__tmp__qubit__test_page_8_=" + nexpr);
       return window.__tmp__qubit__test_page_8_;

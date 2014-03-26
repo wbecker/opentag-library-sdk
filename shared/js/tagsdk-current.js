@@ -543,6 +543,14 @@ var UNDEF = undefined;
     return Utils.gevalAndReturn.___var_test___;
   };
   
+  Utils.trim = function (string) {
+    try {
+      return String(string).trim();
+    } catch (noTrim) {
+      return String(string).replace(/^\s+|\s+$/g, '');
+    }
+  };
+  
   /**
    * Utility useful to apply default values on config objects, it sets
    * values from src on obj if unset on obj.
@@ -3356,7 +3364,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
-   * 
+   * @param {Function} callback to be run when finished
    * @returns {Boolean}
    */
   GenericLoader.prototype.loadExecutionURLsAndHTML = function (callback) {
@@ -3404,8 +3412,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype._triggerURLsLoading = function (callback) {
     if (!this._urlLoadTriggered && this.config.url) {
       this._urlLoadTriggered = true;
-      this.log.INFO("tag has url option set to: " +
-               this.config.url);//L
+      this.log.INFO("tag has url option set to: " + this.config.url);//L
       this.log.INFO("loading url and delaying execution till link is loaded");
       this.loadURLs(callback);
     }
@@ -3419,8 +3426,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype._triggerHTMLInjection = function () {
     if (!this._injectHTMLTriggered && this.config.html) {
       this._injectHTMLTriggered = true;
-      this.log.FINE("tag has html option set to: " +
-               this.config.html);//L
+      this.log.FINE("tag has html option set to: " + this.config.html);//L
       this.log.INFO("injecting html and delaying execution till is ready");
       this.injectHTML();
     }
@@ -3535,7 +3541,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       }
     }
     if (!this.waitForDependenciesFinished) {
-      /*log*/ //make some nice counter logs
+      /*log*/ //make some nice counter logs count down...
       var diff = (new Date().valueOf() - this.loadStarted);
       var freq = 4000;
       var curr = diff/this.config.timeout;
@@ -3694,7 +3700,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * 
    * Can be run only once. `load` function is an entry point for any process 
    * leading to run/execute the tag.
-   * 
+   * @param {Boolean} ignoreDependencies if ignore dependencies
    */
   GenericLoader.prototype.load = function (ignoreDependencies) {
     if (this.loadStarted) {
