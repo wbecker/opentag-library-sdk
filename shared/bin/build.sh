@@ -36,7 +36,7 @@ mkdir $SRC/dist
 echo "Build: Generating full package (with dependencies): dist/out-all-src.js"
 
 #build output with all dependencies
-java -jar $TOOLS/bin/LibraryWizard.jar --src $SRC --build
+java -jar $TOOLS/bin/LibraryWizard.jar  --build $SRC
 
 #java -jar $TOOLS/bin/MiniMerge.jar \
 # -o $SRC/dist/out-all-src.js \
