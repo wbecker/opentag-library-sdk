@@ -98,6 +98,6 @@ java -jar $TOOLS/bin/LibraryWizard.jar  --build $SRC
 rm $HTML/scripts.htmlf
 
 
-echo "Done. Open index.html file in a browser."
+#echo "Done. Open index.html file in a browser."
 
-open index.html
+#open index.html
