@@ -49,30 +49,87 @@
     }
   }
   
+  var excluded = [
+     "parameters",
+     "PACKAGE",
+     "dependencies",
+     "CONSTRUCTOR",
+     "dedupe",
+     "priv",
+     "loadDependenciesOnLoad"
+  ];
+  function propertyExcludedFromConfig(prop) {
+    for (var i = 0; i < excluded.length; i++) {
+      if (prop === excluded[i]) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  var hidden = [
+    "filterTimeout",
+     "isPrivate",
+     "inactive",
+     "usesDocumentWrite",
+     "timeout",
+     "singleton",
+     "locationPlaceHolder",
+     "locationDetail",
+     "locationObject",
+     "noMultipleLoad",
+     "__proto__"
+  ];
+  
+  function propertyHiddenFromConfig(prop) {
+    for (var i = 0; i < hidden.length; i++) {
+      if (prop === hidden[i]) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  function prepareConfigElement(prop, value, configTemplate) {
+    var e = document.createElement("div");
+    var p = value;
+    e.innerHTML = configTemplate;
+    e.children[0].className = "config";
+    e.getElementsByTagName("input")[0].cname = prop;
+    e.getElementsByTagName("label")[0].innerHTML = prop;
+    if (p !== undefined) {
+      e.getElementsByTagName("input")[0].value = p;
+    }
+    e.getElementsByTagName("input")[0].entered = true;
+    return e;
+  }
+  
   /**
    * 
    * @type @exp;document@call;getElementById@pro;innerHTML
    */
   var configTemplate = document.getElementById("config-template").innerHTML;
+  var hiddenConfigTemplate = document.getElementById("toggled-config-template").innerHTML;
   function addConfig(anchor ,config) {
-    var e = document.createElement("div");
-    e.innerHTML = "Config options";
-    e.className = "config-header";
-    anchor.appendChild(e);
+    var el = document.createElement("div");
+    el.innerHTML = "Config options";
+    el.className = "config-header";
+    anchor.appendChild(el);
     for(var prop in config) {
-      if (prop !== "parameters" &&
-              prop !== "PACKAGE" &&
-              prop !== "dependencies") {
-        var e = document.createElement("div");
-        var p = config[prop];
-        e.innerHTML = configTemplate;
-        e.children[0].className = "config";
-        e.getElementsByTagName("input")[0].cname = prop;
-       e.getElementsByTagName("label")[0].innerHTML = prop;
-        if (p !== undefined) {
-          e.getElementsByTagName("input")[0].value = p;
-        }
-        e.getElementsByTagName("input")[0].entered = true;
+      if (!propertyExcludedFromConfig(prop) && !propertyHiddenFromConfig(prop)) {
+        var e = prepareConfigElement(prop, config[prop], configTemplate);
+        anchor.appendChild(e);
+      }
+    }
+    var hel = document.createElement("div");
+    hel.innerHTML = hiddenConfigTemplate;
+    hel.className = "config-header";
+    anchor.appendChild(hel);
+    anchor = hel.children[0].children[1];
+    toggleShowSibling(hel.children[0].children[0])
+    for(var prop in config) {
+      if (propertyHiddenFromConfig(prop)) {
+        var e = prepareConfigElement(prop, config[prop], configTemplate);
         anchor.appendChild(e);
       }
     }

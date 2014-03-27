@@ -543,6 +543,11 @@ var UNDEF = undefined;
     return Utils.gevalAndReturn.___var_test___;
   };
   
+  /**
+   * Trim function for string.
+   * @param {type} string
+   * @returns {unresolved}
+   */
   Utils.trim = function (string) {
     try {
       return String(string).trim();
@@ -2165,6 +2170,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     TagsUtils.getHTMLLocationForTag = function (tag) {
       var el;
       var name = tag.config.locationObject;
+      var locationDetail = tag.config.locationDetail;
       switch (name) {
         case "head":
            el = document.getElementsByTagName("head")[0];
@@ -2173,7 +2179,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
            el = document.body;
            break;
          default:
-           if (name) {
+           if (locationDetail) {
+             el = document.getElementById(locationDetail);
+           } else if (name) {
              el = document.getElementById(name);
            } else {
              el = document.body;
