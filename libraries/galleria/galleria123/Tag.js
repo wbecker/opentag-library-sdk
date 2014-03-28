@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("galleria.galleria123.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=galleria",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/galleria/1.2.3/galleria.min.js",
 		usesDocWrite: false,
 		parameters: [

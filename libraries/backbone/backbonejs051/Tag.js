@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("backbone.backbonejs051.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=backbonejs",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.1/backbone-min.js",
 		usesDocWrite: false,
 		parameters: [

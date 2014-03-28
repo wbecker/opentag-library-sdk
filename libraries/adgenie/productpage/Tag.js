@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("adgenie.productpage.Tag", {
 		html: "<img src=\"https://adverts.adgenie.co.uk/genieTracker.php?adgCompanyID=${client_id}&adgItem=${product_id}\" height=\"1\" width=\"1\" />\n<img src=\"http://ib.adnxs.com/seg?add=446533&t=2\" width=\"1\" height=\"1\" />",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adGENIE.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

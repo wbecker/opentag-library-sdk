@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillapossurvey.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/shopzilla.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "eval.bizrate.com/js/pos_${merchant_id}.js",
 		usesDocWrite: false,
 		parameters: [

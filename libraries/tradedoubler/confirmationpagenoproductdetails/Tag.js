@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpagenoproductdetails.T
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/TradeDoubler.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "tb${tracking_type}.tradedoubler.com/report?organization=${org_id}&event=${evt_id}&orderNumber=${order_id}&orderValue=${order_total}&currency=${currency}",
 		usesDocWrite: false,
 		parameters: [

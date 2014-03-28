@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("google.googleretargetingconversionasyncwithcust
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
 		usesDocWrite: false,
 		parameters: [

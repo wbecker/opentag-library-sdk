@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/dc_storm.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "t1.stormiq.com/dcv4/jslib/${storm_id}.js",
 		usesDocWrite: false,
 		parameters: [

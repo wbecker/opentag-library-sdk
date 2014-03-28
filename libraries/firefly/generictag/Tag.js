@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("firefly.generictag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Firefly.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "firefly-071591.s3.amazonaws.com/scripts/loaders/loader.js",
 		usesDocWrite: false,
 		parameters: [

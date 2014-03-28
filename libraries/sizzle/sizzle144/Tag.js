@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sizzle.sizzle144.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=sizzle",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/sizzle/1.4.4/sizzle.min.js",
 		usesDocWrite: false,
 		parameters: [

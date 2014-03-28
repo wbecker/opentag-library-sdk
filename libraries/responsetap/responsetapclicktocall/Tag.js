@@ -9,8 +9,8 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ResponseTap.png",
 		locationDetail: "",
-		priv: false,
-		url: "static.responsetap.com/static/scripts/rTapTrack.min.js",
+		isPrivate: false,
+		url: "",
 		usesDocWrite: false,
 		parameters: [
 		{

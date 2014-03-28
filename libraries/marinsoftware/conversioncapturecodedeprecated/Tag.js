@@ -9,91 +9,49 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.T
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [
 		{
-			name: "Marin Conversion Type",
-			description: "",
-			token: "conversion_type",
-			uv: ""
-		},
-		{
-			name: "Product ID List",
-			description: "",
-			token: "ids",
+			name: "Product IDs",
+			description: "Product IDs",
+			token: "product_ids",
 			uv: "universal_variable.transaction.line_items[#].product.id"
 		},
 		{
-			name: "Product Unit Sale Price List",
-			description: "",
-			token: "prices",
-			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-		},
-		{
-			name: "Product Category List",
-			description: "",
-			token: "categories",
+			name: "Product Categories",
+			description: "Product Categories",
+			token: "product_categories",
 			uv: "universal_variable.transaction.line_items[#].product.category"
 		},
 		{
-			name: "Product Quantity List",
-			description: "",
-			token: "quantities",
+			name: "Product Quantities",
+			description: "Product Quantities",
+			token: "product_quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		},
 		{
 			name: "Order ID",
-			description: "",
+			description: "Order ID",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
 		},
 		{
 			name: "Order Total",
-			description: "",
-			token: "total",
+			description: "Order Total",
+			token: "order_total",
 			uv: "universal_variable.transaction.total"
 		},
 		{
-			name: "Order Tax",
-			description: "",
-			token: "tax",
-			uv: "universal_variable.transaction.tax"
-		},
-		{
-			name: "Order Shipping Cost",
-			description: "",
-			token: "shipping",
-			uv: "universal_variable.transaction.shipping_cost"
-		},
-		{
-			name: "Order Shipping City",
-			description: "",
-			token: "city",
-			uv: "universal_variable.transaction.delivery.city"
-		},
-		{
-			name: "Order Shipping State",
-			description: "",
-			token: "state",
-			uv: "universal_variable.transaction.delivery.state"
-		},
-		{
-			name: "Order Shipping Country",
-			description: "",
-			token: "country",
-			uv: "universal_variable.transaction.delivery.country"
-		},
-		{
 			name: "Currency",
-			description: "",
+			description: "Currency",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		},
 		{
-			name: "Marin Tracking Id",
-			description: "Your unique tracking id",
+			name: "Marin Tracking ID",
+			description: "Marin Tracking ID",
 			token: "tracking_id",
 			uv: ""
 		}
@@ -105,29 +63,31 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.T
 
 (function () {
   window._mTrack = window._mTrack || [];
-  var items = [{orderId:  "" + this.valueForToken("order_id") + ""}, {convType: "" + this.valueForToken("conversion_type") + ""}, {price: this.valueForToken("total")}];
   
-  for (var i = 0; i < this.valueForToken("ids").length; i++) 
+  var productIDs = "";
+  var productCategories = "";
+  var productQuantities = "";
+  
+  for (var i = 0; i < this.valueForToken("product_ids").length; i++) 
   {
-    items.push({
+    if (i > 0)
+    {
+      productIDs += "^";
+      productCategories += "^";
+      productQuantities += "^";
+    }
 
-      product:  this.valueForToken("ids")[i],
-      category: this.valueForToken("categories")[i],
-      quantity: this.valueForToken("quantities")[i]
-    });
+    productIDs += this.valueForToken("product_ids")[i];
+    productCategories += this.valueForToken("product_categories")[i];
+    productQuantities += this.valueForToken("product_quantities")[i];
   }
+
+  var items = [{convType: "orders", price: this.valueForToken("order_total"), orderId:  "" + this.valueForToken("order_id") + "", product: productIDs, category: productCategories, quantity: productQuantities}];
 
 
   window._mTrack.push(['addTrans', {
-      orderId:  "" + this.valueForToken("order_id") + "",
-      total:    this.valueForToken("total"),
-      tax:      this.valueForToken("tax"),
-      shipping: this.valueForToken("shipping"),
-      city:     "" + this.valueForToken("city") + "",
-      state:    "" + this.valueForToken("state") + "",
-      country:  "" + this.valueForToken("country") + "",
+
       currency: "" + this.valueForToken("currency") + "",
-      affiliation: "PPC",
       items: items
   }]);
   

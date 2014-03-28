@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("become.roi.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Become.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

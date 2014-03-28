@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv53deprecated.Tag", {
 		html: "<!-- www.SessionCam.com Client Integration v5.3 -->\n\n<!-- SessionCam -->",
 		imageUrl: "http://www.sessioncam.com/wp-content/themes/v2.0/images/logo.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

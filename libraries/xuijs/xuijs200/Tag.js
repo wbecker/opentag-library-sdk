@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("xuijs.xuijs200.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=xui",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/xuijs/2.0.0/xui.min.js",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("google.googledynamicremarketingtagconfirmationp
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

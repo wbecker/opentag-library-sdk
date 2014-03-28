@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mediaforge.confirmation.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?orderNumber=${order_id}&price=${order_total}\"></script>",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

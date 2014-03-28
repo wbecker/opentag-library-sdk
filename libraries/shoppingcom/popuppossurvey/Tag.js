@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("shoppingcom.popuppossurvey.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Shopping.com.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "https://www.shopping.com/xMSJ?pt=js&direct=1&mid=${merchant_id}&lid=1",
 		usesDocWrite: false,
 		parameters: [

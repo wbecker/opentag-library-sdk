@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("affiliatewindow.mastertag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.dwin1.com/${MERCHANT_ID}.js",
 		usesDocWrite: true,
 		parameters: [

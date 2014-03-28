@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Shopping.com.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "stat.dealtime.com/ROI/ROI2.js",
 		usesDocWrite: false,
 		parameters: [

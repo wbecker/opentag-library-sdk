@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("extcore.extcore310.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=ext-core",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/ext-core/3.1.0/ext-core.js",
 		usesDocWrite: false,
 		parameters: [

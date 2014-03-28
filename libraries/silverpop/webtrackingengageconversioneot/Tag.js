@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", 
 		html: "<meta name=\"com.silverpop.page_name\" content=\"${page_name}\"/>\n<meta name=\"com.silverpop.brandeddomains\" content=\"${branded_domains}\" />\n<meta name=\"com.silverpop.cothost\" content=\"${cot_host}\" />\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Silverpop.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

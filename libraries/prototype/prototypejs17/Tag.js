@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("prototype.prototypejs17.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=prototype",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js",
 		usesDocWrite: false,
 		parameters: [

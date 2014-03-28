@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Clicktale.jpeg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

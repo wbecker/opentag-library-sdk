@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mythings.customtag.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "https://${subdomain}.mythings.com/c.aspx?atok=${advertiser_token}",
 		usesDocWrite: false,
 		parameters: [

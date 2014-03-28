@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("netbooster.remarketingpixel.Tag", {
 		html: "",
 		imageUrl: "http://www.netbooster.co.uk/images/netbooster-logo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "segment-pixel.invitemedia.com/pixel?pixelID=${pixel_id}&partnerID=${partner_id}&clientID=${client_id}&key=segment&returnType=js",
 		usesDocWrite: false,
 		parameters: [

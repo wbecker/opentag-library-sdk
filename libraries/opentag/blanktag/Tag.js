@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("opentag.blanktag.Tag", {
 		html: "",
 		imageUrl: "https://opentag.qubitproducts.com/QDashboard/img/logo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("bing.bingadcentercampaignanalyticsdeprecated.Ta
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Bing.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "flex.atdmt.com/mstag/site/${url_guid}/mstag.js",
 		usesDocWrite: true,
 		parameters: [

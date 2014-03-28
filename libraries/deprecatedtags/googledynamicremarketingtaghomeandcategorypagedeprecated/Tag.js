@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("deprecatedtags.googledynamicremarketingtaghomea
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
 		html: "<div class=\"zx_${id} zx_mediaslot\"></div>\n",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

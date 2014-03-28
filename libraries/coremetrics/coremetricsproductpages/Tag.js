@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpages.Tag", {
 		html: "",
 		imageUrl: "libs.coremetrics.com/eluminate.js",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "libs.coremetrics.com/eluminate.js",
 		usesDocWrite: true,
 		parameters: [

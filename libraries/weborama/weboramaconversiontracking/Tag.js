@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("weborama.weboramaconversiontracking.Tag", {
 		html: "",
 		imageUrl: "http://www.weborama.com/files/2012/02/Logo.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js",
 		usesDocWrite: false,
 		parameters: [

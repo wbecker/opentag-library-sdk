@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/CommissionJunction.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystcustomtag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sitecatalyst.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${scriptURL}",
 		usesDocWrite: false,
 		parameters: [

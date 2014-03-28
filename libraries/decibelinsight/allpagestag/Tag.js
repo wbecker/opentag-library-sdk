@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Decibel.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

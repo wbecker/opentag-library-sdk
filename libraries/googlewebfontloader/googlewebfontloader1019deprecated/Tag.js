@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("googlewebfontloader.googlewebfontloader1019depr
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=google-web-fonts",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "ajax.googleapis.com/ajax/libs/webfont/1.0.19/webfont.js",
 		usesDocWrite: false,
 		parameters: [

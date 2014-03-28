@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("audiencescience.gatewaytag.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//js.revsci.net/gateway/gw.js?csid=${clientID}&auto=t\"></script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/audiencescience.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

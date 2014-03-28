@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.ecommercetrackingcustomdomainsa
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

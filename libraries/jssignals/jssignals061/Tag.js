@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("jssignals.jssignals061.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=js-signals",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/js-signals/0.6.1/js-signals.min.js",
 		usesDocWrite: false,
 		parameters: [

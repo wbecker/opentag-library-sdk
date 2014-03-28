@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("nextperformance.baskettag.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${zid}\"></script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/NextPerformance.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

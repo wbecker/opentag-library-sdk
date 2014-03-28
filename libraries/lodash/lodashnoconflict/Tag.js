@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=Lodash",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/lodash.js/${version}/lodash.compat.min.js",
 		usesDocWrite: false,
 		parameters: [

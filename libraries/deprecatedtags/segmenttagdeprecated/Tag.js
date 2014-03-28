@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("deprecatedtags.segmenttagdeprecated.Tag", {
 		html: "<img src=\"http://ib.adnxs.com/seg?add=${segment}&t=2\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:none;\" />",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AppNexus.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

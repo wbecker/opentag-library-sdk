@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mediaforge.basic.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}\"></script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaFORGE.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

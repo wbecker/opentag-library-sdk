@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

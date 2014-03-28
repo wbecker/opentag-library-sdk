@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("cryptojs.sha1.Tag", {
 		html: "",
 		imageUrl: "http://",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

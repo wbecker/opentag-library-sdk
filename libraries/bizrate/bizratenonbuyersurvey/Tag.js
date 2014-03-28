@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("bizrate.bizratenonbuyersurvey.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/BizRate.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "eval.bizrate.com/js/survey_${merchant_id}_1.js",
 		usesDocWrite: false,
 		parameters: [

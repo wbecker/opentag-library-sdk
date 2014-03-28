@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("jquery.152deprecated.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/jQuery.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
 		usesDocWrite: false,
 		parameters: [

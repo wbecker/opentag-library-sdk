@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sub2.sub2contactdetailsdependsuponsub2mainscrip
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksgenerictag.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "stats2.clicktracks.com/cgi-bin/ctasp-server.cgi?i=${id}",
 		usesDocWrite: true,
 		parameters: [

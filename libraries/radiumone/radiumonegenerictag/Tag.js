@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenerictag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

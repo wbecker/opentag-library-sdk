@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mythings.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${subdomain}.mythings.com/c.aspx?atok=${token}",
 		usesDocWrite: true,
 		parameters: [

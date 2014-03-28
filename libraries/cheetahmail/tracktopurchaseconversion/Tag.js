@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("cheetahmail.tracktopurchaseconversion.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/cheetahmail.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "//${domain}/a/r${affiliate_ids}/${client}.gif?a=${order_id}&b=${order_total}&c=${cust1}&d=${cust2}&e=${cust3}",
 		usesDocWrite: false,
 		parameters: [

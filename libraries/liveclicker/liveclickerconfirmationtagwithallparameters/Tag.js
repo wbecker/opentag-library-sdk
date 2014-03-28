@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("liveclicker.liveclickerconfirmationtagwithallpa
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Liveclicker.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "https://sc.liveclicker.net/service/track?kind=order&account_id=${account_id}&value=${subtotal}&order_id=${order_id}&currency=${currency}",
 		usesDocWrite: false,
 		parameters: [

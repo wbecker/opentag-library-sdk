@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixel.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/FacebookLogo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "connect.facebook.net/${url_locale}/fp.js",
 		usesDocWrite: false,
 		parameters: [

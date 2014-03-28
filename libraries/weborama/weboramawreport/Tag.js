@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.Tag", {
 		html: "",
 		imageUrl: "http://www.weborama.com/files/2012/02/Logo.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${SOURCE_URL}",
 		usesDocWrite: false,
 		parameters: [

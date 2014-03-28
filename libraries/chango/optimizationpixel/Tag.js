@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixel.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Chango.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "//cc.chango.com/static/o.js",
 		usesDocWrite: false,
 		parameters: [

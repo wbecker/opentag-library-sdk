@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
 		html: "<div id=\"gutscheinconnection-container\"></div>\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sovendus-logo.jpg",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

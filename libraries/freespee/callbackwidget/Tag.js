@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("freespee.callbackwidget.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/freespee_logo.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "//${domain_name}.freespee.com/js/external/fs.js",
 		usesDocWrite: false,
 		parameters: [

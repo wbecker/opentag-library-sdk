@@ -3,13 +3,13 @@
 qubit.opentag.LibraryTag.define("googleadsense.googleadsense.Tag", {
 	config: {
 		/*DATA*/
-		name: "Google Adsense!",
+		name: "Google Adsense",
 		async: true,
 		description: "Deploy Google adsense asynchronously to a specific html element (by id).",
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/googleadsense.jpeg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
 		usesDocWrite: false,
 		parameters: [

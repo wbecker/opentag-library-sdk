@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("conexance.basketpagedeprecated.Tag", {
 		html: "\n\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

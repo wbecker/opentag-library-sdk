@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("visualwebsiteoptimizer.visualwebsiteoptimizer.T
 		html: "<!-- Start Visual Website Optimizer Asynchronous Code -->\n\n<!-- End Visual Website Optimizer Asynchronous Code -->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/VisualWebsiteOptimizer.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("krux.kruxinterchange.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Krux.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "http://cdn.krxd.net/krux.js",
 		usesDocWrite: false,
 		parameters: [

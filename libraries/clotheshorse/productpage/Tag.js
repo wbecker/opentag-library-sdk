@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("clotheshorse.productpage.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ClothesHorse.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

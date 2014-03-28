@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("prismastar.orderconfirmationtrackingpixel.Tag",
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/PrismaStar.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

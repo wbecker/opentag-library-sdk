@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mentionme.refereetag.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

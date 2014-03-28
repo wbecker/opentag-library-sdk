@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.Tag", {
 		html: "",
 		imageUrl: "http://www.smartinsights.com/wp-content/uploads/2012/05/Get-Satisfaction-Logo-Large.jpg",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "https://d3rdqalhjaisuu.cloudfront.net/javascripts/feedback-v2.js",
 		usesDocWrite: true,
 		parameters: [

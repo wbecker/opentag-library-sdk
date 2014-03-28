@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("socketio.socketio070.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=socket.io",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/socket.io/0.7.0/socket.io.min.js",
 		usesDocWrite: false,
 		parameters: [

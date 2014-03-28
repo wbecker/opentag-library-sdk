@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.Tag", {
 		html: " ",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

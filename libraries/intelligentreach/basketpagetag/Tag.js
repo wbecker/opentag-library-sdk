@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.basketpagetag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelligentReach.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.ist-track.com/ContainerBasketJavaScript.ashx?companyId=${id}",
 		usesDocWrite: true,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("freespee.yieldify.Tag", {
 		html: "<!-- Start of Yieldify Code -->\n \n<!-- End of Yieldify Code -->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/yeildify.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

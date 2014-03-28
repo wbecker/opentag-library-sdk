@@ -9,13 +9,13 @@ qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtag.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [
 		{
-			name: "Anonymize IP",
-			description: "Set to \"yes\" and Marin Tracker will anonymize the user's IP address. Otherwise set to \"no\".",
+			name: "Anonymize User IP",
+			description: "\"yes\" or \"no\"",
 			token: "anonymize_ip",
 			uv: ""
 		},
@@ -34,9 +34,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtag.Tag", {
 
 var _mTrack = window._mTrack || [];
 
-var shouldAnonymizeIP = "" + this.valueForToken("anonymize_ip") + "";
-
-if (shouldAnonymizeIP.toLowerCase() === "yes")
+if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip") + ""))
 {
   _mTrack.push(['activateAnonymizeIp']);
 }

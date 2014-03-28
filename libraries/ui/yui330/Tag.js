@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("ui.yui330.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=YUI",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/yui/3.3.0/build/yui/yui-min.js",
 		usesDocWrite: false,
 		parameters: [

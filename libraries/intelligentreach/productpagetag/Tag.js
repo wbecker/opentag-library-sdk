@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.productpagetag.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.ist-track.com/ContainerItemJavaScript.ashx?id=${id}",
 		usesDocWrite: true,
 		parameters: [

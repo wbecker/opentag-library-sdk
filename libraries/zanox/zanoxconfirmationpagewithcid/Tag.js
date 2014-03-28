@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.Tag", {
 		html: "<div class=\"zx_${zanox_page_id} zx_mediaslot\">\n  \n</div>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

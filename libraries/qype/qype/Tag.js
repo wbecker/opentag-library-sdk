@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("qype.qype.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\">var qypetoolConfig = {reviewCount: ${REVIEW_COUNT}, showStars: ${SHOW_STARS}}</script><script type=\"text/javascript\" src=\"http://www.qype.co.uk/qypetool/city_widget/world.en.js\"></script>",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=QYPE",
 		locationDetail: "${DIV_ID}",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

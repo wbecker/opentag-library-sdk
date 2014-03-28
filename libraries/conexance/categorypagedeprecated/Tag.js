@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("conexance.categorypagedeprecated.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"${web1by1_function_script}\"></script><script type=\"text/javascript\" src=\"${web1by1_config_script}\"></script>\n\n<script type=\"text/javascript\">\n  w1x1.iSet(2, \"${page_category}\");\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [
