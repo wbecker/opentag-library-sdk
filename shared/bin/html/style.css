@@ -1,24 +1,29 @@
-
 a.showhide {
 
 }
+
 button.showhide {
   display: block;
   float: right;
   clear: right;
 }
+
 button {
   height: 24px;
   line-height: 12px;
   width: 64px;
 }
+
+button.open-editor, button.reload,
 button.test-library {
   display: block;
   float: right;
 }
+
 .red {
   background-color: #ff9999;
 }
+
 .library {
   border-radius: 5px;
   background: #eee;
@@ -29,10 +34,14 @@ button.test-library {
   height: auto;
   width: 100%;
 }
+
 .library .contents{
-  float: left;
-  overflow: auto;
+    float: left;
+    margin-left: 12px;
+    overflow: auto;
+    width: 670px;
 }
+
 .library-title {
   width: 300px;
   float: left;
@@ -138,13 +147,13 @@ button.test-library {
   padding: 8px;
 }
 #page-variables {
-  width: 700px;
+  width: 801px;
   float: left;
   background: white;
 }
 
 #libraries {
-  width: 700px;
+  width: 801px;
   float: left;
   background: white;
   padding : 8px;
@@ -153,7 +162,7 @@ button.test-library {
 
 .pre {
   width: 100%;
-  background: #99ccff;
+  text-indent: 11px;
 }
 .pre a {
   
@@ -166,7 +175,7 @@ button.test-library {
 
 .post {
   width: 100%;
-  background: #99ccff;
+  text-indent: 11px;
 }
 .post a {
   
@@ -179,8 +188,7 @@ button.test-library {
 
 .script {
   width: 100%;
-  background: #99ccff;
-  
+  text-indent: 11px;
 }
 .script a {
   
