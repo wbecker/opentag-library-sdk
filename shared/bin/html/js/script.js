@@ -228,7 +228,7 @@ function prepareVendorNode(name) {
 function prepareLibrary(libraryClass, node) {
   var ctest = new libraryClass({});
   ctest.unregisterTag();
-  if ((ctest) instanceof qubit.opentag.LibraryTag) {debugger;
+  if ((ctest) instanceof qubit.opentag.LibraryTag) {
     addLibrary(node, libraryClass);
   }
 }
