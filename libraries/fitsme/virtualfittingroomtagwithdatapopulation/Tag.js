@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/FitsMe.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.fits.me/vfr.js",
 		usesDocWrite: false,
 		parameters: [

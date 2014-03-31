@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("yepnope.yepnope101.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=yepnope",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/yepnope/1.0.1/yepnope.min.js",
 		usesDocWrite: false,
 		parameters: [

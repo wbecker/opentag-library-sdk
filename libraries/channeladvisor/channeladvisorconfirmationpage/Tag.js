@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.T
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=ChannelAdvisor",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

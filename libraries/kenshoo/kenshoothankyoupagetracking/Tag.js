@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/KenshooLogo.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${ks_num}.xg4ken.com/media/getpx.php?cid=${id}",
 		usesDocWrite: true,
 		parameters: [

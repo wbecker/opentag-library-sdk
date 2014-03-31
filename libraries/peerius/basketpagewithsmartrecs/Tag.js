@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("peerius.basketpagewithsmartrecs.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
 		parameters: [

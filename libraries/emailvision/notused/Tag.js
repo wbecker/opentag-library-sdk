@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("emailvision.notused.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

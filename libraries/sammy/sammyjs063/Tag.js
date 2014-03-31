@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sammy.sammyjs063.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=sammy",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/sammy.js/0.6.3/sammy.min.js",
 		usesDocWrite: false,
 		parameters: [

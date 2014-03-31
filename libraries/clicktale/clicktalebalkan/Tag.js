@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
 		html: "",
 		imageUrl: "http://i.imgur.com/VizCSQb.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${clicktale_url}",
 		usesDocWrite: true,
 		parameters: [

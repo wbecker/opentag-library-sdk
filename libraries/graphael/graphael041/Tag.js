@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("graphael.graphael041.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=graphael",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/graphael/0.4.1/g.raphael-min.js",
 		usesDocWrite: false,
 		parameters: [

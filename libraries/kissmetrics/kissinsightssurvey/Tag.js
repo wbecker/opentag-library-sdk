@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Kissmetrics.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "s3.amazonaws.com/ki.js/${account_id}/${website_id}.js",
 		usesDocWrite: false,
 		parameters: [

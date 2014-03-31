@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.Tag", {
 		html: "<img src=\"//clicks.stylefruits.de/reg?partner=${partner_id}&price=${order_total}&order=${order_id}\"  alt=\"stylefruits.de\" width=\"1\" height=\"1\" /> \n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/StyleFruits.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

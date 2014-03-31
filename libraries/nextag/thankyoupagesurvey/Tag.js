@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
 		html: "<link rel=\"stylesheet\" href=\"https://merchants.nextag.com/serv/main/buyer/dhtmlpopup/dhtmlwindow.css\" type=\"text/css\" />\n\n\n\n</script>\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/NexTag.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

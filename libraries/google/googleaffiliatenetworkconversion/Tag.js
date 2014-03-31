@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("google.googleaffiliatenetworkconversion.Tag", {
 		html: "<img src=\"https://gan.doubleclick.net/gan_conversion?advid=${ADVERTISER_ID}&oid=${ORDER_ID}&amt=${SUB_TOTAL}&fxsrc=${CURRENCY}&clickid=${CLICK_ID}&event_type=${EVENT_TYPE}\" width=\"1\" height=\"1\">",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

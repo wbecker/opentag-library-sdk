@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("underscore.underscore144.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=underscore",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js",
 		usesDocWrite: false,
 		parameters: [

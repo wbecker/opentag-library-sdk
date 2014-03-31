@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("linkshare.linkshareconfirmationpagepixeldepreca
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/linkshare.gif",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

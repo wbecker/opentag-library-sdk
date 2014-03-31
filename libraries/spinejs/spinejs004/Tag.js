@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("spinejs.spinejs004.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=spinejs",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/spinejs/0.0.4/spine.min.js",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookconversiontrackingdeprecated.T
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/facebook.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

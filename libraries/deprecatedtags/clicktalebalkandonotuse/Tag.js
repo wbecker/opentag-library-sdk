@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.Tag", {
 		html: "",
 		imageUrl: "http://i.imgur.com/VizCSQb.jpg",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "${clicktale_url}",
 		usesDocWrite: true,
 		parameters: [

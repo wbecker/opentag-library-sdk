@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("skimlinks.skimlinks.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Skimlinks.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "s.skimresources.com/js/${publisher_id}.skimlinks.js",
 		usesDocWrite: false,
 		parameters: [

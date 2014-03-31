@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsbasketpage.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "libs.coremetrics.com/eluminate.js",
 		usesDocWrite: true,
 		parameters: [

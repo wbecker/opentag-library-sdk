@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("pubnub.pubnub312.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=pubnub",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/pubnub/3.1.2/pubnub.min.js",
 		usesDocWrite: false,
 		parameters: [

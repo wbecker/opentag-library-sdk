@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedconfirmationpagewithlastc
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiser_id}",
 		usesDocWrite: false,
 		parameters: [

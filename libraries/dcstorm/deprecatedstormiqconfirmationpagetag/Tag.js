@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("dcstorm.deprecatedstormiqconfirmationpagetag.Ta
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "t1.stormiq.com/dcv4/jslib/${storm_id}.js",
 		usesDocWrite: false,
 		parameters: [

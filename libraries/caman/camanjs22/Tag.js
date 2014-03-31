@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("caman.camanjs22.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=camanjs",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/camanjs/2.2/caman.full.min.js",
 		usesDocWrite: false,
 		parameters: [

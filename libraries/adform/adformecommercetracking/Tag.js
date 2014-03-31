@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("adform.adformecommercetracking.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "track.adform.net/serving/scripts/trackpoint/async/",
 		usesDocWrite: false,
 		parameters: [

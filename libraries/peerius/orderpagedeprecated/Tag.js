@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Peerius.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "pt.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
 		parameters: [

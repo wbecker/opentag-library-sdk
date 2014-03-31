@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpageta
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/salecycle.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("bazaarvoice.maintenancefreepieconfirmation.Tag"
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${client_code}.ugc.bazaarvoice.com/static/${display_code}/bvapi.js",
 		usesDocWrite: false,
 		parameters: [

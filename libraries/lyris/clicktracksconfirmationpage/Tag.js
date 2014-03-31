@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/lyris.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "stats2.clicktracks.com/cgi-bin/ctasp-server.cgi?i=${id}",
 		usesDocWrite: true,
 		parameters: [

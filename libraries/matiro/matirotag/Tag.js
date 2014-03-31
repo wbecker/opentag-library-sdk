@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("matiro.matirotag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/matiro.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "asset.matiro.com/${pixel_id}?m1=${order_id}&m2=${order_amount}",
 		usesDocWrite: true,
 		parameters: [

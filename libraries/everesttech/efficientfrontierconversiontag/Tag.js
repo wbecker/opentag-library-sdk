@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("everesttech.efficientfrontierconversiontag.Tag"
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/blank.gif",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.everestjs.net/static/st.v2.js",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("dojo.dojo160.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Dojo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js",
 		usesDocWrite: false,
 		parameters: [

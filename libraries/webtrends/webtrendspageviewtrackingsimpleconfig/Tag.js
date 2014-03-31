@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendspageviewtrackingsimpleconfig
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "d22rutvoghj3db.cloudfront.net/opentag-cdn/webtrends.min.js",
 		usesDocWrite: false,
 		parameters: [

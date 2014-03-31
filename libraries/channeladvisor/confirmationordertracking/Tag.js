@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("channeladvisor.confirmationordertracking.Tag", 
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "t.channeladvisor.com/v2/${ca_id}.js",
 		usesDocWrite: false,
 		parameters: [

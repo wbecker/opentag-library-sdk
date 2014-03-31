@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticseventtrackingdep
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

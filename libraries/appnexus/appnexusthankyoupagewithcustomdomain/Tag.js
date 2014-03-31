@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("appnexus.appnexusthankyoupagewithcustomdomain.T
 		html: "<img src=\"https://${domain}/px?id=${id}&seg=${segment}&order_id=${order_id}&value=${subtotal}&t=${t}\" width=\"1\" height=\"1\" /> ",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AppNexus.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

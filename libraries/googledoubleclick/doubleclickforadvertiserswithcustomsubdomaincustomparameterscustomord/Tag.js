@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserswith
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/double-click.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [
@@ -64,7 +64,7 @@ qubit.opentag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserswith
 var axel = Math.random() + "";
 var a = axel * 1000000000000;
 var fl_if = document.createElement("iframe");
-fl_if.src='//' + this.valueForToken("subdomain") + '.doubleclick.net/activity' + this.valueForToken("activity_letter") + ';src=' + this.valueForToken("doubleclick_id") + ';type=' + this.valueForToken("type") + ';cat=' + this.valueForToken("cat") + ';' + this.valueForToken("custom_params") + ';ord=' + this.valueForToken("ord") + '' + a + '?';
+fl_if.src='//' + this.valueForToken("subdomain") + '.fls.doubleclick.net/activity' + this.valueForToken("activity_letter") + ';src=' + this.valueForToken("doubleclick_id") + ';type=' + this.valueForToken("type") + ';cat=' + this.valueForToken("cat") + ';' + this.valueForToken("custom_params") + ';ord=' + this.valueForToken("ord") + '' + a + '?';
 fl_if.width="1";
 fl_if.height="1";
 fl_if.frameborder="0";

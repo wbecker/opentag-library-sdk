@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mentionme.referrertagdeprecated.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/MentionMe.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

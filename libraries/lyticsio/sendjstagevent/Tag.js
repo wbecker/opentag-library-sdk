@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

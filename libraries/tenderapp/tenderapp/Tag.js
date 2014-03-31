@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("tenderapp.tenderapp.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//${SUBDOMAIN}.tenderapp.com/tender_widget.js\"></script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/TenderSupport.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

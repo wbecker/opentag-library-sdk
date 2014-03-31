@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Liveclicker.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("netbooster.conversionpixel.Tag", {
 		html: "\n",
 		imageUrl: "http://www.netbooster.co.uk/images/netbooster-logo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

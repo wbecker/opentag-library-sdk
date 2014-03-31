@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("optimizely.optimizely.Tag", {
 		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//cdn.optimizely.com/js/${ACCOUNT_ID}.js\"></script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Optimizely.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("requirejs.requirejs.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=requirejs",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js",
 		usesDocWrite: false,
 		parameters: [

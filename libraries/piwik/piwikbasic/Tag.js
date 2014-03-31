@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("piwik.piwikbasic.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Piwik.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "${piwik_url}",
 		usesDocWrite: true,
 		parameters: [

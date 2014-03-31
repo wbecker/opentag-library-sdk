@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mediaplex.znotneeded.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "https://secure.img-cdn.mediaplex.com/0/${client_id}/universal.html?page_name=${page_name}&${event_name}=1&mpuid=",
 		usesDocWrite: false,
 		parameters: [

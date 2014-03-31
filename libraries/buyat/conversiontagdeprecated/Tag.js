@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("buyat.conversiontagdeprecated.Tag", {
 		html: "<img src=\"https://www.perfiliate.com/brains/process.php?PROGID=${id}&TYPE=pp&AMOUNT=${order_total}&TRANSID=${order_id}&PPDATA=${ppdata}\" height=\"1\" width=\"1\"/>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/blank.gif",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

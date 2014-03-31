@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("lessjs.lessjs113.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=less",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/less.js/1.1.3/less-1.1.3.min.js",
 		usesDocWrite: false,
 		parameters: [

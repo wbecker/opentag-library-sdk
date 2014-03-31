@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("pricegrabber.thankyoupagesurvey.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/price_grabber.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "https://www.pricegrabber.com/rating_merchrevpopjs.php?retid=${account_number}",
 		usesDocWrite: false,
 		parameters: [

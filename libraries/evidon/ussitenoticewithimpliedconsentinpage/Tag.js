@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("evidon.ussitenoticewithimpliedconsentinpage.Tag
 		html: "<a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("bing.bingadcentercampaignanalyticsfullycustomiz
 		html: "<iframe src=\"//flex.atdmt.com/mstag/tag/${URL_ID}/analytics.html?dedup=${DEDUPE}&domainId=${DOMAIN_ID}&type=${TYPE}&revenue=${REVENUE}&actionid=${ACTION_ID}\" frameborder=\"0\" scrolling=\"no\" width=\"1\" height=\"1\" style=\"visibility:hidden;display:none\">",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Bing.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

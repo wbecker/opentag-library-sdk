@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ve-interactive.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

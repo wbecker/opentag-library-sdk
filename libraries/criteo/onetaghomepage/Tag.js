@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "static.criteo.net/js/ld/ld.js",
 		usesDocWrite: false,
 		parameters: [

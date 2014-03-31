@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("drawbridge.crossdevicepixel.Tag", {
 		html: "<img style=\"display:none;\" src=\"https://api.adsymptotic.com/api/s/trackconversion?_pid=${pid}&_psign=${p_signature}&_aid=${appid}&_pc_ev_spd=${order_subtotal}&_pc_ev_tx_id=${order_id}&_pc_ev_cr=${order_currency}&_pc_ev_wt=1&_pc_ev_tp=4&_lbl=CT,PC&_pc_ev_ct=product\" />",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

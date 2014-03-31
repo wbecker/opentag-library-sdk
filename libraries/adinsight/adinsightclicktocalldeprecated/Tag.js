@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("adinsight.adinsightclicktocalldeprecated.Tag", 
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Adinsight.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "static.adinsight.eu/static/scripts/adiTrack.min.js",
 		usesDocWrite: false,
 		parameters: [

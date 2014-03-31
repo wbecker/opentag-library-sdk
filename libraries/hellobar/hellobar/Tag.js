@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("hellobar.hellobar.Tag", {
 		html: "",
 		imageUrl: "https://www.hellobar.com/assets/images/hello-bar-logo2.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.hellobar.com/hellobar.js",
 		usesDocWrite: false,
 		parameters: [

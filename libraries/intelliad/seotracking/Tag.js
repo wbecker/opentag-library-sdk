@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("intelliad.seotracking.Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "t13.intelliad.de/cl/${client_id}.js",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("ownedit.confirmationpagetag.Tag", {
 		html: "",
 		imageUrl: "https://www.ownedit.com/assets/css/OwnedItLogo.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.ownedit.com/ownedit_js/ownedit.js?store_id=${STORE_ID}&anchor=${DIV_CLASS_NAME}",
 		usesDocWrite: false,
 		parameters: [

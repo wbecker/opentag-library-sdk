@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${ADVERTISER_TOKEN}",
 		usesDocWrite: false,
 		parameters: [

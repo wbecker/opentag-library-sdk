@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("drawbridge.drawbridge.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Drawbridge.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "api.adsymptotic.com/js/trackconversion.js",
 		usesDocWrite: true,
 		parameters: [

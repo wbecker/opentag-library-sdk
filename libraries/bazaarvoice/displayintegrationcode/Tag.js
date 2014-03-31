@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/bazaarvoice.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${client_code}.ugc.bazaarvoice.com/static/${display_code}/bvapi.js",
 		usesDocWrite: false,
 		parameters: [

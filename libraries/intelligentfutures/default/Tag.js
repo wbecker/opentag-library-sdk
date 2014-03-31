@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("intelligentfutures.default.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelligentFutures.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

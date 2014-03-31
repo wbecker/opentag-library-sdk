@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordswithadditionalparameters.Ta
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
 		usesDocWrite: false,
 		parameters: [

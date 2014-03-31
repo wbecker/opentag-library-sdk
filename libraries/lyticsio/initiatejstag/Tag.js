@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("lyticsio.initiatejstag.Tag", {
 		html: "\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Lytics.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

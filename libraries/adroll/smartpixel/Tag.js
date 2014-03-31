@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("adroll.smartpixel.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AdRoll.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
 		parameters: [

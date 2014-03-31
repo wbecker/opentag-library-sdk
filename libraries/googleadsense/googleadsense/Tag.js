@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/googleadsense.jpeg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
 		usesDocWrite: false,
 		parameters: [

@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetag.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelligentReach.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=${id}&useDom=1",
 		usesDocWrite: false,
 		parameters: [

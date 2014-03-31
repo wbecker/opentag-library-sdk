@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("cufon.cufon109i.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=cufon",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/cufon/1.09i/cufon-yui.js",
 		usesDocWrite: false,
 		parameters: [

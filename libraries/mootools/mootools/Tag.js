@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("mootools.mootools.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=MooTools",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js",
 		usesDocWrite: false,
 		parameters: [

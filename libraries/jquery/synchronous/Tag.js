@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("jquery.synchronous.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/jQuery.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/jquery/${version}/jquery.min.js",
 		usesDocWrite: false,
 		parameters: [

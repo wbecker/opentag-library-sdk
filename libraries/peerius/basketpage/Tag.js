@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("peerius.basketpage.Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Peerius.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
 		parameters: [

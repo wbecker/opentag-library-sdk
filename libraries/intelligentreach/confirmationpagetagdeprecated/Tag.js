@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetagdeprecated.
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelligentReach.png",
 		locationDetail: "",
-		priv: true,
+		isPrivate: true,
 		url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=${id}",
 		usesDocWrite: true,
 		parameters: [

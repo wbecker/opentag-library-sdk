@@ -17,7 +17,7 @@
     (node.innerHTML === 'show')  ? node.innerHTML='hide' : node.innerHTML='show';
   }
   function onFocusInput(node) {
-    if (!node.entered) {
+    if (!node.entered && node.value === '') {
       node.entered = true;
       node.className = '';
       node.value = '';
@@ -25,7 +25,7 @@
   }
   function onBlurInput(node) {
     if (!node.value) {
-      node.value = 'enter value...';
+      node.value = '';
       node.entered = false;
       node.className = 'red';
     }
@@ -36,11 +36,12 @@
   <div id="vendor-template"></div>
   
   <div id="library-template">
-    <div class="library-title">
-    </div>
+    <div class="library-title"></div>
     <button class="showhide" onclick="showButtonHandler(this)">show</button>
-    <button class="test-library" onmousedown="testTag(this.parentNode)">run</button>
-    <button class="save-to-main" onmousedown="saveConfig(this.parentNode)">save this configuration</button>
+    <button class="test-library" onclick="testTag(this.parentNode)">run</button>
+    <button class="save-to-main" onclick="saveConfig(this.parentNode)">save parameters</button>
+    <button class="open-editor" onclick="openInEditor(this.parentNode)">edit</button>
+    <button class="reload" onclick="reloadTag(this.parentNode)">reload</button>
     <div class="contents"></div>
   </div>
   
@@ -54,43 +55,38 @@
   <div id="config-template">
     <div class="parameter">
       <label></label>
-      <input type="text" onffocus="if(!this.entered) {this.entered = true;this.value='';}" onbblur="if(!this.value) {this.value = 'enter value...'; this.entered = false;}"></input>
+      <input type="text" onffocus="if(!this.entered) {this.entered = true;this.value='';}" onbblur="if(!this.value) {this.value = ''; this.entered = false;}"></input>
+    </div>
+  </div>
+  
+  
+  <div id="toggled-config-template">
+    <div class="hidden-parameters">
+      <a href="#-3" onclick="toggleShowSibling(this);">More configuration</a>
+      <div class="hidden-config"></div>
     </div>
   </div>
   
   <div id="pre-post-script-template">
     <div class="pre">
-      <a href="#-2" onclick="toggleShowSibling(this);">show pre function</a>
+      <a href="#-2" onclick="toggleShowSibling(this);">pre function contents</a>
       <textarea onkeydown="fitTextarea(this)"></textarea>
     </div>
     <div class="post">
-      <a href="#-2" onclick="toggleShowSibling(this);">show post function</a>
+      <a href="#-2" onclick="toggleShowSibling(this);">post function contents</a>
       <textarea onkeydown="fitTextarea(this)"></textarea>
     </div>
     <div class="script">
-      <a href="#-2" onclick="toggleShowSibling(this);">show script function</a>
+      <a href="#-2" onclick="toggleShowSibling(this);">script function contents</a>
       <textarea onkeydown="fitTextarea(this)"></textarea>
     </div>
   </div>
   
 </div>
 
-
-
 <script>
   function main() {
-    var html = "<div>";
-    var scripts = document.getElementsByTagName("script");
-    for(var i =0 ; i < scripts.length; i++) {
-      var src = scripts[i].getAttribute("src");
-      if (src) {
-        html += "<a href='" +  src + "' target='frame" + i + "' >" +
-                src +
-                "</a><br/>";
-      }
-    }
-    html += "</div>";
-    document.getElementById("sources").innerHTML = html;
+    callScript();
   }
 </script>
 
@@ -98,8 +94,6 @@
   <div id="libraries"></div>
   <div id="page-variables"></div>
 </div>
-<script src='script.js'></script>
+<script src='js/script.js'></script>
 <link media="all" type="text/css" rel="stylesheet" href="style.css">
-<script>
-   window.callScript();
-</script>
+

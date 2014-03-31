@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("prismastar.productpagetag.Tag", {
 		html: "<img src=\"https://${GATEWAY_PREFIX}.cpr.prismastar.com/v2_0/recorder/?type=productPage&customerCode=${CUSTOMER_CODE}&order=${PRODUCT_ID}|1|${ITEM_PRICE}|${CATEGORY_CODE}\" style=\"display:none;\" />",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/PrismaStar.png",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

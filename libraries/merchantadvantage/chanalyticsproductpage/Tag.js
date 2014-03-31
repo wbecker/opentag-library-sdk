@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("merchantadvantage.chanalyticsproductpage.Tag", 
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/merchantadvantage.gif",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "http://chanalytics.merchantadvantage.com/inchannel/maq.js",
 		usesDocWrite: true,
 		parameters: [

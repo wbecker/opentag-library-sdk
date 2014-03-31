@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("merchenta.producttag.Tag", {
 		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">VIEW</div>\n  <div class=\"mc_retailer\">${Merchenta_ID}</div>\n  <div class=\"mc_sku\">${Product_code}</div>\n</div>\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [

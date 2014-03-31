@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define("modernizr.modernizr206.Tag", {
 		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=modernizr",
 		locationDetail: "",
-		priv: false,
+		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js",
 		usesDocWrite: false,
 		parameters: [
