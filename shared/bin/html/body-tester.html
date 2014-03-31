@@ -1,99 +1,104 @@
-<h3>Tag Library Testing Page.</h3>
-<h4>Sources </h4>
-<div class="hide">
-  Sources links list 
-  <a href="#-1" class="showhide" onclick="this.parentNode.className = (this.innerHTML); (this.innerHTML === 'show') ? this.innerHTML='hide' : this.innerHTML='show';">show</a>
-  <div id="sources"></div>
-</div>
-<style>
-  #sources{
-    padding: 8px;
-  }
-</style>
+	<font link='../../.././shared/js/tagsdk-current.js'></font>
+	<font link='../../.././libraries/googleadsense/googleadsense/Tag.js'></font>
+	<!--HEADER-->
+	<div id="header">
+		<h1>Open tag</h1>
+	</div>	
+	<div id="content">
+		<h2>Tag Library Testing Page</h2>
 
-<script>
-  function showButtonHandler(node) {
-    node.parentNode.className = ('library ' + node.innerHTML);
-    (node.innerHTML === 'show')  ? node.innerHTML='hide' : node.innerHTML='show';
-  }
-  function onFocusInput(node) {
-    if (!node.entered && node.value === '') {
-      node.entered = true;
-      node.className = '';
-      node.value = '';
-    }
-  }
-  function onBlurInput(node) {
-    if (!node.value) {
-      node.value = '';
-      node.entered = false;
-      node.className = 'red';
-    }
-  }
-</script>
+		<p>Use this page to test your tag library settings.</p>
+
+		<script>
+  		function showButtonHandler(node) {
+    	node.parentNode.className = ('library ' + node.innerHTML);	
+	  	(node.innerHTML === 'show')  ? node.innerHTML='hide' : node.innerHTML='show';
+  		
+  		}
+  		
+  		function onFocusInput(node) {
+    	if (!node.entered && node.value === '') {
+      	node.entered = true;
+      	node.className = '';
+      	node.value = '';
+    	}
+  		}
+  		function onBlurInput(node) {
+    	if (!node.value) {
+      	node.value = '';
+      	node.entered = false;
+      	node.className = 'red';
+    	}
+  		}
+		</script>
     
-<div id="trash" style="display:none">
-  <div id="vendor-template"></div>
+		<div id="trash" style="display:none">
+	  		<div id="vendor-template"></div>
+  	
+  			<div id="library-template">
+  			    <div class="library-title"></div>
+	      		<button class="showhide" onclick="showButtonHandler(this)">show</button>
+			    <button class="test-library" onclick="testTag(this.parentNode)"><i class="fa fa-play-circle"></i> Run script</button>
+			    <button class="save-to-main" onclick="saveConfig(this.parentNode)"><i class="fa fa-save"></i> Save changes</button>
+				<button class="open-editor" onclick="openInEditor(this.parentNode)"><i class="fa fa-code"></i> Edit source</button>
+   				<button class="reload" onclick="reloadTag(this.parentNode)"><i class="fa fa-refresh"></i> Reload</button>
+    			<div class="contents"></div>
+  			</div>
   
-  <div id="library-template">
-    <div class="library-title"></div>
-    <button class="showhide" onclick="showButtonHandler(this)">show</button>
-    <button class="test-library" onclick="testTag(this.parentNode)">run</button>
-    <button class="save-to-main" onclick="saveConfig(this.parentNode)">save parameters</button>
-    <button class="open-editor" onclick="openInEditor(this.parentNode)">edit</button>
-    <button class="reload" onclick="reloadTag(this.parentNode)">reload</button>
-    <div class="contents"></div>
-  </div>
+ 	 		<div id="parameter-template">
+    			<div class="parameter">
+      				<label></label>
+ 	     			<input type="text" onfocus=" onFocusInput(this)" onblur="onBlurInput(this)"></input>
+   	 			</div>
+  			</div>
   
-  <div id="parameter-template">
-    <div class="parameter">
-      <label></label>
-      <input type="text" onfocus=" onFocusInput(this)" onblur="onBlurInput(this)"></input>
-    </div>
-  </div>
-  
-  <div id="config-template">
-    <div class="parameter">
-      <label></label>
-      <input type="text" onffocus="if(!this.entered) {this.entered = true;this.value='';}" onbblur="if(!this.value) {this.value = ''; this.entered = false;}"></input>
-    </div>
-  </div>
+	 		 <div id="config-template">
+    			<div class="parameter">
+      				<label></label>
+      				<input type="text" onffocus="if(!this.entered) {this.entered = true;this.value='';}" onbblur="if(!this.value) {this.value = ''; this.entered = false;}"></input>
+    			</div>
+			</div>
   
   
-  <div id="toggled-config-template">
-    <div class="hidden-parameters">
-      <a href="#-3" onclick="toggleShowSibling(this);">More configuration</a>
-      <div class="hidden-config"></div>
-    </div>
-  </div>
+  			<div id="toggled-config-template">
+    			<div class="hidden-parameters">
+     	 			<a href="#-3" onclick="toggleShowSibling(this);">+ More configuration</a>
+    	 			 <div class="hidden-config"></div>
+   				 </div>
+  			</div>
   
-  <div id="pre-post-script-template">
-    <div class="pre">
-      <a href="#-2" onclick="toggleShowSibling(this);">pre function contents</a>
-      <textarea onkeydown="fitTextarea(this)"></textarea>
-    </div>
-    <div class="post">
-      <a href="#-2" onclick="toggleShowSibling(this);">post function contents</a>
-      <textarea onkeydown="fitTextarea(this)"></textarea>
-    </div>
-    <div class="script">
-      <a href="#-2" onclick="toggleShowSibling(this);">script function contents</a>
-      <textarea onkeydown="fitTextarea(this)"></textarea>
-    </div>
-  </div>
-  
-</div>
+			<div id="pre-post-script-template">
+    			<div class="pre">
+      				<a href="#-2" onclick="toggleShowSibling(this);">+ Pre function contents</a>
+     				 <textarea onkeydown="fitTextarea(this)"></textarea>
+				</div>
+    			<div class="post">
+      				<a href="#-2" onclick="toggleShowSibling(this);">+ Post function contents</a>
+					<textarea onkeydown="fitTextarea(this)"></textarea>
+    			</div>
+    			<div class="script">
+					<a href="#-2" onclick="toggleShowSibling(this);">+ Script function contents</a>
+					<textarea onkeydown="fitTextarea(this)"></textarea>
+				</div>
+			</div>
+  	
+		</div>
 
-<script>
-  function main() {
-    callScript();
-  }
-</script>
+		<script>
+ 	 		function main() {
+    		callScript();
+  			}
+		</script>
 
-<div id="tester">
-  <div id="libraries"></div>
-  <div id="page-variables"></div>
-</div>
-<script src='js/script.js'></script>
-<link media="all" type="text/css" rel="stylesheet" href="style.css">
+		<div id="tester">
+  			<div id="libraries"></div>
+  			<div id="page-variables"></div>
+		</div>
+		<script src='js/script.js'></script>
+	</div>
 
+	<!--RIGHT COLUMN-->
+	<div id="right-column">
+		<h3>Source files</h3>
+  		<div id="sources"></div>
+	</div>
