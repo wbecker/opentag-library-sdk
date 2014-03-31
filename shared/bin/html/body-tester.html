@@ -4,7 +4,6 @@
 </div>	
 <div id="content">
   <h2>Tag Library Testing Page</h2>
-
   <p>Use this page to test your tag library settings.</p>
 
   <script>
@@ -13,7 +12,6 @@
       (node.innerHTML === 'show') ? node.innerHTML = 'hide' : node.innerHTML = 'show';
 
     }
-
     function onFocusInput(node) {
       if (!node.entered && node.value === '') {
         node.entered = true;
@@ -31,6 +29,14 @@
   </script>
 
   <div id="trash" style="display:none">
+    <!--
+    
+    
+          TEMPLATES AREA, ALWAYS DISPLAY NONE
+    
+    
+    -->
+    
     <div id="vendor-template"></div>
 
     <div id="library-template">
@@ -90,6 +96,20 @@
       </div>
     </div>
 
+    <div id="unit-test-template">
+      <div class="expression">
+        <textarea></textarea>
+      </div>
+      <div class="unit-test">
+        <textarea></textarea>
+      </div>
+    </div>
+    
+    <div id="unit-tests-template">
+      <div class="unit-head"></div>
+      <div class="unit-tests"></div>
+    </div>
+    
   </div>
 
   <script>
@@ -102,6 +122,11 @@
     <div id="libraries"></div>
     <div id="page-variables"></div>
   </div>
+  
+  <div id="unit-tests">
+    
+  </div>
+  
   <script src='js/script.js'></script>
   <script src='js/qtest.js'></script>
   <link media="all" type="text/css" rel="stylesheet" href="style.css">

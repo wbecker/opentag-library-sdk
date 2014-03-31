@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("adform.adformbasic.Tag", {
 		async: true,
 		description: "To be placed on any page except order confirmation pages.",
 		html: "",
-		imageUrl: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQqhMX8uPEM4jbCulqkPVVjAeLHE5Cjx5SkFKlqrtxPL0S4tJDOCJXoQ7kT",
+		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
 		locationDetail: "",
 		isPrivate: false,
 		url: "track.adform.net/serving/scripts/trackpoint/async/",
@@ -34,10 +34,14 @@ qubit.opentag.LibraryTag.define("adform.adformbasic.Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-	    window._adftrack = {
-		pm: this.valueForToken("campaignid"),
-		id: this.valueForToken("pointid")
-	    };
+(function() {
+
+  window._adftrack = {
+    pm: this.valueForToken("campaignid"),
+    id: this.valueForToken("pointid")
+  };
+
+})();
 		/*~PRE*/
 	},
 	post: function() {
