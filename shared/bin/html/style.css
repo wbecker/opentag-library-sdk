@@ -35,11 +35,20 @@ button.test-library {
   width: 100%;
 }
 
-.library .contents{
+.library .contents {
     float: left;
     margin-left: 12px;
     overflow: auto;
     width: 670px;
+}
+
+.library .contents .head {
+  height: auto;
+  overflow: hidden;
+  background: white;
+  margin: 4px;
+  margin-top: 24px;
+  padding: 8px;
 }
 
 .library-title {

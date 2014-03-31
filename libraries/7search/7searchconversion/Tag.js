@@ -40,12 +40,10 @@ qubit.opentag.LibraryTag.define("7search.7searchconversion.Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-<script language="JavaScript" type="text/javascript">
-var _7search_conversion_advid = this.valueForToken("7search_advertiserid");
-var _7search_conversion_urlid = this.valueForToken("7search_urlid");
-var _7search_conversion_type = "purchase";
-var _7search_conversion_value = this.valueForToken("transaction_total");
-</script>
+	    var _7search_conversion_advid = this.valueForToken("7search_advertiserid");
+	    var _7search_conversion_urlid = this.valueForToken("7search_urlid");
+	    var _7search_conversion_type = "purchase";
+	    var _7search_conversion_value = this.valueForToken("transaction_total");
 		/*~PRE*/
 	},
 	post: function() {

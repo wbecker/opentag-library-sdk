@@ -42,7 +42,10 @@
     <button class="save-to-main" onclick="saveConfig(this.parentNode)">save parameters</button>
     <button class="open-editor" onclick="openInEditor(this.parentNode)">edit</button>
     <button class="reload" onclick="reloadTag(this.parentNode)">reload</button>
-    <div class="contents"></div>
+    <div class="contents">
+       <div class="head"><div class="desc"></div></div>
+       <div class="other"></div>
+    </div>
   </div>
   
   <div id="parameter-template">
@@ -95,5 +98,6 @@
   <div id="page-variables"></div>
 </div>
 <script src='js/script.js'></script>
+<script src='js/qtest.js'></script>
 <link media="all" type="text/css" rel="stylesheet" href="style.css">
 
