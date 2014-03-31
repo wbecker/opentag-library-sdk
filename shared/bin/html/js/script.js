@@ -7,14 +7,14 @@ function addLibrary(anchor, libraryClass) {
   var libraryNode = document.createElement("div");
   anchor.appendChild(libraryNode);
   
-  var url = "/getClassPath?classPath=libraries." +libraryClass.prototype.PACKAGE_NAME +
+  var url = "/getClassPath?classPath=libraries." +
+          libraryClass.prototype.PACKAGE_NAME +
           ".local&file=Config.js";
   try {
     GET(url, function(msg) {
       try {
         qubit.opentag.Utils.geval(msg);//RUN CONFIG HERE WHEN CLASS IS LOADED
-      } catch (e) {
-      }
+      } catch (e) {}
       renderLibraryToNode(libraryClass, libraryNode, "hide");
     });
   } catch (ex) {
@@ -26,8 +26,19 @@ function addLibrary(anchor, libraryClass) {
 var libraryTemplate = document.getElementById("library-template").innerHTML;
 function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   cfg = cfg || {};
-  var instance = new libraryClass(cfg);
+  var instance = new libraryClass();
   instance.unregisterTag();
+  
+  if (cfg.parameters && instance.config.parameters) {
+    for (var i = 0; i < cfg.parameters.length; i++) {
+      var token = cfg.parameters[i].token;
+      for (var j = 0; j < instance.config.parameters.length; j++) {
+        if (instance.config.parameters[j].token === token) {
+          instance.config.parameters[j] = cfg.parameters[i];
+        }
+      }
+    }
+  }
   
   var fullName = instance.PACKAGE_NAME + "." + instance.CLASS_NAME;
   libraryNode = libraryNode || document.getElementById(fullName);
@@ -40,7 +51,8 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   libraryNode.id = fullName;
 
   var params = instance.config.parameters;
-  var contents = libraryNode.children[6];
+  var head = libraryNode.children[6].children[0];
+  var contents = libraryNode.children[6].children[1];
   try {
     var configObject = qubit.opentag.Utils
             .getObjectUsingPath(instance.PACKAGE_NAME + ".local.Config");
@@ -50,6 +62,13 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   } catch (ex) {
     //may not be in there
   }
+  head.children[0].innerHTML =  
+          (instance.config.imageUrl ?
+            "<img class='logo' src='" + instance.config.imageUrl +
+              "' align='right' />" :
+            "") +
+            instance.config.description;
+  
   addParameters(contents, params);
   addConfig(contents, instance.config);
   addPrePostTemplate(contents, instance);
@@ -97,7 +116,7 @@ function propertyExcludedFromConfig(prop) {
 var hidden = [
   "filterTimeout",
   "isPrivate", ,
-          "usesDocumentWrite",
+  "usesDocumentWrite",
   "timeout",
   "singleton",
   "locationPlaceHolder",
@@ -106,7 +125,6 @@ var hidden = [
   "noMultipleLoad",
   "__proto__"
 ];
-
 function propertyHiddenFromConfig(prop) {
   for (var i = 0; i < hidden.length; i++) {
     if (prop === hidden[i]) {
@@ -152,7 +170,7 @@ function addConfig(anchor, config) {
   hel.className = "config-header";
   anchor.appendChild(hel);
   anchor = hel.children[0].children[1];
-  toggleShowSibling(hel.children[0].children[0])
+  toggleShowSibling(hel.children[0].children[0]);
   for (var prop in config) {
     if (!propertyExcludedFromConfig(prop) && propertyHiddenFromConfig(prop)) {
       var e = prepareConfigElement(prop, config[prop], configTemplate);
@@ -210,7 +228,7 @@ function prepareVendorNode(name) {
 function prepareLibrary(libraryClass, node) {
   var ctest = new libraryClass({});
   ctest.unregisterTag();
-  if ((ctest) instanceof qubit.opentag.LibraryTag) {
+  if ((ctest) instanceof qubit.opentag.LibraryTag) {debugger;
     addLibrary(node, libraryClass);
   }
 }

@@ -1,6 +1,151 @@
-a.showhide {
+@font-face {
+	font-family: "Museo Sans 500";
+	src: url("fonts/MuseoSans_500.eot");
+	src: local("Museo Sans 500"), local("MuseoSans-500"), url("fonts/MuseoSans_500.otf") format("opentype");
+	}
 
+body{
+background: #F9F9F9 url(img/background.png);
+width: 100%;
+height: 100%;
+margin: 0;
+padding: 0;
+font-family: "Museo Sans 500", sans-serif;
 }
+
+#header {
+  height: 47px;
+  position: relative;
+  background: #2E2F30;
+  color: #898989;
+  overflow: hidden;
+}
+
+h1{
+height: 47px;
+position: relative;
+background: url("img/logo.png") no-repeat 18px 12px transparent;
+overflow: hidden;
+margin:0;
+padding:0;
+text-indent:-999px;
+}
+
+h2 {
+font-size: 30px;
+font-weight: 300;
+color: #DD2A37;
+width: 100%;
+height:30px;
+}
+
+
+h3{font-size:16px;
+color:#333;}
+
+
+#content{
+padding: 0;
+width: 70%;
+float: left;
+margin-left:50px;
+}
+#content p{color:#666; font-size:13px;}
+
+#right-column{float:left; margin:20px 0 0 40px}
+
+#right-column a, #right-column a:visited, #right-column a:active{
+	font-size:13px;
+	color:#2CB0B2;
+	text-decoration:none;
+	display:block;
+}
+#right-column a:hover{
+	text-decoration:underline;
+}
+
+.library-template{
+	border-top: 1px #ccc solid; }
+
+.library {
+  	background: #fff;
+  	margin-bottom: 3px;
+  	font-weight: normal;
+  	color: #333;
+  	overflow: hidden;
+  	height: auto;
+	border-bottom: #ccc 1px solid;
+	-webkit-background-clip: border-box;
+	-webkit-background-origin: padding-box;
+	-webkit-background-size: auto;
+	-webkit-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+	background-color: rgb(255, 255, 255);
+	border-bottom-color: rgb(87, 87, 87);
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-style: none;
+	border-bottom-width: 0px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(87, 87, 87);
+	border-left-style: none;
+	border-left-width: 0px;
+	border-right-color: rgb(87, 87, 87);
+	border-right-style: none;
+	border-right-width: 0px;
+	border-top-color: rgb(87, 87, 87);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-top-style: none;
+	border-top-width: 0px;
+	box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+	color: rgb(87, 87, 87);
+	display: block;
+	line-height: 12px;
+	margin-bottom: 12px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 24px;
+	outline-color: rgb(87, 87, 87);
+	outline-style: none;
+	outline-width: 0px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 1px;
+	vertical-align: baseline;
+}
+
+.library .contents {
+    float: left;
+    width: 100%;
+    clear:left;
+}
+
+.library .contents .head {
+  height: auto;
+  overflow: hidden;
+  background: white;
+  margin: 4px;
+  margin-top: 24px;
+  padding: 8px;
+}
+
+.library-title {
+	float: left;
+	clear: left;
+	font-size: 16px;
+	color: #333;
+	margin: 20px;
+	display: block;
+}
+
+
+/*BUTTONS*/
+
 
 button.showhide {
   display: block;
@@ -14,111 +159,86 @@ button {
   width: 64px;
 }
 
-button.open-editor, button.reload,
-button.test-library {
-  display: block;
-  float: right;
-}
 
 .red {
   background-color: #ff9999;
 }
 
-.library {
-  border-radius: 5px;
-  background: #eee;
-  margin-bottom: 3px;
-  font-weight: normal;
-  color: #656565;
-  overflow: hidden;
-  height: auto;
-  width: 100%;
-}
 
-.library .contents{
-    float: left;
-    margin-left: 12px;
-    overflow: auto;
-    width: 670px;
-}
 
-.library-title {
-  width: 300px;
-  float: left;
-  clear: left;
-  font-size: 13px;
-  text-indent: 6px;
-  line-height: 22px;
-  overflow: hidden;
-  height: auto;
-}
-
-.parameter {
-  border-radius: 5px;
-  font-family: "Verdana";
-  overflow: hidden;
-  padding: 3px;
-  background: white;
-  border: 1px solid rgb(196, 196, 196);
-  margin: 2px 5px;
-  height: 20px;
-}
-.parameter label {
+.library button{
   display: block;
-  clear: left;
-  float: left;
-  width: 316px;
-  font: 8pt normal;
-  text-indent: 12px;
-  line-height: 16pt;
-  font-family: "Verdana";
-}
-.parameter input {
   float: right;
-  clear: right;
-  width: 256px;
-  border: #cccccc 1px solid;
-  border-radius: 3px;
-}
+	border: 0;
+	border-top:1px solid #fff;
+	font-size:11px;
+	background-color:#DBDBDB;
+	padding:10px;
+	width:auto;
+	height:40px;
+	color:#333;
+	cursor: pointer;
+	margin:5px;
+	}
 
-.config {
-  border-radius: 5px;
-  font-family: "Verdana";
-  overflow: hidden;
+.library button.test-library{
+	background-color: #579D46;
+	color:#fff;
+	margin-right:10px;}
+	
+.library button.showhide{
+	background-color: transparent;
+	color:#2CB0B2;
+	font-size: 13px;
+	float:left}
+
+
+.parameter, .config {
   padding: 3px;
-  background: white;
-  border: 1px solid white;
-  margin: 2px 5px;
+  margin: 10px 20px 20px 20px ;
   height :20px;
+  clear:both;
 }
-.config label {
-  display: block;
-  clear: left;
-  float: left;
-  width: 316px;
-  font: 8pt normal;
-  text-indent: 12px;
-  line-height: 16pt;
-  font-family: "Verdana";
+.parameter label, .config label {
+	display: block;
+	float: left;
+	width: 200px;
+	font-size: 12px;
+	padding: 8px 0 0 20px;
+	color: #666;
 }
-.config input {
-  float: right;
-  clear: right;
-  width: 256px;
-  border: #cccccc 1px solid;
-  border-radius: 3px;
-}
-
-.parameter-header {
-  line-height: 22px;
-  text-indent: 12px;
+.parameter input, .config input {
+  width: 300px;
+  background-color: #EBEBEB;
+  border: 1px solid #D8D8D8;
+  color:#666;
+  padding: 5px 10px;
+  font-size:13px;
+  display:block;
 }
 
-.config-header {
-  line-height: 22px;
-  text-indent: 12px;
+.parameter-header, .config-header, .post a, .pre a, .script a{
+	font-size:14px;
+	color:#666;
+	padding: 20px 30px; 
+	border-top: 1px solid #EDEDED;
+	display:block;
+
+}
+.config-header a{display:block}
+.pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited, .hidden-parameters a:active{
+	font-size:13px;
+	color:#575757;
+	text-decoration:none;
 }
 
+.hidden-parameters a:hover, .pre a:hover, .post a:hover, .script a:hover{
+	text-decoration:underline;
+}
+
+.config-header .hidden-config{
+	margin:0 0 0 -30px;
+	}
 .hide .contents {
   display: none;
 }
@@ -128,78 +248,40 @@ button.test-library {
 .hide .library {
   display: none;
 }
-.vendor {
-  border-radius: 5px;
-  background: #FAFAFA;
-  padding: 3px 3px 1px 4px;
-  line-height: 20px;
-  font-size: 12px;
-  font-weight: bolder;
-  color: gray;
-  text-indent: 16px;
-}
+
 .plain {
-  color: gray;
+  color: #333;
   text-decoration: none;
+  font-size:20px;
+  display: block;
+  margin: 15px 0 15px 15px;
 }
 
-#sources{
-  padding: 8px;
-}
+
 #page-variables {
-  width: 801px;
+width:100%;
   float: left;
   background: white;
 }
 
 #libraries {
-  width: 801px;
+  width: 100%;
   float: left;
-  background: white;
-  padding : 8px;
   overflow: auto;
 }
 
-.pre {
-  width: 100%;
-  text-indent: 11px;
-}
-.pre a {
-  
-}
-.pre textarea {
-  width: 99%;
-  height: 48px;
-}
 
-
-.post {
-  width: 100%;
-  text-indent: 11px;
-}
-.post a {
-  
-}
-.post textarea {
-  width: 99%;
-  height: 48px;
-}
-
-
-.script {
-  width: 100%;
-  text-indent: 11px;
-}
-.script a {
-  
-}
-
-.script textarea {
+.pre textarea, .post textarea,.script textarea {
   width: 99%;
   height: 100px;
+  background-color:#292929;
+  color:#fff;
+  padding:15px;
+  font-family: 'Courier New', Monospace;
+  font-size:13px;
 }
 
-.save-to-main {
-  width: 160px;
-  float: right;
+
+#pre-post-script-template{
+display:block
 }
