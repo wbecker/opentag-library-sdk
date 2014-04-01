@@ -228,7 +228,7 @@ function prepareVendorNode(name) {
 function prepareLibrary(libraryClass, node) {
   var ctest = new libraryClass({});
   ctest.unregisterTag();
-  if ((ctest) instanceof qubit.opentag.LibraryTag) {debugger;
+  if ((ctest) instanceof qubit.opentag.LibraryTag) {
     addLibrary(node, libraryClass);
   }
 }
@@ -281,7 +281,9 @@ window.callScript = function () {
           for (var x = 0; x < scripts.length; x++) {
             try {
               eval(scripts[x]);
-            } catch (ex) {}
+            } catch (ex) {
+              alert("Failed to load: " + scripts[x]+ "\nException: " + ex);
+            }
           }
           listScripts();
           loadConfig();

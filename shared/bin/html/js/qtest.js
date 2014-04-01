@@ -9,14 +9,14 @@
  *  function () {
  *    this.name = "I am a very nice test";
  *    //and write your execution code
- *    pass(true, "This test just passed.");
+ *    this.pass(true, "This test just passed.");
  *  }
  * ]);
  * 
  * ASuite.onFinished = function () {
  *    for(var x = 0; x < this.tests.length; x++) {
  *      if (this.test[x].passed) {
- *        console.log("Test " + this.test[x].name + " has passed");
+ *        console.log("Test " + this.test[x].name + " has passed.");
  *      }
  *    }
  * };
@@ -36,10 +36,22 @@
  * @param {type} onfinished
  * @returns {Suite}
  */
-function Suite (tests, onfinished) {
-  this.tests = tests;
-  
-  this._onFinished = function () {
+function Suite(tests, onfinished) {
+  this.tests = [];
+
+  this.log = function(msg) {
+    try {
+      console.log("Suite: " + msg);
+    } catch (ex) {}
+  };
+
+  if (tests) {
+    for (var q = 0; q < tests.length; q++) {
+      this.tests.push(new Test(tests[q]));
+    }
+  }
+
+  this._onFinished = function() {
     try {
       if (this.onFinished) {
         this.onFinished();
@@ -50,23 +62,24 @@ function Suite (tests, onfinished) {
       }
     }
   };
-  
-  this.run = function () {
+
+  this.run = function() {
+    this.log("Running tests...");
     for (var q = 0; q < this.tests.length; q++) {
-      var test = this.tests[q];
-      new Test(test).run();
+      this.tests[q].run();
     }
-    
+
     this.waitForResults();
   };
-  
-  this.raport = function () {};
-  
-  this.waitForResults = function () {
+
+  this.raport = function() {
+  };
+
+  this.waitForResults = function() {
     this.finishedTests = [];
     this.unfinishedTests = [];
     var notDone = false;
-    
+
     for (var i = 0; i < this.tests.length; i++) {
       if (!this.tests[i].finished()) {
         notDone = true;
@@ -75,40 +88,17 @@ function Suite (tests, onfinished) {
         this.unfinishedTests.push(this.tests[i]);
       }
     }
-    
+
     if (notDone) {
       var _this = this;
-      setTimeout(function () {_this.waitForResults();}, 50);
+      setTimeout(function() {
+        _this.waitForResults();
+      }, 50);
     } else {
+      this.log("tests are finished.");
       this._onFinished();
     }
   };
-}
-
-/**
- * Fail
- * @param {type} condition
- * @param {type} message
- * @returns {undefined}
- */
-function fail(condition, message) {
-  pass(!condition, message);
-}
-
-/**
- * Pass
- * @param {type} condition
- * @param {type} message
- * @returns {pass}
- */
-function pass(condition, message) {
-  if (condition) {
-    this.passMessage = message;
-    this.passed = new Date().valueOf();
-  } else {
-    this.failMessage = message;
-    this.failed = new Date().valueOf();
-  }
 }
 
 /**
@@ -118,19 +108,66 @@ function pass(condition, message) {
  */
 function Test(test) {
   this.test = test;
-  this.run = function () {
+  
+  this.log = function(msg) {
+    try {
+      console.log("Test["+ this.name + "] " + msg);
+    } catch (ex) {}
+  };
+  
+  /**
+   * 
+   * @returns {undefined}
+   */
+  this.run = function() {
     try {
       test.call(this);
     } catch (ex) {
+      this.failed = new Date().valueOf();
+      this.log("exception occured: " + ex);
       this.exception = ex;
     }
   };
-  
-  this.finished = function () {
-    if (this.hasOwnProperty('passMessage') ||
-        this.hasOwnProperty('failMessage')){
+
+  /**
+   * 
+   * @returns {Boolean}
+   */
+  this.finished = function() {
+    if (this.passed !== undefined ||
+            this.failed !== undefined) {
       return true;
     }
     return false;
+  };
+
+  /**
+   * Fail
+   * @param {type} condition
+   * @param {type} message
+   * @returns {undefined}
+   */
+  this.fail = function(condition, message) {
+    this.pass(!condition, message);
+  };
+
+  /**
+   * Pass
+   * @param {type} condition
+   * @param {type} message
+   * @returns {pass}
+   */
+  this.pass = function(condition, message) {
+    if (condition) {
+      this.log("passed: " + message);
+    } else {
+      this.log("failed: " + message);
+      this.failed = new Date().valueOf();
+    }
+    
+    if (!this.failed && !this.passed) {
+      this.log("Test failed !");
+      this.passed = new Date().valueOf();
+    }
   };
 }

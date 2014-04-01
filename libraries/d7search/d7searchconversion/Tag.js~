@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("7search.7searchconversion.Tag", {
+qubit.opentag.LibraryTag.define("d7search.d7searchconversion.Tag", {
 	config: {
 		/*DATA*/
 		name: "7Search Conversion",
@@ -40,10 +40,7 @@ qubit.opentag.LibraryTag.define("7search.7searchconversion.Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-	    var _7search_conversion_advid = this.valueForToken("7search_advertiserid");
-	    var _7search_conversion_urlid = this.valueForToken("7search_urlid");
-	    var _7search_conversion_type = "purchase";
-	    var _7search_conversion_value = this.valueForToken("transaction_total");
+var _7search_conversion_advid = this.valueForToken("7search_advertiserid"); var _7search_conversion_urlid = this.valueForToken("7search_urlid"); var _7search_conversion_type = "purchase"; var _7search_conversion_value = this.valueForToken("transaction_total");
 		/*~PRE*/
 	},
 	post: function() {
