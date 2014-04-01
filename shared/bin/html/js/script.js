@@ -44,7 +44,7 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   libraryNode = libraryNode || document.getElementById(fullName);
   
   libraryNode.innerHTML = libraryTemplate;
-  libraryNode.children[0].innerHTML = instance.config.name;
+  libraryNode.children[0].innerHTML = "<i class='fa fa-caret-right'></i> " + instance.config.name;
   libraryNode.className = "library " + hide;
   libraryNode.reference = instance;
   libraryNode.classReference = libraryClass;
@@ -307,7 +307,7 @@ window.callScript = function () {
       if (src) {
         html += "<a href='" +  src + "' target='frame" + i + "' >" +
                 src +
-                "</a><br/>";
+                "  <i class='fa fa-external-link'></i></a><br/>";
       }
     }
     html += "</div>";
