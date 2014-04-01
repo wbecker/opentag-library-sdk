@@ -52,11 +52,11 @@ function getParametersAndConfigForTagNode(referencingNode, ignoreRed, paramsOnly
     return config;
 }
 
-function applyParametersAndConfigToTag(tagRef, results) {
-    tagRef.config.parameters = results.parameters;
+function applyParametersAndConfigToTag(config, results) {
+    config.parameters = results.parameters;
     
     for (var prop in results) {
-      tagRef.config[prop] = results[prop];
+      config[prop] = results[prop];
     }
 }
 
@@ -66,7 +66,7 @@ function testTag(referencingNode) {
 
     var clazz = referencingNode.classReference;
     var tagRef = referencingNode.reference;
-    
+
     var results = getParametersAndConfigForTagNode(referencingNode);
     
     if (results === "red") {
@@ -74,7 +74,7 @@ function testTag(referencingNode) {
       return;
     }
     
-    applyParametersAndConfigToTag(tagRef, results);
+    applyParametersAndConfigToTag(config, results);
 
     var preVal = tagRef.preNode.value;
     if (String(preVal) !== tagRef.config.pre &&
@@ -173,7 +173,7 @@ function extractFunctionOrString(expr) {
 
 //============== XHR ==========
 var IS_IE = false;
-if (navigator.appName.indexOf("Internet Explorer") != -1) {
+if (navigator.appName.indexOf("Internet Explorer") !== -1) {
   IS_IE = true;
 }
 

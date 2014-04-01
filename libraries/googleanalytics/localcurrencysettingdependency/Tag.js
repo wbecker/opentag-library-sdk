@@ -24,9 +24,8 @@ qubit.opentag.LibraryTag.define("googleanalytics.localcurrencysettingdependency.
 	},
 	script: function() {
 		/*SCRIPT*/
-
-  window._gaq = window._gaq || [];
-  _gaq.push(['_set', ‘currencyCode’, ‘this.valueForToken("currency")’]);
+	    window._gaq = window._gaq || [];
+	    _gaq.push(['_set', 'currencyCode', this.valueForToken("currency")]);
 		/*~SCRIPT*/
 	},
 	pre: function() {
