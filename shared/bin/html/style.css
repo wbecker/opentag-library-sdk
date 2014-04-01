@@ -46,28 +46,28 @@ color:#333;}
 
 #content{
 padding: 0;
-width: 70%;
 float: left;
-margin-left:50px;
+margin: 0 50px;
+width:80%;
 }
 #content p{color:#666; font-size:13px;}
 
-#right-column{float:left; margin:20px 0 0 40px}
+#sources-content{float:left; margin:20px 0 0 0;}
 
-#right-column a, #right-column a:visited, #right-column a:active{
-	font-size:13px;
+#sources-content a, #sources-content a:visited, #sources-content a:active{
+	font-size:12px;
 	color:#2CB0B2;
 	text-decoration:none;
 	display:block;
 }
-#right-column a:hover{
+#sources-content a:hover{
 	text-decoration:underline;
 }
 
 .library-template{
 	border-top: 1px #ccc solid; }
+.vendor{
 
-.library {
   	background: #fff;
   	margin-bottom: 3px;
   	font-weight: normal;
@@ -80,11 +80,11 @@ margin-left:50px;
 	-webkit-background-size: auto;
 	-webkit-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
 	background-color: rgb(255, 255, 255);
-	border-bottom-color: rgb(87, 87, 87);
+	border-bottom-color: #E4888C;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
-	border-bottom-style: none;
-	border-bottom-width: 0px;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
 	border-image-outset: 0px;
 	border-image-repeat: stretch;
 	border-image-slice: 100%;
@@ -118,29 +118,38 @@ margin-left:50px;
 	padding-top: 1px;
 	vertical-align: baseline;
 }
+.library {
+	border-top: 1px solid #EDEDED;
+	clear:right;
+}
 
 .library .contents {
     float: left;
     width: 100%;
     clear:left;
+    
 }
 
-.library .contents .head {
-  height: auto;
-  overflow: hidden;
-  background: white;
-  margin: 4px;
-  margin-top: 24px;
-  padding: 8px;
-}
+.desc{
+  	font-size:12px;
+  	color:#575757;
+  	font-size: 12px;
+	padding: 20px 45px;
+	display: block;
 
+}
+.desc img{
+	border:0;
+	width:150px;
+	margin: 0 0 0 10px; float:right;}
 .library-title {
 	float: left;
 	clear: left;
-	font-size: 16px;
+	font-size: 14px;
 	color: #333;
-	margin: 20px;
+	margin: 20px 0 20px 30px;
 	display: block;
+	max-width:450px;
 }
 
 
@@ -170,65 +179,72 @@ button {
   display: block;
   float: right;
 	border: 0;
-	border-top:1px solid #fff;
 	font-size:11px;
 	background-color:#DBDBDB;
-	padding:10px;
+/*	background-color:#fff;*/
+/*	padding:10px;*/
+	padding:5px 10px;
 	width:auto;
 	height:40px;
-	color:#333;
+	color:#666;
 	cursor: pointer;
 	margin:5px;
 	}
-
+.library button:hover{color:#333;}
 .library button.test-library{
 	background-color: #579D46;
 	color:#fff;
-	margin-right:10px;}
+	margin-right:10px;
+	font-size:11px;}
 	
 .library button.showhide{
 	background-color: transparent;
 	color:#2CB0B2;
 	font-size: 13px;
 	float:left}
-
+.library button.showhide:hover{
+	text-decoration:underline;
+	}
 
 .parameter, .config {
   padding: 3px;
   margin: 10px 20px 20px 20px ;
   height :20px;
-  clear:both;
+  clear:left;
 }
 .parameter label, .config label {
 	display: block;
 	float: left;
-	width: 200px;
+	width: 150px;
 	font-size: 12px;
-	padding: 8px 0 0 20px;
+	padding: 8px 0 0 40px;
 	color: #666;
 }
 .parameter input, .config input {
-  width: 300px;
+  width: 350px;
   background-color: #EBEBEB;
   border: 1px solid #D8D8D8;
   color:#666;
   padding: 5px 10px;
-  font-size:13px;
+  font-size:12px;
   display:block;
 }
 
 .parameter-header, .config-header, .post a, .pre a, .script a{
 	font-size:14px;
 	color:#666;
-	padding: 20px 30px; 
-	border-top: 1px solid #EDEDED;
+	padding: 20px 45px; 
 	display:block;
 
 }
+.script a{
+	border-bottom: 1px solid #EDEDED;
+}
+
 .config-header a{display:block}
 .pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited, .hidden-parameters a:active{
 	font-size:13px;
-	color:#575757;
+	color:#2CB0B2;
 	text-decoration:none;
 }
 
@@ -237,7 +253,7 @@ button {
 }
 
 .config-header .hidden-config{
-	margin:0 0 0 -30px;
+	margin:0 0 0 -50px;
 	}
 .hide .contents {
   display: none;

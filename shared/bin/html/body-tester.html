@@ -1,4 +1,3 @@
-<!--HEADER-->
 <div id="header">
   <h1>Open tag</h1>
 </div>	
@@ -36,10 +35,10 @@
     <div id="library-template">
       <div class="library-title"></div>
       <button class="showhide" onclick="showButtonHandler(this)">show</button>
-      <button class="test-library" onclick="testTag(this.parentNode)"><i class="fa fa-play-circle"></i> Run script</button>
-      <button class="save-to-main" onclick="saveConfig(this.parentNode)"><i class="fa fa-save"></i> Save changes</button>
-      <button class="open-editor" onclick="openInEditor(this.parentNode)"><i class="fa fa-code"></i> Edit source</button>
-      <button class="reload" onclick="reloadTag(this.parentNode)"><i class="fa fa-refresh"></i> Reload</button>
+      <button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
+      <button class="save-to-main" onclick="saveConfig(this.parentNode)" alt="Save properties"><i class="fa fa-save"></i> Save</button>
+      <button class="open-editor" onclick="openInEditor(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Source</button>
+      <button class="reload" onclick="reloadTag(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Refresh</button>
       <div class="contents">
         <div class="head"><div class="desc"></div></div>
         <div class="other"></div>
@@ -104,10 +103,9 @@
   </div>
   <script src='js/script.js'></script>
   <script src='js/qtest.js'></script>
-  <link media="all" type="text/css" rel="stylesheet" href="style.css">
 
-  <!--RIGHT COLUMN-->
-  <div id="right-column">
+  <!--SOURCES-->
+  <div id="sources-content">
     <h3>Source files</h3>
     <div id="sources"></div>
   </div>
