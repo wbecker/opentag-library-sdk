@@ -1,10 +1,12 @@
 
 function fitTextarea(txta) {
-  txta.style.overflow = 'hidden';//IE...
-  txta.style.height = "0px";
-  txta.scrollHeight;//...workaround
-  txta.style.height = (25 + txta.scrollHeight) + "px";
-  txta.style.overflow = '';//...
+  if (txta.tagName.toLowerCase() === "textarea") {
+    txta.style.overflow = 'hidden';//IE...
+    txta.style.height = "0px";
+    txta.scrollHeight;//...workaround
+    txta.style.height = (25 + txta.scrollHeight) + "px";
+    txta.style.overflow = '';//...
+  }
 }
 
 function toggleShowSibling(start) {

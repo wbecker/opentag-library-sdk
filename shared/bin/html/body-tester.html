@@ -69,14 +69,14 @@
     <div id="config-template">
       <div class="parameter">
         <label></label>
-        <input type="text" onffocus="if(!this.entered) {this.entered = true;this.value='';}" onbblur="if(!this.value) {this.value = ''; this.entered = false;}"></input>
+        <input type="text"></input>
       </div>
     </div>
 
 
     <div id="toggled-config-template">
       <div class="hidden-parameters">
-        <a href="#-3" onclick="toggleShowSibling(this);">+ More configuration</a>
+        <a href="#-3" onclick="toggleShowSibling(this);"></a>
         <div class="hidden-config"></div>
       </div>
     </div>

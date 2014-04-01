@@ -156,25 +156,31 @@ var configTemplate = document.getElementById("config-template").innerHTML;
 var hiddenConfigTemplate = document.getElementById("toggled-config-template").innerHTML;
 function addConfig(anchor, config) {
   var el = document.createElement("div");
-  el.innerHTML = "Config options";
+  el.innerHTML = hiddenConfigTemplate;
   el.className = "config-header";
+  var confHead = el.children[0].children[0];
+  confHead.innerHTML = "+ Configuration";
+  toggleShowSibling(confHead);
+  var configAnchor = el.children[0].children[1];
   anchor.appendChild(el);
   for (var prop in config) {
     if (!propertyExcludedFromConfig(prop) && !propertyHiddenFromConfig(prop)) {
       var e = prepareConfigElement(prop, config[prop], configTemplate);
-      anchor.appendChild(e);
+      configAnchor.appendChild(e);
     }
   }
   var hel = document.createElement("div");
   hel.innerHTML = hiddenConfigTemplate;
   hel.className = "config-header";
-  anchor.appendChild(hel);
-  anchor = hel.children[0].children[1];
-  toggleShowSibling(hel.children[0].children[0]);
+  configAnchor.appendChild(hel);
+  var confHead = hel.children[0].children[0];
+  configAnchor = hel.children[0].children[1];
+  toggleShowSibling(confHead);
+  confHead.innerHTML = "+ Advanced";
   for (var prop in config) {
     if (!propertyExcludedFromConfig(prop) && propertyHiddenFromConfig(prop)) {
       var e = prepareConfigElement(prop, config[prop], configTemplate);
-      anchor.appendChild(e);
+      configAnchor.appendChild(e);
     }
   }
 }
@@ -275,7 +281,7 @@ window.callScript = function () {
       var url = srcs[i].getAttribute("link");
       GET(url, function(msg, xhrobj) {
         scripts[j] = msg;
-        console.log(url);
+        try{console.log(url);}catch(e){}
         ++counted;
         if (total === counted) {
           for (var x = 0; x < scripts.length; x++) {
