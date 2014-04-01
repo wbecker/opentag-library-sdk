@@ -54,7 +54,6 @@ function getParametersAndConfigForTagNode(referencingNode, ignoreRed, paramsOnly
 
 function applyParametersAndConfigToTag(config, results) {
     config.parameters = results.parameters;
-    
     for (var prop in results) {
       config[prop] = results[prop];
     }
@@ -118,7 +117,7 @@ function saveConfig(refNode) {
           + "&config=" +
           encodeURIComponent(includes + mkpackage + newPackageName +
                             ".Config = " + serial + ";");
-                    
+  
   POST("/saveConfig", data, function(msg, httpr) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
       alert(msg);

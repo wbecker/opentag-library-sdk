@@ -3286,6 +3286,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * Private helper function for `this.execute`, because some of execution
    * (scripts, html elemnts awaiting) can be delayed, this function will
    * help waiting for those delayed execution parts to run.
+   * This method protects from multiple running 
    * @private
    * @returns {undefined}
    */
@@ -3296,6 +3297,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     
     var finished = this
             .loadExecutionURLsAndHTML(this._triggerExecution.bind(this));
+    
+    if (this.scriptExecuted) {
+      return; //execution could be called already! by last url sync load!
+    }
     
     if (this.unexpectedFail) {//wait for deps
       finished = true; //override, done, error

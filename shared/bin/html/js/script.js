@@ -1,29 +1,8 @@
-
+var libraryTemplate = document.getElementById("library-template").innerHTML;
 /**
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
  */
-function addLibrary(anchor, libraryClass) {
-  var libraryNode = document.createElement("div");
-  anchor.appendChild(libraryNode);
-  
-  var url = "/getClassPath?classPath=libraries." +
-          libraryClass.prototype.PACKAGE_NAME +
-          ".local&file=Config.js";
-  try {
-    GET(url, function(msg) {
-      try {
-        qubit.opentag.Utils.geval(msg);//RUN CONFIG HERE WHEN CLASS IS LOADED
-      } catch (e) {}
-      renderLibraryToNode(libraryClass, libraryNode, "hide");
-    });
-  } catch (ex) {
-    //any excpetion
-    renderLibraryToNode(libraryClass, libraryNode, "hide");
-  }
-}
-
-var libraryTemplate = document.getElementById("library-template").innerHTML;
 function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   cfg = cfg || {};
   var instance = new libraryClass();
@@ -73,8 +52,46 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   addConfig(contents, instance.config);
   addPrePostTemplate(contents, instance);
 }
+/**
+ * 
+ * Adding library function to anchor.
+ * 
+ * 
+ * @type @exp;document@call;getElementById@pro;innerHTML
+ */
+function addLibrary(anchor, libraryClass) {
+  var libraryNode = document.createElement("div");
+  anchor.appendChild(libraryNode);
+  
+  var url = "/getClassPath?classPath=libraries." +
+          libraryClass.prototype.PACKAGE_NAME +
+          ".local&file=Config.js";
+  try {
+    GET(url, function(msg) {
+      try {
+        qubit.opentag.Utils.geval(msg);//RUN CONFIG HERE WHEN CLASS IS LOADED
+      } catch (e) {}
+      renderLibraryToNode(libraryClass, libraryNode, "hide");
+    });
+  } catch (ex) {
+    //any excpetion
+    renderLibraryToNode(libraryClass, libraryNode, "hide");
+  }
+}
+
+
+
+
+
+
 
 var parameterTemplate = document.getElementById("parameter-template").innerHTML;
+/**
+ * 
+ * @param {type} anchor
+ * @param {type} params
+ * @returns {undefined}
+ */
 function addParameters(anchor, params) {
   var e = document.createElement("div");
   e.innerHTML = "Parameters";
@@ -94,6 +111,9 @@ function addParameters(anchor, params) {
   }
 }
 
+
+
+
 var excluded = [
   "parameters",
   "PACKAGE",
@@ -101,6 +121,8 @@ var excluded = [
   "CONSTRUCTOR",
   "dedupe",
   "priv",
+  "name",
+  "description",
   "inactive",
   "loadDependenciesOnLoad"
 ];
@@ -112,7 +134,6 @@ function propertyExcludedFromConfig(prop) {
   }
   return false;
 }
-
 var hidden = [
   "filterTimeout",
   "isPrivate", ,
@@ -133,7 +154,6 @@ function propertyHiddenFromConfig(prop) {
   }
   return false;
 }
-
 function prepareConfigElement(prop, value, configTemplate) {
   var e = document.createElement("div");
   var p = value;
@@ -147,7 +167,6 @@ function prepareConfigElement(prop, value, configTemplate) {
   e.getElementsByTagName("input")[0].entered = true;
   return e;
 }
-
 /**
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
@@ -185,6 +204,8 @@ function addConfig(anchor, config) {
   }
 }
 
+
+
 /**
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
@@ -219,6 +240,8 @@ function addPrePostTemplate(anchor, tag) {
   anchor.appendChild(e);
 }
 
+
+
 function prepareVendorNode(name) {
   var vendorNode = document.createElement("div");
   vendorNode.innerHTML = "<a class='plain' href='#-2'>" + name + "</a>";
@@ -231,19 +254,11 @@ function prepareVendorNode(name) {
   return vendorNode;
 }
 
-function prepareLibrary(libraryClass, node) {
-  var ctest = new libraryClass({});
-  ctest.unregisterTag();
-  if ((ctest) instanceof qubit.opentag.LibraryTag) {
-    addLibrary(node, libraryClass);
-  }
-}
-
 /**
  * 
  * @returns {undefined}
  */
-function loadConfig() {
+function renderAllLibrariesToPage() {
   var librariesNode = document.getElementById("libraries");
   librariesNode.innerHTML = "";
   var vendors = qubit.opentag.libraries;
@@ -254,7 +269,11 @@ function loadConfig() {
     for (var lprop in vendor) {
       try {
         var libraryClass = vendor[lprop].Tag;
-        prepareLibrary(libraryClass, vendorNode);
+        var ctest = new libraryClass({});
+        ctest.unregisterTag();
+        if ((ctest) instanceof qubit.opentag.LibraryTag) {
+          addLibrary(vendorNode, libraryClass);
+        }
       } catch (ex) {
         //must prompt
         if (window.console && console.log) {
@@ -270,8 +289,13 @@ function loadConfig() {
   }
 }
 
+/*
+ * Ugly main.
+ * 
+ * 
+ */
 var scripts = [];
-window.callScript = function () {
+window.Main = function () {
   var srcs = document.getElementsByTagName("font");
   var total = srcs.length;
   var counted = 0;
@@ -292,25 +316,25 @@ window.callScript = function () {
             }
           }
           listScripts();
-          loadConfig();
+          renderAllLibrariesToPage();
         }
       });
 
     })(i);
   }
 };
-  function listScripts() {
-    var html = "<div>";
-    var scripts = document.getElementsByTagName("font");
-    for(var i =0 ; i < scripts.length; i++) {
-      var src = scripts[i].getAttribute("link");
-      if (src) {
-        html += "<a href='" +  src + "' target='frame" + i + "' >" +
-                src +
-                "</a><br/>";
-      }
+function listScripts() {
+  var html = "<div>";
+  var scripts = document.getElementsByTagName("font");
+  for (var i = 0; i < scripts.length; i++) {
+    var src = scripts[i].getAttribute("link");
+    if (src) {
+      html += "<a href='" + src + "' target='frame" + i + "' >" +
+              src +
+              "</a><br/>";
     }
-    html += "</div>";
-    document.getElementById("sources").innerHTML = html;
   }
+  html += "</div>";
+  document.getElementById("sources").innerHTML = html;
+}
  

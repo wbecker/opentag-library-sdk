@@ -48,6 +48,10 @@
       <div class="contents">
         <div class="head"><div class="desc"></div></div>
         <div class="other"></div>
+        <div class="unit-tests">
+          <div class="unit-head">Unit tests</div>
+          <div class="unit-tests"></div>
+        </div>
       </div>
     </div>
 
@@ -103,17 +107,15 @@
         <textarea></textarea>
       </div>
     </div>
-    
-    <div id="unit-tests-template">
-      <div class="unit-head"></div>
-      <div class="unit-tests"></div>
-    </div>
-    
   </div>
 
   <script>
     function main() {
-      callScript();
+      if(Main){
+        Main();
+      } else {
+        setTimeout(main, 50);
+      }
     }
   </script>
 
