@@ -1,16 +1,16 @@
 @font-face {
-  font-family: "Museo Sans 500";
-  src: url("fonts/MuseoSans_500.eot");
-  src: local("Museo Sans 500"), local("MuseoSans-500"), url("fonts/MuseoSans_500.otf") format("opentype");
-}
+	font-family: "Museo Sans 500";
+	src: url("fonts/MuseoSans_500.eot");
+	src: local("Museo Sans 500"), local("MuseoSans-500"), url("fonts/MuseoSans_500.otf") format("opentype");
+	}
 
 body{
-  background: #F9F9F9 url(img/background.png);
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: "Museo Sans 500", sans-serif;
+background: #F9F9F9 url(img/background.png);
+width: 100%;
+height: 100%;
+margin: 0;
+padding: 0;
+font-family: "Museo Sans 500", sans-serif;
 }
 
 #header {
@@ -22,137 +22,140 @@ body{
 }
 
 h1{
-  height: 47px;
-  position: relative;
-  background: url("img/logo.png") no-repeat 18px 12px transparent;
-  overflow: hidden;
-  margin:0;
-  padding:0;
-  text-indent:-999px;
+height: 47px;
+position: relative;
+background: url("img/logo.png") no-repeat 18px 12px transparent;
+overflow: hidden;
+margin:0;
+padding:0;
+text-indent:-999px;
 }
 
 h2 {
-  font-size: 30px;
-  font-weight: 300;
-  color: #DD2A37;
-  width: 100%;
-  height:30px;
+font-size: 30px;
+font-weight: 300;
+color: #DD2A37;
+width: 100%;
+height:30px;
 }
 
 
 h3{font-size:16px;
-   color:#333;}
+color:#333;}
 
 
 #content{
-  padding: 0;
-  float: left;
-  margin: 0 50px;
-  width:80%;
+padding: 0;
+float: left;
+margin: 0 50px;
+width:80%;
 }
 #content p{color:#666; font-size:13px;}
 
 #sources-content{float:left; margin:20px 0 0 0;}
 
 #sources-content a, #sources-content a:visited, #sources-content a:active{
-  font-size:12px;
-  color:#2CB0B2;
-  text-decoration:none;
-  display:block;
+	font-size:12px;
+	color:#2CB0B2;
+	text-decoration:none;
+	display:block;
 }
 #sources-content a:hover{
-  text-decoration:underline;
+	text-decoration:underline;
 }
 
-.library-template {
-  border-top: 1px #ccc solid;
-}
-
+.library-template{
+	border-top: 1px #ccc solid; }
 .vendor{
-  background: #fff;
-  margin-bottom: 3px;
-  font-weight: normal;
-  color: #333;
-  overflow: hidden;
-  height: auto;
-  border-bottom: #ccc 1px solid;
-  -webkit-background-clip: border-box;
-  -webkit-background-origin: padding-box;
-  -webkit-background-size: auto;
-  -webkit-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
-  background-color: rgb(255, 255, 255);
-  border-bottom-color: #E4888C;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-image-outset: 0px;
-  border-image-repeat: stretch;
-  border-image-slice: 100%;
-  border-image-source: none;
-  border-image-width: 1;
-  border-left-color: rgb(87, 87, 87);
-  border-left-style: none;
-  border-left-width: 0px;
-  border-right-color: rgb(87, 87, 87);
-  border-right-style: none;
-  border-right-width: 0px;
-  border-top-color: rgb(87, 87, 87);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-top-style: none;
-  border-top-width: 0px;
-  box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
-  color: rgb(87, 87, 87);
-  display: block;
-  line-height: 12px;
-  margin-bottom: 12px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 24px;
-  outline-color: rgb(87, 87, 87);
-  outline-style: none;
-  outline-width: 0px;
-  padding-bottom: 1px;
-  padding-left: 1px;
-  padding-right: 1px;
-  padding-top: 1px;
-  vertical-align: baseline;
+
+  	background: #fff;
+  	margin-bottom: 3px;
+  	font-weight: normal;
+  	color: #333;
+  	overflow: hidden;
+  	height: auto;
+	border-bottom: #ccc 1px solid;
+	-webkit-background-clip: border-box;
+	-webkit-background-origin: padding-box;
+	-webkit-background-size: auto;
+	-webkit-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+	background-color: rgb(255, 255, 255);
+	border-bottom-color: #E4888C;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(87, 87, 87);
+	border-left-style: none;
+	border-left-width: 0px;
+	border-right-color: rgb(87, 87, 87);
+	border-right-style: none;
+	border-right-width: 0px;
+	border-top-color: rgb(87, 87, 87);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-top-style: none;
+	border-top-width: 0px;
+	box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+	color: rgb(87, 87, 87);
+	display: block;
+	line-height: 12px;
+	margin-bottom: 12px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 24px;
+	outline-color: rgb(87, 87, 87);
+	outline-style: none;
+	outline-width: 0px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 1px;
+	vertical-align: baseline;
 }
 .library {
-  border-top: 1px solid #EDEDED;
-  clear:right;
+	border-top: 1px solid #EDEDED;
+	clear:left;
 }
 
 .library .contents {
-  
-  width: 100%;
-  overflow: hidden;
+    float: left;
+    width: 100%;
+    clear:left;
+    
 }
 
 .desc{
-  font-size:12px;
-  color:#575757;
-  font-size: 12px;
-  padding: 20px 45px;
-  display: block;
+  	font-size:12px;
+  	color:#575757;
+  	font-size: 12px;
+	padding: 20px 45px;
+	display: block;
 
 }
 .desc img{
-  border:0;
-  width:150px;
-  margin: 0 0 0 10px; float:right;}
+	border:0;
+	width:150px;
+	margin: 0 0 0 10px; float:right;}
+	
 .library-title {
-  float: left;
-  clear: left;
-  font-size: 14px;
-  color: #333;
-  margin: 20px 0 20px 30px;
-  display: block;
-  max-width:450px;
+	float: left;
+	clear: left;
+	font-size: 14px;
+	color: #333;
+	margin: 20px 0 20px 30px;
+	display: block;
+	max-width:500px;
 }
 
+
 /*BUTTONS*/
+
 
 button.showhide {
   display: block;
@@ -176,33 +179,35 @@ button {
 .library button{
   display: block;
   float: right;
-  border: 0;
-  font-size:11px;
-  background-color:#DBDBDB;
-  /*	background-color:#fff;*/
-  /*	padding:10px;*/
-  padding:5px 10px;
-  width:auto;
-  height:40px;
-  color:#666;
-  cursor: pointer;
-  margin:5px;
-}
-.library button:hover{color:#333;}
+	border: 0;
+	font-size:11px;
+	background-color:#DBDBDB;
+	padding:5px 10px;
+	width:auto;
+	height:25px;
+	color:#666;
+	cursor: pointer;
+	margin:14px 5px 0 5px;
+	}
+.library button:hover{
+	color:#333;
+	}
+	
 .library button.test-library{
-  background-color: #579D46;
-  color:#fff;
-  margin-right:10px;
-  font-size:11px;}
-
+	background-color: #579D46;
+	color:#fff;
+	margin-right:10px;
+	font-size:11px;}
+	
 .library button.showhide{
-  background-color: transparent;
-  color:#2CB0B2;
-  font-size: 13px;
-  float:left}
+	background-color: transparent;
+	color:#2CB0B2;
+	font-size: 11px;
+	float:left;}
+	
 .library button.showhide:hover{
-  text-decoration:underline;
-}
+	text-decoration:underline;
+	}
 
 .parameter, .config {
   padding: 3px;
@@ -211,12 +216,12 @@ button {
   clear:left;
 }
 .parameter label, .config label {
-  display: block;
-  float: left;
-  width: 150px;
-  font-size: 12px;
-  padding: 8px 0 0 40px;
-  color: #666;
+	display: block;
+	float: left;
+	width: 150px;
+	font-size: 12px;
+	padding: 8px 0 0 40px;
+	color: #666;
 }
 .parameter input, .config input {
   width: 350px;
@@ -229,42 +234,30 @@ button {
 }
 
 .parameter-header, .config-header, .post a, .pre a, .script a{
-  font-size:14px;
-  color:#666;
-  padding: 20px 30px; 
-  border-top: 0px solid #EDEDED;
-  display:block;
+	font-size:13px;
+	color:#666;
+	padding: 20px 45px; 
+	display:block;
 
-}
-.config-header {
-  height: auto;
-  overflow: hidden;
-}
-
-.hidden-parameters {
-  height: auto;
-  overflow: hidden;
 }
 .script a{
-  border-bottom: 0px solid #EDEDED;
+	border-bottom: 1px solid #EDEDED;
 }
 
 .config-header a{display:block}
 .pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited, .hidden-parameters a:active{
-  font-size:13px;
-  color:#2CB0B2;
-  text-decoration:none;
+	font-size:13px;
+	color:#2CB0B2;
+	text-decoration:none;
 }
 
 .hidden-parameters a:hover, .pre a:hover, .post a:hover, .script a:hover{
-  text-decoration:underline;
+	text-decoration:underline;
 }
 
 .config-header .hidden-config{
-  margin:0 0 0 -50px;
-  height: auto;
-  overflow: hidden;
-}
+	margin:0 0 0 -50px;
+	}
 .hide .contents {
   display: none;
 }
@@ -285,7 +278,7 @@ button {
 
 
 #page-variables {
-  width:100%;
+width:100%;
   float: left;
   background: white;
 }
@@ -304,10 +297,10 @@ button {
   color:#fff;
   padding:15px;
   font-family: 'Courier New', Monospace;
-  font-size:13px;
+  font-size:12px;
 }
 
 
 #pre-post-script-template{
-  display:block
+display:block
 }
