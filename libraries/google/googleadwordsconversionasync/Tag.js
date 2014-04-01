@@ -36,7 +36,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-	    alert("all nice");
+	    alert("all nice 7");
 		/*~SCRIPT*/
 	},
 	pre: function() {

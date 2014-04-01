@@ -159,6 +159,29 @@ function reloadTag(refNode) {
   });
 }
 
+
+function runTests(referencingNode) {
+  try {
+    var tagRef = referencingNode.reference;
+    var Utils = qubit.opentag.Utils;
+    var suite = Utils
+          .getObjectUsingPath(tagRef.PACKAGE_NAME + ".local.TestsSuite");
+  
+    suite.onFinished = function () {
+      if (suite.failedTests.length > 0) {
+        Utils.addClass(referencingNode, "tests-failed");
+      } else if (suite.finishedTests.length > 0) {
+        Utils.addClass(referencingNode, "tests-passed");
+      }
+    };
+    
+    suite.run();
+  } catch (ex) {
+    alert("Error while executing tests suite:" + ex);
+  }
+}
+
+
 window.__tmp__qubit__test_page_8_ = null;
 function extractFunctionOrString(expr) {
   var nexpr = qubit.opentag.Utils.trim(expr);

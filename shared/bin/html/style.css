@@ -124,13 +124,33 @@ h3{font-size:16px;
   clear:right;
 }
 
+.library-title .status {
+  float: left;
+  height: 24px;
+  width: 24px;
+  background: gray;
+  border-radius: 16px;
+  margin-top: 14px;
+  margin-left: 12px;
+}
+
+.library-title .title {
+  float:left;
+  margin-left: 8px;
+}
+.tests-failed .library-title .status{
+  background: red;
+}
+.tests-passed .library-title .status{
+  background: green;
+}
+
 .library .contents {
-  
   width: 100%;
   overflow: hidden;
 }
 
-.desc{
+.desc {
   font-size:12px;
   color:#575757;
   font-size: 12px;
@@ -138,17 +158,19 @@ h3{font-size:16px;
   display: block;
 
 }
-.desc img{
-  border:0;
-  width:150px;
-  margin: 0 0 0 10px; float:right;}
+.desc img {
+  border: 0;
+  width: 150px;
+  margin: 0 0 0 10px; float:right;
+}
 .library-title {
   float: left;
   clear: left;
+  line-height: 52px;
   font-size: 14px;
   color: #333;
-  margin: 20px 0 20px 30px;
   display: block;
+  height: 48px;
   max-width:450px;
 }
 
@@ -186,7 +208,8 @@ button {
   height:40px;
   color:#666;
   cursor: pointer;
-  margin:5px;
+  margin-top:5px;
+  margin-right: 5px;
 }
 .library button:hover{color:#333;}
 .library button.test-library{
@@ -199,7 +222,8 @@ button {
   background-color: transparent;
   color:#2CB0B2;
   font-size: 13px;
-  float:left}
+  float:left
+}
 .library button.showhide:hover{
   text-decoration:underline;
 }
@@ -310,4 +334,48 @@ button {
 
 #pre-post-script-template{
   display:block
+}
+
+.unit-tests-suite {
+
+}
+.unit-tests-suite .expression-before{
+
+}
+.unit-tests-suite .expression-after{
+
+}
+.unit-tests-suite .expression-before textarea{
+
+}
+.unit-tests-suite .expression-after textarea{
+
+}
+.unit-tests-suite {
+
+}
+.unit-tests-suite .unit-tests {
+
+}
+.unit-tests-suite .unit-tests .unit-test {
+
+}
+.unit-tests-suite .unit-tests .unit-test .name {
+  line-height: 38px;
+  text-indent: 16px;
+  float: left;
+}
+.unit-tests-suite .unit-tests .unit-test .status {
+  float: left;
+  clear: left;
+  height: 38px;
+  width: 38px;
+  border-radius: 20px;
+  background: gray;
+}
+.unit-tests-suite .unit-tests .unit-test .status.passed {
+  background: green;
+}
+.unit-tests-suite .unit-tests .unit-test .status.failed {
+  background: red;
 }

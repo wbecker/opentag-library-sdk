@@ -18,9 +18,9 @@ google.googleadwordsconversionasync.local.Config =  {
       "description": "A alphanumeric label of your conversion tracking",
       "token": "label",
       "uv": "",
-      "inputVariable": "2",
+      "inputVariable": "24",
       "variable": {
-        "value": "2"
+        "value": "24"
       }
     },
      {

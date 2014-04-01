@@ -7,9 +7,10 @@
 
   <script>
     function showButtonHandler(node) {
-      node.parentNode.className = ('library ' + node.innerHTML);
-      (node.innerHTML === 'show') ? node.innerHTML = 'hide' : node.innerHTML = 'show';
-
+      var shown = node.parentNode.className.indexOf("show") !== -1;
+      qubit.opentag.Utils.removeClass(node.parentNode, shown ? "show" : "hide");
+      qubit.opentag.Utils.addClass(node.parentNode, shown ? "hide" : "show");
+      node.innerHTML = shown ? "hide" : "show";
     }
     function onFocusInput(node) {
       if (!node.entered && node.value === '') {
@@ -39,19 +40,19 @@
     <div id="vendor-template"></div>
 
     <div id="library-template">
-      <div class="library-title"></div>
+      <div class="library-title">
+        <div class="status"></div>
+        <div class="title"></div>
+      </div>
       <button class="showhide" onclick="showButtonHandler(this)">show</button>
       <button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
       <button class="save-to-main" onclick="saveConfig(this.parentNode)" alt="Save properties"><i class="fa fa-save"></i> Save</button>
       <button class="open-editor" onclick="openInEditor(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Source</button>
       <button class="reload" onclick="reloadTag(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Refresh</button>
+      <button class="run-tests" onclick="runTests(this.parentNode)" alt="run tests"><i class="fa fa-refresh"></i> Run Tests</button>
       <div class="contents">
         <div class="head"><div class="desc"></div></div>
-        <div class="other"></div>
-        <div class="unit-tests">
-          <div class="unit-head">Unit tests</div>
-          <div class="unit-tests"></div>
-        </div>
+        <div class="content-body"></div>
       </div>
     </div>
 
@@ -99,13 +100,20 @@
       </div>
     </div>
 
+    <div id="unit-tests-suite-template">
+      <div class="unit-tests-head">Unit tests</div>
+      <div class="expression-before">
+        <textarea>before tests...</textarea>
+      </div>
+      <div class="expression-after">
+        <textarea>after tests...</textarea>
+      </div>
+      <div class="unit-tests"></div>
+    </div>
+    
     <div id="unit-test-template">
-      <div class="expression">
-        <textarea></textarea>
-      </div>
-      <div class="unit-test">
-        <textarea></textarea>
-      </div>
+      <div class="status"></div>
+      <div class="name"></div>
     </div>
   </div>
 
@@ -128,9 +136,9 @@
     
   </div>
   
+  <script src='js/utils.js'></script>
   <script src='js/script.js'></script>
-  <script src='js/qtest.js'></script>
-
+  
   <!--SOURCES-->
   <div id="sources-content">
     <h3>Source files</h3>

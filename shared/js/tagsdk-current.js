@@ -289,7 +289,9 @@ var UNDEF = undefined;
     base = base || window;
     var parts = path.split(".");
     for (var i = 0; i< parts.length; i++) {
-      base = base[parts[i]];
+      if (base) {
+        base = base[parts[i]];
+      }
     }
     return base;
   };

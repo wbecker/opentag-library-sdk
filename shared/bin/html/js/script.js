@@ -23,15 +23,15 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   libraryNode = libraryNode || document.getElementById(fullName);
   
   libraryNode.innerHTML = libraryTemplate;
-  libraryNode.children[0].innerHTML = instance.config.name;
+  libraryNode.children[0].children[1].innerHTML = instance.config.name;
   libraryNode.className = "library " + hide;
   libraryNode.reference = instance;
   libraryNode.classReference = libraryClass;
   libraryNode.id = fullName;
 
   var params = instance.config.parameters;
-  var head = libraryNode.children[6].children[0];
-  var contents = libraryNode.children[6].children[1];
+  var head = libraryNode.children[7].children[0];
+  var contents = libraryNode.children[7].children[1];
   try {
     var configObject = qubit.opentag.Utils
             .getObjectUsingPath(instance.PACKAGE_NAME + ".local.Config");
@@ -51,6 +51,7 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   addParameters(contents, params);
   addConfig(contents, instance.config);
   addPrePostTemplate(contents, instance);
+  addTestsSuite(contents, instance)
 }
 /**
  * 
@@ -242,6 +243,65 @@ function addPrePostTemplate(anchor, tag) {
 
 
 
+
+
+
+/**
+ * Tests section
+ * 
+ */
+var testTemplate = document.getElementById("unit-test-template").innerHTML;
+function addTest(anchor, testInstance) {
+  var e = document.createElement("div");
+  e.innerHTML = testTemplate;
+  e.className = "unit-test";
+  testInstance.testNode = e;
+  
+  testInstance.statusNode = e.children[0];
+  testInstance.nameNode = e.children[1];
+  
+  testInstance.nameNode.innerHTML = testInstance.name;
+  
+  testInstance.onFinished = function () {
+    var Utils = qubit.opentag.Utils;
+    if (this.failed) {
+      Utils.addClass(this.statusNode, "failed");
+    } else if (this.passed) {
+      Utils.addClass(this.statusNode, "passed");
+    }
+  };
+  
+  //@TODO add case config.prop is a function...
+  anchor.appendChild(e);
+}
+var testsSuiteTemplate = document.getElementById("unit-tests-suite-template").innerHTML;
+function addTestsSuite(anchor, tagInstance) {
+  var e = document.createElement("div");
+  e.className = "unit-tests-suite";
+  e.innerHTML = testsSuiteTemplate;
+  
+  var Utils = qubit.opentag.Utils;
+  var suite = Utils
+          .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.TestsSuite");
+  
+  e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
+  e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
+  var unitTestsNode = e.children[3];
+  renderTestsToNode(unitTestsNode, suite);
+  anchor.appendChild(e);
+}
+function renderTestsToNode(unitTestsNode, suite) {
+  if (suite) {
+    unitTestsNode.innerHTML = "";
+    var tests = suite.tests;
+    for (var i = 0; i < tests.length; i++) {
+      addTest(unitTestsNode, tests[i]);
+    }
+  }
+}
+
+
+
 function prepareVendorNode(name) {
   var vendorNode = document.createElement("div");
   vendorNode.innerHTML = "<a class='plain' href='#-2'>" + name + "</a>";
@@ -288,6 +348,9 @@ function renderAllLibrariesToPage() {
     librariesNode.appendChild(vendorNode);
   }
 }
+
+
+
 
 /*
  * Ugly main.
