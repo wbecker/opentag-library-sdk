@@ -47,7 +47,6 @@
       </div>
       <a href="#-4" class="show-hide-library" onclick="showButtonHandler(this)">show</a>
       <button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run</button>
-      <button class="save-to-main" onclick="saveConfig(this.parentNode)" alt="Save properties"><i class="fa fa-save"></i> Save params</button>
       <button class="open-editor" onclick="openInEditor(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit</button>
       <button class="reload" onclick="reloadTag(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload</button>
       <button class="run-tests" onclick="runTests(this.parentNode)" alt="run tests"><i class="fa fa-refresh"></i> Test</button>
@@ -57,6 +56,13 @@
       </div>
     </div>
 
+    <div id="parameters-template">
+      <div class="parameter-header">
+        Parameters <a href="#-3" onclick="saveConfig(this)">save</a>
+      </div>
+      <div class="contents"></div>
+    </div>
+    
     <div id="parameter-template">
       <div class="parameter">
         <label></label>
@@ -103,16 +109,16 @@
 
     <div id="unit-tests-suite-template">
       <div class="unit-tests-head">
-        Unit tests <a href="#-5" onclick="addEditTests(this)">add/edit tests</a>
+        Unit tests <a href="#-5" onclick="addEditTests(this)">add or edit tests</a>
       </div>
-      <div class="expression-before">
+      <!--div class="expression-before">
         Before
         <textarea readonly>before tests...</textarea>
       </div>
       <div class="expression-after">
         After
         <textarea readonly>after tests...</textarea>
-      </div>
+      </div-->
       <div class="unit-tests"></div>
     </div>
     
@@ -120,6 +126,16 @@
       <div class="status"></div>
       <div class="name"></div>
     </div>
+    
+    <div id="progress-bar-template">
+      <div class="wrapper">
+        <div class="bar">
+          <div class="title"></div>
+          <div class="progress"></div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 
   <script>

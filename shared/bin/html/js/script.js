@@ -41,8 +41,8 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   libraryNode.id = fullName;
 
   var params = instance.config.parameters;
-  var head = libraryNode.children[7].children[0];
-  var contents = libraryNode.children[7].children[1];
+  var head = libraryNode.children[6].children[0];
+  var contents = libraryNode.children[6].children[1];
   try {
     var configObject = qubit.opentag.Utils
             .getObjectUsingPath(instance.PACKAGE_NAME + ".local.Config");
@@ -98,6 +98,7 @@ function addLibrary(anchor, libraryClass) {
 
 
 var parameterTemplate = document.getElementById("parameter-template").innerHTML;
+var parametersTemplate = document.getElementById("parameters-template").innerHTML;
 /**
  * 
  * @param {type} anchor
@@ -106,9 +107,10 @@ var parameterTemplate = document.getElementById("parameter-template").innerHTML;
  */
 function addParameters(anchor, params) {
   var e = document.createElement("div");
-  e.innerHTML = "Parameters";
-  e.className = "parameter-header";
+  e.innerHTML = parametersTemplate;
+  e.className = "parameters-container";
   anchor.appendChild(e);
+  anchor = e.children[1];
   for (var i = 0; i < params.length; i++) {
     e = document.createElement("div");
     var parameter = params[i];
@@ -296,9 +298,9 @@ function addTestsSuite(anchor, tagInstance) {
           .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.TestsSuite");
   anchor.appendChild(e);
   if (suite) {
-    e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
-    e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
-    var unitTestsNode = e.children[3];
+//    e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
+//    e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
+    var unitTestsNode = e.children[1];
     renderTestsToNode(unitTestsNode, suite);
     
   }
@@ -375,6 +377,12 @@ window.Main = function () {
   var srcs = document.getElementsByTagName("font");
   var total = srcs.length;
   var counted = 0;
+  
+  createProgressBar("Loading scipts...", function () {
+    return 100 * (counted/total);
+  });
+  
+  
   for (var i = 0; i < srcs.length; i++) {
     (function (j) {
       
@@ -413,4 +421,32 @@ function listScripts() {
   html += "</div>";
   document.getElementById("sources").innerHTML = html;
 }
- 
+
+//window.alert= function () {};
+
+//progres bar
+var progressBarTemplate = document.getElementById("progress-bar-template").innerHTML;
+function createProgressBar(title, updater) {
+  var e = document.createElement("div");
+  e.className = "progress-bar";
+  e.innerHTML = progressBarTemplate;
+  document.body.appendChild(e);
+  e.bar = e.children[0].children[0];
+  e.titleNode = e.bar.children[0];
+  e.titleNode.innerHTML = title;
+  e.progress = e.bar.children[1];
+  var checkAgainProgress = function () {
+    var val = updater();
+    if (val >= 100) {
+      e.titleNode.innerHTML = title + " 100% Done.";
+      e.progress.style.width = "100%";
+      setTimeout(function () {document.body.removeChild(e);}, 1000);
+    } else {
+      e.titleNode.innerHTML = title + " " + Math.floor(val) + "%";
+      e.progress.style.width = Math.floor(val) + "%";
+      setTimeout(checkAgainProgress, 20);
+    }
+  };
+  checkAgainProgress();
+}
+

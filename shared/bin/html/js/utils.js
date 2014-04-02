@@ -108,6 +108,7 @@ function testTag(referencingNode) {
 }
 
 function saveConfig(refNode) {
+  refNode = getLibraryReferenceNode(refNode);
   var tagRef = refNode.reference;
   var params = getParametersAndConfigForTagNode(refNode, true, true);
   var serial = json.serialize({parameters: params.parameters});
@@ -125,7 +126,7 @@ function saveConfig(refNode) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
       alert(msg);
     } else {
-      alert("Ok.");
+      alert("Saved");
     }
   });
 }
@@ -147,45 +148,54 @@ function openInEditorAndCreate(package, file, create, data) {
   });
 }
 
-function getLibraryFromNode(node) {
+function getLibraryReferenceNode(node) {
   while(node !== null && !node.reference) {
     node = node.parentNode;
   }
   return node;
 }
 
-var testSuiteCodeTemplate = "/**ignore at merge**/\n" +
-  "//:include tagsdk-current.js\n" +
-  "//:include qtest.js\n" +
-  "\n" +
-  "var TestsSuite = new Suite({\n" +
-  "    \"Test number 1.\" : function () {\n" +
-  "      this.pass(true, \"Passed.\");\n" +
-  "      this.fail(true, \"Or not passed!\");\n" +
-  "    },\n" +
-  "    \"Test number 2.\" : function () {\n" +
-  "      this.pass(true, \"Passed!\");\n" +
-  "    },\n" +
-  "    \"Test number 3.\" : function () {\n" +
-  "      this.pass(false, \"Failed!\");\n" +
-  "    }\n" +
-  "});\n" +
-  "\n" +
-  "TestsSuite.before = function () {\n" +
-  "  //something before all\n" +
-  "};\n" +
-  "\n" +
-  "TestsSuite.after = function () {\n" +
-  "  //something after all\n" +
-  "};\n" +
-  "\n" +
-  "qubit.opentag.Utils.namespace('_PACKAGE_.local.TestsSuite', TestsSuite);";
+var testSuiteCodeTemplate = 
+"/**ignore at merge**/\n" +
+"//:include tagsdk-current.js\n" +
+"//:include _TAGPATH_\n" +
+"\n" +
+"var tag = null;\n" +
+"  \n" +
+"var TestsSuite = new Suite({\n" +
+"    \"Test number 1.\" : function () {\n" +
+"      this.pass(true, \"Passed.\");\n" +
+"      this.fail(true, \"Or not passed!\");\n" +
+"    },\n" +
+"    \"Test number 2.\" : function () {\n" +
+"      this.pass(true, \"Passed!\");\n" +
+"    },\n" +
+"    \"Test number 3.\" : function () {\n" +
+"      this.pass(false, \"Failed!\");\n" +
+"    }\n" +
+"});\n" +
+"\n" +
+"TestsSuite.before = function () {\n" +
+"  tag = new _TAG_({\n" +
+"    name: \"Specify a name here\"\n" +
+"  });\n" +
+"};\n" +
+"\n" +
+"TestsSuite.after = function () {\n" +
+"  //something after all\n" +
+"};\n" +
+"\n" +
+"qubit.opentag.Utils.namespace('_PACKAGE_.local.TestsSuite' , TestsSuite);\n" +
+"\n";
 
 function addEditTests(node) {
-  node = getLibraryFromNode(node);
+  node = getLibraryReferenceNode(node);
   if (node) {
     var tag = node.reference;
     var data = testSuiteCodeTemplate.replace("_PACKAGE_", tag.PACKAGE_NAME);
+    data = data.replace("_TAG_", tag.PACKAGE_NAME + ".Tag");
+    var path = tag.PACKAGE_NAME.split(".").join("/");
+    data = data.replace("_TAGPATH_", path + "/Tag.js");
     openInEditorAndCreate(
             "libraries." + tag.PACKAGE_NAME + ".local",
             "TestsSuite.js",
@@ -201,7 +211,7 @@ function reloadTests(refNode) {
   
   POST("/getClassPath", data, function(msg, httpr) {
     if (httpr.status !== 200) {
-      alert("Error: " + msg);
+      log("Error: " + msg);
     }
     try {
       var cfg = getParametersAndConfigForTagNode(refNode, true, true);
@@ -210,7 +220,7 @@ function reloadTests(refNode) {
                 .local.TestsSuite = undefined;
       } catch (e) {
         
-      }debugger;
+      }
       qubit.opentag.Utils.geval(msg);
       var libraryClass = Utils.getObjectUsingPath(tagRef.PACKAGE_NAME + ".Tag");
       renderLibraryToNode(libraryClass ,null, null, cfg);

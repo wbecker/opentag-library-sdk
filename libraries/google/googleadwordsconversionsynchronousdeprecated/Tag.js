@@ -58,12 +58,12 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprec
 	},
 	pre: function() {
 		/*PRE*/
-var google_conversion_id =this.valueForToken("conversion_id"); 
-var google_conversion_language = "" + this.valueForToken("language") + ""; 
-var google_conversion_format = "" + this.valueForToken("format") + "";
-var google_conversion_color = "" + this.valueForToken("conversion_color") + ""; 
-var google_conversion_label = "" + this.valueForToken("label") + ""; 
-var google_conversion_value = this.valueForToken("value");
+	    var google_conversion_id =this.valueForToken("conversion_id"); 
+	    var google_conversion_language = "" + this.valueForToken("language") + ""; 
+	    var google_conversion_format = "" + this.valueForToken("format") + "";
+	    var google_conversion_color = "" + this.valueForToken("conversion_color") + ""; 
+	    var google_conversion_label = "" + this.valueForToken("label") + ""; 
+	    var google_conversion_value = this.valueForToken("value");
 		/*~PRE*/
 	},
 	post: function() {
