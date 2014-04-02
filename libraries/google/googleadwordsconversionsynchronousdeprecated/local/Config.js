@@ -8,9 +8,9 @@ google.googleadwordsconversionsynchronousdeprecated.local.Config =  {
       "description": "Your google id provided in the script",
       "token": "conversion_id",
       "uv": "",
-      "inputVariable": "3425",
+      "inputVariable": "eee",
       "variable": {
-        "value": "3425"
+        "value": "eee"
       }
     },
      {
@@ -18,9 +18,9 @@ google.googleadwordsconversionsynchronousdeprecated.local.Config =  {
       "description": "The language value as seen in the script, something like \"en\" or \"en_US\"",
       "token": "language",
       "uv": "",
-      "inputVariable": "5234",
+      "inputVariable": "",
       "variable": {
-        "value": "5234"
+        "value": ""
       }
     },
      {
@@ -28,9 +28,9 @@ google.googleadwordsconversionsynchronousdeprecated.local.Config =  {
       "description": "The conversion format value as seen in the script, something like 1 or 3",
       "token": "format",
       "uv": "",
-      "inputVariable": "2345",
+      "inputVariable": "",
       "variable": {
-        "value": "2345"
+        "value": ""
       }
     },
      {
@@ -38,9 +38,9 @@ google.googleadwordsconversionsynchronousdeprecated.local.Config =  {
       "description": "The color of the displayed pixel, something like 666666 or FFFFFF",
       "token": "conversion_color",
       "uv": "",
-      "inputVariable": "3456",
+      "inputVariable": "",
       "variable": {
-        "value": "3456"
+        "value": ""
       }
     },
      {
@@ -48,9 +48,9 @@ google.googleadwordsconversionsynchronousdeprecated.local.Config =  {
       "description": "A word saying what kind of conversion this is tracking",
       "token": "label",
       "uv": "",
-      "inputVariable": "4532",
+      "inputVariable": "",
       "variable": {
-        "value": "4532"
+        "value": ""
       }
     },
      {
@@ -58,9 +58,9 @@ google.googleadwordsconversionsynchronousdeprecated.local.Config =  {
       "description": "The value of the conversion. This should be a number, or 0 if there is no value to the conversion",
       "token": "value",
       "uv": "",
-      "inputVariable": "12345",
+      "inputVariable": "",
       "variable": {
-        "value": "12345"
+        "value": ""
       }
     }
   ]

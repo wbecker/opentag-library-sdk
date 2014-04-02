@@ -5,12 +5,13 @@
 var TestsSuite = new Suite({
     "Test number 1." : function () {
       this.pass(true, "Passed.");
+      this.fail(true, "Or not passed!");
     },
     "Test number 2." : function () {
       this.pass(true, "Passed!");
     },
     "Test number 3." : function () {
-      this.fail(false, "NOT Failed!");
+      this.pass(false, "Failed!");
     }
 });
 

@@ -172,11 +172,11 @@ var testSuiteCodeTemplate = "/**ignore at merge**/\n" +
   "});\n" +
   "\n" +
   "TestsSuite.before = function () {\n" +
-  "  //something before\n" +
+  "  //something before all\n" +
   "};\n" +
   "\n" +
   "TestsSuite.after = function () {\n" +
-  "  //something after\n" +
+  "  //something after all\n" +
   "};\n" +
   "\n" +
   "qubit.opentag.Utils.namespace('_PACKAGE_.local.TestsSuite', TestsSuite);";

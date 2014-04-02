@@ -250,10 +250,10 @@ button {
 .parameter label, .config label {
   display: block;
   float: left;
-  width: 150px;
+  width: 250px;
   font-size: 12px;
   padding: 8px 0 0 40px;
-  color: #666;
+  color: #555;
 }
 .parameter input, .config input {
   width: 350px;
