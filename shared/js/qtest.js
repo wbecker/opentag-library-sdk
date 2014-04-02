@@ -217,3 +217,6 @@ function Test(test) {
     }
   };
 }
+
+window.Suite = Suite;
+window.Test = Test;

@@ -294,12 +294,13 @@ function addTestsSuite(anchor, tagInstance) {
   var Utils = qubit.opentag.Utils;
   var suite = Utils
           .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.TestsSuite");
+  anchor.appendChild(e);
   if (suite) {
     e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
     e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
     var unitTestsNode = e.children[3];
     renderTestsToNode(unitTestsNode, suite);
-    anchor.appendChild(e);
+    
   }
 }
 function renderTestsToNode(unitTestsNode, suite) {
