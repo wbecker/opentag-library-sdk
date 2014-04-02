@@ -3,6 +3,7 @@
 </div>	
 <div id="content">
   <h2>Tag Library Testing Page</h2>
+  <div class="global-buttons"><a href="#-1" onclick="runAllTests()">run all tests</a></div>
   <p>Use this page to test your tag library settings.</p>
 
   <script>
@@ -10,7 +11,7 @@
       var shown = node.parentNode.className.indexOf("show") !== -1;
       qubit.opentag.Utils.removeClass(node.parentNode, shown ? "show" : "hide");
       qubit.opentag.Utils.addClass(node.parentNode, shown ? "hide" : "show");
-      node.innerHTML = shown ? "hide" : "show";
+      node.innerHTML = shown ? "show" : "hide";
     }
     function onFocusInput(node) {
       if (!node.entered && node.value === '') {
@@ -44,12 +45,12 @@
         <div class="status"></div>
         <div class="title"></div>
       </div>
-      <button class="showhide" onclick="showButtonHandler(this)">show</button>
-      <button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
-      <button class="save-to-main" onclick="saveConfig(this.parentNode)" alt="Save properties"><i class="fa fa-save"></i> Save</button>
-      <button class="open-editor" onclick="openInEditor(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Source</button>
-      <button class="reload" onclick="reloadTag(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Refresh</button>
-      <button class="run-tests" onclick="runTests(this.parentNode)" alt="run tests"><i class="fa fa-refresh"></i> Run Tests</button>
+      <a href="#-4" class="show-hide-library" onclick="showButtonHandler(this)">show</a>
+      <button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run</button>
+      <button class="save-to-main" onclick="saveConfig(this.parentNode)" alt="Save properties"><i class="fa fa-save"></i> Save params</button>
+      <button class="open-editor" onclick="openInEditor(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit</button>
+      <button class="reload" onclick="reloadTag(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload</button>
+      <button class="run-tests" onclick="runTests(this.parentNode)" alt="run tests"><i class="fa fa-refresh"></i> Test</button>
       <div class="contents">
         <div class="head"><div class="desc"></div></div>
         <div class="content-body"></div>
@@ -103,9 +104,11 @@
     <div id="unit-tests-suite-template">
       <div class="unit-tests-head">Unit tests</div>
       <div class="expression-before">
+        Before
         <textarea>before tests...</textarea>
       </div>
       <div class="expression-after">
+        After
         <textarea>after tests...</textarea>
       </div>
       <div class="unit-tests"></div>

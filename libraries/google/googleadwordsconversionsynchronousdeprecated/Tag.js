@@ -10,7 +10,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprec
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 		locationDetail: "",
 		isPrivate: true,
-		url: "www.googleadservices.com/pagead/conversion.js",
+		url: "[www.googleadservices.com/pagead/conversion.js,d3c3cq33003psk.cloudfront.net/opentag-89656-965376.js]",
 		usesDocWrite: true,
 		parameters: [
 		{

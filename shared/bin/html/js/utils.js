@@ -1,3 +1,6 @@
+function log (m) {
+  try {console.log(m);} catch (e) {}
+}
 
 function fitTextarea(txta) {
   if (txta.tagName.toLowerCase() === "textarea") {
@@ -159,6 +162,19 @@ function reloadTag(refNode) {
   });
 }
 
+function runAllTests() {
+  var elements = document.getElementsByTagName("div");
+  for (var i = 0; i < elements.length; i++) {
+    var node = elements[i];
+    if (node.getAttribute("library-node") === "true") {
+      try {
+        runTests(node);
+      } catch (e) {
+        
+      }
+    }
+  }
+}
 
 function runTests(referencingNode) {
   try {
@@ -166,16 +182,20 @@ function runTests(referencingNode) {
     var Utils = qubit.opentag.Utils;
     var suite = Utils
           .getObjectUsingPath(tagRef.PACKAGE_NAME + ".local.TestsSuite");
-  
-    suite.onFinished = function () {
-      if (suite.failedTests.length > 0) {
-        Utils.addClass(referencingNode, "tests-failed");
-      } else if (suite.finishedTests.length > 0) {
-        Utils.addClass(referencingNode, "tests-passed");
-      }
-    };
-    
-    suite.run();
+    if (suite) {
+      suite.onFinished = function () {
+        if (suite.failedTests.length > 0) {
+          Utils.addClass(referencingNode, "tests-failed");
+        } else if (suite.finishedTests.length > 0) {
+          Utils.addClass(referencingNode, "tests-passed");
+        }
+      };
+
+      suite.run();
+    } else {
+      Utils.addClass(referencingNode, "tests-notests");
+      log("No tests detected for " + tagRef.config.name);
+    }
   } catch (ex) {
     alert("Error while executing tests suite:" + ex);
   }

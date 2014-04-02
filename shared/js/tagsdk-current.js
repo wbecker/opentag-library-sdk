@@ -507,6 +507,10 @@ var UNDEF = undefined;
     try {
       node.classList.add(name);
     } catch (ex) {
+      if (node.className === null) {
+         node.className = name;
+         return;
+      }
       classes = node.className.split(" ");
       Utils.addToArrayIfNotExist(classes, name);
       node.className = classes.join(" ");
@@ -525,8 +529,12 @@ var UNDEF = undefined;
     try {
       node.classList.remove(name);
     } catch (ex) {
+      if (node.className === null) {
+         node.className = "";
+         return;
+      }
       classes = node.className.split(" ");
-      removeFromArray(classes, name);
+      Utils.removeFromArray(classes, name);
       node.className = classes.join(" ");
     }
   };

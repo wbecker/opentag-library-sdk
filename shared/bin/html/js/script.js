@@ -3,7 +3,7 @@ var libraryTemplate = document.getElementById("library-template").innerHTML;
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
  */
-function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
+function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   cfg = cfg || {};
   var instance = new libraryClass();
   instance.unregisterTag();
@@ -20,11 +20,22 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   }
   
   var fullName = instance.PACKAGE_NAME + "." + instance.CLASS_NAME;
-  libraryNode = libraryNode || document.getElementById(fullName);
   
+  if (!libraryNode) {
+    libraryNode =  document.getElementById(fullName);
+    qubit.opentag.Utils.removeClass(libraryNode, "tests-failed");
+    qubit.opentag.Utils.removeClass(libraryNode, "tests-passed");
+    qubit.opentag.Utils.removeClass(libraryNode, "tests-notests");
+  }
+
+  libraryNode.setAttribute("library-node", "true");
+
   libraryNode.innerHTML = libraryTemplate;
   libraryNode.children[0].children[1].innerHTML = instance.config.name;
-  libraryNode.className = "library " + hide;
+  qubit.opentag.Utils.addClass(libraryNode, "library");
+  if (className) {
+    qubit.opentag.Utils.addClass(libraryNode, className);
+  }
   libraryNode.reference = instance;
   libraryNode.classReference = libraryClass;
   libraryNode.id = fullName;
@@ -51,7 +62,7 @@ function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
   addParameters(contents, params);
   addConfig(contents, instance.config);
   addPrePostTemplate(contents, instance);
-  addTestsSuite(contents, instance)
+  addTestsSuite(contents, instance);
 }
 /**
  * 
@@ -283,12 +294,13 @@ function addTestsSuite(anchor, tagInstance) {
   var Utils = qubit.opentag.Utils;
   var suite = Utils
           .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.TestsSuite");
-  
-  e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
-  e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
-  var unitTestsNode = e.children[3];
-  renderTestsToNode(unitTestsNode, suite);
-  anchor.appendChild(e);
+  if (suite) {
+    e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
+    e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
+    var unitTestsNode = e.children[3];
+    renderTestsToNode(unitTestsNode, suite);
+    anchor.appendChild(e);
+  }
 }
 function renderTestsToNode(unitTestsNode, suite) {
   if (suite) {
