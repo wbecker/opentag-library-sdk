@@ -40,10 +40,7 @@ function Suite(tests, onfinished) {
   this.tests = [];
 
   this.log = function(msg) {
-    try {
-      console.log("Suite: " + msg);
-    } catch (ex) {
-    }
+    Suite.log("Suite: " + msg);
   };
 
   if (tests) {
@@ -87,10 +84,21 @@ function Suite(tests, onfinished) {
       } catch (e) {
       }
     }
-    for (var q = 0; q < this.tests.length; q++) {
-      this.tests[q].run();
+    
+    for (var i = 0; i < this.tests.length; i++) {
+      this.tests[i].reset();
     }
-
+    
+    var _this = this;
+    var runNext = function (index) {
+      if (_this.tests[index]) {
+        _this.tests[index].run(function () {
+          setTimeout(function () {runNext(++index);}, 5);
+        });
+      }
+    };
+    runNext(0);
+    
     this.waitForResults();
   };
 
@@ -116,7 +124,6 @@ function Suite(tests, onfinished) {
     }
 
     if (notDone) {
-      console.log(0);
       var _this = this;
       setTimeout(function() {
         _this.waitForResults();
@@ -128,6 +135,17 @@ function Suite(tests, onfinished) {
   };
 }
 
+Suite.log = function (msg) {
+  try {
+    console.log(msg);
+  } catch (e) {}
+};
+
+
+
+
+
+
 /**
  * Single test class
  * @param {type} test
@@ -137,17 +155,22 @@ function Test(test) {
   this.test = test;
 
   this.log = function(msg) {
-    try {
-      console.log("Test[" + this.name + "] " + msg);
-    } catch (ex) {
-    }
+    Test.log("Test[" + this.name + "] " + msg);
+  };
+
+  this.reset = function(callback) {
+    this.passed = undefined;
+    this.failed = undefined;
   };
 
   /**
    * 
+   * @param {type} callback
    * @returns {undefined}
    */
-  this.run = function() {
+  
+  this.run = function(callback) {
+    this.reset();
     try {
       test.call(this);
     } catch (ex) {
@@ -155,14 +178,20 @@ function Test(test) {
       this.log("exception occured: " + ex);
       this.exception = ex;
     }
-    this.waitTillfinished();
+    this.waitTillFinished(callback);
   };
 
-  this.waitTillfinished = function () {
+  this.waitTillFinished = function (callback) {
     if (this.isFinished()) {
-      this._onFinished();
+      try {
+        if (callback) {
+          callback();
+        }
+      } finally {
+        this._onFinished();
+      }
     } else {
-      setTimeout(this.waitTillFinished.bind(this), 58);
+      setTimeout(this.waitTillFinished.bind(this), 68);
     }
   };
 
@@ -217,6 +246,12 @@ function Test(test) {
     }
   };
 }
+
+Test.log = function (msg) {
+  try {
+    console.log(msg);
+  } catch (e) {}
+};
 
 window.Suite = Suite;
 window.Test = Test;

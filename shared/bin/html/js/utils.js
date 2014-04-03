@@ -256,19 +256,44 @@ function reloadTag(refNode) {
 
 function runAllTests() {
   var elements = document.getElementsByTagName("div");
+  var total = 0;
+  var counted = 0;
+  var testNodes = [];
   for (var i = 0; i < elements.length; i++) {
     var node = elements[i];
     if (node.getAttribute("library-node") === "true") {
-      try {
-        runTests(node);
-      } catch (e) {
-        
-      }
+      ++total;
+      testNodes.push(node);
     }
   }
+  
+  var sequence = function(index) {
+    try {
+      var node = testNodes[index];
+      if (!node) {return;}
+      runTests(node, function() {
+        ++counted;
+        if (counted < total) {
+          setTimeout(function() {
+            sequence(counted);
+          }, 5);
+        }
+      });
+    } catch (e) {
+    }
+  };
+  
+  sequence(0);
+  
+  createProgressBar("Running test suites...", function () {
+    if (counted === 0) {
+      return 0;
+    }
+    return 100 * (counted/(total));
+  });
 }
 
-function runTests(referencingNode) {
+function runTests(referencingNode, callback) {
   try {
     var tagRef = referencingNode.reference;
     var Utils = qubit.opentag.Utils;
@@ -281,10 +306,15 @@ function runTests(referencingNode) {
         } else if (suite.finishedTests.length > 0) {
           Utils.addClass(referencingNode, "tests-passed");
         }
+        if (callback) {
+          callback();
+        }
       };
-
       suite.run();
     } else {
+      if (callback) {
+        callback();
+      }
       Utils.addClass(referencingNode, "tests-notests");
       log("No tests detected for " + tagRef.config.name);
     }

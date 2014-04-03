@@ -397,10 +397,14 @@ function loadAllLibs() {
   var srcs = document.getElementsByTagName("font");
   totalScripts = srcs.length;
   var counter = 0;
-    var loader =function (j) {
-      j = counter++;
-      var url = srcs[j].getAttribute("link");
-      setTimeout(function () {_loadLibrary(url, j, loader);}, 0);
+    var loader =function () {
+      if (counter === srcs.length) {
+        return;
+      }
+      var index = counter;
+      counter++;
+      var url = srcs[index].getAttribute("link");
+      setTimeout(function () {_loadLibrary(url, index, loader);}, 0);
     };
     loader();
 }
@@ -471,6 +475,11 @@ window.Main = function () {
     qlog.log(m);
     //try {console.log(m);} catch (e) {}
   };
+  
+  Suite.log = Test.log = function (msg) {
+    log(msg);
+  };
+  
   //delay shortly so IE6 can apply styling
   loadAllLibs();
 };

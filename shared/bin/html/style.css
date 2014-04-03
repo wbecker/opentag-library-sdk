@@ -489,6 +489,7 @@ a, .pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited,
   display: none;
 }
 .qconsole .msg .msg-body {
+  margin: 0px;
   height: 18px;
   background: transparent;
   padding: 2px;
