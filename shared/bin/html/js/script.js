@@ -47,7 +47,7 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
     var configObject = qubit.opentag.Utils
             .getObjectUsingPath(instance.PACKAGE_NAME + ".local.Config");
     if (configObject && configObject.parameters) {
-      params = configObject.parameters;
+      mergeParameters(params, configObject.parameters);
     }
   } catch (ex) {
     //may not be in there
@@ -64,6 +64,23 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   addPrePostTemplate(contents, instance);
   addTestsSuite(contents, instance);
 }
+
+function mergeParameters(to, from) {
+  for (var i = 0; i < to.length; i++) {
+    var paramTo = to[i];
+    for (var j = 0; j < from.length; j++) {
+      if (paramTo.token && paramTo.token === from[j].token) {
+        var value = to[i].inputVariable;
+        to[i] = from[j];
+        if (value) {
+          to[i].inputVariable = value;
+        }
+        break;
+      }
+    }
+  }
+}
+
 /**
  * 
  * Adding library function to anchor.
@@ -117,7 +134,9 @@ function addParameters(anchor, params) {
     e.innerHTML = parameterTemplate;
     e.getElementsByTagName("input")[0].pindex = i;
     e.getElementsByTagName("label")[0].innerHTML = parameter.name;
-    var enterValue = parameter.inputVariable ? parameter.inputVariable : "";
+    var paramValue = parameter.uv ? parameter.uv : "";
+    var enterValue = (parameter.inputVariable !== undefined) ?
+                                      parameter.inputVariable : paramValue;
     e.getElementsByTagName("input")[0].value = enterValue;
     e.getElementsByTagName("input")[0].className = 
             parameter.inputVariable ? "" : "red";
@@ -355,7 +374,7 @@ function renderAllLibrariesToPage() {
           console.log("Failed to load tag configuration," +
                   " possible syntax error:" + ex);
         } else {
-          alert("Failed to load tag configuration," +
+          logError("Failed to load tag configuration," +
                   " possible syntax error:" + ex);
         }
       }
@@ -364,49 +383,60 @@ function renderAllLibrariesToPage() {
   }
 }
 
-
-
-
-/*
- * Ugly main.
- * 
- * 
- */
 var scripts = [];
-window.Main = function () {
-  var srcs = document.getElementsByTagName("font");
-  var total = srcs.length;
-  var counted = 0;
-  
-  createProgressBar("Loading scipts...", function () {
-    return 100 * (counted/total);
+var totalScripts = 0;
+var total = 1;
+var counted = 0;
+function loadAllLibs() {
+  createProgressBar("Loading scipts", function () {
+    if (counted === 0) {
+      return 0;
+    }
+    return 100 * (counted/(totalScripts+total));
   });
-  
-  
-  for (var i = 0; i < srcs.length; i++) {
-    (function (j) {
-      
-      var url = srcs[i].getAttribute("link");
-      GET(url, function(msg, xhrobj) {
-        scripts[j] = msg;
-        try{console.log(url);}catch(e){}
-        ++counted;
-        if (total === counted) {
-          for (var x = 0; x < scripts.length; x++) {
-            try {
-              eval(scripts[x]);
-            } catch (ex) {
-              alert("Failed to load: " + scripts[x]+ "\nException: " + ex);
-            }
+  var srcs = document.getElementsByTagName("font");
+  totalScripts = srcs.length;
+  var counter = 0;
+    var loader =function (j) {
+      j = counter++;
+      var url = srcs[j].getAttribute("link");
+      setTimeout(function () {_loadLibrary(url, j, loader);}, 0);
+    };
+    loader();
+}
+function _loadLibrary(url, index, callback) {
+  GET(url, function(msg, xhrobj) {
+    try {
+      scripts[index] = {
+        expr: msg,
+        url: url
+      };
+      log(url);
+      counted++;
+      if (totalScripts === counted) {
+        for (var x = 0; x < scripts.length; x++) {
+          try {
+            eval(scripts[x].expr);
+          } catch (ex) {
+            logError("Failed to load: " + scripts[x].url + "\nException: " + ex);
           }
-          listScripts();
-          renderAllLibrariesToPage();
         }
-      });
+        createProgressBar.title += ", rendering... ";
+        listScripts();
+        setTimeout(function () {
+          renderAllLibrariesToPage();
+          counted++;
+          window.toggleConsole();
+        }, 50);
+      }
+    } finally {
+      if (callback) {
+        callback();
+      }
+    }
+  });
+}
 
-    })(i);
-  }
-};
 function listScripts() {
   var html = "<div>";
   var scripts = document.getElementsByTagName("font");
@@ -422,31 +452,25 @@ function listScripts() {
   document.getElementById("sources").innerHTML = html;
 }
 
-//window.alert= function () {};
+/*
+ * Ugly main.
+ * 
+ * 
+ */
 
-//progres bar
-var progressBarTemplate = document.getElementById("progress-bar-template").innerHTML;
-function createProgressBar(title, updater) {
-  var e = document.createElement("div");
-  e.className = "progress-bar";
-  e.innerHTML = progressBarTemplate;
-  document.body.appendChild(e);
-  e.bar = e.children[0].children[0];
-  e.titleNode = e.bar.children[0];
-  e.titleNode.innerHTML = title;
-  e.progress = e.bar.children[1];
-  var checkAgainProgress = function () {
-    var val = updater();
-    if (val >= 100) {
-      e.titleNode.innerHTML = title + " 100% Done.";
-      e.progress.style.width = "100%";
-      setTimeout(function () {document.body.removeChild(e);}, 1000);
-    } else {
-      e.titleNode.innerHTML = title + " " + Math.floor(val) + "%";
-      e.progress.style.width = Math.floor(val) + "%";
-      setTimeout(checkAgainProgress, 20);
-    }
+window.Main = function () {
+  window.qlog = new qconsole();
+  window.toggleConsole = function () {
+    qlog.hidden ? qlog.show() : qlog.hide();
   };
-  checkAgainProgress();
-}
-
+  window.logError = function (m) {
+    log("<span style='font-weight:bolder;color: red'>" + m + "</span>");
+    qlog.show();
+  };
+  window.log = function (m) {
+    qlog.log(m);
+    //try {console.log(m);} catch (e) {}
+  };
+  //delay shortly so IE6 can apply styling
+  loadAllLibs();
+};

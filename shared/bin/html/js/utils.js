@@ -1,6 +1,3 @@
-function log (m) {
-  try {console.log(m);} catch (e) {}
-}
 
 function fitTextarea(txta) {
   if (txta.tagName.toLowerCase() === "textarea") {
@@ -42,9 +39,16 @@ function getParametersAndConfigForTagNode(referencingNode, ignoreRed, paramsOnly
       if (inputs[i].pindex !== undefined) {
         var idx = inputs[i].pindex;
         config.parameters[idx].inputVariable = inputs[i].value;
-        config.parameters[idx].variable = {
-            value: inputs[i].value
-        };
+        try {
+          var variable = qubit.opentag.Utils.gevalAndReturn(inputs[i].value);
+          config.parameters[idx].variable = {
+              value: variable
+          };
+        } catch (ex) {
+          config.parameters[idx].variable = {
+              value: undefined
+          };
+        }
       } else if (!paramsOnly && inputs[i].cname !== undefined) {
         config[inputs[i].cname] = inputs[i].value;
       }
@@ -65,14 +69,12 @@ function applyParametersAndConfigToTag(config, results) {
 function testTag(referencingNode) {
   try {
     var config = {};
-
     var clazz = referencingNode.classReference;
     var tagRef = referencingNode.reference;
-
     var results = getParametersAndConfigForTagNode(referencingNode);
     
     if (results === "red") {
-      alert("Please fill all parameter values.");
+      logError("Please fill all parameter values.");
       return;
     }
     
@@ -103,7 +105,7 @@ function testTag(referencingNode) {
 
     window.instance = instance;
   } catch (ex) {
-    alert("Error while executing configuration:" + ex);
+    logError("Error while executing configuration:" + ex);
   }
 }
 
@@ -124,9 +126,9 @@ function saveConfig(refNode) {
   
   POST("/saveConfig", data, function(msg, httpr) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
-      alert(msg);
+      logError(msg);
     } else {
-      alert("Saved");
+      log("Saved");
     }
   });
 }
@@ -143,7 +145,7 @@ function openInEditorAndCreate(package, file, create, data) {
           + "&data=" +  encodeURIComponent(data);
   POST("/openInEditor", data, function(msg, httpr) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
-      alert(msg);
+      logError(msg);
     }
   });
 }
@@ -211,7 +213,7 @@ function reloadTests(refNode) {
   
   POST("/getClassPath", data, function(msg, httpr) {
     if (httpr.status !== 200) {
-      log("Error: " + msg);
+      log("Error loading test (probably no tests). " + msg);
     }
     try {
       var cfg = getParametersAndConfigForTagNode(refNode, true, true);
@@ -225,7 +227,7 @@ function reloadTests(refNode) {
       var libraryClass = Utils.getObjectUsingPath(tagRef.PACKAGE_NAME + ".Tag");
       renderLibraryToNode(libraryClass ,null, null, cfg);
     } catch (ex) {
-      log("Error loading tag: " + ex);
+      log("Error loading test: " + ex);
     }
   });
 }
@@ -238,7 +240,7 @@ function reloadTag(refNode) {
   reloadTests(refNode);
   POST("/getClassPath", data, function(msg, httpr) {
     if (httpr.status !== 200) {
-      alert("Error: " + msg);
+      logError("Error loading tag: " + msg);
     }
     try {
       var cfg = getParametersAndConfigForTagNode(refNode, true, true);
@@ -247,7 +249,7 @@ function reloadTag(refNode) {
       var libraryClass = Utils.getObjectUsingPath(tagRef.PACKAGE_NAME + ".Tag");
       renderLibraryToNode(libraryClass ,null, null, cfg);
     } catch (ex) {
-      alert("Error loading tag: " + ex);
+      logError("Error loading tag: " + ex);
     }
   });
 }
@@ -287,7 +289,7 @@ function runTests(referencingNode) {
       log("No tests detected for " + tagRef.config.name);
     }
   } catch (ex) {
-    alert("Error while executing tests suite:" + ex);
+    logError("Error while executing tests suite:" + ex);
   }
 }
 
@@ -380,3 +382,87 @@ function fakeParam(url) {
 //            .replace('&', '%26', 'g')
 //            .replace('+', '%2B', 'g');
 //}
+
+
+//progres bar
+function createProgressBar(title, updater) {
+  var progressRunning = false;
+  var progressBarTemplate = document.getElementById("progress-bar-template").innerHTML;
+  if (progressRunning) {
+    return false;
+  }
+  createProgressBar.title = title;
+  progressRunning = true;
+  var e = document.createElement("div");
+  e.className = "progress-bar";
+  e.innerHTML = progressBarTemplate;
+  document.body.appendChild(e);
+  e.bar = e.children[0].children[0];
+  e.titleNode = e.bar.children[0];
+  e.titleNode.innerHTML = createProgressBar.title;
+  e.progress = e.bar.children[1];
+  var checkAgainProgress = function () {
+    var val = updater();
+    if (val >= 100) {
+      e.titleNode.innerHTML = createProgressBar.title + " 100% Done.";
+      e.progress.style.width = "100%";
+      setTimeout(function () {
+        progressRunning = false;
+        document.body.removeChild(e);
+      }, 200);
+    } else {
+      e.titleNode.innerHTML = createProgressBar.title + " " + Math.floor(val) + "%";
+      e.progress.style.width = Math.floor(val) + "%";
+      setTimeout(checkAgainProgress, 20);
+    }
+  };
+  checkAgainProgress();
+  return true;
+}
+
+function qconsole() {
+  this.init = function () {
+    if (this.initialized) {
+      return;
+    }
+    this.initialized = true;
+    var consoleTemplate = document.getElementById("console-template").innerHTML;
+    this.container = document.createElement("div");
+    this.container.className = "qconsole";
+    this.container.innerHTML = consoleTemplate;
+    this.msgContainer = this.container.children[1];
+    document.body.appendChild(this.container);
+    this.msgContainer.scrollTop = this.msgContainer.scrollHeight;
+  };
+
+  this.log = function (msg) {
+    var consoleMsgTemplate = document.getElementById("console-msg-template").innerHTML;
+    var e = document.createElement("div");
+    e.className = "msg";
+    e.innerHTML = consoleMsgTemplate;
+    e.msg = e.children[1];
+    e.header = e.children[0];
+    e.msg.innerHTML = " >>> " + msg;
+    this.msgContainer.appendChild(e);
+    this.msgContainer.scrollTop = this.msgContainer.scrollHeight;
+  };
+
+  this.clear = function () {
+    this.msgContainer.innerHTML = "";
+  };
+  
+  this.show = function () {
+    qubit.opentag.Utils.addClass(this.container, "shown");
+    qubit.opentag.Utils.removeClass(this.container, "hidden");
+    this.hidden = false;
+  };
+  
+  this.hide = function () {
+    qubit.opentag.Utils.removeClass(this.container, "shown");
+    qubit.opentag.Utils.addClass(this.container, "hidden");
+    this.hidden = true;
+  };
+  
+  this.init();
+}
+

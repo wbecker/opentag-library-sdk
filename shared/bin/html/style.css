@@ -404,6 +404,7 @@ a, .pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited,
 .progress-bar {
   position: absolute;
   top: 30%;
+  left: 0px;
   width: 100%;
   height: 0;
 
@@ -415,7 +416,7 @@ a, .pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited,
   border-radius: 9px;
   box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
   -webkit-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
-  -webkit-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+  -moz-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
   background: white;
   margin-left: auto;
   margin-right: auto;
@@ -431,12 +432,12 @@ a, .pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited,
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .progress-bar .wrapper .bar .progress{
-  background: orange;
+  background: #FF5A00;
   height: inherit;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .progress-bar .wrapper .bar .title{
@@ -444,9 +445,66 @@ a, .pre a, .post a, .script a,.hidden-parameters a,.hidden-parameters a:visited,
   background: transparent;
   overflow: hidden;
   height: inherit;
-  width: inherit;
+  width: 100%;
   position: absolute;
   border-radius: 3px;
   margin-left: auto;
   margin-right: auto;
+  color: white;
+  font-family: Verdana;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+/*** QCONSOLE ***/
+
+.qconsole {
+  position: fixed;
+  *position: absolute;
+  width: 60%;
+  height: auto;
+  overflow: hidden;
+  box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+  -webkit-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+  -moz-box-shadow: rgb(148, 148, 148) 0px 2px 6px -1px;
+  right: 0px;
+  top: 0px;
+}
+
+.qconsole .console-head {
+  height: 32px;
+  line-height: 32px;
+  text-indent: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: bolder;
+  background: gray;
+}
+.qconsole .console-body {
+  height: 470px;
+  background: white;
+  overflow: auto;
+}
+.qconsole .msg .msg-head {
+  display: none;
+}
+.qconsole .msg .msg-body {
+  height: 18px;
+  background: transparent;
+  padding: 2px;
+  font-size: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+
+.qconsole.shown {
+  
+}
+.qconsole.hidden {
+  height: auto;
+  width: 128px;
+}
+.qconsole.hidden .console-body{
+  display: none;
 }
