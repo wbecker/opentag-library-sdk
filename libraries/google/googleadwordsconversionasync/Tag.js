@@ -36,6 +36,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+	    alert("all nice 7");
 		/*~SCRIPT*/
 	},
 	pre: function() {
@@ -44,14 +45,14 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 	},
 	post: function() {
 		/*POST*/
-window.google_trackConversion({
-  google_conversion_id: this.valueForToken("conversion_id"),
-  google_conversion_label: "" + this.valueForToken("label") + "",
-  google_conversion_value: this.valueForToken("value"),
-  google_conversion_format: "3",
-  google_is_call: true,
-  google_custom_params: {}
-});
+	    window.google_trackConversion({
+		google_conversion_id: this.valueForToken("conversion_id"),
+		google_conversion_label: "" + this.valueForToken("label") + "",
+		google_conversion_value: this.valueForToken("value"),
+		google_conversion_format: "3",
+		google_is_call: true,
+		google_custom_params: {}
+	    });
 		/*~POST*/
 	}
 });

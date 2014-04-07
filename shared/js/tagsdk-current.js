@@ -289,7 +289,9 @@ var UNDEF = undefined;
     base = base || window;
     var parts = path.split(".");
     for (var i = 0; i< parts.length; i++) {
-      base = base[parts[i]];
+      if (base) {
+        base = base[parts[i]];
+      }
     }
     return base;
   };
@@ -505,6 +507,10 @@ var UNDEF = undefined;
     try {
       node.classList.add(name);
     } catch (ex) {
+      if (node.className === null) {
+         node.className = name;
+         return;
+      }
       classes = node.className.split(" ");
       Utils.addToArrayIfNotExist(classes, name);
       node.className = classes.join(" ");
@@ -523,8 +529,12 @@ var UNDEF = undefined;
     try {
       node.classList.remove(name);
     } catch (ex) {
+      if (node.className === null) {
+         node.className = "";
+         return;
+      }
       classes = node.className.split(" ");
-      removeFromArray(classes, name);
+      Utils.removeFromArray(classes, name);
       node.className = classes.join(" ");
     }
   };
@@ -3286,6 +3296,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * Private helper function for `this.execute`, because some of execution
    * (scripts, html elemnts awaiting) can be delayed, this function will
    * help waiting for those delayed execution parts to run.
+   * This method protects from multiple running 
    * @private
    * @returns {undefined}
    */
@@ -3296,6 +3307,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     
     var finished = this
             .loadExecutionURLsAndHTML(this._triggerExecution.bind(this));
+    
+    if (this.scriptExecuted) {
+      return; //execution could be called already! by last url sync load!
+    }
     
     if (this.unexpectedFail) {//wait for deps
       finished = true; //override, done, error

@@ -30,6 +30,7 @@ qubit.opentag.LibraryTag.define("adform.adformbasic.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+console.log(this.valueForToken("campaignid"));
 		/*~SCRIPT*/
 	},
 	pre: function() {

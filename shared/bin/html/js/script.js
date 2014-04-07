@@ -1,5 +1,90 @@
+var libraryTemplate = document.getElementById("library-template").innerHTML;
+/**
+ * 
+ * @type @exp;document@call;getElementById@pro;innerHTML
+ */
+function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
+  cfg = cfg || {};
+  var instance = new libraryClass();
+  instance.unregisterTag();
+  
+  if (cfg.parameters && instance.config.parameters) {
+    for (var i = 0; i < cfg.parameters.length; i++) {
+      var token = cfg.parameters[i].token;
+      for (var j = 0; j < instance.config.parameters.length; j++) {
+        if (instance.config.parameters[j].token === token) {
+          instance.config.parameters[j] = cfg.parameters[i];
+        }
+      }
+    }
+  }
+  
+  var fullName = instance.PACKAGE_NAME + "." + instance.CLASS_NAME;
+  
+  if (!libraryNode) {
+    libraryNode =  document.getElementById(fullName);
+    qubit.opentag.Utils.removeClass(libraryNode, "tests-failed");
+    qubit.opentag.Utils.removeClass(libraryNode, "tests-passed");
+    qubit.opentag.Utils.removeClass(libraryNode, "tests-notests");
+  }
+
+  libraryNode.setAttribute("library-node", "true");
+
+  libraryNode.innerHTML = libraryTemplate;
+  libraryNode.children[0].children[1].innerHTML = instance.config.name;
+  qubit.opentag.Utils.addClass(libraryNode, "library");
+  if (className) {
+    qubit.opentag.Utils.addClass(libraryNode, className);
+  }
+  libraryNode.reference = instance;
+  libraryNode.classReference = libraryClass;
+  libraryNode.id = fullName;
+
+  var params = instance.config.parameters;
+  var head = libraryNode.children[6].children[0];
+  var contents = libraryNode.children[6].children[1];
+  try {
+    var configObject = qubit.opentag.Utils
+            .getObjectUsingPath(instance.PACKAGE_NAME + ".local.Config");
+    if (configObject && configObject.parameters) {
+      mergeParameters(params, configObject.parameters);
+    }
+  } catch (ex) {
+    //may not be in there
+  }
+  head.children[0].innerHTML =  
+          (instance.config.imageUrl ?
+            "<img class='logo' src='" + instance.config.imageUrl +
+              "' align='right' />" :
+            "") +
+            instance.config.description;
+  
+  addParameters(contents, params);
+  addConfig(contents, instance.config);
+  addPrePostTemplate(contents, instance);
+  addTestsSuite(contents, instance);
+}
+
+function mergeParameters(to, from) {
+  for (var i = 0; i < to.length; i++) {
+    var paramTo = to[i];
+    for (var j = 0; j < from.length; j++) {
+      if (paramTo.token && paramTo.token === from[j].token) {
+        var value = to[i].inputVariable;
+        to[i] = from[j];
+        if (value) {
+          to[i].inputVariable = value;
+        }
+        break;
+      }
+    }
+  }
+}
 
 /**
+ * 
+ * Adding library function to anchor.
+ * 
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
  */
@@ -23,76 +108,44 @@ function addLibrary(anchor, libraryClass) {
   }
 }
 
-var libraryTemplate = document.getElementById("library-template").innerHTML;
-function renderLibraryToNode(libraryClass ,libraryNode, hide, cfg) {
-  cfg = cfg || {};
-  var instance = new libraryClass();
-  instance.unregisterTag();
-  
-  if (cfg.parameters && instance.config.parameters) {
-    for (var i = 0; i < cfg.parameters.length; i++) {
-      var token = cfg.parameters[i].token;
-      for (var j = 0; j < instance.config.parameters.length; j++) {
-        if (instance.config.parameters[j].token === token) {
-          instance.config.parameters[j] = cfg.parameters[i];
-        }
-      }
-    }
-  }
-  
-  var fullName = instance.PACKAGE_NAME + "." + instance.CLASS_NAME;
-  libraryNode = libraryNode || document.getElementById(fullName);
-  
-  libraryNode.innerHTML = libraryTemplate;
-  libraryNode.children[0].innerHTML = "<i class='fa fa-caret-right'></i> " + instance.config.name;
-  libraryNode.className = "library " + hide;
-  libraryNode.reference = instance;
-  libraryNode.classReference = libraryClass;
-  libraryNode.id = fullName;
 
-  var params = instance.config.parameters;
-  var head = libraryNode.children[6].children[0];
-  var contents = libraryNode.children[6].children[1];
-  try {
-    var configObject = qubit.opentag.Utils
-            .getObjectUsingPath(instance.PACKAGE_NAME + ".local.Config");
-    if (configObject && configObject.parameters) {
-      params = configObject.parameters;
-    }
-  } catch (ex) {
-    //may not be in there
-  }
-  head.children[0].innerHTML =  
-          (instance.config.imageUrl ?
-            "<img class='logo' src='" + instance.config.imageUrl +
-              "' align='right' />" :
-            "") +
-            instance.config.description;
-  
-  addParameters(contents, params);
-  addConfig(contents, instance.config);
-  addPrePostTemplate(contents, instance);
-}
+
+
+
+
 
 var parameterTemplate = document.getElementById("parameter-template").innerHTML;
+var parametersTemplate = document.getElementById("parameters-template").innerHTML;
+/**
+ * 
+ * @param {type} anchor
+ * @param {type} params
+ * @returns {undefined}
+ */
 function addParameters(anchor, params) {
   var e = document.createElement("div");
-  e.innerHTML = "Parameters";
-  e.className = "parameter-header";
+  e.innerHTML = parametersTemplate;
+  e.className = "parameters-container";
   anchor.appendChild(e);
+  anchor = e.children[1];
   for (var i = 0; i < params.length; i++) {
     e = document.createElement("div");
     var parameter = params[i];
     e.innerHTML = parameterTemplate;
     e.getElementsByTagName("input")[0].pindex = i;
     e.getElementsByTagName("label")[0].innerHTML = parameter.name;
-    var enterValue = parameter.inputVariable ? parameter.inputVariable : "";
+    var paramValue = parameter.uv ? parameter.uv : "";
+    var enterValue = (parameter.inputVariable !== undefined) ?
+                                      parameter.inputVariable : paramValue;
     e.getElementsByTagName("input")[0].value = enterValue;
     e.getElementsByTagName("input")[0].className = 
             parameter.inputVariable ? "" : "red";
     anchor.appendChild(e);
   }
 }
+
+
+
 
 var excluded = [
   "parameters",
@@ -101,6 +154,8 @@ var excluded = [
   "CONSTRUCTOR",
   "dedupe",
   "priv",
+  "name",
+  "description",
   "inactive",
   "loadDependenciesOnLoad"
 ];
@@ -112,7 +167,6 @@ function propertyExcludedFromConfig(prop) {
   }
   return false;
 }
-
 var hidden = [
   "filterTimeout",
   "isPrivate", ,
@@ -133,7 +187,6 @@ function propertyHiddenFromConfig(prop) {
   }
   return false;
 }
-
 function prepareConfigElement(prop, value, configTemplate) {
   var e = document.createElement("div");
   var p = value;
@@ -147,7 +200,6 @@ function prepareConfigElement(prop, value, configTemplate) {
   e.getElementsByTagName("input")[0].entered = true;
   return e;
 }
-
 /**
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
@@ -185,6 +237,8 @@ function addConfig(anchor, config) {
   }
 }
 
+
+
 /**
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
@@ -219,6 +273,69 @@ function addPrePostTemplate(anchor, tag) {
   anchor.appendChild(e);
 }
 
+
+
+
+
+
+/**
+ * Tests section
+ * 
+ */
+var testTemplate = document.getElementById("unit-test-template").innerHTML;
+function addTest(anchor, testInstance) {
+  var e = document.createElement("div");
+  e.innerHTML = testTemplate;
+  e.className = "unit-test";
+  testInstance.testNode = e;
+  
+  testInstance.statusNode = e.children[0];
+  testInstance.nameNode = e.children[1];
+  
+  testInstance.nameNode.innerHTML = testInstance.name;
+  
+  testInstance.onFinished = function () {
+    var Utils = qubit.opentag.Utils;
+    if (this.failed) {
+      Utils.addClass(this.statusNode, "failed");
+    } else if (this.passed) {
+      Utils.addClass(this.statusNode, "passed");
+    }
+  };
+  
+  //@TODO add case config.prop is a function...
+  anchor.appendChild(e);
+}
+var testsSuiteTemplate = document.getElementById("unit-tests-suite-template").innerHTML;
+function addTestsSuite(anchor, tagInstance) {
+  var e = document.createElement("div");
+  e.className = "unit-tests-suite";
+  e.innerHTML = testsSuiteTemplate;
+  
+  var Utils = qubit.opentag.Utils;
+  var suite = Utils
+          .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.TestsSuite");
+  anchor.appendChild(e);
+  if (suite) {
+//    e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
+//    e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
+    var unitTestsNode = e.children[1];
+    renderTestsToNode(unitTestsNode, suite);
+    
+  }
+}
+function renderTestsToNode(unitTestsNode, suite) {
+  if (suite) {
+    unitTestsNode.innerHTML = "";
+    var tests = suite.tests;
+    for (var i = 0; i < tests.length; i++) {
+      addTest(unitTestsNode, tests[i]);
+    }
+  }
+}
+
+
+
 function prepareVendorNode(name) {
   var vendorNode = document.createElement("div");
   vendorNode.innerHTML = "<a class='plain' href='#-2'>" + name + "</a>";
@@ -231,19 +348,11 @@ function prepareVendorNode(name) {
   return vendorNode;
 }
 
-function prepareLibrary(libraryClass, node) {
-  var ctest = new libraryClass({});
-  ctest.unregisterTag();
-  if ((ctest) instanceof qubit.opentag.LibraryTag) {
-    addLibrary(node, libraryClass);
-  }
-}
-
 /**
  * 
  * @returns {undefined}
  */
-function loadConfig() {
+function renderAllLibrariesToPage() {
   var librariesNode = document.getElementById("libraries");
   librariesNode.innerHTML = "";
   var vendors = qubit.opentag.libraries;
@@ -254,14 +363,18 @@ function loadConfig() {
     for (var lprop in vendor) {
       try {
         var libraryClass = vendor[lprop].Tag;
-        prepareLibrary(libraryClass, vendorNode);
+        var ctest = new libraryClass({});
+        ctest.unregisterTag();
+        if ((ctest) instanceof qubit.opentag.LibraryTag) {
+          addLibrary(vendorNode, libraryClass);
+        }
       } catch (ex) {
         //must prompt
         if (window.console && console.log) {
           console.log("Failed to load tag configuration," +
                   " possible syntax error:" + ex);
         } else {
-          alert("Failed to load tag configuration," +
+          logError("Failed to load tag configuration," +
                   " possible syntax error:" + ex);
         }
       }
@@ -271,46 +384,102 @@ function loadConfig() {
 }
 
 var scripts = [];
-window.callScript = function () {
+var totalScripts = 0;
+var total = 1;
+var counted = 0;
+function loadAllLibs() {
+  createProgressBar("Loading scipts", function () {
+    if (counted === 0) {
+      return 0;
+    }
+    return 100 * (counted/(totalScripts+total));
+  });
   var srcs = document.getElementsByTagName("font");
-  var total = srcs.length;
-  var counted = 0;
-  for (var i = 0; i < srcs.length; i++) {
-    (function (j) {
-      
-      var url = srcs[i].getAttribute("link");
-      GET(url, function(msg, xhrobj) {
-        scripts[j] = msg;
-        try{console.log(url);}catch(e){}
-        ++counted;
-        if (total === counted) {
-          for (var x = 0; x < scripts.length; x++) {
-            try {
-              eval(scripts[x]);
-            } catch (ex) {
-              alert("Failed to load: " + scripts[x]+ "\nException: " + ex);
-            }
+  totalScripts = srcs.length;
+  var counter = 0;
+    var loader =function () {
+      if (counter === srcs.length) {
+        return;
+      }
+      var index = counter;
+      counter++;
+      var url = srcs[index].getAttribute("link");
+      setTimeout(function () {_loadLibrary(url, index, loader);}, 0);
+    };
+    loader();
+}
+function _loadLibrary(url, index, callback) {
+  GET(url, function(msg, xhrobj) {
+    try {
+      scripts[index] = {
+        expr: msg,
+        url: url
+      };
+      log(url);
+      counted++;
+      if (totalScripts === counted) {
+        for (var x = 0; x < scripts.length; x++) {
+          try {
+            eval(scripts[x].expr);
+          } catch (ex) {
+            logError("Failed to load: " + scripts[x].url + "\nException: " + ex);
           }
-          listScripts();
-          loadConfig();
         }
-      });
-
-    })(i);
-  }
-};
-  function listScripts() {
-    var html = "<div>";
-    var scripts = document.getElementsByTagName("font");
-    for(var i =0 ; i < scripts.length; i++) {
-      var src = scripts[i].getAttribute("link");
-      if (src) {
-        html += "<a href='" +  src + "' target='frame" + i + "' >" +
-                src +
-                "  <i class='fa fa-external-link'></i></a><br/>";
+        createProgressBar.title += ", rendering... ";
+        listScripts();
+        setTimeout(function () {
+          renderAllLibrariesToPage();
+          counted++;
+          window.toggleConsole();
+        }, 50);
+      }
+    } finally {
+      if (callback) {
+        callback();
       }
     }
-    html += "</div>";
-    document.getElementById("sources").innerHTML = html;
+  });
+}
+
+function listScripts() {
+  var html = "<div>";
+  var scripts = document.getElementsByTagName("font");
+  for (var i = 0; i < scripts.length; i++) {
+    var src = scripts[i].getAttribute("link");
+    if (src) {
+      html += "<a href='" + src + "' target='frame" + i + "' >" +
+              src +
+              "</a><br/>";
+    }
   }
- 
+  html += "</div>";
+  document.getElementById("sources").innerHTML = html;
+}
+
+/*
+ * Ugly main.
+ * 
+ * 
+ */
+
+window.Main = function () {
+  window.qlog = new qconsole();
+  window.toggleConsole = function () {
+    qlog.hidden ? qlog.show() : qlog.hide();
+  };
+  window.logError = function (m) {
+    log("<span style='font-weight:bolder;color: red'>" + m + "</span>");
+    qlog.show();
+  };
+  window.log = function (m) {
+    qlog.log(m);
+    //try {console.log(m);} catch (e) {}
+  };
+  
+  Suite.log = Test.log = function (msg) {
+    log(msg);
+  };
+  
+  //delay shortly so IE6 can apply styling
+  loadAllLibs();
+};

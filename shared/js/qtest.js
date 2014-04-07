@@ -40,18 +40,27 @@ function Suite(tests, onfinished) {
   this.tests = [];
 
   this.log = function(msg) {
-    try {
-      console.log("Suite: " + msg);
-    } catch (ex) {}
+    Suite.log("Suite: " + msg);
   };
 
   if (tests) {
-    for (var q = 0; q < tests.length; q++) {
-      this.tests.push(new Test(tests[q]));
+    for (var prop in tests) {
+      if (tests.hasOwnProperty(prop)) {
+        var test = new Test(tests[prop]);
+        test.name = prop;
+        this.tests.push(test);
+      }
     }
   }
 
   this._onFinished = function() {
+    this.started = false;
+    if (this.after) {
+      try {
+        this.after();
+      } catch (e) {
+      }
+    }
     try {
       if (this.onFinished) {
         this.onFinished();
@@ -64,11 +73,32 @@ function Suite(tests, onfinished) {
   };
 
   this.run = function() {
-    this.log("Running tests...");
-    for (var q = 0; q < this.tests.length; q++) {
-      this.tests[q].run();
+    if (this.started) {
+      this.log("Suite already started running. Please wait till it finish.");
     }
-
+    this.log("Running tests...");
+    this.started = true;
+    if (this.before) {
+      try {
+        this.before();
+      } catch (e) {
+      }
+    }
+    
+    for (var i = 0; i < this.tests.length; i++) {
+      this.tests[i].reset();
+    }
+    
+    var _this = this;
+    var runNext = function (index) {
+      if (_this.tests[index]) {
+        _this.tests[index].run(function () {
+          setTimeout(function () {runNext(++index);}, 5);
+        });
+      }
+    };
+    runNext(0);
+    
     this.waitForResults();
   };
 
@@ -77,14 +107,18 @@ function Suite(tests, onfinished) {
 
   this.waitForResults = function() {
     this.finishedTests = [];
+    this.failedTests = [];
     this.unfinishedTests = [];
     var notDone = false;
 
     for (var i = 0; i < this.tests.length; i++) {
-      if (!this.tests[i].finished()) {
-        notDone = true;
+      if (this.tests[i].isFinished()) {
         this.finishedTests.push(this.tests[i]);
+        if (this.tests[i].failed) {
+          this.failedTests.push(this.tests[i]);
+        }
       } else {
+        notDone = true;
         this.unfinishedTests.push(this.tests[i]);
       }
     }
@@ -101,6 +135,17 @@ function Suite(tests, onfinished) {
   };
 }
 
+Suite.log = function (msg) {
+  try {
+    console.log(msg);
+  } catch (e) {}
+};
+
+
+
+
+
+
 /**
  * Single test class
  * @param {type} test
@@ -108,18 +153,24 @@ function Suite(tests, onfinished) {
  */
 function Test(test) {
   this.test = test;
-  
+
   this.log = function(msg) {
-    try {
-      console.log("Test["+ this.name + "] " + msg);
-    } catch (ex) {}
+    Test.log("Test[" + this.name + "] " + msg);
   };
-  
+
+  this.reset = function(callback) {
+    this.passed = undefined;
+    this.failed = undefined;
+  };
+
   /**
    * 
+   * @param {type} callback
    * @returns {undefined}
    */
-  this.run = function() {
+  
+  this.run = function(callback) {
+    this.reset();
     try {
       test.call(this);
     } catch (ex) {
@@ -127,13 +178,37 @@ function Test(test) {
       this.log("exception occured: " + ex);
       this.exception = ex;
     }
+    this.waitTillFinished(callback);
+  };
+
+  this.waitTillFinished = function (callback) {
+    if (this.isFinished()) {
+      try {
+        if (callback) {
+          callback();
+        }
+      } finally {
+        this._onFinished();
+      }
+    } else {
+      setTimeout(this.waitTillFinished.bind(this), 68);
+    }
+  };
+
+  this._onFinished = function () {
+    if (this.onFinished) {
+      try {
+        this.onFinished();
+      } catch (e) {
+      }
+    }
   };
 
   /**
    * 
    * @returns {Boolean}
    */
-  this.finished = function() {
+  this.isFinished = function() {
     if (this.passed !== undefined ||
             this.failed !== undefined) {
       return true;
@@ -164,10 +239,19 @@ function Test(test) {
       this.log("failed: " + message);
       this.failed = new Date().valueOf();
     }
-    
+
     if (!this.failed && !this.passed) {
       this.log("Test failed !");
       this.passed = new Date().valueOf();
     }
   };
 }
+
+Test.log = function (msg) {
+  try {
+    console.log(msg);
+  } catch (e) {}
+};
+
+window.Suite = Suite;
+window.Test = Test;
