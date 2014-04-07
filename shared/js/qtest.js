@@ -72,7 +72,7 @@ function Suite(tests, onfinished) {
     }
   };
 
-  this.run = function() {
+  this.run = function(eachTestCallback) {
     if (this.started) {
       this.log("Suite already started running. Please wait till it finish.");
     }
@@ -91,18 +91,45 @@ function Suite(tests, onfinished) {
     
     var _this = this;
     var runNext = function (index) {
-      if (_this.tests[index]) {
-        _this.tests[index].run(function () {
-          setTimeout(function () {runNext(++index);}, 5);
+      var idx = index;
+      if (_this.tests[idx]) {
+        if (_this.beforeEach) {
+          try {
+            _this.beforeEach(_this.tests[idx]);
+          } catch (e) {}
+        }
+        _this.tests[idx].run(function (testInstance) {
+          if (_this.aftereEach) {
+            try {
+              _this.afterEach(testInstance);
+            } catch (e) {}
+          }
+          try { 
+             if (eachTestCallback) { 
+               eachTestCallback(testInstance);
+             }
+          } finally {
+            setTimeout(function () {runNext(++index);}, 5);
+          }
         });
       }
     };
-    runNext(0);
+    
+    runNext(0);//start chain
     
     this.waitForResults();
   };
 
   this.raport = function() {
+  };
+
+  this.isFinished = function () {
+    for (var i = 0; i < this.tests.length; i++) {
+      if (!this.tests[i].isFinished()) {
+        return false;
+      }
+    }
+    return true;
   };
 
   this.waitForResults = function() {
@@ -135,11 +162,14 @@ function Suite(tests, onfinished) {
   };
 }
 
+
+
 Suite.log = function (msg) {
   try {
     console.log(msg);
   } catch (e) {}
 };
+
 
 
 
@@ -185,7 +215,7 @@ function Test(test) {
     if (this.isFinished()) {
       try {
         if (callback) {
-          callback();
+          callback(this);
         }
       } finally {
         this._onFinished();

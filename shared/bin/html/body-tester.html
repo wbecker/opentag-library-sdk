@@ -109,7 +109,8 @@
 
     <div id="unit-tests-suite-template">
       <div class="unit-tests-head">
-        Unit tests <a href="#-5" onclick="addEditTests(this)">add or edit tests</a>
+        Unit tests <br/> Edit <a href="#-5" onclick="addEditTests(this)">simple tests</a>
+        or <a href="#-5" onclick="addEditDescribeTests(this)">jasmine tests</a>
       </div>
       <!--div class="expression-before">
         Before
@@ -168,6 +169,10 @@
   <script src='js/utils.js'></script>
   <script src='js/script.js'></script>
   <script src='../../../shared/js/qtest.js'></script>
+  <script type="text/javascript" src="js/jasmine-2.0.0/jasmine.js"></script>
+  <script type="text/javascript" src="js/jasmine-2.0.0/jasmine-html.js"></script>
+  <script type="text/javascript" src="js/jasmine-2.0.0/boot.js"></script>
+  
   
   <!--SOURCES-->
   <div id="sources-content">

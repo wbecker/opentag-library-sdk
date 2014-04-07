@@ -163,32 +163,45 @@ var testSuiteCodeTemplate =
 "//:include _TAGPATH_\n" +
 "\n" +
 "var tag = null;\n" +
-"  \n" +
+"\n" +
+"/*\n" +
+" * This is a simple tests suite, all that tests must do is to pass or fail.\n" +
+" * Only one test will be run at the time, untill pass or fail method will \n" +
+" * be called - test will block runner to wait for test.\n" +
+" */\n" +
 "var TestsSuite = new Suite({\n" +
-"    \"Test number 1.\" : function () {\n" +
-"      this.pass(true, \"Passed.\");\n" +
-"      this.fail(true, \"Or not passed!\");\n" +
-"    },\n" +
-"    \"Test number 2.\" : function () {\n" +
-"      this.pass(true, \"Passed!\");\n" +
-"    },\n" +
-"    \"Test number 3.\" : function () {\n" +
-"      this.pass(false, \"Failed!\");\n" +
-"    }\n" +
+"\n" +
+"  \"it shall fail as true is never falsy...\": function() {\n" +
+"    this.fail(true, \"Failed.\");\n" +
+"  },\n" +
+"\n" +
+"  \"it shall not fail as true is naturally true...\": function() {\n" +
+"    this.pass(true, \"Passed.\");\n" +
+"  },\n" +
+"\n" +
+"  \"it shall again not fail as true is naturally true...\": function() {\n" +
+"    this.pass(true, \"Passed again.\");\n" +
+"  },\n" +
+"\n" +
+"  \"it shall fail later, in two seconds\": function() {\n" +
+"    var _this = this;\n" +
+"    setTimeout(function() {\n" +
+"      _this.fail(true, \"failed after 2 seconds\");\n" +
+"    }, 2000);\n" +
+"  }\n" +
 "});\n" +
 "\n" +
-"TestsSuite.before = function () {\n" +
+"TestsSuite.beforeEach = function(test) {\n" +
 "  tag = new _TAG_({\n" +
 "    name: \"Specify a name here\"\n" +
 "  });\n" +
 "};\n" +
 "\n" +
-"TestsSuite.after = function () {\n" +
-"  //something after all\n" +
+"TestsSuite.afterEach = function(test) {\n" +
+"\n" +
 "};\n" +
 "\n" +
-"qubit.opentag.Utils.namespace('_PACKAGE_.local.TestsSuite' , TestsSuite);\n" +
-"\n";
+"qubit.opentag.Utils.namespace('_PACKAGE_.local.TestsSuite', TestsSuite);";
 
 function addEditTests(node) {
   node = getLibraryReferenceNode(node);
@@ -201,6 +214,76 @@ function addEditTests(node) {
     openInEditorAndCreate(
             "libraries." + tag.PACKAGE_NAME + ".local",
             "TestsSuite.js",
+            true, data);
+  }
+}
+
+
+var jasmineSuiteCodeTemplate = 
+"/**ignore at merge**/\n" +
+"//:include tagsdk-current.js\n" +
+"//:include _TAGPATH_\n" +
+"\n" +
+"/*\n" +
+" * Jasmine tests are well known unit tests supporting API used by mocha and\n" +
+" * other test runners. Please see more info about how to use them online.\n" +
+" */\n" +
+"var suite = describe(\"when song has been paused\", function() {\n" +
+"\n" +
+"  var tag = null;\n" +
+"\n" +
+"  beforeEach(function() {\n" +
+"    tag = new _TAG_({\n" +
+"      name: \"Specify a name here\"\n" +
+"    });\n" +
+"  });\n" +
+"\n" +
+"  afterEach(function() {\n" +
+"\n" +
+"  });\n" +
+"\n" +
+"  it(\"shall fail as true is never falsy...\", function() {\n" +
+"    expect(true).toBeFalsy();\n" +
+"  });\n" +
+"\n" +
+"  it(\"it shall not fail as true is naturally true...\", function() {\n" +
+"    expect(true).toBeTruthy();\n" +
+"  });\n" +
+"\n" +
+"  it(\"it shall again not fail as true is naturally true...\", function() {\n" +
+"    expect(true).toBeTruthy();\n" +
+"  });\n" +
+"\n" +
+"  it(\"shall fail later, in two seconds\", function() {\n" +
+"    var flag = false;\n" +
+"\n" +
+"    setTimeout(function() {\n" +
+"      flag = true;\n" +
+"    }, 2000);\n" +
+"\n" +
+"    waitsFor(function() {\n" +
+"      return flag;\n" +
+"    }, \"timed out\", 5000);\n" +
+"\n" +
+"    runs(function() {\n" +
+"      expect(flag).toEqual(\"not expected value\");\n" +
+"    });\n" +
+"  });\n" +
+"});\n" +
+"\n" +
+"qubit.opentag.Utils.namespace('_PACKAGE_.local.JasmineSuite', suite);";
+
+function addEditDescribeTests(node) {
+  node = getLibraryReferenceNode(node);
+  if (node) {
+    var tag = node.reference;
+    var data = jasmineSuiteCodeTemplate.replace("_PACKAGE_", tag.PACKAGE_NAME);
+    data = data.replace("_TAG_", tag.PACKAGE_NAME + ".Tag");
+    var path = tag.PACKAGE_NAME.split(".").join("/");
+    data = data.replace("_TAGPATH_", path + "/Tag.js");
+    openInEditorAndCreate(
+            "libraries." + tag.PACKAGE_NAME + ".local",
+            "JasmineSuite.js",
             true, data);
   }
 }
@@ -220,6 +303,35 @@ function reloadTests(refNode) {
       try {
         Utils.getObjectUsingPath(tagRef.PACKAGE_NAME)
                 .local.TestsSuite = undefined;
+      } catch (e) {
+        
+      }
+      qubit.opentag.Utils.geval(msg);
+      var libraryClass = Utils.getObjectUsingPath(tagRef.PACKAGE_NAME + ".Tag");
+      renderLibraryToNode(libraryClass ,null, null, cfg);
+    } catch (ex) {
+      log("Error loading test: " + ex);
+    } finally {
+      reloadJasmineTests(refNode);
+    }
+  });
+}
+//refactor to sinle - reload file in local and rebuild page
+function reloadJasmineTests(refNode) {
+  var Utils = qubit.opentag.Utils;
+  var tagRef = refNode.reference;
+  var data = ("classPath=libraries." +
+          tagRef.PACKAGE_NAME + ".local&file=JasmineSuite.js");
+  
+  POST("/getClassPath", data, function(msg, httpr) {
+    if (httpr.status !== 200) {
+      log("Error loading test (probably no tests). " + msg);
+    }
+    try {
+      var cfg = getParametersAndConfigForTagNode(refNode, true, true);
+      try {
+        Utils.getObjectUsingPath(tagRef.PACKAGE_NAME)
+                .local.JasmineSuite = undefined;
       } catch (e) {
         
       }
@@ -299,13 +411,77 @@ function runTests(referencingNode, callback) {
     var Utils = qubit.opentag.Utils;
     var suite = Utils
           .getObjectUsingPath(tagRef.PACKAGE_NAME + ".local.TestsSuite");
+  
+    var jasmineSuite = Utils
+          .getObjectUsingPath(tagRef.PACKAGE_NAME + ".local.JasmineSuite");
+    
+    var allSuitesFinished = function () {
+      var notFinished = false;
+      if (suite && !suite.isFinished()) {
+        notFinished = true;
+      } else if (jasmineSuite && !jasmineSuite.isFinished) { //finished is used to distinkt jasmine
+        notFinished = true;
+      }
+      
+      if (!notFinished) {
+        
+//        add tests check for jasmine tests
+        var failed = false;
+        if (jasmineSuite) {
+          var tests = jasmineSuite.children;
+          for (var i = 0; i < tests.length; i++) {
+            if (tests[i].result.status === "failed") {
+              failed = true;
+              break;
+            }
+          }
+        }
+        
+        if (suite) {
+          if ( (suite.failedTests && suite.failedTests.length > 0) ) {
+            failed = true;
+          } else if (suite.finishedTests && suite.finishedTests.length > 0) {
+            failed = failed || false;
+          }
+        }
+        
+        if (jasmineSuite || suite) { 
+          if ( failed ) {
+            Utils.addClass(referencingNode, "tests-failed");
+          } else if (suite.finishedTests && suite.finishedTests.length > 0) {
+            Utils.addClass(referencingNode, "tests-passed");
+          }
+        }
+        
+        if (callback) {
+          callback();
+        }
+      }
+    };
+    
+    if (suite || jasmineSuite) {
+      if (suite) {
+        runSuite(suite, allSuitesFinished);
+      }
+      if (jasmineSuite) {
+        runJasmineSuite(jasmineSuite, allSuitesFinished);
+      }
+    } else {
+      if (callback) {
+        callback();
+      }
+      Utils.addClass(referencingNode, "tests-notests");
+      log("No tests detected for " + tagRef.config.name);
+    }
+    
+  } catch (ex) {
+    logError("Error while executing tests suite:" + ex);
+  }
+}
+
+function runSuite(suite, callback) {
     if (suite) {
       suite.onFinished = function () {
-        if (suite.failedTests.length > 0) {
-          Utils.addClass(referencingNode, "tests-failed");
-        } else if (suite.finishedTests.length > 0) {
-          Utils.addClass(referencingNode, "tests-passed");
-        }
         if (callback) {
           callback();
         }
@@ -315,14 +491,29 @@ function runTests(referencingNode, callback) {
       if (callback) {
         callback();
       }
-      Utils.addClass(referencingNode, "tests-notests");
-      log("No tests detected for " + tagRef.config.name);
     }
-  } catch (ex) {
-    logError("Error while executing tests suite:" + ex);
-  }
 }
 
+function runJasmineSuite(jasmineSuite, callback) {
+    if (jasmineSuite) {
+      jasmineSuite.resultCallback = function () {
+        jasmineSuite.isFinished = true;
+        if (callback) {
+          try {
+            callback();
+          } catch (ex) {
+            alert(ex);
+          }
+        }
+      };
+      jasmineSuite.execute();
+    } else {
+      if (callback) {
+        jasmineSuite.isFinished = true;
+        callback();
+      }
+    }
+}
 
 window.__tmp__qubit__test_page_8_ = null;
 function extractFunctionOrString(expr) {

@@ -306,6 +306,32 @@ function addTest(anchor, testInstance) {
   //@TODO add case config.prop is a function...
   anchor.appendChild(e);
 }
+function addJasmineTest(anchor, child) {
+  var e = document.createElement("div");
+  e.innerHTML = testTemplate;
+  e.className = "unit-test";
+  child.testNode = e;
+  
+  child.statusNode = e.children[0];
+  child.nameNode = e.children[1];
+  
+  child.nameNode.innerHTML = child.description;
+  
+  //var zuper = child.resultCallback;
+  child.resultCallback = function (result) {
+    //zuper.apply(child, arguments);
+    var Utils = qubit.opentag.Utils;
+    if (child.result.status === "failed") {
+      Utils.addClass(child.statusNode, "failed");
+    } else if (child.result.status === "passed") {
+      Utils.addClass(child.statusNode, "passed");
+    }
+  };
+  
+  //@TODO add case config.prop is a function...
+  anchor.appendChild(e);
+}
+
 var testsSuiteTemplate = document.getElementById("unit-tests-suite-template").innerHTML;
 function addTestsSuite(anchor, tagInstance) {
   var e = document.createElement("div");
@@ -315,18 +341,25 @@ function addTestsSuite(anchor, tagInstance) {
   var Utils = qubit.opentag.Utils;
   var suite = Utils
           .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.TestsSuite");
+  var jasmineSuite = Utils
+          .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.JasmineSuite");
   anchor.appendChild(e);
-  if (suite) {
 //    e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
 //    e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
     var unitTestsNode = e.children[1];
-    renderTestsToNode(unitTestsNode, suite);
-    
-  }
+    renderTestsToNode(unitTestsNode, suite, jasmineSuite);
 }
-function renderTestsToNode(unitTestsNode, suite) {
+function renderTestsToNode(unitTestsNode, suite, jasmineSuite) {
+  unitTestsNode.innerHTML = "";
+  if (jasmineSuite) {
+    jasmineSuite.unitTestsNode = unitTestsNode;
+    var tests = jasmineSuite.children;
+    for (var i = 0; i < tests.length; i++) {
+      addJasmineTest(unitTestsNode, tests[i]);
+    }
+  }
   if (suite) {
-    unitTestsNode.innerHTML = "";
+    suite.unitTestsNode = unitTestsNode;
     var tests = suite.tests;
     for (var i = 0; i < tests.length; i++) {
       addTest(unitTestsNode, tests[i]);
