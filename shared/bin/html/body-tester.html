@@ -4,13 +4,13 @@
 <div id="content">
   <h2>Tag Library Testing Page</h2>
   <div class="global-buttons">
-    <a href="#-1" onclick="createUVPopup()">
-      <i class="fa fa-rocket"></i> Browse UV</a>
+    <a href="#-1" onclick="toggleUVSelector(this.children[1])">
+      <i class="fa fa-rocket"></i><span>Browse UV</span></a>
     <a href="#-1" onclick="runAllTests()">
       <i class="fa fa-rocket"></i> Run all tests</a>
   </div>
   
-
+  <div id="uv-selector-holder"></div>
   
   <p>Use this page to test your tag library settings.</p>
 
@@ -148,6 +148,26 @@
       <div class="msg-head"></div>
       <pre class="msg-body"></pre>
     </div>
+    
+    <div id="uv-popup-template">
+      <div class="uv-popup">
+        <div class="head"> Construct Your UV variable here </div>
+        <div class="body">
+          <div class="body-wrapper">
+            <div class="column"></div>
+          </div>
+        </div>
+        <input class="result initial" value="select one of variables to see its expression value here..." readonly></input>
+      </div>
+    </div>
+    
+    <div id="uv-popup-item-template">
+      <div class="column-item">
+        <div class="name"></div>
+        <div class="description"></div>
+      </div>
+    </div>
+
   </div>
 
   <script>
@@ -171,6 +191,7 @@
   
   <script src='js/utils.js'></script>
   <script src='js/script.js'></script>
+  <script src='js/uv-chooser.js'></script>
   <script src='../../../shared/js/qtest.js'></script>
   <script type="text/javascript" src="js/jasmine-2.0.0/jasmine.js"></script>
   <script type="text/javascript" src="js/jasmine-2.0.0/jasmine-html.js"></script>
