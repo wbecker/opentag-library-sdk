@@ -23,7 +23,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 			name: "Conversion Label",
 			description: "A alphanumeric label of your conversion tracking",
 			token: "label",
-			uv: ""
+			uv: "universal_variablessss"
 		},
 		{
 			name: "Conversion Value",

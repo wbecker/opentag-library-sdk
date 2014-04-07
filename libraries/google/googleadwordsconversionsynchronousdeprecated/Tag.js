@@ -35,7 +35,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprec
 			name: "Conversion Color",
 			description: "The color of the displayed pixel, something like 666666 or FFFFFF",
 			token: "conversion_color",
-			uv: ""
+			uv: "koko"
 		},
 		{
 			name: "Conversion Label",

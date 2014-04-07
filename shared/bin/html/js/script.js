@@ -13,7 +13,8 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
       var token = cfg.parameters[i].token;
       for (var j = 0; j < instance.config.parameters.length; j++) {
         if (instance.config.parameters[j].token === token) {
-          instance.config.parameters[j] = cfg.parameters[i];
+          instance.config.parameters[j].inputVariable =
+                  cfg.parameters[i].inputVariable;
         }
       }
     }
@@ -71,9 +72,17 @@ function mergeParameters(to, from) {
     for (var j = 0; j < from.length; j++) {
       if (paramTo.token && paramTo.token === from[j].token) {
         var value = to[i].inputVariable;
+        var uvTo = to[i].uv;
+        var uvFrom = from[i].uv;
+        
         to[i] = from[j];
+        
         if (value) {
           to[i].inputVariable = value;
+        }
+        
+        if (uvTo) {
+          to[i].uv = uvTo;
         }
         break;
       }
@@ -132,14 +141,38 @@ function addParameters(anchor, params) {
     e = document.createElement("div");
     var parameter = params[i];
     e.innerHTML = parameterTemplate;
-    e.getElementsByTagName("input")[0].pindex = i;
-    e.getElementsByTagName("label")[0].innerHTML = parameter.name;
-    var paramValue = parameter.uv ? parameter.uv : "";
+    var paramNode = e.getElementsByTagName("input")[0];
+    paramNode.pindex = i;
+    e.paramNode = paramNode; 
+    e.uvNode = e.getElementsByTagName("input")[1];
+    e.getElementsByTagName("label")[0].innerHTML = parameter.name
+      + " (token: <pre style='display:inline'>" + parameter.token + "</pre>)";
+    var uvPresent = false;
+    if (parameter.uv) {
+      uvPresent = true;
+      e.uvNode.value = parameter.uv;
+    } else {
+      qubit.opentag.Utils.addClass(e.uvNode, "no-uv");
+      e.uvNode.value = "edit script to add universal variable";
+    }
     var enterValue = (parameter.inputVariable !== undefined) ?
-                                      parameter.inputVariable : paramValue;
-    e.getElementsByTagName("input")[0].value = enterValue;
-    e.getElementsByTagName("input")[0].className = 
-            parameter.inputVariable ? "" : "red";
+                                      parameter.inputVariable : "";
+    paramNode.value = enterValue;
+    paramNode.className = (enterValue || uvPresent) ? "" : "red";
+    
+    if (uvPresent) {
+      paramNode.setAttribute("onfocus", null);
+      paramNode.setAttribute("onblur", null);
+    }
+    
+    //attach changer for uv
+    (function (e) {
+//      e.uvNode.onclick = function () {
+//        createUVPopup(e.uvNode, function (chosenValue) {
+//          e.uvNode.value = chosenValue;
+//        });
+//      };
+    })(e);
     anchor.appendChild(e);
   }
 }
@@ -317,9 +350,9 @@ function addJasmineTest(anchor, child) {
   
   child.nameNode.innerHTML = child.description;
   
-  //var zuper = child.resultCallback;
+  var zuper = child.resultCallback;
   child.resultCallback = function (result) {
-    //zuper.apply(child, arguments);
+    zuper.apply(child, arguments);
     var Utils = qubit.opentag.Utils;
     if (child.result.status === "failed") {
       Utils.addClass(child.statusNode, "failed");

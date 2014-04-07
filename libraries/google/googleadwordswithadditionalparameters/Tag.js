@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordswithadditionalparameters.Ta
 		/*DATA*/
 		name: "Google AdWords with additional parameters",
 		async: true,
-		description: "Tracks users that have converted who previously clicked through on an ad.",
+		description: "aTracks users that have converted who previously clicked through on an ad.",
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",

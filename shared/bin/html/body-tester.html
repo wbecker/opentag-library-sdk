@@ -3,7 +3,15 @@
 </div>	
 <div id="content">
   <h2>Tag Library Testing Page</h2>
-  <div class="global-buttons"><a href="#-1" onclick="runAllTests()">run all tests</a></div>
+  <div class="global-buttons">
+    <a href="#-1" onclick="createUVPopup()">
+      <i class="fa fa-rocket"></i> Browse UV</a>
+    <a href="#-1" onclick="runAllTests()">
+      <i class="fa fa-rocket"></i> Run all tests</a>
+  </div>
+  
+
+  
   <p>Use this page to test your tag library settings.</p>
 
   <script>
@@ -46,10 +54,10 @@
         <div class="title"></div>
       </div>
       <a href="#-4" class="show-hide-library" onclick="showButtonHandler(this)">show</a>
-      <button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run</button>
+      <button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
       <button class="open-editor" onclick="openInEditor(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit</button>
       <button class="reload" onclick="reloadTag(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload</button>
-      <button class="run-tests" onclick="runTests(this.parentNode)" alt="run tests"><i class="fa fa-refresh"></i> Test</button>
+      <button class="run-tests" onclick="runTests(this.parentNode)" alt="run tests"><i class="fa fa-rocket"></i> Run test</button>
       <div class="contents">
         <div class="head"><div class="desc"></div></div>
         <div class="content-body"></div>
@@ -67,13 +75,8 @@
       <div class="parameter">
         <label></label>
         <input type="text" onfocus=" onFocusInput(this)" onblur="onBlurInput(this)"></input>
-      </div>
-    </div>
-
-    <div id="parameter-template">
-      <div class="parameter">
-        <label></label>
-        <input type="text" onfocus=" onFocusInput(this)" onblur="onBlurInput(this)"></input>
+        <div class="uv-label"> UV: </div>
+        <input class="uv" type="text" readonly></input>
       </div>
     </div>
 
@@ -138,7 +141,7 @@
     </div>
     
     <div id="console-template">
-      <div class="console-head"><a href="#-1" onclick="toggleConsole()">toggle console</a></div>
+      <div class="console-head"><a href="#-1" onclick="toggleConsole()"><i class="fa fa-terminal"></i> Toggle console</a></div>
       <div class="console-body"></div>
     </div>
     <div id="console-msg-template">

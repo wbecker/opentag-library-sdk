@@ -9,6 +9,13 @@ function fitTextarea(txta) {
   }
 }
 
+function nextNode(from) {
+  while (!from.tagName) {
+    from = from.nextSibling;
+  }
+  return from;
+}
+
 function toggleShowSibling(start) {
   var next = start.nextSibling;
   while (next && !next.style) {
@@ -29,34 +36,35 @@ function getParametersAndConfigForTagNode(referencingNode, ignoreRed, paramsOnly
   var inputs = referencingNode.getElementsByTagName("input");
   var tagRef = referencingNode.reference;
   var config = tagRef.config;
-    for (var i = 0; i < inputs.length; i++) {
+  for (var i = 0; i < inputs.length; i++) {
+    if (!ignoreRed) {
       if (inputs[i].className.indexOf("red") !== -1) {
-        if (!ignoreRed) {
-          return "red";
-        }
-      } 
-      
-      if (inputs[i].pindex !== undefined) {
-        var idx = inputs[i].pindex;
-        config.parameters[idx].inputVariable = inputs[i].value;
-        try {
-          var variable = qubit.opentag.Utils.gevalAndReturn(inputs[i].value);
-          config.parameters[idx].variable = {
-              value: variable
-          };
-        } catch (ex) {
-          config.parameters[idx].variable = {
-              value: undefined
-          };
-        }
-      } else if (!paramsOnly && inputs[i].cname !== undefined) {
-        config[inputs[i].cname] = inputs[i].value;
+        return "red";
       }
     }
-    if (paramsOnly) {
-      return {parameters: config.parameters};
+
+    if (inputs[i].pindex !== undefined) {
+      var idx = inputs[i].pindex;
+      config.parameters[idx].inputVariable = inputs[i].value;
+      try {
+        var variable = qubit.opentag.Utils.gevalAndReturn(inputs[i].value);
+        config.parameters[idx].variable = {
+          value: variable
+        };
+      } catch (ex) {
+        config.parameters[idx].variable = {
+          value: undefined
+        };
+      }
+    } else if (!paramsOnly && inputs[i].cname !== undefined) {
+      config[inputs[i].cname] = inputs[i].value;
     }
-    return config;
+  }
+  
+  if (paramsOnly) {
+    return {parameters: config.parameters};
+  }
+  return config;
 }
 
 function applyParametersAndConfigToTag(config, results) {
@@ -100,9 +108,9 @@ function testTag(referencingNode) {
 
     var instance = new clazz(config);
     instance.run();
-
-    instance.log.INFO("Currently executed tag instance is exposed as: window.instance");
-
+    var message = "Currently executed tag instance is exposed as: window.instance";
+    instance.log.INFO(message);
+    log(message + "\n Please open console to see logs.");
     window.instance = instance;
   } catch (ex) {
     logError("Error while executing configuration:" + ex);
@@ -228,7 +236,7 @@ var jasmineSuiteCodeTemplate =
 " * Jasmine tests are well known unit tests supporting API used by mocha and\n" +
 " * other test runners. Please see more info about how to use them online.\n" +
 " */\n" +
-"var suite = describe(\"when song has been paused\", function() {\n" +
+"var suite = describe(\"A suite.\", function() {\n" +
 "\n" +
 "  var tag = null;\n" +
 "\n" +
@@ -496,7 +504,9 @@ function runSuite(suite, callback) {
 
 function runJasmineSuite(jasmineSuite, callback) {
     if (jasmineSuite) {
+      var zuper = jasmineSuite.resultCallback;
       jasmineSuite.resultCallback = function () {
+        zuper.apply(jasmineSuite, arguments);
         jasmineSuite.isFinished = true;
         if (callback) {
           try {
