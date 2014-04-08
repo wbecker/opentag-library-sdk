@@ -59,7 +59,6 @@ function renderUVSelectorItemYoNode(node, uv) {
 }
 
 function loadUVVariables(callback) {
-  
   if (window.UVS) {
     if (callback) {
       callback(UVS);

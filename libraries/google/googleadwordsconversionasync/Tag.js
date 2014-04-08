@@ -29,7 +29,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 			name: "Conversion Value",
 			description: "The value of the conversion. This should be a number, or 0 if there is no value to the conversion",
 			token: "value",
-			uv: "universal_variable.transaction.subtotal"
+			uv: "universal_variablessss"
 		}
 	]
 		/*~DATA*/

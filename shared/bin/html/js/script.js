@@ -339,7 +339,7 @@ function addTest(anchor, testInstance) {
   //@TODO add case config.prop is a function...
   anchor.appendChild(e);
 }
-function addJasmineTest(anchor, child) {
+function addBDDTest(anchor, child) {
   var e = document.createElement("div");
   e.innerHTML = testTemplate;
   e.className = "unit-test";
@@ -374,21 +374,21 @@ function addTestsSuite(anchor, tagInstance) {
   var Utils = qubit.opentag.Utils;
   var suite = Utils
           .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.TestsSuite");
-  var jasmineSuite = Utils
-          .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.JasmineSuite");
+  var bddSuite = Utils
+          .getObjectUsingPath(tagInstance.PACKAGE_NAME + ".local.BDDSuite");
   anchor.appendChild(e);
 //    e.children[1].children[0].innerHTML = suite.before ? String(suite.before) : "";
 //    e.children[2].children[0].innerHTML = suite.after ? String(suite.after) : "";
     var unitTestsNode = e.children[1];
-    renderTestsToNode(unitTestsNode, suite, jasmineSuite);
+    renderTestsToNode(unitTestsNode, suite, bddSuite);
 }
-function renderTestsToNode(unitTestsNode, suite, jasmineSuite) {
+function renderTestsToNode(unitTestsNode, suite, bddSuite) {
   unitTestsNode.innerHTML = "";
-  if (jasmineSuite) {
-    jasmineSuite.unitTestsNode = unitTestsNode;
-    var tests = jasmineSuite.children;
+  if (bddSuite) {
+    bddSuite.unitTestsNode = unitTestsNode;
+    var tests = bddSuite.children;
     for (var i = 0; i < tests.length; i++) {
-      addJasmineTest(unitTestsNode, tests[i]);
+      addBDDTest(unitTestsNode, tests[i]);
     }
   }
   if (suite) {

@@ -664,12 +664,6 @@ a.plain:hover {background-color:#fcfafa;}
 
 
 /***** JASMINE *****/
-body {
-  background-color:#eee;
-  overflow-y:scroll;
-  margin:5px;
-  padding:0;
-}
 
 .html-reporter {
   font-size:11px;

@@ -1,6 +1,7 @@
 <div id="header">
   <h1>Open tag</h1>
-</div>	
+</div>
+<div id="mocha" style="display:none"></div>
 <div id="content">
   <h2>Tag Library Testing Page</h2>
   <div class="global-buttons">
@@ -113,7 +114,7 @@
     <div id="unit-tests-suite-template">
       <div class="unit-tests-head">
         Unit tests <br/> Edit <a href="#-5" onclick="addEditTests(this)">simple tests</a>
-        or <a href="#-5" onclick="addEditDescribeTests(this)">jasmine tests</a>
+        or <a href="#-5" onclick="addEditDescribeTests(this)">BDD tests</a>
       </div>
       <!--div class="expression-before">
         Before
@@ -151,13 +152,20 @@
     
     <div id="uv-popup-template">
       <div class="uv-popup">
-        <div class="head"> Construct Your UV variable here </div>
+        <div class="head"> 
+          Browse Universal Variable standard properties 
+          <div class="sub">
+            These variables are the most common types available for web.
+          </div>
+        </div>
         <div class="body">
           <div class="body-wrapper">
             <div class="column"></div>
           </div>
         </div>
-        <input class="result initial" value="select one of variables to see its expression value here..." readonly></input>
+        <input class="result initial"
+               value="select one of variables to see its expression value here..." 
+               readonly></input>
       </div>
     </div>
     
@@ -190,12 +198,27 @@
   </div>
   
   <script src='js/utils.js'></script>
+  <script src='js/testing.js'></script>
   <script src='js/script.js'></script>
   <script src='js/uv-chooser.js'></script>
+  
   <script src='../../../shared/js/qtest.js'></script>
+  <script src="../../../shared/js/jquery-2.1.0.min.js"></script>
+  
   <script type="text/javascript" src="js/jasmine-2.0.0/jasmine.js"></script>
   <script type="text/javascript" src="js/jasmine-2.0.0/jasmine-html.js"></script>
   <script type="text/javascript" src="js/jasmine-2.0.0/boot.js"></script>
+  
+  <script src="js/mocha/should.js"></script>
+  <script src="js/mocha/expect.js"></script>
+  <script src="js/mocha/chai.js"></script>
+  <!--script src="js/mocha/mocha.js"></script>
+
+  <script>mocha.setup('bdd');</script>
+  <script>
+    mocha.checkLeaks();
+    mocha.globals(['jQuery']);
+  </script-->
   
   
   <!--SOURCES-->
