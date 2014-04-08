@@ -557,6 +557,10 @@ a.plain:hover {background-color:#fcfafa;}
   height: 48px;
 }
 
+.uv-popup .head .sub {
+  font-size: 12px;
+}
+
 .uv-popup .body {
   height: 400px;
   overflow: hidden;
