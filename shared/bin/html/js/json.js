@@ -18,6 +18,7 @@
     }
     return false;
   }
+  
   json.checkIfInstanceOf = checkIfInstanceOf;
   
   function checkIfTypeOf(object, types) {
@@ -68,8 +69,9 @@
     }
     var excludedInstances, excludedTypes, excludedNames, own,
             includeFunctions = false, excludeOnTrue, dateAsString = true,
-            raw = false, fakeFunctions = false;
-    var prettyPrint = true;
+            raw = false, fakeFunctions = false, realFunctions = false,
+            prettyPrint = false;
+    
     if (config) {
       if (config.prettyPrint) {prettyPrint = true;}
       if (config.raw) raw = config.raw; //json type as default
@@ -78,6 +80,7 @@
       if (config.excludedNames) excludedNames = config.excludedNames;
       if (config.own) own = config.hasOwn;
       if (config.fakeFunctions) fakeFunctions = config.fakeFunctions;
+      if (config.realFunctions) realFunctions = config.realFunctions;
       if (config.includeFunctions) includeFunctions = config.includeFunctions;
       if (config.excludeOnTrue) excludeOnTrue = config.excludeOnTrue;
       if (config.dateAsString) dateAsString = config.dateAsString;
@@ -86,7 +89,9 @@
     var indent = "";
     var eol = "";
     if (prettyPrint) {
-      for (var i = 0; i < level; i++) indent += TAB;
+      for (var i = 0; i < level; i++) {
+        indent += TAB;
+      }
       eol = "\n";
     }
     
@@ -107,9 +112,17 @@
       return drawValue(indent, String(object));
     }
     
+        
     if (includeFunctions && typeof object === "function") {
       if (fakeFunctions) {
         return "(function(){})";
+      }
+    }
+    
+    if (includeFunctions && typeof object === "function") {
+      if (realFunctions) {
+        var out = prettyPrint ? object.toString() : jsonString(object.toString());
+        return drawValue(indent, out);
       }
     }
     
@@ -191,13 +204,16 @@
     return indent ? (" " + string) : string;
   }
 
-  function drawObject(s,e,indent,eol,parts){
-    var array;
+  function drawObject(s, e, indent, eol, parts){
+    var array, spaceAfterColon = " ";
+    if (indent==="") {
+      spaceAfterColon = "";
+    }
     if (indent || eol) {
       if (parts.length === 0 ) {
-        array = [" ", s, parts.join(","), e];
+        array = [spaceAfterColon, s, parts.join(","), e];
       } else {
-        array = [" ", s, "\n",
+        array = [spaceAfterColon, s, "\n",
                 indent, TAB,
                       parts.join("," + "\n" + indent + TAB),
                 "\n",indent, e
