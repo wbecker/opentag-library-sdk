@@ -169,7 +169,13 @@ function reloadBDDTests(refNode) {
   });
 }
 
+var testsRunning = false;
 function runAllTests() {
+  if (testsRunning) {
+    info("Wait for currently running tests to finish.");
+    return;
+  }
+  testsRunning = true;
   var elements = document.getElementsByTagName("div");
   var total = 0;
   var counted = 0;
@@ -192,6 +198,9 @@ function runAllTests() {
           setTimeout(function() {
             sequence(counted);
           }, 5);
+        }
+        if (counted === total) {
+          testsRunning = false;
         }
       });
     } catch (e) {

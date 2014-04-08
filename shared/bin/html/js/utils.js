@@ -345,6 +345,14 @@ function qconsole() {
     this.msgContainer = this.container.children[1];
     document.body.appendChild(this.container);
     this.msgContainer.scrollTop = this.msgContainer.scrollHeight;
+    
+    var _this = this;
+    
+    this.container.ondblclick = function () {
+      info("[double click] Clearing & hiding console...");
+      _this.clear();
+      _this.hide();
+    };
   };
 
   this.log = function (msg) {
