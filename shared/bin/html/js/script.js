@@ -153,7 +153,7 @@ function addParameters(anchor, params) {
       e.uvNode.value = parameter.uv;
     } else {
       qubit.opentag.Utils.addClass(e.uvNode, "no-uv");
-      e.uvNode.value = "edit script to add universal variable";
+      e.uvNode.value = "edit script to set universal variable";
     }
     var enterValue = (parameter.inputVariable !== undefined) ?
                                       parameter.inputVariable : "";

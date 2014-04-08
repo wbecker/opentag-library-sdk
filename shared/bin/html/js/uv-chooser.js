@@ -17,7 +17,7 @@ function openUVVariableSelector() {
 }
 
 var uvPopupTemplate = document.getElementById("uv-popup-template").innerHTML;
-function renderUVSelector(node) {
+function renderUVSelector(node, selectionCallback) {
   var Utils = qubit.opentag.Utils;
   node.innerHTML = "";
   var e = document.createElement("div");
@@ -35,9 +35,11 @@ function renderUVSelector(node) {
         itemNode.onclick = function () {
           outputNode.value = itemNode.expr;
           outputNode.className = "result";
+          if (selectionCallback) {
+            selectionCallback(itemNode.expr);
+          }
         };
       }(itemNode));
-      
     }
   });
 }
@@ -72,6 +74,7 @@ function loadUVVariables(callback) {
     try {
       var lines = msg.split("\n");
       var uvs = [];
+      var euvs = {};
       for (var i = 0; i < lines.length; i++) {
         var parts = lines[i].split("\t");
         var uv = {
@@ -79,10 +82,12 @@ function loadUVVariables(callback) {
           expression: parts[2],
           description: parts[3]
         };
+        euvs[uv.expression] = uv;
         uvs.push(uv);
       }
       
       window.UVS = uvs;
+      window.EUVS = euvs;//map by expression string, should be unique
       callback(uvs);
     } catch (ex) {
       logError("Error loading UVs: " + ex);

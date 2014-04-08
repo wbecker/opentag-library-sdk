@@ -82,7 +82,7 @@ function testTag(referencingNode) {
     var results = getParametersAndConfigForTagNode(referencingNode);
     
     if (results === "red") {
-      logError("Please fill all parameter values.");
+      alert("Please fill all highlighed parameter values.\n They are required for tag to run.");
       return;
     }
     
