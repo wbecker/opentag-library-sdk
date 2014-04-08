@@ -247,6 +247,9 @@ function GET(url, callback, async) {
     }
   };
   async = (async === undefined) ? true : async;
+  xmlhttp.onerror = function (e) {
+    logError("Error while sending GET:" + e);
+  };
   xmlhttp.open("GET", fakeParam(url), async);
   xmlhttp.send();
 }
@@ -259,6 +262,9 @@ function POST(url, data, callback, async) {
     }
   };
   async = (async === undefined) ? true : async;
+  xmlhttp.onerror = function (e) {
+    logError("Error while sending POST:" + e);
+  };
   xmlhttp.open("POST", fakeParam(url), async);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send(data);
