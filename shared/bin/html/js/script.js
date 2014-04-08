@@ -540,7 +540,7 @@ window.Main = function () {
   };
   window.logError = function (m) {
     log("<span style='color: red'>" + m + "</span>");
-    info("<span style='color: #FF766F'>" + m + "</span>", 20000);
+    info("<span style='color: #FF766F'>" + m + "</span>", 10000);
   };
   
   window.info = function (msg, time) {
