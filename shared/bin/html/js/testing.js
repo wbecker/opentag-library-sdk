@@ -60,14 +60,13 @@ function addEditTests(node) {
   }
 }
 
-
 var bddSuiteCodeTemplate = 
 "/**ignore at merge**/\n" +
 "//:include tagsdk-current.js\n" +
 "//:include _TAGPATH_\n" +
 "\n" +
 "/*\n" +
-" * BDD tests are well known unit tests supporting API used by bdd and\n" +
+" * BDD tests are well known unit tests supporting API used by mocha and\n" +
 " * other test runners. Please see more info about how to use them online.\n" +
 " */\n" +
 "var suite = describe(\"when song has been paused\", function() {\n" +
@@ -85,20 +84,19 @@ var bddSuiteCodeTemplate =
 "  });\n" +
 "\n" +
 "  it(\"shall fail as true is never falsy...\", function() {\n" +
-"    expect(true).toBeFalsy();\n" +
+"    expect(true).to.be(false);\n" +
 "  });\n" +
 "\n" +
 "  it(\"it shall not fail as true is naturally true...\", function() {\n" +
-"    expect(true).toBeTruthy();\n" +
+"    expect(true).to.be(true);\n" +
 "  });\n" +
 "\n" +
-"  it(\"it shall again not fail as true is naturally true...\", function() {\n" +
-"    expect(true).toBeTruthy();\n" +
+"  it(\"it will throw an exception...\", function() {\n" +
+"    throw \"exception!\";\n" +
 "  });\n" +
-"\n" +
 "});\n" +
 "\n" +
-"qubit.opentag.Utils.namespace('_PACKAGE_.local.BDDSuite', suite);"
+"qubit.opentag.Utils.namespace('_PACKAGE_.local.BDDSuite', suite);";
 
 function addEditDescribeTests(node) {
   node = getLibraryReferenceNode(node);
