@@ -500,7 +500,7 @@ function _loadLibrary(url, index, callback) {
           counted++;
           window.toggleConsole();
           
-          qubit.opentag.Log.LEVEL = 5;
+          qubit.opentag.Log.LEVEL = 3;
           qubit.opentag.Log.COLLECT_LEVEL = 5;
         }, 50);
       }
