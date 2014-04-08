@@ -439,6 +439,8 @@ function renderAllLibrariesToPage() {
         if (window.console && console.log) {
           console.log("Failed to load tag configuration," +
                   " possible syntax error:" + ex);
+          info("Failed to load tag configuration," +
+                  " possible syntax error:" + ex);
         } else {
           logError("Failed to load tag configuration," +
                   " possible syntax error:" + ex);
@@ -537,9 +539,15 @@ window.Main = function () {
     qlog.hidden ? qlog.show() : qlog.hide();
   };
   window.logError = function (m) {
-    log("<span style='font-weight:bolder;color: red'>" + m + "</span>");
-    qlog.show();
+    log("<span style='color: red'>" + m + "</span>");
+    info("<span style='color: #FF766F'>" + m + "</span>", 20000);
   };
+  
+  window.info = function (msg, time) {
+    DefaultNotificationsMgr
+            .notify(new Date().valueOf(), msg, time || 1800, "", true);
+  };
+  
   window.log = function (m) {
     qlog.log(m);
     //try {console.log(m);} catch (e) {}
@@ -551,4 +559,8 @@ window.Main = function () {
   
   //delay shortly so IE6 can apply styling
   loadAllLibs();
+  
+  window.DefaultNotificationsMgr = new NotificationManager({
+    maxTime: 3 * 1000
+  });
 };

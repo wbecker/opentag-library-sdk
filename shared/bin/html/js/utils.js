@@ -82,7 +82,7 @@ function testTag(referencingNode) {
     var results = getParametersAndConfigForTagNode(referencingNode);
     
     if (results === "red") {
-      alert("Please fill all highlighed parameter values.\n They are required for tag to run.");
+      logError("Please fill all highlighed parameter values.\n They are required for tag to run.");
       return;
     }
     
@@ -107,10 +107,11 @@ function testTag(referencingNode) {
     }
 
     var instance = new clazz(config);
+    info("triggering run() for " + instance.config.name);
     instance.run();
     var message = "Currently executed tag instance is exposed as: window.instance";
     instance.log.INFO(message);
-    log(message + "\n Please open console to see logs.");
+    info(message + "<br/> Please open web console to see more logs.", 5000);
     window.instance = instance;
   } catch (ex) {
     logError("Error while executing configuration:" + ex);
@@ -143,7 +144,7 @@ function saveConfig(refNode) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
       logError(msg);
     } else {
-      log("Saved");
+      info("Saved");
     }
   });
 }

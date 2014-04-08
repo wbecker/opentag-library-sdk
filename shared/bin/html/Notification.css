@@ -1,0 +1,39 @@
+.qubit-notification {
+  float: left;
+  clear: both;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#50000000,endColorstr=#50000000);
+  padding: 12px;
+  font-size: 13px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  min-width: 256px;
+  font-size: 9pt;
+  font-family: Verdana;
+  margin: 4px;
+  word-break: normal;
+  -moz-box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.3);
+}
+
+.qubit-notificationmanager {
+  overflow:visible;
+  height: 0px;
+  width: 0px;
+  position: fixed;
+  top: 56px;
+  margin-left: 24px;
+  border: none;
+  z-index: 1000;
+}
+
+.notification-close-button {
+  background: transparent url(img/notification-close-button.png) no-repeat;
+  width: 12px;
+  height: 12px;
+  clear: both;
+  float: right;
+}
