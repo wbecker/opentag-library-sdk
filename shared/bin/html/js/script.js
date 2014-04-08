@@ -538,9 +538,9 @@ window.Main = function () {
   window.toggleConsole = function () {
     qlog.hidden ? qlog.show() : qlog.hide();
   };
-  window.logError = function (m) {
+  window.logError = function (m, time) {
     log("<span style='color: red'>" + m + "</span>");
-    info("<span style='color: #FF766F'>" + m + "</span>", 10000);
+    info("<span style='color: #FF766F'>" + m + "</span>", time || 10000);
   };
   
   window.info = function (msg, time) {
