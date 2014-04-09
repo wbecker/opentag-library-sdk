@@ -86,11 +86,13 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				"id": "" + this.valueForToken("zanox_page_id") + ""
 			});
 			var waitForZanoxDiv = function() {
-				if (document.querySelector(".zx_" + this.valueForToken("zanox_page_id") + ".zx_mediaslot")) {
+				if (document.querySelector(".zx_" + this.valueForToken("zanox_page_id") +
+					".zx_mediaslot")) {
 					(function(d) {
 						var s = d.createElement("script");
 						s.async = true;
-						s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
+						s.src = (d.location.protocol == "https:" ? "https:" : "http:") +
+							"//static.zanox.com/scripts/zanox.js";
 						var a = d.getElementsByTagName("script")[0];
 						a.parentNode.insertBefore(s, a);
 					}(document));

@@ -44,7 +44,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			}
 		}]);
 		var script = document.createElement("script");
-		script.src = "//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
+		script.src =
+			"//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
 		document.body.appendChild(script);
 		/*~SCRIPT*/
 	},

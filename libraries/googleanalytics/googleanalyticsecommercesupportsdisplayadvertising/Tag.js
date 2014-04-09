@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googleanalytics.googleanalyticsecommercesupportsdisplayadvertising.Tag";
+var classPath =
+	"googleanalytics.googleanalyticsecommercesupportsdisplayadvertising.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -116,7 +117,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var ga = document.createElement('script');
 			ga.type = 'text/javascript';
 			ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+				'stats.g.doubleclick.net/dc.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
 		})();

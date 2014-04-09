@@ -50,7 +50,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 						breadcrumb.skipLast = (config.skipLast === true) ? true : false;
 						breadcrumb.skipFirst = (config.skipFirst === true) ? true : false;
-						breadcrumb.overwriteSubCat = (config.overwriteSubCat === false) ? false : true;
+						breadcrumb.overwriteSubCat = (config.overwriteSubCat === false) ? false :
+							true;
 
 						breadcrumb.trimLength = config.trimLength || 64;
 						breadcrumb.max = config.max || 10;
@@ -68,7 +69,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 							if (breadcrumb.skipLast && (i === breadcrumb.obj.length - 1)) {
 								break;
 							}
-							breadcrumb.obj[i] = breadcrumb.obj[i].substr(0, breadcrumb.trimLength).toLowerCase();
+							breadcrumb.obj[i] = breadcrumb.obj[i].substr(0, breadcrumb.trimLength)
+								.toLowerCase();
 							uv.page["breadcrumb_l" + (i + 1 - displace)] = breadcrumb.obj[i];
 						}
 						// Add / overwrite page.subcategory with breadcrumb level 1

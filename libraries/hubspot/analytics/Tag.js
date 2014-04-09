@@ -32,7 +32,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var n = d.createElement(s),
 				e = d.getElementsByTagName(s)[0];
 			n.id = i;
-			n.src = '//js.hubspot.com/analytics/' + (Math.ceil(new Date() / r) * r) + '/' + this.valueForToken("id") + '.js';
+			n.src = '//js.hubspot.com/analytics/' + (Math.ceil(new Date() / r) * r) +
+				'/' + this.valueForToken("id") + '.js';
 			e.parentNode.insertBefore(n, e);
 		})(document, "script", "hs-analytics", 300000);
 		/*~SCRIPT*/

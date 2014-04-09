@@ -26,7 +26,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		window.uv_listener.push(['on', 'event',
 			function(event) {
 				if (event && event.type && event.type === "struct") {
-					_snaq.push(['trackStructEvent', event.category || "", event.action || "", event.label || "", event.property || "", event.value || ""]);
+					_snaq.push(['trackStructEvent', event.category || "", event.action || "",
+						event.label || "", event.property || "", event.value || ""
+					]);
 				}
 			}
 		]);

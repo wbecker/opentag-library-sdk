@@ -102,7 +102,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			for (i = 0; i < this.valueForToken("unit_prices").length; i++) {
 				var itemInfo = [];
 				//Add the specific event ID if it exists, otherwise just add the client's ID
-				itemInfo.push(this.valueForToken("product_event_id").length !== 0 ? this.valueForToken("product_event_id")[i] : "" + this.valueForToken("client_event_id") + "");
+				itemInfo.push(this.valueForToken("product_event_id").length !== 0 ? this.valueForToken(
+					"product_event_id")[i] : "" + this.valueForToken("client_event_id") + "");
 				//Add the item's price.
 				itemInfo.push(this.valueForToken("unit_prices")[i]);
 				//Add the item's name.
@@ -127,19 +128,23 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		if (location.protocol.toLowerCase() == "https:") wgProtocol = "https";
 		else wgProtocol = "http";
 
-		wgUri = "//" + this.valueForToken("subdomain") + ".webgains.com/transaction.html?";
+		wgUri = "//" + this.valueForToken("subdomain") +
+			".webgains.com/transaction.html?";
 		wgUri += "wgrs=1";
 		wgUri += "&wgver=1.2&wgprotocol=";
 		wgUri += wgProtocol + "&wgsubdomain=" + this.valueForToken("subdomain") + "";
 		wgUri += "&wglang=" + this.valueForToken("language") + "";
-		wgUri += "&wgprogramid=" + this.valueForToken("program_id") + "&wgeventid=" + this.valueForToken("client_event_id") + "";
+		wgUri += "&wgprogramid=" + this.valueForToken("program_id") + "&wgeventid=" +
+			this.valueForToken("client_event_id") + "";
 		wgUri += "&wgvalue=" + this.valueForToken("order_total") + "&wgchecksum=";
 		wgUri += "&wgorderreference=" + this.valueForToken("order_reference") + "";
 		wgUri += "&wgcomment=" + escape("" + this.valueForToken("comment") + "");
 		wgUri += "&wglocation=" + escape(document.referrer);
 		wgUri += "&wgitems=" + escape(wgItems());
-		wgUri += "&wgcustomerid=" + escape("" + this.valueForToken("customer_id") + "");
-		wgUri += "&wgvouchercode=" + escape("" + this.valueForToken("voucher_code") + "");
+		wgUri += "&wgcustomerid=" + escape("" + this.valueForToken("customer_id") +
+			"");
+		wgUri += "&wgvouchercode=" + escape("" + this.valueForToken("voucher_code") +
+			"");
 		wgUri += "&wgCurrency=" + escape("" + this.valueForToken("currency") + "");
 
 

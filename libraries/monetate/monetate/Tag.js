@@ -37,7 +37,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				var m = document.createElement('script');
 				m.type = 'text/javascript';
 				m.async = true;
-				m.src = (p == "https:" ? "https://s" : "http://") + "b.monetate.net/js/1/" + this.valueForToken("id") + "/p/" + this.valueForToken("domain") + "/" + Math.floor((monetateT + 2961942) / 3600000) + "/g";
+				m.src = (p == "https:" ? "https://s" : "http://") +
+					"b.monetate.net/js/1/" + this.valueForToken("id") + "/p/" + this.valueForToken(
+						"domain") + "/" + Math.floor((monetateT + 2961942) / 3600000) + "/g";
 				var s = document.getElementsByTagName('script')[0];
 				s.parentNode.insertBefore(m, s);
 			}

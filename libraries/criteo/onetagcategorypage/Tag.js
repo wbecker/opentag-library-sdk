@@ -57,7 +57,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			//Criteo suggests that this list should only be 3 products long.
 			var products = [];
 
-			var ii = (this.valueForToken("product_ids").length < 3) ? this.valueForToken("product_ids").length : 3;
+			var ii = (this.valueForToken("product_ids").length < 3) ? this.valueForToken(
+				"product_ids").length : 3;
 
 			for (i = 0; i < ii; i++) {
 				products.push(this.valueForToken("product_ids")[i]);

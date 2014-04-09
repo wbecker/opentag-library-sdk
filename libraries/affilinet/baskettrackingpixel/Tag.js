@@ -72,7 +72,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		var form = iFrameDom.createElement('form');
 		form.name = "affilinetTrackingForm";
 		form.method = "post";
-		form.action = document.location.protocol + "//" + this.valueForToken("affilinet_tracking_domain") + "/registersale.asp";
+		form.action = document.location.protocol + "//" + this.valueForToken(
+			"affilinet_tracking_domain") + "/registersale.asp";
 		form.id = "affilinetTrackingForm";
 		iFrameDom.body.appendChild(form);
 
@@ -104,7 +105,12 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				basketItemsData += "&";
 			}
 
-			basketItemsData += "articlenb=" + escape(this.valueForToken("basket_items_skus")[i]) + "&productname=" + escape(this.valueForToken("basket_items_names")[i]) + "&category=" + escape(this.valueForToken("basket_items_categories")[i]) + "&quantity=" + escape(this.valueForToken("basket_items_quantities")[i]) + "&singleprice=" + escape(this.valueForToken("basket_items_prices")[i]) + "&brand=";
+			basketItemsData += "articlenb=" + escape(this.valueForToken(
+				"basket_items_skus")[i]) + "&productname=" + escape(this.valueForToken(
+				"basket_items_names")[i]) + "&category=" + escape(this.valueForToken(
+				"basket_items_categories")[i]) + "&quantity=" + escape(this.valueForToken(
+				"basket_items_quantities")[i]) + "&singleprice=" + escape(this.valueForToken(
+				"basket_items_prices")[i]) + "&brand=";
 		}
 
 		iFrameDom.getElementById("basket").innerHTML = basketItemsData;

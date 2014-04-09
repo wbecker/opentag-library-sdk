@@ -73,7 +73,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		var struq = document.createElement('script');
 		struq.type = 'text/javascript';
 		struq.async = true;
-		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
+		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+			'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
 		document.getElementsByTagName('head')[0].appendChild(struq);
 		/*~SCRIPT*/
 	},

@@ -28,7 +28,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				return;
 			}
 
-			if (window.__qubit && window.__qubit.smartserve && window.__qubit.smartserve.version) {
+			if (window.__qubit && window.__qubit.smartserve && window.__qubit.smartserve
+				.version) {
 				return;
 			}
 
@@ -156,7 +157,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			withTransaction(function() {
 				if (readCookie("_qb_se")) {
-					window.universal_variable.transaction.shown_creatives = generateCreatives();
+					window.universal_variable.transaction.shown_creatives =
+						generateCreatives();
 					_qtd.push({
 						resendUniversalVariables: 1
 					});

@@ -36,7 +36,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			hn.async = true;
 			hn.setAttribute('data-ev-hover-pid', this.valueForToken("page_id"));
 			hn.setAttribute('data-ev-hover-ocid', this.valueForToken("client_id"));
-			hn.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/geo/h1.js';
+			hn.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+				'c.betrad.com/geo/h1.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(hn, s);
 		})();

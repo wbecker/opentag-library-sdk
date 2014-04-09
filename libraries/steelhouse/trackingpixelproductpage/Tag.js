@@ -110,7 +110,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				//Define the basket item count given a UV list of basket item quantities.
 				basket_item_count = (function() {
 					var temp = 0;
-					for (var index = 0; index < this.valueForToken("basket_item_quantities").length; index++) {
+					for (var index = 0; index < this.valueForToken("basket_item_quantities")
+						.length; index++) {
 						temp += Number(this.valueForToken("basket_item_quantities")[index]);
 					}
 					return temp;
@@ -119,17 +120,22 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				//Create CSVs from UV lists. Will work for arrays supplied by clients
 				basket_skus = (function() {
 					var temp_skus = "";
-					for (var sku_index = 0; sku_index < this.valueForToken("basket_skus_list").length; sku_index++) {
+					for (var sku_index = 0; sku_index < this.valueForToken(
+						"basket_skus_list").length; sku_index++) {
 						temp_skus += this.valueForToken("basket_skus_list")[sku_index];
-						if (sku_index != this.valueForToken("basket_skus_list").length - 1) temp_skus += ",";
+						if (sku_index != this.valueForToken("basket_skus_list").length - 1)
+							temp_skus += ",";
 					}
 					return temp_skus;
 				})(),
 				basket_quantities = (function() {
 					var temp_quants = "";
-					for (var quant_index = 0; quant_index < this.valueForToken("basket_item_quantities").length; quant_index++) {
-						temp_quants += this.valueForToken("basket_item_quantities")[quant_index];
-						if (quant_index != this.valueForToken("basket_item_quantities").length - 1) temp_quants += ",";
+					for (var quant_index = 0; quant_index < this.valueForToken(
+						"basket_item_quantities").length; quant_index++) {
+						temp_quants += this.valueForToken("basket_item_quantities")[
+							quant_index];
+						if (quant_index != this.valueForToken("basket_item_quantities").length -
+							1) temp_quants += ",";
 					}
 					return temp_quants;
 				})(),
@@ -151,17 +157,23 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				shadditional = "" + this.valueForToken("additional_info") + "",
 				m, g, y;
 			try {
-				m = top.document.referer !== "" ? encodeURIComponent(top.document.referrer.substring(0, 256)) : ""
+				m = top.document.referer !== "" ? encodeURIComponent(top.document.referrer
+					.substring(0, 256)) : ""
 			} catch (w) {
-				m = document.referrer !== null ? encodeURIComponent(document.referrer.toString().substring(0, 256)) : ""
+				m = document.referrer !== null ? encodeURIComponent(document.referrer.toString()
+					.substring(0, 256)) : ""
 			}
 			try {
-				g = window && window.top && document.location && window.top.location === document.location ? document.location : window && window.top && window.top.location && "" !== window.top.location ? window.top.location : document.location
+				g = window && window.top && document.location && window.top.location ===
+					document.location ? document.location : window && window.top && window.top
+					.location && "" !== window.top.location ? window.top.location : document
+					.location
 			} catch (E) {
 				g = document.location
 			}
 			try {
-				y = parent.location.href !== "" ? encodeURIComponent(parent.location.href.toString().substring(0, 256)) : ""
+				y = parent.location.href !== "" ? encodeURIComponent(parent.location.href
+					.toString().substring(0, 256)) : ""
 			} catch (S) {
 				try {
 					y = g !== null ? encodeURIComponent(g.toString().substring(0, 256)) : ""
@@ -188,9 +200,14 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					if (typeof e === "undefined") {
 						e = Math.floor(Math.random() * 1e17)
 					}
-					w = "px.steelhousemedia.com/st?" + "shver=" + t + "&shaid=" + n + "&shpn=" + r + "&shpc=" + i + "&shpb=" + s + "&shpp=" + o + "&shpcur=" + u + "&shpi=" + a + "&shps=" + f + "&shpic=" + l + "&shpau=" + c + "&shcv=" + h + "&shcq=" + p + "&shcp=" + d + "&shcpq=" + v + "&tdr=" + m + "&plh=" + y + "&cb=" + e + shadditional;
+					w = "px.steelhousemedia.com/st?" + "shver=" + t + "&shaid=" + n +
+						"&shpn=" + r + "&shpc=" + i + "&shpb=" + s + "&shpp=" + o + "&shpcur=" +
+						u + "&shpi=" + a + "&shps=" + f + "&shpic=" + l + "&shpau=" + c +
+						"&shcv=" + h + "&shcq=" + p + "&shcp=" + d + "&shcpq=" + v + "&tdr=" +
+						m + "&plh=" + y + "&cb=" + e + shadditional;
 					g.type = "text/javascript";
-					g.src = ("https:" === document.location.protocol ? "https://" : "http://") + w;
+					g.src = ("https:" === document.location.protocol ? "https://" :
+						"http://") + w;
 					x.parentNode.insertBefore(g, x)
 				}
 			};

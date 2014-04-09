@@ -59,7 +59,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		(function() {
 
 			var pixel = new Image();
-			var source = "https://" + this.valueForToken("GATEWAY_PREFIX") + ".cpr.prismastar.com/v2_0/recorder/?type=order&customerCode=" + this.valueForToken("CUSTOMER_CODE") + "&customerOrderId=" + this.valueForToken("ORDER_ID") + "&order=";
+			var source = "https://" + this.valueForToken("GATEWAY_PREFIX") +
+				".cpr.prismastar.com/v2_0/recorder/?type=order&customerCode=" + this.valueForToken(
+					"CUSTOMER_CODE") + "&customerOrderId=" + this.valueForToken("ORDER_ID") +
+				"&order=";
 
 			for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {
 				var productArray = [

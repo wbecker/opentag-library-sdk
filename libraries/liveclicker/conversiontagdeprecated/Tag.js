@@ -34,7 +34,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var revenue = parseFloat(this.valueForToken("order_total")) * 100;
 			var script = document.createElement('script');
 
-			script.src = 'https://sc.liveclicker.net/service/track?kind=order&account_id=' + this.valueForToken("account_id") + '&value=' + revenue;
+			script.src =
+				'https://sc.liveclicker.net/service/track?kind=order&account_id=' + this.valueForToken(
+					"account_id") + '&value=' + revenue;
 
 			document.getElementsByTagName('head')[0].appendChild(script);
 		})();

@@ -30,7 +30,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	script: function() {
 		/*SCRIPT*/
 
-		cmCreateElementTag("" + this.valueForToken("element_id") + "", "" + this.valueForToken("element_category") + "");
+		cmCreateElementTag("" + this.valueForToken("element_id") + "", "" + this.valueForToken(
+			"element_category") + "");
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -24,7 +24,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		(function(d) {
 			var e = d.createElement('script');
-			e.src = d.location.protocol + '//app.yieldify.com/yieldify/code.js?yieldify_id=216&loca=' + window.location.href;
+			e.src = d.location.protocol +
+				'//app.yieldify.com/yieldify/code.js?yieldify_id=216&loca=' + window.location
+				.href;
 			e.async = true;
 			d.getElementsByTagName("head")[0].appendChild(e);
 		}(document));

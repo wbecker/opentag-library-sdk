@@ -61,7 +61,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			require("" + this.valueForToken("web1by1_functions_script") + "", function() {
 				require("" + this.valueForToken("web1by1_config_script") + "", function() {
-					window.w1x1.iSet(this.valueForToken("tag_type"), "" + this.valueForToken("value") + "");
+					window.w1x1.iSet(this.valueForToken("tag_type"), "" + this.valueForToken(
+						"value") + "");
 				});
 			});
 

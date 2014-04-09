@@ -27,7 +27,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		(function() {
 
-			if (performance && performance.timing && (window.XDomainRequest || XMLHttpRequest)) {
+			if (performance && performance.timing && (window.XDomainRequest ||
+				XMLHttpRequest)) {
 
 				var r = Math.floor(Math.random() * 50000);
 				var url = "//pong.qubitproducts.com/qc?" + r;

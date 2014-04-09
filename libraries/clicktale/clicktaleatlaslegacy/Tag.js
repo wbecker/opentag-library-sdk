@@ -50,7 +50,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		var done = function() {
 			window.ClickTaleSSL = 1;
 			if (typeof ClickTale == 'function') {
-				ClickTale(this.valueForToken("ClickTaleId"), this.valueForToken("RecordingRatio"), "" + this.valueForToken("Partition") + "");
+				ClickTale(this.valueForToken("ClickTaleId"), this.valueForToken(
+					"RecordingRatio"), "" + this.valueForToken("Partition") + "");
 			}
 		}
 

@@ -38,7 +38,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		(function() {
 			var img = document.createElement("img");
 			var src = [
-				"//", "" + this.valueForToken("subdomain") + "", "/", "" + this.valueForToken("call_parameter") + "", "/display?",
+				"//", "" + this.valueForToken("subdomain") + "", "/", "" + this.valueForToken(
+					"call_parameter") + "", "/display?",
 				"p1=",
 				escape("v=2&wi=" + this.valueForToken("wi") + "&pt1=4"),
 				"&t1=sendevent&resptype=gif"

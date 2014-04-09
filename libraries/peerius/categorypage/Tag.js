@@ -42,7 +42,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			track: {
 				type: "category",
 				lang: "" + this.valueForToken("lang") + "",
-				category: "" + this.valueForToken("subcategory") + "".replace(/\s-\s/g, ">")
+				category: "" + this.valueForToken("subcategory") + "".replace(/\s-\s/g,
+					">")
 			}
 		};
 		/*~PRE*/

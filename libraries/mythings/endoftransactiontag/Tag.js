@@ -80,7 +80,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			}
 		})();
 
-		window.mtHost = (("https:" == document.location.protocol) ? "https://" + this.valueForToken("subdomain") + "" : "http://" + this.valueForToken("subdomain") + "") + ".mythings.com";
+		window.mtHost = (("https:" == document.location.protocol) ? "https://" +
+			this.valueForToken("subdomain") + "" : "http://" + this.valueForToken(
+				"subdomain") + "") + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("token") + "";
 		/*~PRE*/
 	},

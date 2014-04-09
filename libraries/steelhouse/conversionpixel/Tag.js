@@ -88,7 +88,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var temp_quants = "";
 			for (var quant_index = 0; quant_index < this.valueForToken("quantities").length; quant_index++) {
 				temp_quants += this.valueForToken("quantities")[quant_index];
-				if (quant_index != this.valueForToken("quantities").length - 1) temp_quants += ",";
+				if (quant_index != this.valueForToken("quantities").length - 1) temp_quants +=
+					",";
 			}
 			return temp_quants;
 		}
@@ -105,7 +106,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var temp_prices = "";
 			for (var price_index = 0; price_index < this.valueForToken("prices").length; price_index++) {
 				temp_prices += this.valueForToken("prices")[price_index];
-				if (price_index != this.valueForToken("prices").length - 1) temp_prices += ",";
+				if (price_index != this.valueForToken("prices").length - 1) temp_prices +=
+					",";
 			}
 			return temp_prices;
 		}
@@ -129,17 +131,23 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				shadditional = "" + this.valueForToken("custom") + "",
 				l, c, h;
 			try {
-				l = top.document.referer !== "" ? encodeURIComponent(top.document.referrer.substring(0, 256)) : "";
+				l = top.document.referer !== "" ? encodeURIComponent(top.document.referrer
+					.substring(0, 256)) : "";
 			} catch (d) {
-				l = document.referrer !== null ? encodeURIComponent(document.referrer.toString().substring(0, 256)) : "";
+				l = document.referrer !== null ? encodeURIComponent(document.referrer.toString()
+					.substring(0, 256)) : "";
 			}
 			try {
-				c = window && window.top && document.location && window.top.location === document.location ? document.location : window && window.top && window.top.location && "" !== window.top.location ? window.top.location : document.location;
+				c = window && window.top && document.location && window.top.location ===
+					document.location ? document.location : window && window.top && window.top
+					.location && "" !== window.top.location ? window.top.location : document
+					.location;
 			} catch (v) {
 				c = document.location;
 			}
 			try {
-				h = parent.location.href !== "" ? encodeURIComponent(parent.location.href.toString().substring(0, 256)) : "";
+				h = parent.location.href !== "" ? encodeURIComponent(parent.location.href
+					.toString().substring(0, 256)) : "";
 			} catch (m) {
 				try {
 					h = c !== null ? encodeURIComponent(c.toString().substring(0, 256)) : "";
@@ -165,9 +173,13 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					if (typeof e === "undefined") {
 						e = Math.floor(Math.random() * 1e17);
 					}
-					d = "px.steelhousemedia.com/st?" + "conv=1" + "&shver=" + t + "&shaid=" + n + "&shoid=" + r + "&shoamt=" + i + "&shocur=" + s + "&shopid=" + o + "&shoq=" + u + "&shoup=" + a + "&shpil=" + f + "&tdr=" + l + "&plh=" + h + "&cb=" + e + shadditional;
+					d = "px.steelhousemedia.com/st?" + "conv=1" + "&shver=" + t + "&shaid=" +
+						n + "&shoid=" + r + "&shoamt=" + i + "&shocur=" + s + "&shopid=" + o +
+						"&shoq=" + u + "&shoup=" + a + "&shpil=" + f + "&tdr=" + l + "&plh=" +
+						h + "&cb=" + e + shadditional;
 					c.type = "text/javascript";
-					c.src = ("https:" === document.location.protocol ? "https://" : "http://") + d;
+					c.src = ("https:" === document.location.protocol ? "https://" :
+						"http://") + d;
 					g.parentNode.insertBefore(c, g);
 				}
 			};
@@ -194,17 +206,23 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				shadditional = "" + this.valueForToken("custom") + "",
 				m, g, y;
 			try {
-				m = top.document.referer !== "" ? encodeURIComponent(top.document.referrer.substring(0, 256)) : ""
+				m = top.document.referer !== "" ? encodeURIComponent(top.document.referrer
+					.substring(0, 256)) : ""
 			} catch (w) {
-				m = document.referrer !== null ? encodeURIComponent(document.referrer.toString().substring(0, 256)) : ""
+				m = document.referrer !== null ? encodeURIComponent(document.referrer.toString()
+					.substring(0, 256)) : ""
 			}
 			try {
-				g = window && window.top && document.location && window.top.location === document.location ? document.location : window && window.top && window.top.location && "" !== window.top.location ? window.top.location : document.location
+				g = window && window.top && document.location && window.top.location ===
+					document.location ? document.location : window && window.top && window.top
+					.location && "" !== window.top.location ? window.top.location : document
+					.location
 			} catch (E) {
 				g = document.location
 			}
 			try {
-				y = parent.location.href !== "" ? encodeURIComponent(parent.location.href.toString().substring(0, 256)) : ""
+				y = parent.location.href !== "" ? encodeURIComponent(parent.location.href
+					.toString().substring(0, 256)) : ""
 			} catch (S) {
 				try {
 					y = g !== null ? encodeURIComponent(g.toString().substring(0, 256)) : ""
@@ -231,9 +249,14 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					if (typeof e === "undefined") {
 						e = Math.floor(Math.random() * 1e17)
 					}
-					w = "px.steelhousemedia.com/st?" + "shver=" + t + "&shaid=" + n + "&shpn=" + r + "&shpc=" + i + "&shpb=" + s + "&shpp=" + o + "&shpcur=" + u + "&shpi=" + a + "&shps=" + f + "&shpic=" + l + "&shpau=" + c + "&shcv=" + h + "&shcq=" + p + "&shcp=" + d + "&shcpq=" + v + "&tdr=" + m + "&plh=" + y + "&cb=" + e + shadditional;
+					w = "px.steelhousemedia.com/st?" + "shver=" + t + "&shaid=" + n +
+						"&shpn=" + r + "&shpc=" + i + "&shpb=" + s + "&shpp=" + o + "&shpcur=" +
+						u + "&shpi=" + a + "&shps=" + f + "&shpic=" + l + "&shpau=" + c +
+						"&shcv=" + h + "&shcq=" + p + "&shcp=" + d + "&shcpq=" + v + "&tdr=" +
+						m + "&plh=" + y + "&cb=" + e + shadditional;
 					g.type = "text/javascript";
-					g.src = ("https:" === document.location.protocol ? "https://" : "http://") + w;
+					g.src = ("https:" === document.location.protocol ? "https://" :
+						"http://") + w;
 					x.parentNode.insertBefore(g, x)
 				}
 			};

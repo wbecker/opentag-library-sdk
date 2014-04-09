@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		}
 		product_ids = encodeURIComponent(encodeURI(product_ids.slice(0, -1)));
 
-		img.src = encodeURI("https://secure.perfectstormmedia.com/tracking/convert.php?c=" + this.valueForToken("client_name") + "&v=" + this.valueForToken("order_total") + "&fn=&ln=&e=&ref=" + this.valueForToken("order_id") + "&d=<?=") + product_ids;
+		img.src = encodeURI(
+			"https://secure.perfectstormmedia.com/tracking/convert.php?c=" + this.valueForToken(
+				"client_name") + "&v=" + this.valueForToken("order_total") +
+			"&fn=&ln=&e=&ref=" + this.valueForToken("order_id") + "&d=<?=") +
+			product_ids;
 
 		document.body.appendChild(img);
 

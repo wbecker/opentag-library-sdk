@@ -36,7 +36,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		(function() {
 
 			var script = document.createElement("script");
-			script.src = "//bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&ActivityID=" + this.valueForToken("activity_id") + "&rnd=" + ebRand + "&Session=" + ebSession;
+			script.src =
+				"//bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&ActivityID=" +
+				this.valueForToken("activity_id") + "&rnd=" + ebRand + "&Session=" +
+				ebSession;
 			document.getElementsByTagName("head")[0].appendChild(script);
 
 		})()

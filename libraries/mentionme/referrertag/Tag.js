@@ -115,7 +115,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	script: function() {
 		/*SCRIPT*/
 
-		var baseUrl = "https://" + this.valueForToken("domain") + "/api/v2/referreroffer/" + this.valueForToken("partner_code") + "?";
+		var baseUrl = "https://" + this.valueForToken("domain") +
+			"/api/v2/referreroffer/" + this.valueForToken("partner_code") + "?";
 		var paramArr = [];
 		var paramObj = {
 			email: "" + this.valueForToken("email") + "",
@@ -126,18 +127,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			situation: "" + this.valueForToken("situation") + ""
 		};
 
-		if ("" + this.valueForToken("customer_id") + "".length) paramObj["customer_id"] = "" + this.valueForToken("customer_id") + "";
-		if ("" + this.valueForToken("custom_field") + "".length) paramObj["custom_field"] = "" + this.valueForToken("custom_field") + "";
-		if ("" + this.valueForToken("fullname") + "".length) paramObj["fullname"] = "" + this.valueForToken("fullname") + "";
-		if ("" + this.valueForToken("coupon_code") + "".length) paramObj["coupon_code"] = "" + this.valueForToken("coupon_code") + "";
-		if ("" + this.valueForToken("address_line1") + "".length) paramObj["address_line1"] = "" + this.valueForToken("address_line1") + "";
-		if ("" + this.valueForToken("address_line2") + "".length) paramObj["address_line2"] = "" + this.valueForToken("address_line2") + "";
-		if ("" + this.valueForToken("address_city") + "".length) paramObj["address_city"] = "" + this.valueForToken("address_city") + "";
-		if ("" + this.valueForToken("address_postcode") + "".length) paramObj["address_postcode"] = "" + this.valueForToken("address_postcode") + "";
-		if ("" + this.valueForToken("address_country") + "".length) paramObj["address_country"] = "" + this.valueForToken("address_country") + "";
-		if ("" + this.valueForToken("address_county") + "".length) paramObj["address_county"] = "" + this.valueForToken("address_county") + "";
-		if ("" + this.valueForToken("implementation") + "".length) paramObj["implementation"] = "" + this.valueForToken("implementation") + "";
-		if ("" + this.valueForToken("segment") + "".length) paramObj["segment"] = "" + this.valueForToken("segment") + "";
+		if ("" + this.valueForToken("customer_id") + "".length) paramObj[
+			"customer_id"] = "" + this.valueForToken("customer_id") + "";
+		if ("" + this.valueForToken("custom_field") + "".length) paramObj[
+			"custom_field"] = "" + this.valueForToken("custom_field") + "";
+		if ("" + this.valueForToken("fullname") + "".length) paramObj["fullname"] =
+			"" + this.valueForToken("fullname") + "";
+		if ("" + this.valueForToken("coupon_code") + "".length) paramObj[
+			"coupon_code"] = "" + this.valueForToken("coupon_code") + "";
+		if ("" + this.valueForToken("address_line1") + "".length) paramObj[
+			"address_line1"] = "" + this.valueForToken("address_line1") + "";
+		if ("" + this.valueForToken("address_line2") + "".length) paramObj[
+			"address_line2"] = "" + this.valueForToken("address_line2") + "";
+		if ("" + this.valueForToken("address_city") + "".length) paramObj[
+			"address_city"] = "" + this.valueForToken("address_city") + "";
+		if ("" + this.valueForToken("address_postcode") + "".length) paramObj[
+			"address_postcode"] = "" + this.valueForToken("address_postcode") + "";
+		if ("" + this.valueForToken("address_country") + "".length) paramObj[
+			"address_country"] = "" + this.valueForToken("address_country") + "";
+		if ("" + this.valueForToken("address_county") + "".length) paramObj[
+			"address_county"] = "" + this.valueForToken("address_county") + "";
+		if ("" + this.valueForToken("implementation") + "".length) paramObj[
+			"implementation"] = "" + this.valueForToken("implementation") + "";
+		if ("" + this.valueForToken("segment") + "".length) paramObj["segment"] = "" +
+			this.valueForToken("segment") + "";
 
 		for (var param in paramObj) {
 			var value = paramObj[param];

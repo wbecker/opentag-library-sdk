@@ -68,7 +68,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	},
 	pre: function() {
 		/*PRE*/
-		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken("storm_id") + '.js';
+		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken(
+			"storm_id") + '.js';
 		window.__ch = '' + this.valueForToken("channel") + '';
 		/*~PRE*/
 	},

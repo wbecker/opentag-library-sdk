@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag";
+var classPath =
+	"googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -42,7 +43,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				a.async = 1;
 				a.src = g;
 				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+				'ga');
 
 			ga('create', '' + this.valueForToken("web_property_id") + '');
 

@@ -50,15 +50,19 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	script: function() {
 		/*SCRIPT*/
 
-		var baseUrl = "https://" + this.valueForToken("script_domain") + "/api/v2/refereefind/" + this.valueForToken("partner_code") + "?";
+		var baseUrl = "https://" + this.valueForToken("script_domain") +
+			"/api/v2/refereefind/" + this.valueForToken("partner_code") + "?";
 		var mmScript = document.createElement("script");
 		var paramArr = [];
 		var paramObj = {
 			situation: "" + this.valueForToken("situation") + ""
 		}
-		if ("" + this.valueForToken("email") + "".length) paramObj["email"] = "" + this.valueForToken("email") + "";
-		if ("" + this.valueForToken("fullname") + "".length) paramObj["fullname"] = "" + this.valueForToken("fullname") + "";
-		if ("" + this.valueForToken("implementation") + "".length) paramObj["implementation"] = "" + this.valueForToken("implementation") + "";
+		if ("" + this.valueForToken("email") + "".length) paramObj["email"] = "" +
+			this.valueForToken("email") + "";
+		if ("" + this.valueForToken("fullname") + "".length) paramObj["fullname"] =
+			"" + this.valueForToken("fullname") + "";
+		if ("" + this.valueForToken("implementation") + "".length) paramObj[
+			"implementation"] = "" + this.valueForToken("implementation") + "";
 
 		for (var param in paramObj) {
 			var value = paramObj[param];

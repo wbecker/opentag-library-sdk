@@ -62,7 +62,12 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			}
 
 			var frame = document.createElement("iframe");
-			var src = "https://secure.img-cdn.mediaplex.com/0/" + this.valueForToken("client_id") + "/universal.html?page_name=" + this.valueForToken("page_name") + "&" + this.valueForToken("event_name") + "=1&Currency=" + this.valueForToken("currency") + "&Quantity=" + item_count + "&Amount=" + this.valueForToken("order_total") + "&mpuid=" + this.valueForToken("order_id") + "";
+			var src = "https://secure.img-cdn.mediaplex.com/0/" + this.valueForToken(
+				"client_id") + "/universal.html?page_name=" + this.valueForToken(
+				"page_name") + "&" + this.valueForToken("event_name") + "=1&Currency=" +
+				this.valueForToken("currency") + "&Quantity=" + item_count + "&Amount=" +
+				this.valueForToken("order_total") + "&mpuid=" + this.valueForToken(
+					"order_id") + "";
 			frame.src = src;
 			frame.height = 1;
 			frame.width = 1;

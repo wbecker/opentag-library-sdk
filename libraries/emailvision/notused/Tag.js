@@ -30,7 +30,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					";path =/" + (!minutes ? "" : ";expires=" + txpDate.toGMTString());
 			}
 
-			setCookie(".office.co.uk", "opentag_emailvision_timestamp", (new Date()).getTime(), 60 * 24 * 2);
+			setCookie(".office.co.uk", "opentag_emailvision_timestamp", (new Date()).getTime(),
+				60 * 24 * 2);
 		})();
 		/*~SCRIPT*/
 	},

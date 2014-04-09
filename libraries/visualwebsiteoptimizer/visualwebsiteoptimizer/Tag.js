@@ -77,9 +77,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				},
 				init: function() {
 					settings_timer = setTimeout('_vwo_code.finish()', settings_tolerance);
-					this.load('//dev.visualwebsiteoptimizer.com/j.php?a=' + account_id + '&u=' + encodeURIComponent(d.URL) + '&r=' + Math.random());
+					this.load('//dev.visualwebsiteoptimizer.com/j.php?a=' + account_id +
+						'&u=' + encodeURIComponent(d.URL) + '&r=' + Math.random());
 					var a = d.createElement('style'),
-						b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',
+						b =
+							'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',
 						h = d.getElementsByTagName('head')[0];
 					a.setAttribute('id', '_vis_opt_path_hides');
 					a.setAttribute('type', 'text/css');

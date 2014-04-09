@@ -49,7 +49,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*POST*/
 		try {
 			window.ef_event_type = "transaction";
-			window.ef_transaction_properties = "ev_Very_Revenue=" + this.valueForToken("order_total") + "&ev_Very_Order=1&ev_transid=" + this.valueForToken("order_id") + "";
+			window.ef_transaction_properties = "ev_Very_Revenue=" + this.valueForToken(
+				"order_total") + "&ev_Very_Order=1&ev_transid=" + this.valueForToken(
+				"order_id") + "";
 			window.ef_segment = "" + this.valueForToken("seg") + "";
 			window.ef_search_segment = "";
 			window.ef_userid = "" + this.valueForToken("user") + "";

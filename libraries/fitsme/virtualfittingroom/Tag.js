@@ -27,7 +27,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		_gaq.push(['_setAllowHash', false]);
 
 		(function() {
-			var fmJsHost = (("https:" == document.location.protocol) ? "https" : "http");
+			var fmJsHost = (("https:" == document.location.protocol) ? "https" :
+				"http");
 			var fmScript = document.createElement("script");
 			fmScript.src = unescape(fmJsHost + "://www.fits.me/vfr.js");
 			document.head.appendChild(fmScript);

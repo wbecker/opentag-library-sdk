@@ -103,16 +103,21 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			var run = function() {
 				for (var i = 0, ii = this.valueForToken("skus").length; i < ii; i++) {
-					window.w1x1.scAdd(this.valueForToken("skus")[i], this.valueForToken("quantities")[i], this.valueForToken("totals_novat")[i], this.valueForToken("totals_vat")[i], this.valueForToken("prices")[i], this.valueForToken("voucher"));
+					window.w1x1.scAdd(this.valueForToken("skus")[i], this.valueForToken(
+						"quantities")[i], this.valueForToken("totals_novat")[i], this.valueForToken(
+						"totals_vat")[i], this.valueForToken("prices")[i], this.valueForToken(
+						"voucher"));
 				}
 				window.w1x1.scSend();
 			};
 
-			safeLoad("" + this.valueForToken("w1x1_function_url") + "", "_w1x1", function() {
-				safeLoad("" + this.valueForToken("w1x1_config_url") + "", "w1x1", function() {
-					run();
+			safeLoad("" + this.valueForToken("w1x1_function_url") + "", "_w1x1",
+				function() {
+					safeLoad("" + this.valueForToken("w1x1_config_url") + "", "w1x1",
+						function() {
+							run();
+						});
 				});
-			});
 
 		}());
 		/*~SCRIPT*/

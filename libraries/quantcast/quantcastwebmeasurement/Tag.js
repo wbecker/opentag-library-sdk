@@ -29,7 +29,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		(function() {
 			var e = document.createElement("script");
-			e.src = (document.location.protocol === "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+			e.src = (document.location.protocol === "https:" ? "https://secure" :
+				"http://edge") + ".quantserve.com/quant.js";
 			e.async = true;
 			document.getElementsByTagName("head")[0].appendChild(e);
 			_qevents.push({

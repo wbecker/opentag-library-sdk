@@ -123,7 +123,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		(function() {
 			var mClientId = '' + this.valueForToken("marin_tracker_id") + '';
-			var mProto = ('https:' == document.location.protocol ? 'https://' : 'http://');
+			var mProto = ('https:' == document.location.protocol ? 'https://' :
+				'http://');
 			var mHost = 'tracker.marinsm.com';
 			var mt = document.createElement('script');
 			mt.type = 'text/javascript';

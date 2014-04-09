@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "affiliatewindow.affiliatewindowwithpostimpressionparameterdeprecated.Tag";
+var classPath =
+	"affiliatewindow.affiliatewindowwithpostimpressionparameterdeprecated.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -112,7 +113,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					if (!cg_groups[cg]) {
 						cg_groups[cg] = 0;
 					}
-					cg_groups[cg] += parseFloat(this.valueForToken("productUnitPrice")[i]) * parseInt(this.valueForToken("quantity")[i]);
+					cg_groups[cg] += parseFloat(this.valueForToken("productUnitPrice")[i]) *
+						parseInt(this.valueForToken("quantity")[i]);
 				}
 			}
 			parts = [];
@@ -123,7 +125,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			}
 			parts = parts.join("|");
 			var awinImgSrc = [
-				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken("merchant_id") + "",
+				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken(
+					"merchant_id") + "",
 				"&amount=" + this.valueForToken("orderTotal") + "",
 				"&ref=" + this.valueForToken("orderId") + "",
 				"&parts=", parts,

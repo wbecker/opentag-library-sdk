@@ -33,20 +33,27 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				additional = "",
 				t, r, i;
 			try {
-				t = top.document.referer !== "" ? encodeURIComponent(top.document.referrer.substring(0, 2048)) : ""
+				t = top.document.referer !== "" ? encodeURIComponent(top.document.referrer
+					.substring(0, 2048)) : ""
 			} catch (o) {
-				t = document.referrer !== null ? document.referrer.toString().substring(0, 2048) : ""
+				t = document.referrer !== null ? document.referrer.toString().substring(0,
+					2048) : ""
 			}
 			try {
-				r = window && window.top && document.location && window.top.location === document.location ? document.location : window && window.top && window.top.location && "" !== window.top.location ? window.top.location : document.location
+				r = window && window.top && document.location && window.top.location ===
+					document.location ? document.location : window && window.top && window.top
+					.location && "" !== window.top.location ? window.top.location : document
+					.location
 			} catch (u) {
 				r = document.location
 			}
 			try {
-				i = parent.location.href !== "" ? encodeURIComponent(parent.location.href.toString().substring(0, 2048)) : ""
+				i = parent.location.href !== "" ? encodeURIComponent(parent.location.href
+					.toString().substring(0, 2048)) : ""
 			} catch (a) {
 				try {
-					i = r !== null ? encodeURIComponent(r.toString().substring(0, 2048)) : ""
+					i = r !== null ? encodeURIComponent(r.toString().substring(0, 2048)) :
+						""
 				} catch (f) {
 					i = ""
 				}
@@ -59,9 +66,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			if (typeof l === "undefined") {
 				l = Math.floor(Math.random() * 1e17)
 			}
-			h = "dx.steelhousemedia.com/spx?" + "dxver=" + b + "&shaid=" + n + "&tdr=" + t + "&plh=" + i + "&cb=" + l + additional;
+			h = "dx.steelhousemedia.com/spx?" + "dxver=" + b + "&shaid=" + n + "&tdr=" +
+				t + "&plh=" + i + "&cb=" + l + additional;
 			c.type = "text/javascript";
-			c.src = ("https:" === document.location.protocol ? "https://" : "http://") + h;
+			c.src = ("https:" === document.location.protocol ? "https://" : "http://") +
+				h;
 			v.parentNode.insertBefore(c, v)
 		})()
 		/*~SCRIPT*/

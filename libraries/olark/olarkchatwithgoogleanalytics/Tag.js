@@ -32,7 +32,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		/*{literal}<![CDATA[*/
 
-		(window.olark && Object.prototype.toString.call(window.olark) === "[object Function]") || (function(c) {
+		(window.olark && Object.prototype.toString.call(window.olark) ===
+			"[object Function]") || (function(c) {
 			var f = window,
 				d = document,
 				l = f.location.protocol == "https:" ? "https:" : "http:",
@@ -63,11 +64,14 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					a.P(r);
 					f[z](r)
 				}
-				f.addEventListener ? f.addEventListener(r, s, false) : f.attachEvent("on" + r, s);
+				f.addEventListener ? f.addEventListener(r, s, false) : f.attachEvent("on" +
+					r, s);
 				var ld = function() {
 					function p(hd) {
 						hd = "head";
-						return ["<", hd, "></", hd, "><", i, ' onl' + 'oad="var d=', g, ";d.getElementsByTagName('head')[0].", j, "(d.", h, "('script')).", k, "='", l, "//", a.l, "'", '"', "></", i, ">"].join("")
+						return ["<", hd, "></", hd, "><", i, ' onl' + 'oad="var d=', g,
+							";d.getElementsByTagName('head')[0].", j, "(d.", h, "('script')).", k,
+							"='", l, "//", a.l, "'", '"', "></", i, ">"].join("")
 					}
 					var i = "body",
 						m = d[i];
@@ -105,7 +109,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						t.write(p());
 						t.close()
 					} catch (x) {
-						b[k] = o + 'd.write("' + p().replace(/"/g, String.fromCharCode(92) + '"') + '");d.close();'
+						b[k] = o + 'd.write("' + p().replace(/"/g, String.fromCharCode(92) +
+							'"') + '");d.close();'
 					}
 					a.P(2)
 				};

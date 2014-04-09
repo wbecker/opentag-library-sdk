@@ -54,7 +54,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		(function() {
 
 			var pixel = new Image();
-			var source = "https://www.pricegrabber.com/conversion.php?retid=" + this.valueForToken("account_id") + "";
+			var source = "https://www.pricegrabber.com/conversion.php?retid=" + this.valueForToken(
+				"account_id") + "";
 			var item, items = "";
 
 			for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {

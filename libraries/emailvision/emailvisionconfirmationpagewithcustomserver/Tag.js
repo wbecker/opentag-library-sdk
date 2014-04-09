@@ -64,7 +64,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			src += "&emv_conversionflag=" + this.valueForToken("conversion_flag") + "";
 			src += "&emv_pagename=" + this.valueForToken("emailvision_page_name") + "";
 			var date = new Date();
-			src += "&emv_date=" + date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getYear();
+			src += "&emv_date=" + date.getDate() + "-" + (date.getMonth() + 1) + "-" +
+				date.getYear();
 			src += "&emv_random=" + Math.floor(Math.random() * 900 + 100);
 			var pixel = document.createElement("img");
 			pixel.setAttribute("src", src);

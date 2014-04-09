@@ -79,9 +79,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				skuList.push(this.valueForToken("sku_list")[i]);
 				qList.push(this.valueForToken("q_list")[i]);
 				nameList.push(this.valueForToken("name_list")[i]);
-				var amt = parseInt(parseFloat(this.valueForToken("disc_list")[i]) * 100) * parseInt(this.valueForToken("q_list")[i]);
+				var amt = parseInt(parseFloat(this.valueForToken("disc_list")[i]) * 100) *
+					parseInt(this.valueForToken("q_list")[i]);
 				if (this.valueForToken("voucher_discount") > 0) {
-					amt -= this.valueForToken("voucher_discount") / this.valueForToken("q_list").length;
+					amt -= this.valueForToken("voucher_discount") / this.valueForToken(
+						"q_list").length;
 				}
 				amtList.push(amt);
 			}
@@ -93,7 +95,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				nameList.push("Discount");
 			}
 
-			x.src = "//track.linksynergy.com/ep?mid=" + this.valueForToken("mid") + "&ord=" + this.valueForToken("order_id") + "&skulist=" + skuList.join("|") + "&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" + this.valueForToken("cur") + "&namelist=" + nameList.join("|");
+			x.src = "//track.linksynergy.com/ep?mid=" + this.valueForToken("mid") +
+				"&ord=" + this.valueForToken("order_id") + "&skulist=" + skuList.join("|") +
+				"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
+				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
 		})();
 		/*~SCRIPT*/

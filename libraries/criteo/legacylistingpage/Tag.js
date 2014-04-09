@@ -53,7 +53,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						cto_dis_im.width = '1px';
 						cto_dis_im.height = '1px';
 						cto_dis_im.style.display = 'none';
-						var cto_dis_im_src = '//dis.criteo.com/dis/dis.aspx?p=' + this.valueForToken("partner_id") + '&c=2&cb=' + Math.floor(Math.random() * 99999999999);
+						var cto_dis_im_src = '//dis.criteo.com/dis/dis.aspx?p=' + this.valueForToken(
+							"partner_id") + '&c=2&cb=' + Math.floor(Math.random() * 99999999999);
 						try {
 							cto_dis_im_src += '&ref=' + encodeURIComponent(document.referrer);
 						} catch (e) {}
@@ -68,8 +69,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			}
 
 			var product_ids = "";
-			for (var i = 0, ii = this.valueForToken("product_ids").length; i < ii; i += 1) {
-				product_ids += "&i" + (i + 1) + "=" + encodeURIComponent(this.valueForToken("product_ids")[i]);
+			for (var i = 0, ii = this.valueForToken("product_ids").length; i < ii; i +=
+				1) {
+				product_ids += "&i" + (i + 1) + "=" + encodeURIComponent(this.valueForToken(
+					"product_ids")[i]);
 				if (i === 2) {
 					break;
 				}
@@ -83,11 +86,16 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var _cr_d2 = document.createElement("div");
 			_cr_d2.style.display = "none";
 
-			var domain = window.location.protocol === "https:" ? "https://sslwidget.criteo.com" : "http://" + this.valueForToken("subdomain") + "";
+			var domain = window.location.protocol === "https:" ?
+				"https://sslwidget.criteo.com" : "http://" + this.valueForToken(
+					"subdomain") + "";
 
 
 			var _cr_i = document.createElement("img");
-			_cr_i.src = domain + "/" + this.valueForToken("call_parameter") + "/display.js?p1=" + escape("v=2&wi=" + this.valueForToken("wi") + "&pt1=3" + product_ids) + "&t1=sendEvent&resptype=gif&cb=" + Math.floor(Math.random() * 99999999999);
+			_cr_i.src = domain + "/" + this.valueForToken("call_parameter") +
+				"/display.js?p1=" + escape("v=2&wi=" + this.valueForToken("wi") +
+					"&pt1=3" + product_ids) + "&t1=sendEvent&resptype=gif&cb=" + Math.floor(
+					Math.random() * 99999999999);
 			_cr_i.onload = pcto_dis;
 			_cr_d2.appendChild(_cr_i);
 			document.body.appendChild(_cr_d2);

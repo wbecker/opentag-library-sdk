@@ -70,15 +70,18 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 								function c(s) {
 									var d = new Image();
-									d.src = i + "l.betrad.com/pub/p.gif?pid=" + k + "&ocid=" + m + "&i" + s + "=1&r=" + Math.random()
+									d.src = i + "l.betrad.com/pub/p.gif?pid=" + k + "&ocid=" + m + "&i" +
+										s + "=1&r=" + Math.random()
 								}
 
 								function j() {
-									if (typeof(window.innerWidth) == "number" && typeof(window.innerHeight) == "number") {
+									if (typeof(window.innerWidth) == "number" && typeof(window.innerHeight) ==
+										"number") {
 										e = window.innerWidth;
 										a = window.innerHeight
 									} else {
-										if (document.documentElement && document.documentElement.clientWidth && document.documentElement.clientHeight) {
+										if (document.documentElement && document.documentElement.clientWidth &&
+											document.documentElement.clientHeight) {
 											e = document.documentElement.clientWidth;
 											a = document.documentElement.clientHeight
 										} else {
@@ -92,7 +95,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 								}
 								l.getElementById("_bapw-icon").src = g + "icon1.png";
 								p.onmouseover = function() {
-									p.href = "http://info.evidon.com/pub_info/" + k + "?v=1&nt=" + n + "&nw=" + ((o || j()) ? "true" : "false")
+									p.href = "http://info.evidon.com/pub_info/" + k + "?v=1&nt=" + n +
+										"&nw=" + ((o || j()) ? "true" : "false")
 								};
 								p.onclick = function() {
 									if (o || j()) {
@@ -112,7 +116,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 										}
 										s.src = u;
 										s.onreadystatechange = function() {
-											if (!t && (this.readyState == "loaded" || this.readyState == "complete")) {
+											if (!t && (this.readyState == "loaded" || this.readyState ==
+												"complete")) {
 												t = true;
 												w()
 											}
@@ -121,14 +126,15 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 										v.insertBefore(s, v.firstChild)
 									}
 									this.onclick = "return " + b;
-									d(i + "ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", function() {
-										d(g + "pub2.js", function() {
-											BAPW.i(p, {
-												pid: k,
-												ocid: m
+									d(i + "ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js",
+										function() {
+											d(g + "pub2.js", function() {
+												BAPW.i(p, {
+													pid: k,
+													ocid: m
+												})
 											})
-										})
-									});
+										});
 									return b
 								};
 								c("i")
@@ -142,7 +148,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 						function waitForLocation() {
 							var tag;
-							if (this.valueForToken("class")) tag = document.querySelectorAll('.' + this.valueForToken("name") + '')[Number('' + this.valueForToken("index") + '')];
+							if (this.valueForToken("class")) tag = document.querySelectorAll('.' +
+								this.valueForToken("name") + '')[Number('' + this.valueForToken("index") +
+								'')];
 							else tag = document.getElementById('' + this.valueForToken("name") + '');
 							if (tag) {
 								tag.appendChild(lnk);
@@ -151,7 +159,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 								hn.async = true;
 								hn.setAttribute('data-ev-hover-pid', this.valueForToken("pid"));
 								hn.setAttribute('data-ev-hover-ocid', this.valueForToken("cid"));
-								hn.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/geo/h1.js';
+								hn.src = ('https:' == document.location.protocol ? 'https://' :
+									'http://') + 'c.betrad.com/geo/h1.js';
 								var s = document.getElementsByTagName('script')[0];
 								s.parentNode.insertBefore(hn, s);
 							} else {

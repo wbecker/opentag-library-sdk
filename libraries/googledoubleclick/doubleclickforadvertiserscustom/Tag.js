@@ -52,7 +52,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		var fl_if = document.createElement("iframe");
 
-		fl_if.src = '//' + this.valueForToken("doubleclick_id") + '.fls.doubleclick.net/activityi;src=' + this.valueForToken("doubleclick_id") + ';type=' + this.valueForToken("type") + ';cat=' + this.valueForToken("cat") + ';qty=1;cost=' + this.valueForToken("order_total") + ';' + this.valueForToken("custom") + ';ord=' + this.valueForToken("order_id") + '?';
+		fl_if.src = '//' + this.valueForToken("doubleclick_id") +
+			'.fls.doubleclick.net/activityi;src=' + this.valueForToken("doubleclick_id") +
+			';type=' + this.valueForToken("type") + ';cat=' + this.valueForToken("cat") +
+			';qty=1;cost=' + this.valueForToken("order_total") + ';' + this.valueForToken(
+				"custom") + ';ord=' + this.valueForToken("order_id") + '?';
 		fl_if.width = "1";
 		fl_if.height = "1";
 		fl_if.frameborder = "0";

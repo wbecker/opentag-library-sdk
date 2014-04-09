@@ -29,7 +29,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		(function() {
 
 			var scriptPath = "" + this.valueForToken("id") + "".split("-").join("/");
-			var scriptURL = "//config1.veinteractive.com/tags/" + scriptPath + "/tag.js";
+			var scriptURL = "//config1.veinteractive.com/tags/" + scriptPath +
+				"/tag.js";
 			var script = document.createElement("script");
 
 			script.src = scriptURL;

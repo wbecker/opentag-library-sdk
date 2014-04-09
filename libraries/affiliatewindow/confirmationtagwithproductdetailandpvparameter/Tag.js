@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "affiliatewindow.confirmationtagwithproductdetailandpvparameter.Tag";
+var classPath =
+	"affiliatewindow.confirmationtagwithproductdetailandpvparameter.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -90,12 +91,15 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*PRE*/
 		(function() {
 			var awinImgSrc = [
-				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken("merchant_id") + "&amount=",
+				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken(
+					"merchant_id") + "&amount=",
 				"" + this.valueForToken("order_total") + "",
 				"&ref=", "" + this.valueForToken("order_id") + "",
-				"&parts=" + this.valueForToken("commission_group") + ":", "" + this.valueForToken("order_total") + "",
+				"&parts=" + this.valueForToken("commission_group") + ":", "" + this.valueForToken(
+					"order_total") + "",
 				"&vc=", "" + this.valueForToken("voucher") + "",
-				"&testmode=" + this.valueForToken("test_mode") + "&cr=", "" + this.valueForToken("currency") + ""
+				"&testmode=" + this.valueForToken("test_mode") + "&cr=", "" + this.valueForToken(
+					"currency") + ""
 			].join("");
 			var el = document.createElement("img");
 			el.setAttribute("src", awinImgSrc);
@@ -135,7 +139,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					amount: this.valueForToken("order_total"),
 					currency: "" + this.valueForToken("currency") + "",
 					orderRef: "" + this.valueForToken("order_id") + "",
-					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken("order_total"),
+					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken(
+						"order_total"),
 					voucher: "" + this.valueForToken("voucher") + "",
 					test: "" + this.valueForToken("test_mode") + "",
 					pvOnly: '1'

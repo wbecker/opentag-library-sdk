@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "deprecatedtags.deprecatedgoogleremarketingconversiontagsynchronous.Tag";
+var classPath =
+	"deprecatedtags.deprecatedgoogleremarketingconversiontagsynchronous.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -49,10 +50,14 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	pre: function() {
 		/*PRE*/
 		var google_conversion_id = this.valueForToken("conversion_id");
-		var google_conversion_language = "" + this.valueForToken("conversion_language") + "";
-		var google_conversion_color = "" + this.valueForToken("conversion_color") + "";
-		var google_conversion_label = "" + this.valueForToken("conversion_label") + "";
-		var google_conversion_format = "" + this.valueForToken("conversion_format") + "";
+		var google_conversion_language = "" + this.valueForToken(
+			"conversion_language") + "";
+		var google_conversion_color = "" + this.valueForToken("conversion_color") +
+			"";
+		var google_conversion_label = "" + this.valueForToken("conversion_label") +
+			"";
+		var google_conversion_format = "" + this.valueForToken("conversion_format") +
+			"";
 		/*~PRE*/
 	},
 	post: function() {

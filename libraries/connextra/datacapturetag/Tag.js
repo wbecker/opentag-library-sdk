@@ -36,8 +36,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*SCRIPT*/
 
 		var cxt_conf = cxt_conf || {};
-		cxt_conf.clientId = cxt_conf.clientId || '' + this.valueForToken("client_id") + '';
-		cxt_conf.pageType = cxt_conf.pageType || '' + this.valueForToken("page_type") + '';
+		cxt_conf.clientId = cxt_conf.clientId || '' + this.valueForToken("client_id") +
+			'';
+		cxt_conf.pageType = cxt_conf.pageType || '' + this.valueForToken("page_type") +
+			'';
 		cxt_conf.server = '' + this.valueForToken("conf_server") + '';
 
 		(function() {

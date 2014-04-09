@@ -62,9 +62,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			ins.style.width = "" + this.valueForToken("width") + "px";
 			ins.style.height = "" + this.valueForToken("height") + "px";
 
-			ins.setAttribute("data-ad-client", "ca-pub-" + this.valueForToken("ad_client") + "");
+			ins.setAttribute("data-ad-client", "ca-pub-" + this.valueForToken(
+				"ad_client") + "");
 			ins.setAttribute("data-ad-slot", "" + this.valueForToken("ad_slot") + "");
-			document.getElementById("" + this.valueForToken("parent_id") + "").appendChild(ins);
+			document.getElementById("" + this.valueForToken("parent_id") + "").appendChild(
+				ins);
 
 			window.adsbygoogle.push({});
 

@@ -65,17 +65,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	script: function() {
 		/*SCRIPT*/
 
-		var baseUrl = "https://" + this.valueForToken("script_domain") + ".mention-me.com/api/v2/dashboard/" + this.valueForToken("partner_code") + "/" + this.valueForToken("user_email") + "?";
+		var baseUrl = "https://" + this.valueForToken("script_domain") +
+			".mention-me.com/api/v2/dashboard/" + this.valueForToken("partner_code") +
+			"/" + this.valueForToken("user_email") + "?";
 		var mmScript = document.createElement("script");
 		var paramArr = [];
 		var paramObj = {
 			situation: "" + this.valueForToken("situation") + ""
 		}
-		if ("" + this.valueForToken("fullname") + "".length) paramObj["fullname"] = "" + this.valueForToken("fullname") + "";
-		if ("" + this.valueForToken("implementation") + "".length) paramObj["implementation"] = "" + this.valueForToken("implementation") + "";
-		if ("" + this.valueForToken("key") + "".length) paramObj["key"] = "" + this.valueForToken("key") + "";
-		if ("" + this.valueForToken("segment") + "".length) paramObj["segment"] = "" + this.valueForToken("segment") + "";
-		if ("" + this.valueForToken("locale") + "".length) paramObj["locale"] = "" + this.valueForToken("locale") + "";
+		if ("" + this.valueForToken("fullname") + "".length) paramObj["fullname"] =
+			"" + this.valueForToken("fullname") + "";
+		if ("" + this.valueForToken("implementation") + "".length) paramObj[
+			"implementation"] = "" + this.valueForToken("implementation") + "";
+		if ("" + this.valueForToken("key") + "".length) paramObj["key"] = "" + this.valueForToken(
+			"key") + "";
+		if ("" + this.valueForToken("segment") + "".length) paramObj["segment"] = "" +
+			this.valueForToken("segment") + "";
+		if ("" + this.valueForToken("locale") + "".length) paramObj["locale"] = "" +
+			this.valueForToken("locale") + "";
 
 		for (var param in paramObj) {
 			var value = paramObj[param];

@@ -63,7 +63,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			if (_SUB2metadata.debug == "Y") {
 				alert("QUEUE:S2Tech_MatchData_NA");
 			}
-			_SUB2_queue.push(["S2Tech_MatchData_NA", t, f, s, a1, a2, a3, a4, p, e, l, m, o]);
+			_SUB2_queue.push(["S2Tech_MatchData_NA", t, f, s, a1, a2, a3, a4, p, e, l,
+				m, o
+			]);
 		}
 
 		function S2Tech_StoreRegistrationData(f, s, e) {
@@ -132,7 +134,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					var _sub2 = document.createElement("script");
 					_sub2.type = "text/javascript";
 					_sub2.async = true;
-					_sub2.src = document.location.protocol + "//webservices.sub2tech.com/" + _SUB2metadata.clientname + "/sub2_queue_MIN.js";
+					_sub2.src = document.location.protocol + "//webservices.sub2tech.com/" +
+						_SUB2metadata.clientname + "/sub2_queue_MIN.js";
 					var s = document.getElementsByTagName("script")[0];
 					s.parentNode.insertBefore(_sub2, s);
 				}

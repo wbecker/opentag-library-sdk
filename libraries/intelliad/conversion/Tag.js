@@ -72,7 +72,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		var ia_v = "" + this.valueForToken("order_total") + "";
 		var ia_vz = "" + this.valueForToken("order_type") + ""; // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
-		var ia_vv = ("" + this.valueForToken("order_currency") + "".length) ? "" + this.valueForToken("order_currency") + "" : "EUR";
+		var ia_vv = ("" + this.valueForToken("order_currency") + "".length) ? "" +
+			this.valueForToken("order_currency") + "" : "EUR";
 		var ia_po = "" + this.valueForToken("order_id") + "";
 		var ia_c1 = "" + this.valueForToken("custom_param1") + "";
 		var ia_c2 = "" + this.valueForToken("custom_param2") + "";

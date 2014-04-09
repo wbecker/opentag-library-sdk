@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly.Tag";
+var classPath =
+	"bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -73,7 +74,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				var items = (function() {
 					var tmp = [];
 					for (var i = 0; i < this.valueForToken("ids").length; i++) {
-						tmp.push([this.valueForToken("ids")[i], "", "", this.valueForToken("qtys")[i], this.valueForToken("prices")[i]])
+						tmp.push([this.valueForToken("ids")[i], "", "", this.valueForToken(
+							"qtys")[i], this.valueForToken("prices")[i]])
 						item_count += this.valueForToken("qtys")[i];
 					}
 					return tmp;

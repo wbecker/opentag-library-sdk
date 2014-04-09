@@ -40,7 +40,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			function kmg() {
 				_kms('//i.kissmetrics.com/i.js');
-				_kms('//doug1izaerwt3.cloudfront.net/' + this.valueForToken("API_KEY") + '.1.js');
+				_kms('//doug1izaerwt3.cloudfront.net/' + this.valueForToken("API_KEY") +
+					'.1.js');
 			}
 			if (w.addEventListener) {
 				w.addEventListener("load", kmg, false);

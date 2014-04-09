@@ -71,7 +71,8 @@ code.google.com/p/crypto-js/wiki/License
 							a = a.sigBytes;
 							this.clamp();
 							if (d % 4)
-								for (var b = 0; b < a; b++) c[d + b >>> 2] |= (q[b >>> 2] >>> 24 - 8 * (b % 4) & 255) << 24 - 8 * ((d + b) % 4);
+								for (var b = 0; b < a; b++) c[d + b >>> 2] |= (q[b >>> 2] >>> 24 - 8 *
+									(b % 4) & 255) << 24 - 8 * ((d + b) % 4);
 							else if (65535 < q.length)
 								for (b = 0; b < a; b += 4) c[d + b >>> 2] = q[b >>> 2];
 							else c.push.apply(c, q);
@@ -91,7 +92,8 @@ code.google.com/p/crypto-js/wiki/License
 							return a
 						},
 						random: function(a) {
-							for (var c = [], b = 0; b < a; b += 4) c.push(4294967296 * e.random() | 0);
+							for (var c = [], b = 0; b < a; b += 4) c.push(4294967296 * e.random() |
+								0);
 							return new n.init(c, a)
 						}
 					}),
@@ -107,19 +109,22 @@ code.google.com/p/crypto-js/wiki/License
 							return b.join("")
 						},
 						parse: function(a) {
-							for (var c = a.length, b = [], d = 0; d < c; d += 2) b[d >>> 3] |= parseInt(a.substr(d,
-								2), 16) << 24 - 4 * (d % 8);
+							for (var c = a.length, b = [], d = 0; d < c; d += 2) b[d >>> 3] |=
+								parseInt(a.substr(d,
+									2), 16) << 24 - 4 * (d % 8);
 							return new n.init(b, c / 2)
 						}
 					}, g = b.Latin1 = {
 						stringify: function(a) {
 							var c = a.words;
 							a = a.sigBytes;
-							for (var b = [], d = 0; d < a; d++) b.push(String.fromCharCode(c[d >>> 2] >>> 24 - 8 * (d % 4) & 255));
+							for (var b = [], d = 0; d < a; d++) b.push(String.fromCharCode(c[d >>>
+								2] >>> 24 - 8 * (d % 4) & 255));
 							return b.join("")
 						},
 						parse: function(a) {
-							for (var c = a.length, b = [], d = 0; d < c; d++) b[d >>> 2] |= (a.charCodeAt(d) & 255) << 24 - 8 * (d % 4);
+							for (var c = a.length, b = [], d = 0; d < c; d++) b[d >>> 2] |= (a.charCodeAt(
+								d) & 255) << 24 - 8 * (d % 4);
 							return new n.init(b, c)
 						}
 					}, r = b.Utf8 = {
@@ -210,17 +215,22 @@ code.google.com/p/crypto-js/wiki/License
 					l = [],
 					m = e.algo.SHA1 = j.extend({
 						_doReset: function() {
-							this._hash = new p.init([1732584193, 4023233417, 2562383102, 271733878, 3285377520])
+							this._hash = new p.init([1732584193, 4023233417, 2562383102,
+								271733878, 3285377520
+							])
 						},
 						_doProcessBlock: function(f, n) {
-							for (var b = this._hash.words, h = b[0], g = b[1], e = b[2], k = b[3], j = b[4], a = 0; 80 > a; a++) {
+							for (var b = this._hash.words, h = b[0], g = b[1], e = b[2], k = b[3],
+									j = b[4], a = 0; 80 > a; a++) {
 								if (16 > a) l[a] = f[n + a] | 0;
 								else {
 									var c = l[a - 3] ^ l[a - 8] ^ l[a - 14] ^ l[a - 16];
 									l[a] = c << 1 | c >>> 31
 								}
 								c = (h << 5 | h >>> 27) + j + l[a];
-								c = 20 > a ? c + ((g & e | ~g & k) + 1518500249) : 40 > a ? c + ((g ^ e ^ k) + 1859775393) : 60 > a ? c + ((g & e | g & k | e & k) - 1894007588) : c + ((g ^ e ^
+								c = 20 > a ? c + ((g & e | ~g & k) + 1518500249) : 40 > a ? c + ((g ^
+									e ^ k) + 1859775393) : 60 > a ? c + ((g & e | g & k | e & k) -
+									1894007588) : c + ((g ^ e ^
 									k) - 899497514);
 								j = k;
 								k = e;

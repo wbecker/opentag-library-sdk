@@ -86,7 +86,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			}
 
 			var ret = (function() {
-				if (typeof this.valueForToken("old_customer") === "undefined" || this.valueForToken("old_customer") === null) {
+				if (typeof this.valueForToken("old_customer") === "undefined" || this.valueForToken(
+					"old_customer") === null) {
 					return "";
 				} else {
 					return Number(!this.valueForToken("old_customer"));

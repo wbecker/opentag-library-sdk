@@ -32,7 +32,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var adiSrc = document.createElement("script");
 			adiSrc.type = "text/javascript";
 			adiSrc.async = true;
-			adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn") + ".responsetap.com/static/scripts/rTapTrack.min.js";
+			adiSrc.src = ("https:" == document.location.protocol ?
+				"https://static-ssl" : "http://static-cdn") +
+				".responsetap.com/static/scripts/rTapTrack.min.js";
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(adiSrc, s);
 		})();

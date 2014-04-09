@@ -41,7 +41,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				if (typeof S2Tech_StoreRegistrationData === 'function') {
 					clearInterval(waitFor_S2Tech_StoreRegistrationData);
 
-					S2Tech_StoreRegistrationData("" + this.valueForToken("firstname") + "", "" + this.valueForToken("lastname") + "", "" + this.valueForToken("email") + "");
+					S2Tech_StoreRegistrationData("" + this.valueForToken("firstname") + "",
+						"" + this.valueForToken("lastname") + "", "" + this.valueForToken(
+							"email") + "");
 				}
 			}, 100);
 

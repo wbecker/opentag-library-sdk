@@ -102,13 +102,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			for (i = 0; i < this.valueForToken("unit_prices").length; i++) {
 				/* if there's a dynamic event id specific to each item - it will be used */
 				if (this.valueForToken("product_event_id").length !== 0) {
-					wgItemsString = wgItemsString + this.valueForToken("product_event_id")[i] + "::" + (Number(this.valueForToken("unit_prices")[i]) * Number(this.valueForToken("unit_quantity")[i])) + "::" + this.valueForToken("unit_quantity")[i] + "x" + this.valueForToken("unit_names")[i] + "::" + this.valueForToken("product_id_list")[i] + "::" + "" + this.valueForToken("voucher_code") + "";
+					wgItemsString = wgItemsString + this.valueForToken("product_event_id")[i] +
+						"::" + (Number(this.valueForToken("unit_prices")[i]) * Number(this.valueForToken(
+							"unit_quantity")[i])) + "::" + this.valueForToken("unit_quantity")[i] +
+						"x" + this.valueForToken("unit_names")[i] + "::" + this.valueForToken(
+							"product_id_list")[i] + "::" + "" + this.valueForToken("voucher_code") +
+						"";
 				}
 				/* othwerwise - if there's not an event id specific to each item - the static client-id value will be used*/
 				else {
-					wgItemsString = wgItemsString + "" + this.valueForToken("client_event_id") + "" + "::" + (Number(this.valueForToken("unit_prices")[i]) * Number(this.valueForToken("unit_quantity")[i])) + "::" + this.valueForToken("unit_quantity")[i] + "x" + this.valueForToken("unit_names")[i] + "::" + this.valueForToken("product_id_list")[i] + "::" + "" + this.valueForToken("voucher_code") + "";
+					wgItemsString = wgItemsString + "" + this.valueForToken("client_event_id") +
+						"" + "::" + (Number(this.valueForToken("unit_prices")[i]) * Number(this.valueForToken(
+							"unit_quantity")[i])) + "::" + this.valueForToken("unit_quantity")[i] +
+						"x" + this.valueForToken("unit_names")[i] + "::" + this.valueForToken(
+							"product_id_list")[i] + "::" + "" + this.valueForToken("voucher_code") +
+						"";
 				}
-				if (this.valueForToken("unit_prices").length !== 1 && i < this.valueForToken("unit_prices").length - 1) {
+				if (this.valueForToken("unit_prices").length !== 1 && i < this.valueForToken(
+					"unit_prices").length - 1) {
 					wgItemsString = wgItemsString + "|";
 				}
 			}
@@ -118,19 +129,23 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		if (location.protocol.toLowerCase() == "https:") wgProtocol = "https";
 		else wgProtocol = "http";
 
-		wgUri = "//" + this.valueForToken("subdomain") + ".webgains.com/transaction.html?";
+		wgUri = "//" + this.valueForToken("subdomain") +
+			".webgains.com/transaction.html?";
 		wgUri += "wgrs=1";
 		wgUri += "&wgver=1.2&wgprotocol=";
 		wgUri += wgProtocol + "&wgsubdomain=" + this.valueForToken("subdomain") + "";
 		wgUri += "&wglang=" + this.valueForToken("language") + "";
-		wgUri += "&wgprogramid=" + this.valueForToken("program_id") + "&wgeventid=" + this.valueForToken("client_event_id") + "";
+		wgUri += "&wgprogramid=" + this.valueForToken("program_id") + "&wgeventid=" +
+			this.valueForToken("client_event_id") + "";
 		wgUri += "&wgvalue=" + this.valueForToken("order_total") + "&wgchecksum=";
 		wgUri += "&wgorderreference=" + this.valueForToken("order_reference") + "";
 		wgUri += "&wgcomment=" + escape("" + this.valueForToken("comment") + "");
 		wgUri += "&wglocation=" + escape(document.referrer);
 		wgUri += "&wgitems=" + escape(wgItems());
-		wgUri += "&wgcustomerid=" + escape("" + this.valueForToken("customer_id") + "");
-		wgUri += "&wgvouchercode=" + escape("" + this.valueForToken("voucher_code") + "");
+		wgUri += "&wgcustomerid=" + escape("" + this.valueForToken("customer_id") +
+			"");
+		wgUri += "&wgvouchercode=" + escape("" + this.valueForToken("voucher_code") +
+			"");
 		wgUri += "&wgCurrency=" + escape("" + this.valueForToken("currency") + "");
 
 

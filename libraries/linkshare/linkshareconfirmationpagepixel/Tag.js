@@ -78,7 +78,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				skuList.push(this.valueForToken("sku_list")[i]);
 				qList.push(this.valueForToken("q_list")[i]);
 				nameList.push(this.valueForToken("name_list")[i]);
-				var amt = this.valueForToken("amt_list")[i] * this.valueForToken("q_list")[i];
+				var amt = this.valueForToken("amt_list")[i] * this.valueForToken("q_list")[
+					i];
 				amtList.push(formatPrice(amt));
 			}
 
@@ -89,7 +90,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				nameList.push("Discount");
 			}
 
-			x.src = "//track.linksynergy.com/ep?mid=" + this.valueForToken("mid") + "&ord=" + this.valueForToken("order_id") + "&skulist=" + skuList.join("|") + "&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" + this.valueForToken("cur") + "&namelist=" + nameList.join("|");
+			x.src = "//track.linksynergy.com/ep?mid=" + this.valueForToken("mid") +
+				"&ord=" + this.valueForToken("order_id") + "&skulist=" + skuList.join("|") +
+				"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
+				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
 		})();
 		/*~SCRIPT*/

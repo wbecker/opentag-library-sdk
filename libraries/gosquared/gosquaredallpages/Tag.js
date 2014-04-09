@@ -38,7 +38,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				var s = d.getElementsByTagName("script")[0];
 				s.parentNode.insertBefore(g, s);
 			}
-			w.addEventListener ? w.addEventListener("load", gs, false) : w.attachEvent("onload", gs);
+			w.addEventListener ? w.addEventListener("load", gs, false) : w.attachEvent(
+				"onload", gs);
 		})(window);
 		/*~SCRIPT*/
 	},

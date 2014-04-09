@@ -54,15 +54,18 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					(function() {
 						function v(n) {
 							var r = new Image;
-							r.src = u + "l.betrad.com/pub/p.gif?pid=" + e + "&ocid=" + t + "&i" + n + "=1&r=" + Math.random()
+							r.src = u + "l.betrad.com/pub/p.gif?pid=" + e + "&ocid=" + t + "&i" +
+								n + "=1&r=" + Math.random()
 						}
 
 						function m() {
-							if (typeof window.innerWidth == "number" && typeof window.innerHeight == "number") {
+							if (typeof window.innerWidth == "number" && typeof window.innerHeight ==
+								"number") {
 								l = window.innerWidth;
 								c = window.innerHeight
 							} else {
-								if (document.documentElement && document.documentElement.clientWidth && document.documentElement.clientHeight) {
+								if (document.documentElement && document.documentElement.clientWidth &&
+									document.documentElement.clientHeight) {
 									l = document.documentElement.clientWidth;
 									c = document.documentElement.clientHeight
 								} else {
@@ -91,7 +94,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 							d = o || f && f.hasOwnProperty(e) && f[e].new_window;
 						i.getElementById("_bapw-icon").src = a + "icon1.png";
 						s.onmouseover = function() {
-							s.href = "http://info.evidon.com/pub_info/" + e + "?v=1&nt=" + n + "&nw=" + (d || m() ? "true" : "false")
+							s.href = "http://info.evidon.com/pub_info/" + e + "?v=1&nt=" + n +
+								"&nw=" + (d || m() ? "true" : "false")
 						};
 						s.onclick = function() {
 							function n(e, t) {
@@ -105,7 +109,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 									o = i.createElement("script");
 								o.src = e;
 								o.onreadystatechange = function() {
-									if (!s && (this.readyState == "loaded" || this.readyState == "complete")) {
+									if (!s && (this.readyState == "loaded" || this.readyState ==
+										"complete")) {
 										s = true;
 										u()
 									}
@@ -118,14 +123,15 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 								return true
 							}
 							this.onclick = "return " + r;
-							n(u + "ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", function() {
-								n(a + "pub2.js", function() {
-									BAPW.i(s, {
-										pid: e,
-										ocid: t
+							n(u + "ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js",
+								function() {
+									n(a + "pub2.js", function() {
+										BAPW.i(s, {
+											pid: e,
+											ocid: t
+										})
 									})
-								})
-							});
+								});
 							return r
 						};
 						v("i")
@@ -143,7 +149,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			waitForLink();
 
 			function waitForClass() {
-				var tag = document.querySelectorAll('.' + this.valueForToken("name") + '')[Number('' + this.valueForToken("index") + '')];
+				var tag = document.querySelectorAll('.' + this.valueForToken("name") + '')[
+					Number('' + this.valueForToken("index") + '')];
 				if (tag) {
 					tag.appendChild(lnk);
 				} else {

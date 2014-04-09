@@ -66,8 +66,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		(function() {
 			var fm_categories = (function() {
 				var temp = [];
-				if ("" + this.valueForToken("category") + "") temp.push("" + this.valueForToken("category") + "");
-				if ("" + this.valueForToken("subcategory") + "") temp.push("" + this.valueForToken("subcategory") + "");
+				if ("" + this.valueForToken("category") + "") temp.push("" + this.valueForToken(
+					"category") + "");
+				if ("" + this.valueForToken("subcategory") + "") temp.push("" + this.valueForToken(
+					"subcategory") + "");
 				return temp;
 			})();
 
@@ -85,8 +87,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			var fmd = window.FitsMeData || {};
 			fmd.SKU = fmd.SKU || "" + this.valueForToken("sku") + "";
-			fmd.ProductTitle = fmd.ProductTitle || "" + this.valueForToken("name") + "";
-			fmd.ProductImageUrl = fmd.ProductImageUrl || "" + this.valueForToken("prodimg") + "";
+			fmd.ProductTitle = fmd.ProductTitle || "" + this.valueForToken("name") +
+				"";
+			fmd.ProductImageUrl = fmd.ProductImageUrl || "" + this.valueForToken(
+				"prodimg") + "";
 			if (!fmd.ProductCategories || fmd.ProductCategories.length === 0) {
 				fmd.ProductCategories = fm_categories;
 			}

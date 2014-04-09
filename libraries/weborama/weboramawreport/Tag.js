@@ -55,7 +55,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	post: function() {
 		/*POST*/
 		if (wreport_ok == 1) {
-			var w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID, WRP_ACC);
+			var w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID,
+				WRP_ACC);
 			w_counter.count();
 		}
 		/*~POST*/

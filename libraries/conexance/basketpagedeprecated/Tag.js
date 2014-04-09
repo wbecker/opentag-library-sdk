@@ -62,7 +62,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			require("" + this.valueForToken("web1by1_function_script") + "", function() {
 				require("" + this.valueForToken("web1by1_config_script") + "", function() {
 					for (var i = 0, ii = this.valueForToken("sku_list").length; i < ii; i++) {
-						window.w1x1.scAdd(this.valueForToken("sku_list")[i], this.valueForToken("quantity_list")[i]);
+						window.w1x1.scAdd(this.valueForToken("sku_list")[i], this.valueForToken(
+							"quantity_list")[i]);
 					}
 					window.w1x1.scSend();
 				});

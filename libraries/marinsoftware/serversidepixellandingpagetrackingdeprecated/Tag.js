@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "marinsoftware.serversidepixellandingpagetrackingdeprecated.Tag";
+var classPath =
+	"marinsoftware.serversidepixellandingpagetrackingdeprecated.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -26,7 +27,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*SCRIPT*/
 
 		var _ml = document.createElement("script");
-		_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") + ".js";
+		_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") +
+			".js";
 
 		var _m_loaded = false;
 		var _m_loader = function() {

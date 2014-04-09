@@ -56,10 +56,14 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					for (var i = 0; i < this.valueForToken("sku").length; i++) {
 						basketData += "<Product>";
 						basketData += "<SKU>" + this.valueForToken("sku")[i] + "</SKU>";
-						basketData += "<Product_ID>" + this.valueForToken("product_id")[i] + "</Product_ID>";
-						basketData += "<Product_Name>" + this.valueForToken("product_name")[i] + "</Product_Name>";
-						basketData += "<Unit_Price>" + this.valueForToken("unit_price")[i] + "</Unit_Price>";
-						basketData += "<Quantity>" + this.valueForToken("quantity")[i] + "</Quantity>";
+						basketData += "<Product_ID>" + this.valueForToken("product_id")[i] +
+							"</Product_ID>";
+						basketData += "<Product_Name>" + this.valueForToken("product_name")[i] +
+							"</Product_Name>";
+						basketData += "<Unit_Price>" + this.valueForToken("unit_price")[i] +
+							"</Unit_Price>";
+						basketData += "<Quantity>" + this.valueForToken("quantity")[i] +
+							"</Quantity>";
 						basketData += "</Product>";
 					}
 

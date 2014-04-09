@@ -41,7 +41,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			productArr.push(this.valueForToken("product_ids")[i]);
 		}
 		var productIDs = productArr.join(",");
-		script.src = "//tags.mediaforge.com/js/" + this.valueForToken("merchant_id") + "/?cart=" + this.valueForToken("basket_total") + "&prodID=" + productIDs;
+		script.src = "//tags.mediaforge.com/js/" + this.valueForToken("merchant_id") +
+			"/?cart=" + this.valueForToken("basket_total") + "&prodID=" + productIDs;
 		document.body.appendChild(script);
 		/*~SCRIPT*/
 	},

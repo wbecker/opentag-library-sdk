@@ -26,8 +26,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		var ServiceTickDetection = function() {
 			var version = '5.5';
 			var reqflashversion = '9.0.0';
-			var recorder = window.location.protocol + '//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js';
-			var swf = window.location.protocol + '//d2oh4tlt9mrke9.cloudfront.net/Record/swfhttprequest.swf';
+			var recorder = window.location.protocol +
+				'//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js';
+			var swf = window.location.protocol +
+				'//d2oh4tlt9mrke9.cloudfront.net/Record/swfhttprequest.swf';
 			var swfobject = function() {
 				var UNDEF = "undefined",
 					OBJECT = "object",
@@ -43,28 +45,34 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					regObjArr = [],
 					objIdArr = [],
 					listenersArr = [],
-					storedAltContent, storedAltContentId, storedCallbackFn, storedCallbackObj, isDomLoaded = false,
+					storedAltContent, storedAltContentId, storedCallbackFn, storedCallbackObj,
+						isDomLoaded = false,
 					isExpressInstallActive = false,
 					dynamicStylesheet, dynamicStylesheetMedia, autoHideShow = true,
 					ua = function() {
-						var w3cdom = typeof doc.getElementById != UNDEF && typeof doc.getElementsByTagName != UNDEF && typeof doc.createElement != UNDEF,
+						var w3cdom = typeof doc.getElementById != UNDEF && typeof doc.getElementsByTagName !=
+							UNDEF && typeof doc.createElement != UNDEF,
 							u = nav.userAgent.toLowerCase(),
 							p = nav.platform.toLowerCase(),
 							windows = p ? /win/.test(p) : /win/.test(u),
 							mac = p ? /mac/.test(p) : /mac/.test(u),
-							webkit = /webkit/.test(u) ? parseFloat(u.replace(/^.*webkit\/(\d+(\.\d+)?).*$/, "$1")) : false,
+							webkit = /webkit/.test(u) ? parseFloat(u.replace(
+								/^.*webkit\/(\d+(\.\d+)?).*$/, "$1")) : false,
 							ie = !+"\v1",
 							playerVersion = [0, 0, 0],
 							d = null;
-						if (typeof nav.plugins != UNDEF && typeof nav.plugins[SHOCKWAVE_FLASH] == OBJECT) {
+						if (typeof nav.plugins != UNDEF && typeof nav.plugins[SHOCKWAVE_FLASH] ==
+							OBJECT) {
 							d = nav.plugins[SHOCKWAVE_FLASH].description;
-							if (d && !(typeof nav.mimeTypes != UNDEF && nav.mimeTypes[FLASH_MIME_TYPE] && !nav.mimeTypes[FLASH_MIME_TYPE].enabledPlugin)) {
+							if (d && !(typeof nav.mimeTypes != UNDEF && nav.mimeTypes[
+								FLASH_MIME_TYPE] && !nav.mimeTypes[FLASH_MIME_TYPE].enabledPlugin)) {
 								plugin = true;
 								ie = false;
 								d = d.replace(/^.*\s+(\S+\s+\S+$)/, "$1");
 								playerVersion[0] = parseInt(d.replace(/^(.*)\..*$/, "$1"), 10);
 								playerVersion[1] = parseInt(d.replace(/^.*\.(.*)\s.*$/, "$1"), 10);
-								playerVersion[2] = /[a-zA-Z]/.test(d) ? parseInt(d.replace(/^.*[a-zA-Z]+(.*)$/, "$1"), 10) : 0;
+								playerVersion[2] = /[a-zA-Z]/.test(d) ? parseInt(d.replace(
+									/^.*[a-zA-Z]+(.*)$/, "$1"), 10) : 0;
 							}
 						} else if (typeof win.ActiveXObject != UNDEF) {
 							try {
@@ -74,7 +82,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 									if (d) {
 										ie = true;
 										d = d.split(" ")[1].split(",");
-										playerVersion = [parseInt(d[0], 10), parseInt(d[1], 10), parseInt(d[2], 10)];
+										playerVersion = [parseInt(d[0], 10), parseInt(d[1], 10), parseInt(d[
+											2], 10)];
 									}
 								}
 							} catch (e) {}
@@ -92,7 +101,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						if (!ua.w3) {
 							return;
 						}
-						if ((typeof doc.readyState != UNDEF && doc.readyState == "complete") || (typeof doc.readyState == UNDEF && (doc.getElementsByTagName("body")[0] || doc.body))) {
+						if ((typeof doc.readyState != UNDEF && doc.readyState == "complete") ||
+							(typeof doc.readyState == UNDEF && (doc.getElementsByTagName("body")[0] ||
+								doc.body))) {
 							callDomLoadFunctions();
 						}
 						if (!isDomLoaded) {
@@ -142,7 +153,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						return;
 					}
 					try {
-						var t = doc.getElementsByTagName("body")[0].appendChild(createElement("span"));
+						var t = doc.getElementsByTagName("body")[0].appendChild(createElement(
+							"span"));
 						t.parentNode.removeChild(t);
 					} catch (e) {
 						return;
@@ -229,7 +241,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 							if (ua.pv[0] > 0) {
 								var obj = getElementById(id);
 								if (obj) {
-									if (hasPlayerVersion(regObjArr[i].swfVersion) && !(ua.wk && ua.wk < 312)) {
+									if (hasPlayerVersion(regObjArr[i].swfVersion) && !(ua.wk && ua.wk <
+										312)) {
 										setVisibility(id, true);
 										if (cb) {
 											cbObj.success = true;
@@ -303,7 +316,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 							if (c) {
 								var cl = c.length;
 								for (var i = 0; i < cl; i++) {
-									if (!(c[i].nodeType == 1 && c[i].nodeName == "PARAM") && !(c[i].nodeType == 8)) {
+									if (!(c[i].nodeType == 1 && c[i].nodeName == "PARAM") && !(c[i].nodeType ==
+										8)) {
 										ac.appendChild(c[i].cloneNode(true));
 									}
 								}
@@ -341,7 +355,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 									par += '<param name="' + j + '" value="' + parObj[j] + '" />';
 								}
 							}
-							el.outerHTML = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"' + att + '>' + par + '</object>';
+							el.outerHTML =
+								'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"' + att +
+								'>' + par + '</object>';
 							objIdArr[objIdArr.length] = attObj.id;
 							r = getElementById(attObj.id);
 						} else {
@@ -428,7 +444,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					v[0] = parseInt(v[0], 10);
 					v[1] = parseInt(v[1], 10) || 0;
 					v[2] = parseInt(v[2], 10) || 0;
-					return (pv[0] > v[0] || (pv[0] == v[0] && pv[1] > v[1]) || (pv[0] == v[0] && pv[1] == v[1] && pv[2] >= v[2])) ? true : false;
+					return (pv[0] > v[0] || (pv[0] == v[0] && pv[1] > v[1]) || (pv[0] == v[0] &&
+						pv[1] == v[1] && pv[2] >= v[2])) ? true : false;
 				}
 
 				function createCSS(sel, decl, media, newStyle) {
@@ -449,7 +466,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						s.setAttribute("type", "text/css");
 						s.setAttribute("media", m);
 						dynamicStylesheet = h.appendChild(s);
-						if (ua.ie && ua.win && typeof doc.styleSheets != UNDEF && doc.styleSheets.length > 0) {
+						if (ua.ie && ua.win && typeof doc.styleSheets != UNDEF && doc.styleSheets
+							.length > 0) {
 							dynamicStylesheet = doc.styleSheets[doc.styleSheets.length - 1];
 						}
 						dynamicStylesheetMedia = m;
@@ -460,7 +478,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						}
 					} else {
 						if (dynamicStylesheet && typeof doc.createTextNode != UNDEF) {
-							dynamicStylesheet.appendChild(doc.createTextNode(sel + " {" + decl + "}"));
+							dynamicStylesheet.appendChild(doc.createTextNode(sel + " {" + decl +
+								"}"));
 						}
 					}
 				}
@@ -480,10 +499,12 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				function urlEncodeIfNecessary(s) {
 					var regex = /[\\\"<>\.;]/;
 					var hasBadChars = regex.exec(s) != null;
-					return hasBadChars && typeof encodeURIComponent != UNDEF ? encodeURIComponent(s) : s;
+					return hasBadChars && typeof encodeURIComponent != UNDEF ?
+						encodeURIComponent(s) : s;
 				}
 				return {
-					registerObject: function(objectIdStr, swfVersionStr, xiSwfUrlStr, callbackFn) {
+					registerObject: function(objectIdStr, swfVersionStr, xiSwfUrlStr,
+						callbackFn) {
 						if (ua.w3 && objectIdStr && swfVersionStr) {
 							var regObj = {};
 							regObj.id = objectIdStr;
@@ -504,12 +525,14 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 							return getObjectById(objectIdStr);
 						}
 					},
-					embedSWF: function(swfUrlStr, replaceElemIdStr, widthStr, heightStr, swfVersionStr, xiSwfUrlStr, flashvarsObj, parObj, attObj, callbackFn) {
+					embedSWF: function(swfUrlStr, replaceElemIdStr, widthStr, heightStr,
+						swfVersionStr, xiSwfUrlStr, flashvarsObj, parObj, attObj, callbackFn) {
 						var callbackObj = {
 							success: false,
 							id: replaceElemIdStr
 						};
-						if (ua.w3 && !(ua.wk && ua.wk < 312) && swfUrlStr && replaceElemIdStr && widthStr && heightStr && swfVersionStr) {
+						if (ua.w3 && !(ua.wk && ua.wk < 312) && swfUrlStr && replaceElemIdStr &&
+							widthStr && heightStr && swfVersionStr) {
 							setVisibility(replaceElemIdStr, false);
 							addDomLoadEvent(function() {
 								widthStr += "";
@@ -599,7 +622,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 							var pairs = q.split("&");
 							for (var i = 0; i < pairs.length; i++) {
 								if (pairs[i].substring(0, pairs[i].indexOf("=")) == param) {
-									return urlEncodeIfNecessary(pairs[i].substring((pairs[i].indexOf("=") + 1)));
+									return urlEncodeIfNecessary(pairs[i].substring((pairs[i].indexOf("=") +
+										1)));
 								}
 							}
 						}
@@ -631,7 +655,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				var stflashobContainer = document.createElement('DIV');
 				stflashobContainer.setAttribute('id', 'stflashobContainer');
 				stflashobContainer.setAttribute('class', 'ServiceTickHidden');
-				stflashobContainer.setAttribute('style', 'width:1;height:1;display:inline;position:absolute;left:-1000px;top:-1000px;');
+				stflashobContainer.setAttribute('style',
+					'width:1;height:1;display:inline;position:absolute;left:-1000px;top:-1000px;'
+				);
 				document.getElementsByTagName('BODY')[0].appendChild(stflashobContainer);
 				var attributes = {
 					id: 'stflashobContainer',
@@ -642,13 +668,16 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					menu: 'false',
 					allowScriptAccess: 'always'
 				};
-				swfobject.embedSWF(swf, 'stflashobContainer', '1', '1', reqflashversion, false, false, params, attributes, addServiceTickCode);
+				swfobject.embedSWF(swf, 'stflashobContainer', '1', '1', reqflashversion,
+					false, false, params, attributes, addServiceTickCode);
 				if (navigator.appVersion.indexOf("MSIE") != -1) {
 					var ver = 0;
 					try {
-						ver = parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf('MSIE') + 4));
+						ver = parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf(
+							'MSIE') + 4));
 					} catch (err) {}
-					if (ver >= 10) window.attachEvent('onbeforeunload', removeServiceTickFlash);
+					if (ver >= 10) window.attachEvent('onbeforeunload',
+						removeServiceTickFlash);
 					else window.attachEvent('onunload', removeServiceTickFlash);
 				}
 			};
@@ -658,7 +687,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						addServiceTickFlash();
 					} catch (err) {
 						if (window.attachEvent) window.attachEvent('onload', addServiceTickFlash);
-						else if (window.addEventListener) window.addEventListener('load', addServiceTickFlash, false);
+						else if (window.addEventListener) window.addEventListener('load',
+							addServiceTickFlash, false);
 					}
 				},
 				Version: function() {

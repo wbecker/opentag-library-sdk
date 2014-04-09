@@ -97,16 +97,21 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				return null;
 			};
 
-			var tduidCookie = readCookie("" + this.valueForToken("tduid_cookie_name") + "");
+			var tduidCookie = readCookie("" + this.valueForToken("tduid_cookie_name") +
+				"");
 			tduidCookie = tduidCookie ? tduidCookie : "";
 
 			var basket = "";
 
 			for (var i = 0; i < this.valueForToken("productNames").length; i++) {
-				basket = basket + "pr(gr(" + this.valueForToken("productGroupId") + ")i(" + this.valueForToken("productIDs")[i] + ")n(" + this.valueForToken("productNames")[i] + ")v(" + this.valueForToken("productPrices")[i] + ")q(" + this.valueForToken("productQuantities")[i] + "))";
+				basket = basket + "pr(gr(" + this.valueForToken("productGroupId") + ")i(" +
+					this.valueForToken("productIDs")[i] + ")n(" + this.valueForToken(
+						"productNames")[i] + ")v(" + this.valueForToken("productPrices")[i] +
+					")q(" + this.valueForToken("productQuantities")[i] + "))";
 			}
 
-			var src = "https://tb" + this.valueForToken("tracking_type") + ".tradedoubler.com/report?";
+			var src = "https://tb" + this.valueForToken("tracking_type") +
+				".tradedoubler.com/report?";
 			src += "o(" + this.valueForToken("organization") + ")";
 			src += "event(" + this.valueForToken("event") + ")";
 			src += "ordnum(" + this.valueForToken("order_id") + ")";

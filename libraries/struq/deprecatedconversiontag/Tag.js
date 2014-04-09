@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				id_string += this.valueForToken("product_id_list")[i] + ",";
 			}
 			rnd = parseInt(Math.random() * 1000000);
-			ifrm.src = "//app.struq.com/s/cd/" + this.valueForToken("id") + "/?v=2&rnd=" + rnd + "&qs=li=pid=" + id_string.slice(0, id_string.length - 1) + "|qty=1|tv=1%26summary=tot=" + this.valueForToken("order_total") + "|dis=" + this.valueForToken("discount") + "|oid=" + this.valueForToken("order_id") + "";
+			ifrm.src = "//app.struq.com/s/cd/" + this.valueForToken("id") +
+				"/?v=2&rnd=" + rnd + "&qs=li=pid=" + id_string.slice(0, id_string.length -
+					1) + "|qty=1|tv=1%26summary=tot=" + this.valueForToken("order_total") +
+				"|dis=" + this.valueForToken("discount") + "|oid=" + this.valueForToken(
+					"order_id") + "";
 			ifrm.width = '1px';
 			ifrm.height = '1px';
 			ifrm.style.display = 'none';

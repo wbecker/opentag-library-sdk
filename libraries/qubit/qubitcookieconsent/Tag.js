@@ -33,7 +33,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	},
 	pre: function() {
 		/*PRE*/
-		var mainText = "For this website to run at its best, we ask the browser (like Google Chrome and Internet Explorer) for a little personal information. Nothing drastic, just enough to remember your preferences, login ID, and what you like to look at (on our site). Having this information to hand helps us understand your needs and improve our service to you.";
+		var mainText =
+			"For this website to run at its best, we ask the browser (like Google Chrome and Internet Explorer) for a little personal information. Nothing drastic, just enough to remember your preferences, login ID, and what you like to look at (on our site). Having this information to hand helps us understand your needs and improve our service to you.";
 
 		var cookiesAndPrivacyStatementUrl = "" + this.valueForToken("linkHref") + "";
 
@@ -53,7 +54,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					_q_ping(type);
 				}, 100);
 			} else {
-				window._q_.PostData("//pong.qubitproducts.com/s?tid=65219_355873&time=" + new Date().getTime() + "&type=" + type + "&r=" + reason);
+				window._q_.PostData("//pong.qubitproducts.com/s?tid=65219_355873&time=" +
+					new Date().getTime() + "&type=" + type + "&r=" + reason);
 			}
 		};
 
@@ -91,7 +93,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				"iframeCss": "top: 0;left: 0;height: 185px;width: 100%;box-shadow: 0 0 20px 0px #888;z-index: 2147483647;",
 				"headerHtml": "<div class=\"content\">  <div class=\"action-header\">    <div class=\"close\" id=\"{{closeButtonId}}\">      {{closeButtonText}}    </div>  </div></div>",
 				"contentCss": "body {  padding-top: 8px;  text-align: center;  background: url(https://d3c3cq33003psk.cloudfront.net/consent/img/cbg_w.png) repeat;  font-size: 12px;  line-height: 17px;  font-family: arial, helvetica;  color: #555;  text-shadow: 0px 0px 1px #CCC;}.content {  text-align: left;  width: 800px;  margin: 0 auto;  padding-top: 5px;}body p {  margin: 5px 0px;}a {  color: #2e9dc5;}h1 {  font-size: 1.4em;}.action-footer {  margin-top: 0px;}.action-footer .button {  padding: 5px 8px;  line-height: 16px;  cursor: pointer;}#{{closeButtonId}} {  vertical-align: middle  color: #939598;  padding: 5px 10px 5px 10px;  font-size: 13px;  text-decoration: none;  margin-top: 0px;  float: right;  cursor: pointer;  border: 1px solid #EEE;  background: #EEE;  border-radius: 5px;}.action-footer #{{acceptButtonId}} {  -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;  -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;  box-shadow:inset 0px 1px 0px 0px #bbdaf7;  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #35b7de), color-stop(1, #0189a1) );  background:-moz-linear-gradient( center top, #35b7de 5%, #0189a1 100% );  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#35b7de\", endColorstr=\"#0189a1\");  background-color:#35b7de;  -moz-border-radius:4px;  -webkit-border-radius:4px;  border-radius:4px;  border:1px solid #0189a1;  display:inline-block;  color:#fff;  font-weight:normal;  text-decoration:none;  vertical-align: middle;  float:right;}.action-footer #{{acceptButtonId}}:hover {  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0189a1), color-stop(1, #35b7de) );  background:-moz-linear-gradient( center top, #0189a1 5%, #35b7de 100% );  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#0189a1\", endColorstr=\"#35b7de\");  background-color:#0189a1;}.action-footer #{{acceptButtonId}}:active {  position:relative;  top: 1px;}.action-footer #{{declineButtonId}} {  color: #555;  float:right;  margin-right: 15px;}",
-				"contentHtml": "<div class=\"content\">  <h1>Privacy and Cookies</h1>  <p>" + mainText + "</p>  <p>  If you would like to learn more about the information we   store, how it is used or how to disable Cookies please read our <a href=\"" + cookiesAndPrivacyStatementUrl + "\"       target = \"_blank\"      id=\"{{cookieAndPrivacyAndPolicyId}}\">{{cookieAndprivacyPolicyText}}</a>.</p></div>",
+				"contentHtml": "<div class=\"content\">  <h1>Privacy and Cookies</h1>  <p>" +
+					mainText +
+					"</p>  <p>  If you would like to learn more about the information we   store, how it is used or how to disable Cookies please read our <a href=\"" +
+					cookiesAndPrivacyStatementUrl +
+					"\"       target = \"_blank\"      id=\"{{cookieAndPrivacyAndPolicyId}}\">{{cookieAndprivacyPolicyText}}</a>.</p></div>",
 				"footerHtml": "<div class=\"content\">   <div class=\"actions action-footer\">     <div class=\"button\" id=\"{{acceptButtonId}}\">       {{acceptButtonText}}     </div>     <div class=\"button\" id=\"{{declineButtonId}}\">        {{declineButtonText}}     </div>   </div></div>"
 			},
 			"status": {

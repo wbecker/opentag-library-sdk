@@ -51,7 +51,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		var _mta = document.createElement("textarea");
 		_mta.id = "utmtrans";
-		_mta.value = "UTM:T|" + this.valueForToken("orderId") + "||" + this.valueForToken("total") + "|||||\nUTM:I|" + this.valueForToken("orderId") + "|" + this.valueForToken("conversionTypeId") + "|||" + this.valueForToken("total") + "|";
+		_mta.value = "UTM:T|" + this.valueForToken("orderId") + "||" + this.valueForToken(
+			"total") + "|||||\nUTM:I|" + this.valueForToken("orderId") + "|" + this.valueForToken(
+			"conversionTypeId") + "|||" + this.valueForToken("total") + "|";
 
 		_mf.appendChild(_mta);
 		document.body.appendChild(_mf);
@@ -61,7 +63,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		};
 
 		var _ml = document.createElement("script");
-		_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") + ".js";
+		_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") +
+			".js";
 
 		var _m_loaded = false;
 		var _m_loader = function() {

@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "deprecatedtags.googledynamicremarketingtagbasketpagedeprecated.Tag";
+var classPath =
+	"deprecatedtags.googledynamicremarketingtagbasketpagedeprecated.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {

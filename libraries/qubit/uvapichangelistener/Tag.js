@@ -41,7 +41,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 					// remember that NaN === NaN returns false
 					// and isNaN(undefined) returns true
-					if (isNaN(x) && isNaN(y) && typeof x === "number" && typeof y === "number") {
+					if (isNaN(x) && isNaN(y) && typeof x === "number" && typeof y ===
+						"number") {
 						return true;
 					}
 
@@ -201,7 +202,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			var trigger = function(type, data) {
 				for (var i = 0; i < callbacks.length; i++) {
-					if (typeof callbacks[i].func === "function" && callbacks[i].type === type) {
+					if (typeof callbacks[i].func === "function" && callbacks[i].type ===
+						type) {
 						callbacks[i].func(data);
 					}
 				}

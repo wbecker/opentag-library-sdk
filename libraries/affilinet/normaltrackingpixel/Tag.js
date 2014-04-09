@@ -62,7 +62,12 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		(function() {
 
-			var src = "//" + this.valueForToken("domain") + "/registersale.asp" + "?site=" + this.valueForToken("program_id") + "" + "&mode=" + this.valueForToken("mode") + "" + "&ltype=" + this.valueForToken("type") + "" + "&price=" + this.valueForToken("subtotal") + "" + "&order=" + this.valueForToken("order_id") + "" + "&curr=" + this.valueForToken("currency") + "" + "&vcode=" + this.valueForToken("voucher_code") + "";
+			var src = "//" + this.valueForToken("domain") + "/registersale.asp" +
+				"?site=" + this.valueForToken("program_id") + "" + "&mode=" + this.valueForToken(
+					"mode") + "" + "&ltype=" + this.valueForToken("type") + "" + "&price=" +
+				this.valueForToken("subtotal") + "" + "&order=" + this.valueForToken(
+					"order_id") + "" + "&curr=" + this.valueForToken("currency") + "" +
+				"&vcode=" + this.valueForToken("voucher_code") + "";
 
 			var image = new Image();
 			image.src = src;

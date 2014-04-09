@@ -36,7 +36,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*SCRIPT*/
 
 		var img = new Image();
-		img.src = "//" + this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" + this.valueForToken("merchant_id") + "&ca=" + this.valueForToken("campaign_id") + "&ra=" + this.valueForToken("random") + ""
+		img.src = "//" + this.valueForToken("campaign_id") +
+			"p.rfihub.com/ca.gif?rb=" + this.valueForToken("merchant_id") + "&ca=" +
+			this.valueForToken("campaign_id") + "&ra=" + this.valueForToken("random") +
+			""
 		/*~SCRIPT*/
 	},
 	pre: function() {

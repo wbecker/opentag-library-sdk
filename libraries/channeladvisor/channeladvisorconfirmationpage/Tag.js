@@ -41,7 +41,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*SCRIPT*/
 
 		(function() {
-			var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" + this.valueForToken("client_id") + "";
+			var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
+				this.valueForToken("client_id") + "";
 			src += "&oVal=" + this.valueForToken("total") + "";
 			src += "&OrderID=" + this.valueForToken("order_id") + "";
 			src += "&ProductID=";

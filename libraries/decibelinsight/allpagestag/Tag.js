@@ -38,7 +38,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var da = d.createElement('script');
 			da.type = 'text/javascript';
 			da.async = 'async';
-			da.src = location.protocol + '//decibelinsight.net/i/' + this.valueForToken("account_id") + '/di.js';
+			da.src = location.protocol + '//decibelinsight.net/i/' + this.valueForToken(
+				"account_id") + '/di.js';
 			d.getElementsByTagName('head')[0].appendChild(da);
 		})(document);
 		/*~SCRIPT*/

@@ -27,7 +27,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		(function() {
 			var uv = window.universal_variable || {};
-			var src = "//a.fandi.st/pixel.gif?acc=" + this.valueForToken("client_id") + "&camp=1&d=" + window.encodeURIComponent(JSON.stringify(uv));
+			var src = "//a.fandi.st/pixel.gif?acc=" + this.valueForToken("client_id") +
+				"&camp=1&d=" + window.encodeURIComponent(JSON.stringify(uv));
 			var fandImage = new Image();
 			fandImage.src = src;
 		})();

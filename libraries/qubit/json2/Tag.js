@@ -214,8 +214,10 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				};
 			}
 
-			var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-				escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+			var cx =
+				/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+				escapable =
+					/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
 				gap,
 				indent,
 				meta = { // table of character substitutions
@@ -238,9 +240,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				// sequences.
 
 				escapable.lastIndex = 0;
-				return escapable.test(string) ? '"' + string.replace(escapable, function(a) {
+				return escapable.test(string) ? '"' + string.replace(escapable, function(
+					a) {
 					var c = meta[a];
-					return typeof c === 'string' ? c : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+					return typeof c === 'string' ? c : '\\u' + ('0000' + a.charCodeAt(0).toString(
+						16)).slice(-4);
 				}) + '"' : '"' + string + '"';
 			}
 
@@ -324,7 +328,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 							// Join all of the elements together, separated with commas, and wrap them in
 							// brackets.
 
-							v = partial.length === 0 ? '[]' : gap ? '[\n' + gap + partial.join(',\n' + gap) + '\n' + mind + ']' : '[' + partial.join(',') + ']';
+							v = partial.length === 0 ? '[]' : gap ? '[\n' + gap + partial.join(
+								',\n' + gap) + '\n' + mind + ']' : '[' + partial.join(',') + ']';
 							gap = mind;
 							return v;
 						}
@@ -359,7 +364,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 						// Join all of the member texts together, separated with commas,
 						// and wrap them in braces.
 
-						v = partial.length === 0 ? '{}' : gap ? '{\n' + gap + partial.join(',\n' + gap) + '\n' + mind + '}' : '{' + partial.join(',') + '}';
+						v = partial.length === 0 ? '{}' : gap ? '{\n' + gap + partial.join(
+							',\n' + gap) + '\n' + mind + '}' : '{' + partial.join(',') + '}';
 						gap = mind;
 						return v;
 				}
@@ -474,7 +480,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 					if (/^[\],:{}\s]*$/
 						.test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
-							.replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
+							.replace(
+								/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
+								']')
 							.replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
 
 						// In the third stage we use the eval function to compile the text into a

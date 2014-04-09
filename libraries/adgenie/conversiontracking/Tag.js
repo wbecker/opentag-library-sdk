@@ -44,10 +44,13 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			arr = [];
 
 		for (var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) {
-			arr.push(this.valueForToken("product_id_list")[i] + ":" + this.valueForToken("prod_price_list")[i]);
+			arr.push(this.valueForToken("product_id_list")[i] + ":" + this.valueForToken(
+				"prod_price_list")[i]);
 		}
 
-		img.src = "https://adverts.adgenie.co.uk/conversion.php?companyId=" + "" + this.valueForToken("client_id") + "" + "&items=" + arr.join("|") + "&orderId=" + "" + this.valueForToken("trans_id") + "";
+		img.src = "https://adverts.adgenie.co.uk/conversion.php?companyId=" + "" +
+			this.valueForToken("client_id") + "" + "&items=" + arr.join("|") +
+			"&orderId=" + "" + this.valueForToken("trans_id") + "";
 
 		document.body.appendChild(img);
 		/*~SCRIPT*/

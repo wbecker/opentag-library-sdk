@@ -99,7 +99,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				"&merchant=" + this.valueForToken("merchant_id") + "",
 				"&amount=" + this.valueForToken("orderTotal") + "",
 				"&ref=" + this.valueForToken("orderId") + "",
-				"&parts=" + this.valueForToken("commission_group") + ":" + this.valueForToken("orderTotal") + "",
+				"&parts=" + this.valueForToken("commission_group") + ":" + this.valueForToken(
+					"orderTotal") + "",
 				"&vc=" + this.valueForToken("voucher") + "",
 				"&testmode=" + this.valueForToken("testmode") + "",
 				"&cr=" + this.valueForToken("orderCurrency") + "",
@@ -143,7 +144,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					amount: this.valueForToken("orderTotal"),
 					currency: "" + this.valueForToken("orderCurrency") + "",
 					orderRef: "" + this.valueForToken("orderId") + "",
-					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken("orderTotal"),
+					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken(
+						"orderTotal"),
 					voucher: "" + this.valueForToken("voucher") + "",
 					test: "" + this.valueForToken("testmode") + "",
 					channel: "" + this.valueForToken("channel") + ""

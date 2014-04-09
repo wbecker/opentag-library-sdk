@@ -106,7 +106,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var tempprice = htmlEncode(this.valueForToken("product_prices")[i]);
 			var tempqty = htmlEncode(this.valueForToken("product_qtys")[i]);
 			var tempulp = htmlEncode(this.valueForToken("product_urls")[i]); //Tracking will work if these are blank strings.
-			xml_string += '<so cid="' + tempcat + '" pn="' + tempname + '" pnr="' + tempnum + '" up="' + tempprice + '" qty="' + tempqty + '" ulp="' + tempulp + '"/>';
+			xml_string += '<so cid="' + tempcat + '" pn="' + tempname + '" pnr="' +
+				tempnum + '" up="' + tempprice + '" qty="' + tempqty + '" ulp="' + tempulp +
+				'"/>';
 		}
 		xml_string += "</o></z>";
 
@@ -140,11 +142,13 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			"id": "" + this.valueForToken("page_id") + ""
 		});
 		var waitForZanoxDiv = function() {
-			if (document.querySelector(".zx_" + this.valueForToken("page_id") + ".zx_mediaslot")) {
+			if (document.querySelector(".zx_" + this.valueForToken("page_id") +
+				".zx_mediaslot")) {
 				(function(d) {
 					var s = d.createElement("script");
 					s.async = true;
-					s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
+					s.src = (d.location.protocol == "https:" ? "https:" : "http:") +
+						"//static.zanox.com/scripts/zanox.js";
 					var a = d.getElementsByTagName("script")[0];
 					a.parentNode.insertBefore(s, a);
 				}(document));

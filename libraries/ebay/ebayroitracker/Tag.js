@@ -74,7 +74,9 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*POST*/
 		var _roi = _roi || [];
 
-		_roi.push(['_setMerchantId', '' + this.valueForToken("ebay_merchant_id") + '']);
+		_roi.push(['_setMerchantId', '' + this.valueForToken("ebay_merchant_id") +
+			''
+		]);
 		_roi.push(['_setOrderId', '' + this.valueForToken("order_id") + '']);
 		_roi.push(['_setOrderAmount', '' + this.valueForToken("order_amount") + '']);
 

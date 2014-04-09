@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated.Tag";
+var classPath =
+	"deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated.Tag";
 
 qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
@@ -47,7 +48,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		};
 
 		var google_conversion_id = this.valueForToken("google_conversion_id");
-		var google_conversion_label = "" + this.valueForToken("google_conversion_label") + "";
+		var google_conversion_label = "" + this.valueForToken(
+			"google_conversion_label") + "";
 		var google_custom_params = window.google_tag_params;
 		var google_remarketing_only = true;
 

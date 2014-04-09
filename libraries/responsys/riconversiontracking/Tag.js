@@ -65,7 +65,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 		var numberOfItems = this.valueForToken("purchased_items_array").length;
 
-		var imageSource = document.location.protocol + "//" + this.valueForToken("domain") + "/pub/cct?_ri_=" + this.valueForToken("client_ri") + "&_ei_=" + this.valueForToken("client_ei") + "&action=once&OrderID=" + this.valueForToken("order_id") + "&OrderTotal=" + this.valueForToken("order_total") + "&numItems=" + numberOfItems;
+		var imageSource = document.location.protocol + "//" + this.valueForToken(
+			"domain") + "/pub/cct?_ri_=" + this.valueForToken("client_ri") + "&_ei_=" +
+			this.valueForToken("client_ei") + "&action=once&OrderID=" + this.valueForToken(
+				"order_id") + "&OrderTotal=" + this.valueForToken("order_total") +
+			"&numItems=" + numberOfItems;
 
 		if (customerID !== "0") {
 			imageSource += "&customerID=" + customerID;

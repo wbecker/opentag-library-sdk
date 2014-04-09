@@ -71,7 +71,12 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				if (typeof S2Tech_MatchData_NA === 'function') {
 					clearInterval(waitFor_S2Tech_MatchData_NA);
 
-					S2Tech_MatchData_NA("" + this.valueForToken("title") + "", "" + this.valueForToken("firstname") + "", "" + this.valueForToken("lastname") + "", "" + this.valueForToken("address") + "", "" + this.valueForToken("postcode") + "", "" + this.valueForToken("email") + "", "" + this.valueForToken("landline") + "", "" + this.valueForToken("mobile") + "", "" + this.valueForToken("OptIns") + "");
+					S2Tech_MatchData_NA("" + this.valueForToken("title") + "", "" + this.valueForToken(
+							"firstname") + "", "" + this.valueForToken("lastname") + "", "" +
+						this.valueForToken("address") + "", "" + this.valueForToken("postcode") +
+						"", "" + this.valueForToken("email") + "", "" + this.valueForToken(
+							"landline") + "", "" + this.valueForToken("mobile") + "", "" + this.valueForToken(
+							"OptIns") + "");
 				}
 			}, 100);
 

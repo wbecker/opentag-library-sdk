@@ -89,14 +89,16 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var extraProductValues = "";
 			var extraProductValuesElement = "";
 
-			if (Object.prototype.toString.call(this.valueForToken("extra_product_values")) === "[object Array]") {
+			if (Object.prototype.toString.call(this.valueForToken(
+				"extra_product_values")) === "[object Array]") {
 				extraProductValues = this.valueForToken("extra_product_values");
 			}
 
 			var extraCategoryValues = "";
 			var extraCategoryValuesElement = "";
 
-			if (Object.prototype.toString.call(this.valueForToken("extra_category_values")) === "[object Array]") {
+			if (Object.prototype.toString.call(this.valueForToken(
+				"extra_category_values")) === "[object Array]") {
 				extraCategoryValues = this.valueForToken("extra_category_values");
 			}
 
@@ -114,7 +116,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					convType: "" + this.valueForToken("conv_type") + "",
 					product: this.valueForToken("skus")[i] + extraProductValuesElement,
 					prices: this.valueForToken("prices")[i],
-					category: this.valueForToken("categories")[i] + extraCategoryValuesElement,
+					category: this.valueForToken("categories")[i] +
+						extraCategoryValuesElement,
 					quantities: this.valueForToken("quantities")[i]
 				});
 			}
@@ -132,7 +135,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			(function() {
 				var mClientId = "" + this.valueForToken("marin_tracking_id") + "";
-				var mProto = ('https:' == document.location.protocol ? 'https://' : 'http://');
+				var mProto = ('https:' == document.location.protocol ? 'https://' :
+					'http://');
 				var mHost = 'tracker.marinsm.com';
 				var mt = document.createElement('script');
 				mt.type = 'text/javascript';

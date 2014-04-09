@@ -77,9 +77,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 				});
 			}
 		}
-		var mtHost = (("https:" == document.location.protocol) ? "https://rainbowx" : "http://rainbow") + ".mythings.com";
+		var mtHost = (("https:" == document.location.protocol) ? "https://rainbowx" :
+			"http://rainbow") + ".mythings.com";
 		var mtAdvertiserToken = "" + this.valueForToken("advertiser_token") + "";
-		document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok=" + mtAdvertiserToken + "' type='text/
+		document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok=" +
+			mtAdvertiserToken + "' type='text/
 javascript'%3E%3C/script%3E"));
 		/*~SCRIPT*/
 	},

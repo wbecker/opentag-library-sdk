@@ -44,7 +44,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 	pre: function() {
 		/*PRE*/
 		var  drawbridge_partner_id  =  "" + this.valueForToken("partner_id") + "";
-		var  drawbridge_partner_sign  =  "" + this.valueForToken("partner_sign") + "";
+		var  drawbridge_partner_sign  =  "" + this.valueForToken("partner_sign") +
+			"";
 		var  drawbridge_app_id  =  "" + this.valueForToken("app_id") + "";
 		var  drawbridge_label  =  "" + this.valueForToken("label") + "";
 		/*~PRE*/

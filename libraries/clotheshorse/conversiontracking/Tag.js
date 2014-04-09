@@ -33,7 +33,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			var ch = document.createElement('script');
 			ch.type = 'text/javascript';
 			ch.async = true;
-			ch.src = '//script.clotheshor.se/widget/conversion?token=' + ch212['token'] + '&ts=' + ch212['ts'];
+			ch.src = '//script.clotheshor.se/widget/conversion?token=' + ch212['token'] +
+				'&ts=' + ch212['ts'];
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ch, s);
 		})();

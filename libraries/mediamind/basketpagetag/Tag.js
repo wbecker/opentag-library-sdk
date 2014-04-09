@@ -74,8 +74,11 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 			ebQuantity = ebQuantity.toString();
 
 			var script = document.createElement("script");
-			script.src = "//bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&ActivityID=" + this.valueForToken("activity_id") + "&rnd=" + ebRand + "&Value=" +
-				ebRev + "&OrderID=" + ebOrderID + "&ProductID=" + ebProductID + "&ProductInfo=" + ebProductInfo + "&Quantity=" + ebQuantity;
+			script.src =
+				"//bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&ActivityID=" +
+				this.valueForToken("activity_id") + "&rnd=" + ebRand + "&Value=" +
+				ebRev + "&OrderID=" + ebOrderID + "&ProductID=" + ebProductID +
+				"&ProductInfo=" + ebProductInfo + "&Quantity=" + ebQuantity;
 			document.getElementsByTagName("head")[0].appendChild(script);
 
 		})()

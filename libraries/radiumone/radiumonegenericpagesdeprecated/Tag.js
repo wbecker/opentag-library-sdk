@@ -33,7 +33,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 
 			// Iframe
 			iframe = document.createElement('iframe');
-			iframe.src = "//rs.gwallet.com/r1/pixel/x6036r" + time + "?shop_id=" + this.valueForToken("shop_id") + "";
+			iframe.src = "//rs.gwallet.com/r1/pixel/x6036r" + time + "?shop_id=" +
+				this.valueForToken("shop_id") + "";
 			iframe.width = 1;
 			iframe.height = 1;
 			iframe.frameBorder = 0;

@@ -90,12 +90,15 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		/*PRE*/
 		(function() {
 			var awinImgSrc = [
-				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken("merchant_id") + "&amount=",
+				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken(
+					"merchant_id") + "&amount=",
 				"" + this.valueForToken("orderTotal") + "",
 				"&ref=", "" + this.valueForToken("orderId") + "",
-				"&parts=" + this.valueForToken("commission_group") + ":", "" + this.valueForToken("orderTotal") + "",
+				"&parts=" + this.valueForToken("commission_group") + ":", "" + this.valueForToken(
+					"orderTotal") + "",
 				"&vc=", "" + this.valueForToken("voucher") + "",
-				"&testmode=" + this.valueForToken("testmode") + "&cr=", "" + this.valueForToken("orderCurrency") + ""
+				"&testmode=" + this.valueForToken("testmode") + "&cr=", "" + this.valueForToken(
+					"orderCurrency") + ""
 			].join("");
 			var el = document.createElement("img");
 			el.setAttribute("src", awinImgSrc);
@@ -135,7 +138,8 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 					amount: this.valueForToken("orderTotal"),
 					currency: "" + this.valueForToken("orderCurrency") + "",
 					orderRef: "" + this.valueForToken("orderId") + "",
-					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken("orderTotal"),
+					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken(
+						"orderTotal"),
 					voucher: "" + this.valueForToken("voucher") + "",
 					test: "" + this.valueForToken("testmode") + ""
 				}
