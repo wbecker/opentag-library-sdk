@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "channeladvisor.channeladvisorconfirmationpage.Tag";
+var classPath = "channeladvisor.channeladvisorconfirmationpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Channel Advisor - Confirmation Page",

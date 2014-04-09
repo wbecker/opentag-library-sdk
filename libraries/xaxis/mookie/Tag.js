@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "xaxis.mookie.Tag";
+var classPath = "xaxis.mookie" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Mookie",

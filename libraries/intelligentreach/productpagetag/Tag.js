@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "intelligentreach.productpagetag.Tag";
+var classPath = "intelligentreach.productpagetag" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Product Page Tag",

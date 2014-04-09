@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "backbone.backbonejs051.Tag";
+var classPath = "backbone.backbonejs051" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "backbone.js 0.5.1",

@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "emailvision.basketpagetaginactive.Tag";
+var classPath = "emailvision.basketpagetaginactive" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Basket Page Tag INACTIVE",

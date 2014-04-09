@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "mentionme.referrertagdeprecated.Tag";
+var classPath = "mentionme.referrertagdeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Referrer Tag [Deprecated]",

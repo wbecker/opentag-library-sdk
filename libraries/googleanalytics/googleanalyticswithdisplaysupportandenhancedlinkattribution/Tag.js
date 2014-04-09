@@ -1,9 +1,10 @@
 //:include tagsdk-current.js
 var version = "";
 var classPath =
-	"googleanalytics.googleanalyticswithdisplaysupportandenhancedlinkattribution.Tag";
+	"googleanalytics.googleanalyticswithdisplaysupportandenhancedlinkattribution" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Analytics with display support and enhanced link attribution",

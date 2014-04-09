@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "quantcast.deprecatedquantcastconfirmationpage.Tag";
+var classPath = "quantcast.deprecatedquantcastconfirmationpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "DEPRECATED QuantCast - Confirmation page",

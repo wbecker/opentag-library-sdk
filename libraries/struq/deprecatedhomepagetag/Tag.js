@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "struq.deprecatedhomepagetag.Tag";
+var classPath = "struq.deprecatedhomepagetag" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "[Deprecated] Home Page Tag",

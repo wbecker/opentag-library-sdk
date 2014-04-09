@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "zanox.zanoxconfirmationpagewithorderdetails.Tag";
+var classPath = "zanox.zanoxconfirmationpagewithorderdetails" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Zanox - Confirmation Page with Order Details",

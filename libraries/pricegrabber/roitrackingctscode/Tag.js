@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "pricegrabber.roitrackingctscode.Tag";
+var classPath = "pricegrabber.roitrackingctscode" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "ROI Tracking (CTS Code)",

@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "intelligentreach.confirmationpagetagdeprecated.Tag";
+var classPath = "intelligentreach.confirmationpagetagdeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Tag - Deprecated",

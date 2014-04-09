@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googleanalytics.googleanalyticswithallowlinker.Tag";
+var classPath = "googleanalytics.googleanalyticswithallowlinker" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Analytics - with allowLinker",

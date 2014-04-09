@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "marinsoftware.conversiontrackingtagdeprecated.Tag";
+var classPath = "marinsoftware.conversiontrackingtagdeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag [DEPRECATED]",

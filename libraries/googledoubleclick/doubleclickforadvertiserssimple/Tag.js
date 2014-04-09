@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googledoubleclick.doubleclickforadvertiserssimple.Tag";
+var classPath = "googledoubleclick.doubleclickforadvertiserssimple" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "DoubleClick for Advertisers - Simple",

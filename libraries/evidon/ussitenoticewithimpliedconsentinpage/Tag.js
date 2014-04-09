@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "evidon.ussitenoticewithimpliedconsentinpage.Tag";
+var classPath = "evidon.ussitenoticewithimpliedconsentinpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		config: {
 			/*DATA*/
 			name: "US Site Notice with Implied Consent (In-Page)",

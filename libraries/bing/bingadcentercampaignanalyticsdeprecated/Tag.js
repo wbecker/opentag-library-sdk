@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "bing.bingadcentercampaignanalyticsdeprecated.Tag";
+var classPath = "bing.bingadcentercampaignanalyticsdeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Bing AdCenter Campaign Analytics DEPRECATED",

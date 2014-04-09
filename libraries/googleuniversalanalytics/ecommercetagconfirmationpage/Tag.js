@@ -1,8 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googleuniversalanalytics.ecommercetagconfirmationpage.Tag";
+var classPath = "googleuniversalanalytics.ecommercetagconfirmationpage" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Ecommerce Tag - Confirmation Page",

@@ -1,9 +1,10 @@
 //:include tagsdk-current.js
 var version = "";
 var classPath =
-	"google.googleremarketingconversionasyncwithadditionalandcustomparameters.Tag";
+	"google.googleremarketingconversionasyncwithadditionalandcustomparameters" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Remarketing Conversion Async, with additional and custom parameters",

@@ -1,8 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "freespee.yetanotheroopsiforgottochangethedefaultstag.Tag";
+var classPath = "freespee.yetanotheroopsiforgottochangethedefaultstag" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Yet another \"oops I forgot to change the defaults\" tag",

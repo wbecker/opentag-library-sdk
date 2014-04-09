@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googleanalytics.googleanalyticssingledomain.Tag";
+var classPath = "googleanalytics.googleanalyticssingledomain" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Analytics - Single domain",

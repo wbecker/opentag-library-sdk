@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "merchantadvantage.chanalyticsproductpage.Tag";
+var classPath = "merchantadvantage.chanalyticsproductpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Chanalytics - Product Page",

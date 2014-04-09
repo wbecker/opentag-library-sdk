@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "webtrends.webtrendsscenarioanalysis.Tag";
+var classPath = "webtrends.webtrendsscenarioanalysis" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Webtrends - Scenario analysis",

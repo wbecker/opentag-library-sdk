@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath =
-	"marinsoftware.serversidepixellandingpagetrackingdeprecated.Tag";
+var classPath = "marinsoftware.serversidepixellandingpagetrackingdeprecated" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Server Side Pixel - Landing Page Tracking [DEPRECATED]",

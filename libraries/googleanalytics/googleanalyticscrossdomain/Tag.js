@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googleanalytics.googleanalyticscrossdomain.Tag";
+var classPath = "googleanalytics.googleanalyticscrossdomain" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Analytics - Cross domain",

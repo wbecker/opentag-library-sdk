@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "lyris.clicktracksconfirmationpage.Tag";
+var classPath = "lyris.clicktracksconfirmationpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Click Tracks Confirmation Page",

@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "lengow.conversiontrackingpaymentmethodpage.Tag";
+var classPath = "lengow.conversiontrackingpaymentmethodpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking - Payment Method Page",

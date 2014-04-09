@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "marinsoftware.conversiontrackingtagextraparameters.Tag";
+var classPath = "marinsoftware.conversiontrackingtagextraparameters" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag - Extra Parameters",

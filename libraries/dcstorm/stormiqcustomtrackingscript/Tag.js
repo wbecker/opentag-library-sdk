@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "dcstorm.stormiqcustomtrackingscript.Tag";
+var classPath = "dcstorm.stormiqcustomtrackingscript" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "StormIQ Custom Tracking Script",

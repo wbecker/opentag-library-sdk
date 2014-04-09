@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "dcstorm.stormiqconfirmationpagetagdeprecated.Tag";
+var classPath = "dcstorm.stormiqconfirmationpagetagdeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "StormIQ Confirmation Page Tag [Deprecated]",

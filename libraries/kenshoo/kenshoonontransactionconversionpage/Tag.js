@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "kenshoo.kenshoonontransactionconversionpage.Tag";
+var classPath = "kenshoo.kenshoonontransactionconversionpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Kenshoo Non-Transaction Conversion Page",

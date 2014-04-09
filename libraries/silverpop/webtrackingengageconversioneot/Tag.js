@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "silverpop.webtrackingengageconversioneot.Tag";
+var classPath = "silverpop.webtrackingengageconversioneot" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Web Tracking (Engage Conversion EOT)",

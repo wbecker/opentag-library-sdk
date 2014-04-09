@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "netbooster.deprecatedconversionpixel.Tag";
+var classPath = "netbooster.deprecatedconversionpixel" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "[DEPRECATED] Conversion Pixel",

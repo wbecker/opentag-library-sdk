@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "commissionjunction.cjconversionpixelincldiscount.Tag";
+var classPath = "commissionjunction.cjconversionpixelincldiscount" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "CJ Conversion Pixel incl. Discount",

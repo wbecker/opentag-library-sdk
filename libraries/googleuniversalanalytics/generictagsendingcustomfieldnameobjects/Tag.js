@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
 var classPath =
-	"googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag";
+	"googleuniversalanalytics.generictagsendingcustomfieldnameobjects" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Generic Tag sending custom Field Name Objects",

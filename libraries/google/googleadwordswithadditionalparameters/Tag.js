@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "google.googleadwordswithadditionalparameters.Tag";
+var classPath = "google.googleadwordswithadditionalparameters" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google AdWords with additional parameters",

@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "google.googledynamicremarketingtagbasketpage.Tag";
+var classPath = "google.googledynamicremarketingtagbasketpage" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Dynamic Remarketing Tag - Basket Page",

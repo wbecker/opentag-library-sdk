@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "affiliatewindow.confirmationtagwithproductdetail.Tag";
+var classPath = "affiliatewindow.confirmationtagwithproductdetail" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag with Product Detail",

@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
 var classPath =
-	"deprecatedtags.googleremarketingwithcustomparametersdeprecated.Tag";
+	"deprecatedtags.googleremarketingwithcustomparametersdeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Remarketing with custom parameters DEPRECATED",

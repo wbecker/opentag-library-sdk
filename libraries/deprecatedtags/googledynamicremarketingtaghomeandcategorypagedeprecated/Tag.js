@@ -1,9 +1,10 @@
 //:include tagsdk-current.js
 var version = "";
 var classPath =
-	"deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated.Tag";
+	"deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Dynamic Remarketing Tag - Home and Category Page [DEPRECATED]",

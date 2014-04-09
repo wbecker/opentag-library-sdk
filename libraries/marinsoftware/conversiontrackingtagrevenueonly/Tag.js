@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "marinsoftware.conversiontrackingtagrevenueonly.Tag";
+var classPath = "marinsoftware.conversiontrackingtagrevenueonly" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag - Revenue only",

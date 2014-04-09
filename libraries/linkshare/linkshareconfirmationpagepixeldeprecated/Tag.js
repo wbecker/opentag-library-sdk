@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "linkshare.linkshareconfirmationpagepixeldeprecated.Tag";
+var classPath = "linkshare.linkshareconfirmationpagepixeldeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "LinkShare Confirmation Page Pixel - DEPRECATED",

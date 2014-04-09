@@ -1,8 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "bazaarvoice.analyticsintegrationcoderequireddataonly.Tag";
+var classPath = "bazaarvoice.analyticsintegrationcoderequireddataonly" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Analytics Integration Code (Required Data Only)",

@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "kenshoo.kenshoothankyoupagetracking.Tag";
+var classPath = "kenshoo.kenshoothankyoupagetracking" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Kenshoo Thank-You Page Tracking",

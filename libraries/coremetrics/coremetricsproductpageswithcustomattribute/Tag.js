@@ -1,8 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "coremetrics.coremetricsproductpageswithcustomattribute.Tag";
+var classPath = "coremetrics.coremetricsproductpageswithcustomattribute" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Product pages (with Custom Attribute)",

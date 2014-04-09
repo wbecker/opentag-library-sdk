@@ -1,8 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googlewebfontloader.googlewebfontloader1019deprecated.Tag";
+var classPath = "googlewebfontloader.googlewebfontloader1019deprecated" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google WebFont Loader 1.0.19 DEPRECATED",

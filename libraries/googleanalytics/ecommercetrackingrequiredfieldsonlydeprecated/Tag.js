@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath =
-	"googleanalytics.ecommercetrackingrequiredfieldsonlydeprecated.Tag";
+var classPath = "googleanalytics.ecommercetrackingrequiredfieldsonlydeprecated" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "E-Commerce Tracking (Required Fields Only) DEPRECATED",

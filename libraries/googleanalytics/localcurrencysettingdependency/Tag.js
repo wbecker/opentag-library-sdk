@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "googleanalytics.localcurrencysettingdependency.Tag";
+var classPath = "googleanalytics.localcurrencysettingdependency" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Local Currency Setting (Dependency)",

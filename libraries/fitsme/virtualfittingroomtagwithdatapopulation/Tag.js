@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "fitsme.virtualfittingroomtagwithdatapopulation.Tag";
+var classPath = "fitsme.virtualfittingroomtagwithdatapopulation" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Virtual Fitting Room Tag - With Data Population",

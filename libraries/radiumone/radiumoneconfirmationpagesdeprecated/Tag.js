@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "radiumone.radiumoneconfirmationpagesdeprecated.Tag";
+var classPath = "radiumone.radiumoneconfirmationpagesdeprecated" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "RadiumOne - Confirmation Pages DEPRECATED",

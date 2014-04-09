@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath =
-	"steelhouse.trackingpixelallpagesexceptproductandconfirmation.Tag";
+var classPath = "steelhouse.trackingpixelallpagesexceptproductandconfirmation" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Tracking Pixel - All Pages Except Product and Confirmation",

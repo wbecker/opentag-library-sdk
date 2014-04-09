@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "cheetahmail.tracktopurchasewithitemtracking.Tag";
+var classPath = "cheetahmail.tracktopurchasewithitemtracking" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Track-to-Purchase with Item Tracking",

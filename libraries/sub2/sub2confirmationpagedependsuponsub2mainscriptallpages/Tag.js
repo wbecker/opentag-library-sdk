@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath =
-	"sub2.sub2confirmationpagedependsuponsub2mainscriptallpages.Tag";
+var classPath = "sub2.sub2confirmationpagedependsuponsub2mainscriptallpages" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Sub2 - Confirmation Page (depends upon \"Sub2 - Main Script - All pages\")",

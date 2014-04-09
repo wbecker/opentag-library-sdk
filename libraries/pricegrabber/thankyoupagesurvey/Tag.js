@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "pricegrabber.thankyoupagesurvey.Tag";
+var classPath = "pricegrabber.thankyoupagesurvey" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Thank You Page Survey",

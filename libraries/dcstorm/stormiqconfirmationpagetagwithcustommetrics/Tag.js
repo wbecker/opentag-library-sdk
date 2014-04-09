@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "dcstorm.stormiqconfirmationpagetagwithcustommetrics.Tag";
+var classPath = "dcstorm.stormiqconfirmationpagetagwithcustommetrics" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "StormIQ Confirmation Page Tag with custom metrics",

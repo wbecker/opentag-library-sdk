@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath =
-	"google.googleadwordswithlessadditionalparametersdeprecated.Tag";
+var classPath = "google.googleadwordswithlessadditionalparametersdeprecated" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google AdWords with less additional parameters DEPRECATED",

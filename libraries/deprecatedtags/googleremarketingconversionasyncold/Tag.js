@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "deprecatedtags.googleremarketingconversionasyncold.Tag";
+var classPath = "deprecatedtags.googleremarketingconversionasyncold" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Remarketing Conversion Async - old",

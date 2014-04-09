@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 var version = "";
 var classPath =
-	"googleuniversalanalytics.googleuniversalanalyticsautosenduvevents.Tag";
+	"googleuniversalanalytics.googleuniversalanalyticsautosenduvevents" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Universal Analytics - auto send UV events",

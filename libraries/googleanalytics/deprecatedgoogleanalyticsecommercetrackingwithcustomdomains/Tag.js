@@ -1,9 +1,10 @@
 //:include tagsdk-current.js
 var version = "";
 var classPath =
-	"googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains.Tag";
+	"googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains" +
+	version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "[DEPRECATED] Google Analytics E-Commerce Tracking with Custom Domains",

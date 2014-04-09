@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
 var version = "";
-var classPath = "webtrends.webtrendsbasicmultitrack.Tag";
+var classPath = "webtrends.webtrendsbasicmultitrack" + version;
 
-qubit.opentag.LibraryTag.define(classPath + version, {
+qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
 		name: "Webtrends - basic multiTrack",
