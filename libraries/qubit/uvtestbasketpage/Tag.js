@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.uvtestbasketpage.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.uvtestbasketpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "UV Test - Basket Page",
@@ -107,7 +109,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtestbasketpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 console.log("" + this.valueForToken("a") + "");
 console.log("" + this.valueForToken("b") + "");
@@ -124,14 +126,14 @@ console.log("" + this.valueForToken("l") + "");
 console.log("" + this.valueForToken("m") + "");
 console.log("" + this.valueForToken("n") + "");
 console.log("" + this.valueForToken("o") + "");
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

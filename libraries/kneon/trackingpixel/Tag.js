@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "kneon.trackingpixel.Tag";
 
-qubit.opentag.LibraryTag.define("kneon.trackingpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Tracking Pixel",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("kneon.trackingpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var img = new Image();
   var productsArr = [];
@@ -64,14 +66,14 @@ qubit.opentag.LibraryTag.define("kneon.trackingpixel.Tag", {
     productsArr.push(escape("products[" + i + "][quantity]") + "=" + this.valueForToken("product_qty_list")[i]);
   }
   img.src = "https://www.ktrkng.com/image.gif?amount=" + this.valueForToken("total") + "&rid=" + this.valueForToken("client_id") + "&oid=" + this.valueForToken("order_id") + "&" + productsArr.join("&");
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

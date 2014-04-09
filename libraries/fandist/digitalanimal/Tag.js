@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "fandist.digitalanimal.Tag";
 
-qubit.opentag.LibraryTag.define("fandist.digitalanimal.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Digital Animal",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("fandist.digitalanimal.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   (function () {
     var uv = window.universal_variable || {};
@@ -31,14 +33,14 @@ qubit.opentag.LibraryTag.define("fandist.digitalanimal.Tag", {
     var fandImage= new Image();
     fandImage.src = src;
   })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

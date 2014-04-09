@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sociomantic.deprecatedconfirmationpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("sociomantic.deprecatedconfirmationpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "{DEPRECATED} Confirmation Page Tag",
@@ -59,11 +61,11 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedconfirmationpagetag.Tag",
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var basket = {
    products: []
 };
@@ -81,10 +83,10 @@ basket.transaction = '' + this.valueForToken("transaction_id") + '';
 basket.amount = '' + this.valueForToken("checkout_total") + '';
 basket.currency = '' + this.valueForToken("currency") + '';
 window.basket = basket;
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

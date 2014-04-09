@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "commissionjunction.cjconversionpixelincldiscount.Tag";
 
-qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixelincldiscount.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CJ Conversion Pixel incl. Discount",
@@ -77,7 +79,7 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixelincldiscoun
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function() 
@@ -110,14 +112,14 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixelincldiscoun
   document.body.appendChild(iframe);
 }());
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

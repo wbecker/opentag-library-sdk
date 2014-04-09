@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.ecommercetrackingrequiredfieldsonly.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfieldsonly.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "E-Commerce Tracking (Required Fields Only)",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfields
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -94,14 +96,14 @@ qubit.opentag.LibraryTag.define("googleanalytics.ecommercetrackingrequiredfields
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

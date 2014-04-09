@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mediamind.basketpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("mediamind.basketpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Basket Page Tag",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var ebRev = "" + this.valueForToken("order_total") + "";
 var ebOrderID = "" + this.valueForToken("order_id") + "";
@@ -83,14 +85,14 @@ var ebRand = Math.random() * 1000000;
 
 })()
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "nextperformance.homepagetag.Tag";
 
-qubit.opentag.LibraryTag.define("nextperformance.homepagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Home Page Tag",
@@ -23,15 +25,15 @@ qubit.opentag.LibraryTag.define("nextperformance.homepagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

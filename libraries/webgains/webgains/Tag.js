@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webgains.webgains.Tag";
 
-qubit.opentag.LibraryTag.define("webgains.webgains.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "WebGains",
@@ -107,7 +109,7 @@ qubit.opentag.LibraryTag.define("webgains.webgains.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   var wgItems = function ()
@@ -164,14 +166,14 @@ qubit.opentag.LibraryTag.define("webgains.webgains.Tag", {
   var img = new Image();
   img.src = wgUri;
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

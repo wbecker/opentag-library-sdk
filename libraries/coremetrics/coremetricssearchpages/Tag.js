@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "coremetrics.coremetricssearchpages.Tag";
 
-qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Search Pages",
@@ -65,15 +67,15 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   // Client Setup
@@ -94,6 +96,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.Tag", {
 
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

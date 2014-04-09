@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zanox.zanoxconfirmationpagewithorderdetails.Tag";
 
-qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Zanox - Confirmation Page with Order Details",
@@ -95,7 +97,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
     //Define a function to ensure all product details are HTML encoded.
@@ -168,14 +170,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithorderdetails.Tag
     waitForZanoxDiv();
 
  
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

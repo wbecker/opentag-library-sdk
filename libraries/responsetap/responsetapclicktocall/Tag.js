@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "responsetap.responsetapclicktocall.Tag";
 
-qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Response Tap Click to Call",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var adiInit = "" + this.valueForToken("ACCOUNT_ID") + "";
   var adiRVO = true;
@@ -36,14 +38,14 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(adiSrc, s);
   })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

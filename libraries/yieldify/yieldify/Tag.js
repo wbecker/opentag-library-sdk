@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "yieldify.yieldify.Tag";
 
-qubit.opentag.LibraryTag.define("yieldify.yieldify.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Yieldify",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("yieldify.yieldify.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function(d) {
 var e = d.createElement('script');
@@ -31,14 +33,14 @@ e.src = d.location.protocol + '//app.yieldify.com/yieldify/code.js?yieldify_id='
 e.async = true;
 d.getElementsByTagName("head")[0].appendChild(e);
 }(document));
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

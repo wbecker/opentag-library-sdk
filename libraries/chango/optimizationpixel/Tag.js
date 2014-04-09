@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "chango.optimizationpixel.Tag";
 
-qubit.opentag.LibraryTag.define("chango.optimizationpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Optimization Pixel",
@@ -23,16 +25,16 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var __cho__ = {"pid":this.valueForToken("id")};
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

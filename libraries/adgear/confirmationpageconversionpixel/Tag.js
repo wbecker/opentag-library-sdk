@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "adgear.confirmationpageconversionpixel.Tag";
 
-qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Conversion Pixel",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
   if (typeof ADGEAR == "undefined") {
@@ -64,14 +66,14 @@ qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
     waitForAdgear();
   }
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

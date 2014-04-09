@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mediaplex.vouchercodeenterediframe.Tag";
 
-qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Voucher code entered iframe",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function(){
 
@@ -55,14 +57,14 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
   document.body.appendChild(frame);
 
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

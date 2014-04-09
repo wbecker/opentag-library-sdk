@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "google.googleremarketingonlyaynsc.Tag";
 
-qubit.opentag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Remarketing Only Aynsc",
@@ -23,15 +25,15 @@ qubit.opentag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 var poll = function() {
   if (window.google_trackConversion) {
     window.google_trackConversion({
@@ -44,6 +46,6 @@ var poll = function() {
   }
 };
 poll();
-		/*~POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "conexance.nonbasketconfirmation.Tag";
 
-qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Non basket/confirmation",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
 
@@ -69,14 +71,14 @@ qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
   });
 
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

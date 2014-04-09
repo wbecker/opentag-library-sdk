@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "google.googleadwordsconversionsynchronousdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google AdWords Conversion Synchronous (Deprecated)",
@@ -10,7 +12,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprec
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 		locationDetail: "",
 		isPrivate: true,
-		url: "[www.googleadservices.com/pagead/conversion.js,d3c3cq33003psk.cloudfront.net/opentag-89656-965376.js]",
+		url: "www.googleadservices.com/pagead/conversion.js",
 		usesDocWrite: true,
 		parameters: [
 		{
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprec
 			name: "Conversion Color",
 			description: "The color of the displayed pixel, something like 666666 or FFFFFF",
 			token: "conversion_color",
-			uv: "koko"
+			uv: ""
 		},
 		{
 			name: "Conversion Label",
@@ -53,21 +55,21 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionsynchronousdeprec
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-	    var google_conversion_id =this.valueForToken("conversion_id"); 
-	    var google_conversion_language = "" + this.valueForToken("language") + ""; 
-	    var google_conversion_format = "" + this.valueForToken("format") + "";
-	    var google_conversion_color = "" + this.valueForToken("conversion_color") + ""; 
-	    var google_conversion_label = "" + this.valueForToken("label") + ""; 
-	    var google_conversion_value = this.valueForToken("value");
-		/*~PRE*/
+	/*PRE*/
+var google_conversion_id =this.valueForToken("conversion_id"); 
+var google_conversion_language = "" + this.valueForToken("language") + ""; 
+var google_conversion_format = "" + this.valueForToken("format") + "";
+var google_conversion_color = "" + this.valueForToken("conversion_color") + ""; 
+var google_conversion_label = "" + this.valueForToken("label") + ""; 
+var google_conversion_value = this.valueForToken("value");
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

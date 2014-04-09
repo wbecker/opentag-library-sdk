@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mythings.visitortag.Tag";
 
-qubit.opentag.LibraryTag.define("mythings.visitortag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Visitor Tag",
@@ -29,11 +31,11 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 function _mt_ready(){
    if (typeof(MyThings) != "undefined") {
        MyThings.Track({
@@ -45,10 +47,10 @@ function _mt_ready(){
 
   window.mtHost = (("https:" == document.location.protocol) ? "https://" + this.valueForToken("subdomain") + "" : "http://" + this.valueForToken("subdomain") + "") + ".mythings.com";
   window.mtAdvertiserToken = "" + this.valueForToken("token") + "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

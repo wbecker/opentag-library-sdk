@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "[DEPRECATED] Google Analytics E-Commerce Tracking with Custom Domains",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecomme
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 \\d
 (function() {
   window._gaq = window._gaq || [];
@@ -54,14 +56,14 @@ qubit.opentag.LibraryTag.define("googleanalytics.deprecatedgoogleanalyticsecomme
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

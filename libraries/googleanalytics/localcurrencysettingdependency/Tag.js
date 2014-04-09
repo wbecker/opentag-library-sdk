@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.localcurrencysettingdependency.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.localcurrencysettingdependency.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Local Currency Setting (Dependency)",
@@ -23,17 +25,18 @@ qubit.opentag.LibraryTag.define("googleanalytics.localcurrencysettingdependency.
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		window._gaq = window._gaq || [];
-		_gaq.push(['_set', 'currencyCode', this.valueForToken("currency")]);
-		/*~SCRIPT*/
+	/*SCRIPT*/
+
+  window._gaq = window._gaq || [];
+  _gaq.push(['_set', ‘currencyCode’, ‘this.valueForToken("currency")’]);
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

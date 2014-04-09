@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sovendus.sovendusdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Sovendus [DEPRECATED]",
@@ -83,7 +85,7 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var sovendusNewDate = new Date();
   var sovendusTimestamp = sovendusNewDate.getTime();
@@ -113,14 +115,14 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.Tag", {
     sovendusScript.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + "api.gutscheinconnection.de/js/client.js" ;
     sovendusScript.async = "true"; 
   })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.conversiontrackingtagstandard.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagstandard.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag - Standard",
@@ -71,7 +73,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagstandard.Tag
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function () 
@@ -115,14 +117,14 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagstandard.Tag
    })();
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

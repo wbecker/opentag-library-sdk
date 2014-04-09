@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "intelligentreach.basketpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("intelligentreach.basketpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Basket Page Tag",
@@ -29,11 +31,11 @@ qubit.opentag.LibraryTag.define("intelligentreach.basketpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 istCompanyId = "" + this.valueForToken("id") + "";
 istItemCount = this.valueForToken("productSku").length;
 istBasketItems = "";
@@ -48,10 +50,10 @@ for(var i = 0; i < this.valueForToken("productSku").length; i++) {
 istUserDefinedFieldOne = "";
 istUserDefinedFieldTwo = "";
 istUserDefinedFieldThree = "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

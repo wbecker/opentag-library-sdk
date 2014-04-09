@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zanox.zanoxgenericmastertag.Tag";
 
-qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "zanox Generic MasterTag",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 		window._zx = window._zx || [];
 		window._zx.push({"id":"" + this.valueForToken("zanoxPageId") + ""});
@@ -45,14 +47,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
                 };
                 waitForZanoxDiv();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

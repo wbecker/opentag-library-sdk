@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "snowplowanalytics.snowplowpagetracker.Tag";
 
-qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Snowplow PageTracker",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _snaq = _snaq || [];
 
@@ -50,14 +52,14 @@ sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

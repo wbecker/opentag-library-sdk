@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.clicktrackingtagdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtagdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Click Tracking Tag [DEPRECATED]",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtagdeprecated.Tag", 
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 var _mTrack = window._mTrack || [];
@@ -41,14 +43,14 @@ _mTrack.push(['trackPage']);
    var fscr = document.getElementsByTagName('script')[0]; fscr.parentNode.insertBefore(mt, fscr);
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

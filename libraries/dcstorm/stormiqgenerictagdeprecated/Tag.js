@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "dcstorm.stormiqgenerictagdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictagdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "StormIQ Generic Tag - Deprecated",
@@ -35,17 +37,17 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictagdeprecated.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.__stormJs ='t1.stormiq.com/dcv4/jslib/' + this.valueForToken("storm_id") + '.js'; 
 window.__ch = '' + this.valueForToken("channel") + '';
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "weborama.weboramawreport.Tag";
 
-qubit.opentag.LibraryTag.define("weborama.weboramawreport.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Weborama - WReport",
@@ -41,11 +43,11 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var WRP_ID= this.valueForToken("WRP_ID");
 var WRP_SECTION='' + this.valueForToken("SECTION") + '';
 var WRP_SUBSECTION='' + this.valueForToken("SUBSECTION") + '';
@@ -53,12 +55,12 @@ wreport_ok=0;
 
 /* Profondeur Frame */
 var WRP_ACC;
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 if(wreport_ok==1){ var w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID, WRP_ACC);
 w_counter.count();}
-		/*~POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "evidon.eusitenotice.Tag";
 
-qubit.opentag.LibraryTag.define("evidon.eusitenotice.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "EU Site Notice",
@@ -29,21 +31,21 @@ qubit.opentag.LibraryTag.define("evidon.eusitenotice.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   (function() {
     var hn = document.createElement('script'); hn.type = 'text/javascript'; hn.async = true; hn.setAttribute('data-ev-hover-pid', this.valueForToken("page_id")); hn.setAttribute('data-ev-hover-ocid', this.valueForToken("client_id"));
     hn.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/geo/h1.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hn, s);
   })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

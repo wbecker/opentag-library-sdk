@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "visualdna.emailsync.Tag";
 
-qubit.opentag.LibraryTag.define("visualdna.emailsync.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Email Sync",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("visualdna.emailsync.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.VDNA = window.VDNA || {};
 window.VDNA.queue = window.VDNA.queue || [];
@@ -38,14 +40,14 @@ window.VDNA.queue.push({
   method : "reportConversion",
   args :[ "sync", {"partner_user_id" : "" + this.valueForToken("email") + "", "partner_user_id_type" : "e"}]
 });
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "fitsme.virtualfittingroom.Tag";
 
-qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Virtual Fitting Room",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAllowLinker', true]);
@@ -30,14 +32,14 @@ _gaq.push(['_setAllowHash', false]);
   fmScript.src = unescape(fmJsHost + "://www.fits.me/vfr.js");
   document.head.appendChild(fmScript);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

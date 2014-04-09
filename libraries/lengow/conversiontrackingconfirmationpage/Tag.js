@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "lengow.conversiontrackingconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("lengow.conversiontrackingconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking - Confirmation Page",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("lengow.conversiontrackingconfirmationpage.Tag",
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function(){
 var lengowTrackPixel = new Image();
@@ -49,14 +51,14 @@ var lengowTrackPixel = new Image();
 lengowTrackPixel.src = "https://tracking.lengow.com/leadValidation.php?idClient=" + this.valueForToken("lengow_customer_id") + "&idGroup=" + this.valueForToken("lengow_group_id") + "&price=" + this.valueForToken("lengow_order_value") + "&idCommande=" + this.valueForToken("lengow_order_id") + "";
 lengowTrackPixel.alt= "";
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

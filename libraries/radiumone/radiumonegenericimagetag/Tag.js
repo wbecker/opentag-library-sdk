@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "radiumone.radiumonegenericimagetag.Tag";
 
-qubit.opentag.LibraryTag.define("radiumone.radiumonegenericimagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "RadiumOne - Generic image tag",
@@ -23,20 +25,20 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenericimagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
   var img = new Image();
   img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") + "r" + Math.round(Math.random()*10000000);
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

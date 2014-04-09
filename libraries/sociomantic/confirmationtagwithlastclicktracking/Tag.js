@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sociomantic.confirmationtagwithlastclicktracking.Tag";
 
-qubit.opentag.LibraryTag.define("sociomantic.confirmationtagwithlastclicktracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag (with last click tracking)",
@@ -71,11 +73,11 @@ qubit.opentag.LibraryTag.define("sociomantic.confirmationtagwithlastclicktrackin
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var sale = {
   confirmed: true
 };
@@ -126,10 +128,10 @@ if (user_id && user_id.toLowerCase() !== "false"){
   var parts = document.cookie.split("qb_sm_uid=");
   if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 }
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

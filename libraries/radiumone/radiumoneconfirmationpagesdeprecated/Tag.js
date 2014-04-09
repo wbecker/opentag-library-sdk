@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "radiumone.radiumoneconfirmationpagesdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "RadiumOne - Confirmation Pages DEPRECATED",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 
@@ -49,14 +51,14 @@ qubit.opentag.LibraryTag.define("radiumone.radiumoneconfirmationpagesdeprecated.
   iframe.scrolling = 'no';
   document.body.appendChild(iframe);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

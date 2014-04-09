@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sub2.sub2contactdetailsdependsuponsub2mainscriptallpages.Tag";
 
-qubit.opentag.LibraryTag.define("sub2.sub2contactdetailsdependsuponsub2mainscriptallpages.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Sub2 - Contact Details (depends upon \"Sub2 - Main Script - All pages\")",
@@ -71,7 +73,7 @@ qubit.opentag.LibraryTag.define("sub2.sub2contactdetailsdependsuponsub2mainscrip
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function ()
@@ -93,14 +95,14 @@ qubit.opentag.LibraryTag.define("sub2.sub2contactdetailsdependsuponsub2mainscrip
 
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

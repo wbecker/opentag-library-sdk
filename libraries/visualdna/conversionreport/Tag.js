@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "visualdna.conversionreport.Tag";
 
-qubit.opentag.LibraryTag.define("visualdna.conversionreport.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Report",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("visualdna.conversionreport.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function ()
 {
@@ -67,14 +69,14 @@ qubit.opentag.LibraryTag.define("visualdna.conversionreport.Tag", {
     args : args
   });
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

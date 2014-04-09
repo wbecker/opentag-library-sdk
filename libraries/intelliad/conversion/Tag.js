@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "intelliad.conversion.Tag";
 
-qubit.opentag.LibraryTag.define("intelliad.conversion.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion",
@@ -77,7 +79,7 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var ia_v = "" + this.valueForToken("order_total") + "";
   var ia_vz = "" + this.valueForToken("order_type") + ""; // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
@@ -112,14 +114,14 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.Tag", {
   var script = document.createElement("script");
   script.src = ia_link;
   document.getElementsByTagName("head")[0].appendChild(script);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

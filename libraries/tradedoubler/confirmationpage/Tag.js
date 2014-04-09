@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "tradedoubler.confirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page",
@@ -89,7 +91,7 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function ()
@@ -137,14 +139,14 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.Tag", {
   document.body.appendChild(img);
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

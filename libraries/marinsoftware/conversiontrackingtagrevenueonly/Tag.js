@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.conversiontrackingtagrevenueonly.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagrevenueonly.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag - Revenue only",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagrevenueonly.
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _mf = document.createElement("form");
 _mf.style.display = "none";
@@ -88,14 +90,14 @@ _ml.onreadystatechange = function () {
   }
 };
 document.body.appendChild(_ml);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

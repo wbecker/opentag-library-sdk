@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mediaplex.conversioniframe.Tag";
 
-qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion iframe",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function(){
   var item_count = 0;
@@ -75,14 +77,14 @@ qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.Tag", {
   frame.frameborder = 0;
   document.body.appendChild(frame);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

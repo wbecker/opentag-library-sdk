@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sovendus.sovendusallfields.Tag";
 
-qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Sovendus [All Fields]",
@@ -83,7 +85,7 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function()
@@ -146,14 +148,14 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.Tag", {
 
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

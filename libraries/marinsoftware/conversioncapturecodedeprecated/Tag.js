@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.conversioncapturecodedeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Capture Code [DEPRECATED]",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.T
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   window._mTrack = window._mTrack || [];
@@ -100,14 +102,14 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversioncapturecodedeprecated.T
       var fscr = document.getElementsByTagName('script')[0]; fscr.parentNode.insertBefore(mt, fscr);
   })();
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

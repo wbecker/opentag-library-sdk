@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "d7search.d7searchconversion.Tag";
 
-qubit.opentag.LibraryTag.define("d7search.d7searchconversion.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "7Search Conversion",
@@ -35,20 +37,16 @@ qubit.opentag.LibraryTag.define("d7search.d7searchconversion.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-	    alert(this.valueForToken("transaction_total"));
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-	    var _7search_conversion_advid = this.valueForToken("7search_advertiserid");
-	    var _7search_conversion_urlid = this.valueForToken("7search_urlid");
-	    var _7search_conversion_type = "purchase";
-	    var _7search_conversion_value = this.valueForToken("transaction_total");
-		/*~PRE*/
+	/*PRE*/
+var _7search_conversion_advid = this.valueForToken("7search_advertiserid"); var _7search_conversion_urlid = this.valueForToken("7search_urlid"); var _7search_conversion_type = "purchase"; var _7search_conversion_value = this.valueForToken("transaction_total");
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

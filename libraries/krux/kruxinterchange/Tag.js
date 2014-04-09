@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "krux.kruxinterchange.Tag";
 
-qubit.opentag.LibraryTag.define("krux.kruxinterchange.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Krux Interchange",
@@ -41,11 +43,11 @@ qubit.opentag.LibraryTag.define("krux.kruxinterchange.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var KRUXSetup = {
    pubid:"" + this.valueForToken("publisher_id") + "",
    site:"" + this.valueForToken("site_url") + "",
@@ -53,10 +55,10 @@ var KRUXSetup = {
    subSection:"" + this.valueForToken("subsection") + "",
    async:true
 };
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

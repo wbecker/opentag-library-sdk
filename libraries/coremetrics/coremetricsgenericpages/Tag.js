@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "coremetrics.coremetricsgenericpages.Tag";
 
-qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Generic pages",
@@ -53,15 +55,15 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   // Top level settings  
@@ -79,6 +81,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.Tag", {
   );
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

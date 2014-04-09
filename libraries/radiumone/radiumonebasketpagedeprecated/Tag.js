@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "radiumone.radiumonebasketpagedeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "RadiumOne - Basket Page DEPRECATED",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 
@@ -51,14 +53,14 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
 
 
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "kissmetrics.kissinsightssurvey.Tag";
 
-qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "KissInsights Survey",
@@ -29,16 +31,16 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var _kiq = _kiq || [];
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

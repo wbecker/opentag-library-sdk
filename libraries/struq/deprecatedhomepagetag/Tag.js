@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "struq.deprecatedhomepagetag.Tag";
 
-qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "[Deprecated] Home Page Tag",
@@ -18,11 +20,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var _struqPI = _struqPI || [];
 
 _struqPI.push(['injectTrackingPixel', {
@@ -33,10 +35,10 @@ _struqPI.push(['injectTrackingPixel', {
     timeoutMs: 2000
   }
 }]);
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

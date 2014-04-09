@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.googleanalyticswithdisplaysupportandenhancedlinkattribution.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticswithdisplaysupportandenhancedlinkattribution.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Analytics with display support and enhanced link attribution",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticswithdisplaysuppo
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _gaq = _gaq || [];
 var pluginUrl = "//www.google-analytics.com/plugins/ga/inpage_linkid.js";
@@ -35,14 +37,14 @@ _gaq.push(['_trackPageview']);
   ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

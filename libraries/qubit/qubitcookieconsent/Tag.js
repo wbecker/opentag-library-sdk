@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.qubitcookieconsent.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Qubit Cookie Consent",
@@ -29,11 +31,11 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var mainText = "For this website to run at its best, we ask the browser (like Google Chrome and Internet Explorer) for a little personal information. Nothing drastic, just enough to remember your preferences, login ID, and what you like to look at (on our site). Having this information to hand helps us understand your needs and improve our service to you.";
 
 var cookiesAndPrivacyStatementUrl = "" + this.valueForToken("linkHref") + "";
@@ -145,10 +147,10 @@ qcw.onUserDismiss = function (reason)
     window._q_ping("consentDismiss", reason);
   }
 };
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

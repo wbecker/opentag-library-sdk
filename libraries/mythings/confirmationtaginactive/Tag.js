@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mythings.confirmationtaginactive.Tag";
 
-qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag - INACTIVE",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var i = 0, productIDArray = this.valueForToken("product_ids"), productPriceArray = this.valueForToken("product_prices"), productQuantityArray = this.valueForToken("product_quantities"), productIDArrayLength = productIDArray.length, productArray = [];
 
@@ -81,14 +83,14 @@ var mtHost = (("https:" == document.location.protocol) ? "https://rainbowx" : "h
 var mtAdvertiserToken = "" + this.valueForToken("advertiser_token") + "";
 document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok="+mtAdvertiserToken+"' type='text/
 javascript'%3E%3C/script%3E"));
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

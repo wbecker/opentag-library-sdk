@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "quantcast.quantcastwebmeasurement.Tag";
 
-qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "QuantCast Web Measurement",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window._qevents = window._qevents || [];
 
@@ -36,14 +38,14 @@ window._qevents = window._qevents || [];
   document.getElementsByTagName("head")[0].appendChild(e);
 _qevents.push( { qacct:"" + this.valueForToken("id") + ""} );
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

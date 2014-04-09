@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "rocketfuel.homepage.Tag";
 
-qubit.opentag.LibraryTag.define("rocketfuel.homepage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Home Page",
@@ -35,18 +37,18 @@ qubit.opentag.LibraryTag.define("rocketfuel.homepage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var img = new Image();
   img.src = "//" + this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" + this.valueForToken("merchant_id") + "&ca=" + this.valueForToken("campaign_id") + "&ra=" + this.valueForToken("random") + ""
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

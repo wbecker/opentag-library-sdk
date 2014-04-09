@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "evidon.ussitenoticeinpage.Tag";
 
-qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "US Site Notice (In-Page)",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   (function() {
     var lnk;
@@ -84,14 +86,14 @@ qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
       }
     }
   })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

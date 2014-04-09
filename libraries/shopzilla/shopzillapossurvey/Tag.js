@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "shopzilla.shopzillapossurvey.Tag";
 
-qubit.opentag.LibraryTag.define("shopzilla.shopzillapossurvey.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Shopzilla POS Survey",
@@ -71,11 +73,11 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillapossurvey.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 // Offset. Input blank to default to center.
 var passX = "" + this.valueForToken("passin_x") + "";
 var passY = "" + this.valueForToken("passin_y") + "";
@@ -102,10 +104,10 @@ for (var i = 0; i < Math.min(5, this.valueForToken("skus").length); i++) {
 };
 
 var productsPurchased = productsPurchasedArr.join("|");
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

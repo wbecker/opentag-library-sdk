@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "clicktale.clicktalebalkan.Tag";
 
-qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "ClickTale - Balkan",
@@ -23,16 +25,16 @@ qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.WRInitTime=(new Date()).getTime();
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

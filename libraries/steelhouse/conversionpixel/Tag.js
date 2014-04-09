@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "steelhouse.conversionpixel.Tag";
 
-qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Pixel",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   function shaddslashes(e) {
     "use strict";
@@ -246,14 +248,14 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
       };
       e.load()
     })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

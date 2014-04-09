@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "salecycle.deprecatedsalecycleconfirmationpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "DEPRECATED SaleCycle Confirmation Page Tag",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpageta
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var src = [
@@ -41,14 +43,14 @@ qubit.opentag.LibraryTag.define("salecycle.deprecatedsalecycleconfirmationpageta
   img.setAttribute('src', src);
   document.body.append(img);
 })()
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

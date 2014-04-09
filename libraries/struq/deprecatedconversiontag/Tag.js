@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "struq.deprecatedconversiontag.Tag";
 
-qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "[Deprecated] Conversion Tag",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function (){
   var rnd, ifrm = document.createElement("IFRAME"), i = 0, ii = this.valueForToken("product_id_list").length, id_string = "";
@@ -61,14 +63,14 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.Tag", {
   ifrm.style.display = 'none';
   document.body.appendChild(ifrm);
 }())
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

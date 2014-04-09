@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "silverpop.webtrackingengageconversioneot.Tag";
 
-qubit.opentag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Web Tracking (Engage Conversion EOT)",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", 
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var x = document.createElement("script");
   x.src = (document.location.protocol === "https:") 
@@ -55,14 +57,14 @@ qubit.opentag.LibraryTag.define("silverpop.webtrackingengageconversioneot.Tag", 
     : "" + this.valueForToken("non_secure_domain") + "";
   x.type = "text/javascript";
   document.getElementsByTagName("head")[0].appendChild(x);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

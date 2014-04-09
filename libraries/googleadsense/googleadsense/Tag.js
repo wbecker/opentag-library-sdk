@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleadsense.googleadsense.Tag";
 
-qubit.opentag.LibraryTag.define("googleadsense.googleadsense.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Adsense",
@@ -47,15 +49,15 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   window.adsbygoogle = window.adsbygoogle || [];
@@ -73,6 +75,6 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.Tag", {
   window.adsbygoogle.push({});
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

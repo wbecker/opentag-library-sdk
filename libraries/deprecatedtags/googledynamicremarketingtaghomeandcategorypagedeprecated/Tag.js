@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Dynamic Remarketing Tag - Home and Category Page [DEPRECATED]",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("deprecatedtags.googledynamicremarketingtaghomea
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
    var google_tag_params = {
@@ -59,14 +61,14 @@ qubit.opentag.LibraryTag.define("deprecatedtags.googledynamicremarketingtaghomea
    script.src = "//www.googleadservices.com/pagead/conversion.js";
    document.head.appendChild(script);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

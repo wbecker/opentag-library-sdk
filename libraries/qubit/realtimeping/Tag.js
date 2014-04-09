@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.realtimeping.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.realtimeping.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Realtime Ping",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
 
@@ -154,14 +156,14 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.Tag", {
   });
 
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

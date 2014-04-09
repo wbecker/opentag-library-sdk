@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "freespee.yetanotheroopsiforgottochangethedefaultstag.Tag";
 
-qubit.opentag.LibraryTag.define("freespee.yetanotheroopsiforgottochangethedefaultstag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Yet another \"oops I forgot to change the defaults\" tag",
@@ -18,11 +20,11 @@ qubit.opentag.LibraryTag.define("freespee.yetanotheroopsiforgottochangethedefaul
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var basket = {
    products: []
 };
@@ -47,10 +49,10 @@ if (uid){
   var customer = window.customer || {};
   customer.identifier = uid;
 }
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

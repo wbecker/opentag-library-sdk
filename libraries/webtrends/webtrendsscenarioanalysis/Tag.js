@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webtrends.webtrendsscenarioanalysis.Tag";
 
-qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Webtrends - Scenario analysis",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.dcsMultiTrack({
   "WT.si_n": "" + this.valueForToken("name") + "",
@@ -49,14 +51,14 @@ window.dcsMultiTrack({
   "WT.si_x": this.valueForToken("step_position"),
   "WT.si_cs": this.valueForToken("step_where_conversion_occurs")
 });
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

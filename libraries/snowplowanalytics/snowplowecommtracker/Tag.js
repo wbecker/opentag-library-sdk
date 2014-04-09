@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "snowplowanalytics.snowplowecommtracker.Tag";
 
-qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Snowplow EcommTracker",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var sp_t=window.universal_variable.transaction;
 
@@ -50,14 +52,14 @@ for(i=0; i < sp_t.line_items.length; i++){
 // Finally fire the 'trackTrans' event to commit the transaction
 _snaq.push(['trackTrans']);
 }
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

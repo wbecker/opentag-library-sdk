@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "chango.conversionpixel.Tag";
 
-qubit.opentag.LibraryTag.define("chango.conversionpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Pixel",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("chango.conversionpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
     var __chconv__ = {
       "order_id":"" + this.valueForToken("order_id") + "",
@@ -62,14 +64,14 @@ qubit.opentag.LibraryTag.define("chango.conversionpixel.Tag", {
         for(var i in __chconv__){p.push(e(i) + "=" + e(__chconv__[i]))}
         (new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' + (new Date()).getTime() + '?' + p.join("&");
     })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

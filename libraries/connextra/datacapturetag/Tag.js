@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "connextra.datacapturetag.Tag";
 
-qubit.opentag.LibraryTag.define("connextra.datacapturetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Data Capture Tag",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("connextra.datacapturetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
       var cxt_conf = cxt_conf || {};
       cxt_conf.clientId = cxt_conf.clientId || '' + this.valueForToken("client_id") + '';
@@ -53,14 +55,14 @@ qubit.opentag.LibraryTag.define("connextra.datacapturetag.Tag", {
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ca, s);
       })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

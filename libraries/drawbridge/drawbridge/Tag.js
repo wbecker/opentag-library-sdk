@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "drawbridge.drawbridge.Tag";
 
-qubit.opentag.LibraryTag.define("drawbridge.drawbridge.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Drawbridge",
@@ -41,19 +43,19 @@ qubit.opentag.LibraryTag.define("drawbridge.drawbridge.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var drawbridge_partner_id = "" + this.valueForToken("partner_id") + "";
 var drawbridge_partner_sign = "" + this.valueForToken("partner_sign") + "";
 var drawbridge_app_id = "" + this.valueForToken("app_id") + "";
 var drawbridge_label = "" + this.valueForToken("label") + "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

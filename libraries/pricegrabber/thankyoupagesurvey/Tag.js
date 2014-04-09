@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "pricegrabber.thankyoupagesurvey.Tag";
 
-qubit.opentag.LibraryTag.define("pricegrabber.thankyoupagesurvey.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Thank You Page Survey",
@@ -47,20 +49,20 @@ qubit.opentag.LibraryTag.define("pricegrabber.thankyoupagesurvey.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.popup_pos_x = Number("" + this.valueForToken("x") + "");
 window.popup_pos_y = Number("" + this.valueForToken("y") + "");
 
 window.popup_order_number = "" + this.valueForToken("order_id") + "";
 window.popup_email = "" + this.valueForToken("email") + "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

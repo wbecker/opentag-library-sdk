@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "lyris.clicktracksconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Click Tracks Confirmation Page",
@@ -29,16 +31,16 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.CT_C_OrderTotal = '' + this.valueForToken("order_total") + '';
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

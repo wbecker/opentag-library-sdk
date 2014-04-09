@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.ecommercetrackingcustomdomainsanddomainlinker.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.ecommercetrackingcustomdomainsanddomainlinker.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "E-Commerce Tracking (Custom domains and Domain Linker)",
@@ -107,7 +109,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.ecommercetrackingcustomdomainsa
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
   window._gaq = window._gaq || [];
@@ -144,14 +146,14 @@ qubit.opentag.LibraryTag.define("googleanalytics.ecommercetrackingcustomdomainsa
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

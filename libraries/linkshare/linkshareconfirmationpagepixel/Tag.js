@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "linkshare.linkshareconfirmationpagepixel.Tag";
 
-qubit.opentag.LibraryTag.define("linkshare.linkshareconfirmationpagepixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "LinkShare Confirmation Page Pixel",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("linkshare.linkshareconfirmationpagepixel.Tag", 
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
 
@@ -95,14 +97,14 @@ qubit.opentag.LibraryTag.define("linkshare.linkshareconfirmationpagepixel.Tag", 
   x.src = "//track.linksynergy.com/ep?mid=" + this.valueForToken("mid") + "&ord=" + this.valueForToken("order_id") + "&skulist="+ skuList.join("|") +"&qlist="+ qList.join("|") +"&amtlist="+ amtList.join("|") +"&cur=" + this.valueForToken("cur") + "&namelist="+ nameList.join("|");
   document.body.appendChild(x);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

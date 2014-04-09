@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "cheetahmail.tracktopurchasewithitemtracking.Tag";
 
-qubit.opentag.LibraryTag.define("cheetahmail.tracktopurchasewithitemtracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Track-to-Purchase with Item Tracking",
@@ -77,7 +79,7 @@ qubit.opentag.LibraryTag.define("cheetahmail.tracktopurchasewithitemtracking.Tag
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function(){
@@ -94,14 +96,14 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.googleanalyticscustomdomains.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Analytics - Custom Domains",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Ta
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
  
  var _gaq = _gaq || [];
@@ -43,14 +45,14 @@ qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticscustomdomains.Ta
  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
  })();
  
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

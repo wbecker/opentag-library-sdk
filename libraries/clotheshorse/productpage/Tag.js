@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "clotheshorse.productpage.Tag";
 
-qubit.opentag.LibraryTag.define("clotheshorse.productpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Product Page",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("clotheshorse.productpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
     var ch212 = ch212 || []; 
     ch212['token'] = '' + this.valueForToken("client_token") + ''; 
@@ -38,14 +40,14 @@ qubit.opentag.LibraryTag.define("clotheshorse.productpage.Tag", {
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ch, s);
     })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

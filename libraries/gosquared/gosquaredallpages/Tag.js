@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "gosquared.gosquaredallpages.Tag";
 
-qubit.opentag.LibraryTag.define("gosquared.gosquaredallpages.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "GoSquared - all pages",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("gosquared.gosquaredallpages.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var GoSquared = {};
 GoSquared.acct = "" + this.valueForToken("account_no") + "";
@@ -40,14 +42,14 @@ GoSquared.acct = "" + this.valueForToken("account_no") + "";
   }
   w.addEventListener ? w.addEventListener("load", gs, false) : w.attachEvent("onload", gs);
 })(window); 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

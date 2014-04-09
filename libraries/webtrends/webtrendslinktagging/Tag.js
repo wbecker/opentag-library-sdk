@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webtrends.webtrendslinktagging.Tag";
 
-qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Webtrends link tagging",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
 
@@ -69,14 +71,14 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.Tag", {
   });
 
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

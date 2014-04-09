@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "struq.basketpagetagv114.Tag";
 
-qubit.opentag.LibraryTag.define("struq.basketpagetagv114.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Basket Page Tag v1.14",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv114.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window._struqPI = window._struqPI || [];
 var productArr = [];
@@ -51,14 +53,14 @@ var struq = document.createElement('script'); struq.type = 'text/javascript'; st
 struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
 document.getElementsByTagName('head')[0].appendChild(struq);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

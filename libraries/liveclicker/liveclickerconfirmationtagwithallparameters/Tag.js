@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "liveclicker.liveclickerconfirmationtagwithallparameters.Tag";
 
-qubit.opentag.LibraryTag.define("liveclicker.liveclickerconfirmationtagwithallparameters.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Liveclicker - Confirmation tag with all parameters",
@@ -41,15 +43,15 @@ qubit.opentag.LibraryTag.define("liveclicker.liveclickerconfirmationtagwithallpa
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zanox.zanoxconfirmationpagedeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Zanox - Confirmation page DEPRECATED",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
     // Fire the confirmation tag
@@ -84,14 +86,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.Tag", {
     }(document));
 
  
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

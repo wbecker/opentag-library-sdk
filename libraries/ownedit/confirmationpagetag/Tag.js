@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "ownedit.confirmationpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("ownedit.confirmationpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Tag",
@@ -107,15 +109,15 @@ qubit.opentag.LibraryTag.define("ownedit.confirmationpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 function post_to_owned_it() {
     var details = {
         "customer_email": "" + this.valueForToken("USER_EMAIL") + "",
@@ -140,6 +142,6 @@ function post_to_owned_it() {
     post_it(details);
 }
 onLoadCallBack(post_to_owned_it);
-		/*~POST*/
+	/*~POST*/
 	}
 });

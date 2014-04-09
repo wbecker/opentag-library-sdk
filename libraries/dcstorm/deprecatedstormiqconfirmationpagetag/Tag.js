@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "dcstorm.deprecatedstormiqconfirmationpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("dcstorm.deprecatedstormiqconfirmationpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "DEPRECATED StormIQ Confirmation Page Tag",
@@ -71,17 +73,17 @@ qubit.opentag.LibraryTag.define("dcstorm.deprecatedstormiqconfirmationpagetag.Ta
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.__stormJs ='t1.stormiq.com/dcv4/jslib/' + this.valueForToken("storm_id") + '.js'; 
 window.__ch ='' + this.valueForToken("channel") + '';
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 var i = 0, ii = this.valueForToken("ids").length;
 
 for (; i < ii; i++) {
@@ -102,6 +104,6 @@ saleTrack.addSaleItem({
 
 saleTrack.orderid = "" + this.valueForToken("order_id") + ""; 
 saleTrack.logSale(1);
-		/*~POST*/
+	/*~POST*/
 	}
 });

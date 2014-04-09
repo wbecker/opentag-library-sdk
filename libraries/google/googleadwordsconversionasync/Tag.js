@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "google.googleadwordsconversionasync.Tag";
 
-qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google AdWords Conversion Async",
@@ -23,36 +25,35 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 			name: "Conversion Label",
 			description: "A alphanumeric label of your conversion tracking",
 			token: "label",
-			uv: "universal_variablessss"
+			uv: ""
 		},
 		{
 			name: "Conversion Value",
 			description: "The value of the conversion. This should be a number, or 0 if there is no value to the conversion",
 			token: "value",
-			uv: "universal_variablessss"
+			uv: "universal_variable.transaction.subtotal"
 		}
 	]
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-	    alert("all nice 7");
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-	    window.google_trackConversion({
-		google_conversion_id: this.valueForToken("conversion_id"),
-		google_conversion_label: "" + this.valueForToken("label") + "",
-		google_conversion_value: this.valueForToken("value"),
-		google_conversion_format: "3",
-		google_is_call: true,
-		google_custom_params: {}
-	    });
-		/*~POST*/
+	/*POST*/
+window.google_trackConversion({
+  google_conversion_id: this.valueForToken("conversion_id"),
+  google_conversion_label: "" + this.valueForToken("label") + "",
+  google_conversion_value: this.valueForToken("value"),
+  google_conversion_format: "3",
+  google_is_call: true,
+  google_custom_params: {}
+});
+	/*~POST*/
 	}
 });

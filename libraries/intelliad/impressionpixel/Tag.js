@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "intelliad.impressionpixel.Tag";
 
-qubit.opentag.LibraryTag.define("intelliad.impressionpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Impression Pixel",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   (function () {
     var t = (new Date()).getTime();
@@ -86,14 +88,14 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.Tag", {
     var img = new Image();
     img.src = src.slice(0, -1);
   })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "become.salestracking.Tag";
 
-qubit.opentag.LibraryTag.define("become.salestracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Sales Tracking",
@@ -71,11 +73,11 @@ qubit.opentag.LibraryTag.define("become.salestracking.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var pg_pangora_merchant_id = '' + this.valueForToken("merchant_id") + '';
 var pg_order_id = '' + this.valueForToken("order_id") + '';
 var pg_cart_value = '' + this.valueForToken("cart_value") + '';
@@ -107,10 +109,10 @@ var pg_cart_size = 0;
   }
   pg_cart_size = String(pg_cart_size);
 })();
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

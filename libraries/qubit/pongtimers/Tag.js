@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.pongtimers.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.pongtimers.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Pong Timers",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("qubit.pongtimers.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
 
@@ -57,14 +59,14 @@ qubit.opentag.LibraryTag.define("qubit.pongtimers.Tag", {
   }
 
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

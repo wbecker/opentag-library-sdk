@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mentionme.refereetagdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Referee Tag [Deprecated]",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var baseUrl = "https://" + this.valueForToken("script_domain") + "/api/v2/refereefind/" + this.valueForToken("partner_code") + "?";
 var mmScript = document.createElement("script");
@@ -79,14 +81,14 @@ for (var param in paramObj) {
 
 mmScript.src = baseUrl + paramArr.join("&");
 document.body.appendChild(mmScript);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

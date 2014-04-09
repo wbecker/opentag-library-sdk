@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "google.googledynamicremarketingtagconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("google.googledynamicremarketingtagconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Dynamic Remarketing Tag - Confirmation Page",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("google.googledynamicremarketingtagconfirmationp
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
  (function (){  
    var productIdsArray = [];
@@ -88,14 +90,14 @@ qubit.opentag.LibraryTag.define("google.googledynamicremarketingtagconfirmationp
    script.src = "//www.googleadservices.com/pagead/conversion.js";
    document.head.appendChild(script);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

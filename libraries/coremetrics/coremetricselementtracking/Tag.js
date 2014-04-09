@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "coremetrics.coremetricselementtracking.Tag";
 
-qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Element Tracking",
@@ -29,17 +31,17 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 cmCreateElementTag("" + this.valueForToken("element_id") + "", "" + this.valueForToken("element_category") + "");
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "criteo.legacybasketpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Legacy - Basket Page Tag",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var src = [
@@ -73,14 +75,14 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.Tag", {
   img.setAttribute("width", "1");
   document.body.appendChild(img);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

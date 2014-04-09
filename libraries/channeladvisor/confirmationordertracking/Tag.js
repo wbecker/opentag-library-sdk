@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "channeladvisor.confirmationordertracking.Tag";
 
-qubit.opentag.LibraryTag.define("channeladvisor.confirmationordertracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation - Order Tracking",
@@ -59,15 +61,15 @@ qubit.opentag.LibraryTag.define("channeladvisor.confirmationordertracking.Tag", 
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function () {
   window._caq = window._caq || [];
   var products = [];
@@ -87,6 +89,6 @@ qubit.opentag.LibraryTag.define("channeladvisor.confirmationordertracking.Tag", 
     Products: products
   }]);
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

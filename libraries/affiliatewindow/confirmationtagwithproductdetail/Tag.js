@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "affiliatewindow.confirmationtagwithproductdetail.Tag";
 
-qubit.opentag.LibraryTag.define("affiliatewindow.confirmationtagwithproductdetail.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag with Product Detail",
@@ -95,11 +97,11 @@ qubit.opentag.LibraryTag.define("affiliatewindow.confirmationtagwithproductdetai
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 (function () {
     var awinImgSrc = [
         "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken("merchant_id") + "&amount=",
@@ -153,10 +155,10 @@ var AWIN = {
     }
   }
 };
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

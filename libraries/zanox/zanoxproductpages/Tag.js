@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zanox.zanoxproductpages.Tag";
 
-qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Zanox - Product Pages",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
     // Populate product fields
@@ -98,14 +100,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.Tag", {
     };
     waitForZanoxDiv();
  
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

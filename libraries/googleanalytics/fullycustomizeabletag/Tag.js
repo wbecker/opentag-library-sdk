@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.fullycustomizeabletag.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.fullycustomizeabletag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Fully Customizeable Tag",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.fullycustomizeabletag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
  
  var _gaq = _gaq || [];
@@ -45,14 +47,14 @@ for (var i = 0; i < this.valueForToken("commands").length; i++){
  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
  })();
  
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

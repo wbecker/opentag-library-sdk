@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sovendus.sovendusrequiredfieldsonly.Tag";
 
-qubit.opentag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Sovendus [Required Fields Only]",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function()
@@ -112,14 +114,14 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.Tag", {
 
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

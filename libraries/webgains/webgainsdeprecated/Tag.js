@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webgains.webgainsdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "WebGains [DEPRECATED]",
@@ -107,7 +109,7 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   var wgItems = function ()
@@ -157,14 +159,14 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.Tag", {
   var img = new Image();
   img.src = wgUri;
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

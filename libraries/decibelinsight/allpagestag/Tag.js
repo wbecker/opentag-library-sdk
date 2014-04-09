@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "decibelinsight.allpagestag.Tag";
 
-qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "All Pages Tag",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var _da_ = _da_ || [];
   var _da_oldErr = window.onerror;
@@ -41,14 +43,14 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.Tag", {
     da.src = location.protocol + '//decibelinsight.net/i/' + this.valueForToken("account_id") + '/di.js';
     d.getElementsByTagName('head')[0].appendChild(da);
   })(document);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

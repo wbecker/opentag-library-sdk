@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.uvtestproductpage.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "UV Test - Product Page",
@@ -95,7 +97,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 console.log("" + this.valueForToken("a") + "");
 console.log("" + this.valueForToken("b") + "");
@@ -110,14 +112,14 @@ console.log("" + this.valueForToken("j") + "");
 console.log("" + this.valueForToken("k") + "");
 console.log("" + this.valueForToken("l") + "");
 console.log("" + this.valueForToken("m") + "");
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

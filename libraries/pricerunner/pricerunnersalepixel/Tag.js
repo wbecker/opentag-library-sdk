@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "pricerunner.pricerunnersalepixel.Tag";
 
-qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Price Runner Sale Pixel",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var img = document.createElement("img");
@@ -84,14 +86,14 @@ qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
   img.setAttribute("width", "20");
   document.body.appendChild(img);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

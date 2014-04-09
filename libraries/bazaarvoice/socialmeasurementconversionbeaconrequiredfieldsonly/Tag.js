@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly.Tag";
 
-qubit.opentag.LibraryTag.define("bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Social Measurement Conversion Beacon (Required fields only)",
@@ -65,15 +67,15 @@ qubit.opentag.LibraryTag.define("bazaarvoice.socialmeasurementconversionbeaconre
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function(){try{
 var item_count = 0;
 var items = (function(){
@@ -96,6 +98,6 @@ orderNumberOfItems: String(item_count),
 orderItems: items
 });
 }catch(e){window.console && window.console.log(e)}}());
-		/*~POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "emailvision.notused.Tag";
 
-qubit.opentag.LibraryTag.define("emailvision.notused.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Not Used",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("emailvision.notused.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   function setCookie(domain, label, val, minutes) {
@@ -30,14 +32,14 @@ qubit.opentag.LibraryTag.define("emailvision.notused.Tag", {
 
   setCookie(".office.co.uk", "opentag_emailvision_timestamp", (new Date()).getTime(), 60 * 24 * 2);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

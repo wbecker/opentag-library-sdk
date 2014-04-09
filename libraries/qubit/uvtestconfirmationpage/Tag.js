@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.uvtestconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.uvtestconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "UV Test - Confirmation Page",
@@ -179,7 +181,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtestconfirmationpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 console.log("" + this.valueForToken("a") + "");
 console.log("" + this.valueForToken("b") + "");
@@ -208,14 +210,14 @@ console.log("" + this.valueForToken("x") + "");
 console.log("" + this.valueForToken("y") + "");
 console.log("" + this.valueForToken("z") + "");
 console.log("" + this.valueForToken("aa") + "");
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

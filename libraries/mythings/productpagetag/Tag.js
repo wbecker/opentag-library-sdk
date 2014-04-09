@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mythings.productpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("mythings.productpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Product Page Tag",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("mythings.productpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 function _mt_ready(){
    if (typeof(MyThings) != "undefined") {
@@ -49,14 +51,14 @@ function _mt_ready(){
 var mtHost = (("https:" == document.location.protocol) ? "https" : "http") + "://" + this.valueForToken("subdomain") + ".mythings.com";
 var mtAdvertiserToken = "" + this.valueForToken("token") + "";
 document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok="+mtAdvertiserToken+"' type='text/javascript'%3E%3C/script%3E"));
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

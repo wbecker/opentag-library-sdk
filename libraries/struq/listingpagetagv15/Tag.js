@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "struq.listingpagetagv15.Tag";
 
-qubit.opentag.LibraryTag.define("struq.listingpagetagv15.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Listing Page Tag v1.5",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv15.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _struqPI = _struqPI || [];
 var productArr = [];
@@ -53,14 +55,14 @@ _struqPI.push(['injectTrackingPixel', {
 var script = document.createElement("script");
 script.src = "//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
 document.body.appendChild(script);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

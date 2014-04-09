@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "nextag.thankyoupagesurvey.Tag";
 
-qubit.opentag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Thankyou Page Survey",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
     (function () {
@@ -86,14 +88,14 @@ qubit.opentag.LibraryTag.define("nextag.thankyoupagesurvey.Tag", {
     document.write('<'+ 'script type="text/javascript" src="https://merchants.nextag.com/seller/review/popup_include.js"><\/script>'); 
 
     // <script  src="https://merchants.nextag.com/seller/review/popup_include.js"
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

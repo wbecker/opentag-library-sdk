@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sociomantic.deprecatedbasketpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "{DEPRECATED} Basket Page Tag",
@@ -47,11 +49,11 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var basket = {
    products: []
 };
@@ -66,10 +68,10 @@ for (var i = 0, ii = this.valueForToken("product_ids").length; i < ii; i++) {
 }
 
 window.basket = basket;
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

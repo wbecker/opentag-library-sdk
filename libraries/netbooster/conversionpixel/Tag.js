@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "netbooster.conversionpixel.Tag";
 
-qubit.opentag.LibraryTag.define("netbooster.conversionpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion pixel",
@@ -41,18 +43,18 @@ qubit.opentag.LibraryTag.define("netbooster.conversionpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
    img = new Image(); 
    img.src = "//conversion-pixel.invitemedia.com/pixel?pixelID=" + this.valueForToken("pixel_id") + "&clientID=" + this.valueForToken("client_id") + "&partnerID=" + this.valueForToken("partner_id") + "&key=conv&orderID=" + this.valueForToken("order_id") + "&returnType=js";
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

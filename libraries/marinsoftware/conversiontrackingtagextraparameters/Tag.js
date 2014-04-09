@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.conversiontrackingtagextraparameters.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagextraparameters.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag - Extra Parameters",
@@ -107,7 +109,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagextraparamet
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _mTrack = window._mTrack || [];
   var items = [];
@@ -145,14 +147,14 @@ var _mTrack = window._mTrack || [];
     var fscr = document.getElementsByTagName('script')[0];
     fscr.parentNode.insertBefore(mt, fscr);
   })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.googletagmanagerconverterdatalayeruv.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.googletagmanagerconverterdatalayeruv.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Tag Manager Converter: dataLayer > UV",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("qubit.googletagmanagerconverterdatalayeruv.Tag"
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
 
@@ -239,14 +241,14 @@ qubit.opentag.LibraryTag.define("qubit.googletagmanagerconverterdatalayeruv.Tag"
 
 }());
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

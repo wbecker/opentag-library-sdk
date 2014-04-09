@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mediaforge.basket.Tag";
 
-qubit.opentag.LibraryTag.define("mediaforge.basket.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Basket",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var script = document.createElement("script");
   var productArr = [];
@@ -45,14 +47,14 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.Tag", {
   var productIDs = productArr.join(",");
   script.src = "//tags.mediaforge.com/js/" + this.valueForToken("merchant_id") + "/?cart=" + this.valueForToken("basket_total") + "&prodID=" + productIDs;
   document.body.appendChild(script);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

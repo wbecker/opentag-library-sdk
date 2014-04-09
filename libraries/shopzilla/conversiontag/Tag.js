@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "shopzilla.conversiontag.Tag";
 
-qubit.opentag.LibraryTag.define("shopzilla.conversiontag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tag",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("shopzilla.conversiontag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 var i = 0, ii = this.valueForToken("quantities").length, totalQuantity = 0, customerType = (this.valueForToken("returning")) ? 0 : 1;
@@ -65,14 +67,14 @@ var script = document.createElement("script");
 script.src = "https://www.shopzilla.com/css/roi_tracker.js";
 document.getElementsByTagName('head')[0].appendChild(script);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

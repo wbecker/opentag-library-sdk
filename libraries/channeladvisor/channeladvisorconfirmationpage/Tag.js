@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "channeladvisor.channeladvisorconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Channel Advisor - Confirmation Page",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.T
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
   var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" + this.valueForToken("client_id") + "";
@@ -64,14 +66,14 @@ qubit.opentag.LibraryTag.define("channeladvisor.channeladvisorconfirmationpage.T
   img.style.display = 'none';
   document.body.appendChild(img);
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

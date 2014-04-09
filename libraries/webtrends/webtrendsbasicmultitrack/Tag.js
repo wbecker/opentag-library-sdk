@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webtrends.webtrendsbasicmultitrack.Tag";
 
-qubit.opentag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Webtrends - basic multiTrack",
@@ -23,19 +25,19 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 Webtrends.multiTrack({
   args: this.valueForToken("data")
 });
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

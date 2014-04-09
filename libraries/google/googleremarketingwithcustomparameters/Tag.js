@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "google.googleremarketingwithcustomparameters.Tag";
 
-qubit.opentag.LibraryTag.define("google.googleremarketingwithcustomparameters.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Remarketing with custom parameters",
@@ -47,15 +49,15 @@ qubit.opentag.LibraryTag.define("google.googleremarketingwithcustomparameters.Ta
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 window.google_trackConversion({
   google_conversion_id: "" + this.valueForToken("conversion_id") + "",
   google_conversion_label: "" + this.valueForToken("label") + "",
@@ -66,6 +68,6 @@ window.google_trackConversion({
   },
   google_remarketing_only: true
 });
-		/*~POST*/
+	/*~POST*/
 	}
 });

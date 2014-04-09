@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.uvapichangelistener.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "UV API - change listener",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function() {
@@ -260,14 +262,14 @@ qubit.opentag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
 
 }());
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "coremetrics.coremetricsconversionevents.Tag";
 
-qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionevents.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Conversion Events",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionevents.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   cmCreateConversionEventTag(
     "" + this.valueForToken("event_id") + "",
@@ -49,14 +51,14 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionevents.Tag", {
     "" + this.valueForToken("event_category_id") + "",
     "" + this.valueForToken("points") + ""
   );
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

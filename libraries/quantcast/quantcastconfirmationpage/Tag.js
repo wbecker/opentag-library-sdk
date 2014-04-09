@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "quantcast.quantcastconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "QuantCast - Confirmation Page",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _qevents = _qevents || []; 
 
@@ -59,14 +61,14 @@ _qevents.push({
   orderid:"" + this.valueForToken("order_id") + "",
   revenue:"" + this.valueForToken("revenue") + ""
 });
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mediaplex.categoryiframe.Tag";
 
-qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Category iframe",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function(){
 
@@ -61,14 +63,14 @@ qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.Tag", {
   document.body.appendChild(frame);
 
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

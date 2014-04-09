@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "visualdna.basketadditionreport.Tag";
 
-qubit.opentag.LibraryTag.define("visualdna.basketadditionreport.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Basket Addition Report",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("visualdna.basketadditionreport.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.VDNA = window.VDNA || {};
 window.VDNA.queue = window.VDNA.queue || [];
@@ -71,14 +73,14 @@ window.VDNA.queue.push({
              }
             ]
 });
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

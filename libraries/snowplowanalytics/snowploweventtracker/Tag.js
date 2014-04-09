@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "snowplowanalytics.snowploweventtracker.Tag";
 
-qubit.opentag.LibraryTag.define("snowplowanalytics.snowploweventtracker.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Snowplow EventTracker",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowploweventtracker.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   window.uv_listener.push(['on', 'event', function(event){
@@ -33,14 +35,14 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowploweventtracker.Tag", {
     }
   }]);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

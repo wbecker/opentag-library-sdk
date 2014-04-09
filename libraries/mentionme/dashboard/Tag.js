@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mentionme.dashboard.Tag";
 
-qubit.opentag.LibraryTag.define("mentionme.dashboard.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Dashboard",
@@ -71,7 +73,7 @@ qubit.opentag.LibraryTag.define("mentionme.dashboard.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var baseUrl = "https://" + this.valueForToken("script_domain") + ".mention-me.com/api/v2/dashboard/" + this.valueForToken("partner_code") + "/" + this.valueForToken("user_email") + "?";
 var mmScript = document.createElement("script");
@@ -92,14 +94,14 @@ for (var param in paramObj) {
 
 mmScript.src = baseUrl + paramArr.join("&");
 document.body.appendChild(mmScript);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

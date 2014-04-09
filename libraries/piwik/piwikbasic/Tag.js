@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "piwik.piwikbasic.Tag";
 
-qubit.opentag.LibraryTag.define("piwik.piwikbasic.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Piwik - Basic",
@@ -29,19 +31,19 @@ qubit.opentag.LibraryTag.define("piwik.piwikbasic.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var _paq = _paq || [];
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 var piwikTracker = Piwik.getTracker('' + this.valueForToken("piwik_url") + ''+"piwik.php", 1);
 piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
-		/*~POST*/
+	/*~POST*/
 	}
 });

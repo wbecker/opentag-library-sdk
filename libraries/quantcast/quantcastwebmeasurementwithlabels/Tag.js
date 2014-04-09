@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "quantcast.quantcastwebmeasurementwithlabels.Tag";
 
-qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurementwithlabels.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "QuantCast Web Measurement - with labels",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurementwithlabels.Tag
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window._qevents = window._qevents || [];
 
@@ -45,14 +47,14 @@ _qevents.push({
   labels: "" + this.valueForToken("labels") + ""
 });
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

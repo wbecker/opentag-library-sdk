@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zanox.zanoxbasketpage.Tag";
 
-qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Zanox Basket Page",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function ()
 {
@@ -50,14 +52,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
 
    waitForElement();
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

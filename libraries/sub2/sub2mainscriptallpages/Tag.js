@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sub2.sub2mainscriptallpages.Tag";
 
-qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Sub2 - Main Script - All Pages",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   var _SUB2metadata = {
@@ -178,14 +180,14 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
      clearInterval(waitFor_S2Tech_2Prompt);
   }, 5000);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

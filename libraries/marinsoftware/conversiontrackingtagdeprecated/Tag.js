@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.conversiontrackingtagdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag [DEPRECATED]",
@@ -89,7 +91,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagdeprecated.T
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function () 
@@ -159,14 +161,14 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagdeprecated.T
    })();
 })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

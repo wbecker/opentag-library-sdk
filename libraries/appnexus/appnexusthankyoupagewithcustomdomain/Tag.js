@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "appnexus.appnexusthankyoupagewithcustomdomain.Tag";
 
-qubit.opentag.LibraryTag.define("appnexus.appnexusthankyoupagewithcustomdomain.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "AppNexus - Thank you page with custom domain",
@@ -53,15 +55,15 @@ qubit.opentag.LibraryTag.define("appnexus.appnexusthankyoupagewithcustomdomain.T
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

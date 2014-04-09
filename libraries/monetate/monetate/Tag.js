@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "monetate.monetate.Tag";
 
-qubit.opentag.LibraryTag.define("monetate.monetate.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Monetate",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("monetate.monetate.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var monetateT = new Date().getTime();
 (function() {
@@ -41,14 +43,14 @@ var monetateT = new Date().getTime();
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(m, s);
     }
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

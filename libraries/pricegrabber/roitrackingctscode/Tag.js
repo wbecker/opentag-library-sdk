@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "pricegrabber.roitrackingctscode.Tag";
 
-qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "ROI Tracking (CTS Code)",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   (function () {
@@ -79,14 +81,14 @@ qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.Tag", {
 
   }());
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

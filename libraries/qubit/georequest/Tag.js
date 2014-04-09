@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.georequest.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.georequest.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Geo Request",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("qubit.georequest.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   function createCookie(name, value) {
       document.cookie = name + "=" + escape(value) + expires + "; path=/";
@@ -78,14 +80,14 @@ qubit.opentag.LibraryTag.define("qubit.georequest.Tag", {
     }
 
   }
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

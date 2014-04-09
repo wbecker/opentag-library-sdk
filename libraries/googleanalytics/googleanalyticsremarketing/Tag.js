@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleanalytics.googleanalyticsremarketing.Tag";
 
-qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticsremarketing.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Analytics Remarketing",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticsremarketing.Tag"
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   var _gaq = _gaq || [];
@@ -36,14 +38,14 @@ qubit.opentag.LibraryTag.define("googleanalytics.googleanalyticsremarketing.Tag"
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

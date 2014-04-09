@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "intelligentreach.productpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("intelligentreach.productpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Product Page Tag",
@@ -29,17 +31,17 @@ qubit.opentag.LibraryTag.define("intelligentreach.productpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 istCompanyId = "" + this.valueForToken("id") + "";
 istItem = "" + this.valueForToken("product_id") + "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

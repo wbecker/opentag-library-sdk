@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "criteo.onetagtravelsearchpage.Tag";
 
-qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "OneTag - Travel Search Page",
@@ -59,15 +61,15 @@ qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   //Criteo suggests that this list should only be 3 products long.
@@ -96,6 +98,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.Tag", {
   );
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

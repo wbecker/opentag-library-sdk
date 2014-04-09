@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "emailvision.emailvisionconfirmationpagewithcustomserver.Tag";
 
-qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcustomserver.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Emailvision - Confirmation page with custom server",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcust
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
   var src = "//" + this.valueForToken("server_name") + "/P?";
@@ -80,14 +82,14 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmationpagewithcust
   pixel.setAttribute("height", "1");
   document.body.appendChild(pixel);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mediamind.generictagnosession.Tag";
 
-qubit.opentag.LibraryTag.define("mediamind.generictagnosession.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Generic Tag (no session)",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var r = (Math.random() * 1000000) + "";
@@ -31,14 +33,14 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.Tag", {
   s.src = "//bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&ActivityID=" + this.valueForToken("id") + "&rnd=" + r;
   document.body.appendChild(s);
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

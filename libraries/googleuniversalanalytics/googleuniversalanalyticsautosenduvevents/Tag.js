@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleuniversalanalytics.googleuniversalanalyticsautosenduvevents.Tag";
 
-qubit.opentag.LibraryTag.define("googleuniversalanalytics.googleuniversalanalyticsautosenduvevents.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Universal Analytics - auto send UV events",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.googleuniversalanalyti
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.uv_listener.push(["on", "event", function (event) {
 
@@ -40,14 +42,14 @@ window.uv_listener.push(["on", "event", function (event) {
   ga("send", data);
 
 }]);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

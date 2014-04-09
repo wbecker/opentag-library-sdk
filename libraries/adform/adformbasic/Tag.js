@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "adform.adformbasic.Tag";
 
-qubit.opentag.LibraryTag.define("adform.adformbasic.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "AdForm - Basic",
@@ -29,12 +31,11 @@ qubit.opentag.LibraryTag.define("adform.adformbasic.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-console.log(this.valueForToken("campaignid"));
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 (function() {
 
   window._adftrack = {
@@ -43,10 +44,10 @@ console.log(this.valueForToken("campaignid"));
   };
 
 })();
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

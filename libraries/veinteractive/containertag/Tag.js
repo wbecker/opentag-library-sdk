@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "veinteractive.containertag.Tag";
 
-qubit.opentag.LibraryTag.define("veinteractive.containertag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Container Tag",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   (function () {
@@ -37,14 +39,14 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.Tag", {
 
   }());
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

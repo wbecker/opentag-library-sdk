@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "criteo.onetagsearchresultpage.Tag";
 
-qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "OneTag - Search Result Page",
@@ -47,15 +49,15 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   //Criteo suggests that this list should only be 3 products long.
@@ -82,6 +84,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.Tag", {
   );
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

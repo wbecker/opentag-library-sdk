@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "struq.deprecatedproductlistingtag.Tag";
 
-qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "[Deprecated] Product Listing Tag",
@@ -23,11 +25,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var _struqPI = _struqPI || [];
 var productArr = [];
 for (var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) {
@@ -47,10 +49,10 @@ _struqPI.push(['injectTrackingPixel', {
     timeoutMs: 2000
   }
 }]);
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.combineduvlistener.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.combineduvlistener.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Combined UV Listener",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("qubit.combineduvlistener.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   if (! (JSON && JSON.stringify && JSON.parse &&
@@ -319,14 +321,14 @@ qubit.opentag.LibraryTag.define("qubit.combineduvlistener.Tag", {
 
   UVListener.init();
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

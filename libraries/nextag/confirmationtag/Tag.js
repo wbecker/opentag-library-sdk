@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "nextag.confirmationtag.Tag";
 
-qubit.opentag.LibraryTag.define("nextag.confirmationtag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag",
@@ -35,18 +37,18 @@ qubit.opentag.LibraryTag.define("nextag.confirmationtag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.id = '' + this.valueForToken("nextag_id") + '';
 window.rev = '' + this.valueForToken("order_total") + '';
 window.order = '' + this.valueForToken("order_id") + '';
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

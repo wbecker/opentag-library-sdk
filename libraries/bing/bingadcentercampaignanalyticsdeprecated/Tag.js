@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "bing.bingadcentercampaignanalyticsdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("bing.bingadcentercampaignanalyticsdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Bing AdCenter Campaign Analytics DEPRECATED",
@@ -35,11 +37,11 @@ qubit.opentag.LibraryTag.define("bing.bingadcentercampaignanalyticsdeprecated.Ta
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 (function () {
 if (!window.mstag) {
   window.mstag = {
@@ -48,10 +50,10 @@ if (!window.mstag) {
   };
 }
 })();
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function () {
 window.mstag.loadTag("analytics",  {
     dedup:"1",
@@ -60,6 +62,6 @@ window.mstag.loadTag("analytics",  {
     actionid:"" + this.valueForToken("action_id") + ""
   });
 })();
-		/*~POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webtrends.webtrendsecommercetracking.Tag";
 
-qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Webtrends - Ecommerce tracking",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 (function() 
@@ -122,14 +124,14 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
   });
 
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

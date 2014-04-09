@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "peerius.searchpage.Tag";
 
-qubit.opentag.LibraryTag.define("peerius.searchpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Search Page",
@@ -41,11 +43,11 @@ qubit.opentag.LibraryTag.define("peerius.searchpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var PeeriusCallbacks = {
   track: {
     type: "searchresults",
@@ -62,10 +64,10 @@ for (var i = 0; i < ii; i++) {
     refCode: this.valueForToken("listing_ids")[i]
   });
 }
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

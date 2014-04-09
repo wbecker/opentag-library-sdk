@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webtrends.webtrendsproductpages.Tag";
 
-qubit.opentag.LibraryTag.define("webtrends.webtrendsproductpages.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Webtrends - Product pages",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsproductpages.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 dcsMultiTrack({
   "WT.pn_sku": "" + this.valueForToken("sku") + "",
@@ -56,14 +58,14 @@ dcsMultiTrack({
   "WT.pn_ma": "" + this.valueForToken("manufacturer") + "",
   "WT.pn_sc": "" + this.valueForToken("subcategory") + ""
 });
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

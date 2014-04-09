@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "adobesitecatalyst.sitecatalystconversiontag.Tag";
 
-qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystconversiontag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "SiteCatalyst Conversion Tag",
@@ -161,15 +163,15 @@ qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystconversiontag.Tag
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 var s = window.s;
 
 s.pageName = "" + this.valueForToken("page_name") + "";
@@ -210,6 +212,6 @@ s.eVar4 = "" + this.valueForToken("evar4") + "";
 s.eVar5 = "" + this.valueForToken("evar5") + "";
 
 window.s_code = s.t();
-		/*~POST*/
+	/*~POST*/
 	}
 });

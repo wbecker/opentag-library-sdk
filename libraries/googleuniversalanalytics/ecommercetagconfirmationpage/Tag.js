@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleuniversalanalytics.ecommercetagconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecommercetagconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Ecommerce Tag - Confirmation Page",
@@ -95,7 +97,7 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecommercetagconfirmati
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -131,14 +133,14 @@ ga('ecommerce:addTransaction', {
 
 ga('ecommerce:send');
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

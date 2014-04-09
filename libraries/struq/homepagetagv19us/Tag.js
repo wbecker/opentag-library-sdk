@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "struq.homepagetagv19us.Tag";
 
-qubit.opentag.LibraryTag.define("struq.homepagetagv19us.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Homepage Tag v1.9 (US)",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv19us.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window._struqPI = window._struqPI || [];
 _struqPI.push(['injectTrackingPixel', { trackingPixelId: '' + this.valueForToken("pixelid") + '', route: '/s/ga/', collectData: false, options: { timeoutMs: 2000, firstPartyDomain: '', firstPartyCookie: '', firstPartyUid: '' }}]);
@@ -31,14 +33,14 @@ _struqPI.push(['injectTrackingPixel', { trackingPixelId: '' + this.valueForToken
 var struq = document.createElement('script'); struq.type = 'text/javascript'; struq.async = true;
 struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
 document.getElementsByTagName('head')[0].appendChild(struq);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

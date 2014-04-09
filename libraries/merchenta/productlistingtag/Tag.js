@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "merchenta.productlistingtag.Tag";
 
-qubit.opentag.LibraryTag.define("merchenta.productlistingtag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Product Listing Tag",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("merchenta.productlistingtag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var i, ii, d, p = document.getElementById("mc_data");
@@ -54,14 +56,14 @@ var mc_api_url = "api.merchenta.com/merchenta/t";
   }
   document.getElementsByTagName('head')[0].appendChild(script);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

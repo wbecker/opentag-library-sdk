@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zanox.zanoxconfirmationpagewithcid.Tag";
 
-qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Zanox - Confirmation page with CID",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
     // Fire the confirmation tag
@@ -110,14 +112,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.Tag", {
 })();
 
  
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

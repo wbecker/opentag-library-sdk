@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "facebook.facebookpixel.Tag";
 
-qubit.opentag.LibraryTag.define("facebook.facebookpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Facebook Pixel",
@@ -35,18 +37,18 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var fb_param = {};
 fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
 fb_param.value = '' + this.valueForToken("param_value") + '';
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

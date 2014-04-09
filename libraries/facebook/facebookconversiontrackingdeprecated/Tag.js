@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "facebook.facebookconversiontrackingdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("facebook.facebookconversiontrackingdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Facebook Conversion Tracking DEPRECATED",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookconversiontrackingdeprecated.T
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var fb_param = {};
 fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
@@ -41,14 +43,14 @@ fb_param.value = '' + this.valueForToken("subtotal") + '';
   var ref = document.getElementsByTagName('script')[0];
   ref.parentNode.insertBefore(fpw, ref);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

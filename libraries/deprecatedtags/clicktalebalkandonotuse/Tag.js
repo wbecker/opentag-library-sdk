@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "deprecatedtags.clicktalebalkandonotuse.Tag";
 
-qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "ClickTale - balkan - donotuse",
@@ -35,16 +37,16 @@ qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.WRInitTime=(new Date()).getTime();
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

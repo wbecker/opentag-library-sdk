@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "kenshoo.kenshoothankyoupagetracking.Tag";
 
-qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Kenshoo Thank-You Page Tracking",
@@ -59,15 +61,15 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
   var params = new Array();
   params[0] = 'id=' + this.valueForToken("id") + '';
@@ -78,6 +80,6 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.Tag", {
   params[5] = 'valueCurrency=' + this.valueForToken("currency") + '';
   window.k_trackevent(params, '' + this.valueForToken("ks_num") + '');
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

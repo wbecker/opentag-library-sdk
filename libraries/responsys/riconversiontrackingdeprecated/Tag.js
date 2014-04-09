@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "responsys.riconversiontrackingdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("responsys.riconversiontrackingdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "RI Conversion Tracking [DEPRECATED]",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("responsys.riconversiontrackingdeprecated.Tag", 
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 var customerID = "" + this.valueForToken("customer_id") + "";
@@ -88,14 +90,14 @@ image.height = 1;
 
 document.head.appendChild(image);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

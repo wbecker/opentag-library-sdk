@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "criteo.legacyhomepagetag.Tag";
 
-qubit.opentag.LibraryTag.define("criteo.legacyhomepagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Legacy - Home Page Tag",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("criteo.legacyhomepagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
 function pcto_dis() {
@@ -82,14 +84,14 @@ _cr_i.onload=pcto_dis;
 _cr_d2.appendChild(_cr_i);
 document.body.appendChild(_cr_d2);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "adform.globaltrackingpointpageviewonly.Tag";
 
-qubit.opentag.LibraryTag.define("adform.globaltrackingpointpageviewonly.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Global Tracking Point (Pageview only)",
@@ -35,21 +37,21 @@ qubit.opentag.LibraryTag.define("adform.globaltrackingpointpageviewonly.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var adfname = '' + this.valueForToken("page_name") + '';
 var _adftrack = {
     pm: '' + this.valueForToken("campaign_id") + '',
     pagename: encodeURIComponent(adfname),
     divider: encodeURIComponent('' + this.valueForToken("divider") + '')
 };
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

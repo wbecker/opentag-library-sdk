@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "rocketfuel.universaltrackingpixel.Tag";
 
-qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Universal Tracking Pixel",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function ()
 {
@@ -37,14 +39,14 @@ qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.Tag", {
   var img = new Image();
   img.src ="//" + this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" + this.valueForToken("merchant_id") + "&ca=" + this.valueForToken("campaign_id") + "&ra=" + cachebust;
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "criteo.legacyconfirmationpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Legacy - Confirmation Page Tag",
@@ -53,7 +55,7 @@ qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var src = [
@@ -80,14 +82,14 @@ qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.Tag", {
   img.setAttribute("width", "1");
   document.body.appendChild(img);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

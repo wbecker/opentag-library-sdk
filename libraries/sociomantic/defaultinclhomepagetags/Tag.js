@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sociomantic.defaultinclhomepagetags.Tag";
 
-qubit.opentag.LibraryTag.define("sociomantic.defaultinclhomepagetags.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Default (incl homepage tags)",
@@ -35,11 +37,11 @@ qubit.opentag.LibraryTag.define("sociomantic.defaultinclhomepagetags.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.customer = window.customer || {};
 
 //Allows for custom scripts altering the customer object. Skipped over if user_id or user_email is false-like
@@ -69,10 +71,10 @@ if (user_id && user_id.toLowerCase() !== "false"){
   var parts = document.cookie.split("qb_sm_uid=");
   if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 }
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

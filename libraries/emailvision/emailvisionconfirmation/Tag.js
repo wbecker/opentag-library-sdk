@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "emailvision.emailvisionconfirmation.Tag";
 
-qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Emailvision - Confirmation",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var src = "//" + this.valueForToken("pct_server") + ".emv2.com/P?emv_client_id=" + this.valueForToken("client_id") + "&emv_value=";
@@ -79,14 +81,14 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
   pixel.setAttribute("height", "1");
   document.body.appendChild(pixel);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

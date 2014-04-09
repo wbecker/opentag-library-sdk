@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "hubspot.analytics.Tag";
 
-qubit.opentag.LibraryTag.define("hubspot.analytics.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Analytics",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   (function(d,s,i,r) {
     if (d.getElementById(i)){return;}
@@ -31,14 +33,14 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.Tag", {
     n.id=i;n.src='//js.hubspot.com/analytics/'+(Math.ceil(new Date()/r)*r)+'/' + this.valueForToken("id") + '.js';
     e.parentNode.insertBefore(n, e);
   })(document,"script","hs-analytics",300000);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

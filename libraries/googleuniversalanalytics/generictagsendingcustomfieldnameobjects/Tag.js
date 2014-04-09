@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag";
 
-qubit.opentag.LibraryTag.define("googleuniversalanalytics.generictagsendingcustomfieldnameobjects.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Generic Tag sending custom Field Name Objects",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.generictagsendingcusto
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function(){
 
@@ -45,14 +47,14 @@ for (var i=0; i < this.valueForToken("field_objects").length; i++){
 }
 
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "coremetrics.coremetricsconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("coremetrics.coremetricsconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Confirmation page",
@@ -137,15 +139,15 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconfirmationpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   var i = 0, ii = this.valueForToken("product_ids").length;
@@ -205,6 +207,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconfirmationpage.Tag", {
   );
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "clicktale.clicktaleatlaslegacy.Tag";
 
-qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "ClickTale - Atlas - Legacy",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.WRInitTime = (new Date()).getTime();
 
@@ -64,14 +66,14 @@ ct.onreadystatechange = function () {
 }
 
 document.body.appendChild(ct);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

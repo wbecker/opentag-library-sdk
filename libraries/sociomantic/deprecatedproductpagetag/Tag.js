@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "sociomantic.deprecatedproductpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "{DEPRECATED} Product Page Tag",
@@ -29,19 +31,19 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var product = {
 identifier: '' + this.valueForToken("PRODUCT_ID") + ''
 };
 window.product = product;
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "olark.olarkchatwithgoogleanalytics.Tag";
 
-qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Olark Chat with Google Analytics",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 /*{literal}<![CDATA[*/
 
@@ -40,14 +42,14 @@ olark.identify('" + this.valueForToken("SITE_ID") + "');
 olark.configure("GoogleAnalytics.custom_tracking_id", "this.valueForToken("ga_id")");
 
 /*]]>{/literal}*/
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

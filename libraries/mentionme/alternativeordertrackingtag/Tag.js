@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mentionme.alternativeordertrackingtag.Tag";
 
-qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Alternative Order Tracking Tag",
@@ -107,7 +109,7 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var baseUrl = "https://" + this.valueForToken("domain") + "/api/v2/order/" + this.valueForToken("partner_code") + "?";
 var paramArr = [];
@@ -153,14 +155,14 @@ function dateTime() {
 function beginningZero(digit) {
   return (digit < 10) ? "0" + digit : "" + digit;
 }
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

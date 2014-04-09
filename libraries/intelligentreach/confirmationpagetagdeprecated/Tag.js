@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "intelligentreach.confirmationpagetagdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetagdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Tag - Deprecated",
@@ -59,11 +61,11 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetagdeprecated.
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 istCompanyId = "" + this.valueForToken("id") + "";
 istOrderId = this.valueForToken("orderId");
 istTotal = this.valueForToken("orderTotal");
@@ -89,10 +91,10 @@ istUserDefinedFieldTwo = "";
 istUserDefinedFieldThree = "";
 istVoucherCode = this.valueForToken("voucher");
 istLastAffiliateCode = "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

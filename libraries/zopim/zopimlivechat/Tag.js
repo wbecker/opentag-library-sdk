@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zopim.zopimlivechat.Tag";
 
-qubit.opentag.LibraryTag.define("zopim.zopimlivechat.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Zopim Livechat",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("zopim.zopimlivechat.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.$zopim || (function(d, s) {
   var z = $zopim = function(c) {
@@ -45,14 +47,14 @@ window.$zopim || (function(d, s) {
   type = 'text/javascript';
   e.parentNode.insertBefore($, e)
 })(document, 'script');
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

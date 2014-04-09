@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "adgenie.conversiontracking.Tag";
 
-qubit.opentag.LibraryTag.define("adgenie.conversiontracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("adgenie.conversiontracking.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var img = new Image(), arr = [];
 
@@ -52,14 +54,14 @@ for (var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) 
 img.src = "https://adverts.adgenie.co.uk/conversion.php?companyId=" + "" + this.valueForToken("client_id") + "" + "&items=" + arr.join("|") + "&orderId=" + "" + this.valueForToken("trans_id") + "";
 
 document.body.appendChild(img);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

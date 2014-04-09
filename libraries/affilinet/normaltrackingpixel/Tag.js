@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "affilinet.normaltrackingpixel.Tag";
 
-qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Normal Tracking Pixel",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
 
@@ -82,14 +84,14 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.Tag", {
  image.src = src;
 
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

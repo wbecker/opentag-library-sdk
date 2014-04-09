@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "intelliad.seotracking.Tag";
 
-qubit.opentag.LibraryTag.define("intelliad.seotracking.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "SEO Tracking",
@@ -35,17 +37,17 @@ qubit.opentag.LibraryTag.define("intelliad.seotracking.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var ia_tc = "" + this.valueForToken("campaign_id") + "";
 var ia_sc = "" + this.valueForToken("ad_id") + "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "coremetrics.coremetricsproductpageswithcustomattribute.Tag";
 
-qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpageswithcustomattribute.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Product pages (with Custom Attribute)",
@@ -71,15 +73,15 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpageswithcustomat
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   // Client Setup
@@ -105,6 +107,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpageswithcustomat
   );
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

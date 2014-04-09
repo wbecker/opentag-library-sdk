@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "kissmetrics.kissmetrics.Tag";
 
-qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Kiss Metrics",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
   var _kmq = _kmq || [];
   (function(w, d) {
@@ -41,14 +43,14 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.Tag", {
     if (w.addEventListener) { w.addEventListener("load", kmg, false); }
     else if (w.attachEvent) { w.attachEvent("onload",kmg); }
   }(window, document))
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.uvtrackaddingnewevents.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.uvtrackaddingnewevents.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "UV - track adding new events",
@@ -18,7 +20,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtrackaddingnewevents.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
 // Create UV events array if doesn't exist
@@ -47,14 +49,14 @@ uv.events.push = function (event) {
   }
 };
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

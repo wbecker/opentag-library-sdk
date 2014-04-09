@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "commissionjunction.cjconversionpixel.Tag";
 
-qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CJ Conversion Pixel",
@@ -71,7 +73,7 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function() {
   var url = "https://www.emjcd.com/tags/c?containerTagId=" + this.valueForToken("containerid") + "&";
@@ -87,14 +89,14 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.Tag", {
   iframe.src = url;
   document.body.appendChild(iframe);
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

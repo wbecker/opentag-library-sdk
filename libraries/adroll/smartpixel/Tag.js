@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "adroll.smartpixel.Tag";
 
-qubit.opentag.LibraryTag.define("adroll.smartpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "SmartPixel",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("adroll.smartpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.adroll_adv_id = "" + this.valueForToken("adroll_adv_id") + "";
 window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id") + "";
@@ -47,14 +49,14 @@ window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id") + "";
     if (oldonload) oldonload();
   };
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

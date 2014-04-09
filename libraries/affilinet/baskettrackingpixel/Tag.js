@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "affilinet.baskettrackingpixel.Tag";
 
-qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Basket Tracking Pixel",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var iFrame = document.createElement('iframe');
 iFrame.style.display = 'none';
@@ -119,14 +121,14 @@ for (var i = 0; i < this.valueForToken("basket_items_skus").length; i++)
 iFrameDom.getElementById("basket").innerHTML = basketItemsData;
 
 iFrameDom.getElementById('affilinetTrackingForm').submit();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

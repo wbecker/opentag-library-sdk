@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "intelligentreach.confirmationpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Tag",
@@ -71,11 +73,11 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 istCompanyId = "" + this.valueForToken("id") + "";
 istOrderId = "" + this.valueForToken("orderId") + "";
 istTotal = "" + this.valueForToken("orderTotal") + "";
@@ -101,10 +103,10 @@ istUserDefinedFieldTwo = "";
 istUserDefinedFieldThree = "";
 istVoucherCode = "" + this.valueForToken("voucher") + "";
 istLastAffiliateCode = "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.serversidepixellandingpagetrackingdeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.serversidepixellandingpagetrackingdeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Server Side Pixel - Landing Page Tracking [DEPRECATED]",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.serversidepixellandingpagetrackin
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _ml = document.createElement("script");
 _ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") + ".js";
@@ -49,14 +51,14 @@ _ml.onreadystatechange = function () {
   }
 };
 document.body.appendChild(_ml);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "everesttech.efficientfrontierconversiontag.Tag";
 
-qubit.opentag.LibraryTag.define("everesttech.efficientfrontierconversiontag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Efficient Frontier Conversion Tag",
@@ -41,15 +43,15 @@ qubit.opentag.LibraryTag.define("everesttech.efficientfrontierconversiontag.Tag"
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 try {
   window.ef_event_type = "transaction";
   window.ef_transaction_properties = "ev_Very_Revenue=" + this.valueForToken("order_total") + "&ev_Very_Order=1&ev_transid=" + this.valueForToken("order_id") + "";
@@ -59,6 +61,6 @@ try {
   window.ef_pixel_host="pixel.everesttech.net";
   effp();
 } catch(err) {}
-		/*~POST*/
+	/*~POST*/
 	}
 });

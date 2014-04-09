@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "fitsme.virtualfittingroomtagwithdatapopulation.Tag";
 
-qubit.opentag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Virtual Fitting Room Tag - With Data Population",
@@ -65,11 +67,11 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 (function () {
   var fm_categories = (function () {
     var temp = [];
@@ -107,10 +109,10 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroomtagwithdatapopulation.
   _gaq.push(['_setAllowLinker', true]);
   _gaq.push(['_setAllowHash', false]);
 })();
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

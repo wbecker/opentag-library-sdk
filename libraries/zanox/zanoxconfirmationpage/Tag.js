@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "zanox.zanoxconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Zanox - Confirmation page",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
     // Fire the confirmation tag
@@ -102,14 +104,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.Tag", {
     waitForZanoxDiv();
 
  
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

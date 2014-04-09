@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "adroll.confirmationpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Tag",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.adroll_adv_id = "" + this.valueForToken("adroll_ad_id") + "";
 window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id") + "";
@@ -71,14 +73,14 @@ window.adroll_custom_data = {
     if (oldonload) oldonload();
   };
 }());
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

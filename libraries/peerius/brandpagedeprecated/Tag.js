@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "peerius.brandpagedeprecated.Tag";
 
-qubit.opentag.LibraryTag.define("peerius.brandpagedeprecated.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Brand Page DEPRECATED",
@@ -29,20 +31,20 @@ qubit.opentag.LibraryTag.define("peerius.brandpagedeprecated.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 PeeriusCallbacks.track = {
   type: "brand",
   lang: "" + this.valueForToken("lang") + "",
   brand: "" + this.valueForToken("brand") + ""
 }
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

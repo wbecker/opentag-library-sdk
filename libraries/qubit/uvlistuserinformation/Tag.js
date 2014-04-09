@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "qubit.uvlistuserinformation.Tag";
 
-qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "UV List - User Information",
@@ -65,7 +67,7 @@ qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 console.log("" + this.valueForToken("a") + "");
 console.log("" + this.valueForToken("b") + "");
@@ -75,14 +77,14 @@ console.log("" + this.valueForToken("e") + "");
 console.log("" + this.valueForToken("f") + "");
 console.log("" + this.valueForToken("g") + "");
 console.log("" + this.valueForToken("h") + "");
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

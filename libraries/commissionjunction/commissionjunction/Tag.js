@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "commissionjunction.commissionjunction.Tag";
 
-qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Commission Junction",
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 
   (function () {
@@ -100,14 +102,14 @@ qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
 width="20">*/
 
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

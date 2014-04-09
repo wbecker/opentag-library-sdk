@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "lyticsio.sendjstagevent.Tag";
 
-qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Send JSTag event",
@@ -23,7 +25,7 @@ qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   if (window.jstag && jstag.send && window.JSON) {
@@ -33,14 +35,14 @@ qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.Tag", {
     } catch (e) {}
   }
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

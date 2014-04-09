@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "google.googledynamicremarketingtagproductpage.Tag";
 
-qubit.opentag.LibraryTag.define("google.googledynamicremarketingtagproductpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Dynamic Remarketing Tag - Product Page",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("google.googledynamicremarketingtagproductpage.T
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function (){
    window.google_tag_params = {
@@ -66,14 +68,14 @@ qubit.opentag.LibraryTag.define("google.googledynamicremarketingtagproductpage.T
    script.src = "//www.googleadservices.com/pagead/conversion.js";
    document.head.appendChild(script);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

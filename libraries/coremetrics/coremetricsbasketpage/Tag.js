@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "coremetrics.coremetricsbasketpage.Tag";
 
-qubit.opentag.LibraryTag.define("coremetrics.coremetricsbasketpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Basket page",
@@ -83,15 +85,15 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsbasketpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   var i = 0, ii = this.valueForToken("product_ids").length;
@@ -126,6 +128,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsbasketpage.Tag", {
   window.cmDisplayShops();
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

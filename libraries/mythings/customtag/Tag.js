@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mythings.customtag.Tag";
 
-qubit.opentag.LibraryTag.define("mythings.customtag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Custom  Tag",
@@ -35,11 +37,11 @@ qubit.opentag.LibraryTag.define("mythings.customtag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 function _mt_ready(){
    if (typeof(MyThings) != "undefined") {
        MyThings.Track({
@@ -51,10 +53,10 @@ function _mt_ready(){
 
 var mtHost = (("https:" == document.location.protocol) ? "https" : "http") + "://" + this.valueForToken("subdomain") + ".mythings.com";
 var mtAdvertiserToken = "" + this.valueForToken("advertiser_token") + "";
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "lodash.lodashnoconflict.Tag";
 
-qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Lodash NoConflict",
@@ -29,16 +31,16 @@ qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 window.this.valueForToken("key") = window._.noConflict();
-		/*~POST*/
+	/*~POST*/
 	}
 });

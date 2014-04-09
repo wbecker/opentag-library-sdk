@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "bazaarvoice.displayintegrationcode.Tag";
 
-qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Display Integration Code",
@@ -35,18 +37,18 @@ qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 $BV.ui("rr", "show_reviews", {
   productId: "" + this.valueForToken("product_id") + ""
 });
-		/*~POST*/
+	/*~POST*/
 	}
 });

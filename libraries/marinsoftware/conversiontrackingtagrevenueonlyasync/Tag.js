@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "marinsoftware.conversiontrackingtagrevenueonlyasync.Tag";
 
-qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagrevenueonlyasync.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking Tag - Revenue only - Async",
@@ -47,7 +49,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagrevenueonlya
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   window._mTrack = window._mTrack || [];
@@ -72,14 +74,14 @@ qubit.opentag.LibraryTag.define("marinsoftware.conversiontrackingtagrevenueonlya
       var fscr = document.getElementsByTagName('script')[0]; fscr.parentNode.insertBefore(mt, fscr);
   })();
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

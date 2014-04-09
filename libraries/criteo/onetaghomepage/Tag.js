@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "criteo.onetaghomepage.Tag";
 
-qubit.opentag.LibraryTag.define("criteo.onetaghomepage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "OneTag - Home Page",
@@ -35,15 +37,15 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 (function() {
 
   var user_id = "" + this.valueForToken("customer_id") + "";
@@ -61,6 +63,6 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.Tag", {
   );
 
 }());
-		/*~POST*/
+	/*~POST*/
 	}
 });

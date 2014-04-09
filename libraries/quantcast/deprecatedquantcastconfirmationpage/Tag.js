@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "quantcast.deprecatedquantcastconfirmationpage.Tag";
 
-qubit.opentag.LibraryTag.define("quantcast.deprecatedquantcastconfirmationpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "DEPRECATED QuantCast - Confirmation page",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("quantcast.deprecatedquantcastconfirmationpage.T
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var _qevents = _qevents || []; 
 
@@ -54,14 +56,14 @@ _qevents.push({
   revenue:"" + this.valueForToken("revenue") + ""
 });
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

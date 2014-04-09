@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "affiliatewindow.confirmationtagwithoutproductdetails.Tag";
 
-qubit.opentag.LibraryTag.define("affiliatewindow.confirmationtagwithoutproductdetails.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag without Product Details",
@@ -59,11 +61,11 @@ qubit.opentag.LibraryTag.define("affiliatewindow.confirmationtagwithoutproductde
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var AWIN = {
   Tracking: {
     Sale: {
@@ -76,10 +78,10 @@ var AWIN = {
     }
   }
 };
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

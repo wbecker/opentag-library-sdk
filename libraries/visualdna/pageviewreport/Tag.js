@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "visualdna.pageviewreport.Tag";
 
-qubit.opentag.LibraryTag.define("visualdna.pageviewreport.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Page View Report",
@@ -29,15 +31,15 @@ qubit.opentag.LibraryTag.define("visualdna.pageviewreport.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 window.VDNA = window.VDNA || {};
 window.VDNA.queue = window.VDNA.queue || [];
 var object = {
@@ -49,6 +51,6 @@ if (this.valueForToken("window_history").length === 2)
   object.args = this.valueForToken("window_history");
 }
 window.VDNA.queue.push(object);
-		/*~POST*/
+	/*~POST*/
 	}
 });

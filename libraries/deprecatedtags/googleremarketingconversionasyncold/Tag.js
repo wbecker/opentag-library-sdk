@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "deprecatedtags.googleremarketingconversionasyncold.Tag";
 
-qubit.opentag.LibraryTag.define("deprecatedtags.googleremarketingconversionasyncold.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Google Remarketing Conversion Async - old",
@@ -35,20 +37,20 @@ qubit.opentag.LibraryTag.define("deprecatedtags.googleremarketingconversionasync
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 window.google_trackConversion({
   google_conversion_id: "" + this.valueForToken("conversion_id") + "",
   google_conversion_label: "" + this.valueForToken("label") + "",
   google_custom_params: {}
 });
-		/*~POST*/
+	/*~POST*/
 	}
 });

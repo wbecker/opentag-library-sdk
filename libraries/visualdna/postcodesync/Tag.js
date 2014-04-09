@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "visualdna.postcodesync.Tag";
 
-qubit.opentag.LibraryTag.define("visualdna.postcodesync.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Postcode Sync",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("visualdna.postcodesync.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 window.VDNA = window.VDNA || {};
 window.VDNA.queue = window.VDNA.queue || [];
@@ -38,14 +40,14 @@ window.VDNA.queue.push({
   method : "reportConversion",
   args :["sync", {"partner_user_id" : "" + this.valueForToken("postcode") + "", "partner_user_id_type": "postcode"}]
 });
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

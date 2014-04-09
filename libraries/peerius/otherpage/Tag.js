@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "peerius.otherpage.Tag";
 
-qubit.opentag.LibraryTag.define("peerius.otherpage.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Other Page",
@@ -29,20 +31,20 @@ qubit.opentag.LibraryTag.define("peerius.otherpage.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 var PeeriusCallbacks = PeeriusCallbacks || {};
 PeeriusCallbacks.track = {
   type: "other", 
   lang: "" + this.valueForToken("lang") + ""
 }
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "webtrends.webtrendspageviewtrackingsimpleconfig.Tag";
 
-qubit.opentag.LibraryTag.define("webtrends.webtrendspageviewtrackingsimpleconfig.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Webtrends pageview tracking - simple config",
@@ -41,11 +43,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendspageviewtrackingsimpleconfig
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.webtrendsAsyncInit = function() {
 
   var options = {
@@ -63,10 +65,10 @@ window.webtrendsAsyncInit = function() {
   dcs.track();
 
 };
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

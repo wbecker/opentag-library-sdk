@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "googledoubleclick.doubleclickforadvertiserssimple.Tag";
 
-qubit.opentag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserssimple.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "DoubleClick for Advertisers - Simple",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("googledoubleclick.doubleclickforadvertiserssimp
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var axel = Math.random() + "";
 var a = axel * 1000000000000;
@@ -46,14 +48,14 @@ fl_if.height="1";
 fl_if.frameborder="0";
 fl_if.style.display = "none";
 document.body.appendChild(fl_if);
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "criteo.legacyusertag.Tag";
 
-qubit.opentag.LibraryTag.define("criteo.legacyusertag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Legacy - User Tag",
@@ -35,7 +37,7 @@ qubit.opentag.LibraryTag.define("criteo.legacyusertag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 (function () {
   var img = document.createElement("img");
@@ -50,14 +52,14 @@ qubit.opentag.LibraryTag.define("criteo.legacyusertag.Tag", {
   img.setAttribute("width", "1");
   document.body.appendChild(img);
 })();
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

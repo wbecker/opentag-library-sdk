@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "mediamind.genericpagetag.Tag";
 
-qubit.opentag.LibraryTag.define("mediamind.genericpagetag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Generic Page Tag",
@@ -29,7 +31,7 @@ qubit.opentag.LibraryTag.define("mediamind.genericpagetag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var ebRand = Math.random() * 1000000;
 var ebSession = "" + this.valueForToken("session_id") + "";
@@ -42,14 +44,14 @@ var ebSession = "" + this.valueForToken("session_id") + "";
 
 })()
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "perfectstormmedia.conversiontag.Tag";
 
-qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Conversion Tag",
@@ -41,7 +43,7 @@ qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var img = document.createElement("img");
 img.height = 1;
@@ -59,14 +61,14 @@ img.src = encodeURI("https://secure.perfectstormmedia.com/tracking/convert.php?c
 
 document.body.appendChild(img);
 
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

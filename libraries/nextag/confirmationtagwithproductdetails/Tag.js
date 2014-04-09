@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "nextag.confirmationtagwithproductdetails.Tag";
 
-qubit.opentag.LibraryTag.define("nextag.confirmationtagwithproductdetails.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag with product details",
@@ -53,11 +55,11 @@ qubit.opentag.LibraryTag.define("nextag.confirmationtagwithproductdetails.Tag", 
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 (function () {
 
   var cats = [], prods = [], units = [];
@@ -76,10 +78,10 @@ qubit.opentag.LibraryTag.define("nextag.confirmationtagwithproductdetails.Tag", 
   window.units = units.join("|");
 
 }());
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });

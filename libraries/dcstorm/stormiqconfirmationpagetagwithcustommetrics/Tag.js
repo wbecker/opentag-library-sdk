@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "dcstorm.stormiqconfirmationpagetagwithcustommetrics.Tag";
 
-qubit.opentag.LibraryTag.define("dcstorm.stormiqconfirmationpagetagwithcustommetrics.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "StormIQ Confirmation Page Tag with custom metrics",
@@ -95,17 +97,17 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqconfirmationpagetagwithcustommet
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+	/*SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
+	/*PRE*/
 window.__stormJs ='t1.stormiq.com/dcv4/jslib/' + this.valueForToken("storm_id") + '.js'; 
 window.__ch ='' + this.valueForToken("channel") + '';
-		/*~PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
+	/*POST*/
 var i = 0, ii = this.valueForToken("ids").length;
 
 for (; i < ii; i++) {
@@ -130,6 +132,6 @@ saleTrack.addSaleItem({
 saleTrack.curcode = '' + this.valueForToken("currency") + '';
 saleTrack.orderid = "" + this.valueForToken("order_id") + ""; 
 saleTrack.logSale(1);
-		/*~POST*/
+	/*~POST*/
 	}
 });

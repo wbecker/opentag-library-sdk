@@ -1,6 +1,8 @@
 //:include tagsdk-current.js
+var version = "";
+var classPath = "xaxis.mookie.Tag";
 
-qubit.opentag.LibraryTag.define("xaxis.mookie.Tag", {
+qubit.opentag.LibraryTag.define(classPath + version, {
 	config: {
 		/*DATA*/
 		name: "Mookie",
@@ -83,7 +85,7 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
-		/*SCRIPT*/
+	/*SCRIPT*/
 
 var img = new Image(0, 0),
   arr = [],
@@ -104,14 +106,14 @@ for (var key in obj) {
   arr.push(key + "=" + obj[key]);
 }
 img.src = "//t.mookie1.com/t/v1/event?" + arr.join("&");
-		/*~SCRIPT*/
+	/*~SCRIPT*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+	/*PRE*/
+	/*~PRE*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+	/*POST*/
+	/*~POST*/
 	}
 });
