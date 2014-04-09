@@ -414,6 +414,18 @@ function prepareVendorNode(name) {
   return vendorNode;
 }
 
+
+function findVersions(object, array) {
+  array = array || [];
+  qubit.opentag.Utils.traverse(object, function (obj, parent, prop) {
+    if (obj && obj.prototype && prop !== "superclass" && obj.prototype instanceof qubit.opentag.GenericLoader) {
+      array.push(obj);
+      console.log(prop);
+    }
+  }, {objectsOnly: true, noNodes: true});
+  return array;
+}
+
 /**
  * 
  * @returns {undefined}
@@ -429,6 +441,10 @@ function renderAllLibrariesToPage() {
     for (var lprop in vendor) {
       try {
         var libraryClass = vendor[lprop].Tag;
+        
+        
+        //var versions = findVersions(vendor[lprop]);
+        
         var ctest = new libraryClass({});
         ctest.unregisterTag();
         if ((ctest) instanceof qubit.opentag.LibraryTag) {

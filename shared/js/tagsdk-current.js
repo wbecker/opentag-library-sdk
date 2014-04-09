@@ -157,6 +157,7 @@ var UNDEF = undefined;
         }
       }
     } else {
+      var i = 0;
       for (var prop in obj) {
         if (obj.hasOwnProperty(prop)) {
           var object = obj[prop];
@@ -169,10 +170,98 @@ var UNDEF = undefined;
             copy[prop] = exists[1][exists[2]];
           }
         }
+        i++;
       }
     }
     return copy;
   };
+  
+  var traverseArray = [];
+  function existsInTraversePath(object, max) {
+    for(var i=0; i < max && i < traverseArray.length; i++) {
+      if (object === traverseArray[i]) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  var global = null;
+  try {
+    global = (1980, eval)("this");
+  } catch (e) {}
+  
+/**
+   * Copy object.
+   * deep option must be passed to protect from circural references.
+   * 
+   * @param {Object} obj
+   * @param {Number} deep
+   * @param {Boolean} starting point
+   * @returns {unresolved}
+   */
+  Utils.traverse = function(obj, exe, cfg, start, parent, prop) {
+    cfg = cfg || {};
+    
+    if (cfg.hasOwn === undefined) {
+      cfg.hasOwn = true;
+    }
+    
+    if (cfg.objectsOnly && !(obj instanceof Object)) {
+      return;
+    }
+    
+    if (cfg.maxDeep !== undefined && !cfg.maxDeep) {
+      return;
+    } else if (cfg.maxDeep !== undefined) {
+      cfg.maxDeep--;
+    }
+    
+    parent = parent || obj;
+    
+    if (cfg.noNodes) {
+      if (obj instanceof Node) {
+        //dont follow those objects
+        return;
+      }
+    }
+
+    if (obj === window || obj === global) {
+      //dont follow those objects
+      return;
+    }
+
+
+    if (start === undefined) {
+      traverseArray = [];
+      start = 0;
+    }
+    
+    var stopHere = exe(obj, parent, prop);
+    
+    if (stopHere) {
+      return;
+    }
+    
+    var i = 0;
+    for (var prop in obj) {
+      if (!cfg.hasOwn || (obj.hasOwnProperty(prop))) {
+        try {
+          var object = obj[prop];
+          if (object.objectsOnly && !(object instanceof Object)){
+            continue;
+          }
+          traverseArray[start] = object;
+          var exists = existsInTraversePath(object, start);
+          if (!exists) {
+            Utils.traverse(object, exe, cfg, start + 1, parent, prop);
+          }
+        } catch (e) {}
+      }
+      i++;
+    }
+  };
+
   
   /**
    * 
@@ -2855,7 +2944,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
             return param.variable = new BaseVariable(param.variable);
         }
       }
-    } else if (param.uv) {
+    } else if (param.uv) {//empty strings are also excluded
       return param.variable = new Expression({
         name: param.uv,
         value: param.uv
@@ -6974,7 +7063,7 @@ var counter = 0;
           };
           //hard coded value????
           switch (variableDefinition.type) {
-            case V_JS_VALUE:
+            case V_JS_VALUE: //covers also UV
               variable = new Expression(varCfg);
               break;
             case V_QUERY_PARAM:
@@ -7167,65 +7256,3 @@ var counter = 0;
   
   Utils.namespace("qubit.opentag.CustomTag", CustomTag);
 }());
-
-
-(function(){
-    var Utils = qubit.opentag.Utils;
-    var log = new qubit.opentag.Log("TagParameter: ");
-    
-    /**
-     * Tag Parameter class.
-     * It is used to represent Tag parameter objects.
-     * @class qubit.opentag.TagParameter
-     */
-    function TagParameter () {
-      this.config = {
-        /**
-         * Parameter name.
-         * @cfg {String} [name="ParameterAtTime" + new Date().valueOf()]
-         */
-        name: "ParameterAtTime" + new Date().valueOf(),
-        /**
-         * Token name.
-         * @cfg
-         */
-        token: "TOKEN",
-        /**
-         * Description.
-         * @cfg
-         */
-        description: "Default parameter description.",
-        /**
-         * Default parameter value to be used if page variable cannot be found.
-         * @cfg 
-         */
-        defaultValue: undefined,
-        /**
-         * If this parameter can use default value. `defaultValue` will be never
-         * used if this property is set to `false`
-         * @cfg 
-         */
-        canHaveDefaults: true,
-        /**
-         * If defined, universal variable will be used to assign value.
-         * @cfg {String} [uv=undefined]
-         */
-        uv: undefined
-      };
-    }
-
-    TagParameter.prototype.CLASS_NAME = "TagParameter";
-    TagParameter.prototype.PACKAGE_NAME = "qubit.opentag";
-    
-    /**
-     * Function getting this parameters current value.
-     * This is not a getter, it varies on configuration how the value
-     * is retrieved.
-     * @return {undefined}
-     */
-    TagParameter.prototype.getValue = function () {
-      
-    };
-    
-    Utils.namespace("qubit.opentag.TagParameter", TagParameter);
-})();
