@@ -14,47 +14,43 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "mediaFORGE Merchant ID",
 			description: "The ID that relates you to mediaFORGE",
 			token: "merchant_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Basket Product IDs",
 			description: "An array of the product ID/SKUs of all items in the basket",
 			token: "product_ids",
 			uv: "universal_variable.basket.line_items[#].product.sku_code"
-		},
-		{
+		}, {
 			name: "Basket Total",
 			description: "The total value for all items in the basket",
 			token: "basket_total",
 			uv: "universal_variable.basket.subtotal"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  var script = document.createElement("script");
-  var productArr = [];
-  for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-    productArr.push(this.valueForToken("product_ids")[i]);
-  }
-  var productIDs = productArr.join(",");
-  script.src = "//tags.mediaforge.com/js/" + this.valueForToken("merchant_id") + "/?cart=" + this.valueForToken("basket_total") + "&prodID=" + productIDs;
-  document.body.appendChild(script);
-	/*~SCRIPT*/
+		var script = document.createElement("script");
+		var productArr = [];
+		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+			productArr.push(this.valueForToken("product_ids")[i]);
+		}
+		var productIDs = productArr.join(",");
+		script.src = "//tags.mediaforge.com/js/" + this.valueForToken("merchant_id") + "/?cart=" + this.valueForToken("basket_total") + "&prodID=" + productIDs;
+		document.body.appendChild(script);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

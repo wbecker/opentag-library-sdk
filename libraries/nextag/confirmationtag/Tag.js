@@ -14,41 +14,37 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "imgsrv.nextag.com/imagefiles/includes/roitrack.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "NexTag ID",
 			description: "",
 			token: "nextag_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order Total",
 			description: "",
 			token: "order_total",
 			uv: "universal_variable.transaction.total"
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-window.id = '' + this.valueForToken("nextag_id") + '';
-window.rev = '' + this.valueForToken("order_total") + '';
-window.order = '' + this.valueForToken("order_id") + '';
-	/*~PRE*/
+		/*PRE*/
+		window.id = '' + this.valueForToken("nextag_id") + '';
+		window.rev = '' + this.valueForToken("order_total") + '';
+		window.order = '' + this.valueForToken("order_id") + '';
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

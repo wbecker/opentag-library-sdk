@@ -14,40 +14,37 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "track.adform.net/serving/scripts/trackpoint/async/",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Adform Campaign ID",
 			description: "The unique client ID for the AdForm tracking script",
 			token: "campaignid",
 			uv: ""
-		},
-		{
+		}, {
 			name: "AdForm Point ID",
 			description: "Point ID for the tag. Usually unique to page type.",
 			token: "pointid",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-(function() {
+		/*PRE*/
+		(function() {
 
-  window._adftrack = {
-    pm: this.valueForToken("campaignid"),
-    id: this.valueForToken("pointid")
-  };
+			window._adftrack = {
+				pm: this.valueForToken("campaignid"),
+				id: this.valueForToken("pointid")
+			};
 
-})();
-	/*~PRE*/
+		})();
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

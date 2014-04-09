@@ -14,46 +14,43 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "www.ist-track.com/ContainerBasketJavaScript.ashx?companyId=${id}",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Basket SKU List",
 			description: "",
 			token: "productSku",
 			uv: "universal_variable.basket.line_items[#].product.sku_code"
-		},
-		{
+		}, {
 			name: "Intelligent Reach ID",
 			description: "",
 			token: "id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-istCompanyId = "" + this.valueForToken("id") + "";
-istItemCount = this.valueForToken("productSku").length;
-istBasketItems = "";
+		/*PRE*/
+		istCompanyId = "" + this.valueForToken("id") + "";
+		istItemCount = this.valueForToken("productSku").length;
+		istBasketItems = "";
 
-for(var i = 0; i < this.valueForToken("productSku").length; i++) {
-  istBasketItems += this.valueForToken("productSku")[i];
+		for (var i = 0; i < this.valueForToken("productSku").length; i++) {
+			istBasketItems += this.valueForToken("productSku")[i];
 
-  if (this.valueForToken("productSku").length !== (i + 1)) {
-    istBasketItems += "|";
-  }
-}
-istUserDefinedFieldOne = "";
-istUserDefinedFieldTwo = "";
-istUserDefinedFieldThree = "";
-	/*~PRE*/
+			if (this.valueForToken("productSku").length !== (i + 1)) {
+				istBasketItems += "|";
+			}
+		}
+		istUserDefinedFieldOne = "";
+		istUserDefinedFieldTwo = "";
+		istUserDefinedFieldThree = "";
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

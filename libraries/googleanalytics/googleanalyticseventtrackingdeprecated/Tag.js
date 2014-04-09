@@ -14,29 +14,27 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Tag Id",
 			description: "Individual Container Id",
 			token: "TAG_ID",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  window._gaq = window._gaq || [];
-  window._gaq.push(['_trackEvent', '' + this.valueForToken("category") + '', '' + this.valueForToken("action") + '', '' + this.valueForToken("label") + '', '' + this.valueForToken("value") + '', '' + this.valueForToken("non_interaction") + '']);
-	/*~SCRIPT*/
+		window._gaq = window._gaq || [];
+		window._gaq.push(['_trackEvent', '' + this.valueForToken("category") + '', '' + this.valueForToken("action") + '', '' + this.valueForToken("label") + '', '' + this.valueForToken("value") + '', '' + this.valueForToken("non_interaction") + '']);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

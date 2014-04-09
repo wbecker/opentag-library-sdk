@@ -14,47 +14,44 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "zanox Page ID",
 			description: "Unique ID for the page",
 			token: "zanoxPageId",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
 		window._zx = window._zx || [];
-		window._zx.push({"id":"" + this.valueForToken("zanoxPageId") + ""});
-		var waitForZanoxDiv = function ()
-                {
-                  if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") + ".zx_mediaslot"))
-                  {
-                    (function(d)
-                    {
-                      var s = d.createElement("script"); s.async = true;
-                      s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
-                      var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(s, a);
-                    }(document));
-                  }
-                  else
-                  {
-                    setTimeout(waitForZanoxDiv, 100);
-                  }
-                };
-                waitForZanoxDiv();
+		window._zx.push({
+			"id": "" + this.valueForToken("zanoxPageId") + ""
+		});
+		var waitForZanoxDiv = function() {
+			if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") + ".zx_mediaslot")) {
+				(function(d) {
+					var s = d.createElement("script");
+					s.async = true;
+					s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
+					var a = d.getElementsByTagName("script")[0];
+					a.parentNode.insertBefore(s, a);
+				}(document));
+			} else {
+				setTimeout(waitForZanoxDiv, 100);
+			}
+		};
+		waitForZanoxDiv();
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

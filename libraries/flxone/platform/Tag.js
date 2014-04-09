@@ -14,28 +14,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "FlxOne Client ID",
 			description: "The client ID given to you by FlxOne",
 			token: "client_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function(a){var d=document,c=d.createElement("script");c.async=!0,c.defer=!0,c.src=a,d.getElementsByTagName("head")[0].appendChild(c)})((iatDev=(window.location.href.indexOf("iatDev=1")>-1||document.cookie.indexOf("iatDev=1")>-1),"//"+(window.location.protocol=="http:"&&!iatDev?"h":"")+"j.flxpxl.com/" + this.valueForToken("client_id") + ".js?r="+Math.random()*1e16+(iatDev?"&d=1":"")))
-	/*~SCRIPT*/
+		(function(a) {
+			var d = document,
+				c = d.createElement("script");
+			c.async = !0, c.defer = !0, c.src = a, d.getElementsByTagName("head")[0].appendChild(c)
+		})((iatDev = (window.location.href.indexOf("iatDev=1") > -1 || document.cookie.indexOf("iatDev=1") > -1), "//" + (window.location.protocol == "http:" && !iatDev ? "h" : "") + "j.flxpxl.com/" + this.valueForToken("client_id") + ".js?r=" + Math.random() * 1e16 + (iatDev ? "&d=1" : "")))
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

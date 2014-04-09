@@ -14,26 +14,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "AppNexus Segment",
 			description: "Segment id for use with AppNexus tag",
 			token: "segment",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

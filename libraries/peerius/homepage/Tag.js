@@ -14,61 +14,55 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Peerius Language",
 			description: "Language of the page that the tag is on",
 			token: "lang",
 			uv: "universal_variable.user.language"
-		},
-		{
+		}, {
 			name: "Peerius User Name",
 			description: "The name of the user of the home page",
 			token: "user_name",
 			uv: "universal_variable.user.name"
-		},
-		{
+		}, {
 			name: "Peerius User Email",
 			description: "Email of the user on the home page",
 			token: "user_email",
 			uv: "universal_variable.user.email"
-		},
-		{
+		}, {
 			name: "Peerius Channel",
 			description: "Channel on the home page",
 			token: "channel",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Peerius Client Name",
 			description: "The name of the client for which the tag is to be implemented",
 			token: "client_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var PeeriusCallbacks = {
-  track: {
-    type: "home",
-    lang: "" + this.valueForToken("lang") + "",
-    channel: "" + this.valueForToken("channel") + "",
-    user: {
-      name: "" + this.valueForToken("user_name") + "",
-      email: "" + this.valueForToken("user_email") + ""
-    }
-  }
-}
-	/*~PRE*/
+		/*PRE*/
+		var PeeriusCallbacks = {
+			track: {
+				type: "home",
+				lang: "" + this.valueForToken("lang") + "",
+				channel: "" + this.valueForToken("channel") + "",
+				user: {
+					name: "" + this.valueForToken("user_name") + "",
+					email: "" + this.valueForToken("user_email") + ""
+				}
+			}
+		}
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

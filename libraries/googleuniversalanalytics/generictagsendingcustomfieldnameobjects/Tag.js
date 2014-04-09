@@ -14,47 +14,51 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Web Property ID",
 			description: "Google Analytics Web Property ID for the Google Web Property you wish to track",
 			token: "web_property_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Field Object Array",
 			description: "An array of field objects, each of which must define at least a 'hitType'",
 			token: "field_objects",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function(){
+		(function() {
 
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', '' + this.valueForToken("web_property_id") + '');
+			ga('create', '' + this.valueForToken("web_property_id") + '');
 
-for (var i=0; i < this.valueForToken("field_objects").length; i++){
-  ga('send', this.valueForToken("field_objects")[i]);
-}
+			for (var i = 0; i < this.valueForToken("field_objects").length; i++) {
+				ga('send', this.valueForToken("field_objects")[i]);
+			}
 
-})();
-	/*~SCRIPT*/
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

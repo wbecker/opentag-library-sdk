@@ -14,38 +14,34 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Kenshoo Number",
 			description: "The Kenshoo customer ID for the client",
 			token: "kenshooNo",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Tracking Type",
 			description: "The type of page/conversion the tracking pixel is applied to",
 			token: "pixelType",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Value Currency",
 			description: "The current currency",
 			token: "valueCurrency",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

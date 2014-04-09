@@ -14,39 +14,35 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "${clicktale_url}",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "ClickTale URL",
 			description: "Set this to the JavaScript variable 'window.clicktale_url' which is created by the Pre-Script",
 			token: "clicktale_url",
 			uv: ""
-		},
-		{
+		}, {
 			name: "ClickTale HTTPS URL",
 			description: "Set this to the HTTPS URL specified in the ClickTale implementation code",
 			token: "clicktale_https",
 			uv: ""
-		},
-		{
+		}, {
 			name: "ClickTale HTTP URL",
 			description: "Set this to the HTTP URL specified in the ClickTale implementation code",
 			token: "clicktale_http",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-window.WRInitTime=(new Date()).getTime();
-	/*~PRE*/
+		/*PRE*/
+		window.WRInitTime = (new Date()).getTime();
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

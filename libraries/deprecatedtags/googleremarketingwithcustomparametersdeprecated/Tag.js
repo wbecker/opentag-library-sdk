@@ -14,47 +14,43 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Google Conversion ID",
 			description: "Your Google id provided in the script",
 			token: "conversion_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Google Conversion Label",
 			description: "A alphanumeric label of your conversion tracking",
 			token: "label",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Custom parameters",
 			description: "Use a JavaScript-based parameter to return an object within an anonymous function.",
 			token: "custom_parameters",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-var options = {
-  google_conversion_id: "" + this.valueForToken("conversion_id") + "",
-  google_conversion_label: "" + this.valueForToken("label") + "",
-  google_custom_params: this.valueForToken("custom_parameters")
-};
+		/*POST*/
+		var options = {
+			google_conversion_id: "" + this.valueForToken("conversion_id") + "",
+			google_conversion_label: "" + this.valueForToken("label") + "",
+			google_custom_params: this.valueForToken("custom_parameters")
+		};
 
-console.debug(options);
+		console.debug(options);
 
-window.google_trackConversion(options);
-	/*~POST*/
+		window.google_trackConversion(options);
+		/*~POST*/
 	}
 });

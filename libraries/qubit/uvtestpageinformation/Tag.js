@@ -14,56 +14,50 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Page Environment",
 			description: "",
 			token: "a",
 			uv: "universal_variable.page.environment"
-		},
-		{
+		}, {
 			name: "Page Variation",
 			description: "",
 			token: "b",
 			uv: "universal_variable.page.variation"
-		},
-		{
+		}, {
 			name: "Page Category",
 			description: "",
 			token: "c",
 			uv: "universal_variable.page.category"
-		},
-		{
+		}, {
 			name: "Page Sub-Category",
 			description: "",
 			token: "d",
 			uv: "universal_variable.page.subcategory"
-		},
-		{
+		}, {
 			name: "Page Revision",
 			description: "",
 			token: "e",
 			uv: "universal_variable.page.revision"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-console.log("" + this.valueForToken("a") + "");
-console.log("" + this.valueForToken("b") + "");
-console.log("" + this.valueForToken("c") + "");
-console.log("" + this.valueForToken("d") + "");
-console.log("" + this.valueForToken("e") + "");
-	/*~SCRIPT*/
+		console.log("" + this.valueForToken("a") + "");
+		console.log("" + this.valueForToken("b") + "");
+		console.log("" + this.valueForToken("c") + "");
+		console.log("" + this.valueForToken("d") + "");
+		console.log("" + this.valueForToken("e") + "");
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

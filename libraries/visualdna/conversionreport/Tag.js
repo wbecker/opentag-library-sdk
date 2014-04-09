@@ -14,69 +14,60 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "API Key",
 			description: "API Key",
 			token: "api_key",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Extra Data",
 			description: "Please read tag description for more details",
 			token: "extra_data",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Conversion ID",
 			description: "An ID identifying the designated Conversion Goal",
 			token: "conversion_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function ()
-{
-  window.VDNA = window.VDNA || {};
-  window.VDNA.queue = window.VDNA.queue || [];
-  
-  var args = ["" + this.valueForToken("conversion_id") + ""];
-  
-  var isEmpty = function (obj) 
-  {
-    for(var prop in obj) 
-    {
-      if (obj.hasOwnProperty(prop))
-      {
-         return false;
-      }
-    }
-    return true;
-  };
-  
-  if (!isEmpty(this.valueForToken("extra_data")))
-  {
-    args.push(this.valueForToken("extra_data"));
-  }
+		(function() {
+			window.VDNA = window.VDNA || {};
+			window.VDNA.queue = window.VDNA.queue || [];
 
-  window.VDNA.queue.push({
-    apiKey : "" + this.valueForToken("api_key") + "",
-    method : "reportConversion",
-    args : args
-  });
-})();
-	/*~SCRIPT*/
+			var args = ["" + this.valueForToken("conversion_id") + ""];
+
+			var isEmpty = function(obj) {
+				for (var prop in obj) {
+					if (obj.hasOwnProperty(prop)) {
+						return false;
+					}
+				}
+				return true;
+			};
+
+			if (!isEmpty(this.valueForToken("extra_data"))) {
+				args.push(this.valueForToken("extra_data"));
+			}
+
+			window.VDNA.queue.push({
+				apiKey: "" + this.valueForToken("api_key") + "",
+				method: "reportConversion",
+				args: args
+			});
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

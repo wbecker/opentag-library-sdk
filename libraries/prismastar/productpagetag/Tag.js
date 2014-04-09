@@ -14,50 +14,44 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Gateway Prefix",
 			description: "Your gateway prefix assigned by your PrismaStar account manager",
 			token: "GATEWAY_PREFIX",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Customer Code",
 			description: "Your customer code assigned by your PrismaStar account manager",
 			token: "CUSTOMER_CODE",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product ID",
 			description: "The product ID or SKU used in the data feeds",
 			token: "PRODUCT_ID",
 			uv: "universal_variable.product.id"
-		},
-		{
+		}, {
 			name: "Price",
 			description: "The individual price of this item",
 			token: "ITEM_PRICE",
 			uv: "universal_variable.product.unit_sale_price"
-		},
-		{
+		}, {
 			name: "Category",
 			description: "The product category used in the data feeds (Optional)",
 			token: "CATEGORY_CODE",
 			uv: "universal_variable.product.category"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

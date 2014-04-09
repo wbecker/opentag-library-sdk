@@ -14,30 +14,28 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Custom variables",
 			description: "You should return an object (key/value) from within a self executing anonymous function.",
 			token: "data",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-Webtrends.multiTrack({
-  args: this.valueForToken("data")
-});
-	/*~SCRIPT*/
+		Webtrends.multiTrack({
+			args: this.valueForToken("data")
+		});
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

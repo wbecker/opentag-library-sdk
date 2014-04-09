@@ -16,47 +16,48 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
 
-// Create UV events array if doesn't exist
-window.universal_variable = window.universal_variable || {};
-var uv = window.universal_variable;
-uv.events = uv.events || [];
-uv.events._cb = uv.events._cb || {};
+		// Create UV events array if doesn't exist
+		window.universal_variable = window.universal_variable || {};
+		var uv = window.universal_variable;
+		uv.events = uv.events || [];
+		uv.events._cb = uv.events._cb || {};
 
-// Create the on function for listening
-uv.events.on = function (eventName, cb) {
-  uv.events._cb = uv.events._cb || {};
-  var cbs = uv.events._cb;
-  cbs[eventName] = cbs[eventName] || [];
-  cbs[eventName].push(cb);
-};
+		// Create the on function for listening
+		uv.events.on = function(eventName, cb) {
+			uv.events._cb = uv.events._cb || {};
+			var cbs = uv.events._cb;
+			cbs[eventName] = cbs[eventName] || [];
+			cbs[eventName].push(cb);
+		};
 
-// Override push
-uv.events.push = function (event) {
-  uv.events[uv.events.length] = event;
-  event.time = event.time || (new Date()).getTime();
-  if (window.universal_variable.events._cb.add) {
-    var i = 0, ii = uv.events._cb.add.length;
-    for (; i < ii; i += 1) {
-      uv.events._cb.add[i](event);
-    }
-  }
-};
+		// Override push
+		uv.events.push = function(event) {
+			uv.events[uv.events.length] = event;
+			event.time = event.time || (new Date()).getTime();
+			if (window.universal_variable.events._cb.add) {
+				var i = 0,
+					ii = uv.events._cb.add.length;
+				for (; i < ii; i += 1) {
+					uv.events._cb.add[i](event);
+				}
+			}
+		};
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

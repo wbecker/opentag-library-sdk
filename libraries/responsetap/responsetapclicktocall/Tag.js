@@ -14,38 +14,36 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account Id",
 			description: "Your Response Tap account id, generally a 3-4 digit number",
 			token: "ACCOUNT_ID",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  var adiInit = "" + this.valueForToken("ACCOUNT_ID") + "";
-  var adiRVO = true;
-  var adiFunc = null;
-  (function() {
-    var adiSrc = document.createElement("script");
-    adiSrc.type = "text/javascript";
-    adiSrc.async = true;
-    adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn") + ".responsetap.com/static/scripts/rTapTrack.min.js";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(adiSrc, s);
-  })();
-	/*~SCRIPT*/
+		var adiInit = "" + this.valueForToken("ACCOUNT_ID") + "";
+		var adiRVO = true;
+		var adiFunc = null;
+		(function() {
+			var adiSrc = document.createElement("script");
+			adiSrc.type = "text/javascript";
+			adiSrc.async = true;
+			adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn") + ".responsetap.com/static/scripts/rTapTrack.min.js";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(adiSrc, s);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

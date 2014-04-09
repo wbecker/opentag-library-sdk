@@ -14,43 +14,40 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Client ID",
 			description: "Implementation consultant will provide you with your Client ID",
 			token: "clientID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Customer Email",
 			description: "",
 			token: "userEmail",
 			uv: "universal_variable.user.email"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function () {
-  var src = [
-    'https://app.salecycle.com/Import/PixelCapture.aspx?',
-    'c=', '' + this.valueForToken("clientID") + '',
-    '&e=', '' + this.valueForToken("userEmail") + ''
-  ].join('');
-  var img = document.createElement('img');
-  img.setAttribute('src', src);
-  document.body.append(img);
-})()
-	/*~SCRIPT*/
+		(function() {
+			var src = [
+				'https://app.salecycle.com/Import/PixelCapture.aspx?',
+				'c=', '' + this.valueForToken("clientID") + '',
+				'&e=', '' + this.valueForToken("userEmail") + ''
+			].join('');
+			var img = document.createElement('img');
+			img.setAttribute('src', src);
+			document.body.append(img);
+		})()
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

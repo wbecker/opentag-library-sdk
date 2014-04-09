@@ -14,46 +14,44 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Shop ID",
 			description: "The unique ID for the store",
 			token: "shop_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
 
-(function() {
+		(function() {
 
-  // Get timestamp (cachebuster)
-  var time = new Date().getTime();
+			// Get timestamp (cachebuster)
+			var time = new Date().getTime();
 
-  // Iframe
-  iframe = document.createElement('iframe');
-  iframe.src = "//rs.gwallet.com/r1/pixel/x6036r"+time+"?shop_id=" + this.valueForToken("shop_id") + "";
-  iframe.width = 1;
-  iframe.height = 1;
-  iframe.frameBorder = 0;
-  iframe.marginWidth = 0;
-  iframe.marginHeight = 0;
-  iframe.scrolling = 'no';
-  document.body.appendChild(iframe);
+			// Iframe
+			iframe = document.createElement('iframe');
+			iframe.src = "//rs.gwallet.com/r1/pixel/x6036r" + time + "?shop_id=" + this.valueForToken("shop_id") + "";
+			iframe.width = 1;
+			iframe.height = 1;
+			iframe.frameBorder = 0;
+			iframe.marginWidth = 0;
+			iframe.marginHeight = 0;
+			iframe.scrolling = 'no';
+			document.body.appendChild(iframe);
 
-})();
+		})();
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

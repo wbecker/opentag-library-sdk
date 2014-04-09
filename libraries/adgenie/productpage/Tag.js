@@ -14,32 +14,29 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "adGENIE Client ID",
 			description: "The ID of the company using adGENIE tag",
 			token: "client_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "adGENIE Product ID",
 			description: "The ID of the product on the page",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

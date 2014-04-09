@@ -14,33 +14,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/jquery/${version}/jquery.min.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "jQuery version",
 			description: "version e.g. 1.8.3",
 			token: "version",
 			uv: ""
-		},
-		{
+		}, {
 			name: "jQuery name",
 			description: "Save jQuery as a variable rather than as 'jQuery' or '$'",
 			token: "jquery_name",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-window.this.valueForToken("jquery_name") = $.noConflict(true);
-	/*~POST*/
+		/*POST*/
+		window.this.valueForToken("jquery_name") = $.noConflict(true);
+		/*~POST*/
 	}
 });

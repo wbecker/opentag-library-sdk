@@ -14,72 +14,64 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Subdomain",
 			description: "The subdomain you're accessing doubleclick through.",
 			token: "subdomain",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Activity Suffix",
 			description: "A suffix, usually nothing or 'i', which follows 'activity' in the doubleclick url.",
 			token: "activity_letter",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Double Click Id",
 			description: "Your unique identifier for your account",
 			token: "doubleclick_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Type",
 			description: "",
 			token: "type",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Category",
 			description: "",
 			token: "cat",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Custom Parameters",
 			description: "Any remaining parameters, not visible in the url above, as 'paramName=paramValue' separated by ;",
 			token: "custom_params",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Ord",
 			description: "A custom value for \"ord\". Can be left blank.",
 			token: "ord",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var axel = Math.random() + "";
-var a = axel * 1000000000000;
-var fl_if = document.createElement("iframe");
-fl_if.src='//' + this.valueForToken("subdomain") + '.fls.doubleclick.net/activity' + this.valueForToken("activity_letter") + ';src=' + this.valueForToken("doubleclick_id") + ';type=' + this.valueForToken("type") + ';cat=' + this.valueForToken("cat") + ';' + this.valueForToken("custom_params") + ';ord=' + this.valueForToken("ord") + '' + a + '?';
-fl_if.width="1";
-fl_if.height="1";
-fl_if.frameborder="0";
-fl_if.style.display = "none";
-document.body.appendChild(fl_if);
-	/*~SCRIPT*/
+		var axel = Math.random() + "";
+		var a = axel * 1000000000000;
+		var fl_if = document.createElement("iframe");
+		fl_if.src = '//' + this.valueForToken("subdomain") + '.fls.doubleclick.net/activity' + this.valueForToken("activity_letter") + ';src=' + this.valueForToken("doubleclick_id") + ';type=' + this.valueForToken("type") + ';cat=' + this.valueForToken("cat") + ';' + this.valueForToken("custom_params") + ';ord=' + this.valueForToken("ord") + '' + a + '?';
+		fl_if.width = "1";
+		fl_if.height = "1";
+		fl_if.frameborder = "0";
+		fl_if.style.display = "none";
+		document.body.appendChild(fl_if);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

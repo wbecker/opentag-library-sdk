@@ -14,34 +14,31 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Element ID",
 			description: "The unique identifier or name for the Element and the value that is displayed in the Elements report",
 			token: "element_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Element Category",
 			description: "The category passed in the Element tag is used to populate the Element Categories report.",
 			token: "element_category",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-cmCreateElementTag("" + this.valueForToken("element_id") + "", "" + this.valueForToken("element_category") + "");
-	/*~SCRIPT*/
+		cmCreateElementTag("" + this.valueForToken("element_id") + "", "" + this.valueForToken("element_category") + "");
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

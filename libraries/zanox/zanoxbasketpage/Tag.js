@@ -14,52 +14,46 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "ID",
 			description: "client/page specific ID",
 			token: "id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function ()
-{
-   var waitForElement = function ()
-   {
-      if (document.getElementsByClassName('zx_' + this.valueForToken("id") + ' zx_mediaslot').length === 1)
-      {
-         window._zx = window._zx || [];
-         window._zx.push({"id":"" + this.valueForToken("id") + ""});
-         (function(d) 
-         { 
-             var s = d.createElement("script"); 
-             s.async = true;
-             s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
-             var a = d.getElementsByTagName("script")[0]; 
-             a.parentNode.insertBefore(s, a);
-         }(document));
-      }
-      else
-      {
-         setTimeout(waitForElement, 100);
-      }
-   };
+		(function() {
+			var waitForElement = function() {
+				if (document.getElementsByClassName('zx_' + this.valueForToken("id") + ' zx_mediaslot').length === 1) {
+					window._zx = window._zx || [];
+					window._zx.push({
+						"id": "" + this.valueForToken("id") + ""
+					});
+					(function(d) {
+						var s = d.createElement("script");
+						s.async = true;
+						s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
+						var a = d.getElementsByTagName("script")[0];
+						a.parentNode.insertBefore(s, a);
+					}(document));
+				} else {
+					setTimeout(waitForElement, 100);
+				}
+			};
 
-   waitForElement();
-})();
-	/*~SCRIPT*/
+			waitForElement();
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

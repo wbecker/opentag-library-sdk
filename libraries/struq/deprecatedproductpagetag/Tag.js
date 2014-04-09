@@ -14,40 +14,38 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Product ID",
 			description: "ID for the product on the current page",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var _struqPI = _struqPI || [];
+		/*PRE*/
+		var _struqPI = _struqPI || [];
 
-_struqPI.push(['injectTrackingPixel', {
-  trackingPixelId: 'PixelID',
-  route: '/s/s/',
-  collectData: false,
-  data: [{
-    title: "detail",
-    pid: "" + this.valueForToken("product_id") + ""
-  }],
-  options: {
-    timeoutMs: 2000
-  }
-}]);
-	/*~PRE*/
+		_struqPI.push(['injectTrackingPixel', {
+			trackingPixelId: 'PixelID',
+			route: '/s/s/',
+			collectData: false,
+			data: [{
+				title: "detail",
+				pid: "" + this.valueForToken("product_id") + ""
+			}],
+			options: {
+				timeoutMs: 2000
+			}
+		}]);
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

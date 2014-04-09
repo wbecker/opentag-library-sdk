@@ -14,56 +14,49 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "tb${tracking_type}.tradedoubler.com/report?organization=${org_id}&event=${evt_id}&orderNumber=${order_id}&orderValue=${order_total}&currency=${currency}",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "TradeDoubler Tracking Type",
 			description: "Enter hard coded value such as s for sales tracking or l for lead tracking",
 			token: "tracking_type",
 			uv: ""
-		},
-		{
+		}, {
 			name: "TradeDoubler Organization ID",
 			description: "Your TradeDoubler Organization ID, provided by TradeDoubler",
 			token: "org_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "TradeDoubler Event ID",
 			description: "Provided by TradeDoubler, this ID is used for reporting.",
 			token: "evt_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "The unique order reference for this transaction",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "Order Value",
 			description: "The value of this particular order",
 			token: "order_total",
 			uv: "universal_variable.transaction.subtotal"
-		},
-		{
+		}, {
 			name: "Currency",
 			description: "The currency in which this order was paid",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

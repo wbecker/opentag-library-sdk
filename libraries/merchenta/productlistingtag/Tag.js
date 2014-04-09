@@ -14,56 +14,53 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Merchenta Retailer Code",
 			description: "Your Merchenta account ID",
 			token: "Merchenta_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product SKUs",
 			description: "The SKU/ID of the products being viewed",
 			token: "Product_SKUs",
 			uv: "universal_variable.listing.items[#].sku_code"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function () {
-  var i, ii, d, p = document.getElementById("mc_data");
-  for (i = 0, ii = this.valueForToken("Product_SKUs").length; i < ii; i ++) {
-    d = document.createElement("div");
-    d.className="mc_sku";
-    d.innerHTML=this.valueForToken("Product_SKUs")[i].toString();
-    p.appendChild(d);
-  }
-})();
+		(function() {
+			var i, ii, d, p = document.getElementById("mc_data");
+			for (i = 0, ii = this.valueForToken("Product_SKUs").length; i < ii; i++) {
+				d = document.createElement("div");
+				d.className = "mc_sku";
+				d.innerHTML = this.valueForToken("Product_SKUs")[i].toString();
+				p.appendChild(d);
+			}
+		})();
 
-var mc_api_url = "api.merchenta.com/merchenta/t";
-(function() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.async = true;
-  var secure = (window.parent.document.location.protocol=="https:");
-  if (secure) {
-    script.src = "https://api.merchenta.com/track/t.js";
-  } else {
-    script.src = "http://cdn.merchenta.com/track/t.js";
-  }
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-	/*~SCRIPT*/
+		var mc_api_url = "api.merchenta.com/merchenta/t";
+		(function() {
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.async = true;
+			var secure = (window.parent.document.location.protocol == "https:");
+			if (secure) {
+				script.src = "https://api.merchenta.com/track/t.js";
+			} else {
+				script.src = "http://cdn.merchenta.com/track/t.js";
+			}
+			document.getElementsByTagName('head')[0].appendChild(script);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

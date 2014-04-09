@@ -14,38 +14,36 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Google Conversion ID",
 			description: "",
 			token: "conversionid",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-var poll = function() {
-  if (window.google_trackConversion) {
-    window.google_trackConversion({
-      google_conversion_id: "" + this.valueForToken("conversionid") + "",
-      google_remarketing_only: true,
-      google_custom_params: window.google_tag_params || {}
-    });
-  } else {
-    setTimeout(poll, 250);
-  }
-};
-poll();
-	/*~POST*/
+		/*POST*/
+		var poll = function() {
+			if (window.google_trackConversion) {
+				window.google_trackConversion({
+					google_conversion_id: "" + this.valueForToken("conversionid") + "",
+					google_remarketing_only: true,
+					google_custom_params: window.google_tag_params || {}
+				});
+			} else {
+				setTimeout(poll, 250);
+			}
+		};
+		poll();
+		/*~POST*/
 	}
 });

@@ -14,51 +14,44 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Secure Domain URL",
 			description: "The domain for secure pages on your site provided by your Org Admin",
 			token: "secure_domain",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Non-Secure Domain URL",
 			description: "The domain for non-secure pages on your site provided by your Org Admin",
 			token: "non_secure_domain",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Branded Domains",
 			description: "The comma separated listed of qualified/unqualified branded domains i.e. www.a.com,b.com,www.c.com",
 			token: "branded_domains",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Page Name",
 			description: "The name for the page the tag is currently firing on",
 			token: "page_name",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  var x = document.createElement("script");
-  x.src = (document.location.protocol === "https:") 
-    ? "" + this.valueForToken("secure_domain") + ""
-    : "" + this.valueForToken("non_secure_domain") + "";
-  x.type = "text/javascript";
-  document.getElementsByTagName("head")[0].appendChild(x);
-	/*~SCRIPT*/
+		var x = document.createElement("script");
+		x.src = (document.location.protocol === "https:") ? "" + this.valueForToken("secure_domain") + "" : "" + this.valueForToken("non_secure_domain") + "";
+		x.type = "text/javascript";
+		document.getElementsByTagName("head")[0].appendChild(x);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

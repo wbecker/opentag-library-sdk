@@ -14,31 +14,29 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "RadiumOne Tag ID",
 			description: "",
 			token: "id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function() {
-  var img = new Image();
-  img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") + "r" + Math.round(Math.random()*10000000);
-}());
-	/*~SCRIPT*/
+		(function() {
+			var img = new Image();
+			img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") + "r" + Math.round(Math.random() * 10000000);
+		}());
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

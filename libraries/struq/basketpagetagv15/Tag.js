@@ -14,57 +14,54 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Pixel id",
 			description: "The identifier unique to each Struq tag",
 			token: "id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product Id List",
 			description: "",
 			token: "product_id_list",
 			uv: "universal_variable.basket.line_items[#].product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var _struqPI = _struqPI || [];
+		var _struqPI = _struqPI || [];
 
-var productArr = [];
-for(var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) {
-  productArr.push(this.valueForToken("product_id_list")[i]);
-}
+		var productArr = [];
+		for (var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) {
+			productArr.push(this.valueForToken("product_id_list")[i]);
+		}
 
-var productIDStr = productArr.join(",");
+		var productIDStr = productArr.join(",");
 
-_struqPI.push(['injectTrackingPixel', {
-  trackingPixelId: "" + this.valueForToken("id") + "",
-  route: '/s/s/',
-  collectData: false,
-  data: [{
-    title: "si",
-    pid: productIDStr
-  }],
-  options: {
-    timeoutMs: 2000
-  }
-}]);
-var script = document.createElement("script");
-script.src = "//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
-document.body.appendChild(script);
-	/*~SCRIPT*/
+		_struqPI.push(['injectTrackingPixel', {
+			trackingPixelId: "" + this.valueForToken("id") + "",
+			route: '/s/s/',
+			collectData: false,
+			data: [{
+				title: "si",
+				pid: productIDStr
+			}],
+			options: {
+				timeoutMs: 2000
+			}
+		}]);
+		var script = document.createElement("script");
+		script.src = "//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
+		document.body.appendChild(script);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

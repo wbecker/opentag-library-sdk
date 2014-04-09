@@ -14,49 +14,45 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "https://${subdomain}.mythings.com/c.aspx?atok=${advertiser_token}",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "myThings Advertiser Token",
 			description: "Token provided by myThings",
 			token: "advertiser_token",
 			uv: ""
-		},
-		{
+		}, {
 			name: "myThings Subdomain",
 			description: "Subdomain specified by myThings, if unsure use \"rainbow-uk\"",
 			token: "subdomain",
 			uv: ""
-		},
-		{
+		}, {
 			name: "myThings Action Number",
 			description: "The action number specified for the specific tag",
 			token: "action_number",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-function _mt_ready(){
-   if (typeof(MyThings) != "undefined") {
-       MyThings.Track({
-           EventType: MyThings.Event.Visit,
-               Action: "" + this.valueForToken("action_number") + ""
-       });
-   }
-}
+		/*PRE*/
+		function _mt_ready() {
+			if (typeof(MyThings) != "undefined") {
+				MyThings.Track({
+					EventType: MyThings.Event.Visit,
+					Action: "" + this.valueForToken("action_number") + ""
+				});
+			}
+		}
 
-var mtHost = (("https:" == document.location.protocol) ? "https" : "http") + "://" + this.valueForToken("subdomain") + ".mythings.com";
-var mtAdvertiserToken = "" + this.valueForToken("advertiser_token") + "";
-	/*~PRE*/
+		var mtHost = (("https:" == document.location.protocol) ? "https" : "http") + "://" + this.valueForToken("subdomain") + ".mythings.com";
+		var mtAdvertiserToken = "" + this.valueForToken("advertiser_token") + "";
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

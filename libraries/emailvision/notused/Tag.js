@@ -16,30 +16,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function () {
-  function setCookie(domain, label, val, minutes) {
-    var txpDate = new Date();
-    txpDate.setTime(txpDate.getTime() + (minutes * 60 * 1000));
-    document.cookie= label + "=" + escape(val) + ";domain=" + domain +
-      ";path =/" + (!minutes ? "" : ";expires="+ txpDate.toGMTString());
-  }
+		(function() {
+			function setCookie(domain, label, val, minutes) {
+				var txpDate = new Date();
+				txpDate.setTime(txpDate.getTime() + (minutes * 60 * 1000));
+				document.cookie = label + "=" + escape(val) + ";domain=" + domain +
+					";path =/" + (!minutes ? "" : ";expires=" + txpDate.toGMTString());
+			}
 
-  setCookie(".office.co.uk", "opentag_emailvision_timestamp", (new Date()).getTime(), 60 * 24 * 2);
-})();
-	/*~SCRIPT*/
+			setCookie(".office.co.uk", "opentag_emailvision_timestamp", (new Date()).getTime(), 60 * 24 * 2);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,66 +14,62 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "ClickTale Id",
 			description: "Your ClickTale project id",
 			token: "ClickTaleId",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Recording Ratio",
 			description: "What ratio of users to record - between 0 and 1",
 			token: "RecordingRatio",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Partition Id",
 			description: "The clicktale partition - normally something like \"www09\"",
 			token: "Partition",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window.WRInitTime = (new Date()).getTime();
+		window.WRInitTime = (new Date()).getTime();
 
-var ctd = document.createElement("div");
-ctd.id = "ClickTaleDiv";
-ctd.style.display = "none";
-document.body.appendChild(ctd);
+		var ctd = document.createElement("div");
+		ctd.id = "ClickTaleDiv";
+		ctd.style.display = "none";
+		document.body.appendChild(ctd);
 
-var ct = document.createElement("script");
-ct.src = (document.location.protocol === 'https:' ?
-  'https://clicktalecdn.sslcs.cdngc.net/www/' :
-  'http://cdn.clicktale.net/www/') + 'WRe0.js';
+		var ct = document.createElement("script");
+		ct.src = (document.location.protocol === 'https:' ?
+			'https://clicktalecdn.sslcs.cdngc.net/www/' :
+			'http://cdn.clicktale.net/www/') + 'WRe0.js';
 
-var done = function () {
-  window.ClickTaleSSL = 1;
-  if(typeof ClickTale == 'function') {
-    ClickTale(this.valueForToken("ClickTaleId"), this.valueForToken("RecordingRatio"), "" + this.valueForToken("Partition") + "");
-  }
-}
+		var done = function() {
+			window.ClickTaleSSL = 1;
+			if (typeof ClickTale == 'function') {
+				ClickTale(this.valueForToken("ClickTaleId"), this.valueForToken("RecordingRatio"), "" + this.valueForToken("Partition") + "");
+			}
+		}
 
-ct.onload = done;
-ct.onreadystatechange = function () {
-  if ((this.readyState === "complete") || (this.readyState === "loading")) {
-    setTimeout(done, 1)
-  }
-}
+		ct.onload = done;
+		ct.onreadystatechange = function() {
+			if ((this.readyState === "complete") || (this.readyState === "loading")) {
+				setTimeout(done, 1)
+			}
+		}
 
-document.body.appendChild(ct);
-	/*~SCRIPT*/
+		document.body.appendChild(ct);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,48 +14,53 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Product Page Pixel ID",
 			description: "",
 			token: "pixelid",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product ID",
 			description: "",
 			token: "productid",
 			uv: "universal_variable.product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window._struqPI = window._struqPI || [];
-_struqPI.push(['injectTrackingPixel', {
-  trackingPixelId: '' + this.valueForToken("pixelid") + '',
-  route: '/s/sa/',
-  collectData: false,
-    data: [
-    { title: "detail", pid: "" + this.valueForToken("productid") + ""}
-  ],
-  options: { timeoutMs: 2000, firstPartyDomain: '', firstPartyCookie: '', firstPartyUid: '' }
-}]);
+		window._struqPI = window._struqPI || [];
+		_struqPI.push(['injectTrackingPixel', {
+			trackingPixelId: '' + this.valueForToken("pixelid") + '',
+			route: '/s/sa/',
+			collectData: false,
+			data: [{
+				title: "detail",
+				pid: "" + this.valueForToken("productid") + ""
+			}],
+			options: {
+				timeoutMs: 2000,
+				firstPartyDomain: '',
+				firstPartyCookie: '',
+				firstPartyUid: ''
+			}
+		}]);
 
-var struq = document.createElement('script'); struq.type = 'text/javascript'; struq.async = true;
-struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
-document.getElementsByTagName('head')[0].appendChild(struq);
+		var struq = document.createElement('script');
+		struq.type = 'text/javascript';
+		struq.async = true;
+		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
+		document.getElementsByTagName('head')[0].appendChild(struq);
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

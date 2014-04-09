@@ -14,33 +14,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/lodash.js/${version}/lodash.compat.min.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Version",
 			description: "The version number you wish to use e.g. \"1.2.1\"",
 			token: "version",
 			uv: ""
-		},
-		{
+		}, {
 			name: "NoConflict Key",
 			description: "The window variable name you want to assign Lodash to. E.g. \"_noConflict\"",
 			token: "key",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-window.this.valueForToken("key") = window._.noConflict();
-	/*~POST*/
+		/*POST*/
+		window.this.valueForToken("key") = window._.noConflict();
+		/*~POST*/
 	}
 });

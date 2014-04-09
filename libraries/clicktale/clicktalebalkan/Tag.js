@@ -14,27 +14,25 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "${clicktale_url}",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "ClickTale URL",
 			description: "Fill this dynamically with HTTPS or HTTP URL using JavaScript variable",
 			token: "clicktale_url",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-window.WRInitTime=(new Date()).getTime();
-	/*~PRE*/
+		/*PRE*/
+		window.WRInitTime = (new Date()).getTime();
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

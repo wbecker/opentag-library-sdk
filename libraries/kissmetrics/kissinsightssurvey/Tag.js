@@ -14,33 +14,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "s3.amazonaws.com/ki.js/${account_id}/${website_id}.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account Id",
 			description: "The account id of your KISS subscription - the first number in the URL",
 			token: "account_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Website Id",
 			description: "The id of the particular website - the last part of the URL before ''.js",
 			token: "website_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var _kiq = _kiq || [];
-	/*~PRE*/
+		/*PRE*/
+		var _kiq = _kiq || [];
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

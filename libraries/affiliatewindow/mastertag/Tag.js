@@ -14,26 +14,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "www.dwin1.com/${MERCHANT_ID}.js",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Affiliate Window Merchant ID",
 			description: "Affiliate Window Merchant ID",
 			token: "MERCHANT_ID",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

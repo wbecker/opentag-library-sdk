@@ -14,51 +14,49 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Marin Client Id",
 			description: "Your unique marin client id",
 			token: "clientId",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var _ml = document.createElement("script");
-_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") + ".js";
+		var _ml = document.createElement("script");
+		_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") + ".js";
 
-var _m_loaded = false;
-var _m_loader = function () {
-  if (!_m_loaded) {
-    _m_loaded = true;
-    document.write = function (pixel) {
-      var x = document.createElement("div");
-      x.innerHTML = pixel;
-      document.body.appendChild(x);
-    }
-    _marinTrack.trackPage();
-  }
-}
+		var _m_loaded = false;
+		var _m_loader = function() {
+			if (!_m_loaded) {
+				_m_loaded = true;
+				document.write = function(pixel) {
+					var x = document.createElement("div");
+					x.innerHTML = pixel;
+					document.body.appendChild(x);
+				}
+				_marinTrack.trackPage();
+			}
+		}
 
-_ml.onload = _m_loader;
-_ml.onreadystatechange = function () {
-  if ((this.readyState === "complete") || 
-       (this.readyState === "loaded")) {
-    _m_loader
-  }
-};
-document.body.appendChild(_ml);
-	/*~SCRIPT*/
+		_ml.onload = _m_loader;
+		_ml.onreadystatechange = function() {
+			if ((this.readyState === "complete") ||
+				(this.readyState === "loaded")) {
+				_m_loader
+			}
+		};
+		document.body.appendChild(_ml);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,37 +14,34 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Peerius Language",
 			description: "Language of the page the tag is on",
 			token: "lang",
 			uv: "universal_variable.user.language"
-		},
-		{
+		}, {
 			name: "Peerius Client Name",
 			description: "The name of the client for which the tag is to be implemented",
 			token: "client_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var PeeriusCallbacks = PeeriusCallbacks || {};
-PeeriusCallbacks.track = {
-  type: "other", 
-  lang: "" + this.valueForToken("lang") + ""
-}
-	/*~PRE*/
+		/*PRE*/
+		var PeeriusCallbacks = PeeriusCallbacks || {};
+		PeeriusCallbacks.track = {
+			type: "other",
+			lang: "" + this.valueForToken("lang") + ""
+		}
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

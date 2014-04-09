@@ -14,34 +14,31 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "www.ist-track.com/ContainerItemJavaScript.ashx?id=${id}",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Intelligent Reach ID",
 			description: "",
 			token: "id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product ID",
 			description: "",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-istCompanyId = "" + this.valueForToken("id") + "";
-istItem = "" + this.valueForToken("product_id") + "";
-	/*~PRE*/
+		/*PRE*/
+		istCompanyId = "" + this.valueForToken("id") + "";
+		istItem = "" + this.valueForToken("product_id") + "";
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

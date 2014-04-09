@@ -14,26 +14,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "d16fk4ms6rqz1v.cloudfront.net/capture/${clientName}.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Client Name",
 			description: "needs to be changed to reflect your company name minus any spaces",
 			token: "clientName",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,51 +14,46 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Scenario Analysis name",
 			description: "Identifies the name of the Scenario Analysis. The maximum length for each Name is 64 bytes.",
 			token: "name",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Step Name",
 			description: "Identifies the step by name.",
 			token: "step_name",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Step Position",
 			description: "Identifies the step by numeric position. Must be an integer",
 			token: "step_position",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Is conversion step?",
 			description: "If the value is 1, the page is identified as a conversion page. Set as 0 otherwise.",
 			token: "step_where_conversion_occurs",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window.dcsMultiTrack({
-  "WT.si_n": "" + this.valueForToken("name") + "",
-  "WT.si_p": "" + this.valueForToken("step_name") + "",
-  "WT.si_x": this.valueForToken("step_position"),
-  "WT.si_cs": this.valueForToken("step_where_conversion_occurs")
-});
-	/*~SCRIPT*/
+		window.dcsMultiTrack({
+			"WT.si_n": "" + this.valueForToken("name") + "",
+			"WT.si_p": "" + this.valueForToken("step_name") + "",
+			"WT.si_x": this.valueForToken("step_position"),
+			"WT.si_cs": this.valueForToken("step_where_conversion_occurs")
+		});
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

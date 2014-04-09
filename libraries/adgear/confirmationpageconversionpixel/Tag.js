@@ -14,66 +14,63 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account ID",
 			description: "The account ID for AdGear",
 			token: "accountid",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Chip Key",
 			description: "The chip key value",
 			token: "chipkey",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function() {
-  if (typeof ADGEAR == "undefined") {
-    var proto = "http:";
-    var host = "cdna.runadtag.com";
-    var bucket = "";
-    if (window.location.protocol == "https:") {
-      proto = "https:";
-      host = "a.runadtag.com";
-      bucket = "";
-    }
-    ADGEAR_DONT_SAY_HELLO = true;
+		(function() {
+			if (typeof ADGEAR == "undefined") {
+				var proto = "http:";
+				var host = "cdna.runadtag.com";
+				var bucket = "";
+				if (window.location.protocol == "https:") {
+					proto = "https:";
+					host = "a.runadtag.com";
+					bucket = "";
+				}
+				ADGEAR_DONT_SAY_HELLO = true;
 
-    var __scS = document.createElement("script");
-    __scS.type = "text/javascript";
-    __scS.src = proto + '//' + host + '/adgear.js/current/adgear.js';
-    document.getElementsByTagName("body")[0].appendChild(__scS);
+				var __scS = document.createElement("script");
+				__scS.type = "text/javascript";
+				__scS.src = proto + '//' + host + '/adgear.js/current/adgear.js';
+				document.getElementsByTagName("body")[0].appendChild(__scS);
 
-    //waiting for script to load
-    var waitForAdgear = function() {
-      if (typeof ADGEAR != "undefined" && document.readyState == "complete") {
-        ADGEAR.tags.conversion.init();
-        ADGEAR.tags.conversion.embed({
-          "id": "" + this.valueForToken("accountid") + "",
-          "chip_key": "" + this.valueForToken("chipkey") + "",
-          "revenue": null
-        });
-      } else {
-        setTimeout(waitForAdgear, 100);
-      }
-    };
-    waitForAdgear();
-  }
-})();
-	/*~SCRIPT*/
+				//waiting for script to load
+				var waitForAdgear = function() {
+					if (typeof ADGEAR != "undefined" && document.readyState == "complete") {
+						ADGEAR.tags.conversion.init();
+						ADGEAR.tags.conversion.embed({
+							"id": "" + this.valueForToken("accountid") + "",
+							"chip_key": "" + this.valueForToken("chipkey") + "",
+							"revenue": null
+						});
+					} else {
+						setTimeout(waitForAdgear, 100);
+					}
+				};
+				waitForAdgear();
+			}
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

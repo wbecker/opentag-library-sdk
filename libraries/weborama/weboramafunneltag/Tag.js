@@ -14,51 +14,48 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Funnel Id",
 			description: "Set your funnel id here",
 			token: "FUNNEL_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Full Host",
 			description: "Set your host/domain here",
 			token: "FULL_HOST",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Site Id",
 			description: "Set your site id here",
 			token: "SITE",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Conversion Page",
 			description: "Enter funnel step Id here",
 			token: "CONVERSION_PAGE",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-var adperftrackobj = {
-    funnel_id : this.valueForToken("FUNNEL_ID"),
-    fullhost : '' + this.valueForToken("FULL_HOST") + '',
-    site : this.valueForToken("SITE"),
-    conversion_page : this.valueForToken("CONVERSION_PAGE")
-}
-try{ adperfTracker.track( adperftrackobj ); }catch(err){}
-	/*~POST*/
+		/*POST*/
+		var adperftrackobj = {
+			funnel_id: this.valueForToken("FUNNEL_ID"),
+			fullhost: '' + this.valueForToken("FULL_HOST") + '',
+			site: this.valueForToken("SITE"),
+			conversion_page: this.valueForToken("CONVERSION_PAGE")
+		}
+		try {
+			adperfTracker.track(adperftrackobj);
+		} catch (err) {}
+		/*~POST*/
 	}
 });

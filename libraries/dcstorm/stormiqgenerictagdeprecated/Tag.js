@@ -14,40 +14,36 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "t1.stormiq.com/dcv4/jslib/${storm_id}.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "DC Storm ID",
 			description: "",
 			token: "storm_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "DC Storm Script Path",
 			description: "The full path of the DC Storm track.js file, excluding protocol e.g somewhere.com/js/track.js",
 			token: "script_path",
 			uv: ""
-		},
-		{
+		}, {
 			name: "DC Storm Channel",
 			description: "If this is not required, leave blank",
 			token: "channel",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-window.__stormJs ='t1.stormiq.com/dcv4/jslib/' + this.valueForToken("storm_id") + '.js'; 
-window.__ch = '' + this.valueForToken("channel") + '';
-	/*~PRE*/
+		/*PRE*/
+		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken("storm_id") + '.js';
+		window.__ch = '' + this.valueForToken("channel") + '';
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

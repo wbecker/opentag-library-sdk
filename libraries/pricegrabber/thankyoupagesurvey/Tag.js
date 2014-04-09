@@ -14,55 +14,49 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "https://www.pricegrabber.com/rating_merchrevpopjs.php?retid=${account_number}",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "PriceGrabber Account Number",
 			description: "",
 			token: "account_number",
 			uv: ""
-		},
-		{
+		}, {
 			name: "PriceGrabber Popup X",
 			description: "",
 			token: "x",
 			uv: ""
-		},
-		{
+		}, {
 			name: "PriceGrabber Popup Y",
 			description: "",
 			token: "y",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "PriceGrabber Popup Email",
 			description: "",
 			token: "email",
 			uv: "universal_variable.user.email"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-window.popup_pos_x = Number("" + this.valueForToken("x") + "");
-window.popup_pos_y = Number("" + this.valueForToken("y") + "");
+		/*PRE*/
+		window.popup_pos_x = Number("" + this.valueForToken("x") + "");
+		window.popup_pos_y = Number("" + this.valueForToken("y") + "");
 
-window.popup_order_number = "" + this.valueForToken("order_id") + "";
-window.popup_email = "" + this.valueForToken("email") + "";
-	/*~PRE*/
+		window.popup_order_number = "" + this.valueForToken("order_id") + "";
+		window.popup_email = "" + this.valueForToken("email") + "";
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

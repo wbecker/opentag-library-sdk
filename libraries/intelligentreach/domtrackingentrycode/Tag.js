@@ -14,26 +14,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "www.ist-track.com/ProcessClickJavaScript.ashx?id=${id}&useDom=1",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "IntelligentReach ID",
 			description: "Unique ID assigned by IntelligentReach - must remain the same across the whole site",
 			token: "id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

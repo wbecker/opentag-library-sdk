@@ -16,24 +16,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function() {
-  var img = new Image();
-  img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") + "r" + Math.round(Math.random()*10000000);
-}());
-	/*~SCRIPT*/
+		(function() {
+			var img = new Image();
+			img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") + "r" + Math.round(Math.random() * 10000000);
+		}());
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

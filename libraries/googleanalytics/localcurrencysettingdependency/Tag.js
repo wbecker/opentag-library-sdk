@@ -14,29 +14,27 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Local Currency",
 			description: "The currency code for the transaction's payment, eg 'GBP', 'EUR', or 'USD'",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  window._gaq = window._gaq || [];
-  _gaq.push(['_set', ‘currencyCode’, ‘this.valueForToken("currency")’]);
-	/*~SCRIPT*/
+		window._gaq = window._gaq || [];
+		_gaq.push(['_set', ‘currencyCode’, ‘this.valueForToken("currency")’]);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

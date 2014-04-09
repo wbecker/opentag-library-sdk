@@ -14,81 +14,73 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Partner Code",
 			description: "The partner id given to you by MentionMe",
 			token: "partner_code",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Script Domain",
 			description: "Domain for the script: 'tag-demo.mention-me.com' for testing, 'tag.mention-me.com' for production",
 			token: "script_domain",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Situation",
 			description: "The string indicator of the page you are including this tag e.g. \"checkout\", \"homepage\"",
 			token: "situation",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Customer Email*",
 			description: "The customer's email address (leave value empty if not used)",
 			token: "email",
 			uv: "universal_variable.user.email"
-		},
-		{
+		}, {
 			name: "Customer Surname*",
 			description: "The surname of the customer (leave value empty if not used)",
 			token: "surname",
 			uv: "universal_variable.user.name"
-		},
-		{
+		}, {
 			name: "Customer Firstname*",
 			description: "The first name of the customer (leave value empty if not used)",
 			token: "firstname",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Implementation*",
 			description: "Optionally override the way the flow is implemented (one of: link, form)",
 			token: "implementation",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var baseUrl = "https://" + this.valueForToken("script_domain") + "/api/v2/refereefind/" + this.valueForToken("partner_code") + "?";
-var mmScript = document.createElement("script");
-var paramArr = [];
-var paramObj = {
-  situation: "" + this.valueForToken("situation") + ""
-}
-if ("" + this.valueForToken("email") + "".length) paramObj["email"] = "" + this.valueForToken("email") + "";
-if ("" + this.valueForToken("surname") + "".length) paramObj["surname"] = "" + this.valueForToken("surname") + "";
-if ("" + this.valueForToken("firstname") + "".length) paramObj["firstname"] = "" + this.valueForToken("firstname") + "";
-if ("" + this.valueForToken("implementation") + "".length) paramObj["implementation"] = "" + this.valueForToken("implementation") + "";
+		var baseUrl = "https://" + this.valueForToken("script_domain") + "/api/v2/refereefind/" + this.valueForToken("partner_code") + "?";
+		var mmScript = document.createElement("script");
+		var paramArr = [];
+		var paramObj = {
+			situation: "" + this.valueForToken("situation") + ""
+		}
+		if ("" + this.valueForToken("email") + "".length) paramObj["email"] = "" + this.valueForToken("email") + "";
+		if ("" + this.valueForToken("surname") + "".length) paramObj["surname"] = "" + this.valueForToken("surname") + "";
+		if ("" + this.valueForToken("firstname") + "".length) paramObj["firstname"] = "" + this.valueForToken("firstname") + "";
+		if ("" + this.valueForToken("implementation") + "".length) paramObj["implementation"] = "" + this.valueForToken("implementation") + "";
 
-for (var param in paramObj) {
-  var value = paramObj[param];
-  paramArr.push(param + "=" + escape(value));
-}
+		for (var param in paramObj) {
+			var value = paramObj[param];
+			paramArr.push(param + "=" + escape(value));
+		}
 
-mmScript.src = baseUrl + paramArr.join("&");
-document.body.appendChild(mmScript);
-	/*~SCRIPT*/
+		mmScript.src = baseUrl + paramArr.join("&");
+		document.body.appendChild(mmScript);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

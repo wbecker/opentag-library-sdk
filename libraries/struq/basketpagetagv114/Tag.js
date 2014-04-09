@@ -14,53 +14,58 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Struq Basket Page Pixel ID",
 			description: "",
 			token: "pixelid",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Struq Product List",
 			description: "",
 			token: "products",
 			uv: "universal_variable.basket.line_items[#].product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window._struqPI = window._struqPI || [];
-var productArr = [];
-for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
-  productArr.push(this.valueForToken("products")[i]);
-}
-var productStr = productArr.join(",");
-_struqPI.push(['injectTrackingPixel', {
-	trackingPixelId: '' + this.valueForToken("pixelid") + '',
-	route: '/s/sa/',
-	collectData: false,
-    data: [
-		{ title: "si", pid: productStr}
-	],
-	options: { timeoutMs: 2000, firstPartyDomain: '', firstPartyCookie: '', firstPartyUid: '' }
-}]);
+		window._struqPI = window._struqPI || [];
+		var productArr = [];
+		for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
+			productArr.push(this.valueForToken("products")[i]);
+		}
+		var productStr = productArr.join(",");
+		_struqPI.push(['injectTrackingPixel', {
+			trackingPixelId: '' + this.valueForToken("pixelid") + '',
+			route: '/s/sa/',
+			collectData: false,
+			data: [{
+				title: "si",
+				pid: productStr
+			}],
+			options: {
+				timeoutMs: 2000,
+				firstPartyDomain: '',
+				firstPartyCookie: '',
+				firstPartyUid: ''
+			}
+		}]);
 
-var struq = document.createElement('script'); struq.type = 'text/javascript'; struq.async = true;
-struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
-document.getElementsByTagName('head')[0].appendChild(struq);
+		var struq = document.createElement('script');
+		struq.type = 'text/javascript';
+		struq.async = true;
+		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
+		document.getElementsByTagName('head')[0].appendChild(struq);
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

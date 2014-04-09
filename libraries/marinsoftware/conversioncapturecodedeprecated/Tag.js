@@ -14,102 +14,103 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Product IDs",
 			description: "Product IDs",
 			token: "product_ids",
 			uv: "universal_variable.transaction.line_items[#].product.id"
-		},
-		{
+		}, {
 			name: "Product Categories",
 			description: "Product Categories",
 			token: "product_categories",
 			uv: "universal_variable.transaction.line_items[#].product.category"
-		},
-		{
+		}, {
 			name: "Product Quantities",
 			description: "Product Quantities",
 			token: "product_quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "Order ID",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "Order Total",
 			description: "Order Total",
 			token: "order_total",
 			uv: "universal_variable.transaction.total"
-		},
-		{
+		}, {
 			name: "Currency",
 			description: "Currency",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		},
-		{
+		}, {
 			name: "Marin Tracking ID",
 			description: "Marin Tracking ID",
 			token: "tracking_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function () {
-  window._mTrack = window._mTrack || [];
-  
-  var productIDs = "";
-  var productCategories = "";
-  var productQuantities = "";
-  
-  for (var i = 0; i < this.valueForToken("product_ids").length; i++) 
-  {
-    if (i > 0)
-    {
-      productIDs += "^";
-      productCategories += "^";
-      productQuantities += "^";
-    }
+		(function() {
+			window._mTrack = window._mTrack || [];
 
-    productIDs += this.valueForToken("product_ids")[i];
-    productCategories += this.valueForToken("product_categories")[i];
-    productQuantities += this.valueForToken("product_quantities")[i];
-  }
+			var productIDs = "";
+			var productCategories = "";
+			var productQuantities = "";
 
-  var items = [{convType: "orders", price: this.valueForToken("order_total"), orderId:  "" + this.valueForToken("order_id") + "", product: productIDs, category: productCategories, quantity: productQuantities}];
+			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+				if (i > 0) {
+					productIDs += "^";
+					productCategories += "^";
+					productQuantities += "^";
+				}
+
+				productIDs += this.valueForToken("product_ids")[i];
+				productCategories += this.valueForToken("product_categories")[i];
+				productQuantities += this.valueForToken("product_quantities")[i];
+			}
+
+			var items = [{
+				convType: "orders",
+				price: this.valueForToken("order_total"),
+				orderId: "" + this.valueForToken("order_id") + "",
+				product: productIDs,
+				category: productCategories,
+				quantity: productQuantities
+			}];
 
 
-  window._mTrack.push(['addTrans', {
+			window._mTrack.push(['addTrans', {
 
-      currency: "" + this.valueForToken("currency") + "",
-      items: items
-  }]);
-  
-  window._mTrack.push(['processOrders']);
-  (function() {
-      var mClientId = "" + this.valueForToken("tracking_id") + "";
-      var mProto = ('https:' == document.location.protocol ? 'https://' : 'http://');
-      var mHost = 'tracker.marinsm.com';
-      var mt = document.createElement('script'); mt.type = 'text/javascript'; mt.async = true; mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-      var fscr = document.getElementsByTagName('script')[0]; fscr.parentNode.insertBefore(mt, fscr);
-  })();
-})();
-	/*~SCRIPT*/
+				currency: "" + this.valueForToken("currency") + "",
+				items: items
+			}]);
+
+			window._mTrack.push(['processOrders']);
+			(function() {
+				var mClientId = "" + this.valueForToken("tracking_id") + "";
+				var mProto = ('https:' == document.location.protocol ? 'https://' : 'http://');
+				var mHost = 'tracker.marinsm.com';
+				var mt = document.createElement('script');
+				mt.type = 'text/javascript';
+				mt.async = true;
+				mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+				var fscr = document.getElementsByTagName('script')[0];
+				fscr.parentNode.insertBefore(mt, fscr);
+			})();
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,75 +14,69 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Criteo wi Parameter",
 			description: "A Parameter wi provided by Criteo",
 			token: "wi",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Criteo Call Parameter",
 			description: "Call Parameter provided by Criteo",
 			token: "call_parameter",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product IDs",
 			description: "",
 			token: "product_ids",
 			uv: "universal_variable.basket.line_items[#].product.id"
-		},
-		{
+		}, {
 			name: "Product Unit Prices",
 			description: "",
 			token: "product_unit_prices",
 			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
-		},
-		{
+		}, {
 			name: "Quantities",
 			description: "",
 			token: "quantities",
 			uv: "universal_variable.basket.line_items[#].quantity"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function () {
-  var src = [
-    "https://", "sslwidget.criteo.com", "/", "" + this.valueForToken("call_parameter") + "", "/", "display.js?", "p1="
-  ];
-  var params = [
-    "v=2",
-    "&wi=", "" + this.valueForToken("wi") + "",
-    "&s=0"
-    ];
+		(function() {
+			var src = [
+				"https://", "sslwidget.criteo.com", "/", "" + this.valueForToken("call_parameter") + "", "/", "display.js?", "p1="
+			];
+			var params = [
+				"v=2",
+				"&wi=", "" + this.valueForToken("wi") + "",
+				"&s=0"
+			];
 
-  for(var i = 0; i < this.valueForToken("product_ids").length; i++) {
-    var index = i + 1;
-    params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
-    params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[i]);
-    params.push("&q" + index + "=" + this.valueForToken("quantities")[i]);
-  }
-  src.push(escape(params.join("")));
-  src.push("&t1=transaction&resptype=gif");
-  var img = document.createElement("img");
-  img.setAttribute("src", src.join(""));
-  img.setAttribute("height", "1");
-  img.setAttribute("width", "1");
-  document.body.appendChild(img);
-})();
-	/*~SCRIPT*/
+			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+				var index = i + 1;
+				params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
+				params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[i]);
+				params.push("&q" + index + "=" + this.valueForToken("quantities")[i]);
+			}
+			src.push(escape(params.join("")));
+			src.push("&t1=transaction&resptype=gif");
+			var img = document.createElement("img");
+			img.setAttribute("src", src.join(""));
+			img.setAttribute("height", "1");
+			img.setAttribute("width", "1");
+			document.body.appendChild(img);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

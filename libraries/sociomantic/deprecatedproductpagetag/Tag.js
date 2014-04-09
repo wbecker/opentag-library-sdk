@@ -14,36 +14,33 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${ADVERTISER_TOKEN}",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Advertiser Token",
 			description: "Your Sociomantic customer ID. Please only use the token that has been created and sent to you.",
 			token: "ADVERTISER_TOKEN",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product Id",
 			description: "Product identifier",
 			token: "PRODUCT_ID",
 			uv: "universal_variable.product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var product = {
-identifier: '' + this.valueForToken("PRODUCT_ID") + ''
-};
-window.product = product;
-	/*~PRE*/
+		/*PRE*/
+		var product = {
+			identifier: '' + this.valueForToken("PRODUCT_ID") + ''
+		};
+		window.product = product;
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

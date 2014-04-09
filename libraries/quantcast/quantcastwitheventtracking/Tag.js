@@ -14,48 +14,43 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "QuantCast Account Number",
 			description: "Your quantcast account number",
 			token: "account_no",
 			uv: ""
-		},
-		{
+		}, {
 			name: "QuantCast Custom Page",
 			description: "The label for the custom page - e.g. \"Home\", \"Bracelets\"",
 			token: "custom_page",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window._qevents = window._qevents || [];
+		window._qevents = window._qevents || [];
 
-(function () {
-  var e = document.createElement("script");
-  e.src = (document.location.protocol === "https:" 
-    ? "https://secure" 
-    : "http://edge") + ".quantserve.com/quant.js";
-  e.async = true;
-  document.getElementsByTagName("head")[0].appendChild(e);
-  _qevents.push({
-    qacct:"" + this.valueForToken("account_no") + "",
-    labels: "_fp.event." + this.valueForToken("custom_page") + ""
-  });
+		(function() {
+			var e = document.createElement("script");
+			e.src = (document.location.protocol === "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+			e.async = true;
+			document.getElementsByTagName("head")[0].appendChild(e);
+			_qevents.push({
+				qacct: "" + this.valueForToken("account_no") + "",
+				labels: "_fp.event." + this.valueForToken("custom_page") + ""
+			});
 
-})();
-	/*~SCRIPT*/
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

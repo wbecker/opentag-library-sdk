@@ -14,33 +14,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "www.hellobar.com/hellobar.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account Id",
 			description: "Your account id with Hello Bar",
 			token: "ACCOUNT_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Bar Id",
 			description: "Your Bar's id number",
 			token: "BAR_ID",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-new HelloBar(this.valueForToken("ACCOUNT_ID"),this.valueForToken("BAR_ID"));
-	/*~POST*/
+		/*POST*/
+		new HelloBar(this.valueForToken("ACCOUNT_ID"), this.valueForToken("BAR_ID"));
+		/*~POST*/
 	}
 });

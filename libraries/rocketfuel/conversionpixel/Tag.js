@@ -14,47 +14,42 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "RocketFuel Merchant ID",
 			description: "The ID assigned to you by RocketFuel",
 			token: "merchant_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "RocketFuel Campaign ID",
 			description: "The ID specific to the campaign this tag is intended for",
 			token: "campaign_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Random Number",
 			description: "A random number for use as a cachebuster",
 			token: "random",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order Total",
 			description: "The value paid by the customer for this order",
 			token: "order_total",
 			uv: "universal_variable.transaction.subtotal"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  var img = new Image();
-  img.src = "//" + this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" + this.valueForToken("merchant_id") + "&ca=" + this.valueForToken("campaign_id") + "&ra=" + this.valueForToken("random") + "&basket=" + this.valueForToken("order_total") + "";
-	/*~SCRIPT*/
+		var img = new Image();
+		img.src = "//" + this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" + this.valueForToken("merchant_id") + "&ca=" + this.valueForToken("campaign_id") + "&ra=" + this.valueForToken("random") + "&basket=" + this.valueForToken("order_total") + "";
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,44 +14,39 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "BuyAt ID",
 			description: "",
 			token: "id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order Total",
 			description: "",
 			token: "order_total",
 			uv: "universal_variable.transaction.total"
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "BuyAt Conversion Data",
 			description: "Custom data specified by BuyAt",
 			token: "ppdata",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,51 +14,46 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Lengow Customer ID",
 			description: "[mandatory] Your Lengow customer ID (integer value)",
 			token: "lengow_customer_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Lengow Group ID",
 			description: "[mandatory] Your Lengow Group ID (integer value)",
 			token: "lengow_group_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Lengow Order Value",
 			description: "[mandatory] the order amount (float value e.g.1254.54)",
 			token: "lengow_order_value",
 			uv: "universal_variable.transaction.total"
-		},
-		{
+		}, {
 			name: "Lengow Order ID",
 			description: "Conversion Tag - Lead Order ID must be identical with Conversion Tag - Lead Validation Order ID",
 			token: "lengow_order_id",
 			uv: "universal_variable.transaction.order_id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function(){
-var lengowTrackPixel = new Image();
+		(function() {
+			var lengowTrackPixel = new Image();
 
-lengowTrackPixel.src = "https://tracking.lengow.com/leadValidation.php?idClient=" + this.valueForToken("lengow_customer_id") + "&idGroup=" + this.valueForToken("lengow_group_id") + "&price=" + this.valueForToken("lengow_order_value") + "&idCommande=" + this.valueForToken("lengow_order_id") + "";
-lengowTrackPixel.alt= "";
-})();
-	/*~SCRIPT*/
+			lengowTrackPixel.src = "https://tracking.lengow.com/leadValidation.php?idClient=" + this.valueForToken("lengow_customer_id") + "&idGroup=" + this.valueForToken("lengow_group_id") + "&price=" + this.valueForToken("lengow_order_value") + "&idCommande=" + this.valueForToken("lengow_order_id") + "";
+			lengowTrackPixel.alt = "";
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -16,26 +16,26 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function(d) {
-var e = d.createElement('script');
-e.src = d.location.protocol + '//app.yieldify.com/yieldify/code.js?yieldify_id=216&loca='+window.location.href;
-e.async = true;
-d.getElementsByTagName("head")[0].appendChild(e);
-}(document));
-	/*~SCRIPT*/
+		(function(d) {
+			var e = d.createElement('script');
+			e.src = d.location.protocol + '//app.yieldify.com/yieldify/code.js?yieldify_id=216&loca=' + window.location.href;
+			e.async = true;
+			d.getElementsByTagName("head")[0].appendChild(e);
+		}(document));
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

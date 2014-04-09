@@ -14,39 +14,37 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "VE Interactive ID",
 			description: "The ID for the tag in this format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX with dashes included",
 			token: "id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
 
-  (function () {
+		(function() {
 
-    var scriptPath = "" + this.valueForToken("id") + "".split("-").join("/");
-    var scriptURL = "//config1.veinteractive.com/tags/" + scriptPath + "/tag.js";
-    var script = document.createElement("script");
+			var scriptPath = "" + this.valueForToken("id") + "".split("-").join("/");
+			var scriptURL = "//config1.veinteractive.com/tags/" + scriptPath + "/tag.js";
+			var script = document.createElement("script");
 
-    script.src = scriptURL;
-    document.getElementsByTagName("head")[0].appendChild(script);
+			script.src = scriptURL;
+			document.getElementsByTagName("head")[0].appendChild(script);
 
-  }());
+		}());
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

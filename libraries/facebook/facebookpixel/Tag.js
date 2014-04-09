@@ -14,41 +14,37 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "connect.facebook.net/${url_locale}/fp.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "FB Country Code",
 			description: "e.g. en_UK ( if not sure, use : en_US )",
 			token: "url_locale",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Pixel ID",
 			description: "Client Specific (e.g. 6007143437659)",
 			token: "pixel_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Value",
 			description: "if not on Transaction Page, use following hardcoded value  instead : 0.00",
 			token: "param_value",
 			uv: "universal_variable.transaction.total"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var fb_param = {};
-fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
-fb_param.value = '' + this.valueForToken("param_value") + '';
-	/*~PRE*/
+		/*PRE*/
+		var fb_param = {};
+		fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
+		fb_param.value = '' + this.valueForToken("param_value") + '';
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

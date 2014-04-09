@@ -14,33 +14,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "test",
 			description: "test",
 			token: "param",
 			uv: ""
-		},
-		{
+		}, {
 			name: "test2",
 			description: "param",
 			token: "param",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-console.log("" + this.valueForToken("param") + "")
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		console.log("" + this.valueForToken("param") + "")
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

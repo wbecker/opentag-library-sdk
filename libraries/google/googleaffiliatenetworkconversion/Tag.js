@@ -14,56 +14,49 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Advertiser Id",
 			description: "Your Company ID, provided by Google Affiliate Network. This value is the same for all orders.",
 			token: "ADVERTISER_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order Id",
 			description: "The customer order id, a unique identifier that allows you to map this conversion",
 			token: "ORDER_ID",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "Order Subtotal",
 			description: "The total conversion value",
 			token: "SUB_TOTAL",
 			uv: "universal_variable.transaction.subtotal"
-		},
-		{
+		}, {
 			name: "Currency Code",
 			description: "Currency code related to the order amounts and Product prices.",
 			token: "CURRENCY",
 			uv: "universal_variable.transaction.currency"
-		},
-		{
+		}, {
 			name: "Click Id",
 			description: "Unique identifier generated on each click. Set to 0 if not used.",
 			token: "CLICK_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Event Type",
 			description: "Define the type of event. Valid options are \"transaction\" or \"action\".",
 			token: "EVENT_TYPE",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

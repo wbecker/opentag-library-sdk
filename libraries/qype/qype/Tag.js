@@ -14,38 +14,34 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Review Count",
 			description: "The amount of reviews to show, must be < 24",
 			token: "REVIEW_COUNT",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Show review rating",
 			description: "Show the amount of stars in your review, must be either true or false",
 			token: "SHOW_STARS",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Div Id",
 			description: "In what url element should the reviews go? Must be an element id.",
 			token: "DIV_ID",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

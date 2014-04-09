@@ -14,56 +14,49 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "AppNexus ID",
 			description: "",
 			token: "id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Domain",
 			description: "The domain of the tag you wish to use. e.g. ib.adnxs.com",
 			token: "domain",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Segment",
 			description: "",
 			token: "segment",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "Order Subtotal",
 			description: "",
 			token: "subtotal",
 			uv: "universal_variable.transaction.subtotal"
-		},
-		{
+		}, {
 			name: "T value",
 			description: "e.g. 2",
 			token: "t",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

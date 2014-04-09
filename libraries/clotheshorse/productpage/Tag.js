@@ -14,40 +14,38 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Clothes Horse Client Token",
 			description: "The token specific to the client using Clothes Horse",
 			token: "client_token",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-    var ch212 = ch212 || []; 
-    ch212['token'] = '' + this.valueForToken("client_token") + ''; 
-    ch212['ts'] = new Date().getTime();
+		var ch212 = ch212 || [];
+		ch212['token'] = '' + this.valueForToken("client_token") + '';
+		ch212['ts'] = new Date().getTime();
 
-    (function(){
-      var ch = document.createElement('script'); 
-      ch.type = 'text/javascript'; 
-      ch.async = true;
-      ch.src = '//script.clotheshor.se/widget/script?token=' + ch212['token'] + 
-                    '&ts=' + ch212['ts'];
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ch, s);
-    })();
-	/*~SCRIPT*/
+		(function() {
+			var ch = document.createElement('script');
+			ch.type = 'text/javascript';
+			ch.async = true;
+			ch.src = '//script.clotheshor.se/widget/script?token=' + ch212['token'] +
+				'&ts=' + ch212['ts'];
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ch, s);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

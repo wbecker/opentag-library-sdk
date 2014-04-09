@@ -14,33 +14,31 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Fandi.st Client ID",
 			description: "The ID relating the script to you",
 			token: "client_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  (function () {
-    var uv = window.universal_variable || {};
-    var src = "//a.fandi.st/pixel.gif?acc=" + this.valueForToken("client_id") + "&camp=1&d=" + window.encodeURIComponent(JSON.stringify(uv));
-    var fandImage= new Image();
-    fandImage.src = src;
-  })();
-	/*~SCRIPT*/
+		(function() {
+			var uv = window.universal_variable || {};
+			var src = "//a.fandi.st/pixel.gif?acc=" + this.valueForToken("client_id") + "&camp=1&d=" + window.encodeURIComponent(JSON.stringify(uv));
+			var fandImage = new Image();
+			fandImage.src = src;
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

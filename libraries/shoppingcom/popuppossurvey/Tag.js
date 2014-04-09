@@ -14,26 +14,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "https://www.shopping.com/xMSJ?pt=js&direct=1&mid=${merchant_id}&lid=1",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Shopping.com Merchant ID",
 			description: "The merchant ID which represents your site.",
 			token: "merchant_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,38 +14,34 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "StormIQ ID",
 			description: "",
 			token: "storm_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "StormIQ Channel",
 			description: "Site channel for tag",
 			token: "channel",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Tracking Script URL",
 			description: "Location of script containing tracking code for StormIQ",
 			token: "track_url",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

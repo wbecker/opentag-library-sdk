@@ -14,74 +14,70 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Marin Conversion Type",
 			description: "",
 			token: "conversion_type",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Marin Tracking Id",
 			description: "Your unique tracking id",
 			token: "tracking_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order Total",
 			description: "",
 			token: "total",
 			uv: "universal_variable.transaction.total"
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "Currency",
 			description: "",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function () {
-  window._mTrack = window._mTrack || [];
+		(function() {
+			window._mTrack = window._mTrack || [];
 
-  window._mTrack.push(['addTrans', {
-      currency: "" + this.valueForToken("currency") + "",
-      items: [
-        {
-          convType: "" + this.valueForToken("conversion_type") + "",
-          price: "" + this.valueForToken("total") + "",
-          orderId: "" + this.valueForToken("order_id") + ""
-        }
-      ]
-  }]);
-  
-  window._mTrack.push(['processOrders']);
-  (function() {
-      var mClientId = "" + this.valueForToken("tracking_id") + "";
-      var mProto = ('https:' == document.location.protocol ? 'https://' : 'http://');
-      var mHost = 'tracker.marinsm.com';
-      var mt = document.createElement('script'); mt.type = 'text/javascript'; mt.async = true; mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-      var fscr = document.getElementsByTagName('script')[0]; fscr.parentNode.insertBefore(mt, fscr);
-  })();
-})();
-	/*~SCRIPT*/
+			window._mTrack.push(['addTrans', {
+				currency: "" + this.valueForToken("currency") + "",
+				items: [{
+					convType: "" + this.valueForToken("conversion_type") + "",
+					price: "" + this.valueForToken("total") + "",
+					orderId: "" + this.valueForToken("order_id") + ""
+				}]
+			}]);
+
+			window._mTrack.push(['processOrders']);
+			(function() {
+				var mClientId = "" + this.valueForToken("tracking_id") + "";
+				var mProto = ('https:' == document.location.protocol ? 'https://' : 'http://');
+				var mHost = 'tracker.marinsm.com';
+				var mt = document.createElement('script');
+				mt.type = 'text/javascript';
+				mt.async = true;
+				mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+				var fscr = document.getElementsByTagName('script')[0];
+				fscr.parentNode.insertBefore(mt, fscr);
+			})();
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

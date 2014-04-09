@@ -14,49 +14,46 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "AdRoll Advertiser ID",
 			description: "ID for the Advertiser",
 			token: "adroll_adv_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "AdRoll Pixel ID",
 			description: "ID for the AdRoll pixel",
 			token: "adroll_pix_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window.adroll_adv_id = "" + this.valueForToken("adroll_adv_id") + "";
-window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id") + "";
-(function () {
-  var oldonload = window.onload;
-  window.onload = function(){
-    window.__adroll_loaded = true;
-    var scr = document.createElement("script");
-    var host = (("https:" === document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
-    scr.setAttribute('async', 'true');
-    scr.type = "text/javascript";
-    scr.src = host + "/j/roundtrip.js";
-    ((document.getElementsByTagName('head') || [null])[0] || document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
-    
-    if (oldonload) oldonload();
-  };
-}());
-	/*~SCRIPT*/
+		window.adroll_adv_id = "" + this.valueForToken("adroll_adv_id") + "";
+		window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id") + "";
+		(function() {
+			var oldonload = window.onload;
+			window.onload = function() {
+				window.__adroll_loaded = true;
+				var scr = document.createElement("script");
+				var host = (("https:" === document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+				scr.setAttribute('async', 'true');
+				scr.type = "text/javascript";
+				scr.src = host + "/j/roundtrip.js";
+				((document.getElementsByTagName('head') || [null])[0] || document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+
+				if (oldonload) oldonload();
+			};
+		}());
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,41 +14,37 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "${client_code}.ugc.bazaarvoice.com/static/${display_code}/bvapi.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Client Code",
 			description: "Represents your client code",
 			token: "client_code",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Display Code",
 			description: "Represents your display code",
 			token: "display_code",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Product ID",
 			description: "The ID of the product displayed on the page",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-$BV.ui("rr", "show_reviews", {
-  productId: "" + this.valueForToken("product_id") + ""
-});
-	/*~POST*/
+		/*POST*/
+		$BV.ui("rr", "show_reviews", {
+			productId: "" + this.valueForToken("product_id") + ""
+		});
+		/*~POST*/
 	}
 });

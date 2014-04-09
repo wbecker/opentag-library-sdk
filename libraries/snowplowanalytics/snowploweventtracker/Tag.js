@@ -16,33 +16,37 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
 
-  window.uv_listener.push(['on', 'event', function(event){
-    if (event && event.type && event.type === "struct"){
-      _snaq.push(['trackStructEvent', event.category || "", event.action || "", event.label || "", event.property || "", event.value || ""]);
-    }
-  }]);
+		window.uv_listener.push(['on', 'event',
+			function(event) {
+				if (event && event.type && event.type === "struct") {
+					_snaq.push(['trackStructEvent', event.category || "", event.action || "", event.label || "", event.property || "", event.value || ""]);
+				}
+			}
+		]);
 
-  window.uv_listener.push(['on', 'event', function(event){
-    if (event && event.type && event.type === "unstruct"){
-      _snaq.push(['trackUnstructEvent', event.name || "", event.properties || {}]);
-    }
-  }]);
+		window.uv_listener.push(['on', 'event',
+			function(event) {
+				if (event && event.type && event.type === "unstruct") {
+					_snaq.push(['trackUnstructEvent', event.name || "", event.properties || {}]);
+				}
+			}
+		]);
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,40 +14,40 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "API Key",
 			description: "API Key",
 			token: "api_key",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Double Hashed User Email",
 			description: "Please read tag description for more details",
 			token: "email",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window.VDNA = window.VDNA || {};
-window.VDNA.queue = window.VDNA.queue || [];
-window.VDNA.queue.push({
-  apiKey : "" + this.valueForToken("api_key") + "",
-  method : "reportConversion",
-  args :[ "sync", {"partner_user_id" : "" + this.valueForToken("email") + "", "partner_user_id_type" : "e"}]
-});
-	/*~SCRIPT*/
+		window.VDNA = window.VDNA || {};
+		window.VDNA.queue = window.VDNA.queue || [];
+		window.VDNA.queue.push({
+			apiKey: "" + this.valueForToken("api_key") + "",
+			method: "reportConversion",
+			args: ["sync", {
+				"partner_user_id": "" + this.valueForToken("email") + "",
+				"partner_user_id_type": "e"
+			}]
+		});
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

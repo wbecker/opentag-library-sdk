@@ -14,47 +14,42 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account Number",
 			description: "Your QuantCast account number",
 			token: "account_no",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Labels",
 			description: "Labels for visitor segmentation, see Quantcast documentation for further info",
 			token: "labels",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window._qevents = window._qevents || [];
+		window._qevents = window._qevents || [];
 
-(function () {
-  var e = document.createElement("script");
-  e.src = (document.location.protocol === "https:" 
-    ? "https://secure" 
-    : "http://edge") + ".quantserve.com/quant.js";
-  e.async = true;
-  document.getElementsByTagName("head")[0].appendChild(e);
-_qevents.push({ 
-  qacct: "" + this.valueForToken("account_no") + "",
-  labels: "" + this.valueForToken("labels") + ""
-});
-})();
-	/*~SCRIPT*/
+		(function() {
+			var e = document.createElement("script");
+			e.src = (document.location.protocol === "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+			e.async = true;
+			document.getElementsByTagName("head")[0].appendChild(e);
+			_qevents.push({
+				qacct: "" + this.valueForToken("account_no") + "",
+				labels: "" + this.valueForToken("labels") + ""
+			});
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

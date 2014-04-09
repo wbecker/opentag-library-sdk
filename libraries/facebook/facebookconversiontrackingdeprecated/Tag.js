@@ -14,43 +14,40 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Facebook Pixel Id",
 			description: "The unique tracking pixel id for the tag.",
 			token: "pixel_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Subtotal",
 			description: "The value of the conversion",
 			token: "subtotal",
 			uv: "universal_variable.transaction.subtotal"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var fb_param = {};
-fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
-fb_param.value = '' + this.valueForToken("subtotal") + '';
-(function(){
-  var fpw = document.createElement('script');
-  fpw.async = true;
-  fpw.src = '//connect.facebook.net/en_US/fp.js';
-  var ref = document.getElementsByTagName('script')[0];
-  ref.parentNode.insertBefore(fpw, ref);
-})();
-	/*~SCRIPT*/
+		var fb_param = {};
+		fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
+		fb_param.value = '' + this.valueForToken("subtotal") + '';
+		(function() {
+			var fpw = document.createElement('script');
+			fpw.async = true;
+			fpw.src = '//connect.facebook.net/en_US/fp.js';
+			var ref = document.getElementsByTagName('script')[0];
+			ref.parentNode.insertBefore(fpw, ref);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

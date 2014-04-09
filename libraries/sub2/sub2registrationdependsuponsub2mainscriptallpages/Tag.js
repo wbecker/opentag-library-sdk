@@ -14,59 +14,51 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "First Name",
 			description: "If not available, leave blank",
 			token: "firstname",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Last Name",
 			description: "If not available, leave blank",
 			token: "lastname",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Email",
 			description: "If not available, leave blank",
 			token: "email",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
 
-(function ()
-{
-  var waitFor_S2Tech_StoreRegistrationData = setInterval(function ()
-  {
-    if (typeof S2Tech_StoreRegistrationData === 'function')
-    {
-      clearInterval(waitFor_S2Tech_StoreRegistrationData);
+		(function() {
+			var waitFor_S2Tech_StoreRegistrationData = setInterval(function() {
+				if (typeof S2Tech_StoreRegistrationData === 'function') {
+					clearInterval(waitFor_S2Tech_StoreRegistrationData);
 
-      S2Tech_StoreRegistrationData("" + this.valueForToken("firstname") + "", "" + this.valueForToken("lastname") + "", "" + this.valueForToken("email") + "");
-    }
-  }, 100);
+					S2Tech_StoreRegistrationData("" + this.valueForToken("firstname") + "", "" + this.valueForToken("lastname") + "", "" + this.valueForToken("email") + "");
+				}
+			}, 100);
 
-  setTimeout(function ()
-  {
-    clearInterval(waitFor_S2Tech_StoreRegistrationData);
-  }, 5000);
+			setTimeout(function() {
+				clearInterval(waitFor_S2Tech_StoreRegistrationData);
+			}, 5000);
 
-})();
+		})();
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

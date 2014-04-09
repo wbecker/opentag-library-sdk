@@ -16,29 +16,29 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var _struqPI = _struqPI || [];
+		/*PRE*/
+		var _struqPI = _struqPI || [];
 
-_struqPI.push(['injectTrackingPixel', {
-  trackingPixelId: 'PixelID',
-  route: '/s/s/',
-  collectData: false,
-  options: {
-    timeoutMs: 2000
-  }
-}]);
-	/*~PRE*/
+		_struqPI.push(['injectTrackingPixel', {
+			trackingPixelId: 'PixelID',
+			route: '/s/s/',
+			collectData: false,
+			options: {
+				timeoutMs: 2000
+			}
+		}]);
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

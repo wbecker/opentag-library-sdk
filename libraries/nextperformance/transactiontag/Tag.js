@@ -14,38 +14,34 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account (zid)",
 			description: "zid value provided by NextPerformance",
 			token: "zid",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order ID",
 			description: "",
 			token: "orderId",
 			uv: "universal_variable.transaction.order_id"
-		},
-		{
+		}, {
 			name: "Order Total",
 			description: "",
 			token: "total",
 			uv: "universal_variable.transaction.total"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

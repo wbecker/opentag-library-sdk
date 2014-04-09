@@ -14,52 +14,52 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Cloudfront Domain",
 			description: "Your cloudfront domain hosting Snowplow",
 			token: "cloudfront",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Site ID",
 			description: "The ID of your site",
 			token: "siteid",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Cookie Domain",
 			description: "The cookie domain for your tracking",
 			token: "cookiedomain",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var _snaq = _snaq || [];
+		var _snaq = _snaq || [];
 
-_snaq.push(['setCollectorCf', '' + this.valueForToken("cloudfront") + '']);
-_snaq.push(['setAppId', '' + this.valueForToken("siteid") + '']);
-_snaq.push(['setCookieDomain', '' + this.valueForToken("cookiedomain") + ''])
-_snaq.push(['trackPageView']);
+		_snaq.push(['setCollectorCf', '' + this.valueForToken("cloudfront") + '']);
+		_snaq.push(['setAppId', '' + this.valueForToken("siteid") + '']);
+		_snaq.push(['setCookieDomain', '' + this.valueForToken("cookiedomain") + ''])
+		_snaq.push(['trackPageView']);
 
-(function() {
-var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
-sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.12.0/sp.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
-})();
+		(function() {
+			var sp = document.createElement('script');
+			sp.type = 'text/javascript';
+			sp.async = true;
+			sp.defer = true;
+			sp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://d1fc8wv8zag5ca.cloudfront.net/0.12.0/sp.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(sp, s);
+		})();
 
-	/*~SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

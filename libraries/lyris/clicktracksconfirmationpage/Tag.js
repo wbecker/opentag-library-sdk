@@ -14,33 +14,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "stats2.clicktracks.com/cgi-bin/ctasp-server.cgi?i=${id}",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Click Tracks ID",
 			description: "",
 			token: "id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Order Total",
 			description: "",
 			token: "order_total",
 			uv: "universal_variable.transaction.total"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-window.CT_C_OrderTotal = '' + this.valueForToken("order_total") + '';
-	/*~PRE*/
+		/*PRE*/
+		window.CT_C_OrderTotal = '' + this.valueForToken("order_total") + '';
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

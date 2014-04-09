@@ -14,35 +14,33 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "JSTag Data",
 			description: "JSON stringified valid JSON data to send to Lytics i.e. \"{\\\"event-happened\\\":true}\"",
 			token: "event_json",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-(function () {
-  if (window.jstag && jstag.send && window.JSON) {
-    try {
-      var data = this.valueForToken("event_json");
-      jstag.send(data);
-    } catch (e) {}
-  }
-})();
-	/*~SCRIPT*/
+		(function() {
+			if (window.jstag && jstag.send && window.JSON) {
+				try {
+					var data = this.valueForToken("event_json");
+					jstag.send(data);
+				} catch (e) {}
+			}
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

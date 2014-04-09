@@ -14,53 +14,50 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "${SOURCE_URL}",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "WRP_ID",
 			description: "Site Id",
 			token: "WRP_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "WRP_SECTION",
 			description: "Site Section",
 			token: "SECTION",
 			uv: ""
-		},
-		{
+		}, {
 			name: "WRP_SUBSECTION",
 			description: "Site subsection",
 			token: "SUBSECTION",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Source URL",
 			description: "Please put the full URL of the script here www.domain.com/path/to/script.js without http or https://",
 			token: "SOURCE_URL",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var WRP_ID= this.valueForToken("WRP_ID");
-var WRP_SECTION='' + this.valueForToken("SECTION") + '';
-var WRP_SUBSECTION='' + this.valueForToken("SUBSECTION") + '';
-wreport_ok=0;
+		/*PRE*/
+		var WRP_ID = this.valueForToken("WRP_ID");
+		var WRP_SECTION = '' + this.valueForToken("SECTION") + '';
+		var WRP_SUBSECTION = '' + this.valueForToken("SUBSECTION") + '';
+		wreport_ok = 0;
 
-/* Profondeur Frame */
-var WRP_ACC;
-	/*~PRE*/
+		/* Profondeur Frame */
+		var WRP_ACC;
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-if(wreport_ok==1){ var w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID, WRP_ACC);
-w_counter.count();}
-	/*~POST*/
+		/*POST*/
+		if (wreport_ok == 1) {
+			var w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID, WRP_ACC);
+			w_counter.count();
+		}
+		/*~POST*/
 	}
 });

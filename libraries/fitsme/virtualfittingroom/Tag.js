@@ -16,30 +16,30 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var _gaq = _gaq || [];
-_gaq.push(['_setAllowLinker', true]);
-_gaq.push(['_setAllowHash', false]);
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_setAllowHash', false]);
 
-(function(){
-  var fmJsHost = (("https:" == document.location.protocol) ? "https" : "http");
-  var fmScript = document.createElement("script");
-  fmScript.src = unescape(fmJsHost + "://www.fits.me/vfr.js");
-  document.head.appendChild(fmScript);
-})();
-	/*~SCRIPT*/
+		(function() {
+			var fmJsHost = (("https:" == document.location.protocol) ? "https" : "http");
+			var fmScript = document.createElement("script");
+			fmScript.src = unescape(fmJsHost + "://www.fits.me/vfr.js");
+			document.head.appendChild(fmScript);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

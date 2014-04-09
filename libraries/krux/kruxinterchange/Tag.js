@@ -14,51 +14,46 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "http://cdn.krxd.net/krux.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Publisher Id",
 			description: "Your unique publisher id",
 			token: "publisher_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Site Domain",
 			description: "The domain of your site",
 			token: "site_url",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Page Section",
 			description: "The section of your website that the tag is being loaded on - this may change from page to page",
 			token: "section",
 			uv: "universal_variable.page.category"
-		},
-		{
+		}, {
 			name: "Page Sub-section",
 			description: "The subsection of the site that is being shown",
 			token: "subsection",
 			uv: "universal_variable.page.subcategory"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var KRUXSetup = {
-   pubid:"" + this.valueForToken("publisher_id") + "",
-   site:"" + this.valueForToken("site_url") + "",
-   section:"" + this.valueForToken("section") + "",
-   subSection:"" + this.valueForToken("subsection") + "",
-   async:true
-};
-	/*~PRE*/
+		/*PRE*/
+		var KRUXSetup = {
+			pubid: "" + this.valueForToken("publisher_id") + "",
+			site: "" + this.valueForToken("site_url") + "",
+			section: "" + this.valueForToken("section") + "",
+			subSection: "" + this.valueForToken("subsection") + "",
+			async: true
+		};
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

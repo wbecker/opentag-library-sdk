@@ -14,26 +14,24 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "evaleu.shopzilla.com/js/pos_${account}.js",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account Number",
 			description: "The number at the end of Shopzilla script. e.g. 0000 in evaleu.shopzilla.com/js/pos_0000.js",
 			token: "account",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

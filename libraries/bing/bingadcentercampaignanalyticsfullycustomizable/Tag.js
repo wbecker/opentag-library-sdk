@@ -14,56 +14,49 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "URL ID",
 			description: "The id in the url of the script, eg fb9804c9-b48f-46d1-a20e-88c3ff3302cc",
 			token: "URL_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Domain Id",
 			description: "The id common to all bing tracking tags",
 			token: "DOMAIN_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Dedupe",
 			description: "Dedupe settings eg 1",
 			token: "DEDUPE",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Type",
 			description: "Type eg 1",
 			token: "TYPE",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Revenue",
 			description: "Revenue",
 			token: "REVENUE",
 			uv: "universal_variable.transaction.total"
-		},
-		{
+		}, {
 			name: "Action Id",
 			description: "Action Id. Eg 948565",
 			token: "ACTION_ID",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

@@ -14,43 +14,39 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
 		usesDocWrite: true,
-		parameters: [
-		{
+		parameters: [{
 			name: "Google Conversion ID",
 			description: "Your Google id provided in the script",
 			token: "conversion_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Google Conversion Label",
 			description: "A alphanumeric label of your conversion tracking",
 			token: "label",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Google Conversion Value",
 			description: "The value of the conversion. This should be a number, or 0 if there is no value to the conversion",
 			token: "value",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-window.google_trackConversion({
-  google_conversion_id: "" + this.valueForToken("conversion_id") + "",
-  google_conversion_label: "" + this.valueForToken("label") + "",
-  google_custom_params: {}
-});
-	/*~POST*/
+		/*POST*/
+		window.google_trackConversion({
+			google_conversion_id: "" + this.valueForToken("conversion_id") + "",
+			google_conversion_label: "" + this.valueForToken("label") + "",
+			google_custom_params: {}
+		});
+		/*~POST*/
 	}
 });

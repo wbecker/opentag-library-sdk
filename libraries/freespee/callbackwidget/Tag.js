@@ -14,71 +14,63 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "//${domain_name}.freespee.com/js/external/fs.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "FreeSpee ID",
 			description: "the ID provided by FreeSpee when entering the \"allowed number\" in the FreeSpee Dashboard. [REQUIRED]",
 			token: "client_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "FreeSpee Answer Number ID",
 			description: "The ID of the phone number for the advertiser to connect calls to. Provided by FreeSpee. [REQUIRED]",
 			token: "cbw_answering_number_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "FreeSpee Style",
 			description: "'desktop' or 'mobile' - defaults to 'desktop' [OPTIONAL]",
 			token: "cbw_style",
 			uv: ""
-		},
-		{
+		}, {
 			name: "FreeSpee Caller ID",
 			description: "The phone number to be presented as Caller ID for the end-user [OPTIONAL]",
 			token: "cbw_caller_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "FreeSpee Visible Number",
 			description: "this number will be replaced with a Freespee number as an alternative contact [OPTIONAL]",
 			token: "cbw_visible_number",
 			uv: ""
-		},
-		{
+		}, {
 			name: "FreeSpee Button ID",
 			description: "ID of the button used to open the widget. Defaults to “fs-open-callback-widget”. [OPTIONAL]",
 			token: "cbw_button_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "FreeSpee LowLevel Domain Name",
 			description: "Provided by FreeSpee - as in: \"//<--LowLevelDomainName-->.freespee.com/js/external/fs.js\" [REQUIRED]",
 			token: "domain_name",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var __fs_conf = __fs_conf || [];
- 
-    __fs_conf.push(['setAdv', {
-                               'id': '' + this.valueForToken("client_id") + '', 
-                               'cbw_answering_number_id': '' + this.valueForToken("cbw_answering_number_id") + '', 
-                               'cbw_style': '' + this.valueForToken("cbw_style") + '', 
-                               'cbw_caller_id': '' + this.valueForToken("cbw_caller_id") + '', 
-                               'cbw_visible_number': '' + this.valueForToken("cbw_visible_number") + ''
-                              }]);
-	/*~PRE*/
+		/*PRE*/
+		var __fs_conf = __fs_conf || [];
+
+		__fs_conf.push(['setAdv', {
+			'id': '' + this.valueForToken("client_id") + '',
+			'cbw_answering_number_id': '' + this.valueForToken("cbw_answering_number_id") + '',
+			'cbw_style': '' + this.valueForToken("cbw_style") + '',
+			'cbw_caller_id': '' + this.valueForToken("cbw_caller_id") + '',
+			'cbw_visible_number': '' + this.valueForToken("cbw_visible_number") + ''
+		}]);
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

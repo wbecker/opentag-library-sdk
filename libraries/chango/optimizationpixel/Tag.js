@@ -14,27 +14,27 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "//cc.chango.com/static/o.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Account ID",
 			description: "Your Chango Account ID",
 			token: "id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-var __cho__ = {"pid":this.valueForToken("id")};
-	/*~PRE*/
+		/*PRE*/
+		var __cho__ = {
+			"pid": this.valueForToken("id")
+		};
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

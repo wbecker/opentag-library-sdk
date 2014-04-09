@@ -14,43 +14,39 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "a1.vdna-assets.com/analytics.js",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "API Key",
 			description: "API Key",
 			token: "api_key",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Array of window.history generated URLs",
 			description: "See tag description for more details",
 			token: "window_history",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-window.VDNA = window.VDNA || {};
-window.VDNA.queue = window.VDNA.queue || [];
-var object = {
-  apiKey : "" + this.valueForToken("api_key") + "",
-  method : "reportPageView"
-};
-if (this.valueForToken("window_history").length === 2)
-{
-  object.args = this.valueForToken("window_history");
-}
-window.VDNA.queue.push(object);
-	/*~POST*/
+		/*POST*/
+		window.VDNA = window.VDNA || {};
+		window.VDNA.queue = window.VDNA.queue || [];
+		var object = {
+			apiKey: "" + this.valueForToken("api_key") + "",
+			method: "reportPageView"
+		};
+		if (this.valueForToken("window_history").length === 2) {
+			object.args = this.valueForToken("window_history");
+		}
+		window.VDNA.queue.push(object);
+		/*~POST*/
 	}
 });

@@ -14,51 +14,46 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Event ID",
 			description: "A unique identifier for the type of conversion, such as “Account Creation” or “Special Registration\"",
 			token: "event_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Action Type",
 			description: "A value of “1” or “2” depending upon whether a successful conversion is generated.",
 			token: "action_type",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Event category id",
 			description: "Allows grouping of event IDs into categories.",
 			token: "event_category_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Points",
 			description: "A point value used in establishing an arbitrary “value” for a conversion.",
 			token: "points",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  cmCreateConversionEventTag(
-    "" + this.valueForToken("event_id") + "",
-    "" + this.valueForToken("action_type") + "",
-    "" + this.valueForToken("event_category_id") + "",
-    "" + this.valueForToken("points") + ""
-  );
-	/*~SCRIPT*/
+		cmCreateConversionEventTag(
+			"" + this.valueForToken("event_id") + "",
+			"" + this.valueForToken("action_type") + "",
+			"" + this.valueForToken("event_category_id") + "",
+			"" + this.valueForToken("points") + ""
+		);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

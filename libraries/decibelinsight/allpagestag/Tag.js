@@ -14,43 +14,41 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Decibel Insight Account ID",
 			description: "The ID specific to your account given by Decibel",
 			token: "account_id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-  var _da_ = _da_ || [];
-  var _da_oldErr = window.onerror;
+		var _da_ = _da_ || [];
+		var _da_oldErr = window.onerror;
 
-  _da_.err = [];
-  window.onerror = function(e) {
-    _da_.err.push(e);
-    _da_oldErr && _da_oldErr(e);
-  };
+		_da_.err = [];
+		window.onerror = function(e) {
+			_da_.err.push(e);
+			_da_oldErr && _da_oldErr(e);
+		};
 
-  (function(d) {
-    var da = d.createElement('script');
-    da.type = 'text/javascript';
-    da.async = 'async';
-    da.src = location.protocol + '//decibelinsight.net/i/' + this.valueForToken("account_id") + '/di.js';
-    d.getElementsByTagName('head')[0].appendChild(da);
-  })(document);
-	/*~SCRIPT*/
+		(function(d) {
+			var da = d.createElement('script');
+			da.type = 'text/javascript';
+			da.async = 'async';
+			da.src = location.protocol + '//decibelinsight.net/i/' + this.valueForToken("account_id") + '/di.js';
+			d.getElementsByTagName('head')[0].appendChild(da);
+		})(document);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

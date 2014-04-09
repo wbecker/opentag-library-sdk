@@ -14,32 +14,29 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "mediaFORGE Merchant ID",
 			description: "The ID that relates you to mediaFORGE",
 			token: "merchant_id",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Category ID",
 			description: "The name/ID that relates to the current product listing page",
 			token: "category_id",
 			uv: "universal_variable.page.subcategory"
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
-	/*~SCRIPT*/
+		/*SCRIPT*/
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

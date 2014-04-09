@@ -14,33 +14,43 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Struq Homepage Tracking ID",
 			description: "The Struq Homepage tracking pixel ID",
 			token: "pixelid",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window._struqPI = window._struqPI || [];
-_struqPI.push(['injectTrackingPixel', { trackingPixelId: '' + this.valueForToken("pixelid") + '', route: '/s/ga/', collectData: false, options: { timeoutMs: 2000, firstPartyDomain: '', firstPartyCookie: '', firstPartyUid: '' }}]);
+		window._struqPI = window._struqPI || [];
+		_struqPI.push(['injectTrackingPixel', {
+			trackingPixelId: '' + this.valueForToken("pixelid") + '',
+			route: '/s/ga/',
+			collectData: false,
+			options: {
+				timeoutMs: 2000,
+				firstPartyDomain: '',
+				firstPartyCookie: '',
+				firstPartyUid: ''
+			}
+		}]);
 
-var struq = document.createElement('script'); struq.type = 'text/javascript'; struq.async = true;
-struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
-document.getElementsByTagName('head')[0].appendChild(struq);
-	/*~SCRIPT*/
+		var struq = document.createElement('script');
+		struq.type = 'text/javascript';
+		struq.async = true;
+		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
+		document.getElementsByTagName('head')[0].appendChild(struq);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

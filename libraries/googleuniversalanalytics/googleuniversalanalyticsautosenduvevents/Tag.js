@@ -16,40 +16,42 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		usesDocWrite: false,
 		parameters: [
 
-	]
+		]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-window.uv_listener.push(["on", "event", function (event) {
+		window.uv_listener.push(["on", "event",
+			function(event) {
 
-  var data = {
-    hitType: "event",
-    eventCategory: event.category,
-    eventAction: event.action
-  };
+				var data = {
+					hitType: "event",
+					eventCategory: event.category,
+					eventAction: event.action
+				};
 
-  // Add label and value
-  if (event.label !== undefined) {
-    data.eventLabel = event.label;
-  }
-  if (event.value !== undefined) {
-    data.eventValue = event.value;
-  }
+				// Add label and value
+				if (event.label !== undefined) {
+					data.eventLabel = event.label;
+				}
+				if (event.value !== undefined) {
+					data.eventValue = event.value;
+				}
 
-  // Send the event
-  ga("send", data);
+				// Send the event
+				ga("send", data);
 
-}]);
-	/*~SCRIPT*/
+			}
+		]);
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

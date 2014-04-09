@@ -14,40 +14,38 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "Merchenta Retailer Code",
 			description: "Your Merchenta account ID",
 			token: "Merchenta_Id",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
-var mc_api_url = "api.merchenta.com/merchenta/t";
-(function() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.async = true;
-  var secure = (window.parent.document.location.protocol=="https:");
-  if (secure) {
-    script.src = "https://api.merchenta.com/track/t.js";
-  } else {
-    script.src = "http://cdn.merchenta.com/track/t.js";
-  }
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-	/*~SCRIPT*/
+		var mc_api_url = "api.merchenta.com/merchenta/t";
+		(function() {
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.async = true;
+			var secure = (window.parent.document.location.protocol == "https:");
+			if (secure) {
+				script.src = "https://api.merchenta.com/track/t.js";
+			} else {
+				script.src = "http://cdn.merchenta.com/track/t.js";
+			}
+			document.getElementsByTagName('head')[0].appendChild(script);
+		})();
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });

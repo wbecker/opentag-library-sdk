@@ -14,47 +14,47 @@ qubit.opentag.LibraryTag.define(classPath + version, {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-		{
+		parameters: [{
 			name: "GA Profile ID",
 			description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
 			token: "PROFILE_ID",
 			uv: ""
-		},
-		{
+		}, {
 			name: "Commands Array",
 			description: "Array of arrays - each of which can be applied using _gaq.push()",
 			token: "commands",
 			uv: ""
-		}
-	]
+		}]
 		/*~DATA*/
 	},
 	script: function() {
-	/*SCRIPT*/
+		/*SCRIPT*/
 
- 
- var _gaq = _gaq || [];
- _gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID") + '']);
 
-for (var i = 0; i < this.valueForToken("commands").length; i++){
-  _gaq.push(this.valueForToken("commands")[i]);
-}
- 
- (function() {
- var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
- ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
- var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
- })();
- 
-	/*~SCRIPT*/
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID") + '']);
+
+		for (var i = 0; i < this.valueForToken("commands").length; i++) {
+			_gaq.push(this.valueForToken("commands")[i]);
+		}
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+
+		/*~SCRIPT*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+		/*PRE*/
+		/*~PRE*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+		/*POST*/
+		/*~POST*/
 	}
 });
