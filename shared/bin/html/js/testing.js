@@ -170,7 +170,7 @@ function reloadBDDTests(refNode) {
 }
 
 var testsRunning = false;
-function runAllTests() {
+function runAllTests(callback) {
   if (testsRunning) {
     info("Wait for currently running tests to finish.");
     return;
@@ -192,7 +192,7 @@ function runAllTests() {
     try {
       var node = testNodes[index];
       if (!node) {return;}
-      runTests(node, function() {
+      runTests(node, function () {
         ++counted;
         if (counted < total) {
           setTimeout(function() {
@@ -201,6 +201,9 @@ function runAllTests() {
         }
         if (counted === total) {
           testsRunning = false;
+          if (callback) {
+            callback();
+          }
         }
       });
     } catch (e) {
