@@ -219,7 +219,7 @@ var UNDEF = undefined;
     
     parent = parent || obj;
     
-    if (cfg.noNodes) {
+    if (!cfg || !cfg.nodes) {
       if (obj instanceof Node) {
         //dont follow those objects
         return;
