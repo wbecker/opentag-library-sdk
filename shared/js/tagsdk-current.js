@@ -200,7 +200,7 @@ var UNDEF = undefined;
    * @param {Boolean} starting point
    * @returns {unresolved}
    */
-  Utils.traverse = function(obj, exe, cfg, start, parent, prop) {
+  Utils.traverse = function(obj, exe, cfg, start, parent, prop, trackPath) {
     cfg = cfg || {};
     
     if (cfg.hasOwn === undefined) {
@@ -241,18 +241,22 @@ var UNDEF = undefined;
 
     traverseArray[start] = obj;
 
-    var stopHere = exe(obj, parent, prop);
+    var stopHere = exe(obj, parent, prop, trackPath);
     
     if (stopHere) {
       return;
     }
     
     var i = 0;
-    for (var prop in obj) {
-      if (!cfg.hasOwn || (obj.hasOwnProperty(prop))) {
+    var objPath = "";
+    for (var pprop in obj) {
+      if (!cfg.hasOwn || (obj.hasOwnProperty(pprop))) {
         try {
-          var object = obj[prop];
-          Utils.traverse(object, exe, cfg, start + 1, parent, prop);
+          var object = obj[pprop];
+          if (cfg.track) {
+            objPath = trackPath ? (trackPath + "." + pprop) : pprop;
+          }
+          Utils.traverse(object, exe, cfg, start + 1, parent, pprop, objPath);
         } catch (e) {}
       }
       i++;
