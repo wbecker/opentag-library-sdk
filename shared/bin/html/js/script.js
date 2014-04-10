@@ -39,7 +39,8 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
             .replace(libraryClass.versionOf.prototype.PACKAGE_NAME + ".", "");
   }
   
-  libraryNode.children[0].children[1].innerHTML = instance.config.name + " (" + version + ")";
+  libraryNode.children[0].children[1].innerHTML = instance.config.name +
+          " [" + version + "]";
   qubit.opentag.Utils.addClass(libraryNode, "library");
   if (className) {
     qubit.opentag.Utils.addClass(libraryNode, className);
@@ -501,7 +502,7 @@ function loadAllLibs() {
   var srcs = document.getElementsByTagName("font");
   totalScripts = srcs.length;
   var counter = 0;
-    var loader =function () {
+    var loader = function () {
       if (counter === srcs.length) {
         return;
       }
@@ -522,6 +523,9 @@ function _loadLibrary(url, index, callback) {
       log(url);
       counted++;
       if (totalScripts === counted) {
+        
+        // READY:
+        
         for (var x = 0; x < scripts.length; x++) {
           try {
             eval(scripts[x].expr);
@@ -532,12 +536,14 @@ function _loadLibrary(url, index, callback) {
         createProgressBar.title += ", rendering... ";
         listScripts();
         setTimeout(function () {
-          renderAllLibrariesToPage();
           counted++;
+          renderAllLibrariesToPage();
           window.toggleConsole();
           
           qubit.opentag.Log.LEVEL = 3;
           qubit.opentag.Log.COLLECT_LEVEL = 5;
+          
+          setTimeout(bodyLoaded, 200);
         }, 50);
       }
     } finally {
@@ -547,6 +553,34 @@ function _loadLibrary(url, index, callback) {
     }
   });
 }
+
+function bodyLoaded () {
+  setTimeout(keepRunningTests, 1000);
+}
+
+function keepRunningTests() {
+  if (location.href.indexOf("testsRunning=true") !== -1) {
+    info("Running tests...");
+    runAllTests(function () {
+      countdown("Automatically running tests... ", 10);
+      setTimeout(keepRunningTests, 10000);
+    })
+  }
+}
+
+function countdown(msg, nr, suf) {
+  if (nr <= 0) {
+    return;
+  }
+  suf = suf || "";
+  info(msg + nr + suf, 550);
+  var number = nr -1;
+  setTimeout(function () {
+    countdown(msg, number);
+  }, 1000)
+}
+
+
 
 function listScripts() {
   var html = "<div>";
