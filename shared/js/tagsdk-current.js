@@ -225,18 +225,22 @@ var UNDEF = undefined;
         return;
       }
     }
-
     if (obj === window || obj === global) {
       //dont follow those objects
       return;
     }
-
 
     if (start === undefined) {
       traverseArray = [];
       start = 0;
     }
     
+    if (existsInTraversePath(obj, start)) {
+      return;
+    }
+
+    traverseArray[start] = obj;
+
     var stopHere = exe(obj, parent, prop);
     
     if (stopHere) {
@@ -248,14 +252,7 @@ var UNDEF = undefined;
       if (!cfg.hasOwn || (obj.hasOwnProperty(prop))) {
         try {
           var object = obj[prop];
-          if (object.objectsOnly && !(object instanceof Object)){
-            continue;
-          }
-          traverseArray[start] = object;
-          var exists = existsInTraversePath(object, start);
-          if (!exists) {
-            Utils.traverse(object, exe, cfg, start + 1, parent, prop);
-          }
+          Utils.traverse(object, exe, cfg, start + 1, parent, prop);
         } catch (e) {}
       }
       i++;

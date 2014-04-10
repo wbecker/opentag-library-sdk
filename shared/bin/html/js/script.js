@@ -32,7 +32,14 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   libraryNode.setAttribute("library-node", "true");
 
   libraryNode.innerHTML = libraryTemplate;
-  libraryNode.children[0].children[1].innerHTML = instance.config.name;
+  
+  var version = "current";
+  if (libraryClass.versionOf) {
+    version = libraryClass.prototype.PACKAGE_NAME
+            .replace(libraryClass.versionOf.prototype.PACKAGE_NAME + ".", "");
+  }
+  
+  libraryNode.children[0].children[1].innerHTML = instance.config.name + " (" + version + ")";
   qubit.opentag.Utils.addClass(libraryNode, "library");
   if (className) {
     qubit.opentag.Utils.addClass(libraryNode, className);
@@ -418,9 +425,13 @@ function prepareVendorNode(name) {
 function findVersions(object, array) {
   array = array || [];
   qubit.opentag.Utils.traverse(object, function (obj, parent, prop) {
-    if (obj && obj.prototype && prop !== "superclass" && obj.prototype instanceof qubit.opentag.GenericLoader) {
+    if (obj && obj.prototype && prop !== "superclass" 
+            && obj.prototype instanceof qubit.opentag.GenericLoader
+            && obj !== qubit.opentag.BaseTag
+            && obj !== qubit.opentag.LibraryTag
+            && obj !== qubit.opentag.CustomTag
+            && object.Tag !== obj) {
       array.push(obj);
-      console.log(prop);
     }
   }, {objectsOnly: true, noNodes: true});
   return array;
@@ -449,6 +460,15 @@ function renderAllLibrariesToPage() {
         ctest.unregisterTag();
         if ((ctest) instanceof qubit.opentag.LibraryTag) {
           addLibrary(vendorNode, libraryClass);
+          
+          //versions
+          var versions = findVersions(vendor[lprop]);
+          
+          for (var i = 0; i < versions.length; i++) {
+            versions[i].versionOf = libraryClass;
+            addLibrary(vendorNode, versions[i]);
+          }
+          
         }
       } catch (ex) {
         //must prompt
