@@ -220,9 +220,15 @@ var UNDEF = undefined;
     parent = parent || obj;
     
     if (!cfg || !cfg.nodes) {
-      if (obj instanceof Node) {
-        //dont follow those objects
-        return;
+      try {
+        if (obj instanceof Node) {
+          //dont follow those objects
+          return;
+        }
+      } catch (ie) {
+        if (obj instanceof ActiveXObject && obj.nodeType !== undefined) {
+          return; //IE case, no comment
+        }
       }
     }
     if (obj === window || obj === global) {
