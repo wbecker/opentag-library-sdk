@@ -564,7 +564,7 @@ function keepRunningTests() {
     runAllTests(function () {
       countdown("Automatically running tests... ", 10);
       setTimeout(keepRunningTests, 10000);
-    })
+    });
   }
 }
 
@@ -577,7 +577,7 @@ function countdown(msg, nr, suf) {
   var number = nr -1;
   setTimeout(function () {
     countdown(msg, number);
-  }, 1000)
+  }, 1000);
 }
 
 

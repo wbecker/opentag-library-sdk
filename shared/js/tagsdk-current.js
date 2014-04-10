@@ -191,14 +191,15 @@ var UNDEF = undefined;
     global = (1980, eval)("this");
   } catch (e) {}
   
-/**
-   * Copy object.
-   * deep option must be passed to protect from circural references.
+  /**
    * 
-   * @param {Object} obj
-   * @param {Number} deep
-   * @param {Boolean} starting point
-   * @returns {unresolved}
+   * @param {type} obj
+   * @param {type} exe
+   * @param {type} cfg
+   * @param {type} start
+   * @param {type} parent
+   * @param {type} prop
+   * @returns {undefined}
    */
   Utils.traverse = function(obj, exe, cfg, start, parent, prop, trackPath) {
     cfg = cfg || {};
@@ -269,7 +270,6 @@ var UNDEF = undefined;
     }
   };
 
-  
   /**
    * 
    * @param {opentag.qubit.BaseTag} tag
@@ -440,7 +440,7 @@ var UNDEF = undefined;
    * @param {Function} extendingClass
    * @returns {Object} defined class
    */
-  Utils.defineClass = function (config, classPath, extendingClass) {
+  Utils.defineClass = function (classPath, extendingClass, config) {
     
     var names = classPath.split(".");
     var className = names[names.length - 1];
@@ -6563,7 +6563,7 @@ var JSON = {};
     };
     
     var ret = qubit.opentag.Utils
-            .defineClass(prototypeTemplate, namespace, LibraryTag);
+            .defineClass(namespace, LibraryTag, prototypeTemplate);
     
     //register them also in qubit scope.
     Utils.namespace("qubit.opentag.libraries." + namespace, ret);

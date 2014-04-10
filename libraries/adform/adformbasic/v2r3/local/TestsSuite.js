@@ -21,13 +21,6 @@ var TestsSuite = new Suite({
 
   "it shall again not fail as true is naturally true...": function() {
     this.pass(true, "Passed again.");
-  },
-
-  "it shall fail later, in two seconds": function() {
-    var _this = this;
-    setTimeout(function() {
-      _this.fail(true, "failed after 2 seconds");
-    }, 2000);
   }
 });
 
