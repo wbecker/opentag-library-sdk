@@ -433,7 +433,7 @@ function findVersions(object, array) {
             && object.Tag !== obj) {
       array.push(obj);
     }
-  }, {objectsOnly: true, noNodes: true});
+  }, {objectsOnly: true});
   return array;
 }
 
