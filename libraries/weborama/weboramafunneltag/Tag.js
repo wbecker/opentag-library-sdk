@@ -56,6 +56,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		try {
 			adperfTracker.track(adperftrackobj);
 		} catch (err) {}
+
 		/*~POST*/
 	}
 });

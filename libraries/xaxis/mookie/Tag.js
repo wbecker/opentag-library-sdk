@@ -94,6 +94,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			arr.push(key + "=" + obj[key]);
 		}
 		img.src = "//t.mookie1.com/t/v1/event?" + arr.join("&");
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -33,6 +33,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			fmScript.src = unescape(fmJsHost + "://www.fits.me/vfr.js");
 			document.head.appendChild(fmScript);
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

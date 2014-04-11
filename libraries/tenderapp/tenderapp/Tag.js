@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Tender App",
 		async: true,
 		description: "Web 2.0 based support desk and knowlegebase software.",
-		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//${SUBDOMAIN}.tenderapp.com/tender_widget.js\"></script>",
+		html: "<script type=\"text/javascript\" src=\"//${SUBDOMAIN}.tenderapp.com/tender_widget.js\"></script><!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/TenderSupport.png",
 		locationDetail: "",
 		isPrivate: false,

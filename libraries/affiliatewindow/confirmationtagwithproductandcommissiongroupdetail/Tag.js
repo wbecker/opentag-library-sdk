@@ -166,6 +166,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 		})();
+
 		/*~PRE*/
 	},
 	post: function() {

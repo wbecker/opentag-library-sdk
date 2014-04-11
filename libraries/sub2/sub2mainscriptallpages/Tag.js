@@ -155,6 +155,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			clearInterval(waitFor_S2Tech_2Prompt);
 		}, 5000);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

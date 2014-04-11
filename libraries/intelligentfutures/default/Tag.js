@@ -31,6 +31,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 						iatDev ? "h" : "") + "j.flxpxl.com/176554.js?r=" + Math.random() * 1e16 +
 					"&m=" + this.valueForToken("") + "&a=" + this.valueForToken("") + "" + (
 						iatDev ? "&d=1" : ""))
+
 				/*~SCRIPT*/
 			},
 			pre: function() {

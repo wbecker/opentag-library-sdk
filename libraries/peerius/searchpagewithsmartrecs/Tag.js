@@ -65,6 +65,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				refCode: this.valueForToken("search_listing_ids")[i]
 			});
 		}
+
 		/*~PRE*/
 	},
 	post: function() {

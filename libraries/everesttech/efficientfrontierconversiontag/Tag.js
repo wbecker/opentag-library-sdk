@@ -58,6 +58,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			window.ef_pixel_host = "pixel.everesttech.net";
 			effp();
 		} catch (err) {}
+
 		/*~POST*/
 	}
 });

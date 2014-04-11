@@ -40,6 +40,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"partner_user_id_type": "e"
 			}]
 		});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -73,6 +73,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				this.valueForToken("lengow_payment_method") + "&listingProduit=" +
 				lengowProductNamesString;
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

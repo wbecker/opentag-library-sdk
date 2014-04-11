@@ -94,6 +94,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		};
 
 		var productsPurchased = productsPurchasedArr.join("|");
+
 		/*~PRE*/
 	},
 	post: function() {

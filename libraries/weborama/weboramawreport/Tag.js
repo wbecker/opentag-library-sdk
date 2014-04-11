@@ -50,6 +50,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		/* Profondeur Frame */
 		var WRP_ACC;
+
 		/*~PRE*/
 	},
 	post: function() {
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				WRP_ACC);
 			w_counter.count();
 		}
+
 		/*~POST*/
 	}
 });

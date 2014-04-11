@@ -113,6 +113,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				'http://') + "api.gutscheinconnection.de/js/client.js";
 			sovendusScript.async = "true";
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -46,7 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					objIdArr = [],
 					listenersArr = [],
 					storedAltContent, storedAltContentId, storedCallbackFn, storedCallbackObj,
-						isDomLoaded = false,
+					isDomLoaded = false,
 					isExpressInstallActive = false,
 					dynamicStylesheet, dynamicStylesheetMedia, autoHideShow = true,
 					ua = function() {
@@ -698,6 +698,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		}();
 		ServiceTickDetection.AddServiceTick();
 		//]]>
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

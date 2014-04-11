@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				};
 			}
 		})();
+
 		/*~PRE*/
 	},
 	post: function() {
@@ -58,6 +59,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				actionid: "" + this.valueForToken("action_id") + ""
 			});
 		})();
+
 		/*~POST*/
 	}
 });

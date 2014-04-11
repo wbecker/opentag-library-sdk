@@ -58,6 +58,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
 			'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
 		document.getElementsByTagName('head')[0].appendChild(struq);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

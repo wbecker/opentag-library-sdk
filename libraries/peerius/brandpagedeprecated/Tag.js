@@ -38,6 +38,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			lang: "" + this.valueForToken("lang") + "",
 			brand: "" + this.valueForToken("brand") + ""
 		}
+
 		/*~PRE*/
 	},
 	post: function() {

@@ -60,6 +60,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				args: args
 			});
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

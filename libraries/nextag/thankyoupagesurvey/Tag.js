@@ -83,6 +83,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		);
 
 		// <script  src="https://merchants.nextag.com/seller/review/popup_include.js"
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

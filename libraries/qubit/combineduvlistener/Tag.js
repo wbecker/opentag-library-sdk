@@ -322,6 +322,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			UVListener.init();
 		}());
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

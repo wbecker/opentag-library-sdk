@@ -64,6 +64,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"currency": "" + this.valueForToken("currency") + ""
 			}]
 		});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

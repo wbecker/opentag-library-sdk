@@ -42,6 +42,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"account_id") + '/di.js';
 			d.getElementsByTagName('head')[0].appendChild(da);
 		})(document);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

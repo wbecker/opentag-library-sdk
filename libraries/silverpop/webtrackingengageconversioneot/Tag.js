@@ -50,6 +50,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"secure_domain") + "" : "" + this.valueForToken("non_secure_domain") + "";
 		x.type = "text/javascript";
 		document.getElementsByTagName("head")[0].appendChild(x);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -28,6 +28,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		Webtrends.multiTrack({
 			args: this.valueForToken("data")
 		});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

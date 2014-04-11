@@ -33,6 +33,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			setCookie(".office.co.uk", "opentag_emailvision_timestamp", (new Date()).getTime(),
 				60 * 24 * 2);
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -101,6 +101,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -42,6 +42,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				timeoutMs: 2000
 			}
 		}]);
+
 		/*~PRE*/
 	},
 	post: function() {

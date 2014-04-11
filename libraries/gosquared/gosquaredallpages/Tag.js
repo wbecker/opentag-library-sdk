@@ -41,6 +41,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			w.addEventListener ? w.addEventListener("load", gs, false) : w.attachEvent(
 				"onload", gs);
 		})(window);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

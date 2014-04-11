@@ -47,6 +47,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
 		fb_param.value = '' + this.valueForToken("order_value") + '';
 		fb_param.currency = '' + this.valueForToken("currency") + '';
+
 		/*~PRE*/
 	},
 	post: function() {

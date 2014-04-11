@@ -80,6 +80,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		basket.amount = '' + this.valueForToken("trans_total") + '';
 		basket.currency = '' + this.valueForToken("trans_currency") + '';
 		window.basket = basket;
+
 		/*~PRE*/
 	},
 	post: function() {

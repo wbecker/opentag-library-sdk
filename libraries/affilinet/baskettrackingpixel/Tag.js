@@ -116,6 +116,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		iFrameDom.getElementById("basket").innerHTML = basketItemsData;
 
 		iFrameDom.getElementById('affilinetTrackingForm').submit();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

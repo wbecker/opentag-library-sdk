@@ -76,6 +76,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				qty: this.valueForToken("item_quantities")[i]
 			});
 		}
+
 		/*~PRE*/
 	},
 	post: function() {

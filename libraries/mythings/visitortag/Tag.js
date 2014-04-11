@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			this.valueForToken("subdomain") + "" : "http://" + this.valueForToken(
 				"subdomain") + "") + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("token") + "";
+
 		/*~PRE*/
 	},
 	post: function() {

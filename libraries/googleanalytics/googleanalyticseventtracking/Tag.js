@@ -50,6 +50,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			'' + this.valueForToken("action") + '', '' + this.valueForToken("label") +
 			'', this.valueForToken("value"), this.valueForToken("non_interaction")
 		]);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

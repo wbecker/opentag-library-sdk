@@ -266,6 +266,7 @@ code.google.com/p/crypto-js/wiki/License
 				e.HmacSHA1 = j._createHmacHelper(m)
 			})();
 		}
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

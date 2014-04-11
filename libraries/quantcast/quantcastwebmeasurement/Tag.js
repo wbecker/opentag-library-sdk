@@ -37,6 +37,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				qacct: "" + this.valueForToken("id") + ""
 			});
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

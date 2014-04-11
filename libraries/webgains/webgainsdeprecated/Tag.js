@@ -153,6 +153,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var img = new Image();
 		img.src = wgUri;
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {
