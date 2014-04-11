@@ -53,6 +53,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"WT.pn_sc": "" + this.valueForToken("subcategory") + ""
 		});
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

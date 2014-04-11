@@ -86,6 +86,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			$BV.SI.trackTransactionPageView(data);
 		})();
 
+
 		/*~POST*/
 	}
 });

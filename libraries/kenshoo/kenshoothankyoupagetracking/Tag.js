@@ -73,6 +73,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			window.k_trackevent(params, '' + this.valueForToken("ks_num") + '');
 		}());
 
+
 		/*~POST*/
 	}
 });

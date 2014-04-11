@@ -115,6 +115,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 		}
 
+
 		/*~PRE*/
 	},
 	post: function() {

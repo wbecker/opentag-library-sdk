@@ -64,6 +64,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		document.body.appendChild(ct);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

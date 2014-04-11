@@ -47,6 +47,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"" + this.valueForToken("points") + ""
 		);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

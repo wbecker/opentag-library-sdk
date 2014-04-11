@@ -35,6 +35,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.CT_C_OrderTotal = '' + this.valueForToken("order_total") + '';
 
+
 		/*~PRE*/
 	},
 	post: function() {

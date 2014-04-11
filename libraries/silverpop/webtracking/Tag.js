@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		x.type = "text/javascript";
 		document.getElementsByTagName("head")[0].appendChild(x);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

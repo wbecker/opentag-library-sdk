@@ -33,6 +33,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			fandImage.src = src;
 		})();
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -48,6 +48,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		ga('send', 'pageview');
 
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

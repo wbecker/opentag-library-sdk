@@ -170,6 +170,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			e.load()
 		})()
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

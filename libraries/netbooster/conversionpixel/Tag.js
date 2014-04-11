@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"&partnerID=" + this.valueForToken("partner_id") + "&key=conv&orderID=" +
 			this.valueForToken("order_id") + "&returnType=js";
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

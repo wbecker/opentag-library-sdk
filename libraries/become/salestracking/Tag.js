@@ -100,6 +100,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			pg_cart_size = String(pg_cart_size);
 		})();
 
+
 		/*~PRE*/
 	},
 	post: function() {

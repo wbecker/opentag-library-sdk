@@ -51,6 +51,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			customer.identifier = uid;
 		}
 
+
 		/*~PRE*/
 	},
 	post: function() {

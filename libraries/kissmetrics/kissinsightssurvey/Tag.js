@@ -35,6 +35,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		var _kiq = _kiq || [];
 
+
 		/*~PRE*/
 	},
 	post: function() {

@@ -39,6 +39,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*POST*/
 		window.this.valueForToken("key") = window._.noConflict();
 
+
 		/*~POST*/
 	}
 });

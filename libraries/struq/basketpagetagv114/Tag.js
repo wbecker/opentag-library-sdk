@@ -60,6 +60,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		document.getElementsByTagName('head')[0].appendChild(struq);
 
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

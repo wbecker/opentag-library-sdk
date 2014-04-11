@@ -33,6 +33,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"non_interaction") + ''
 		]);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

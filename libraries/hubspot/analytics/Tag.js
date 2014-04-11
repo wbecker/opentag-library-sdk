@@ -37,6 +37,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			e.parentNode.insertBefore(n, e);
 		})(document, "script", "hs-analytics", 300000);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

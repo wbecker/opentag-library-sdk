@@ -117,6 +117,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		iFrameDom.getElementById('affilinetTrackingForm').submit();
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

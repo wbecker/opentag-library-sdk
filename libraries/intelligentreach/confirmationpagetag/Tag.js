@@ -94,6 +94,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		istVoucherCode = "" + this.valueForToken("voucher") + "";
 		istLastAffiliateCode = "";
 
+
 		/*~PRE*/
 	},
 	post: function() {

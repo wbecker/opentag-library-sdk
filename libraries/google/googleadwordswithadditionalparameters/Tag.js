@@ -74,6 +74,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			google_remarketing_only: this.valueForToken("remarketing")
 		});
 
+
 		/*~POST*/
 	}
 });

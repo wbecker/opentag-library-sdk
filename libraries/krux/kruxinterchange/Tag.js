@@ -51,6 +51,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			async: true
 		};
 
+
 		/*~PRE*/
 	},
 	post: function() {

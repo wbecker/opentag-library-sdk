@@ -28,6 +28,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window._gaq = window._gaq || [];
 		_gaq.push(['_set', ‘currencyCode’, ‘this.valueForToken("currency")’]);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

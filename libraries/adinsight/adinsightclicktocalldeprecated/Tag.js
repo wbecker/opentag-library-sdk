@@ -30,6 +30,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.adiInit = "" + this.valueForToken("Account_Id") + ""
 
+
 		/*~PRE*/
 	},
 	post: function() {

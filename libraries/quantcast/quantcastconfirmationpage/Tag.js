@@ -58,6 +58,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			revenue: "" + this.valueForToken("revenue") + ""
 		});
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

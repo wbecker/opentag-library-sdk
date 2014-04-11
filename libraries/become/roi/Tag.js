@@ -68,6 +68,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script.src = "https://partner.become.com/roi-tracker2/conversion.js";
 		document.body.appendChild(script);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

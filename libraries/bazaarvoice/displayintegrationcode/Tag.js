@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			productId: "" + this.valueForToken("product_id") + ""
 		});
 
+
 		/*~POST*/
 	}
 });

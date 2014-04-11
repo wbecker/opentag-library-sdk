@@ -39,6 +39,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			brand: "" + this.valueForToken("brand") + ""
 		}
 
+
 		/*~PRE*/
 	},
 	post: function() {

@@ -32,6 +32,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					"&m=" + this.valueForToken("") + "&a=" + this.valueForToken("") + "" + (
 						iatDev ? "&d=1" : ""))
 
+
 				/*~SCRIPT*/
 			},
 			pre: function() {

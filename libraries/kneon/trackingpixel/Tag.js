@@ -65,6 +65,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"total") + "&rid=" + this.valueForToken("client_id") + "&oid=" + this.valueForToken(
 			"order_id") + "&" + productsArr.join("&");
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

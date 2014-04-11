@@ -135,6 +135,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		ga('ecommerce:send');
 
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

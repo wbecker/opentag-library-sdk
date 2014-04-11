@@ -31,6 +31,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"r" + Math.round(Math.random() * 10000000);
 		}());
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

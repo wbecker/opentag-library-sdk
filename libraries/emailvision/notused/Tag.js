@@ -34,6 +34,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				60 * 24 * 2);
 		})();
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

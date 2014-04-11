@@ -53,6 +53,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			_snaq.push(['trackTrans']);
 		}
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -30,6 +30,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.WRInitTime = (new Date()).getTime();
 
+
 		/*~PRE*/
 	},
 	post: function() {

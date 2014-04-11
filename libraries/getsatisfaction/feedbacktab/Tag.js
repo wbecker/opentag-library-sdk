@@ -56,6 +56,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		feedback_widget_options.style = "" + this.valueForToken("STYLE") + "";
 		var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
 
+
 		/*~POST*/
 	}
 });

@@ -59,6 +59,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		fl_if.style.display = "none";
 		document.body.appendChild(fl_if);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

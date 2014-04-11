@@ -54,6 +54,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.popup_order_number = "" + this.valueForToken("order_id") + "";
 		window.popup_email = "" + this.valueForToken("email") + "";
 
+
 		/*~PRE*/
 	},
 	post: function() {

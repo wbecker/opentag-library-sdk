@@ -69,6 +69,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			'cbw_visible_number': '' + this.valueForToken("cbw_visible_number") + ''
 		}]);
 
+
 		/*~PRE*/
 	},
 	post: function() {

@@ -35,6 +35,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		var _paq = _paq || [];
 
+
 		/*~PRE*/
 	},
 	post: function() {
@@ -43,6 +44,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			'' + "piwik.php", 1);
 		piwikTracker.trackPageView();
 		piwikTracker.enableLinkTracking();
+
 
 		/*~POST*/
 	}

@@ -42,6 +42,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"storm_id") + '.js';
 		window.__ch = '' + this.valueForToken("channel") + '';
 
+
 		/*~PRE*/
 	},
 	post: function() {

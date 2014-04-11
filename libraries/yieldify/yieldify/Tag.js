@@ -34,6 +34,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			d.getElementsByTagName("head")[0].appendChild(e);
 		}(document));
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

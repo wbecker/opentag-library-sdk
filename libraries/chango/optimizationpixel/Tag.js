@@ -32,6 +32,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"pid": this.valueForToken("id")
 		};
 
+
 		/*~PRE*/
 	},
 	post: function() {

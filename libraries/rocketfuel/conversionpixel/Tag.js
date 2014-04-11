@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			this.valueForToken("campaign_id") + "&ra=" + this.valueForToken("random") +
 			"&basket=" + this.valueForToken("order_total") + "";
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

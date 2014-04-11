@@ -36,6 +36,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		istCompanyId = "" + this.valueForToken("id") + "";
 		istItem = "" + this.valueForToken("product_id") + "";
 
+
 		/*~PRE*/
 	},
 	post: function() {

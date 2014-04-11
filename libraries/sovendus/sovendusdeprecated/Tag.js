@@ -114,6 +114,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			sovendusScript.async = "true";
 		})();
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

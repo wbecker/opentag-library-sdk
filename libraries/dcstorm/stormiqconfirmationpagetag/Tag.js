@@ -77,6 +77,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"storm_id") + '.js';
 		window.__ch = '' + this.valueForToken("channel") + '';
 
+
 		/*~PRE*/
 	},
 	post: function() {
@@ -103,6 +104,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		saleTrack.curcode = '' + this.valueForToken("currency") + '';
 		saleTrack.orderid = "" + this.valueForToken("order_id") + "";
 		saleTrack.logSale(1);
+
 
 		/*~POST*/
 	}

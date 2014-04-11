@@ -84,6 +84,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			mtAdvertiserToken + "' type='text/
 javascript'%3E%3C/script%3E"));
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

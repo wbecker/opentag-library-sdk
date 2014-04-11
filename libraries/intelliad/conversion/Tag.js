@@ -105,6 +105,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script.src = ia_link;
 		document.getElementsByTagName("head")[0].appendChild(script);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -698,6 +698,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		ServiceTickDetection.AddServiceTick();
 		//]]>
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {
