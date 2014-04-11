@@ -1,5 +1,5 @@
 //:include tagsdk-current.js
-var version = ".v1";
+var version = "";
 var classPath = "adform.adformbasic" + version;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -12,7 +12,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
 		locationDetail: "",
 		isPrivate: false,
-		url: "track.adform.net/serving/scripts/trackpoint/async/",
+		url: "",
 		usesDocWrite: false,
 		parameters: [{
 			name: "Adform Campaign ID",
@@ -41,6 +41,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 		})();
+
 		/*~PRE*/
 	},
 	post: function() {
