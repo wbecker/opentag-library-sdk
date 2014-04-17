@@ -29,11 +29,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+		// I am just a comment. 
+
+
+		alert("Abracadabra!");
 		/*~SCRIPT*/
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
+		(function() { //comment
 
 			window._adftrack = {
 				pm: this.valueForToken("campaignid"),
@@ -41,8 +45,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 		})();
-
-
 		/*~PRE*/
 	},
 	post: function() {

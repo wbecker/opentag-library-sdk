@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*DATA*/
 		name: "AdForm - Basic",
 		async: true,
-		description: "To be placed on any page except order confirmation pages.",
+		description: "Updated value ! :) To be placed on any page except order confirmation pages.",
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
 		locationDetail: "",
@@ -15,6 +15,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		url: "",
 		usesDocWrite: false,
 		parameters: [{
+			name: "xxxxxx",
+			description: "xxxxxx",
+			token: "xxxxxx",
+			uv: "universal_variable.user.username"
+		}, {
 			name: "Adform Campaign ID",
 			description: "The unique client ID for the AdForm tracking script",
 			token: "campaignid",
@@ -41,8 +46,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 		})();
-
-
 
 		/*~PRE*/
 	},

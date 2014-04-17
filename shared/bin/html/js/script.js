@@ -559,11 +559,11 @@ function bodyLoaded () {
 }
 
 function keepRunningTests() {
-  if (location.href.indexOf("testsRunning=true") !== -1) {
+  if (location.href.indexOf("runTests=true") !== -1) {
     info("Running tests...");
     runAllTests(function () {
       countdown("Automatically running tests... ", 10);
-      setTimeout(keepRunningTests, 10000);
+      setTimeout(keepRunningTests, 10*1000);
     });
   }
 }
@@ -573,7 +573,7 @@ function countdown(msg, nr, suf) {
     return;
   }
   suf = suf || "";
-  info(msg + nr + suf, 550);
+  info(msg + nr + suf, 1000, "countdown");
   var number = nr -1;
   setTimeout(function () {
     countdown(msg, number);
@@ -613,9 +613,9 @@ window.Main = function () {
     info("<span style='color: #FF766F'>" + m + "</span>", time || 5000);
   };
   
-  window.info = function (msg, time) {
+  window.info = function (msg, time, id) {
     DefaultNotificationsMgr
-            .notify(new Date().valueOf(), msg, time || 1800, "", true);
+            .notify(id || new Date().valueOf(), msg, time || 1800, "", true);
   };
   
   window.log = function (m) {

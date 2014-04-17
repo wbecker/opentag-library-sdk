@@ -15,6 +15,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		url: "",
 		usesDocWrite: false,
 		parameters: [{
+			name: "Another Funny Variable Parameter",
+			description: "whatever zxdfg sdfg sdfg sdfgsdgad 132541 345#$% @#$ #!@#$",
+			token: "datoken",
+			uv: "universal_variable.user.language"
+		}, {
 			name: "Adform Campaign ID",
 			description: "The unique client ID for the AdForm tracking script",
 			token: "campaignid",
@@ -41,8 +46,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 		})();
-
-
 
 		/*~PRE*/
 	},
