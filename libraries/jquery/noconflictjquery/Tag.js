@@ -38,8 +38,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 		window.this.valueForToken("jquery_name") = $.noConflict(true);
-
-
 		/*~POST*/
 	}
 });

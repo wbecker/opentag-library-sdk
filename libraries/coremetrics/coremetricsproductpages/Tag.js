@@ -54,6 +54,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			description: "",
 			token: "product_name",
 			uv: "universal_variable.product.name"
+		}, {
+			name: "Send Page View",
+			description: "Some CM setups don't require this on product pages - pass true or false depending on this.",
+			token: "sendpageview",
+			uv: ""
 		}]
 		/*~DATA*/
 	},
@@ -78,10 +83,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			);
 
 			// Page View
-			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id") + "",
-				"" + this.valueForToken("category_id") + ""
-			);
+			if (this.valueForToken("sendpageview")) {
+				window.cmCreatePageviewTag(
+					"" + this.valueForToken("page_id") + "",
+					"" + this.valueForToken("category_id") + ""
+				);
+			}
 
 			// Product View
 			window.cmCreateProductviewTag(
@@ -91,8 +98,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			);
 
 		}());
-
-
 		/*~POST*/
 	}
 });

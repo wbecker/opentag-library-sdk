@@ -48,8 +48,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			waitForElement();
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

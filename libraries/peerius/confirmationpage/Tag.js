@@ -95,8 +95,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				price: this.valueForToken("price_list")[i]
 			});
 		}
-
-
 		/*~PRE*/
 	},
 	post: function() {

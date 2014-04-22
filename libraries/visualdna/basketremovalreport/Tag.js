@@ -11,7 +11,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		isPrivate: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [{
@@ -23,27 +23,27 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			name: "Product ID",
 			description: "Product ID",
 			token: "product_id",
-			uv: "universal_variable.product.id"
+			uv: ""
 		}, {
 			name: "Product Name",
 			description: "Product Name",
 			token: "product_name",
-			uv: "universal_variable.product.name"
+			uv: ""
 		}, {
 			name: "Product Category",
 			description: "Product Category",
 			token: "product_category",
-			uv: "universal_variable.product.category"
+			uv: ""
 		}, {
 			name: "Product Unit Sale Price",
 			description: "Product Unit Sale Price",
 			token: "price",
-			uv: "universal_variable.product.unit_sale_price"
+			uv: ""
 		}, {
 			name: "Currency",
 			description: "Currency",
 			token: "currency",
-			uv: "universal_variable.product.currency"
+			uv: ""
 		}]
 		/*~DATA*/
 	},
@@ -64,8 +64,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"currency": "" + this.valueForToken("currency") + ""
 			}]
 		});
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

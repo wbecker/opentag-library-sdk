@@ -65,8 +65,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			src += "&emv_conversionflag=" + this.valueForToken("conversion_flag") + "";
 			src += "&emv_pagename=" + this.valueForToken("emailvision_page_name") + "";
 			var date = new Date();
-			src += "&emv_date=" + date.getDate() + "-" + (date.getMonth() + 1) + "-" +
-				date.getYear();
+			src += "&emv_date1=" + date.getDate() + "-" + (date.getMonth() + 1) + "-" +
+				date.getFullYear();
 			src += "&emv_random=" + Math.floor(Math.random() * 900 + 100);
 			var pixel = document.createElement("img");
 			pixel.setAttribute("src", src);
@@ -76,8 +76,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			pixel.setAttribute("height", "1");
 			document.body.appendChild(pixel);
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

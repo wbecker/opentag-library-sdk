@@ -48,8 +48,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"";
 		var  drawbridge_app_id  =  "" + this.valueForToken("app_id") + "";
 		var  drawbridge_label  =  "" + this.valueForToken("label") + "";
-
-
 		/*~PRE*/
 	},
 	post: function() {

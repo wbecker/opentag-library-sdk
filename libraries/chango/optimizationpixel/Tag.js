@@ -11,7 +11,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Chango.png",
 		locationDetail: "",
-		isPrivate: false,
+		isPrivate: true,
 		url: "//cc.chango.com/static/o.js",
 		usesDocWrite: false,
 		parameters: [{
@@ -31,8 +31,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var __cho__ = {
 			"pid": this.valueForToken("id")
 		};
-
-
 		/*~PRE*/
 	},
 	post: function() {

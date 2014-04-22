@@ -30,8 +30,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") +
 				"r" + Math.round(Math.random() * 10000000);
 		}());
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

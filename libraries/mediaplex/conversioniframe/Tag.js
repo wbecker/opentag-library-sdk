@@ -74,8 +74,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			frame.frameborder = 0;
 			document.body.appendChild(frame);
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

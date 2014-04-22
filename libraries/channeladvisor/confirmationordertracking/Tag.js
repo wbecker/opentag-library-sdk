@@ -81,8 +81,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				Products: products
 			}]);
 		}());
-
-
 		/*~POST*/
 	}
 });

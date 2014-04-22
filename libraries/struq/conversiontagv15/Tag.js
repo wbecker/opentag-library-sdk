@@ -78,8 +78,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script.src =
 			"//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
 		document.body.appendChild(script);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

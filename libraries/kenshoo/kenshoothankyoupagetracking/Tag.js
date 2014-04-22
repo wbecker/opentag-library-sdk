@@ -72,8 +72,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			params[5] = 'valueCurrency=' + this.valueForToken("currency") + '';
 			window.k_trackevent(params, '' + this.valueForToken("ks_num") + '');
 		}());
-
-
 		/*~POST*/
 	}
 });

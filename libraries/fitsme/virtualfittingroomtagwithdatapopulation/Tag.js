@@ -104,8 +104,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			_gaq.push(['_setAllowLinker', true]);
 			_gaq.push(['_setAllowHash', false]);
 		})();
-
-
 		/*~PRE*/
 	},
 	post: function() {

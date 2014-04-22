@@ -15,13 +15,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		url: "",
 		usesDocWrite: false,
 		parameters: [{
-			name: "Anonymize User IP",
-			description: "\"yes\" or \"no\"",
-			token: "anonymize_ip",
-			uv: ""
-		}, {
 			name: "Marin Tracking ID",
-			description: "Client Specific Marin Tracking ID",
+			description: "Marin Tracking ID",
 			token: "marin_tracking_id",
 			uv: ""
 		}]
@@ -31,11 +26,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 
 
-		var _mTrack = window._mTrack || [];
-
-		if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip") + "")) {
-			_mTrack.push(['activateAnonymizeIp']);
-		}
+		window._mTrack = window._mTrack || [];
 
 		_mTrack.push(['trackPage']);
 
@@ -51,8 +42,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var fscr = document.getElementsByTagName('script')[0];
 			fscr.parentNode.insertBefore(mt, fscr);
 		})();
-
-
 
 		/*~SCRIPT*/
 	},

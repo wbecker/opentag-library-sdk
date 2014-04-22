@@ -32,8 +32,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var fandImage = new Image();
 			fandImage.src = src;
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

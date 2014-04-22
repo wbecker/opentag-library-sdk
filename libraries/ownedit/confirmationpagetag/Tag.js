@@ -126,8 +126,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			post_it(details);
 		}
 		onLoadCallBack(post_to_owned_it);
-
-
 		/*~POST*/
 	}
 });

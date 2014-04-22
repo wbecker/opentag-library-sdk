@@ -50,8 +50,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			subSection: "" + this.valueForToken("subsection") + "",
 			async: true
 		};
-
-
 		/*~PRE*/
 	},
 	post: function() {

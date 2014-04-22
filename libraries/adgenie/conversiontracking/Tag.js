@@ -53,8 +53,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"&orderId=" + "" + this.valueForToken("trans_id") + "";
 
 		document.body.appendChild(img);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

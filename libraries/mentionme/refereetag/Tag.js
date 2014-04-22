@@ -71,8 +71,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		mmScript.src = baseUrl + paramArr.join("&");
 		document.body.appendChild(mmScript);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

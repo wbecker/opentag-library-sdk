@@ -46,8 +46,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			s.parentNode.insertBefore(ga, s);
 		})();
 
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

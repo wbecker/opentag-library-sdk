@@ -62,8 +62,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		}
 
 		window.basket = basket;
-
-
 		/*~PRE*/
 	},
 	post: function() {

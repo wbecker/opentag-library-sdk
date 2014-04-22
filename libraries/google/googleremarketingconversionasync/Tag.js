@@ -42,8 +42,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			google_conversion_label: "" + this.valueForToken("label") + "",
 			google_custom_params: {}
 		});
-
-
 		/*~POST*/
 	}
 });

@@ -127,8 +127,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		s.eVar5 = "" + this.valueForToken("evar5") + "";
 
 		window.s_code = s.t();
-
-
 		/*~POST*/
 	}
 });

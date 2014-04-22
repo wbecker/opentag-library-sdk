@@ -7,11 +7,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*DATA*/
 		name: "Conversion Report",
 		async: true,
-		description: "This tag should fire on the user converting to a designated goal identified by a Conversion ID.\nThe tag must have a dependency on the Visual DNA Page View Report tag.\nThe \"Extra Data\" parameter should be assigned a JS object of extra data about the conversion using a JS expression. The keys and values should be agreed with VisualDNA in advance on a partner­ by ­partner, conversion­ by ­conversion basis.\nIf no extra data is available, then an empty object should be assigned to the \"Extra Data\" parameter using a JS expression.",
+		description: "This tag should fire on the user converting to a designated goal identified by a Conversion ID.\nThe tag must have a dependency on the Visual DNA Page View Report tag.\nThe \"Extra Data\" parameter should be assigned a string. The format/value of the string should be agreed with VisualDNA in advance on a partner­ by ­partner, conversion­ by ­conversion basis.\nIf no extra data is available, then an empty string should be assigned to that parameter",
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		isPrivate: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [{
@@ -41,17 +41,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			var args = ["" + this.valueForToken("conversion_id") + ""];
 
-			var isEmpty = function(obj) {
-				for (var prop in obj) {
-					if (obj.hasOwnProperty(prop)) {
-						return false;
-					}
-				}
-				return true;
-			};
-
-			if (!isEmpty(this.valueForToken("extra_data"))) {
-				args.push(this.valueForToken("extra_data"));
+			var extraData = "" + this.valueForToken("extra_data") + "";
+			if (extraData.length) {
+				args.push(extraData);
 			}
 
 			window.VDNA.queue.push({
@@ -60,8 +52,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				args: args
 			});
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

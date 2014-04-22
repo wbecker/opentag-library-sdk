@@ -69,8 +69,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script.src = "//www.googleadservices.com/pagead/conversion.js";
 		document.head.appendChild(script);
 
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

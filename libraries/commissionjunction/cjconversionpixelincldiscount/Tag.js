@@ -104,8 +104,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			document.body.appendChild(iframe);
 		}());
 
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

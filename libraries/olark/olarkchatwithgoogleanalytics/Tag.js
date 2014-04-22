@@ -129,8 +129,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			ga_id ")");
 
 		/*]]>{/literal}*/
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

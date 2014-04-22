@@ -183,8 +183,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		function beginningZero(digit) {
 			return (digit < 10) ? "0" + digit : "" + digit;
 		}
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

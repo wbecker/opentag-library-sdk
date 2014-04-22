@@ -52,8 +52,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			// Finally fire the 'trackTrans' event to commit the transaction
 			_snaq.push(['trackTrans']);
 		}
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -32,8 +32,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		cmCreateElementTag("" + this.valueForToken("element_id") + "", "" + this.valueForToken(
 			"element_category") + "");
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

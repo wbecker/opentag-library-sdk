@@ -33,8 +33,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			e.async = true;
 			d.getElementsByTagName("head")[0].appendChild(e);
 		}(document));
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

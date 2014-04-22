@@ -66,7 +66,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			src += "&emv_pagename=" + this.valueForToken("page_name") + "";
 			var date = new Date();
 			src += "&emv_date=" + date.getDate() + "-" + (date.getMonth() + 1) + "-" +
-				date.getYear();
+				date.getFullYear();
 			src += "&emv_random=" + Math.floor(Math.random() * 900 + 100);
 			var pixel = document.createElement("img");
 			pixel.setAttribute("src", src);
@@ -76,8 +76,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			pixel.setAttribute("height", "1");
 			document.body.appendChild(pixel);
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

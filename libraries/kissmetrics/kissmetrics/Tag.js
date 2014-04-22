@@ -49,8 +49,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				w.attachEvent("onload", kmg);
 			}
 		}(window, document))
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

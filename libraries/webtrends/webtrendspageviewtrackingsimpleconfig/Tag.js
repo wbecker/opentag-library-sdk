@@ -60,8 +60,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			dcs.track();
 
 		};
-
-
 		/*~PRE*/
 	},
 	post: function() {

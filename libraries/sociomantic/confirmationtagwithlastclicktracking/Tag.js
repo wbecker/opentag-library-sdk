@@ -118,8 +118,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var parts = document.cookie.split("qb_sm_uid=");
 			if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 		}
-
-
 		/*~PRE*/
 	},
 	post: function() {

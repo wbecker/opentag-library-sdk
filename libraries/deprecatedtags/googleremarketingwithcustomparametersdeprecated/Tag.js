@@ -52,8 +52,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		console.debug(options);
 
 		window.google_trackConversion(options);
-
-
 		/*~POST*/
 	}
 });

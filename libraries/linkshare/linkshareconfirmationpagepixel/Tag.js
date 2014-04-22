@@ -38,7 +38,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			name: "Amount List",
 			description: "List of all the unit prices",
 			token: "amt_list",
-			uv: "universal_variable.basket.line_items[#].product.unit_price"
+			uv: "universal_variable.transaction.line_items[#].product.unit_price"
 		}, {
 			name: "Currency",
 			description: "Alphanumeric 3 characters.",
@@ -96,8 +96,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

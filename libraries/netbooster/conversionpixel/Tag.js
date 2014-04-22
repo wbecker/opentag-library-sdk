@@ -45,8 +45,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"pixel_id") + "&clientID=" + this.valueForToken("client_id") +
 			"&partnerID=" + this.valueForToken("partner_id") + "&key=conv&orderID=" +
 			this.valueForToken("order_id") + "&returnType=js";
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

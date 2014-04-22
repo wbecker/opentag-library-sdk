@@ -47,8 +47,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		istUserDefinedFieldOne = "";
 		istUserDefinedFieldTwo = "";
 		istUserDefinedFieldThree = "";
-
-
 		/*~PRE*/
 	},
 	post: function() {

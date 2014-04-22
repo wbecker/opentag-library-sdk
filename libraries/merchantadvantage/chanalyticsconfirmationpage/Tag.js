@@ -70,8 +70,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"&zman=" + "" + this.valueForToken("order_id") + "" +
 				"&zmat=" + "" + this.valueForToken("order_tot") + "");
 		}
-
-
 		/*~PRE*/
 	},
 	post: function() {

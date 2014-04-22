@@ -38,8 +38,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 		new HelloBar(this.valueForToken("ACCOUNT_ID"), this.valueForToken("BAR_ID"));
-
-
 		/*~POST*/
 	}
 });

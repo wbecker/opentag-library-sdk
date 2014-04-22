@@ -11,7 +11,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		html: "",
 		imageUrl: ".",
 		locationDetail: "",
-		isPrivate: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		parameters: [{
@@ -81,29 +81,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 
 		(function() {
-			var args = ["purchased"];
-
-			for (var i = 0; i < this.valueForToken("names").length; i++) {
-				args.push({
-					"product_id": this.valueForToken("ids")[i],
-					"partner_user_id_type": this.valueForToken("ids")[i],
-					"product_name": this.valueForToken("names")[i],
-					"product_category_id": this.valueForToken("categories")[i],
-					"product_price": this.valueForToken("prices")[i],
-					"currency": "" + this.valueForToken("currency") + "",
-					"product_quantity": this.valueForToken("quantities")[i],
-					"transaction_id": "" + this.valueForToken("order_id") + "",
-					"product_line_discount": this.valueForToken("discounts")[i],
-				});
-			}
-
 			window.VDNA = window.VDNA || {};
 			window.VDNA.queue = window.VDNA.queue || [];
-			window.VDNA.queue.push({
-				apiKey: "" + this.valueForToken("api_key") + "",
-				method: "reportConversion",
-				args: args
-			});
 
 			window.VDNA.queue.push({
 				apiKey: "" + this.valueForToken("api_key") + "",
@@ -113,12 +92,28 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					"value": this.valueForToken("subtotal"),
 					"currency": "" + this.valueForToken("currency") + "",
 					"payment_type": "" + this.valueForToken("payment") + "",
-					"transaction_discount": this.valueForToken("discount"),
+					"transaction_discount": this.valueForToken("discount")
 				}]
 			});
+
+			for (var i = 0; i < this.valueForToken("names").length; i++) {
+				window.VDNA.queue.push({
+					apiKey: "" + this.valueForToken("api_key") + "",
+					method: "reportConversion",
+					args: ["purchased", {
+						"product_id": this.valueForToken("ids")[i],
+						"partner_user_id_type": this.valueForToken("ids")[i],
+						"product_name": this.valueForToken("names")[i],
+						"product_category_id": this.valueForToken("categories")[i],
+						"product_price": this.valueForToken("prices")[i],
+						"currency": "" + this.valueForToken("currency") + "",
+						"product_quantity": this.valueForToken("quantities")[i],
+						"transaction_id": "" + this.valueForToken("order_id") + "",
+						"product_line_discount": this.valueForToken("discounts")[i]
+					}]
+				});
+			}
 		})();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

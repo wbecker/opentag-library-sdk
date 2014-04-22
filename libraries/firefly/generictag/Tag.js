@@ -30,8 +30,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.fireflyAPI = {};
 		fireflyAPI.token = "" + this.valueForToken("client_id") + "";
-
-
 		/*~PRE*/
 	},
 	post: function() {

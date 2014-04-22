@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Gateway Tag",
 		async: true,
 		description: "",
-		html: "<script type=\"text/javascript\" src=\"//js.revsci.net/gateway/gw.js?csid=${clientID}&auto=t\"></script><!--@SRC@-->",
+		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//js.revsci.net/gateway/gw.js?csid=${clientID}&auto=t\"></script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/audiencescience.png",
 		locationDetail: "",
 		isPrivate: false,

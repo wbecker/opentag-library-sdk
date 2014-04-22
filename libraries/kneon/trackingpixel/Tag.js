@@ -64,8 +64,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		img.src = "https://www.ktrkng.com/image.gif?amount=" + this.valueForToken(
 			"total") + "&rid=" + this.valueForToken("client_id") + "&oid=" + this.valueForToken(
 			"order_id") + "&" + productsArr.join("&");
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

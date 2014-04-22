@@ -93,8 +93,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 
 		_roi.push(['_trackTrans']);
-
-
 		/*~POST*/
 	}
 });
