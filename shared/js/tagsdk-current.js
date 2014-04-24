@@ -7286,7 +7286,7 @@ var counter = 0;
           });
         }
         if (filter.priority !== undefined) {
-          filter.config.order = +filter.priority;
+          filter.instance.config.order = +filter.priority;
         }
         filtersToReturn.push(filter.instance);
       }
