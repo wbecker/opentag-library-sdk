@@ -6,7 +6,7 @@ var libraryTemplate = document.getElementById("library-template").innerHTML;
 function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   cfg = cfg || {};
   var instance = new libraryClass();
-  instance.unregisterTag();
+  instance.unregister();
   
   if (cfg.parameters && instance.config.parameters) {
     for (var i = 0; i < cfg.parameters.length; i++) {
@@ -458,7 +458,7 @@ function renderAllLibrariesToPage() {
         //var versions = findTags(vendor[lprop]);
         
         var ctest = new libraryClass({});
-        ctest.unregisterTag();
+        ctest.unregister();
         if ((ctest) instanceof qubit.opentag.LibraryTag) {
           addLibrary(vendorNode, libraryClass);
           
