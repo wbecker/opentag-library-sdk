@@ -11,7 +11,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Chango.png",
 		locationDetail: "",
-		isPrivate: false,
+		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
 		parameters: [{

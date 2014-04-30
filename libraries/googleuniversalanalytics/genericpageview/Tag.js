@@ -45,6 +45,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		ga('create', '' + this.valueForToken("web_property_id") + '', '' + this.valueForToken(
 			"url") + '');
+		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 
 		/*~SCRIPT*/

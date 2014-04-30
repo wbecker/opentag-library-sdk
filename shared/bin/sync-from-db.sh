@@ -34,12 +34,12 @@ echo "TAG: $TAG"
 
 
 #build output with all dependencies
-java -jar shared/bin/lib/LibraryManager.jar \
+java -jar shared/bin/LibraryManager.jar \
  --libraries-dir "libraries" \
  --sync-from-database \
  --template "shared/template" \
  --formatted \
  --vendors "$SRC" \
- --tags TAG\
+ --tags "$TAG"\
 
 

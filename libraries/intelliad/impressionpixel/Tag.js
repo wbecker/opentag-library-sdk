@@ -80,7 +80,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var img = new Image();
 			img.src = src.slice(0, -1);
 		})();
-
 		/*~SCRIPT*/
 	},
 	pre: function() {
