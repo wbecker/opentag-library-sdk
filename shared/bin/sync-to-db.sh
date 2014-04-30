@@ -17,7 +17,7 @@ if [ $# -eq 0 ]; then
 fi
 
 SRC=$1
-TAG="current"
+TAG=$2
 TOOLS="shared"
 MM="shared/bin/lib/MiniMerge.jar"
 HTML="$TOOLS/bin/html"
@@ -38,5 +38,5 @@ java -jar shared/bin/lib/LibraryManager.jar \
  --template "shared/template" \
  --formatted \
  --vendors "$SRC" \
- --taggs
+ --tags TAG
 

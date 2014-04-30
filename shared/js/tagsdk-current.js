@@ -65,7 +65,7 @@ var UNDEF = undefined;
    * @returns {Boolean}
    */
   Utils.variableExists = function (value) {
-    return (value !== undefined) && (value !== null);
+    return (value !== undefined) && (value !== null) && (value !== "");
   };
 
 
@@ -308,6 +308,14 @@ var UNDEF = undefined;
   try {
     global = (false || eval)("this") || (function () { return this; }());
   } catch (e) {}
+  
+  /**
+   * 
+   * @returns {_L9.Utils.global}
+   */
+  Utils.global = function () {
+    return global;
+  };
   
   /**
    * 
@@ -768,7 +776,7 @@ var UNDEF = undefined;
 (function () {
   
   var Utils = qubit.opentag.Utils;
-  var c = window.console;
+  var c = null;
   
   /**
    * @class qubit.opentag.Log
@@ -904,7 +912,7 @@ var UNDEF = undefined;
       if (Log.COLLECT) {
         try {
           if (!noClean) {
-            window.console.clear();
+            c.clear();
           }
         } catch (ex) {
           
@@ -914,7 +922,7 @@ var UNDEF = undefined;
         for (var i = 0; i < collection.length; i++) {
           (function (j) {
             var log = collection[j];
-            var logLevel = log[4];
+            var logLevel = log[3];
             if (logLevel !== undefined && Log.LEVEL >= logLevel) {
               counter++;
               if (!delay) {
@@ -942,10 +950,18 @@ var UNDEF = undefined;
     }
   };
   
+  var _ssupported = !!Utils.global().webkitURL;
   /**
    * Use styling by default.
+   * @returns {Boolean}
    */
-  Log.noStyling = false;
+  Log.isStyleSupported = function () {
+    return _ssupported;
+  };
+  
+  Log.setConsole = function (xconsole) {
+    return c = xconsole;
+  };
   
   /**
    * @protected
@@ -956,25 +972,18 @@ var UNDEF = undefined;
    * 
    * @param {String} message Message to be logged. 
    */
-  Log.prototype.print = function (message, style, plain, type, level) {
+  Log.prototype.print = function (message, style, type, level) {
+    //pre-eliminary step
     if (level !== undefined && Log.LEVEL < level) {
       return;
     }
     
     if (c && c.log) {
-      if (style || !plain){
-        if (style && !Log.noStyling) {
-          try{
-            c[type]("%c" + message, style);
-          } catch (ex) {
-            c.log("%c" + message, style);
-          }
-        } else {
-          try{
-            c[type](message);
-          } catch (ex) {
-            c.log(message);
-          }
+      if (style && Log.isStyleSupported()){
+        try{
+          c[type]("%c" + message, style);
+        } catch (ex) {
+          c.log("%c" + message, style);
         }
       } else {
         try{
@@ -1019,7 +1028,7 @@ var UNDEF = undefined;
    */
   Log.clearAllLogs = function () {
     try {
-      console.clear();
+      c.clear();
     } catch (e) {
     } finally {
       collection.splice(0, collection.length);
@@ -1068,16 +1077,15 @@ var UNDEF = undefined;
     var pass = Log.LEVEL >= level;
     if (Log.COLLECT_LEVEL >= 0 || pass) {
       if (plain) {
-        toPrint = [message, plainStyle, true, type];
+        toPrint = [message, plainStyle, type];
       } else {
         toPrint = [
-          prefix+ log.getPrefix() + message,
+          prefix + log.getPrefix() + message,
           style,
-          false,
           type
         ];
       }
-      toPrint[4] = level;
+      toPrint[3] = level;
       log.collect(toPrint, level);
       if (pass) {
         log.print.apply(log, toPrint);
@@ -1161,7 +1169,8 @@ var UNDEF = undefined;
       logger(this, "ERROR: ", "error", message, plain, "color:red;", false,
         Log.LEVEL_ERROR);
     };
-
+    
+  Log.setConsole(Utils.global().console);
   Utils.namespace("qubit.opentag.Log", Log);
 }());
 
@@ -3010,7 +3019,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         value: param.uv
       });
     }
-    return null;
+    //not set!
+    return param.variable = new BaseVariable({
+      value: undefined
+    });
   };
   
   
@@ -3251,6 +3263,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     
     this.log.INFO("executing main script...");
     var success = false;
+    
     try {
       this.script();
       success = true;
@@ -3261,12 +3274,16 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
               + this.CLASS_NAME + " from package: " + this.PACKAGE_NAME);//L
       this.log.ERROR(ex, true);
     } finally {
-      if (!this.afterRun) {
-        this.afterRun =  new Date().valueOf();
-        this.after(success);
-      }
+      this.onExecute(success);
     }
   };
+  
+  /**
+   * @event
+   * onExecute event - will be triggered only if main execution occurs.
+   * @param {Boolean} success if execution was without errors
+   */
+  GenericLoader.prototype.onExecute = EMPTY_FUN;
   
   /**
    * @private
@@ -3276,17 +3293,17 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     // check if any stack from secured doc.write left before calling main
     // function
     try {
-      if (this.securedWrites) {
+      if (this._securedWrites) {
         this.log.FINE("Script finished, injecting document.write contents - " +
-          this.securedWrites.join("\n").length + " chars");//L
+          this._securedWrites.join("\n").length + " chars");//L
         var append = (this.config.locationPlaceHolder === "end");
         return TagsUtils.flushRedirectsFromArrayAndReverseDocWrite(
-            this.securedWrites,
+            this._securedWrites,
             TagsUtils.getHTMLLocationForTag(this),
             append,
             this.log);
       }
-      this.securedWrites = false;
+      this._securedWrites = false;
     } catch (ex) {
       this.log.ERROR("Unexpected exception during flushing." + ex);
     }
@@ -3433,6 +3450,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * It is final execution stage entry.
    */
   GenericLoader.prototype.execute = function () {
+    this.log.FINE("entering execute...");
     try {
         this.before();
     } catch (ex) {
@@ -3485,6 +3503,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.setStatus("EXECUTED");
         this._executeScript();
       }
+      
+      if (!this.afterRun) {
+        this.afterRun =  new Date().valueOf();
+        this.after(this.scriptExecuted > 0);
+      }
+      
       //unlock possibly locked doc write
       TagsUtils.unlockDocumentWrites();
       GenericLoader.LOCK_DOC_WRITE = false;
@@ -3520,6 +3544,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     if (this.willSecureDocumentWrite()) {
       //we can use more generic check
       if (!GenericLoader.LOCK_DOC_WRITE) {
+        //obtain lock, so no other tag can proceed
         GenericLoader.LOCK_DOC_WRITE = this;
         this._secureWriteAndCollectForExecution();
       } else if (GenericLoader.LOCK_DOC_WRITE !== this) {
@@ -3528,6 +3553,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           this.log.WARN("Tag will wait till document.write be available.");
           this.log.FINE(GenericLoader.LOCK_DOC_WRITE, true);
         }
+        //only case: LOCK_DOC_WRITE lock obtained not by myself - wait then
         return true;
       }
     }
@@ -3619,7 +3645,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * consider this example:
    * 
    * 
-   *    this.status > GenericLoader.prototype.STATUS.FAILED_TO_LOAD_DEPENDENCIES
+   *    this.status > this.STATUS.FAILED_TO_LOAD_DEPENDENCIES
    *    
    * It translates to script being fully loaded with dependenciess and passed 
    * filters, but unfortune to have url script loading problems or final script 
@@ -3627,7 +3653,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * 
    * This is very useful when creating automated debugging tools.
    * 
-   * @property
+   * @property {Object} STATUS
    */
   GenericLoader.prototype.STATUS = {
     INITIAL: 0,
@@ -3668,7 +3694,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   
   /**
    * Property representing binary table with this tag's status
-   * @property {GenericLoader.prototype.STATUS} status
+   * @property {Number} status
    */
   GenericLoader.prototype.status = GenericLoader.prototype.STATUS.INITIAL;
   
@@ -3683,12 +3709,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
-   * @private
+   * @protected
    */
   GenericLoader.prototype._secureWriteAndCollectForExecution = function () {
-    if (!this.securedWrites) {
-      this.securedWrites = [];
-      TagsUtils.redirectDocumentWritesToArray(this.securedWrites, this.log);
+    if (!this._securedWrites) {
+      this._securedWrites = [];
+      TagsUtils.redirectDocumentWritesToArray(this._securedWrites, this.log);
     }
   };
   
@@ -4072,7 +4098,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.scriptExecuted = u;
     this.scriptLoadingFailed = u;
     this.secureWrite = u;
-    this.securedWrites = u;
+    this._securedWrites = u;
     this.status = 0;
     this.unexpectedFail = u;
     this.urlsFailed = 0;
@@ -4157,7 +4183,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   var TagHelper = qubit.opentag.TagHelper;
   var log = new qubit.opentag.Log("BaseTag -> ");
 
-  /*
+  /*Status properties used as a tag LED interface
    * @TODO - extract lower generic class for a script loader so it is better 
    * separated by logic.
    * For now this is base tag only and its good.
@@ -4328,7 +4354,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.run();
     } else if(status === BaseFilter.status.FAIL) {
       this.log.FINE("tag failed to pass filters");
-      this.setStatus("FILTERS_FAILED");
+      this._markFiltersFailed();
       this._markFinished();
     } else if (status > 0) {
       var tout = this.config.filterTimeout;
@@ -4349,13 +4375,18 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         }
         Timed.setTimeout(this.runIfFiltersPass.bind(this), status);
       } else {
-        this.setStatus("FILTERS_FAILED");
+        this._markFiltersFailed();
         this._markFinished();
         this.filtersRunTimedOut = new Date().valueOf();
         this.log.WARN("awaiting for filters timed out.");
       }
     }
     return status;
+  };
+
+  BaseTag.prototype._markFiltersFailed = function () {
+    this.setStatus("FILTERS_FAILED");
+    this.filtersPassed = -(new Date().valueOf());
   };
 
   /**
@@ -4365,7 +4396,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * consider this example:
    * 
    * 
-   *    this.status > BaseTag.prototype.STATUS.FAILED_TO_LOAD_DEPENDENCIES
+   *    this.status > this.STATUS.FAILED_TO_LOAD_DEPENDENCIES
    *    
    * It translates to script being fully loaded with dependenciess and passed 
    * filters, but unfortune to have url script loading problems or final script 
@@ -4373,7 +4404,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * 
    * This is very useful when creating automated debugging tools.
    * 
-   * @class qubit.opentag.BaseTag.prototype.STATUS
+   * @property {Object} STATUS
    */
   BaseTag.prototype.STATUS = {
     INITIAL: 0,
@@ -4468,7 +4499,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   
   /**
    * Property representing binary table with this tag's status
-   * @property {BaseTag.prototype.STATUS} status
+   * @property {Number} status
    */
   BaseTag.prototype.status = BaseTag.prototype.STATUS.INITIAL;
     
@@ -4608,6 +4639,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   BaseTag.prototype.reset = function () {
     BaseTag.superclass.prototype.reset.call(this);
     this.resetFilters();
+    this.filtersPassed = undefined;
     this.dedupePingSent = undefined;
     this.pingSent = undefined;
     this._runOnceIfFiltersPassTriggered = undefined;
@@ -5568,7 +5600,7 @@ var JSON = {};
     session = {};
     session.sessionCount = q.cookie.SimpleSessionCounter
             .update(config.cookieDomain);
-    cookieName = "opentag_" + config.containerId;
+    cookieName = "qtag_" + config.containerId;
     cookie = SimpleCookie.readCookie(cookieName);
 
     if (cookie) {
@@ -5788,7 +5820,7 @@ var JSON = {};
     var all = Container.getContainers();
     for (var i = 0; i < all.length; i++) {
       try {
-        all[i].runOnce();
+        all[i].run();
       } catch (ex) {
         log.ERROR("error running consent dependant containers: " + ex);
       }
@@ -6225,13 +6257,14 @@ var JSON = {};
                     0, styling);
       /*~log*/
       
-      try {
-        this.onTagsInitiallyRun();
-      } catch (eex) {}
-      
       /*no-send*/
       this.sendPingsNotTooOften();
       /*~no-send*/
+      
+      if (this.onTagsInitiallyRun) {
+        this.onTagsInitiallyRun();
+      }
+      
     } else if (!finished) {
         this._waitForAllTagsToFinishWaiting = true;
         this._showFinishedOnce = false;
@@ -6304,6 +6337,7 @@ var JSON = {};
         //send "just run" load times
         var loadTimes = Tags.getLoadTimes(results.run);
         this.log.INFO("sending standard load pings");
+        this.lastPingsSentTime = new Date().valueOf();
         this.ping.send(this.config, loadTimes);
       }
     
@@ -6335,6 +6369,7 @@ var JSON = {};
 
         if (deduplicatedTagsToBeSent.length > 0) {
           this.log.INFO("sending deduplication pings");
+          this.lastDedupePingsSentTime = new Date().valueOf();
           this.ping.sendDedupe(this.config, deduplicatedTagsToBeSent);
         }
       }
@@ -6624,7 +6659,7 @@ var JSON = {};
           this.post = Utils.expressionToFunction(expr).bind(this);
         }
       }
-      this.post();
+      this.post(success);
     } catch (ex) {
       this.log.ERROR(this.config.name + " exception while running pre: " + ex);
     }
@@ -7005,7 +7040,7 @@ var counter = 0;
   var log = new qubit.opentag.Log("OldTagRunner -> ");
   
   /**
-   * @class qubit.opentag.OldTagRunner
+   * @class qubit.opentag.compat.OldTagRunner
    * @param config {Object} config object used to build instance
    */
   function OldTagRunner(config) {

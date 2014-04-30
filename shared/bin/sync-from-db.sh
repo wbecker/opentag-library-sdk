@@ -7,6 +7,8 @@ echo $current
 cd $current/../../
 echo "Changing dir to:" $(pwd)
 
+echo CLASSPATH=.
+
 if [ $# -eq 0 ]; then
 	echo
 	echo "MISSING ARGUMENT !"
@@ -17,7 +19,7 @@ if [ $# -eq 0 ]; then
 fi
 
 SRC=$1
-TAG="current"
+TAG=$2
 TOOLS="shared"
 MM="shared/bin/lib/MiniMerge.jar"
 HTML="$TOOLS/bin/html"
@@ -27,8 +29,8 @@ EXCLUDE=".*/dist.*,.*/build.*"
 echo "================================================================================"
 echo "Vendor: $SRC"
 echo "================================================================================"
-echo "Cleaning: Removing dist"
-echo
+echo "VENDOR: $SRC"
+echo "TAG: $TAG"
 
 
 #build output with all dependencies
@@ -38,5 +40,6 @@ java -jar shared/bin/lib/LibraryManager.jar \
  --template "shared/template" \
  --formatted \
  --vendors "$SRC" \
- --taggs #disabled
+ --tags TAG\
+
 

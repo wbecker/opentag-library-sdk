@@ -1,0 +1,1 @@
+Please search for <!--@SRC@--> in all source files after synchronization from database. Those files MUST be reviewed manually.
