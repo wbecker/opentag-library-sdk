@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Sub2 - Basket Page (depends upon \"Sub2 - Main Script - All Pages\")",
 		async: true,
 		description: "This script should be placed on the basket page and fire each time the contents of that basket change",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
 		locationDetail: "",
 		isPrivate: false,

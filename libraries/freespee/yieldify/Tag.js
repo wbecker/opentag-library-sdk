@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Yieldify",
 		async: true,
 		description: "Yieldify is a software solution which allows you to maximise your opt-in rates and revenue from visitors leaving your website.",
-		html: "<!-- Start of Yieldify Code -->\n \n<!-- End of Yieldify Code -->",
+		html: "<!--@SRC@--><!-- Start of Yieldify Code -->\n \n<!-- End of Yieldify Code -->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/yeildify.png",
 		locationDetail: "",
 		isPrivate: true,

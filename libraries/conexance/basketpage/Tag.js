@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Basket Page",
 		async: true,
 		description: "Picks up on basket page abandonment",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n  var safeLoad = function(url, variable, cb) {\n\n    var isLoading = function() {\n      window._sfloadSrcs = window._sfloadSrcs || [];\n      for (var i = 0; i < window._sfloadSrcs; i++) {\n        if (i.toLowerCase() == url.toLowerCase()) {\n          return true;\n        }\n      }\n      return false;\n    };\n\n    var waitForVariable = function() {\n      if (window[variable]) {\n        cb();\n      } else {\n        setTimeout(waitForVariable, 200);\n      }\n    };\n\n    var loadScript = function() {\n      var script = document.createElement(\"script\");\n      script.type = \"text/javascript\";\n      script.src = url;\n      document.getElementsByTagName(\"head\")[0].appendChild(script);\n      window._sfloadSrcs.push(url);\n      waitForVariable();\n    };\n\n    if (window[variable]) {\n      cb();\n    } else if (isLoading()) {\n      waitForVariable();\n    } else {\n      loadScript();\n    }\n\n  };\n\n  var run = function() {\n    for (var i = 0, ii = ${skus}.length; i < ii; i++) {\n      window.w1x1.scAdd(${skus}[i], ${quantities}[i], ${totals_novat}[i], ${totals_vat}[i], ${prices}[i], ${voucher});\n    }\n    window.w1x1.scSend();\n  };\n\n  safeLoad(\"${w1x1_function_url}\", \"_w1x1\", function() {\n    safeLoad(\"${w1x1_config_url}\", \"w1x1\", function() {\n      run();\n    });\n  });\n\n}());\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -59,6 +59,67 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+
+			var safeLoad = function(url, variable, cb) {
+
+				var isLoading = function() {
+					window._sfloadSrcs = window._sfloadSrcs || [];
+					for (var i = 0; i < window._sfloadSrcs; i++) {
+						if (i.toLowerCase() == url.toLowerCase()) {
+							return true;
+						}
+					}
+					return false;
+				};
+
+				var waitForVariable = function() {
+					if (window[variable]) {
+						cb();
+					} else {
+						setTimeout(waitForVariable, 200);
+					}
+				};
+
+				var loadScript = function() {
+					var script = document.createElement("script");
+					script.type = "text/javascript";
+					script.src = url;
+					document.getElementsByTagName("head")[0].appendChild(script);
+					window._sfloadSrcs.push(url);
+					waitForVariable();
+				};
+
+				if (window[variable]) {
+					cb();
+				} else if (isLoading()) {
+					waitForVariable();
+				} else {
+					loadScript();
+				}
+
+			};
+
+			var run = function() {
+				for (var i = 0, ii = this.valueForToken("skus").length; i < ii; i++) {
+					window.w1x1.scAdd(this.valueForToken("skus")[i], this.valueForToken(
+						"quantities")[i], this.valueForToken("totals_novat")[i], this.valueForToken(
+						"totals_vat")[i], this.valueForToken("prices")[i], this.valueForToken(
+						"voucher"));
+				}
+				window.w1x1.scSend();
+			};
+
+			safeLoad("" + this.valueForToken("w1x1_function_url") + "", "_w1x1",
+				function() {
+					safeLoad("" + this.valueForToken("w1x1_config_url") + "", "w1x1",
+						function() {
+							run();
+						});
+				});
+
+		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

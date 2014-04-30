@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "ROI Tracking (CTS Code)",
 		async: true,
 		description: "Tracking tag to be placed on the confirmation page",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/price_grabber.png",
 		locationDetail: "",
 		isPrivate: false,

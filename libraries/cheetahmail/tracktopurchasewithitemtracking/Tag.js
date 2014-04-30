@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Track-to-Purchase with Item Tracking",
 		async: true,
 		description: "Track-to-purchase reporting is typically used by clients that utilize e-commerce components to track conversions on their site resulting from an email campaign sent through CheetahMail. The Item Tracking feature, when enabled via CheetahMail, provides a method of tracking detailed information about the items that were purchased for each transaction.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n\n(function(){\n\nvar items = [];\n\nfor (var i = 0; i < ${product_names}.length; i++){\n  items.push(String(${product_names}[i]) +\"@\" + String(${product_qtys}[i]) + \"@\" + String(${product_prices}[i]));\n}\n\nvar script = document.createElement(\"script\");\nscript.src = \"https://${domain}/a/r${affiliate_ids}/${client}.gif?a=${order_id}&b=${order_total}&c=\" + items.join(\"|\") + \"&d=${cust1}&e=${cust2}\";\ndocument.getElementsByTagName(\"head\")[0].appendChild(script);\n\n})();\n\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/cheetahmail.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -69,6 +69,28 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+
+		(function() {
+
+			var items = [];
+
+			for (var i = 0; i < this.valueForToken("product_names").length; i++) {
+				items.push(String(this.valueForToken("product_names")[i]) + "@" + String(
+					this.valueForToken("product_qtys")[i]) + "@" + String(this.valueForToken(
+					"product_prices")[i]));
+			}
+
+			var script = document.createElement("script");
+			script.src = "https://" + this.valueForToken("domain") + "/a/r" + this.valueForToken(
+				"affiliate_ids") + "/" + this.valueForToken("client") + ".gif?a=" + this.valueForToken(
+				"order_id") + "&b=" + this.valueForToken("order_total") + "&c=" + items.join(
+				"|") + "&d=" + this.valueForToken("cust1") + "&e=" + this.valueForToken(
+				"cust2") + "";
+			document.getElementsByTagName("head")[0].appendChild(script);
+
+		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

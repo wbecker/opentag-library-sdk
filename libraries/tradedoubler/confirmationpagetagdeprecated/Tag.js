@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Page Tag [DEPRECATED]",
 		async: true,
 		description: "DO NOT USE",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Webtrends - Ecommerce tracking",
 		async: true,
 		description: "To be placed on pages where you wish to pass back transactional data. Should be dependent on the main Webtrends tracking tag.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n\n(function() \n{\n  var now = new Date();\n  var day = now.getUTCDate() + \"\";\n  if (day.length === 1) day = \"0\" + day;\n  var month = (now.getUTCMonth() + 1) + \"\";\n  if (month.length === 1) month = \"0\" + month;\n  var year = now.getUTCFullYear();\n  var date = month + \"/\" + day + \"/\" + year;\n  var time = now.toUTCString().match(/..:..:../)[0];\n\n  var ids = [];\n  var skus = [];\n  var categories = [];\n  var manufacturers = [];\n  var quantities = [];\n  var unit_sale_prices = [];\n\n  for (var i = ${ids}.length - 1; i >= 0; i--) {\n    ids.push(${ids}[i]);\n    skus.push(${skus}[i]);\n    categories.push(${categories}[i]);\n    manufacturers.push(${manufacturers}[i]);\n    quantities.push(${quantities}[i]);\n    unit_sale_prices.push(${unit_sale_prices}[i]);\n  };\n\n  // Calculate subtotals\n  var subtotals = [];\n  for (var i=0; i<unit_sale_prices.length; i++) {\n    subtotals.push(unit_sale_prices[i] * quantities[i]);\n  }\n\n\n  dcsMultiTrack({\n\n    // Identify this event as a purchase\n    \"WT.tx_e\": \"p\",\n\n    // Transaction parameters\n    \"WT.tx_u\": quantities.join(';'),\n    \"WT.tx_s\": subtotals.join(';'),\n    \"WT.tx_i\": \"${order_id}\",\n\n    // Product parameters\n    \"WT.pn_sku\": skus.join(';'),\n    \"WT.pn_id\": ids.join(';'),\n\n    \"WT.pn_fa\": categories.join(';'),\n    \"WT.pn_ma\": manufacturers.join(\";\"),\n    \n    // conversion timestamp\n    \"WT.tx_id\" : date,\n    \"WT.tx_it\" : time,\n \n    \"WT.dl\": 1\n\n  });\n\n}());\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -54,6 +54,67 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+
+		(function() {
+			var now = new Date();
+			var day = now.getUTCDate() + "";
+			if (day.length === 1) day = "0" + day;
+			var month = (now.getUTCMonth() + 1) + "";
+			if (month.length === 1) month = "0" + month;
+			var year = now.getUTCFullYear();
+			var date = month + "/" + day + "/" + year;
+			var time = now.toUTCString().match(/..:..:../)[0];
+
+			var ids = [];
+			var skus = [];
+			var categories = [];
+			var manufacturers = [];
+			var quantities = [];
+			var unit_sale_prices = [];
+
+			for (var i = this.valueForToken("ids").length - 1; i >= 0; i--) {
+				ids.push(this.valueForToken("ids")[i]);
+				skus.push(this.valueForToken("skus")[i]);
+				categories.push(this.valueForToken("categories")[i]);
+				manufacturers.push(this.valueForToken("manufacturers")[i]);
+				quantities.push(this.valueForToken("quantities")[i]);
+				unit_sale_prices.push(this.valueForToken("unit_sale_prices")[i]);
+			};
+
+			// Calculate subtotals
+			var subtotals = [];
+			for (var i = 0; i < unit_sale_prices.length; i++) {
+				subtotals.push(unit_sale_prices[i] * quantities[i]);
+			}
+
+
+			dcsMultiTrack({
+
+				// Identify this event as a purchase
+				"WT.tx_e": "p",
+
+				// Transaction parameters
+				"WT.tx_u": quantities.join(';'),
+				"WT.tx_s": subtotals.join(';'),
+				"WT.tx_i": "" + this.valueForToken("order_id") + "",
+
+				// Product parameters
+				"WT.pn_sku": skus.join(';'),
+				"WT.pn_id": ids.join(';'),
+
+				"WT.pn_fa": categories.join(';'),
+				"WT.pn_ma": manufacturers.join(";"),
+
+				// conversion timestamp
+				"WT.tx_id": date,
+				"WT.tx_it": time,
+
+				"WT.dl": 1
+
+			});
+
+		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

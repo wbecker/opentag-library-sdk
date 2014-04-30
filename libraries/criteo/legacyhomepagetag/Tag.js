@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Legacy - Home Page Tag",
 		async: true,
 		description: "The home page tag has to be integrated on the home page of the advertiser website.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,

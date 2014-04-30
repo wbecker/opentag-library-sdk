@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Transaction Report",
 		async: true,
 		description: "This tag should fire on the Transaction Confirmation page. The tag must have a dependency on the Visual DNA Page View Report tag.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

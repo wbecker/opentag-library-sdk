@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Google Tag Manager Converter: dataLayer > UV",
 		async: true,
 		description: "Take the Google Tag Manager data layer and map it to UV.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n  var u = window.universal_variable = window.universal_variable || {};\n\n  var dataLayerOptions = {\n\n    from: \"dataLayer\",\n    fromType: \"gtm\",\n\n    // What we do with each variable\n    mappings: [\n\n      // Page\n      {\n        key: \"pageCategory\",\n        parent: \"page\",\n        action: function(value) {\n          value = (isArray(value)) ? value.join(\" - \") : value;\n          u.page.category = value;\n        }\n      },\n      {\n        key: \"pageSubCategory\",\n        parent: \"page\",\n        action: function(value) {\n          value = (isArray(value)) ? value.join(\" - \") : value;\n          u.page.subcategory = value;\n        }\n      },\n\n\n      // User\n      {\n        key: \"visitorId\",\n        parent: \"user\",\n        action: function (value) {\n          u.user.user_id = value;\n        }\n      },\n      {\n        key: \"visitorType\",\n        parent: \"user\",\n        action: function (value) {\n          u.user.types = u.user.types || [];\n          u.user.types.push(value);\n        }\n      },\n\n      // Conversion data\n      // tbc\n\n\n      // Transaction data\n      {\n        key: \"transactionId\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.order_id = value;\n        }\n      },\n      {\n        key: \"transactionTotal\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.total = value;\n          u.transaction.subtotal = value;\n        }\n      },\n      {\n        key: \"transactionShipping\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.shipping_cost = value;\n        }\n      },\n      {\n        key: \"transactionTax\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.tax = value;\n        }\n      },\n      {\n        key: \"transactionPaymentType\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.payment_type = value;\n        }\n      },\n      {\n        key: \"transactionCurrency\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.currency = value;\n        }\n      },\n      {\n        key: \"transactionShippingMethod\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.shipping_method = value;\n        }\n      },\n      {\n        key: \"transactionPromoCode\",\n        parent: \"transaction\",\n        action: function (value) {\n          u.transaction.voucher = value;\n        }\n      },\n      {\n        key: \"transactionProducts\",\n        parent: \"transaction\",\n        action: function (value) {\n          var line_items = u.transaction.line_items = u.transaction.line_items || [];\n          if (!isArray(value)) return;\n          for (var i = 0; i < value.length; i++) {\n            var gtmProduct = value[i];\n            if (typeof gtmProduct === \"object\") {\n              var lineItem = {\n                product: {\n                  id: gtmProduct.id,\n                  name: gtmProduct.name,\n                  sku_code: gtmProduct.sku,\n                  category: gtmProduct.category,\n                  currency: gtmProduct.currency,\n                  unit_sale_price: gtmProduct.price,\n                  unit_price: gtmProduct.price\n                },\n                subtotal: gtmProduct.price * gtmProduct.quantity,\n                quantity: gtmProduct.quantity\n              };\n              line_items.push(lineItem);\n            }\n          }\n        }\n      },\n\n\n      // Search data \n      {\n        key: \"siteSearchTerm\",\n        parent: \"listing\",\n        action: function(value) {\n          u.listing.query = value;\n        }\n      }\n\n    ]\n\n  };\n\n  /*** Library functions ***/\n\n    var isArray = function(value) {\n      return ( Object.prototype.toString.call( value ) === \"[object Array]\" );\n    };\n\n\n  /*** Generic adapter API ***/\n\n    var Adapater = {\n\n      mappings: [],\n\n      initialize: function(options) {\n        this.options = options;\n        this.currentDataLayer = window[options.from];\n        this.convert();\n      },\n\n      convert: function() {\n        if (!this.currentDataLayer) return;\n        if (this.options.fromType === \"gtm\") {\n          this.convertGTM();\n        }\n      },\n\n      ensureUv: function(key) {\n        var u = window.universal_variable = window.universal_variable || {};\n        if (key) {\n          u[key] = u[key] || {};\n        }\n      },\n\n      // The GTM dataLayer is an array of objects. Keys can be added at any point.\n      convertGTM: function() {\n        for (var i = 0; i < this.currentDataLayer.length; i++) {\n          var arrayItem = this.currentDataLayer[i];\n          for (var key in arrayItem) {\n            var value = arrayItem[key];\n            this.map(key, value);\n          }\n        }\n      },\n\n      map: function(key, value) {\n        var info = this.getMappingInfo(key);\n        if (info && info.parent && typeof info.action === \"function\") {\n          this.ensureUv(info.parent);\n          info.action(value);\n        }\n      },\n\n      getMappingInfo: function(key) {\n        for (var i = 0; i < this.options.mappings.length; i++) {\n          if (this.options.mappings[i].key === key) {\n            return this.options.mappings[i];\n          }\n        }\n      }\n\n    };\n\n    // Start up\n    Adapater.initialize(dataLayerOptions);\n\n}());\n\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -21,6 +21,216 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+
+			var u = window.universal_variable = window.universal_variable || {};
+
+			var dataLayerOptions = {
+
+				from: "dataLayer",
+				fromType: "gtm",
+
+				// What we do with each variable
+				mappings: [
+
+					// Page
+					{
+						key: "pageCategory",
+						parent: "page",
+						action: function(value) {
+							value = (isArray(value)) ? value.join(" - ") : value;
+							u.page.category = value;
+						}
+					}, {
+						key: "pageSubCategory",
+						parent: "page",
+						action: function(value) {
+							value = (isArray(value)) ? value.join(" - ") : value;
+							u.page.subcategory = value;
+						}
+					},
+
+
+					// User
+					{
+						key: "visitorId",
+						parent: "user",
+						action: function(value) {
+							u.user.user_id = value;
+						}
+					}, {
+						key: "visitorType",
+						parent: "user",
+						action: function(value) {
+							u.user.types = u.user.types || [];
+							u.user.types.push(value);
+						}
+					},
+
+					// Conversion data
+					// tbc
+
+
+					// Transaction data
+					{
+						key: "transactionId",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.order_id = value;
+						}
+					}, {
+						key: "transactionTotal",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.total = value;
+							u.transaction.subtotal = value;
+						}
+					}, {
+						key: "transactionShipping",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.shipping_cost = value;
+						}
+					}, {
+						key: "transactionTax",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.tax = value;
+						}
+					}, {
+						key: "transactionPaymentType",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.payment_type = value;
+						}
+					}, {
+						key: "transactionCurrency",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.currency = value;
+						}
+					}, {
+						key: "transactionShippingMethod",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.shipping_method = value;
+						}
+					}, {
+						key: "transactionPromoCode",
+						parent: "transaction",
+						action: function(value) {
+							u.transaction.voucher = value;
+						}
+					}, {
+						key: "transactionProducts",
+						parent: "transaction",
+						action: function(value) {
+							var line_items = u.transaction.line_items = u.transaction.line_items || [];
+							if (!isArray(value)) return;
+							for (var i = 0; i < value.length; i++) {
+								var gtmProduct = value[i];
+								if (typeof gtmProduct === "object") {
+									var lineItem = {
+										product: {
+											id: gtmProduct.id,
+											name: gtmProduct.name,
+											sku_code: gtmProduct.sku,
+											category: gtmProduct.category,
+											currency: gtmProduct.currency,
+											unit_sale_price: gtmProduct.price,
+											unit_price: gtmProduct.price
+										},
+										subtotal: gtmProduct.price * gtmProduct.quantity,
+										quantity: gtmProduct.quantity
+									};
+									line_items.push(lineItem);
+								}
+							}
+						}
+					},
+
+
+					// Search data 
+					{
+						key: "siteSearchTerm",
+						parent: "listing",
+						action: function(value) {
+							u.listing.query = value;
+						}
+					}
+
+				]
+
+			};
+
+			/*** Library functions ***/
+
+			var isArray = function(value) {
+				return (Object.prototype.toString.call(value) === "[object Array]");
+			};
+
+
+			/*** Generic adapter API ***/
+
+			var Adapater = {
+
+				mappings: [],
+
+				initialize: function(options) {
+					this.options = options;
+					this.currentDataLayer = window[options.from];
+					this.convert();
+				},
+
+				convert: function() {
+					if (!this.currentDataLayer) return;
+					if (this.options.fromType === "gtm") {
+						this.convertGTM();
+					}
+				},
+
+				ensureUv: function(key) {
+					var u = window.universal_variable = window.universal_variable || {};
+					if (key) {
+						u[key] = u[key] || {};
+					}
+				},
+
+				// The GTM dataLayer is an array of objects. Keys can be added at any point.
+				convertGTM: function() {
+					for (var i = 0; i < this.currentDataLayer.length; i++) {
+						var arrayItem = this.currentDataLayer[i];
+						for (var key in arrayItem) {
+							var value = arrayItem[key];
+							this.map(key, value);
+						}
+					}
+				},
+
+				map: function(key, value) {
+					var info = this.getMappingInfo(key);
+					if (info && info.parent && typeof info.action === "function") {
+						this.ensureUv(info.parent);
+						info.action(value);
+					}
+				},
+
+				getMappingInfo: function(key) {
+					for (var i = 0; i < this.options.mappings.length; i++) {
+						if (this.options.mappings[i].key === key) {
+							return this.options.mappings[i];
+						}
+					}
+				}
+
+			};
+
+			// Start up
+			Adapater.initialize(dataLayerOptions);
+
+		}());
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

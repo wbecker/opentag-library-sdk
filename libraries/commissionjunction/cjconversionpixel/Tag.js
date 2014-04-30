@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CJ Conversion Pixel",
 		async: true,
 		description: "The conversion pixel code to enable Commission Junction to track purchases on the confirmation pages.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n  var url = \"https://www.emjcd.com/tags/c?containerTagId=${containerid}&\";\n  for (var i = 0, ii = ${item_ids}.length; i < ii; i++) {\n    url = url + \"ITEM\" + (i+1) + \"=\" + ${item_skus}[i] + \"&AMT\" + (i+1) + \"=\" + ${item_prices}[i] + \"&QTY\" + (i+1) + \"=\" + ${item_quantites}[i] + \"&\";\n  }\n  url = url + \"CID=${cid}&OID=${orderid}&TYPE=${actionid}&CURRENCY=${currency}\";\n  var iframe = document.createElement(\"iframe\");\n  iframe.height = 1;\n  iframe.width = 1;\n  iframe.frameBorder = 0;\n  iframe.scrolling = 0;\n  iframe.src = url;\n  document.body.appendChild(iframe);\n}());\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/CommissionJunction.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -64,6 +64,26 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+			var url = "https://www.emjcd.com/tags/c?containerTagId=" + this.valueForToken(
+				"containerid") + "&";
+			for (var i = 0, ii = this.valueForToken("item_ids").length; i < ii; i++) {
+				url = url + "ITEM" + (i + 1) + "=" + this.valueForToken("item_skus")[i] +
+					"&AMT" + (i + 1) + "=" + this.valueForToken("item_prices")[i] + "&QTY" +
+					(i + 1) + "=" + this.valueForToken("item_quantites")[i] + "&";
+			}
+			url = url + "CID=" + this.valueForToken("cid") + "&OID=" + this.valueForToken(
+				"orderid") + "&TYPE=" + this.valueForToken("actionid") + "&CURRENCY=" +
+				this.valueForToken("currency") + "";
+			var iframe = document.createElement("iframe");
+			iframe.height = 1;
+			iframe.width = 1;
+			iframe.frameBorder = 0;
+			iframe.scrolling = 0;
+			iframe.src = url;
+			document.body.appendChild(iframe);
+		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

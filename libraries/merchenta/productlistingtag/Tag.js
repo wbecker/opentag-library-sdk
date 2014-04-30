@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Product Listing Tag",
 		async: true,
 		description: "Place this tag on a search results page or on product listing pages to track the products visitors are viewing.",
-		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">VIEW</div>\n  <div class=\"mc_retailer\">${MerchentaId}</div>\n</div>\n\n",
+		html: "<!--@SRC@--><div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">VIEW</div>\n  <div class=\"mc_retailer\">${MerchentaId}</div>\n</div>\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
 		locationDetail: "",
 		isPrivate: false,

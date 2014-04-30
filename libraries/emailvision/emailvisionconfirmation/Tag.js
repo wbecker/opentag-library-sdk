@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Emailvision - Confirmation",
 		async: true,
 		description: "The Emailvision tag to be used on confirmation pages.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Emailvision.png",
 		locationDetail: "",
 		isPrivate: false,

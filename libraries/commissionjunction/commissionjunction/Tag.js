@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Commission Junction",
 		async: true,
 		description: "Commission Junction is a global leader in Affiliate Marketing, Online Marketing, and Search Engine Marketing.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/CommissionJunction.png",
 		locationDetail: "",
 		isPrivate: false,

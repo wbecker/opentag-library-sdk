@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CJ Conversion Pixel incl. Discount",
 		async: true,
 		description: "The conversion pixel code to enable Commission Junction to track purchases on the confirmation pages. If individual product discounts are available (one at least), then an array of these discounts (of equal length to the number of products) should be used. If no individual product discounts are available, then a total discount should be assigned to the transaction (either zero or whatever value is available). Check documentation on how to calculate the individual product discounts.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n\n(function() \n{\n  var url = document.location.protocol + \"//www.emjcd.com/tags/c?containerTagId=${container_tag_id}&\";\n  \n  for (var i = 0; i < ${skus}.length;  i++) \n  {\n    url += \"ITEM\" + (i+1) + \"=\" + ${skus}[i] + \"&AMT\" + (i+1) + \"=\" + ${prices}[i] + \"&QTY\" + (i+1) + \"=\" + ${quantities}[i] + \"&\";\n    \n    if (${discounts}.length === ${skus}.length)\n    {\n       url += \"DCNT\" + (i+1) + \"=\" + ${discounts}[i] + \"&\";\n    }\n  }\n  \n  url += \"CID=${enterprise_id}&OID=${order_id}&TYPE=${action_id}&CURRENCY=${currency}\";\n  \n  if (${discounts}.length !== ${skus}.length)\n  {\n     url += \"&DISCOUNT=${discount}\";\n  }\n  \n  var iframe = document.createElement(\"iframe\");\n  iframe.height = 1;\n  iframe.width = 1;\n  iframe.frameBorder = 0;\n  iframe.scrolling = 0;\n  iframe.src = url;\n  document.body.appendChild(iframe);\n}());\n\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -69,6 +69,41 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+
+		(function() {
+			var url = document.location.protocol +
+				"//www.emjcd.com/tags/c?containerTagId=" + this.valueForToken(
+					"container_tag_id") + "&";
+
+			for (var i = 0; i < this.valueForToken("skus").length; i++) {
+				url += "ITEM" + (i + 1) + "=" + this.valueForToken("skus")[i] + "&AMT" +
+					(i + 1) + "=" + this.valueForToken("prices")[i] + "&QTY" + (i + 1) + "=" +
+					this.valueForToken("quantities")[i] + "&";
+
+				if (this.valueForToken("discounts").length === this.valueForToken("skus")
+					.length) {
+					url += "DCNT" + (i + 1) + "=" + this.valueForToken("discounts")[i] + "&";
+				}
+			}
+
+			url += "CID=" + this.valueForToken("enterprise_id") + "&OID=" + this.valueForToken(
+				"order_id") + "&TYPE=" + this.valueForToken("action_id") + "&CURRENCY=" +
+				this.valueForToken("currency") + "";
+
+			if (this.valueForToken("discounts").length !== this.valueForToken("skus").length) {
+				url += "&DISCOUNT=" + this.valueForToken("discount") + "";
+			}
+
+			var iframe = document.createElement("iframe");
+			iframe.height = 1;
+			iframe.width = 1;
+			iframe.frameBorder = 0;
+			iframe.scrolling = 0;
+			iframe.src = url;
+			document.body.appendChild(iframe);
+		}());
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Thankyou Page Survey",
 		async: true,
 		description: "The tag to display the NexTag survey on the thanyou page. Any popup dimension can be set to a blank string to take the default value.",
-		html: "<link rel=\"stylesheet\" href=\"https://merchants.nextag.com/serv/main/buyer/dhtmlpopup/dhtmlwindow.css\" type=\"text/css\" />\n\n\n\n</script>\n",
+		html: "<!--@SRC@--><link rel=\"stylesheet\" href=\"https://merchants.nextag.com/serv/main/buyer/dhtmlpopup/dhtmlwindow.css\" type=\"text/css\" />\n\n\n\n</script>\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/NexTag.png",
 		locationDetail: "",
 		isPrivate: false,

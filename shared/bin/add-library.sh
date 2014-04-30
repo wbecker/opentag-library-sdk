@@ -16,16 +16,8 @@ SRC_BASE="libraries,shared/js"
 EXCLUDE=".*/dist.*,.*/build.*"
 
 echo "================================================================================"
-echo "Tag name: $TAG"
+echo " Adding libary wizard, please specify vendor name, description and library name."
 echo "================================================================================"
-echo "Cleaning: Removing dist"
-echo
 
-rm -rf dist
-mkdir $SRC/dist
-
-echo "Build: Generating full package (with dependencies): dist/out-all-src.js"
-
-#build output with all dependencies
 java -jar $TOOLS/bin/LibraryWizard.jar --wizard
 

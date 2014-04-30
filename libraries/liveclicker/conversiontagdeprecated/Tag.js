@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Tag DEPRECATED",
 		async: true,
 		description: "Should be placed on the confirmation page only",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Liveclicker.png",
 		locationDetail: "",
 		isPrivate: true,

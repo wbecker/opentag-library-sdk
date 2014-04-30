@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "LinkShare Confirmation Page Pixel - DEPRECATED 2",
 		async: true,
 		description: "Reports transactions to linkshare server",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/linkshare.gif",
 		locationDetail: "",
 		isPrivate: true,

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Container Tag",
 		async: true,
 		description: "Tag to be placed on all pages",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ve-interactive.png",
 		locationDetail: "",
 		isPrivate: false,

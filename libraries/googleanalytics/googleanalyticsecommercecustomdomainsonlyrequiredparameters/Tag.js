@@ -10,7 +10,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Google Analytics Ecommerce - Custom Domains, only required parameters",
 		async: true,
 		description: "Ecommerce tracking with basic parameters, custom domains, and setAllowLinker set to true.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n  window._gaq = window._gaq || [];\n  _gaq.push(['_setAccount', '${profile_id}']);\n  _gaq.push(['_setDomainName', '${domain_name}']);\n  _gaq.push(['_setAllowLinker', true]);\n  _gaq.push(['_trackPageview']);\n  _gaq.push(['_addTrans',\n    '${order_id}',\n    '',\n    '${order_total}',\n    '',         \n    '',\n    '',\n    '',\n    ''\n  ]);\n  var i, ii;\n  for (i = 0, ii = ${item_skus}.length; i < ii; i += 1) {\n    _gaq.push(['_addItem',\n      '${order_id}',\n      ${item_skus}[i],\n      ${item_names}[i],\n      '',\n      ${item_unit_prices}[i],\n      ${item_quantities}[i]\n    ]);\n  }\n  _gaq.push(['_trackTrans']); \n\n  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\n})();\n\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -61,6 +61,45 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+			window._gaq = window._gaq || [];
+			_gaq.push(['_setAccount', '' + this.valueForToken("profile_id") + '']);
+			_gaq.push(['_setDomainName', '' + this.valueForToken("domain_name") + '']);
+			_gaq.push(['_setAllowLinker', true]);
+			_gaq.push(['_trackPageview']);
+			_gaq.push(['_addTrans',
+				'' + this.valueForToken("order_id") + '',
+				'',
+				'' + this.valueForToken("order_total") + '',
+				'',
+				'',
+				'',
+				'',
+				''
+			]);
+			var i, ii;
+			for (i = 0, ii = this.valueForToken("item_skus").length; i < ii; i += 1) {
+				_gaq.push(['_addItem',
+					'' + this.valueForToken("order_id") + '',
+					this.valueForToken("item_skus")[i],
+					this.valueForToken("item_names")[i],
+					'',
+					this.valueForToken("item_unit_prices")[i],
+					this.valueForToken("item_quantities")[i]
+				]);
+			}
+			_gaq.push(['_trackTrans']);
+
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+				'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

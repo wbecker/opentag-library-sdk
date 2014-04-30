@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Digital Animal",
 		async: true,
 		description: "This will enable fandi.st to show you what impact your Campaigns are having on your site.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Fandi.st.png",
 		locationDetail: "",
 		isPrivate: false,

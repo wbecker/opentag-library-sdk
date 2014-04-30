@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Zanox Basket Page",
 		async: true,
 		description: "Basket Page Master Tag",
-		html: "<div class=\"zx_${id} zx_mediaslot\"></div>\n",
+		html: "<!--@SRC@--><div class=\"zx_${id} zx_mediaslot\"></div>\n",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

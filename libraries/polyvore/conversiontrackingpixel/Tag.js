@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Tracking Pixel",
 		async: true,
 		description: "Increased visibility on your campaign enables you to better react and optimize to meet business objectives. Integrating the Polyvore conversion tracking pixel provides you access to the following metrics through the Promoted Products Report: Orders, Sales, Conversion-to-sale, Average order size, Return on ad spend",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/polyvore.png",
 		locationDetail: "",
 		isPrivate: false,

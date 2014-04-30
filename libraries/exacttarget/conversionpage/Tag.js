@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Page",
 		async: true,
 		description: "This tag must only fire if the Landing Page tag has previously fired and the relevant cookies have been set (see Landing Page tag). Once the Landing Page tag has fired on the Exact Target Landing page and stored the appropriate subscriber information in the relevant cookies, this tag should then fire on your chosen conversion page.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

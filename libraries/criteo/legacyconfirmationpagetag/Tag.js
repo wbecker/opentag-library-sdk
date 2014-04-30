@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Legacy - Confirmation Page Tag",
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user made payment.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,

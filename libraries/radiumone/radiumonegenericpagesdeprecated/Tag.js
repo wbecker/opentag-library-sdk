@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "RadiumOne - Generic Pages DEPRECATED",
 		async: true,
 		description: "",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n\n(function() {\n\n  // Get timestamp (cachebuster)\n  var time = new Date().getTime();\n\n  // Iframe\n  iframe = document.createElement('iframe');\n  iframe.src = \"//rs.gwallet.com/r1/pixel/x6036r\"+time+\"?shop_id=${shop_id}\";\n  iframe.width = 1;\n  iframe.height = 1;\n  iframe.frameBorder = 0;\n  iframe.marginWidth = 0;\n  iframe.marginHeight = 0;\n  iframe.scrolling = 'no';\n  document.body.appendChild(iframe);\n\n})();\n\n</script>\n\n",
+		html: "<!--@SRC@-->\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -24,6 +24,27 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+
+		(function() {
+
+			// Get timestamp (cachebuster)
+			var time = new Date().getTime();
+
+			// Iframe
+			iframe = document.createElement('iframe');
+			iframe.src = "//rs.gwallet.com/r1/pixel/x6036r" + time + "?shop_id=" +
+				this.valueForToken("shop_id") + "";
+			iframe.width = 1;
+			iframe.height = 1;
+			iframe.frameBorder = 0;
+			iframe.marginWidth = 0;
+			iframe.marginHeight = 0;
+			iframe.scrolling = 'no';
+			document.body.appendChild(iframe);
+
+		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

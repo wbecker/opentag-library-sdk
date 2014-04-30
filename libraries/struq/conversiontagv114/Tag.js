@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Tag v1.14",
 		async: true,
 		description: "",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n  var productArr = [];\n  for (var i = 0, ii = ${products}.length; i < ii; i++) {\n    productArr.push(${products}[i]);\n  }\n  var productStr = productArr.join(\",\");\n\n  window._struqPI = window._struqPI || [];\n  window._struqPI.push(['injectTrackingPixel', {\n    trackingPixelId: '${pixelid}',\n    route: '/s/cda/',\n    collectData: false,\n    data: [{\n      title: \"li\",\n      pid: productStr,\n      qty: \"1\",\n      tv: \"1\"\n    }, {\n      title: \"summary\",\n      oid: \"${orderid}\",\n      tot: \"${ordertotal}\",\n      dis: \"0\",\n      cur: \"\"\n    }],\n    options: {\n      timeoutMs: 2000,\n      firstPartyDomain: '',\n      firstPartyCookie: '',\n      firstPartyUid: ''\n    }\n  }]);\n\n  var struq = document.createElement('script');\n  struq.type = 'text/javascript';\n  struq.async = true;\n  struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';\n  document.getElementsByTagName('head')[0].appendChild(struq);\n})();\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -39,6 +39,47 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+			var productArr = [];
+			for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
+				productArr.push(this.valueForToken("products")[i]);
+			}
+			var productStr = productArr.join(",");
+
+			window._struqPI = window._struqPI || [];
+			window._struqPI.push(['injectTrackingPixel', {
+				trackingPixelId: '' + this.valueForToken("pixelid") + '',
+				route: '/s/cda/',
+				collectData: false,
+				data: [{
+					title: "li",
+					pid: productStr,
+					qty: "1",
+					tv: "1"
+				}, {
+					title: "summary",
+					oid: "" + this.valueForToken("orderid") + "",
+					tot: "" + this.valueForToken("ordertotal") + "",
+					dis: "0",
+					cur: ""
+				}],
+				options: {
+					timeoutMs: 2000,
+					firstPartyDomain: '',
+					firstPartyCookie: '',
+					firstPartyUid: ''
+				}
+			}]);
+
+			var struq = document.createElement('script');
+			struq.type = 'text/javascript';
+			struq.async = true;
+			struq.src = ('https:' == document.location.protocol ? 'https://' :
+				'http://') +
+				'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
+			document.getElementsByTagName('head')[0].appendChild(struq);
+		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

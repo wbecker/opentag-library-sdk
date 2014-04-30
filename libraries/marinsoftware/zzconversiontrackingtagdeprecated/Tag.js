@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "zz-Conversion Tracking Tag [DEPRECATED]",
 		async: true,
 		description: "The Marin Conversion Tracking tag helps Marin advertisers measure their return on investment for media managed in the Marin Enterprise platform",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: true,

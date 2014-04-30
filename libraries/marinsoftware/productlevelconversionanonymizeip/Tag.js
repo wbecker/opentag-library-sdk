@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Product Level Conversion - Anonymize IP",
 		async: true,
 		description: "This tag is the same as the Product Level Conversion tag but also anonymizes the user's IP address",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

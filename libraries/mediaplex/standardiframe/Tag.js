@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Standard iframe",
 		async: true,
 		description: "The standard iframe can be used on any page which does not send back any parameters. It simply reports that a page has been visited. Example uses: Home page, help, contact us.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function(){\n\n  var frame = document.createElement(\"iframe\");\n  var src = (document.location.protocol === \"https:\") ? \"https://secure.\" : \"http://\";\n  src = src + \"img-cdn.mediaplex.com/0/${client_id}/universal.html?page_name=${page_name}&${event_name}=1&mpuid=\";\n  frame.src = src;\n  frame.height = 1;\n  frame.width = 1;\n  frame.frameborder = 0;\n  document.body.appendChild(frame);\n\n})();\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -34,6 +34,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+
+			var frame = document.createElement("iframe");
+			var src = (document.location.protocol === "https:") ? "https://secure." :
+				"http://";
+			src = src + "img-cdn.mediaplex.com/0/" + this.valueForToken("client_id") +
+				"/universal.html?page_name=" + this.valueForToken("page_name") + "&" +
+				this.valueForToken("event_name") + "=1&mpuid=";
+			frame.src = src;
+			frame.height = 1;
+			frame.width = 1;
+			frame.frameborder = 0;
+			document.body.appendChild(frame);
+
+		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

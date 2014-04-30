@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Sub2 - Contact Details (depends upon \"Sub2 - Main Script - All pages\")",
 		async: true,
 		description: "The purpose of this script is to capture the relevant contact details of any visitor to the site who has provided these details as part of the order, account creation or brochure request process. It should fire on all pages that contain these details.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
 		locationDetail: "",
 		isPrivate: false,

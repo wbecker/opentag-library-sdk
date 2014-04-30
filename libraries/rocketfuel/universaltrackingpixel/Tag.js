@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Universal Tracking Pixel",
 		async: true,
 		description: "This tag is to fire on every page to provide general pageview tracking.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/rocketfuel.png",
 		locationDetail: "",
 		isPrivate: false,

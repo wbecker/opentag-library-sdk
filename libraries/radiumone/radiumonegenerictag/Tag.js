@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "RadiumOne - Generic tag",
 		async: true,
 		description: "RadiumOne is changing the face of online advertising through a unique combination of programmatic buying, proprietary data, patent-pending intelligence algorithms, and multi-channel capabilities.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n  var img = new Image();\n  img.src = \"http://rs.gwallet.com/r1/pixel/x${id}r\" + Math.round(Math.random()*10000000);\n}());\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -21,6 +21,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+			var img = new Image();
+			img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") +
+				"r" + Math.round(Math.random() * 10000000);
+		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

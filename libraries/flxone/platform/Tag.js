@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Platform",
 		async: true,
 		description: "Use iatDev=1 in your URL parameters, or cookies to enable debug mode.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/FlxOne.png",
 		locationDetail: "",
 		isPrivate: false,

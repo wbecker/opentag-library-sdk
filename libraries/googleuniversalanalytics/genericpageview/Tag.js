@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Generic Page View",
 		async: true,
 		description: "This tag registers a pageview, and is intended for any page other than confirmation pages.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
 		locationDetail: "",
 		isPrivate: false,

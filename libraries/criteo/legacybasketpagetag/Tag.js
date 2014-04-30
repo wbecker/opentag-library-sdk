@@ -44,33 +44,33 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+		//changed
+		var src = [
+			"https://", "sslwidget.criteo.com", "/", "" + this.valueForToken(
+				"call_parameter") + "", "/", "display.js?", "p1="
+		];
+		var params = [
+			"v=2",
+			"&wi=", "" + this.valueForToken("wi") + "",
+			"&s=0"
+		];
 
-		(function() {
-			var src = [
-				"https://", "sslwidget.criteo.com", "/", "" + this.valueForToken(
-					"call_parameter") + "", "/", "display.js?", "p1="
-			];
-			var params = [
-				"v=2",
-				"&wi=", "" + this.valueForToken("wi") + "",
-				"&s=0"
-			];
+		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+			var index = i + 1;
+			params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
+			params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[
+				i]);
+			params.push("&q" + index + "=" + this.valueForToken("quantities")[i]);
+		}
+		src.push(escape(params.join("")));
+		src.push("&t1=transaction&resptype=gif");
+		var img = document.createElement("img");
+		img.setAttribute("src", src.join(""));
+		img.setAttribute("height", "1");
+		img.setAttribute("width", "1");
+		document.body.appendChild(img);
 
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				var index = i + 1;
-				params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
-				params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[
-					i]);
-				params.push("&q" + index + "=" + this.valueForToken("quantities")[i]);
-			}
-			src.push(escape(params.join("")));
-			src.push("&t1=transaction&resptype=gif");
-			var img = document.createElement("img");
-			img.setAttribute("src", src.join(""));
-			img.setAttribute("height", "1");
-			img.setAttribute("width", "1");
-			document.body.appendChild(img);
-		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

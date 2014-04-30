@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Webtrends link tagging",
 		async: true,
 		description: "Designed to replace inline on click tagging. Usually you'll want one tag per link tagged. Uses jQuery selectors, so jQuery is required to exist on the page.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n  var $ = window[\"${jquery_name}\"];\n\n  $(document).ready(function() {\n\n    $(\"${selector}\").click(function() {\n      Webtrends.multiTrack({\n        element:this, \n        argsa:[\n          \"WT.ti\", \"${title}\",\n          \"DCS.dcsuri\", \"${url}\",\n          'WT.dl', \"${type}\"\n        ]\n      });\n    });\n    \n  });\n\n}());\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -44,6 +44,27 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+
+			var $ = window["" + this.valueForToken("jquery_name") + ""];
+
+			$(document).ready(function() {
+
+				$("" + this.valueForToken("selector") + "").click(function() {
+					Webtrends.multiTrack({
+						element: this,
+						argsa: [
+							"WT.ti", "" + this.valueForToken("title") + "",
+							"DCS.dcsuri", "" + this.valueForToken("url") + "",
+							'WT.dl', "" + this.valueForToken("type") + ""
+						]
+					});
+				});
+
+			});
+
+		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

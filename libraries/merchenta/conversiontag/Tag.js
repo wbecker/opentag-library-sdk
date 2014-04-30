@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Tag",
 		async: true,
 		description: "Place this tag on the order confirmation page following a successful purchase.",
-		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">PURCHASE</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n  <div class=\"mc_order_ref\">${order_id}</div>\n  <div class=\"mc_ordervalue\">${order_total}</div>\n</div>\n\n",
+		html: "<!--@SRC@--><div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">PURCHASE</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n  <div class=\"mc_order_ref\">${order_id}</div>\n  <div class=\"mc_ordervalue\">${order_total}</div>\n</div>\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
 		locationDetail: "",
 		isPrivate: false,

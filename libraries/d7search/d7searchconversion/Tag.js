@@ -45,11 +45,3 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var _7search_conversion_type = "purchase";
 			var _7search_conversion_value = this.valueForToken("transaction_total"); <
 				/script>
-	/ * ~PRE * /
-	},
-	post: function() {
-	/ * POST * /
-	/ * ~POST *
-				/
-	}
-});

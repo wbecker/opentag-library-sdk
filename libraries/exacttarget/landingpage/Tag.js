@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Landing Page",
 		async: true,
 		description: "This tag should fire on the page where a subscriber lands when they click the landing page link in the ExactTarget email. The URL of such an Exact Target landing page should look like this : http://*your site's landing page URL*?j=*JobIDvalue*&l=*ListIDvalue*&e=*emailValue*&u=*LinkIDvalue*&jb=*BatchIDvalue*&mid=*MemberIDvalue*. The tag will drop a cookie for each of these query parameters found in the URL (along with their values) : job ID (identifier of this email send), subscriber email address, list ID, ID of the landing page URL, job batch ID, your ExactTarget account number (member ID). These values will be picked up later by the Conversion Page tag.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/exacttarget.png",
 		locationDetail: "",
 		isPrivate: false,

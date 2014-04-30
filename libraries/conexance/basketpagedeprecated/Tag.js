@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Basket Page [DEPRECATED]",
 		async: true,
 		description: "Picks up on basket page abandonment",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\nvar require = function(url, cb) {\n  var script = document.createElement(\"script\");\n  script.type = \"text/javascript\";\n  if (script.readyState) { //IE\n    script.onreadystatechange = function () {\n      if (script.readyState == \"loaded\" || script.readyState == \"complete\") {\n        script.onreadystatechange = null;\n        cb();\n      }\n    };\n  } else { //Others\n    script.onload = cb;\n  }\n  script.src = url;\n  document.getElementsByTagName(\"head\")[0].appendChild(script);\n};\n\n  require(\"${web1by1_function_script}\", function() {\n    require(\"${web1by1_config_script}\", function() {\n      for (var i = 0, ii = ${sku_list}.length; i < ii; i++) {\n        window.w1x1.scAdd(${sku_list}[i], ${quantity_list}[i]);\n      }\n      window.w1x1.scSend();\n    });\n  });\n\n}());\n</script>\n\n\n",
+		html: "<!--@SRC@-->\n\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: true,
@@ -39,6 +39,37 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+
+			var require = function(url, cb) {
+				var script = document.createElement("script");
+				script.type = "text/javascript";
+				if (script.readyState) { //IE
+					script.onreadystatechange = function() {
+						if (script.readyState == "loaded" || script.readyState == "complete") {
+							script.onreadystatechange = null;
+							cb();
+						}
+					};
+				} else { //Others
+					script.onload = cb;
+				}
+				script.src = url;
+				document.getElementsByTagName("head")[0].appendChild(script);
+			};
+
+			require("" + this.valueForToken("web1by1_function_script") + "", function() {
+				require("" + this.valueForToken("web1by1_config_script") + "", function() {
+					for (var i = 0, ii = this.valueForToken("sku_list").length; i < ii; i++) {
+						window.w1x1.scAdd(this.valueForToken("sku_list")[i], this.valueForToken(
+							"quantity_list")[i]);
+					}
+					window.w1x1.scSend();
+				});
+			});
+
+		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Channel Advisor - Confirmation Page",
 		async: true,
 		description: "Use this tag to track confirmation pages with ChannelAdvisor.",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n  var src = \"https://tracking.searchmarketing.com/thankyou.asp?SMCID=${client_id}\";\n  src += \"&oVal=${total}\";\n  src += \"&OrderID=${order_id}\";\n  src += \"&ProductID=\"; \n\n  // Add the product ids\n  var i=0, ii=${product_id_list}.length, arr = [];\n  for (; i<ii; i++) {\n    arr.push(${product_id_list}[i]);\n  }\n  src += arr.join(',');\n\n  // Append to body\n  var img = document.createElement('image');\n  img.src = src;\n  img.width = 1;\n  img.height = 1;\n  img.style.display = 'none';\n  document.body.appendChild(img);\n}());\n</script>",
+		html: "<!--@SRC@-->",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=ChannelAdvisor",
 		locationDetail: "",
 		isPrivate: false,
@@ -39,6 +39,31 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+
+		(function() {
+			var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
+				this.valueForToken("client_id") + "";
+			src += "&oVal=" + this.valueForToken("total") + "";
+			src += "&OrderID=" + this.valueForToken("order_id") + "";
+			src += "&ProductID=";
+
+			// Add the product ids
+			var i = 0,
+				ii = this.valueForToken("product_id_list").length,
+				arr = [];
+			for (; i < ii; i++) {
+				arr.push(this.valueForToken("product_id_list")[i]);
+			}
+			src += arr.join(',');
+
+			// Append to body
+			var img = document.createElement('image');
+			img.src = src;
+			img.width = 1;
+			img.height = 1;
+			img.style.display = 'none';
+			document.body.appendChild(img);
+		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

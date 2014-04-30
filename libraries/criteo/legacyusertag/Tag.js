@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Legacy - User Tag",
 		async: true,
 		description: "The user tag is a special tag used on an ad hoc basis, most of the time with extra data.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
