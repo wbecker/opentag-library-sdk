@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Generic Tag sending custom Field Name Objects",
 		async: true,
 		description: "This tag sends a collection of custom field name objects, allowing for any combination of hit types to be sent. Consider populating a window variable with this array in a custom script. For field object reference, see: http://goo.gl/z9gs4",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function(){\n\n(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\nm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\nga('create', '${web_property_id}');\n\nfor (var i=0; i < ${field_objects}.length; i++){\n  ga('send', ${field_objects}[i]);\n}\n\n})();\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -30,29 +30,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
-			(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] || function() {
-					(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o),
-				m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', '//www.google-analytics.com/analytics.js',
-				'ga');
-
-			ga('create', '' + this.valueForToken("web_property_id") + '');
-
-			for (var i = 0; i < this.valueForToken("field_objects").length; i++) {
-				ga('send', this.valueForToken("field_objects")[i]);
-			}
-
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

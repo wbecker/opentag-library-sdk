@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Maintenance Free PIE - Confirmation",
 		async: true,
 		description: "Bazaarvoice will collect encrypted transaction/interaction data directly from your site using this interaction tagging\nmethod. You can enable this feature by applying a small amount of JavaScript (JS) code, called the ROI beacon, to\nyour order confirmation page. Once the beacon tag is integrated, Bazaarvoice will collect the data needed to\ngenerate your PIEs.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

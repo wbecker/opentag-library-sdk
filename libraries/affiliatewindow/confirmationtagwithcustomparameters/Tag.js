@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Tag with Custom Parameters",
 		async: true,
 		description: "Use this if you have different commission groups per product.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
 		locationDetail: "",
 		isPrivate: false,

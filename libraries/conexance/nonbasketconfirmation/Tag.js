@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Non basket/confirmation",
 		async: true,
 		description: "Conexance tag for non basket/confirmation pages. Requires tag ID (specifies which page).",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n  var require = function(url, cb) {\n    var script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    if (script.readyState) { //IE\n      script.onreadystatechange = function () {\n        if (script.readyState == \"loaded\" || script.readyState == \"complete\") {\n          script.onreadystatechange = null;\n          cb();\n        }\n      };\n    } else { //Others\n      script.onload = cb;\n    }\n    script.src = url;\n    document.getElementsByTagName(\"head\")[0].appendChild(script);\n  };\n\n  require(\"${web1by1_functions_script}\", function() {\n    require(\"${web1by1_config_script}\", function() {\n      window.w1x1.iSet(${tag_type}, \"${value}\");\n    });\n  });\n\n}());\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -39,34 +39,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
-			var require = function(url, cb) {
-				var script = document.createElement("script");
-				script.type = "text/javascript";
-				if (script.readyState) { //IE
-					script.onreadystatechange = function() {
-						if (script.readyState == "loaded" || script.readyState == "complete") {
-							script.onreadystatechange = null;
-							cb();
-						}
-					};
-				} else { //Others
-					script.onload = cb;
-				}
-				script.src = url;
-				document.getElementsByTagName("head")[0].appendChild(script);
-			};
-
-			require("" + this.valueForToken("web1by1_functions_script") + "", function() {
-				require("" + this.valueForToken("web1by1_config_script") + "", function() {
-					window.w1x1.iSet(this.valueForToken("tag_type"), "" + this.valueForToken(
-						"value") + "");
-				});
-			});
-
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

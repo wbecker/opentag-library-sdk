@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Google Adsense",
 		async: true,
 		description: "Deploy Google adsense asynchronously to a specific html element (by id).",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/googleadsense.jpeg",
 		locationDetail: "",
 		isPrivate: false,

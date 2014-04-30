@@ -10,7 +10,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Affiliate Window with Post Impression Parameter deprecated",
 		async: true,
 		description: "Affiliate window confirmation tag with a parameter to report post impression vs. post click",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
 		locationDetail: "",
 		isPrivate: true,

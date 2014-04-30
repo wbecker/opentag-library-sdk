@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Tag with Product Detail and PV parameter",
 		async: true,
 		description: "Confirmation page script for pages that send product information with the same commission group for each product. This includes the PV parameter which can be used when AWin is not being affiliated to the sale but still needs to be made aware of it.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
 		locationDetail: "",
 		isPrivate: false,

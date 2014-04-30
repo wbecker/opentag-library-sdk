@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Product Page Tag v1.14",
 		async: true,
 		description: "",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n  window._struqPI = window._struqPI || [];\n  window._struqPI.push(['injectTrackingPixel', {\n    trackingPixelId: '${pixelid}',\n    route: '/s/sa/',\n    collectData: false,\n    data: [{\n      title: \"detail\",\n      pid: \"${productid}\"\n    }],\n    options: {\n      timeoutMs: 2000,\n      firstPartyDomain: '',\n      firstPartyCookie: '',\n      firstPartyUid: ''\n    }\n  }]);\n\n  var struq = document.createElement('script');\n  struq.type = 'text/javascript';\n  struq.async = true;\n  struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';\n  document.getElementsByTagName('head')[0].appendChild(struq);\n})();\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -29,33 +29,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-			window._struqPI = window._struqPI || [];
-			window._struqPI.push(['injectTrackingPixel', {
-				trackingPixelId: '' + this.valueForToken("pixelid") + '',
-				route: '/s/sa/',
-				collectData: false,
-				data: [{
-					title: "detail",
-					pid: "" + this.valueForToken("productid") + ""
-				}],
-				options: {
-					timeoutMs: 2000,
-					firstPartyDomain: '',
-					firstPartyCookie: '',
-					firstPartyUid: ''
-				}
-			}]);
-
-			var struq = document.createElement('script');
-			struq.type = 'text/javascript';
-			struq.async = true;
-			struq.src = ('https:' == document.location.protocol ? 'https://' :
-				'http://') +
-				'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
-			document.getElementsByTagName('head')[0].appendChild(struq);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

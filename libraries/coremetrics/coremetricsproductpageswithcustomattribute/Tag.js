@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Product pages (with Custom Attribute)",
 		async: true,
 		description: "The same as the product page tag, but with the extra parameter to distinguish a specific type of product page view content.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Pong Timers",
 		async: false,
 		description: "Times how long it takes to load pong and pings the stats back.",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n  if (performance && performance.timing && (window.XDomainRequest || XMLHttpRequest)) {\n\n    var r = Math.floor(Math.random()*50000);\n    var url = \"//pong.qubitproducts.com/qc?\" + r;\n\n    var start = new Date();\n    if (window.XDomainRequest) {\n      var xdr = new window.XDomainRequest();\n      xdr.open(\"GET\", url);\n      xdr.send();\n    } else {\n      var request = new XMLHttpRequest();\n      request.open(\"GET\",  url, false);\n      request.send(null);\n    }\n\n    var end = new Date();\n    var times = {\n      _c_ping_start: start.getTime() - performance.timing.requestStart,\n      _c_ping_end: end.getTime() - performance.timing.requestStart\n    };\n\n    window._qtd = window._qtd || [];\n    window._qtd.push({\n      data: times\n    });\n\n  }\n\n}());\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -24,40 +24,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
-			if (performance && performance.timing && (window.XDomainRequest ||
-				XMLHttpRequest)) {
-
-				var r = Math.floor(Math.random() * 50000);
-				var url = "//pong.qubitproducts.com/qc?" + r;
-
-				var start = new Date();
-				if (window.XDomainRequest) {
-					var xdr = new window.XDomainRequest();
-					xdr.open("GET", url);
-					xdr.send();
-				} else {
-					var request = new XMLHttpRequest();
-					request.open("GET", url, false);
-					request.send(null);
-				}
-
-				var end = new Date();
-				var times = {
-					_c_ping_start: start.getTime() - performance.timing.requestStart,
-					_c_ping_end: end.getTime() - performance.timing.requestStart
-				};
-
-				window._qtd = window._qtd || [];
-				window._qtd.push({
-					data: times
-				});
-
-			}
-
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

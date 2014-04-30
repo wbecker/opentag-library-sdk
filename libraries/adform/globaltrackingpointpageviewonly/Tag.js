@@ -45,6 +45,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			divider: encodeURIComponent('' + this.valueForToken("divider") + '')
 		};
 
+
 		/*~PRE*/
 	},
 	post: function() {

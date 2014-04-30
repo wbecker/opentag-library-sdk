@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "AdForm - Ecommerce Tracking",
 		async: true,
 		description: "To be placed only on order confirmation page.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -175,6 +175,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 		})();
+
 
 		/*~PRE*/
 	},

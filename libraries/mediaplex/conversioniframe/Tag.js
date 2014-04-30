@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion iframe",
 		async: true,
 		description: "The conversion iframe sends order details such as total, id, item count, and currency.",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function(){\n  var item_count = 0;\n  for (var i=0; i < ${item_qtys}.length; i++){\n    item_count += ${item_qtys}[i];\n  }\n\n  var frame = document.createElement(\"iframe\");\n  var src = \"https://secure.img-cdn.mediaplex.com/0/${client_id}/universal.html?page_name=${page_name}&${event_name}=1&Currency=${currency}&Quantity=\" + item_count + \"&Amount=${order_total}&mpuid=${order_id}\";\n  frame.src = src;\n  frame.height = 1;\n  frame.width = 1;\n  frame.frameborder = 0;\n  document.body.appendChild(frame);\n})();\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -54,26 +54,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-			var item_count = 0;
-			for (var i = 0; i < this.valueForToken("item_qtys").length; i++) {
-				item_count += this.valueForToken("item_qtys")[i];
-			}
-
-			var frame = document.createElement("iframe");
-			var src = "https://secure.img-cdn.mediaplex.com/0/" + this.valueForToken(
-				"client_id") + "/universal.html?page_name=" + this.valueForToken(
-				"page_name") + "&" + this.valueForToken("event_name") + "=1&Currency=" +
-				this.valueForToken("currency") + "&Quantity=" + item_count + "&Amount=" +
-				this.valueForToken("order_total") + "&mpuid=" + this.valueForToken(
-					"order_id") + "";
-			frame.src = src;
-			frame.height = 1;
-			frame.width = 1;
-			frame.frameborder = 0;
-			document.body.appendChild(frame);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

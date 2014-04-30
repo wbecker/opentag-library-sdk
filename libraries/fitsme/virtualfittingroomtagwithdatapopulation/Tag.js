@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Virtual Fitting Room Tag - With Data Population",
 		async: true,
 		description: "This product page tag adds the code needed to populate the \"fitsme_launcher\" div and makes sure GA is properly prepared (if present). This tag also populates the FitsMeData object prior to loading the code.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/FitsMe.png",
 		locationDetail: "",
 		isPrivate: false,

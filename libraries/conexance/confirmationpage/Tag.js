@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Page",
 		async: true,
 		description: "To be placed on the confirmation page. Tracks order transactions. Order number is compulsory all other parameters should be filled with 0 if unavailable. No currency symbols allowed.",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n  var require = function(url, cb) {\n    var script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    if (script.readyState) { //IE\n      script.onreadystatechange = function () {\n        if (script.readyState == \"loaded\" || script.readyState == \"complete\") {\n          script.onreadystatechange = null;\n          cb();\n        }\n      };\n    } else { //Others\n      script.onload = cb;\n    }\n    script.src = url;\n    document.getElementsByTagName(\"head\")[0].appendChild(script);\n  };\n\n  require(\"${web1by1_function_script}\", function() {\n    require(\"${web1by1_config_script}\", function() {\n      window.w1x1.sSend(\"${confirmation_id}\", ${order_total}, ${tax}, ${shipping_cost}, ${other});\n    });\n  });\n\n}());\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -59,35 +59,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
-			var require = function(url, cb) {
-				var script = document.createElement("script");
-				script.type = "text/javascript";
-				if (script.readyState) { //IE
-					script.onreadystatechange = function() {
-						if (script.readyState == "loaded" || script.readyState == "complete") {
-							script.onreadystatechange = null;
-							cb();
-						}
-					};
-				} else { //Others
-					script.onload = cb;
-				}
-				script.src = url;
-				document.getElementsByTagName("head")[0].appendChild(script);
-			};
-
-			require("" + this.valueForToken("web1by1_function_script") + "", function() {
-				require("" + this.valueForToken("web1by1_config_script") + "", function() {
-					window.w1x1.sSend("" + this.valueForToken("confirmation_id") + "",
-						this.valueForToken("order_total"), this.valueForToken("tax"), this.valueForToken(
-							"shipping_cost"), this.valueForToken("other"));
-				});
-			});
-
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

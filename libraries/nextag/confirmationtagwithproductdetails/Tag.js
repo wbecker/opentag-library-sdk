@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Tag with product details",
 		async: true,
 		description: "ROI Tag without product details",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/NexTag.png",
 		locationDetail: "",
 		isPrivate: false,

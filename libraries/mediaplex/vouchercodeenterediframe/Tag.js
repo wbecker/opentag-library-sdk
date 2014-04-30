@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Voucher code entered iframe",
 		async: true,
 		description: "This iframe passes back the pageview along with the validated voucher code being used. It should be fired once, as soon as possible after validating a voucher (before confirmation).",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function(){\n\n  var frame = document.createElement(\"frame\");\n  var src = (document.location.protocol === \"https:\") ? \"https://secure.\" : \"http://\";\n  src = src + \"img-cdn.mediaplex.com/0/${client_id}/universal.html?page_name=${page_name}&${event_name}=1&PromoCode=${promo_code}&mpuid=\";\n  frame.src = src;\n  frame.height = 1;\n  frame.width = 1;\n  frame.frameborder = 0;\n  document.body.appendChild(frame);\n\n})();\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -39,23 +39,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
-			var frame = document.createElement("frame");
-			var src = (document.location.protocol === "https:") ? "https://secure." :
-				"http://";
-			src = src + "img-cdn.mediaplex.com/0/" + this.valueForToken("client_id") +
-				"/universal.html?page_name=" + this.valueForToken("page_name") + "&" +
-				this.valueForToken("event_name") + "=1&PromoCode=" + this.valueForToken(
-					"promo_code") + "&mpuid=";
-			frame.src = src;
-			frame.height = 1;
-			frame.width = 1;
-			frame.frameborder = 0;
-			document.body.appendChild(frame);
-
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Conversion Pages",
 		async: true,
 		description: "To be placed on non-ecommerce conversion pages (e.g. user signups)",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
 		isPrivate: false,

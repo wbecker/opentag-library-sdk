@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Generic pages",
 		async: true,
 		description: "To be used on all pages that are not product, transactional, or conversion based.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
 		isPrivate: false,

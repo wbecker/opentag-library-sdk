@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Login pages",
 		async: true,
 		description: "To be placed on login/signup completes, or after account updates.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
 		isPrivate: false,

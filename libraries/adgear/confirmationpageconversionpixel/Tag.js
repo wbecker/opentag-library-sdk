@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Page Conversion Pixel",
 		async: true,
 		description: "Build audience profiles for both groups of customers, allowing to overlay that data on top of inventory operated by networks using the platform, or on top of third party ad exchange inventory. Retargeting based on conversion events, previous clicks on ads and other customer lifecycle events are all made possible in a simple, integrated interface.",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n  if (typeof ADGEAR == \"undefined\") {\n    var proto = \"http:\";\n    var host = \"cdna.runadtag.com\";\n    var bucket = \"\";\n    if (window.location.protocol == \"https:\") {\n      proto = \"https:\";\n      host = \"a.runadtag.com\";\n      bucket = \"\";\n    }\n    ADGEAR_DONT_SAY_HELLO = true;\n\n    var __scS = document.createElement(\"script\");\n    __scS.type = \"text/javascript\";\n    __scS.src = proto + '//' + host + '/adgear.js/current/adgear.js';\n    document.getElementsByTagName(\"body\")[0].appendChild(__scS);\n\n    //waiting for script to load\n    var waitForAdgear = function() {\n      if (typeof ADGEAR != \"undefined\" && document.readyState == \"complete\") {\n        ADGEAR.tags.conversion.init();\n        ADGEAR.tags.conversion.embed({\n          \"id\": \"${accountid}\",\n          \"chip_key\": \"${chipkey}\",\n          \"revenue\": null\n        });\n      } else {\n        setTimeout(waitForAdgear, 100);\n      }\n    };\n    waitForAdgear();\n  }\n})();\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adgear.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -29,40 +29,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-			if (typeof ADGEAR == "undefined") {
-				var proto = "http:";
-				var host = "cdna.runadtag.com";
-				var bucket = "";
-				if (window.location.protocol == "https:") {
-					proto = "https:";
-					host = "a.runadtag.com";
-					bucket = "";
-				}
-				ADGEAR_DONT_SAY_HELLO = true;
-
-				var __scS = document.createElement("script");
-				__scS.type = "text/javascript";
-				__scS.src = proto + '//' + host + '/adgear.js/current/adgear.js';
-				document.getElementsByTagName("body")[0].appendChild(__scS);
-
-				//waiting for script to load
-				var waitForAdgear = function() {
-					if (typeof ADGEAR != "undefined" && document.readyState == "complete") {
-						ADGEAR.tags.conversion.init();
-						ADGEAR.tags.conversion.embed({
-							"id": "" + this.valueForToken("accountid") + "",
-							"chip_key": "" + this.valueForToken("chipkey") + "",
-							"revenue": null
-						});
-					} else {
-						setTimeout(waitForAdgear, 100);
-					}
-				};
-				waitForAdgear();
-			}
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

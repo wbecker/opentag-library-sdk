@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Bing AdCenter Campaign Analytics DEPRECATED",
 		async: true,
 		description: "Script to generate reports on the success of your advertising campaigns via Bing Search",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Bing.png",
 		locationDetail: "",
 		isPrivate: true,

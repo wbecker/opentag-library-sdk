@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Kenshoo Thank-You Page Tracking",
 		async: true,
 		description: "Kenshoo conversion tracking is an open, flexible system for collecting and utilizing information on conversions. You can track conversions through tracking pixels on the target website, transaction reports, or Kenshoo's Seamless Site Tracking option.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/KenshooLogo.jpg",
 		locationDetail: "",
 		isPrivate: false,

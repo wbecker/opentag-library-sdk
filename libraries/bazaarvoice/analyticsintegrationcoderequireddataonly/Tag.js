@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Analytics Integration Code (Required Data Only)",
 		async: true,
 		description: "Uses required data only. Add JavaScript code to your transaction and conversion pages to send information to Bazaaarvoice analytics.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/bazaarvoice.jpg",
 		locationDetail: "",
 		isPrivate: false,

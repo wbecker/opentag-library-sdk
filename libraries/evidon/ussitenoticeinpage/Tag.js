@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "US Site Notice (In-Page)",
 		async: true,
 		description: "This tag handles the Standard Notice functionality for US sites by adding an AdChoices link in the specified location. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon). The placement requires an element ID, or a classname and an index, corresponding to the element the tag should be placed into.",
-		html: "<a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
+		html: "<!--@SRC@--><a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n<script type=\"text/javascript\">\n  (function() {\n    var lnk;\n    function waitForLink(){\n      lnk = document.getElementById(\"_bapw-link\");\n      if (lnk){\n        (function(){function v(n){var r=new Image;r.src=u+\"l.betrad.com/pub/p.gif?pid=\"+e+\"&ocid=\"+t+\"&i\"+n+\"=1&r=\"+Math.random()}function m(){if(typeof window.innerWidth==\"number\"&&typeof window.innerHeight==\"number\"){l=window.innerWidth;c=window.innerHeight}else{if(document.documentElement&&document.documentElement.clientWidth&&document.documentElement.clientHeight){l=document.documentElement.clientWidth;c=document.documentElement.clientHeight}else{if(document.body&&document.body.clientWidth&&document.body.clientHeight){l=document.body.clientWidth;c=document.body.clientHeight}}}return c<=h||l<=p}var e=1756,t=242,n=1,r=false,i=document,s=i.getElementById(\"_bapw-link\"),o=i.location.protocol==\"https:\",u=(o?\"https\":\"http\")+\"://\",a=u+\"c.betrad.com/pub/\",f=window._bap_p_overrides,l=0,c=0,h=560,p=720,d=o||f&&f.hasOwnProperty(e)&&f[e].new_window;i.getElementById(\"_bapw-icon\").src=a+\"icon1.png\";s.onmouseover=function(){s.href=\"http://info.evidon.com/pub_info/\"+e+\"?v=1&nt=\"+n+\"&nw=\"+(d||m()?\"true\":\"false\")};s.onclick=function(){function n(e,t){function u(){o.onload=o.onreadystatechange=null;n.removeChild(o);t()}var n=i.getElementsByTagName(\"head\")[0]||i.documentElement,s=r,o=i.createElement(\"script\");o.src=e;o.onreadystatechange=function(){if(!s&&(this.readyState==\"loaded\"||this.readyState==\"complete\")){s=true;u()}};o.onload=u;n.insertBefore(o,n.firstChild)}if(d||m()){v(\"c\");return true}this.onclick=\"return \"+r;n(u+\"ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js\",function(){n(a+\"pub2.js\",function(){BAPW.i(s,{pid:e,ocid:t})})});return r};v(\"i\")})();\n        if (${class}){\n          waitForClass();\n        }else{\n          waitForID();\n        }\n      }else{\n        setTimeout(waitForLink, 100);\n      }\n    }\n\n    waitForLink();\n\n    function waitForClass(){\n      var tag = document.querySelectorAll('.${name}')[Number('${index}')];\n      if (tag){\n        tag.appendChild(lnk);\n      }else{\n        setTimeout(waitForClass, 50);\n      }\n    }\n    function waitForID(){\n      var tag = document.getElementById('${name}');\n      if (tag){\n        tag.appendChild(lnk);\n      }else{\n        setTimeout(waitForID, 50);\n      }\n    }\n  })();\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -44,129 +44,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-			var lnk;
-
-			function waitForLink() {
-				lnk = document.getElementById("_bapw-link");
-				if (lnk) {
-					(function() {
-						function v(n) {
-							var r = new Image;
-							r.src = u + "l.betrad.com/pub/p.gif?pid=" + e + "&ocid=" + t + "&i" +
-								n + "=1&r=" + Math.random()
-						}
-
-						function m() {
-							if (typeof window.innerWidth == "number" && typeof window.innerHeight ==
-								"number") {
-								l = window.innerWidth;
-								c = window.innerHeight
-							} else {
-								if (document.documentElement && document.documentElement.clientWidth &&
-									document.documentElement.clientHeight) {
-									l = document.documentElement.clientWidth;
-									c = document.documentElement.clientHeight
-								} else {
-									if (document.body && document.body.clientWidth && document.body.clientHeight) {
-										l = document.body.clientWidth;
-										c = document.body.clientHeight
-									}
-								}
-							}
-							return c <= h || l <= p
-						}
-						var e = 1756,
-							t = 242,
-							n = 1,
-							r = false,
-							i = document,
-							s = i.getElementById("_bapw-link"),
-							o = i.location.protocol == "https:",
-							u = (o ? "https" : "http") + "://",
-							a = u + "c.betrad.com/pub/",
-							f = window._bap_p_overrides,
-							l = 0,
-							c = 0,
-							h = 560,
-							p = 720,
-							d = o || f && f.hasOwnProperty(e) && f[e].new_window;
-						i.getElementById("_bapw-icon").src = a + "icon1.png";
-						s.onmouseover = function() {
-							s.href = "http://info.evidon.com/pub_info/" + e + "?v=1&nt=" + n +
-								"&nw=" + (d || m() ? "true" : "false")
-						};
-						s.onclick = function() {
-							function n(e, t) {
-								function u() {
-									o.onload = o.onreadystatechange = null;
-									n.removeChild(o);
-									t()
-								}
-								var n = i.getElementsByTagName("head")[0] || i.documentElement,
-									s = r,
-									o = i.createElement("script");
-								o.src = e;
-								o.onreadystatechange = function() {
-									if (!s && (this.readyState == "loaded" || this.readyState ==
-										"complete")) {
-										s = true;
-										u()
-									}
-								};
-								o.onload = u;
-								n.insertBefore(o, n.firstChild)
-							}
-							if (d || m()) {
-								v("c");
-								return true
-							}
-							this.onclick = "return " + r;
-							n(u + "ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js",
-								function() {
-									n(a + "pub2.js", function() {
-										BAPW.i(s, {
-											pid: e,
-											ocid: t
-										})
-									})
-								});
-							return r
-						};
-						v("i")
-					})();
-					if (this.valueForToken("class")) {
-						waitForClass();
-					} else {
-						waitForID();
-					}
-				} else {
-					setTimeout(waitForLink, 100);
-				}
-			}
-
-			waitForLink();
-
-			function waitForClass() {
-				var tag = document.querySelectorAll('.' + this.valueForToken("name") + '')[
-					Number('' + this.valueForToken("index") + '')];
-				if (tag) {
-					tag.appendChild(lnk);
-				} else {
-					setTimeout(waitForClass, 50);
-				}
-			}
-
-			function waitForID() {
-				var tag = document.getElementById('' + this.valueForToken("name") + '');
-				if (tag) {
-					tag.appendChild(lnk);
-				} else {
-					setTimeout(waitForID, 50);
-				}
-			}
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

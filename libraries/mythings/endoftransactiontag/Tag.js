@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "End of Transaction Tag",
 		async: true,
 		description: "The tag should be placed on the end of transaction page.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mythings.png",
 		locationDetail: "",
 		isPrivate: false,

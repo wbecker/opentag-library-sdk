@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Normal Tracking Pixel",
 		async: true,
 		description: "",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n var src = \"//${domain}/registersale.asp\"\n         + \"?site=${program_id}\"\n         + \"&mode=${mode}\"\n         + \"&ltype=${type}\"\n         + \"&price=${subtotal}\"\n         + \"&order=${order_id}\"\n         + \"&curr=${currency}\"\n         + \"&vcode=${voucher_code}\";\n\n var image = new Image();\n image.src = src;\n\n}());\n</script>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/affilinet.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -59,20 +59,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
-			var src = "//" + this.valueForToken("domain") + "/registersale.asp" +
-				"?site=" + this.valueForToken("program_id") + "" + "&mode=" + this.valueForToken(
-					"mode") + "" + "&ltype=" + this.valueForToken("type") + "" + "&price=" +
-				this.valueForToken("subtotal") + "" + "&order=" + this.valueForToken(
-					"order_id") + "" + "&curr=" + this.valueForToken("currency") + "" +
-				"&vcode=" + this.valueForToken("voucher_code") + "";
-
-			var image = new Image();
-			image.src = src;
-
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

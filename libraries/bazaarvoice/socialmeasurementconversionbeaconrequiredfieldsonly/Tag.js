@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Social Measurement Conversion Beacon (Required fields only)",
 		async: true,
 		description: "To be placed on the conversion page in order to integrate Social Measurement with Bazaarvoice's other solutions.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/bazaarvoice.jpg",
 		locationDetail: "",
 		isPrivate: false,

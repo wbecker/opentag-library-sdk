@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Confirmation page",
 		async: true,
 		description: "To be placed on the confirmation page.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
 		isPrivate: false,

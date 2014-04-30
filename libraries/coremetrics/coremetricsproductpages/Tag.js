@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Product pages",
 		async: true,
 		description: "To be used on product pages.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "libs.coremetrics.com/eluminate.js",
 		locationDetail: "",
 		isPrivate: false,

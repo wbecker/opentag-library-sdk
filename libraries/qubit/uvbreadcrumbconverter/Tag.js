@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "UV Breadcrumb Converter",
 		async: true,
 		description: "Converts UV page breadcrumbs to be in the new format.",
-		html: "",
+		html: "<!--@SRC@--><script type=\"text/javascript\">\n(function() {\n\n  function isArray (arr) {\n    return Object.prototype.toString.call(arr) == \"[object Array]\";\n  }\n\n  function BreadCrumb(uv) {\n\n    uv.page.type = uv.page.type.toLowerCase();\n    uv.page.category = uv.page.type;\n\n    var breadcrumb = {\n      init: function(config) {\n        if (!(uv.page.breadcrumb && isArray(uv.page.breadcrumb))) {\n          return;\n        }\n        config = config || {};\n\n        breadcrumb.skipLast = (config.skipLast === true) ? true : false;\n        breadcrumb.skipFirst = (config.skipFirst === true) ? true : false;\n        breadcrumb.overwriteSubCat = (config.overwriteSubCat === false) ? false : true;\n        \n        breadcrumb.trimLength = config.trimLength || 64;\n        breadcrumb.max = config.max || 10;\n        breadcrumb.obj = uv.page.breadcrumb.slice(0, breadcrumb.max);\n\n        breadcrumb.convert();\n        breadcrumb.createString();\n      },\n      convert: function() {\n        var displace = (breadcrumb.skipFirst) ? 1 : 0;\n        for (var i = 0; i < breadcrumb.obj.length; i++) {\n          if (breadcrumb.skipFirst && (i === 0)) {\n            continue;\n          }\n          if (breadcrumb.skipLast && (i === breadcrumb.obj.length - 1)) {\n            break;\n          }\n          breadcrumb.obj[i] = breadcrumb.obj[i].substr(0, breadcrumb.trimLength).toLowerCase();\n          uv.page[\"breadcrumb_l\" + (i + 1 - displace)] = breadcrumb.obj[i];\n        }\n        // Add / overwrite page.subcategory with breadcrumb level 1\n        if (uv.page.breadcrumb_l1) {\n          if (!uv.page.subcategory || breadcrumb.overwriteSubCat === true) {\n            uv.page.subcategory = uv.page.breadcrumb_l1;\n          }\n        }\n      },\n      createString: function() {\n        var arr = [];\n        for (var i = 0; i < breadcrumb.obj.length; i++) {\n          if (breadcrumb.skipFirst && (i === 0)) {\n            continue;\n          }\n          if (breadcrumb.skipLast && (i === breadcrumb.obj.length - 1)) {\n            break;\n          }\n          var breadcrumbNoDots = breadcrumb.obj[i].replace(/\\./g, \"\");\n          arr.push(breadcrumbNoDots);\n        }\n        uv.page.breadcrumb_string = arr.join(\".\").toLowerCase();\n      }\n    };\n\n    return breadcrumb;\n  }\n  \n  // Wait for Universal Variable\n  var waitForUV = function () {\n    var uv = window.universal_variable;\n    if (uv) {\n      var bc = BreadCrumb(uv);\n      bc.init({\n        skipFirst: ${skip_first},\n        skipLast: ${skip_last},\n        overwriteSubCat: true\n      });\n    } else {\n      setTimeout(waitForUV, 50);\n    }\n  };\n\n  waitForUV();\n\n}());\n</script>",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -29,94 +29,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
-			function isArray(arr) {
-				return Object.prototype.toString.call(arr) == "[object Array]";
-			}
-
-			function BreadCrumb(uv) {
-
-				uv.page.type = uv.page.type.toLowerCase();
-				uv.page.category = uv.page.type;
-
-				var breadcrumb = {
-					init: function(config) {
-						if (!(uv.page.breadcrumb && isArray(uv.page.breadcrumb))) {
-							return;
-						}
-						config = config || {};
-
-						breadcrumb.skipLast = (config.skipLast === true) ? true : false;
-						breadcrumb.skipFirst = (config.skipFirst === true) ? true : false;
-						breadcrumb.overwriteSubCat = (config.overwriteSubCat === false) ? false :
-							true;
-
-						breadcrumb.trimLength = config.trimLength || 64;
-						breadcrumb.max = config.max || 10;
-						breadcrumb.obj = uv.page.breadcrumb.slice(0, breadcrumb.max);
-
-						breadcrumb.convert();
-						breadcrumb.createString();
-					},
-					convert: function() {
-						var displace = (breadcrumb.skipFirst) ? 1 : 0;
-						for (var i = 0; i < breadcrumb.obj.length; i++) {
-							if (breadcrumb.skipFirst && (i === 0)) {
-								continue;
-							}
-							if (breadcrumb.skipLast && (i === breadcrumb.obj.length - 1)) {
-								break;
-							}
-							breadcrumb.obj[i] = breadcrumb.obj[i].substr(0, breadcrumb.trimLength)
-								.toLowerCase();
-							uv.page["breadcrumb_l" + (i + 1 - displace)] = breadcrumb.obj[i];
-						}
-						// Add / overwrite page.subcategory with breadcrumb level 1
-						if (uv.page.breadcrumb_l1) {
-							if (!uv.page.subcategory || breadcrumb.overwriteSubCat === true) {
-								uv.page.subcategory = uv.page.breadcrumb_l1;
-							}
-						}
-					},
-					createString: function() {
-						var arr = [];
-						for (var i = 0; i < breadcrumb.obj.length; i++) {
-							if (breadcrumb.skipFirst && (i === 0)) {
-								continue;
-							}
-							if (breadcrumb.skipLast && (i === breadcrumb.obj.length - 1)) {
-								break;
-							}
-							var breadcrumbNoDots = breadcrumb.obj[i].replace(/\./g, "");
-							arr.push(breadcrumbNoDots);
-						}
-						uv.page.breadcrumb_string = arr.join(".").toLowerCase();
-					}
-				};
-
-				return breadcrumb;
-			}
-
-			// Wait for Universal Variable
-			var waitForUV = function() {
-				var uv = window.universal_variable;
-				if (uv) {
-					var bc = BreadCrumb(uv);
-					bc.init({
-						skipFirst: this.valueForToken("skip_first"),
-						skipLast: this.valueForToken("skip_last"),
-						overwriteSubCat: true
-					});
-				} else {
-					setTimeout(waitForUV, 50);
-				}
-			};
-
-			waitForUV();
-
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Tag with Product Detail",
 		async: true,
 		description: "Confirmation page script for pages that send product information with the same commission group for each product.",
-		html: "",
+		html: "<!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
 		locationDetail: "",
 		isPrivate: false,
