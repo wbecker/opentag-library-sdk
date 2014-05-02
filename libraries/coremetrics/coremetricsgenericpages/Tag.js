@@ -58,7 +58,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-			// Top level settings  
+			// Top level settings	
 			window.cmSetClientID(
 				"" + this.valueForToken("client_id"),
 				this.valueForToken("data_collection_method"),

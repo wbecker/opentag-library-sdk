@@ -40,15 +40,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		cxt_conf.pageType = cxt_conf.pageType || '' + this.valueForToken("page_type");
 		cxt_conf.server = '' + this.valueForToken("conf_server");
 
-    var ca = document.createElement('script');
-    ca.type = 'text/javascript';
-    ca.async = true;
-    ca.src = cxt_conf.server + '/script/ca.js';
-    ca.onload = function() {
-      cxtdcs()();
-    };
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ca, s);
+		var ca = document.createElement('script');
+		ca.type = 'text/javascript';
+		ca.async = true;
+		ca.src = cxt_conf.server + '/script/ca.js';
+		ca.onload = function() {
+			cxtdcs()();
+		};
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ca, s);
 		/*~SCRIPT*/
 	},
 	pre: function() {

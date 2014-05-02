@@ -26,7 +26,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			uv: ""
 		}, {
 			name: "Ltype",
-			description: "Ltype number is  the rate ID on our system, i.e. rate 1 could be 5% of order value rate 2 could be",
+			description: "Ltype number is	the rate ID on our system, i.e. rate 1 could be 5% of order value rate 2 could be",
 			token: "type",
 			uv: ""
 		}, {
@@ -60,14 +60,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 			var src = "//" + this.valueForToken("domain") +
-              "/registersale.asp" +
-              "?site=" + this.valueForToken("program_id") +
-              "&mode=" + this.valueForToken("mode") +
-              "&ltype=" + this.valueForToken("type") +
-              "&price=" +this.valueForToken("subtotal") +
-              "&order=" + this.valueForToken("order_id") +
-              "&curr=" + this.valueForToken("currency") +
-              "&vcode=" + this.valueForToken("voucher_code");
+							"/registersale.asp" +
+							"?site=" + this.valueForToken("program_id") +
+							"&mode=" + this.valueForToken("mode") +
+							"&ltype=" + this.valueForToken("type") +
+							"&price=" +this.valueForToken("subtotal") +
+							"&order=" + this.valueForToken("order_id") +
+							"&curr=" + this.valueForToken("currency") +
+							"&vcode=" + this.valueForToken("voucher_code");
 
 			var image = new Image();
 			image.src = src;

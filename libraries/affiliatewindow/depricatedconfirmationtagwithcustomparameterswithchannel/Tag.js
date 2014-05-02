@@ -48,7 +48,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			parts = parts.join("|");
 			var awinImgSrc = [
 				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" +
-                this.valueForToken("merchant_id"),
+								this.valueForToken("merchant_id"),
 				"&amount=" + this.valueForToken("orderTotal"),
 				"&ref=" + this.valueForToken("orderId"),
 				"&parts=", parts,

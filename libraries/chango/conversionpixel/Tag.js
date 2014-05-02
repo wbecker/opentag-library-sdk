@@ -54,14 +54,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 			return tmp;
 		}
-    if (typeof(__chconv__) == "undefined") return;
-    var e = encodeURIComponent;
-    var p = [];
-    for (var i in __chconv__) {
-      p.push(e(i) + "=" + e(__chconv__[i]))
-    }
-    (new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
-      (new Date()).getTime() + '?' + p.join("&");
+		if (typeof(__chconv__) == "undefined") return;
+		var e = encodeURIComponent;
+		var p = [];
+		for (var i in __chconv__) {
+			p.push(e(i) + "=" + e(__chconv__[i]))
+		}
+		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
+			(new Date()).getTime() + '?' + p.join("&");
 		/*~SCRIPT*/
 	},
 	pre: function() {

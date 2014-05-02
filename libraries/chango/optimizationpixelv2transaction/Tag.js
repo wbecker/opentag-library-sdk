@@ -5,7 +5,7 @@ var classPath = "chango.optimizationpixelv2transaction" + version;
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
-		name: "Optimization Pixel [v2] -  Transaction",
+		name: "Optimization Pixel [v2] -	Transaction",
 		async: true,
 		description: "Chango's optimization pixel is a site-wide data gathering tool used to improve retargeting services. It should fire on every page.",
 		html: "",
@@ -45,7 +45,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-    var _this = this;
+		var _this = this;
 		//compile cart data
 		var cart = (function() {
 			var arr = [];
@@ -72,12 +72,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"puid2": "" + this.valueForToken("PUID")
 		};
 
-    var c = document.createElement('script');
-    c.type = 'text/javascript';
-    c.async = true;
-    c.src = document.location.protocol + '//cc.chango.com/static/o.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(c, s);
+		var c = document.createElement('script');
+		c.type = 'text/javascript';
+		c.async = true;
+		c.src = document.location.protocol + '//cc.chango.com/static/o.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(c, s);
 
 		/*~SCRIPT*/
 	},

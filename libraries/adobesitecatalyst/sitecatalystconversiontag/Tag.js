@@ -167,9 +167,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			for (; i < ii; i++) {
 				var product = [];
 				product.push(this.valueForToken("product_names")[i],
-          this.valueForToken("product_ids")[i]);
+					this.valueForToken("product_ids")[i]);
 				product.push(this.valueForToken("quants")[i],
-          this.valueForToken("categories")[i]);
+					this.valueForToken("categories")[i]);
 				productList.push(product.join(";"));
 			}
 

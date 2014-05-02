@@ -53,19 +53,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"USER_ID": "" + this.valueForToken("user_id")
 		};
 
-    var oldonload = window.onload;
-    window.onload = function() {
-      window.__adroll_loaded = true;
-      var scr = document.createElement("script");
-      var host = (("https:" === document.location.protocol) ?
-        "https://s.adroll.com" : "http://a.adroll.com");
-      scr.setAttribute('async', 'true');
-      scr.type = "text/javascript";
-      scr.src = host + "/j/roundtrip.js";
-      ((document.getElementsByTagName('head') || [null])[0] || document.getElementsByTagName(
-        'script')[0].parentNode).appendChild(scr);
-      if (oldonload) oldonload();
-    };
+		var oldonload = window.onload;
+		window.onload = function() {
+			window.__adroll_loaded = true;
+			var scr = document.createElement("script");
+			var host = (("https:" === document.location.protocol) ?
+				"https://s.adroll.com" : "http://a.adroll.com");
+			scr.setAttribute('async', 'true');
+			scr.type = "text/javascript";
+			scr.src = host + "/j/roundtrip.js";
+			((document.getElementsByTagName('head') || [null])[0] || document.getElementsByTagName(
+				'script')[0].parentNode).appendChild(scr);
+			if (oldonload) oldonload();
+		};
 		/*~SCRIPT*/
 	},
 	pre: function() {

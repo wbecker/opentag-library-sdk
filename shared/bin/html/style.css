@@ -525,6 +525,13 @@ a.plain:hover {background-color:#fcfafa;}
   word-break: break-all;
 }
 
+.removed {
+  display: none !important;
+}
+
+.bdd-head {
+  font-size: 16px;
+}
 
 .qconsole.shown {
 

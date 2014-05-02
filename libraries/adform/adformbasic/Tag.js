@@ -33,10 +33,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-    window._adftrack = {
-      pm: this.valueForToken("campaignid"),
-      id: this.valueForToken("pointid")
-    };
+		window._adftrack = {
+			pm: this.valueForToken("campaignid"),
+			id: this.valueForToken("pointid")
+		};
 		/*~PRE*/
 	},
 	post: function() {

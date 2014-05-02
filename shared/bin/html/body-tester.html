@@ -122,8 +122,8 @@
     
     <div id="unit-tests-suite-template">
       <div class="unit-tests-head">
-        Unit tests <br/> Edit <a href="#-5" onclick="addEditTests(this)">simple tests</a>
-        or <a href="#-5" onclick="addEditDescribeTests(this)">BDD tests</a>
+        <span class="bdd-head">Unit tests</span> <br/> <br/> Edit <a href="#-5" class="removed" onclick="addEditTests(this)">simple tests</a>
+        <span class="removed">or</span> <a href="#-5" onclick="addEditDescribeTests(this)">BDD Tests</a>
       </div>
       <div class="unit-tests"></div>
     </div>
@@ -213,7 +213,7 @@
   
   <script src="js/mocha/should.js"></script>
   <script src="js/mocha/expect.js"></script>
-  <script src="js/mocha/chai.js"></script>
+  <script src="js/mocha/chaj.js"></script>
   <!--script src="js/mocha/mocha.js"></script>
 
   <script>mocha.setup('bdd');</script>

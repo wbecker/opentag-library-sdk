@@ -17,12 +17,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		usesDocWrite: false,
 		parameters: [{
 			name: "Bazaarvoice Merchant Group ID",
-			description: "Should match Merchant Group ID from PowerReviews  Dashboard’s Configure Reviews section",
+			description: "Should match Merchant Group ID from PowerReviews	Dashboard’s Configure Reviews section",
 			token: "group_id",
 			uv: ""
 		}, {
 			name: "Bazaarvoice Merchant ID",
-			description: "Should match Merchant ID from PowerReviews  Dashboard’s Configure Reviews section",
+			description: "Should match Merchant ID from PowerReviews	Dashboard’s Configure Reviews section",
 			token: "merchant_id",
 			uv: ""
 		}, {
@@ -70,22 +70,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*POST*/
 			try {
 				var item_count = 0;
-        var items = [];
-        
-        for (var i = 0; i < this.valueForToken("ids").length; i++) {
-          items.push([
-            this.valueForToken("ids")[i],
-            "", "",
-            this.valueForToken("qtys")[i],
-            this.valueForToken("prices")[i]]);
+				var items = [];
+				
+				for (var i = 0; i < this.valueForToken("ids").length; i++) {
+					items.push([
+						this.valueForToken("ids")[i],
+						"", "",
+						this.valueForToken("qtys")[i],
+						this.valueForToken("prices")[i]]);
 
-          item_count += this.valueForToken("qtys")[i];
-        }
-        
+					item_count += this.valueForToken("qtys")[i];
+				}
+				
 				var tracker = POWERREVIEWS.tracker.createTracker({
 					merchantGroupId: "" + this.valueForToken("group_id")
 				});
-        
+				
 				tracker.trackPageview("c", {
 					merchantId: "" + this.valueForToken("merchant_id"),
 					locale: "en_US",

@@ -91,14 +91,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 			var awinImgSrc = [
 				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" +
-                this.valueForToken("merchant_id") + "&amount=",
+								this.valueForToken("merchant_id") + "&amount=",
 				"" + this.valueForToken("order_total"),
 				"&ref=", "" + this.valueForToken("order_id"),
 				"&parts=" + this.valueForToken("commission_group") + ":",
-        "" + this.valueForToken("order_total"),
+				"" + this.valueForToken("order_total"),
 				"&vc=", "" + this.valueForToken("voucher"),
 				"&testmode=" + this.valueForToken("test_mode") + "&cr=",
-        "" + this.valueForToken("currency")
+				"" + this.valueForToken("currency")
 			].join("");
 			var el = document.createElement("img");
 			el.setAttribute("src", awinImgSrc);

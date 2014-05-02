@@ -5,7 +5,7 @@ var classPath = "chango.optimizationpixelv2generic" + version;
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
-		name: "Optimization Pixel  [v2] - Generic",
+		name: "Optimization Pixel	[v2] - Generic",
 		async: true,
 		description: "Chango's optimization pixel is a site-wide data gathering tool used to improve retargeting services. It should fire on every page.",
 		html: "",

@@ -45,7 +45,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			token: "web1by1_function_script",
 			uv: ""
 		}, {
-			name: "Web1by1 Configuration Parameters  Script URL",
+			name: "Web1by1 Configuration Parameters	Script URL",
 			description: "The full URL of the Web1by1 configuration parameters script (either production or test)",
 			token: "web1by1_config_script",
 			uv: ""
@@ -59,7 +59,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 
 			var require = function(url, cb) {
 				var script = document.createElement("script");
@@ -81,11 +81,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			require("" + _this.valueForToken("web1by1_function_script"), function() {
 				require("" + _this.valueForToken("web1by1_config_script"), function() {
 					window.w1x1.sSend(
-            "" + _this.valueForToken("confirmation_id"),
+						"" + _this.valueForToken("confirmation_id"),
 						_this.valueForToken("order_total"),
-            _this.valueForToken("tax"),
-            _this.valueForToken("shipping_cost"),
-            _this.valueForToken("other"));
+						_this.valueForToken("tax"),
+						_this.valueForToken("shipping_cost"),
+						_this.valueForToken("other"));
 				});
 			});
 

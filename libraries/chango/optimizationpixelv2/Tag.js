@@ -5,7 +5,7 @@ var classPath = "chango.optimizationpixelv2" + version;
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
 		/*DATA*/
-		name: "Optimization Pixel  [v2]",
+		name: "Optimization Pixel	[v2]",
 		async: true,
 		description: "Chango's optimization pixel is a site-wide data gathering tool used to improve retargeting services. It should fire on every page.",
 		html: "",
@@ -69,7 +69,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		//compile cart data
 		var cart = (function() {
 			if (window.universal_variable && window.universal_variable.line_items) {
@@ -99,14 +99,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"pid": this.valueForToken("ID"),
 			"puid2": "" + this.valueForToken("PUID")
 		};
-    
-    var c = document.createElement('script');
-    c.type = 'text/javascript';
-    c.async = true;
-    c.src = document.location.protocol + '//cc.chango.com/static/o.js';
-    var s = document.getElementsByTagName('script')[0];
-    
-    s.parentNode.insertBefore(c, s);
+		
+		var c = document.createElement('script');
+		c.type = 'text/javascript';
+		c.async = true;
+		c.src = document.location.protocol + '//cc.chango.com/static/o.js';
+		var s = document.getElementsByTagName('script')[0];
+		
+		s.parentNode.insertBefore(c, s);
 		/*~SCRIPT*/
 	},
 	pre: function() {

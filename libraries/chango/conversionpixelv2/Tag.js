@@ -64,7 +64,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		var totalQuantity = (function() {
 			var total = 0;
 			for (var i = 0; i < _this.valueForToken("QUANTITY").length; i++) {
@@ -96,14 +96,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"u5": "" + this.valueForToken("CONVERSION_TYPE")
 		};
 
-    if (typeof(__chconv__) == "undefined") return;
-    var e = encodeURIComponent;
-    var p = [];
-    for (var i in __chconv__) {
-      p.push(e(i) + "=" + e(__chconv__[i]))
-    }
-    (new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
-      (new Date()).getTime() + '?' + p.join("&");
+		if (typeof(__chconv__) == "undefined") return;
+		var e = encodeURIComponent;
+		var p = [];
+		for (var i in __chconv__) {
+			p.push(e(i) + "=" + e(__chconv__[i]))
+		}
+		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
+			(new Date()).getTime() + '?' + p.join("&");
 
 		/*~SCRIPT*/
 	},

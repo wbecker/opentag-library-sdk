@@ -100,7 +100,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"&amount=" + this.valueForToken("orderTotal"),
 				"&ref=" + this.valueForToken("orderId"),
 				"&parts=" + this.valueForToken("commission_group") + ":" +
-                this.valueForToken("orderTotal"),
+								this.valueForToken("orderTotal"),
 				"&vc=" + this.valueForToken("voucher"),
 				"&testmode=" + this.valueForToken("testmode"),
 				"&cr=" + this.valueForToken("orderCurrency"),
