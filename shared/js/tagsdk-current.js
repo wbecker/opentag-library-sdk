@@ -2144,7 +2144,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
      */
     TagsUtils.getHTMLLocationForTag = function (tag) {
       var el;
-      var name = tag.config.locationObject;
+      var name = tag.prepareLocationObject(tag.config.locationObject);
       var locationDetail = tag.config.locationDetail;
       switch (name) {
         case "head":
@@ -4029,11 +4029,26 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.unexpectedFail = new Date().valueOf();
     }
   };
+
   
+  GenericLoader.prototype.prepareLocationObject = function (loc) {
+    return loc;
+  };
+
+  /**
+   * 
+   * @param {type} url
+   * @returns {unresolved}
+   */
   GenericLoader.prototype.prepareURL = function (url) {
     return url;
   };
 
+  /**
+   * 
+   * @param {type} html
+   * @returns {unresolved}
+   */
   GenericLoader.prototype.prepareHTML = function (html) {
     return html;
   };
@@ -4537,6 +4552,15 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   BaseTag.prototype.prepareURL = function (url) {
     return this.replaceTokensWithValues(url);
+  };
+  
+  /**
+   * 
+   * @param {String} loc
+   * @returns {String}
+   */
+  BaseTag.prototype.prepareLocationObject = function (loc) {
+    return this.replaceTokensWithValues(loc);
   };
 
   /**
