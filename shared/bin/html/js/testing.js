@@ -241,29 +241,27 @@ function runTests(referencingNode, callback) {
       if (!notFinished) {
         
 //        add tests check for jasmine tests
-        var failed = false;
+        var bddfailed = false;
         if (bddSuite) {
           var tests = bddSuite.children;
           for (var i = 0; i < tests.length; i++) {
             if (tests[i].result.status === "failed") {
-              failed = true;
+              bddfailed = true;
               break;
             }
           }
         }
         
-        if (suite) {
-          if ( (suite.failedTests && suite.failedTests.length > 0) ) {
+        var failed = false;
+        
+        if (suite && suite.failedTests && suite.failedTests.length > 0) {
             failed = true;
-          } else if (suite.finishedTests && suite.finishedTests.length > 0) {
-            failed = failed || false;
-          }
         }
         
         if (bddSuite || suite) { 
-          if (failed) {
+          if (failed || bddfailed) {
             Utils.addClass(referencingNode, "tests-failed");
-          } else if (suite.finishedTests && suite.finishedTests.length > 0) {
+          } else {
             Utils.addClass(referencingNode, "tests-passed");
           }
         }

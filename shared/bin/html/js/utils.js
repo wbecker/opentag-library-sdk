@@ -150,6 +150,7 @@ function saveConfig(refNode) {
 }
 
 function classPath(string) {
+  if (string) {
     var chunks = string.split(".");
     for (var i = 0 ; i< chunks.length; i++) {
         var chunk = chunks[i];
@@ -162,14 +163,35 @@ function classPath(string) {
             .replace(/^[\.]+/g, "")
             .replace(/[\.]+$/g, "")
             .replace(/\.+/g,".");
+  } else {
+    return string;
+  }
 }
 
 function saveNewVersion(refNode) {
   refNode = getLibraryReferenceNode(refNode);
   var tagRef = refNode.reference;
-  var versionName = prompt("Please choose version name.\n Example: v10");
+  var versionName =
+          prompt("Please choose a new version name. \n\n" +
+          "System will copy existing library into a new location. " +
+          "\nNew location will be the current library directory.\n\n" + 
+          "Example: v10\n\n");
+  
+  if (!versionName) {
+    return;
+  }
+  
   versionName = classPath(versionName);
-  alert("Version name: " + versionName);
+  var proceed = confirm(
+        "New library version to be created.\n\n" +
+        "Version name: " + versionName + "\n\n" +
+        "Location: " + (tagRef.PACKAGE_NAME + "." + versionName)
+          .replace(/\./g, "/") +
+        "\n\n\nPlease confirm.\n\n");
+  
+  if (!proceed) {
+    return;
+  }
   
   //var newPackageName = tagRef.PACKAGE_NAME + "." + versionName;  
   var data = "classPath=libraries." +
@@ -181,9 +203,28 @@ function saveNewVersion(refNode) {
       logError("Error while creating new version: " + msg);
     } else {
       info("Created new version.");
-      info("Please REBUILD library and reload page..", 10000);
+      info("Rebuilding system...", 10000);
+      rebuildAndReload();
     }
   });
+}
+
+
+
+function rebuildAndReload() {
+  if (window.buildLocationString) {
+    var data = "path=" +  encodeURIComponent(window.buildLocationString);
+    GET("/rebuild?" + data, function(msg, httpr) {
+      if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
+        logError("Rebuild failed! " + msg);
+      } else {
+        info("System has been rebuilt for " + window.buildLocationString, 10000);
+        if (confirm("Page will reload - confirm to continue or reload it manually.")) {
+          location.reload();
+        }
+      }
+    });
+  }
 }
 
 
@@ -200,6 +241,7 @@ function openInEditorAndCreate(package, file, create, data) {
   POST("/openInEditor", data, function(msg, httpr) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
       logError(msg);
+      logError("Make sure that CLASSPATH of your library matches its location!");
     }
   });
 }

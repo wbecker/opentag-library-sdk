@@ -5,6 +5,8 @@
 <div id="content">
   <h2>Tag Library Testing Page</h2>
   <div class="global-buttons">
+    <a href="#-1" onclick="info('Running build in background...');rebuildAndReload();">
+      <i class="fa"></i><span>Rebuild Everything</span></a>
     <a href="#-1" onclick="toggleUVSelector(this.children[1])">
       <i class="fa"></i><span>Browse UV</span></a>
     <a href="#-1" onclick="runAllTests()">
@@ -198,7 +200,7 @@
   <div id="unit-tests">
     
   </div>
-  
+  <font link='build-location.js'></font>
   <script src='js/utils.js'></script>
   <script src='js/testing.js'></script>
   <script src='js/script.js'></script>

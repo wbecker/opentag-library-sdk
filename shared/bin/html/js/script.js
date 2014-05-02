@@ -33,16 +33,16 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
 
   libraryNode.innerHTML = libraryTemplate;
   
-  var version = "current " +
-          "(<a href='#-3' onclick='saveNewVersion(this)'>create new version</a>)";
+  var version = "current - " +
+          "<a href='#-3' onclick='saveNewVersion(this)'>create new version</a>";
   
   if (libraryClass.versionClassPath) {
     version = libraryClass.prototype.PACKAGE_NAME
             .replace(libraryClass.versionClassPath + ".", "");
   }
   
-  libraryNode.children[0].children[1].innerHTML = instance.config.name +
-          " [" + version + "]";
+  libraryNode.children[0].children[1].innerHTML = 
+          instance.config.name + " [" + version + "]";
   qubit.opentag.Utils.addClass(libraryNode, "library");
   if (className) {
     qubit.opentag.Utils.addClass(libraryNode, className);
@@ -126,11 +126,6 @@ function addLibrary(anchor, libraryClass) {
     renderLibraryToNode(libraryClass, libraryNode, "hide");
   }
 }
-
-
-
-
-
 
 
 var parameterTemplate = document.getElementById("parameter-template").innerHTML;
@@ -618,7 +613,7 @@ window.Main = function () {
   
   window.info = function (msg, time, id) {
     DefaultNotificationsMgr
-            .notify(id || new Date().valueOf(), msg, time || 1800, "", true);
+            .notify(id || new Date().valueOf(), msg, time || 2800, "", true);
   };
   
   window.log = function (m) {
@@ -634,6 +629,6 @@ window.Main = function () {
   loadAllLibs();
   
   window.DefaultNotificationsMgr = new NotificationManager({
-    maxTime: 3 * 1000
+    maxTime: 4 * 1000
   });
 };
