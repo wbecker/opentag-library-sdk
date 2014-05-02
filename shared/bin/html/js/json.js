@@ -1,8 +1,12 @@
 /*
- * Opentag, a tag deployment platform
+ * Opentag, a tag deployment platform.
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * @author Peter Fronc peter.fronc@qubitproducts.com
+ * 
+ * This library is licensed under LGPL v3 license.
+ * For details please see attached LICENSE file or go to:
+ * https://www.gnu.org/licenses/lgpl.html
  */
 
 (function () {
@@ -121,7 +125,7 @@
     
     if (includeFunctions && typeof object === "function") {
       if (realFunctions) {
-        var out = prettyPrint ? object.toString() : jsonString(object.toString());
+        var out = prettyPrint ? object.toString() : object.toString();
         return drawValue(indent, out);
       }
     }
@@ -240,8 +244,13 @@
    *    on object's properties
    *   config.hasOwn if hasOwnProperty should apply for objects 
    *        (default false)
+   *   config.realFunctions serializer will output toString of function objects,
+   *    this option only applies if includeFunctions is enabled
+   *   config.fakeFunctions if includeFunctions is applied, this option will cause
+   *    empty function to be attached for such objects.
    *   config.includeFunctions if 
-   *      functions should be included (default false)
+   *      functions should be included (default false), if only this option is specified
+   *      fuinctions will be treated as objects and serializer will go over its properties.
    *   config.excludeOnTrue function that will take
    *      current objects property and must return boolean, if returns true,
    *      object will be added to serialized string
@@ -264,7 +273,9 @@
     }
     return _serialize(object, config, parentElements, 0, level);
   };
-
+  
+  var global = (0, eval("this")) || (function(){return this;}()) || this.window;
+  
   /**
    * Parsing json function with specification specified in RFC4627, section 6. 
    * It is a simple security check. Enough for most of needs.
@@ -275,18 +286,22 @@
     if (!(/[^,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]/.test(
          string.replace(/"(\\.|[^"\\])*"/g, '')))) {
       var expression = "json.___tmp = (" + string + ")";
-      if (window.execScript) {
-         window.execScript(expression);
+      if (global.execScript) {
+         global.execScript(expression);
        } else {
-         (function () {return window["eval"].call(window, expression); }());
+         (function () {return global["eval"].call(global, expression); }());
        }
      } else {
        throw "insecure json!";
      }
      return json.___tmp;
   };
+
+  global.json = json;
   
-  json.jsonString = jsonString;
-  
-  window.json = json;
+  try {
+    module.exports = json;
+  } catch (e) {
+    //try exports
+  }
 }());

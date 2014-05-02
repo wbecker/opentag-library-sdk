@@ -129,7 +129,7 @@ function saveConfig(refNode) {
     delete params.parameters[i].variable;
   }
   
-  var serial = json.serialize({parameters: params.parameters});
+  var serial = json.serialize({parameters: params.parameters}, {prettyPrint: true});
   var newPackageName = tagRef.PACKAGE_NAME + ".local";
   var includes = "//:include tagsdk-current.js\n";
   var mkpackage = "qubit.opentag.Utils.namespace('" + newPackageName + "');\n";
