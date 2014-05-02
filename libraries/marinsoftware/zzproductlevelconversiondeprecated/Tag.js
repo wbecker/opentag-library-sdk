@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "zz-Product Level Conversion [DEPRECATED]",
 		async: true,
 		description: "The Marin Conversion Tracking tag helps Marin advertisers measure their return on investment for media managed in the Marin Enterprise platform",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: true,
@@ -64,17 +64,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
 			window._mTrack = window._mTrack || [];
 
 			var items = [];
 
 			for (var i = 0; i < this.valueForToken("skus").length; i++) {
 				items.push({
-					orderId: "" + this.valueForToken("order_id") + "",
-					convType: "" + this.valueForToken("conv_type") + "",
+					orderId: "" + this.valueForToken("order_id"),
+					convType: "" + this.valueForToken("conv_type"),
 					product: this.valueForToken("skus")[i],
 					prices: this.valueForToken("prices")[i],
 					category: this.valueForToken("categories")[i],
@@ -83,18 +80,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 
 			window._mTrack.push(['addTrans', {
-				currency: "" + this.valueForToken("currency") + "",
+				currency: "" + this.valueForToken("currency"),
 				items: items
 			}]);
 
-			if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip") + "")) {
+			if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip"))) {
 				window._mTrack.push(['activateAnonymizeIp']);
 			}
 
 			window._mTrack.push(['processOrders']);
 
-			(function() {
-				var mClientId = "" + this.valueForToken("marin_tracking_id") + "";
+				var mClientId = "" + this.valueForToken("marin_tracking_id");
 				var mProto = ('https:' == document.location.protocol ? 'https://' :
 					'http://');
 				var mHost = 'tracker.marinsm.com';
@@ -104,8 +100,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 				var fscr = document.getElementsByTagName('script')[0];
 				fscr.parentNode.insertBefore(mt, fscr);
-			})();
-		})();
 
 		/*~SCRIPT*/
 	},

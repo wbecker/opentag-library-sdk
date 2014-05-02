@@ -10,7 +10,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Google Analytics Ecommerce - Custom Domains, only required parameters",
 		async: true,
 		description: "Ecommerce tracking with basic parameters, custom domains, and setAllowLinker set to true.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -62,16 +62,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			window._gaq = window._gaq || [];
-			_gaq.push(['_setAccount', '' + this.valueForToken("profile_id") + '']);
-			_gaq.push(['_setDomainName', '' + this.valueForToken("domain_name") + '']);
+			_gaq.push(['_setAccount', '' + this.valueForToken("profile_id")]);
+			_gaq.push(['_setDomainName', '' + this.valueForToken("domain_name")]);
 			_gaq.push(['_setAllowLinker', true]);
 			_gaq.push(['_trackPageview']);
 			_gaq.push(['_addTrans',
-				'' + this.valueForToken("order_id") + '',
+				'' + this.valueForToken("order_id"),
 				'',
-				'' + this.valueForToken("order_total") + '',
+				'' + this.valueForToken("order_total"),
 				'',
 				'',
 				'',
@@ -81,7 +80,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var i, ii;
 			for (i = 0, ii = this.valueForToken("item_skus").length; i < ii; i += 1) {
 				_gaq.push(['_addItem',
-					'' + this.valueForToken("order_id") + '',
+					'' + this.valueForToken("order_id"),
 					this.valueForToken("item_skus")[i],
 					this.valueForToken("item_names")[i],
 					'',
@@ -98,7 +97,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
-		})();
 
 		/*~SCRIPT*/
 	},

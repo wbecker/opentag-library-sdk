@@ -62,22 +62,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 
 		// Populate product fields
-		var zx_identifier = "" + this.valueForToken("product_id") + "";
-		var zx_fn = "" + this.valueForToken("name") + "";
-		var zx_description = "" + this.valueForToken("description") + "";
-		var zx_category = "" + this.valueForToken("category") + "";
-		var zx_price = "" + this.valueForToken("unit_sale_price") + "";
-		var zx_amount = "" + this.valueForToken("unit_sale_price") + "";
-		var zx_currency = "" + this.valueForToken("currency") + "";
-		var zx_url = "" + this.valueForToken("url") + "";
+		window.zx_identifier = "" + this.valueForToken("product_id");
+		window.zx_fn = "" + this.valueForToken("name");
+		window.zx_description = "" + this.valueForToken("description");
+		window.zx_category = "" + this.valueForToken("category");
+		window.zx_price = "" + this.valueForToken("unit_sale_price");
+		window.zx_amount = "" + this.valueForToken("unit_sale_price");
+		window.zx_currency = "" + this.valueForToken("currency");
+		window.zx_url = "" + this.valueForToken("url");
 
 		window._zx = window._zx || [];
 		window._zx.push({
-			"id": "" + this.valueForToken("zanoxPageId") + ""
+			"id": "" + this.valueForToken("zanoxPageId")
 		});
-		var waitForZanoxDiv = function() {
-			if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") +
-				".zx_mediaslot")) {
+		window.waitForZanoxDiv = function() {
+			if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") + ".zx_mediaslot")) {
 				(function(d) {
 					var s = d.createElement("script");
 					s.async = true;

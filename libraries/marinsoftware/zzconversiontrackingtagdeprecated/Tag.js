@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "zz-Conversion Tracking Tag [DEPRECATED]",
 		async: true,
 		description: "The Marin Conversion Tracking tag helps Marin advertisers measure their return on investment for media managed in the Marin Enterprise platform",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: true,
@@ -81,71 +81,66 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 
 
-		(function() {
-			window._mTrack = window._mTrack || [];
+    window._mTrack = window._mTrack || [];
 
-			var items = [];
+    var items = [];
 
-			var extraProductValues = "";
-			var extraProductValuesElement = "";
+    var extraProductValues = "";
+    var extraProductValuesElement = "";
 
-			if (Object.prototype.toString.call(this.valueForToken(
-				"extra_product_values")) === "[object Array]") {
-				extraProductValues = this.valueForToken("extra_product_values");
-			}
+    if (Object.prototype.toString.call(this.valueForToken(
+      "extra_product_values")) === "[object Array]") {
+      extraProductValues = this.valueForToken("extra_product_values");
+    }
 
-			var extraCategoryValues = "";
-			var extraCategoryValuesElement = "";
+    var extraCategoryValues = "";
+    var extraCategoryValuesElement = "";
 
-			if (Object.prototype.toString.call(this.valueForToken(
-				"extra_category_values")) === "[object Array]") {
-				extraCategoryValues = this.valueForToken("extra_category_values");
-			}
+    if (Object.prototype.toString.call(this.valueForToken(
+      "extra_category_values")) === "[object Array]") {
+      extraCategoryValues = this.valueForToken("extra_category_values");
+    }
 
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				if (typeof extraProductValues !== "string") {
-					extraProductValuesElement = extraProductValues[i];
-				}
+    for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+      if (typeof extraProductValues !== "string") {
+        extraProductValuesElement = extraProductValues[i];
+      }
 
-				if (typeof extraCategoryValues !== "string") {
-					extraCategoryValuesElement = extraCategoryValues[i];
-				}
+      if (typeof extraCategoryValues !== "string") {
+        extraCategoryValuesElement = extraCategoryValues[i];
+      }
 
-				items.push({
-					orderId: "" + this.valueForToken("order_id") + "",
-					convType: "" + this.valueForToken("conv_type") + "",
-					product: this.valueForToken("skus")[i] + extraProductValuesElement,
-					prices: this.valueForToken("prices")[i],
-					category: this.valueForToken("categories")[i] +
-						extraCategoryValuesElement,
-					quantities: this.valueForToken("quantities")[i]
-				});
-			}
+      items.push({
+        orderId: "" + this.valueForToken("order_id"),
+        convType: "" + this.valueForToken("conv_type"),
+        product: this.valueForToken("skus")[i] + extraProductValuesElement,
+        prices: this.valueForToken("prices")[i],
+        category: this.valueForToken("categories")[i] +
+          extraCategoryValuesElement,
+        quantities: this.valueForToken("quantities")[i]
+      });
+    }
 
-			window._mTrack.push(['addTrans', {
-				currency: "" + this.valueForToken("currency") + "",
-				items: items
-			}]);
+    window._mTrack.push(['addTrans', {
+      currency: "" + this.valueForToken("currency"),
+      items: items
+    }]);
 
-			if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymizeIP") + "")) {
-				window._mTrack.push(['activateAnonymizeIp']);
-			}
+    if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymizeIP"))) {
+      window._mTrack.push(['activateAnonymizeIp']);
+    }
 
-			window._mTrack.push(['processOrders']);
-
-			(function() {
-				var mClientId = "" + this.valueForToken("marin_tracking_id") + "";
-				var mProto = ('https:' == document.location.protocol ? 'https://' :
-					'http://');
-				var mHost = 'tracker.marinsm.com';
-				var mt = document.createElement('script');
-				mt.type = 'text/javascript';
-				mt.async = true;
-				mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-				var fscr = document.getElementsByTagName('script')[0];
-				fscr.parentNode.insertBefore(mt, fscr);
-			})();
-		})();
+    window._mTrack.push(['processOrders']);
+      var mClientId = "" + this.valueForToken("marin_tracking_id");
+      var mProto = ('https:' == document.location.protocol ? 'https://' :
+        'http://');
+      var mHost = 'tracker.marinsm.com';
+      var mt = document.createElement('script');
+      mt.type = 'text/javascript';
+      mt.async = true;
+      mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+      var fscr = document.getElementsByTagName('script')[0];
+      fscr.parentNode.insertBefore(mt, fscr);
 
 		/*~SCRIPT*/
 	},

@@ -39,12 +39,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		window.dcsMultiTrack({
-			"WT.si_n": "" + this.valueForToken("name") + "",
-			"WT.si_p": "" + this.valueForToken("step_name") + "",
-			"WT.si_x": this.valueForToken("step_position"),
-			"WT.si_cs": this.valueForToken("step_where_conversion_occurs")
+			"WT.si_n": "" + _this.valueForToken("name"),
+			"WT.si_p": "" + _this.valueForToken("step_name"),
+			"WT.si_x": _this.valueForToken("step_position"),
+			"WT.si_cs": _this.valueForToken("step_where_conversion_occurs")
 		});
 		/*~SCRIPT*/
 	},

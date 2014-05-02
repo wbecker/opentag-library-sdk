@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "End of Transaction Tag",
 		async: true,
 		description: "The tag should be placed on the end of transaction page.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mythings.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -58,7 +58,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
+    var _this = this;
 			var products = [];
 			for (var i = 0; i < this.valueForToken("productIds").length; i++) {
 				products.push({
@@ -73,17 +73,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 						EventType: MyThings.Event.Conversion,
 						Action: "9902",
 						Products: products,
-						TransactionReference: "" + this.valueForToken("orderId") + "",
-						TransactionAmount: "" + this.valueForToken("total") + ""
+						TransactionReference: "" + _this.valueForToken("orderId"),
+						TransactionAmount: "" + _this.valueForToken("total")
 					});
 				}
 			}
-		})();
 
 		window.mtHost = (("https:" == document.location.protocol) ? "https://" +
-			this.valueForToken("subdomain") + "" : "http://" + this.valueForToken(
-				"subdomain") + "") + ".mythings.com";
-		window.mtAdvertiserToken = "" + this.valueForToken("token") + "";
+			this.valueForToken("subdomain") : "http://" +
+      this.valueForToken("subdomain")) + ".mythings.com";
+		window.mtAdvertiserToken = "" + this.valueForToken("token");
 		/*~PRE*/
 	},
 	post: function() {

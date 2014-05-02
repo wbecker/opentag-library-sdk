@@ -75,13 +75,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken(
 			"storm_id") + '.js';
-		window.__ch = '' + this.valueForToken("channel") + '';
+		window.__ch = '' + this.valueForToken("channel");
 		/*~PRE*/
 	},
 	post: function() {
 		/*POST*/
-		var i = 0,
-			ii = this.valueForToken("ids").length;
+		var i = 0, ii = this.valueForToken("ids").length;
 
 		for (; i < ii; i++) {
 			saleTrack.addSaleItem({
@@ -90,17 +89,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				m1: this.valueForToken("ids")[i],
 				m2: this.valueForToken("skus")[i],
 				m3: this.valueForToken("colors")[i]
-			})
+			});
 		}
 
 		saleTrack.addSaleItem({
 			itemcount: 1,
 			itemvalue: this.valueForToken("shipping"),
 			m1: "Shipping cost"
-		})
+		});
 
-		saleTrack.curcode = '' + this.valueForToken("currency") + '';
-		saleTrack.orderid = "" + this.valueForToken("order_id") + "";
+		saleTrack.curcode = '' + this.valueForToken("currency");
+		saleTrack.orderid = "" + this.valueForToken("order_id");
 		saleTrack.logSale(1);
 		/*~POST*/
 	}

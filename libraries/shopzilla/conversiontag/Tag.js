@@ -45,7 +45,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-
 		var i = 0,
 			ii = this.valueForToken("quantities").length,
 			totalQuantity = 0,
@@ -54,11 +53,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			totalQuantity += parseInt(this.valueForToken("quantities")[i]);
 		}
 
-		var mid = '' + this.valueForToken("merch_id") + '';
-		var cust_type = customerType;
-		var order_value = '' + this.valueForToken("order_total") + '';
-		var order_id = '' + this.valueForToken("order_id") + '';
-		var units_ordered = totalQuantity;
+		window.mid = '' + this.valueForToken("merch_id");
+		window.cust_type = customerType;
+		window.order_value = '' + this.valueForToken("order_total");
+		window.order_id = '' + this.valueForToken("order_id");
+		window.units_ordered = totalQuantity;
 
 		var script = document.createElement("script");
 		script.src = "https://www.shopzilla.com/css/roi_tracker.js";

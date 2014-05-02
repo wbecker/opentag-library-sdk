@@ -73,17 +73,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var PeeriusCallbacks = {
+		window.PeeriusCallbacks = {
 			track: {
 				type: "order",
-				lang: "" + this.valueForToken("lang") + "",
+				lang: "" + this.valueForToken("lang"),
 				order: {
-					orderNo: "" + this.valueForToken("order_id") + "",
+					orderNo: "" + this.valueForToken("order_id"),
 					items: [],
-					currency: "" + this.valueForToken("currency") + "",
-					subtotal: "" + this.valueForToken("subtotal") + "",
-					shipping: "" + this.valueForToken("shipping") + "",
-					total: "" + this.valueForToken("total") + ""
+					currency: "" + this.valueForToken("currency"),
+					subtotal: "" + this.valueForToken("subtotal"),
+					shipping: "" + this.valueForToken("shipping"),
+					total: "" + this.valueForToken("total")
 				}
 			}
 		};

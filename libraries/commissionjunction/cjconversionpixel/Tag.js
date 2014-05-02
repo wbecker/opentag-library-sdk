@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CJ Conversion Pixel",
 		async: true,
 		description: "The conversion pixel code to enable Commission Junction to track purchases on the confirmation pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/CommissionJunction.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -65,7 +65,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var url = "https://www.emjcd.com/tags/c?containerTagId=" + this.valueForToken(
 				"containerid") + "&";
 			for (var i = 0, ii = this.valueForToken("item_ids").length; i < ii; i++) {
@@ -75,7 +74,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 			url = url + "CID=" + this.valueForToken("cid") + "&OID=" + this.valueForToken(
 				"orderid") + "&TYPE=" + this.valueForToken("actionid") + "&CURRENCY=" +
-				this.valueForToken("currency") + "";
+				this.valueForToken("currency");
 			var iframe = document.createElement("iframe");
 			iframe.height = 1;
 			iframe.width = 1;
@@ -83,7 +82,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			iframe.scrolling = 0;
 			iframe.src = url;
 			document.body.appendChild(iframe);
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

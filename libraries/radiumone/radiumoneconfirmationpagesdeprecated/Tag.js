@@ -24,9 +24,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-
 		// Get timestamp (cachebuster)
 		var time = new Date().getTime();
 
@@ -50,7 +47,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		iframe.marginHeight = 0;
 		iframe.scrolling = 'no';
 		document.body.appendChild(iframe);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -57,7 +57,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 
 		// Fire the confirmation tag
-		var url = "//ad.zanox.com/pps/?" + this.valueForToken("program_id") + "";
+		var url = "//ad.zanox.com/pps/?" + this.valueForToken("program_id");
 		url += "&mode=[[" + this.valueForToken("mode") + "]]";
 		url += "&CustomerID=[[" + this.valueForToken("user_id") + "]]";
 		url += "&OrderID=[[" + this.valueForToken("order_id") + "]]";
@@ -69,17 +69,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		document.body.appendChild(script);
 
 		// Set globals for usage by the master tag
-		var zx_products = [];
-		var zx_transaction = "" + this.valueForToken("order_id") + "";
-		var zx_total_amount = "" + this.valueForToken("subtotal") + "";
-		var zx_total_currency = "" + this.valueForToken("currency") + "";
+		window.zx_products = [];
+		window.zx_transaction = "" + this.valueForToken("order_id");
+		window.zx_total_amount = "" + this.valueForToken("subtotal");
+		window.zx_total_currency = "" + this.valueForToken("currency");
 
 		// The standard mastertag
 		window._zx = window._zx || [];
 		window._zx.push({
-			"id": "" + this.valueForToken("zanox_page_id") + ""
+			"id": "" + this.valueForToken("zanox_page_id")
 		});
-		var waitForZanoxDiv = function() {
+		window.waitForZanoxDiv = function() {
 			if (document.querySelector(".zx_" + this.valueForToken("zanox_page_id") +
 				".zx_mediaslot")) {
 				(function(d) {
@@ -95,7 +95,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 		};
 		waitForZanoxDiv();
-
 
 		/*~SCRIPT*/
 	},

@@ -78,17 +78,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var img = new Image(0, 0),
 			arr = [],
 			obj = {
-				migClientId: '' + this.valueForToken("client_id") + '',
-				migAction: '' + this.valueForToken("tag_name") + '',
-				migSource: '' + this.valueForToken("data_source") + '',
-				migParam1: '' + this.valueForToken("param1") + '',
-				migParam2: '' + this.valueForToken("param2") + '',
-				migParam3: '' + this.valueForToken("param3") + '',
-				migParam4: '' + this.valueForToken("param4") + '',
-				migParam5: '' + this.valueForToken("param5") + '',
-				migValue: '' + this.valueForToken("order_total") + '',
-				migXId: '' + this.valueForToken("transaction_id") + '',
-				migCurrency: '' + this.valueForToken("transaction_currency") + ''
+				migClientId: '' + this.valueForToken("client_id"),
+				migAction: '' + this.valueForToken("tag_name"),
+				migSource: '' + this.valueForToken("data_source"),
+				migParam1: '' + this.valueForToken("param1"),
+				migParam2: '' + this.valueForToken("param2"),
+				migParam3: '' + this.valueForToken("param3"),
+				migParam4: '' + this.valueForToken("param4"),
+				migParam5: '' + this.valueForToken("param5"),
+				migValue: '' + this.valueForToken("order_total"),
+				migXId: '' + this.valueForToken("transaction_id"),
+				migCurrency: '' + this.valueForToken("transaction_currency")
 			};
 		for (var key in obj) {
 			arr.push(key + "=" + obj[key]);

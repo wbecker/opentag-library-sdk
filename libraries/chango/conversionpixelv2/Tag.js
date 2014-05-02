@@ -64,47 +64,47 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		var totalQuantity = (function() {
 			var total = 0;
-			for (var i = 0; i < this.valueForToken("QUANTITY").length; i++) {
-				total += this.valueForToken("QUANTITY")[i];
+			for (var i = 0; i < _this.valueForToken("QUANTITY").length; i++) {
+				total += _this.valueForToken("QUANTITY")[i];
 			}
 			return total;
 		})();
 
 		var skuList = (function() {
 			var str = "";
-			for (var i = 0; i < this.valueForToken("SKUs").length; i++) {
-				str += this.valueForToken("SKUs")[i];
-				if ((i + 1) < this.valueForToken("SKUs").length) {
+			for (var i = 0; i < _this.valueForToken("SKUs").length; i++) {
+				str += _this.valueForToken("SKUs")[i];
+				if ((i + 1) < _this.valueForToken("SKUs").length) {
 					str += ","
 				}
 			}
 			return str;
 		})();
 
-		var __chconv__ = {
+		window.__chconv__ = {
 			"conversion_id": this.valueForToken("ID"),
 			"quantity": totalQuantity,
-			"order_id": "" + this.valueForToken("ORDER_ID") + "",
-			"cost": "" + this.valueForToken("COST") + "",
-			"u1": "" + this.valueForToken("CUSTOMER_ID") + "",
+			"order_id": "" + this.valueForToken("ORDER_ID"),
+			"cost": "" + this.valueForToken("COST"),
+			"u1": "" + this.valueForToken("CUSTOMER_ID"),
 			"u2": skuList,
-			"u3": "" + this.valueForToken("PAGE_TYPE") + "",
-			"u4": "" + this.valueForToken("PAYMENT_TYPE") + "",
-			"u5": "" + this.valueForToken("CONVERSION_TYPE") + ""
+			"u3": "" + this.valueForToken("PAGE_TYPE"),
+			"u4": "" + this.valueForToken("PAYMENT_TYPE"),
+			"u5": "" + this.valueForToken("CONVERSION_TYPE")
 		};
-		(function() {
-			if (typeof(__chconv__) == "undefined") return;
-			var e = encodeURIComponent;
-			var p = [];
-			for (var i in __chconv__) {
-				p.push(e(i) + "=" + e(__chconv__[i]))
-			}
-			(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
-				(new Date()).getTime() + '?' + p.join("&");
-		})();
+
+    if (typeof(__chconv__) == "undefined") return;
+    var e = encodeURIComponent;
+    var p = [];
+    for (var i in __chconv__) {
+      p.push(e(i) + "=" + e(__chconv__[i]))
+    }
+    (new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
+      (new Date()).getTime() + '?' + p.join("&");
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

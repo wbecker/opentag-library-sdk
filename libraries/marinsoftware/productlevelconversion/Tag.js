@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Product Level Conversion",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -59,17 +59,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
 			window._mTrack = window._mTrack || [];
 
 			var items = [];
 
 			for (var i = 0; i < this.valueForToken("skus").length; i++) {
 				items.push({
-					orderId: "" + this.valueForToken("order_id") + "",
-					convType: "" + this.valueForToken("conversion") + "",
+					orderId: "" + this.valueForToken("order_id"),
+					convType: "" + this.valueForToken("conversion"),
 					product: this.valueForToken("skus")[i],
 					price: this.valueForToken("prices")[i],
 					category: this.valueForToken("cats")[i],
@@ -78,26 +75,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 
 			_mTrack.push(['addTrans', {
-				currency: "" + this.valueForToken("currency") + "",
+				currency: "" + this.valueForToken("currency"),
 				items: items
 			}]);
 
 			_mTrack.push(['processOrders']);
 
-			(function() {
-				var mClientId = "" + this.valueForToken("tracking_id") + "";
-				var mProto = ('https:' == document.location.protocol ? 'https://' :
-					'http://');
-				var mHost = 'tracker.marinsm.com';
-				var mt = document.createElement('script');
-				mt.type = 'text/javascript';
-				mt.async = true;
-				mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-				var fscr = document.getElementsByTagName('script')[0];
-				fscr.parentNode.insertBefore(mt, fscr);
-			})();
-		})();
-
+      var mClientId = "" + this.valueForToken("tracking_id");
+      var mProto = ('https:' == document.location.protocol ? 'https://' :
+        'http://');
+      var mHost = 'tracker.marinsm.com';
+      var mt = document.createElement('script');
+      mt.type = 'text/javascript';
+      mt.async = true;
+      mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+      var fscr = document.getElementsByTagName('script')[0];
+      fscr.parentNode.insertBefore(mt, fscr);
 		/*~SCRIPT*/
 	},
 	pre: function() {

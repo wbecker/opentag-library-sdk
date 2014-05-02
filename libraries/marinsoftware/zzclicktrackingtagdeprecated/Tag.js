@@ -30,27 +30,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
+		window._mTrack = window._mTrack || [];
 
-		var _mTrack = window._mTrack || [];
-
-		if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip") + "")) {
+		if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip"))) {
 			_mTrack.push(['activateAnonymizeIp']);
 		}
 
 		_mTrack.push(['trackPage']);
 
-		(function() {
-			var mClientId = "" + this.valueForToken("marin_tracking_id") + "";
-			var mProto = ('https:' == document.location.protocol ? 'https://' :
-				'http://');
-			var mHost = 'tracker.marinsm.com';
-			var mt = document.createElement('script');
-			mt.type = 'text/javascript';
-			mt.async = true;
-			mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-			var fscr = document.getElementsByTagName('script')[0];
-			fscr.parentNode.insertBefore(mt, fscr);
-		})();
+    var mClientId = "" + this.valueForToken("marin_tracking_id");
+    var mProto = ('https:' == document.location.protocol ? 'https://' :
+      'http://');
+    var mHost = 'tracker.marinsm.com';
+    var mt = document.createElement('script');
+    mt.type = 'text/javascript';
+    mt.async = true;
+    mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+    var fscr = document.getElementsByTagName('script')[0];
+    fscr.parentNode.insertBefore(mt, fscr);
 
 		/*~SCRIPT*/
 	},

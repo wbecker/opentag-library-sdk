@@ -59,16 +59,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var AWIN = {
+		window.AWIN = {
 			Tracking: {
 				Sale: {
 					amount: this.valueForToken("order_total"),
-					currency: "" + this.valueForToken("currency") + "",
-					orderRef: "" + this.valueForToken("order_id") + "",
+					currency: "" + this.valueForToken("currency"),
+					orderRef: "" + this.valueForToken("order_id"),
 					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken(
 						"order_total"),
-					voucher: "" + this.valueForToken("voucher") + "",
-					test: "" + this.valueForToken("testmode") + ""
+					voucher: "" + this.valueForToken("voucher"),
+					test: "" + this.valueForToken("testmode")
 				}
 			}
 		};

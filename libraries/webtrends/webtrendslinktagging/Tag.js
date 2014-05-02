@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Webtrends link tagging",
 		async: true,
 		description: "Designed to replace inline on click tagging. Usually you'll want one tag per link tagged. Uses jQuery selectors, so jQuery is required to exist on the page.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -44,27 +44,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+    var _this = this;
 
-		(function() {
+    var $ = window["" + _this.valueForToken("jquery_name")];
 
-			var $ = window["" + this.valueForToken("jquery_name") + ""];
+    $(document).ready(function() {
+      $("" + _this.valueForToken("selector")).click(function() {
+        Webtrends.multiTrack({
+          element: this,
+          argsa: [
+            "WT.ti", "" + _this.valueForToken("title"),
+            "DCS.dcsuri", "" + _this.valueForToken("url"),
+            'WT.dl', "" + _this.valueForToken("type")
+          ]
+        });
+      });
+    });
 
-			$(document).ready(function() {
-
-				$("" + this.valueForToken("selector") + "").click(function() {
-					Webtrends.multiTrack({
-						element: this,
-						argsa: [
-							"WT.ti", "" + this.valueForToken("title") + "",
-							"DCS.dcsuri", "" + this.valueForToken("url") + "",
-							'WT.dl', "" + this.valueForToken("type") + ""
-						]
-					});
-				});
-
-			});
-
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -68,11 +68,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var sale = {
+		window.sale = {
 			confirmed: true
 		};
 
-		var basket = {
+		window.basket = {
 			products: []
 		};
 
@@ -80,19 +80,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			basket.products.push({
 				identifier: this.valueForToken("product_ids")[i],
 				amount: this.valueForToken("prices")[i],
-				currency: '' + this.valueForToken("currency") + '',
+				currency: '' + this.valueForToken("currency"),
 				quantity: this.valueForToken("quantities")[i]
 			});
 		}
 
-		basket.transaction = '' + this.valueForToken("transaction_id") + '';
-		basket.amount = '' + this.valueForToken("checkout_total") + '';
-		basket.currency = '' + this.valueForToken("currency") + '';
+		basket.transaction = '' + this.valueForToken("transaction_id");
+		basket.amount = '' + this.valueForToken("checkout_total");
+		basket.currency = '' + this.valueForToken("currency");
 		window.basket = basket;
 		window.customer = window.customer || {};
 
 		//Allows for custom scripts altering the customer object. Skipped over if user_id or user_email is false-like
-		var email = '' + this.valueForToken("user_email") + '';
+		window.email = '' + this.valueForToken("user_email");
 		if (email && email.toLowerCase() !== "false") {
 			email = email;
 			email = CryptoJS.SHA1(email).toString();
@@ -106,7 +106,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			if (parts.length == 2) window.customer.mhash = parts.pop().split(";").shift();
 		}
 
-		var user_id = '' + this.valueForToken("user_id") + '';
+		window.user_id = '' + this.valueForToken("user_id");
 		if (user_id && user_id.toLowerCase() !== "false") {
 			user_id = user_id;
 			var date = new Date();

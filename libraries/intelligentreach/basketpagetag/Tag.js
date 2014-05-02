@@ -33,9 +33,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		istCompanyId = "" + this.valueForToken("id") + "";
-		istItemCount = this.valueForToken("productSku").length;
-		istBasketItems = "";
+		window.istCompanyId = "" + this.valueForToken("id");
+		window.istItemCount = this.valueForToken("productSku").length;
+		window.istBasketItems = "";
 
 		for (var i = 0; i < this.valueForToken("productSku").length; i++) {
 			istBasketItems += this.valueForToken("productSku")[i];
@@ -44,9 +44,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				istBasketItems += "|";
 			}
 		}
-		istUserDefinedFieldOne = "";
-		istUserDefinedFieldTwo = "";
-		istUserDefinedFieldThree = "";
+		window.istUserDefinedFieldOne = "";
+		window.istUserDefinedFieldTwo = "";
+		window.istUserDefinedFieldThree = "";
 		/*~PRE*/
 	},
 	post: function() {

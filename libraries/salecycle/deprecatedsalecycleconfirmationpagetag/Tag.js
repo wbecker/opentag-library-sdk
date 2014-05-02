@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "DEPRECATED SaleCycle Confirmation Page Tag",
 		async: true,
 		description: "The tag loads a 1px by 1px blank image in the page by calling the SaleCycle PixelCapture.aspx page, and should be implemented on the order completion page only, as close to the top of the page as possible within the <body> tags.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/salecycle.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -29,17 +29,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			var src = [
 				'https://app.salecycle.com/Import/PixelCapture.aspx?',
-				'c=', '' + this.valueForToken("clientID") + '',
-				'&e=', '' + this.valueForToken("userEmail") + ''
+				'c=', '' + this.valueForToken("clientID"),
+				'&e=', '' + this.valueForToken("userEmail")
 			].join('');
 			var img = document.createElement('img');
 			img.setAttribute('src', src);
 			document.body.append(img);
-		})()
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -28,7 +28,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var _struqPI = _struqPI || [];
+		window._struqPI = window._struqPI || [];
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("basket_pid_listing").length; i < ii; i++) {
 			productArr.push(this.valueForToken("basket_pid_listing")[i]);

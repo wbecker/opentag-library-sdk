@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Sovendus [Required Fields Only]",
 		async: true,
 		description: "<div id=\"gutscheinconnection-container\"></div> should first be placed on the confirmation page, and positioned (using css) exactly where you'd like the banner to appear, before activating this tag (this version of the script is leaving out all optional parameters for faster implementation)",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sovendus-logo.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -49,9 +49,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
 			var waitForSovendusDiv = function() {
 				if (document.getElementById('gutscheinconnection-container')) {
 					var sovendusNewDate = new Date();
@@ -75,16 +72,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 					_gconData.length = 0;
 
-					_gconData.push(['_shopId', '' + this.valueForToken("shop_id") + '']);
-					_gconData.push(['_bannerId', '' + this.valueForToken("banner_id") + '']);
+					_gconData.push(['_shopId', '' + this.valueForToken("shop_id")]);
+					_gconData.push(['_bannerId', '' + this.valueForToken("banner_id")]);
 					_gconData.push(['_sessionId', sovendusSessionId]);
 					_gconData.push(['_timestamp', sovendusTimestamp]);
-					_gconData.push(['_orderId', '' + this.valueForToken("order_id") + '']);
+					_gconData.push(['_orderId', '' + this.valueForToken("order_id")]);
 					_gconData.push(['_orderValue', '' + this.valueForToken("order_value") +
 						''
 					]);
-					_gconData.push(['_orderCurrency', '' + this.valueForToken(
-						"order_currency") + '']);
+					_gconData.push(['_orderCurrency', '' + this.valueForToken("order_currency")]);
 					_gconData.push(['_usedCouponCode', '' + this.valueForToken("coupon_code") +
 						''
 					]);
@@ -102,9 +98,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 			waitForSovendusDiv();
-
-		})();
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

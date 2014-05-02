@@ -45,22 +45,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-
+    var _this = this;
 		//compile cart data
 		var cart = (function() {
 			var arr = [];
 			for (var i = 0; i < this.valueForToken("productNames").length; i++) {
 				arr.push({
-					na: this.valueForToken("productNames")[i],
-					sku: this.valueForToken("productSKU")[i]
+					na: _this.valueForToken("productNames")[i],
+					sku: _this.valueForToken("productSKU")[i]
 				});
 			}
 			return arr;
 		})();
 
-		var __cho__ = {
+		window.__cho__ = {
 			"data": {
-				"pt": "" + this.valueForToken("PT_VALUE") + "",
+				"pt": "" + this.valueForToken("PT_VALUE"),
 				"crt": cart,
 				"na": "",
 				"op": "",
@@ -68,17 +68,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"sku": "",
 				"pc": ""
 			},
-			"pid": "" + this.valueForToken("ID") + "",
-			"puid2": "" + this.valueForToken("PUID") + ""
+			"pid": "" + this.valueForToken("ID"),
+			"puid2": "" + this.valueForToken("PUID")
 		};
-		(function() {
-			var c = document.createElement('script');
-			c.type = 'text/javascript';
-			c.async = true;
-			c.src = document.location.protocol + '//cc.chango.com/static/o.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(c, s);
-		})();
+
+    var c = document.createElement('script');
+    c.type = 'text/javascript';
+    c.async = true;
+    c.src = document.location.protocol + '//cc.chango.com/static/o.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(c, s);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

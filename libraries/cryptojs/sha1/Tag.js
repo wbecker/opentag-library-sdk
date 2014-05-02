@@ -207,7 +207,6 @@ code.google.com/p/crypto-js/wiki/License
 				var s = p.algo = {};
 				return p
 			}(Math);
-			(function() {
 				var e = window.CryptoJS,
 					m = e.lib,
 					p = m.WordArray,
@@ -264,7 +263,6 @@ code.google.com/p/crypto-js/wiki/License
 					});
 				e.SHA1 = j._createHelper(m);
 				e.HmacSHA1 = j._createHmacHelper(m)
-			})();
 		}
 		/*~SCRIPT*/
 	},

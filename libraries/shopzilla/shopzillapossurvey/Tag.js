@@ -69,20 +69,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	pre: function() {
 		/*PRE*/
 		// Offset. Input blank to default to center.
-		var passX = "" + this.valueForToken("passin_x") + "";
-		var passY = "" + this.valueForToken("passin_y") + "";
+		window.passX = "" + this.valueForToken("passin_x");
+		window.passY = "" + this.valueForToken("passin_y");
 
 		//Don't define passin_x and passin_y if blank value provided
 		if (passX !== "" && passY !== "") {
-			var passin_x = Number(passX);
-			var passin_y = Number(passY);
+			window.passin_x = Number(passX);
+			window.passin_y = Number(passY);
 		}
 
-		var orderId = "" + this.valueForToken("order_id") + "";
-		var cartTotal = this.valueForToken("total");
-		var billingZipCode = "" + this.valueForToken("zip_code") + "";
+		window.orderId = "" + this.valueForToken("order_id");
+		window.cartTotal = this.valueForToken("total");
+		window.billingZipCode = "" + this.valueForToken("zip_code");
 
-		var productsPurchasedArr = [];
+		window.productsPurchasedArr = [];
 
 		for (var i = 0; i < Math.min(5, this.valueForToken("skus").length); i++) {
 			var item = "";
@@ -90,10 +90,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			item += "^SKU= " + this.valueForToken("skus")[i];
 			// item += "^GTIN= " + ${ids}[i]; // Global Trade Item Number - ignore this
 			item += "^PRICE= " + this.valueForToken("unit_sale_prices")[i];
-			productsPurchasedArr.push(item)
+			productsPurchasedArr.push(item);
 		};
 
-		var productsPurchased = productsPurchasedArr.join("|");
+		window.productsPurchased = productsPurchasedArr.join("|");
 		/*~PRE*/
 	},
 	post: function() {

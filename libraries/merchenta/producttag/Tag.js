@@ -30,8 +30,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var mc_api_url = "api.merchenta.com/merchenta/t";
-		(function() {
+		window.mc_api_url = "api.merchenta.com/merchenta/t";
 			var script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.async = true;
@@ -42,7 +41,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				script.src = "http://cdn.merchenta.com/track/t.js";
 			}
 			document.getElementsByTagName('head')[0].appendChild(script);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

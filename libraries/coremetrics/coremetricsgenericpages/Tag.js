@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Generic pages",
 		async: true,
 		description: "To be used on all pages that are not product, transactional, or conversion based.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -57,23 +57,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 
 			// Top level settings  
 			window.cmSetClientID(
-				"" + this.valueForToken("client_id") + "",
+				"" + this.valueForToken("client_id"),
 				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain") + "",
-				"" + this.valueForToken("cookie_domain") + ""
+				"" + this.valueForToken("data_collection_domain"),
+				"" + this.valueForToken("cookie_domain")
 			);
 
 			// Track pageviews with whatever data we have
 			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id") + "",
-				"" + this.valueForToken("category_id") + ""
+				"" + this.valueForToken("page_id"),
+				"" + this.valueForToken("category_id")
 			);
 
-		}());
 		/*~POST*/
 	}
 });

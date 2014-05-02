@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Product pages (with Custom Attribute)",
 		async: true,
 		description: "The same as the product page tag, but with the extra parameter to distinguish a specific type of product page view content.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -73,31 +73,29 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 
 			// Client Setup
 			window.cmSetClientID(
-				"" + this.valueForToken("client_id") + "",
+				"" + this.valueForToken("client_id"),
 				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain") + "",
-				"" + this.valueForToken("cookie_domain") + ""
+				"" + this.valueForToken("data_collection_domain"),
+				"" + this.valueForToken("cookie_domain")
 			);
 
 			// Page View
 			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id") + "",
-				"" + this.valueForToken("category_id") + ""
+				"" + this.valueForToken("page_id"),
+				"" + this.valueForToken("category_id")
 			);
 
 			// Product View
 			window.cmCreateProductviewTag(
-				"" + this.valueForToken("product_id") + "",
-				"" + this.valueForToken("product_name") + "",
-				"" + this.valueForToken("category_id") + "",
-				"" + this.valueForToken("custom_attribute") + ""
+				"" + this.valueForToken("product_id"),
+				"" + this.valueForToken("product_name"),
+				"" + this.valueForToken("category_id"),
+				"" + this.valueForToken("custom_attribute")
 			);
 
-		}());
 		/*~POST*/
 	}
 });

@@ -43,11 +43,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var  drawbridge_partner_id  =  "" + this.valueForToken("partner_id") + "";
-		var  drawbridge_partner_sign  =  "" + this.valueForToken("partner_sign") +
-			"";
-		var  drawbridge_app_id  =  "" + this.valueForToken("app_id") + "";
-		var  drawbridge_label  =  "" + this.valueForToken("label") + "";
+		window.drawbridge_partner_id  =  "" + this.valueForToken("partner_id");
+		window.drawbridge_partner_sign  =  "" + this.valueForToken("partner_sign");
+		window.drawbridge_app_id  =  "" + this.valueForToken("app_id");
+		window.drawbridge_label  =  "" + this.valueForToken("label");
 		/*~PRE*/
 	},
 	post: function() {

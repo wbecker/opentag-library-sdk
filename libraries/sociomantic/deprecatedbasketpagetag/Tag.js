@@ -48,7 +48,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var basket = {
+		window.basket = {
 			products: []
 		};
 
@@ -56,7 +56,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			basket.products.push({
 				identifier: this.valueForToken("product_ids")[i],
 				amount: this.valueForToken("amounts")[i],
-				currency: '' + this.valueForToken("currency") + '',
+				currency: '' + this.valueForToken("currency"),
 				quantity: this.valueForToken("quantities")[i]
 			});
 		}

@@ -22,7 +22,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var sp_t = window.universal_variable.transaction;
+		window.sp_t = window.universal_variable.transaction;
 
 		if (sp_t) {
 			// First fire the 'addTrans' event for the new transaction

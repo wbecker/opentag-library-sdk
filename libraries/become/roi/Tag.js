@@ -50,9 +50,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var become_merchant_id = '' + this.valueForToken("become_merchant_id") + '';
-		var become_order_num = '' + this.valueForToken("order_number") + '';
-		var become_purchased_items = [];
+		window.become_merchant_id = '' + this.valueForToken("become_merchant_id");
+		window.become_order_num = '' + this.valueForToken("order_number");
+		window.become_purchased_items = [];
 
 		for (var i = 0; i < this.valueForToken("product_quantity_list").length; i++) {
 			var become_item = {

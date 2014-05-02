@@ -66,23 +66,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			productArray.push(product);
 		}
 
-		function _mt_ready() {
+		window._mt_ready = function () {
 			if (typeof(MyThings) != "undefined") {
 				MyThings.Track({
 					EventType: MyThings.Event.Conversion,
 					Action: "9902",
 					Products: productArray,
-					TransactionReference: "" + this.valueForToken("order_id") + "",
-					TransactionAmount: "" + this.valueForToken("order_amount") + ""
+					TransactionReference: "" + this.valueForToken("order_id"),
+					TransactionAmount: "" + this.valueForToken("order_amount")
 				});
 			}
 		}
-		var mtHost = (("https:" == document.location.protocol) ? "https://rainbowx" :
+       
+		window.mtHost = (("https:" == document.location.protocol) ? "https://rainbowx" :
 			"http://rainbow") + ".mythings.com";
-		var mtAdvertiserToken = "" + this.valueForToken("advertiser_token") + "";
+		window.mtAdvertiserToken = "" + this.valueForToken("advertiser_token");
 		document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok=" +
-			mtAdvertiserToken + "' type='text/
-javascript'%3E%3C/script%3E"));
+			mtAdvertiserToken + "' type='text/javascript'%3E%3C/script%3E"));
 		/*~SCRIPT*/
 	},
 	pre: function() {

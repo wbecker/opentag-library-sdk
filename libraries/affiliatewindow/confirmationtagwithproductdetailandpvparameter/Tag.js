@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Tag with Product Detail and PV parameter",
 		async: true,
 		description: "Confirmation page script for pages that send product information with the same commission group for each product. This includes the PV parameter which can be used when AWin is not being affiliated to the sale but still needs to be made aware of it.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -89,17 +89,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
 			var awinImgSrc = [
-				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken(
-					"merchant_id") + "&amount=",
-				"" + this.valueForToken("order_total") + "",
-				"&ref=", "" + this.valueForToken("order_id") + "",
-				"&parts=" + this.valueForToken("commission_group") + ":", "" + this.valueForToken(
-					"order_total") + "",
-				"&vc=", "" + this.valueForToken("voucher") + "",
-				"&testmode=" + this.valueForToken("test_mode") + "&cr=", "" + this.valueForToken(
-					"currency") + ""
+				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" +
+                this.valueForToken("merchant_id") + "&amount=",
+				"" + this.valueForToken("order_total"),
+				"&ref=", "" + this.valueForToken("order_id"),
+				"&parts=" + this.valueForToken("commission_group") + ":",
+        "" + this.valueForToken("order_total"),
+				"&vc=", "" + this.valueForToken("voucher"),
+				"&testmode=" + this.valueForToken("test_mode") + "&cr=",
+        "" + this.valueForToken("currency")
 			].join("");
 			var el = document.createElement("img");
 			el.setAttribute("src", awinImgSrc);
@@ -117,7 +116,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 				textareaText.push([
 					"AW:P|" + this.valueForToken("merchant_id") + "|",
-					"" + this.valueForToken("order_id") + "", "|",
+					"" + this.valueForToken("order_id"), "|",
 					this.valueForToken("product_ids")[i], "|",
 					this.valueForToken("product_names")[i], "|",
 					this.valueForToken("product_prices")[i], "|",
@@ -131,18 +130,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			form.appendChild(textarea);
 			document.body.appendChild(form);
-		})();
 
-		var AWIN = {
+		window.AWIN = {
 			Tracking: {
 				Sale: {
 					amount: this.valueForToken("order_total"),
-					currency: "" + this.valueForToken("currency") + "",
-					orderRef: "" + this.valueForToken("order_id") + "",
+					currency: "" + this.valueForToken("currency"),
+					orderRef: "" + this.valueForToken("order_id"),
 					parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken(
 						"order_total"),
-					voucher: "" + this.valueForToken("voucher") + "",
-					test: "" + this.valueForToken("test_mode") + "",
+					voucher: "" + this.valueForToken("voucher"),
+					test: "" + this.valueForToken("test_mode"),
 					pvOnly: '1'
 				}
 			}

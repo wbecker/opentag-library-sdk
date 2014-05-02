@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Webtrends - Ecommerce tracking",
 		async: true,
 		description: "To be placed on pages where you wish to pass back transactional data. Should be dependent on the main Webtrends tracking tag.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -54,9 +54,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
 			var now = new Date();
 			var day = now.getUTCDate() + "";
 			if (day.length === 1) day = "0" + day;
@@ -97,7 +94,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				// Transaction parameters
 				"WT.tx_u": quantities.join(';'),
 				"WT.tx_s": subtotals.join(';'),
-				"WT.tx_i": "" + this.valueForToken("order_id") + "",
+				"WT.tx_i": "" + this.valueForToken("order_id"),
 
 				// Product parameters
 				"WT.pn_sku": skus.join(';'),
@@ -114,7 +111,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			});
 
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "RadiumOne - Generic Pages DEPRECATED",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->\n\n",
+		html: "\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -24,17 +24,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
-
 			// Get timestamp (cachebuster)
 			var time = new Date().getTime();
-
 			// Iframe
 			iframe = document.createElement('iframe');
 			iframe.src = "//rs.gwallet.com/r1/pixel/x6036r" + time + "?shop_id=" +
-				this.valueForToken("shop_id") + "";
+				this.valueForToken("shop_id");
 			iframe.width = 1;
 			iframe.height = 1;
 			iframe.frameBorder = 0;
@@ -42,9 +37,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			iframe.marginHeight = 0;
 			iframe.scrolling = 'no';
 			document.body.appendChild(iframe);
-
-		})();
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

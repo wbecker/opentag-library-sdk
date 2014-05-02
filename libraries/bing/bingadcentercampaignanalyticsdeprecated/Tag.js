@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Bing AdCenter Campaign Analytics DEPRECATED",
 		async: true,
 		description: "Script to generate reports on the success of your advertising campaigns via Bing Search",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Bing.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -38,26 +38,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
 			if (!window.mstag) {
 				window.mstag = {
 					loadTag: function() {},
 					time: (new Date()).getTime()
 				};
 			}
-		})();
 		/*~PRE*/
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 			window.mstag.loadTag("analytics", {
 				dedup: "1",
-				domainId: "" + this.valueForToken("domain_id") + "",
+				domainId: "" + this.valueForToken("domain_id"),
 				type: "1",
-				actionid: "" + this.valueForToken("action_id") + ""
+				actionid: "" + this.valueForToken("action_id")
 			});
-		})();
 		/*~POST*/
 	}
 });

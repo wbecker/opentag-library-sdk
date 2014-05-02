@@ -25,7 +25,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var _struqPI = _struqPI || [];
+		window._struqPI = window._struqPI || [];
 
 		_struqPI.push(['injectTrackingPixel', {
 			trackingPixelId: 'PixelID',

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Tag DEPRECATED",
 		async: true,
 		description: "Should be placed on the confirmation page only",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Liveclicker.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -30,16 +30,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var revenue = parseFloat(this.valueForToken("order_total")) * 100;
 			var script = document.createElement('script');
 
 			script.src =
-				'https://sc.liveclicker.net/service/track?kind=order&account_id=' + this.valueForToken(
-					"account_id") + '&value=' + revenue;
+				'https://sc.liveclicker.net/service/track?kind=order&account_id=' +
+        this.valueForToken("account_id") + '&value=' + revenue;
 
 			document.getElementsByTagName('head')[0].appendChild(script);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

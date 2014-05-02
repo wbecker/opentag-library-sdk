@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Social Measurement Conversion Beacon (Required fields only)",
 		async: true,
 		description: "To be placed on the conversion page in order to integrate Social Measurement with Bazaarvoice's other solutions.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/bazaarvoice.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -68,34 +68,36 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 			try {
 				var item_count = 0;
-				var items = (function() {
-					var tmp = [];
-					for (var i = 0; i < this.valueForToken("ids").length; i++) {
-						tmp.push([this.valueForToken("ids")[i], "", "", this.valueForToken(
-							"qtys")[i], this.valueForToken("prices")[i]])
-						item_count += this.valueForToken("qtys")[i];
-					}
-					return tmp;
-				})();
+        var items = [];
+        
+        for (var i = 0; i < this.valueForToken("ids").length; i++) {
+          items.push([
+            this.valueForToken("ids")[i],
+            "", "",
+            this.valueForToken("qtys")[i],
+            this.valueForToken("prices")[i]]);
+
+          item_count += this.valueForToken("qtys")[i];
+        }
+        
 				var tracker = POWERREVIEWS.tracker.createTracker({
-					merchantGroupId: "" + this.valueForToken("group_id") + ""
+					merchantGroupId: "" + this.valueForToken("group_id")
 				});
+        
 				tracker.trackPageview("c", {
-					merchantId: "" + this.valueForToken("merchant_id") + "",
+					merchantId: "" + this.valueForToken("merchant_id"),
 					locale: "en_US",
-					merchantUserId: "" + this.valueForToken("merchant_user_id") + "",
-					orderId: "" + this.valueForToken("order_id") + "",
-					orderSubtotal: "" + this.valueForToken("order_subtotal") + "",
+					merchantUserId: "" + this.valueForToken("merchant_user_id"),
+					orderId: "" + this.valueForToken("order_id"),
+					orderSubtotal: "" + this.valueForToken("order_subtotal"),
 					orderNumberOfItems: String(item_count),
 					orderItems: items
 				});
 			} catch (e) {
-				window.console && window.console.log(e)
+				window.console && window.console.log(e);
 			}
-		}());
 		/*~POST*/
 	}
 });

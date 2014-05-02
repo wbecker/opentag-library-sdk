@@ -21,8 +21,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
 		window.uv_listener.push(['on', 'event',
 			function(event) {
 				if (event && event.type && event.type === "struct") {
@@ -40,7 +38,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				}
 			}
 		]);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -78,17 +78,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var PeeriusCallbacks = {
+		window.PeeriusCallbacks = {
 			track: {
 				type: "order",
-				lang: "" + this.valueForToken("language") + "",
+				lang: "" + this.valueForToken("language"),
 				order: {
-					orderNo: "" + this.valueForToken("order_id") + "",
+					orderNo: "" + this.valueForToken("order_id"),
 					items: [],
-					currency: "" + this.valueForToken("currency") + "",
-					subtotal: "" + this.valueForToken("subtotal") + "",
-					shipping: "" + this.valueForToken("shipping") + "",
-					total: "" + this.valueForToken("total") + ""
+					currency: "" + this.valueForToken("currency"),
+					subtotal: "" + this.valueForToken("subtotal"),
+					shipping: "" + this.valueForToken("shipping"),
+					total: "" + this.valueForToken("total")
 				}
 			}
 		};
@@ -106,8 +106,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*POST*/
 		var orderString = JSON.stringify(PeeriusCallbacks.track.order);
 		var order = encodeURIComponent(orderString);
-		Peerius.sendAjax("" + this.valueForToken("url_start") + "" +
-			"/order/add.pagex?order=" + order);
+		Peerius.sendAjax("" + this.valueForToken("url_start") + "/order/add.pagex?order=" + order);
 		/*~POST*/
 	}
 });

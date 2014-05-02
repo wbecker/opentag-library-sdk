@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Basket page",
 		async: true,
 		description: "The shop action 5 tag, to be placed on basket pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -82,26 +82,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
-
 			var i = 0,
 				ii = this.valueForToken("product_ids").length;
 
 			// Client Setup
 			window.cmSetClientID(
-				"" + this.valueForToken("client_id") + "",
+				"" + this.valueForToken("client_id"),
 				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain") + "",
-				"" + this.valueForToken("cookie_domain") + ""
+				"" + this.valueForToken("data_collection_domain"),
+				"" + this.valueForToken("cookie_domain")
 			);
 
 			// Page View
 			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id") + "",
-				"" + this.valueForToken("category_id") + ""
+				"" + this.valueForToken("page_id"),
+				"" + this.valueForToken("category_id")
 			);
-
-
 
 			// Products
 			for (; i < ii; i++) {
@@ -115,8 +111,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 			window.cmDisplayShops();
-
-		}());
 		/*~POST*/
 	}
 });

@@ -116,7 +116,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			methods: ["configure", "extend", "declare", "identify"]
 		});
 		/* custom configuration goes here (www.olark.com/documentation) */
-		olark.identify('" + this.valueForToken("SITE_ID") + "');
+		olark.identify('' + this.valueForToken("SITE_ID"));
 		/*]]>{/literal}*
 	/*~SCRIPT*/
 	},

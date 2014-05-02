@@ -102,25 +102,26 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
+		var _this = this;
 		function post_to_owned_it() {
 			var details = {
-				"customer_email": "" + this.valueForToken("USER_EMAIL") + "",
-				"order_id": "" + this.valueForToken("ORDER_ID") + "",
-				"store_name": "" + this.valueForToken("STORE_NAME") + "",
+				"customer_email": "" + _this.valueForToken("USER_EMAIL"),
+				"order_id": "" + _this.valueForToken("ORDER_ID"),
+				"store_name": "" + _this.valueForToken("STORE_NAME"),
 				"products": []
 			};
-			for (var i = 0; i < this.valueForToken("PRODUCT_IDS").length; i++) {
+			for (var i = 0; i < _this.valueForToken("PRODUCT_IDS").length; i++) {
 				details.products.push({
-					"product_name": this.valueForToken("PRODUCT_NAME")[i],
-					"product_url": this.valueForToken("PRODUCT_URL")[i],
-					"product_desc": this.valueForToken("PRODUCT_DESC")[i],
-					"product_image_url": this.valueForToken("PRODUCT_IMAGE_URL")[i],
-					"product_price": this.valueForToken("PRODUCT_PRICE")[i],
-					"currency": "" + this.valueForToken("PRODUCT_CURRENCY") + "",
-					"product_sku": this.valueForToken("PRODUCT_SKU")[i],
-					"product_id": this.valueForToken("PRODUCT_IDS")[i],
-					"product_category": this.valueForToken("PRODUCT_CATEGORY")[i],
-					"product_quantity": this.valueForToken("PRODUCT_QUANTITY")[i]
+					"product_name": _this.valueForToken("PRODUCT_NAME")[i],
+					"product_url": _this.valueForToken("PRODUCT_URL")[i],
+					"product_desc": _this.valueForToken("PRODUCT_DESC")[i],
+					"product_image_url": _this.valueForToken("PRODUCT_IMAGE_URL")[i],
+					"product_price": _this.valueForToken("PRODUCT_PRICE")[i],
+					"currency": "" + _this.valueForToken("PRODUCT_CURRENCY"),
+					"product_sku": _this.valueForToken("PRODUCT_SKU")[i],
+					"product_id": _this.valueForToken("PRODUCT_IDS")[i],
+					"product_category": _this.valueForToken("PRODUCT_CATEGORY")[i],
+					"product_quantity": _this.valueForToken("PRODUCT_QUANTITY")[i]
 				});
 			}
 			post_it(details);

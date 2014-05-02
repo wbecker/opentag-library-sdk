@@ -33,8 +33,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var product = {
-			identifier: '' + this.valueForToken("PRODUCT_ID") + ''
+		window.product = {
+			identifier: '' + this.valueForToken("PRODUCT_ID")
 		};
 		window.product = product;
 		/*~PRE*/

@@ -39,7 +39,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var img = document.createElement("img");
 		img.height = 1;
 		img.width = 1;

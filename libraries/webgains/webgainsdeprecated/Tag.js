@@ -95,31 +95,36 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-
-		var wgItems = function() {
+    var _this = this;
+		window.wgItems = function() {
 			var wgItemsString = "";
 
-			for (i = 0; i < this.valueForToken("unit_prices").length; i++) {
+			for (var i = 0; i < _this.valueForToken("unit_prices").length; i++) {
 				/* if there's a dynamic event id specific to each item - it will be used */
-				if (this.valueForToken("product_event_id").length !== 0) {
-					wgItemsString = wgItemsString + this.valueForToken("product_event_id")[i] +
-						"::" + (Number(this.valueForToken("unit_prices")[i]) * Number(this.valueForToken(
-							"unit_quantity")[i])) + "::" + this.valueForToken("unit_quantity")[i] +
-						"x" + this.valueForToken("unit_names")[i] + "::" + this.valueForToken(
-							"product_id_list")[i] + "::" + "" + this.valueForToken("voucher_code") +
+				if (_this.valueForToken("product_event_id").length !== 0) {
+					wgItemsString = wgItemsString + 
+            _this.valueForToken("product_event_id")[i] +
+						"::" + (Number(_this.valueForToken("unit_prices")[i]) * 
+            Number(_this.valueForToken("unit_quantity")[i])) + "::" +
+            _this.valueForToken("unit_quantity")[i] +
+						"x" + _this.valueForToken("unit_names")[i] + "::" +
+            _this.valueForToken("product_id_list")[i] + "::" + 
+            _this.valueForToken("voucher_code") +
 						"";
 				}
 				/* othwerwise - if there's not an event id specific to each item - the static client-id value will be used*/
 				else {
-					wgItemsString = wgItemsString + "" + this.valueForToken("client_event_id") +
-						"" + "::" + (Number(this.valueForToken("unit_prices")[i]) * Number(this.valueForToken(
-							"unit_quantity")[i])) + "::" + this.valueForToken("unit_quantity")[i] +
-						"x" + this.valueForToken("unit_names")[i] + "::" + this.valueForToken(
-							"product_id_list")[i] + "::" + "" + this.valueForToken("voucher_code") +
+					wgItemsString = wgItemsString + _this.valueForToken("client_event_id") +
+						"" + "::" + (Number(_this.valueForToken("unit_prices")[i]) * 
+            Number(_this.valueForToken("unit_quantity")[i])) + "::" +
+            _this.valueForToken("unit_quantity")[i] + "x" + 
+            _this.valueForToken("unit_names")[i] + "::" + 
+            _this.valueForToken("product_id_list")[i] + "::" +
+            _this.valueForToken("voucher_code") +
 						"";
 				}
-				if (this.valueForToken("unit_prices").length !== 1 && i < this.valueForToken(
-					"unit_prices").length - 1) {
+				if (_this.valueForToken("unit_prices").length !== 1 && 
+                i < _this.valueForToken("unit_prices").length - 1) {
 					wgItemsString = wgItemsString + "|";
 				}
 			}
@@ -129,24 +134,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		if (location.protocol.toLowerCase() == "https:") wgProtocol = "https";
 		else wgProtocol = "http";
 
-		wgUri = "//" + this.valueForToken("subdomain") +
+		window.wgUri = "//" + _this.valueForToken("subdomain") +
 			".webgains.com/transaction.html?";
 		wgUri += "wgrs=1";
 		wgUri += "&wgver=1.2&wgprotocol=";
-		wgUri += wgProtocol + "&wgsubdomain=" + this.valueForToken("subdomain") + "";
-		wgUri += "&wglang=" + this.valueForToken("language") + "";
-		wgUri += "&wgprogramid=" + this.valueForToken("program_id") + "&wgeventid=" +
-			this.valueForToken("client_event_id") + "";
-		wgUri += "&wgvalue=" + this.valueForToken("order_total") + "&wgchecksum=";
-		wgUri += "&wgorderreference=" + this.valueForToken("order_reference") + "";
-		wgUri += "&wgcomment=" + escape("" + this.valueForToken("comment") + "");
+		wgUri += wgProtocol + "&wgsubdomain=" + _this.valueForToken("subdomain");
+		wgUri += "&wglang=" + _this.valueForToken("language");
+		wgUri += "&wgprogramid=" + _this.valueForToken("program_id") + "&wgeventid=" +
+			_this.valueForToken("client_event_id");
+		wgUri += "&wgvalue=" + _this.valueForToken("order_total") + "&wgchecksum=";
+		wgUri += "&wgorderreference=" + _this.valueForToken("order_reference");
+		wgUri += "&wgcomment=" + escape("" + _this.valueForToken("comment"));
 		wgUri += "&wglocation=" + escape(document.referrer);
 		wgUri += "&wgitems=" + escape(wgItems());
-		wgUri += "&wgcustomerid=" + escape("" + this.valueForToken("customer_id") +
+		wgUri += "&wgcustomerid=" + escape("" + _this.valueForToken("customer_id") +
 			"");
-		wgUri += "&wgvouchercode=" + escape("" + this.valueForToken("voucher_code") +
+		wgUri += "&wgvouchercode=" + escape("" + _this.valueForToken("voucher_code") +
 			"");
-		wgUri += "&wgCurrency=" + escape("" + this.valueForToken("currency") + "");
+		wgUri += "&wgCurrency=" + escape("" + _this.valueForToken("currency"));
 
 
 		// Load the image pixel

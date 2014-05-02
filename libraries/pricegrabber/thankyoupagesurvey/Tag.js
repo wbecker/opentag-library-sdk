@@ -48,11 +48,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		window.popup_pos_x = Number("" + this.valueForToken("x") + "");
-		window.popup_pos_y = Number("" + this.valueForToken("y") + "");
+		window.popup_pos_x = Number("" + this.valueForToken("x"));
+		window.popup_pos_y = Number("" + this.valueForToken("y"));
 
-		window.popup_order_number = "" + this.valueForToken("order_id") + "";
-		window.popup_email = "" + this.valueForToken("email") + "";
+		window.popup_order_number = "" + this.valueForToken("order_id");
+		window.popup_email = "" + this.valueForToken("email");
 		/*~PRE*/
 	},
 	post: function() {

@@ -155,33 +155,33 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		console.log("" + this.valueForToken("a") + "");
-		console.log("" + this.valueForToken("b") + "");
-		console.log("" + this.valueForToken("c") + "");
-		console.log("" + this.valueForToken("d") + "");
-		console.log("" + this.valueForToken("e") + "");
-		console.log("" + this.valueForToken("f") + "");
-		console.log("" + this.valueForToken("g") + "");
-		console.log("" + this.valueForToken("h") + "");
-		console.log("" + this.valueForToken("i") + "");
-		console.log("" + this.valueForToken("j") + "");
-		console.log("" + this.valueForToken("k") + "");
-		console.log("" + this.valueForToken("l") + "");
-		console.log("" + this.valueForToken("m") + "");
-		console.log("" + this.valueForToken("n") + "");
-		console.log("" + this.valueForToken("o") + "");
-		console.log("" + this.valueForToken("p") + "");
-		console.log("" + this.valueForToken("q") + "");
-		console.log("" + this.valueForToken("r") + "");
-		console.log("" + this.valueForToken("s") + "");
-		console.log("" + this.valueForToken("t") + "");
-		console.log("" + this.valueForToken("u") + "");
-		console.log("" + this.valueForToken("v") + "");
-		console.log("" + this.valueForToken("w") + "");
-		console.log("" + this.valueForToken("x") + "");
-		console.log("" + this.valueForToken("y") + "");
-		console.log("" + this.valueForToken("z") + "");
-		console.log("" + this.valueForToken("aa") + "");
+		console.log("" + this.valueForToken("a"));
+		console.log("" + this.valueForToken("b"));
+		console.log("" + this.valueForToken("c"));
+		console.log("" + this.valueForToken("d"));
+		console.log("" + this.valueForToken("e"));
+		console.log("" + this.valueForToken("f"));
+		console.log("" + this.valueForToken("g"));
+		console.log("" + this.valueForToken("h"));
+		console.log("" + this.valueForToken("i"));
+		console.log("" + this.valueForToken("j"));
+		console.log("" + this.valueForToken("k"));
+		console.log("" + this.valueForToken("l"));
+		console.log("" + this.valueForToken("m"));
+		console.log("" + this.valueForToken("n"));
+		console.log("" + this.valueForToken("o"));
+		console.log("" + this.valueForToken("p"));
+		console.log("" + this.valueForToken("q"));
+		console.log("" + this.valueForToken("r"));
+		console.log("" + this.valueForToken("s"));
+		console.log("" + this.valueForToken("t"));
+		console.log("" + this.valueForToken("u"));
+		console.log("" + this.valueForToken("v"));
+		console.log("" + this.valueForToken("w"));
+		console.log("" + this.valueForToken("x"));
+		console.log("" + this.valueForToken("y"));
+		console.log("" + this.valueForToken("z"));
+		console.log("" + this.valueForToken("aa"));
 		/*~SCRIPT*/
 	},
 	pre: function() {

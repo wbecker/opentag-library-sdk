@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Commission Junction",
 		async: true,
 		description: "Commission Junction is a global leader in Affiliate Marketing, Online Marketing, and Search Engine Marketing.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/CommissionJunction.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -54,13 +54,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
-
 			var pixel = new Image();
 			var src = "https://www.emjcd.com/u?";
-
 			var items = [];
 			var item;
 			var j;
@@ -76,18 +71,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 
 			var params = [
-				"CID=" + this.valueForToken("CID") + "",
-				"OID=" + this.valueForToken("order_id") + "",
-				"TYPE=" + this.valueForToken("TYPE") + "",
+				"CID=" + this.valueForToken("CID"),
+				"OID=" + this.valueForToken("order_id"),
+				"TYPE=" + this.valueForToken("TYPE"),
 				items.join("&"),
-				"CURRENCY=" + this.valueForToken("currency") + "",
+				"CURRENCY=" + this.valueForToken("currency"),
 				"METHOD=IMG"
 			];
 
 			pixel.src = src + params.join("&");
-
-		}());
-
 		/*
 <img src="https://www.emjcd.com/u?CID=<ENTERPRISEID>&OID=<OID>&TYPE=<ACTIONID>&ITEM1=
 <ITEMID>&AMT1=<AMT>&QTY1=<QTY>&CURRENCY=<CURRENCY>&METHOD=IMG" height="1" 

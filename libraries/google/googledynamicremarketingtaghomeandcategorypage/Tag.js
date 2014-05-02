@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Google Dynamic Remarketing Tag - Home and Category Page",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -36,14 +36,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			window.google_tag_params = {
-				ecomm_pagetype: '' + this.valueForToken("page_category") + ''
+				ecomm_pagetype: '' + this.valueForToken("page_category")
 			};
 
 			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label = "" + this.valueForToken(
-				"google_conversion_label") + "";
+			window.google_conversion_label = "" + this.valueForToken("google_conversion_label");
 			window.google_custom_params = window.google_tag_params;
 			window.google_remarketing_only = true;
 
@@ -51,7 +49,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			script.type = "text/javascript";
 			script.src = "//www.googleadservices.com/pagead/conversion.js";
 			document.head.appendChild(script);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

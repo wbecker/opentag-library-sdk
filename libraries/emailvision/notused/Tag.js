@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Not Used",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: true,
@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			function setCookie(domain, label, val, minutes) {
 				var txpDate = new Date();
 				txpDate.setTime(txpDate.getTime() + (minutes * 60 * 1000));
@@ -30,9 +29,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					";path =/" + (!minutes ? "" : ";expires=" + txpDate.toGMTString());
 			}
 
-			setCookie(".office.co.uk", "opentag_emailvision_timestamp", (new Date()).getTime(),
+			setCookie(".office.co.uk",
+      "opentag_emailvision_timestamp",
+        (new Date()).getTime(),
 				60 * 24 * 2);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

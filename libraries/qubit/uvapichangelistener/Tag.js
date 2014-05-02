@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "UV API - change listener",
 		async: true,
 		description: "Uses polling to check for changes to the UV, running callbacks when changes occur. Changes are detected on a deep level.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -21,10 +21,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
-
 			window._uv = window._uv || [];
 			var u = window.universal_variable = window.universal_variable || {};
 			var currentUV;
@@ -261,9 +257,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			// Process things added before the API loads
 			processCallbacks();
-
-		}());
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Maintenance Free PIE - Confirmation",
 		async: true,
 		description: "Bazaarvoice will collect encrypted transaction/interaction data directly from your site using this interaction tagging\nmethod. You can enable this feature by applying a small amount of JavaScript (JS) code, called the ROI beacon, to\nyour order confirmation page. Once the beacon tag is integrated, Bazaarvoice will collect the data needed to\ngenerate your PIEs.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -67,11 +67,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 			var data = {
-				"orderId": "" + this.valueForToken("order_id") + "",
+				"orderId": "" + this.valueForToken("order_id"),
 				"total": this.valueForToken("order_total"),
-				"email": "" + this.valueForToken("user_email") + "",
+				"email": "" + this.valueForToken("user_email"),
 				"items": []
 			};
 
@@ -83,8 +82,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				});
 			}
 
-			$BV.SI.trackTransactionPageView(data);
-		})();
+			window.$BV.SI.trackTransactionPageView(data);
 		/*~POST*/
 	}
 });

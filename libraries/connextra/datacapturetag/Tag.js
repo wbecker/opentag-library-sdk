@@ -35,24 +35,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var cxt_conf = cxt_conf || {};
-		cxt_conf.clientId = cxt_conf.clientId || '' + this.valueForToken("client_id") +
-			'';
-		cxt_conf.pageType = cxt_conf.pageType || '' + this.valueForToken("page_type") +
-			'';
-		cxt_conf.server = '' + this.valueForToken("conf_server") + '';
+		window.cxt_conf = cxt_conf || {};
+		cxt_conf.clientId = cxt_conf.clientId || '' + this.valueForToken("client_id");
+		cxt_conf.pageType = cxt_conf.pageType || '' + this.valueForToken("page_type");
+		cxt_conf.server = '' + this.valueForToken("conf_server");
 
-		(function() {
-			var ca = document.createElement('script');
-			ca.type = 'text/javascript';
-			ca.async = true;
-			ca.src = cxt_conf.server + '/script/ca.js';
-			ca.onload = function() {
-				cxtdcs()();
-			};
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(ca, s);
-		})();
+    var ca = document.createElement('script');
+    ca.type = 'text/javascript';
+    ca.async = true;
+    ca.src = cxt_conf.server + '/script/ca.js';
+    ca.onload = function() {
+      cxtdcs()();
+    };
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ca, s);
 		/*~SCRIPT*/
 	},
 	pre: function() {

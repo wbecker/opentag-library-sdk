@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Basket Page",
 		async: true,
 		description: "Picks up on basket page abandonment",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -59,67 +59,65 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+    var _this = this;
+    var safeLoad = function(url, variable, cb) {
+      var isLoading = function() {
+        window._sfloadSrcs = window._sfloadSrcs || [];
+        for (var i = 0; i < window._sfloadSrcs; i++) {
+          if (i.toLowerCase() == url.toLowerCase()) {
+            return true;
+          }
+        }
+        return false;
+      };
 
-		(function() {
+      var waitForVariable = function() {
+        if (window[variable]) {
+          cb();
+        } else {
+          setTimeout(waitForVariable, 200);
+        }
+      };
 
-			var safeLoad = function(url, variable, cb) {
+      var loadScript = function() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+        window._sfloadSrcs.push(url);
+        waitForVariable();
+      };
 
-				var isLoading = function() {
-					window._sfloadSrcs = window._sfloadSrcs || [];
-					for (var i = 0; i < window._sfloadSrcs; i++) {
-						if (i.toLowerCase() == url.toLowerCase()) {
-							return true;
-						}
-					}
-					return false;
-				};
+      if (window[variable]) {
+        cb();
+      } else if (isLoading()) {
+        waitForVariable();
+      } else {
+        loadScript();
+      }
 
-				var waitForVariable = function() {
-					if (window[variable]) {
-						cb();
-					} else {
-						setTimeout(waitForVariable, 200);
-					}
-				};
+    };
 
-				var loadScript = function() {
-					var script = document.createElement("script");
-					script.type = "text/javascript";
-					script.src = url;
-					document.getElementsByTagName("head")[0].appendChild(script);
-					window._sfloadSrcs.push(url);
-					waitForVariable();
-				};
+    var run = function() {
+      for (var i = 0, ii = _this.valueForToken("skus").length; i < ii; i++) {
+        window.w1x1.scAdd(
+                _this.valueForToken("skus")[i],
+                _this.valueForToken("quantities")[i],
+                _this.valueForToken("totals_novat")[i],
+                _this.valueForToken("totals_vat")[i],
+                _this.valueForToken("prices")[i],
+                _this.valueForToken("voucher"));
+      }
+      window.w1x1.scSend();
+    };
 
-				if (window[variable]) {
-					cb();
-				} else if (isLoading()) {
-					waitForVariable();
-				} else {
-					loadScript();
-				}
-
-			};
-
-			var run = function() {
-				for (var i = 0, ii = this.valueForToken("skus").length; i < ii; i++) {
-					window.w1x1.scAdd(this.valueForToken("skus")[i], this.valueForToken(
-						"quantities")[i], this.valueForToken("totals_novat")[i], this.valueForToken(
-						"totals_vat")[i], this.valueForToken("prices")[i], this.valueForToken(
-						"voucher"));
-				}
-				window.w1x1.scSend();
-			};
-
-			safeLoad("" + this.valueForToken("w1x1_function_url") + "", "_w1x1",
-				function() {
-					safeLoad("" + this.valueForToken("w1x1_config_url") + "", "w1x1",
-						function() {
-							run();
-						});
-				});
-
-		}());
+    safeLoad("" + _this.valueForToken("w1x1_function_url"), "_w1x1",
+      function() {
+        safeLoad("" + _this.valueForToken("w1x1_config_url"), "w1x1",
+          function() {
+            run();
+          });
+      });
 		/*~SCRIPT*/
 	},
 	pre: function() {

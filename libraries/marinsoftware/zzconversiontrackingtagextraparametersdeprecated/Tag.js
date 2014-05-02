@@ -96,11 +96,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var _mTrack = window._mTrack || [];
+		window._mTrack = window._mTrack || [];
 		var items = [];
 		for (var i = 0; i < this.valueForToken("product_skus").length; i++) {
 			items.push({
-				convType: '' + this.valueForToken("conversion_type") + '',
+				convType: '' + this.valueForToken("conversion_type"),
 				product: this.valueForToken("product_skus")[i],
 				price: this.valueForToken("product_prices")[i],
 				category: this.valueForToken("product_categories")[i],
@@ -108,22 +108,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			});
 		}
 		_mTrack.push(['addTrans', {
-			orderId: '' + this.valueForToken("order_id") + '',
-			affiliation: '' + this.valueForToken("affiliation") + '',
+			orderId: '' + this.valueForToken("order_id"),
+			affiliation: '' + this.valueForToken("affiliation"),
 			total: this.valueForToken("order_total"),
 			tax: this.valueForToken("order_tax"),
 			shipping: this.valueForToken("order_shipping"),
-			city: '' + this.valueForToken("city") + '',
-			state: '' + this.valueForToken("state") + '',
-			country: '' + this.valueForToken("country") + '',
-			currency: '' + this.valueForToken("order_currency") + '',
+			city: '' + this.valueForToken("city"),
+			state: '' + this.valueForToken("state"),
+			country: '' + this.valueForToken("country"),
+			currency: '' + this.valueForToken("order_currency"),
 			items: items
 		}]);
 
 		_mTrack.push(['processOrders']);
 
-		(function() {
-			var mClientId = '' + this.valueForToken("marin_tracker_id") + '';
+			var mClientId = '' + this.valueForToken("marin_tracker_id");
 			var mProto = ('https:' == document.location.protocol ? 'https://' :
 				'http://');
 			var mHost = 'tracker.marinsm.com';
@@ -133,7 +132,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 			var fscr = document.getElementsByTagName('script')[0];
 			fscr.parentNode.insertBefore(mt, fscr);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

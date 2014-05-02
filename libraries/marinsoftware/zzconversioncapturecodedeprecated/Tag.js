@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "zz-Conversion Capture Code [DEPRECATED]",
 		async: true,
 		description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: true,
@@ -55,7 +55,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			window._mTrack = window._mTrack || [];
 
 			var productIDs = "";
@@ -77,7 +76,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var items = [{
 				convType: "orders",
 				price: this.valueForToken("order_total"),
-				orderId: "" + this.valueForToken("order_id") + "",
+				orderId: "" + this.valueForToken("order_id"),
 				product: productIDs,
 				category: productCategories,
 				quantity: productQuantities
@@ -85,25 +84,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 
 			window._mTrack.push(['addTrans', {
-
-				currency: "" + this.valueForToken("currency") + "",
+				currency: "" + this.valueForToken("currency"),
 				items: items
 			}]);
 
 			window._mTrack.push(['processOrders']);
-			(function() {
-				var mClientId = "" + this.valueForToken("tracking_id") + "";
-				var mProto = ('https:' == document.location.protocol ? 'https://' :
-					'http://');
-				var mHost = 'tracker.marinsm.com';
-				var mt = document.createElement('script');
-				mt.type = 'text/javascript';
-				mt.async = true;
-				mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-				var fscr = document.getElementsByTagName('script')[0];
-				fscr.parentNode.insertBefore(mt, fscr);
-			})();
-		})();
+      var mClientId = "" + this.valueForToken("tracking_id");
+      var mProto = ('https:' == document.location.protocol ? 'https://' :
+        'http://');
+      var mHost = 'tracker.marinsm.com';
+      var mt = document.createElement('script');
+      mt.type = 'text/javascript';
+      mt.async = true;
+      mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+      var fscr = document.getElementsByTagName('script')[0];
+      fscr.parentNode.insertBefore(mt, fscr);
 		/*~SCRIPT*/
 	},
 	pre: function() {

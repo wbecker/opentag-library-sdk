@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Basket Page [DEPRECATED]",
 		async: true,
 		description: "Picks up on basket page abandonment",
-		html: "<!--@SRC@-->\n\n\n",
+		html: "\n\n\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: true,
@@ -39,37 +39,34 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+    var _this = this;
+    var require = function(url, cb) {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      if (script.readyState) { //IE
+        script.onreadystatechange = function() {
+          if (script.readyState == "loaded" || script.readyState == "complete") {
+            script.onreadystatechange = null;
+            cb();
+          }
+        };
+      } else { //Others
+        script.onload = cb;
+      }
+      script.src = url;
+      document.getElementsByTagName("head")[0].appendChild(script);
+    };
 
-		(function() {
-
-			var require = function(url, cb) {
-				var script = document.createElement("script");
-				script.type = "text/javascript";
-				if (script.readyState) { //IE
-					script.onreadystatechange = function() {
-						if (script.readyState == "loaded" || script.readyState == "complete") {
-							script.onreadystatechange = null;
-							cb();
-						}
-					};
-				} else { //Others
-					script.onload = cb;
-				}
-				script.src = url;
-				document.getElementsByTagName("head")[0].appendChild(script);
-			};
-
-			require("" + this.valueForToken("web1by1_function_script") + "", function() {
-				require("" + this.valueForToken("web1by1_config_script") + "", function() {
-					for (var i = 0, ii = this.valueForToken("sku_list").length; i < ii; i++) {
-						window.w1x1.scAdd(this.valueForToken("sku_list")[i], this.valueForToken(
-							"quantity_list")[i]);
-					}
-					window.w1x1.scSend();
-				});
-			});
-
-		}());
+    require("" + _this.valueForToken("web1by1_function_script"), function() {
+      require("" + _this.valueForToken("web1by1_config_script"), function() {
+        for (var i = 0, ii = _this.valueForToken("sku_list").length; i < ii; i++) {
+          window.w1x1.scAdd(
+            _this.valueForToken("sku_list")[i],
+            _this.valueForToken("quantity_list")[i]);
+        }
+        window.w1x1.scSend();
+      });
+    });
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -39,12 +39,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		var _vwo_code = (function() {
-			var account_id = this.valueForToken("accountid"),
-				settings_tolerance = this.valueForToken("settings_tolerance"),
-				library_tolerance = this.valueForToken("library_tolerance"),
-				use_existing_jquery = this.valueForToken("use_jquery"),
+			var account_id = _this.valueForToken("accountid"),
+				settings_tolerance = _this.valueForToken("settings_tolerance"),
+				library_tolerance = _this.valueForToken("library_tolerance"),
+				use_existing_jquery = _this.valueForToken("use_jquery"),
 				// DO NOT EDIT BELOW THIS LINE
 				f = false,
 				d = document;

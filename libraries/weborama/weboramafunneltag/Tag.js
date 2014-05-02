@@ -47,9 +47,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		var adperftrackobj = {
+		window.adperftrackobj = {
 			funnel_id: this.valueForToken("FUNNEL_ID"),
-			fullhost: '' + this.valueForToken("FULL_HOST") + '',
+			fullhost: '' + this.valueForToken("FULL_HOST"),
 			site: this.valueForToken("SITE"),
 			conversion_page: this.valueForToken("CONVERSION_PAGE")
 		}

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Emailvision - Confirmation",
 		async: true,
 		description: "The Emailvision tag to be used on confirmation pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Emailvision.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -55,15 +55,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var src = "//" + this.valueForToken("pct_server") +
 				".emv2.com/P?emv_client_id=" + this.valueForToken("client_id") +
 				"&emv_value=";
 			src += this.valueForToken("order_total");
-			src += "&emv_transid=" + this.valueForToken("order_id") + "";
-			src += "&emv_currency=" + this.valueForToken("currency") + "";
-			src += "&emv_conversionflag=" + this.valueForToken("conv_tag") + "";
-			src += "&emv_pagename=" + this.valueForToken("page_name") + "";
+			src += "&emv_transid=" + this.valueForToken("order_id");
+			src += "&emv_currency=" + this.valueForToken("currency");
+			src += "&emv_conversionflag=" + this.valueForToken("conv_tag");
+			src += "&emv_pagename=" + this.valueForToken("page_name");
 			var date = new Date();
 			src += "&emv_date=" + date.getDate() + "-" + (date.getMonth() + 1) + "-" +
 				date.getFullYear();
@@ -75,7 +74,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			pixel.setAttribute("width", "1");
 			pixel.setAttribute("height", "1");
 			document.body.appendChild(pixel);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

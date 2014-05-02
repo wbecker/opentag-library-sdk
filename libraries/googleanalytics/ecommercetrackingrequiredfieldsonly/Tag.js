@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "E-Commerce Tracking (Required Fields Only)",
 		async: true,
 		description: "Before Google Analytics can report ecommerce activity for your website, you must enable ecommerce tracking on the profile settings page for your website.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -55,15 +55,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			window._gaq = window._gaq || [];
-			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID") + '']);
+			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
 			_gaq.push(['_trackPageview']);
 
 			_gaq.push(['_addTrans',
-				'' + this.valueForToken("orderId") + '',
+				'' + this.valueForToken("orderId"),
 				'',
-				'' + this.valueForToken("orderTotal") + '',
+				'' + this.valueForToken("orderTotal"),
 				'',
 				'',
 				'',
@@ -73,7 +72,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var i, ii;
 			for (i = 0, ii = this.valueForToken("itemSkus").length; i < ii; i += 1) {
 				_gaq.push(['_addItem',
-					'' + this.valueForToken("orderId") + '',
+					'' + this.valueForToken("orderId"),
 					this.valueForToken("itemSkus")[i],
 					this.valueForToken("itemNames")[i],
 					'',
@@ -90,7 +89,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
-		})();
 
 		/*~SCRIPT*/
 	},

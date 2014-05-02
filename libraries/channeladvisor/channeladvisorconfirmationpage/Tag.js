@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Channel Advisor - Confirmation Page",
 		async: true,
 		description: "Use this tag to track confirmation pages with ChannelAdvisor.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=ChannelAdvisor",
 		locationDetail: "",
 		isPrivate: false,
@@ -40,11 +40,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
-				this.valueForToken("client_id") + "";
-			src += "&oVal=" + this.valueForToken("total") + "";
-			src += "&OrderID=" + this.valueForToken("order_id") + "";
+				this.valueForToken("client_id");
+			src += "&oVal=" + this.valueForToken("total");
+			src += "&OrderID=" + this.valueForToken("order_id");
 			src += "&ProductID=";
 
 			// Add the product ids
@@ -63,7 +62,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			img.height = 1;
 			img.style.display = 'none';
 			document.body.appendChild(img);
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

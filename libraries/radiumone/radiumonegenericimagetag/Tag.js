@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "RadiumOne - Generic image tag",
 		async: true,
 		description: "A generic RadiumOne image tag.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -24,12 +24,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			var img = new Image();
 			img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") +
 				"r" + Math.round(Math.random() * 10000000);
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

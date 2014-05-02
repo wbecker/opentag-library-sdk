@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "OneTag - Confirmation",
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user makes a payment.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -72,9 +72,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 
-			var products = [];
+    var products = [];
 
 			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 				products.push({
@@ -84,18 +83,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				});
 			}
 
-			var user_id = "" + this.valueForToken("customer_id") + "";
+			var user_id = "" + this.valueForToken("customer_id");
 			//Remove email if present.
 			if (user_id.indexOf("@") > -1) {
 				user_id = "";
 			}
-
+      
+      var _this = this;
 			var ret = (function() {
-				if (typeof this.valueForToken("old_customer") === "undefined" || this.valueForToken(
-					"old_customer") === null) {
+				if (typeof _this.valueForToken("old_customer") === "undefined"
+                || _this.valueForToken("old_customer") === null) {
 					return "";
 				} else {
-					return Number(!this.valueForToken("old_customer"));
+					return Number(!_this.valueForToken("old_customer"));
 				}
 			})();
 
@@ -108,16 +108,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				id: user_id
 			}, {
 				event: "setSiteType",
-				type: "" + this.valueForToken("site_type") + ""
+				type: "" + this.valueForToken("site_type")
 			}, {
 				event: "trackTransaction",
-				id: "" + this.valueForToken("order_id") + "",
+				id: "" + this.valueForToken("order_id"),
 				new_customer: ret,
 				deduplication: this.valueForToken("criteo_referral"),
 				product: products
 			});
-
-		}());
 		/*~POST*/
 	}
 });

@@ -22,17 +22,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var _gaq = _gaq || [];
+		window._gaq = window._gaq || [];
 		_gaq.push(['_setAllowLinker', true]);
 		_gaq.push(['_setAllowHash', false]);
 
-		(function() {
 			var fmJsHost = (("https:" == document.location.protocol) ? "https" :
 				"http");
 			var fmScript = document.createElement("script");
 			fmScript.src = unescape(fmJsHost + "://www.fits.me/vfr.js");
 			document.head.appendChild(fmScript);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

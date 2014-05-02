@@ -23,7 +23,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 
 		//<![CDATA[
-		var ServiceTickDetection = function() {
+		window.ServiceTickDetection = function() {
 			var version = '5.5';
 			var reqflashversion = '9.0.0';
 			var recorder = window.location.protocol +
@@ -118,7 +118,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 									}
 								});
 								if (win == top) {
-									(function() {
 										if (isDomLoaded) {
 											return;
 										}
@@ -129,11 +128,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 											return;
 										}
 										callDomLoadFunctions();
-									})();
 								}
 							}
 							if (ua.wk) {
-								(function() {
 									if (isDomLoaded) {
 										return;
 									}
@@ -142,7 +139,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 										return;
 									}
 									callDomLoadFunctions();
-								})();
 							}
 							addLoadEvent(callDomLoadFunctions);
 						}
@@ -207,7 +203,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					var t = b.appendChild(o);
 					if (t) {
 						var counter = 0;
-						(function() {
 							if (typeof t.GetVariable != UNDEF) {
 								var d = t.GetVariable("$version");
 								if (d) {
@@ -222,7 +217,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 							b.removeChild(o);
 							t = null;
 							matchVersions();
-						})();
 					} else {
 						matchVersions();
 					}
@@ -293,13 +287,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 						obj.parentNode.insertBefore(el, obj);
 						el.parentNode.replaceChild(abstractAltContent(obj), el);
 						obj.style.display = "none";
-						(function() {
 							if (obj.readyState == 4) {
 								obj.parentNode.removeChild(obj);
 							} else {
 								setTimeout(arguments.callee, 10);
 							}
-						})();
 					} else {
 						obj.parentNode.replaceChild(abstractAltContent(obj), obj);
 					}
@@ -396,13 +388,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					if (obj && obj.nodeName == "OBJECT") {
 						if (ua.ie && ua.win) {
 							obj.style.display = "none";
-							(function() {
 								if (obj.readyState == 4) {
 									removeObjectInIE(id);
 								} else {
 									setTimeout(arguments.callee, 10);
 								}
-							})();
 						} else {
 							obj.parentNode.removeChild(obj);
 						}

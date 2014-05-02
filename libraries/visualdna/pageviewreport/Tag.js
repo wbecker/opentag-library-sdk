@@ -40,7 +40,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 		var object = {
-			apiKey: "" + this.valueForToken("api_key") + "",
+			apiKey: "" + this.valueForToken("api_key"),
 			method: "reportPageView"
 		};
 		if (this.valueForToken("window_history").length === 2) {

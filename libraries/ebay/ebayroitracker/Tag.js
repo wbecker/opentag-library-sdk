@@ -72,13 +72,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		var _roi = _roi || [];
+		window._roi = window._roi || [];
 
-		_roi.push(['_setMerchantId', '' + this.valueForToken("ebay_merchant_id") +
-			''
-		]);
-		_roi.push(['_setOrderId', '' + this.valueForToken("order_id") + '']);
-		_roi.push(['_setOrderAmount', '' + this.valueForToken("order_amount") + '']);
+		_roi.push(['_setMerchantId', '' + this.valueForToken("ebay_merchant_id")]);
+		_roi.push(['_setOrderId', '' + this.valueForToken("order_id")]);
+		_roi.push(['_setOrderAmount', '' + this.valueForToken("order_amount")]);
 
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 			_roi.push(['_addItem',
@@ -90,7 +88,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				this.valueForToken("product_quantity")[i] // Item quantity 
 			]);
 		}
-
 
 		_roi.push(['_trackTrans']);
 		/*~POST*/

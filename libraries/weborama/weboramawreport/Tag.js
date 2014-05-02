@@ -43,20 +43,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var WRP_ID = this.valueForToken("WRP_ID");
-		var WRP_SECTION = '' + this.valueForToken("SECTION") + '';
-		var WRP_SUBSECTION = '' + this.valueForToken("SUBSECTION") + '';
-		wreport_ok = 0;
+		window.WRP_ID = this.valueForToken("WRP_ID");
+		window.WRP_SECTION = '' + this.valueForToken("SECTION");
+		window.WRP_SUBSECTION = '' + this.valueForToken("SUBSECTION");
+		window.wreport_ok = 0;
 
 		/* Profondeur Frame */
-		var WRP_ACC;
+		window.WRP_ACC;
 		/*~PRE*/
 	},
 	post: function() {
 		/*POST*/
 		if (wreport_ok == 1) {
-			var w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID,
-				WRP_ACC);
+			window.w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID, WRP_ACC);
 			w_counter.count();
 		}
 		/*~POST*/

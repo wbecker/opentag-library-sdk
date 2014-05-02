@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Tag with product details",
 		async: true,
 		description: "ROI Tag without product details",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/NexTag.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -53,7 +53,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
 
 			var cats = [],
 				prods = [],
@@ -65,14 +64,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				units.push(this.valueForToken("quantities")[i]);
 			}
 
-			window.id = '' + this.valueForToken("nextag_id") + '';
-			window.rev = '' + this.valueForToken("order_subtotal") + '';
-			window.order = '' + this.valueForToken("order_id") + '';
+			window.id = '' + this.valueForToken("nextag_id");
+			window.rev = '' + this.valueForToken("order_subtotal");
+			window.order = '' + this.valueForToken("order_id");
 			window.cats = cats.join("|");
 			window.prods = prods.join("|");
 			window.units = units.join("|");
 
-		}());
 		/*~PRE*/
 	},
 	post: function() {

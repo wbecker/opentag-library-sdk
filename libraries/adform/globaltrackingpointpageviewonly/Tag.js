@@ -38,11 +38,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var adfname = '' + this.valueForToken("page_name") + '';
-		var _adftrack = {
-			pm: '' + this.valueForToken("campaign_id") + '',
+		window.adfname = '' + this.valueForToken("page_name");
+		window._adftrack = {
+			pm: '' + this.valueForToken("campaign_id"),
 			pagename: encodeURIComponent(adfname),
-			divider: encodeURIComponent('' + this.valueForToken("divider") + '')
+			divider: encodeURIComponent('' + this.valueForToken("divider"))
 		};
 		/*~PRE*/
 	},

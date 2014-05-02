@@ -34,15 +34,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var _snaq = _snaq || [];
 
-		_snaq.push(['setCollectorCf', '' + this.valueForToken("cloudfront") + '']);
-		_snaq.push(['setAppId', '' + this.valueForToken("siteid") + '']);
-		_snaq.push(['setCookieDomain', '' + this.valueForToken("cookiedomain") + ''])
+		_snaq.push(['setCollectorCf', '' + this.valueForToken("cloudfront")]);
+		_snaq.push(['setAppId', '' + this.valueForToken("siteid")]);
+		_snaq.push(['setCookieDomain', '' + this.valueForToken("cookiedomain")])
 		_snaq.push(['trackPageView']);
 
-		(function() {
 			var sp = document.createElement('script');
 			sp.type = 'text/javascript';
 			sp.async = true;
@@ -51,8 +49,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				'://d1fc8wv8zag5ca.cloudfront.net/0.12.0/sp.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(sp, s);
-		})();
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

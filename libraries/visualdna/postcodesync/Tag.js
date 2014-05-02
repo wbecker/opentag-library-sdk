@@ -29,14 +29,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 		window.VDNA.queue.push({
-			apiKey: "" + this.valueForToken("api_key") + "",
+			apiKey: "" + this.valueForToken("api_key"),
 			method: "reportConversion",
 			args: ["sync", {
-				"partner_user_id": "" + this.valueForToken("postcode") + "",
+				"partner_user_id": "" + this.valueForToken("postcode"),
 				"partner_user_id_type": "postcode"
 			}]
 		});

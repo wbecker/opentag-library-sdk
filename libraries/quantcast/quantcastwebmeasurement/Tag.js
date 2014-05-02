@@ -27,16 +27,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		window._qevents = window._qevents || [];
 
-		(function() {
-			var e = document.createElement("script");
-			e.src = (document.location.protocol === "https:" ? "https://secure" :
-				"http://edge") + ".quantserve.com/quant.js";
-			e.async = true;
-			document.getElementsByTagName("head")[0].appendChild(e);
-			_qevents.push({
-				qacct: "" + this.valueForToken("id") + ""
-			});
-		})();
+    var e = document.createElement("script");
+    e.src = (document.location.protocol === "https:" ? "https://secure" :
+      "http://edge") + ".quantserve.com/quant.js";
+    e.async = true;
+    document.getElementsByTagName("head")[0].appendChild(e);
+    _qevents.push({
+      qacct: "" + this.valueForToken("id")
+    });
 		/*~SCRIPT*/
 	},
 	pre: function() {

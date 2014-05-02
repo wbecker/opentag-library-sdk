@@ -68,7 +68,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		}();
 
 		jstag.init({
-			cid: "" + this.valueForToken("client_id") + "",
+			cid: "" + this.valueForToken("client_id"),
 			url: "//c.lytics.io"
 		});
 		/*~SCRIPT*/

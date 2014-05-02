@@ -21,8 +21,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
 		// Create UV events array if doesn't exist
 		window.universal_variable = window.universal_variable || {};
 		var uv = window.universal_variable;
@@ -49,7 +47,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				}
 			}
 		};
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

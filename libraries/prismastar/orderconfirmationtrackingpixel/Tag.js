@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Order Confirmation Tracking Pixel",
 		async: true,
 		description: "The tracking code is an asynchronous call to the reporting gateway passing with it the details of the order. The reporting system can then cross reference the session with sessions already populated with a Selector history and derive time to order and average order values.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/PrismaStar.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -54,15 +54,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
-
 			var pixel = new Image();
-			var source = "https://" + this.valueForToken("GATEWAY_PREFIX") +
-				".cpr.prismastar.com/v2_0/recorder/?type=order&customerCode=" + this.valueForToken(
-					"CUSTOMER_CODE") + "&customerOrderId=" + this.valueForToken("ORDER_ID") +
-				"&order=";
+			var source = "https://" +
+        this.valueForToken("GATEWAY_PREFIX") +
+        ".cpr.prismastar.com/v2_0/recorder/?type=order&customerCode=" +
+        this.valueForToken("CUSTOMER_CODE") + "&customerOrderId=" +
+        this.valueForToken("ORDER_ID") + "&order=";
 
 			for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {
 				var productArray = [
@@ -75,10 +72,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 
 			pixel.src = source;
-
-
-		}());
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

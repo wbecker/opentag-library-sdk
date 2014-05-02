@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Ecommerce Tag - Confirmation Page [Deprecated]",
 		async: true,
 		description: "Ecommerce tracking allows you to measure the number of transactions and revenue that your website generates. Place this tag on a confirmation page only.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -104,25 +104,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		})(window, document, 'script', '//www.google-analytics.com/analytics.js',
 			'ga');
 
-		ga('create', '' + this.valueForToken("web_property_id") + '', '' + this.valueForToken(
-			"url") + '');
+		ga('create', '' + this.valueForToken("web_property_id"),
+    '' + this.valueForToken("url"));
 		ga('send', 'pageview');
 		ga('require', 'ecommerce', 'ecommerce.js');
 
 		ga('ecommerce:addTransaction', {
-			'id': "" + this.valueForToken("order_id") + "", //Required
-			'affiliation': "" + this.valueForToken("store_name") + "",
-			'revenue': "" + this.valueForToken("revenue") + "",
-			'shipping': "" + this.valueForToken("shipping") + "",
-			'tax': "" + this.valueForToken("tax") + "",
-			'currencyCode': "" + this.valueForToken("currency") + ""
+			'id': "" + this.valueForToken("order_id"), //Required
+			'affiliation': "" + this.valueForToken("store_name"),
+			'revenue': "" + this.valueForToken("revenue"),
+			'shipping': "" + this.valueForToken("shipping"),
+			'tax': "" + this.valueForToken("tax"),
+			'currencyCode': "" + this.valueForToken("currency")
 		});
 
 		//Loop through transaction items. Don't pollute the globe!
-		(function() {
 			for (var i = 0; i < this.valueForToken("item_names").length; i++) {
 				ga('ecommerce:addItem', {
-					'id': "" + this.valueForToken("order_id") + "", //Required
+					'id': "" + this.valueForToken("order_id"), //Required
 					'name': String(this.valueForToken("item_names")[i]), //Required
 					'sku': String(this.valueForToken("item_skus")[i]),
 					'category': String(this.valueForToken("item_cats")[i]),
@@ -130,7 +129,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					'quantity': String(this.valueForToken("item_quantities")[i])
 				});
 			}
-		})();
 
 		ga('ecommerce:send');
 

@@ -149,46 +149,44 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*POST*/
 		var s = window.s;
 
-		s.pageName = "" + this.valueForToken("page_name") + "";
-		s.server = "" + this.valueForToken("server") + "";
-		s.channel = "" + this.valueForToken("channel") + "";
-		s.pageType = "" + this.valueForToken("page_type") + "";
-		s.prop1 = "" + this.valueForToken("prop1") + "";
-		s.prop2 = "" + this.valueForToken("prop2") + "";
-		s.prop3 = "" + this.valueForToken("prop3") + "";
-		s.prop4 = "" + this.valueForToken("prop4") + "";
-		s.prop5 = "" + this.valueForToken("prop5") + "";
+		s.pageName = "" + this.valueForToken("page_name");
+		s.server = "" + this.valueForToken("server");
+		s.channel = "" + this.valueForToken("channel");
+		s.pageType = "" + this.valueForToken("page_type");
+		s.prop1 = "" + this.valueForToken("prop1");
+		s.prop2 = "" + this.valueForToken("prop2");
+		s.prop3 = "" + this.valueForToken("prop3");
+		s.prop4 = "" + this.valueForToken("prop4");
+		s.prop5 = "" + this.valueForToken("prop5");
 
 
-		(function() {
 			var i = 0,
 				ii = this.valueForToken("product_ids").length,
 				productList = [];
 
 			for (; i < ii; i++) {
 				var product = [];
-				product.push(this.valueForToken("product_names")[i], this.valueForToken(
-					"product_ids")[i]);
-				product.push(this.valueForToken("quants")[i], this.valueForToken(
-					"categories")[i]);
+				product.push(this.valueForToken("product_names")[i],
+          this.valueForToken("product_ids")[i]);
+				product.push(this.valueForToken("quants")[i],
+          this.valueForToken("categories")[i]);
 				productList.push(product.join(";"));
 			}
 
 			s.products = productList.join(",");
 
-		}());
 
 		/* Conversion Variables */
-		s.campaign = "" + this.valueForToken("campaign") + "";
-		s.state = "" + this.valueForToken("state") + "";
-		s.zip = "" + this.valueForToken("zip") + "";
-		s.events = "" + this.valueForToken("events") + "";
-		s.purchaseID = "" + this.valueForToken("order_id") + "";
-		s.eVar1 = "" + this.valueForToken("evar1") + "";
-		s.eVar2 = "" + this.valueForToken("evar2") + "";
-		s.eVar3 = "" + this.valueForToken("evar3") + "";
-		s.eVar4 = "" + this.valueForToken("evar4") + "";
-		s.eVar5 = "" + this.valueForToken("evar5") + "";
+		s.campaign = "" + this.valueForToken("campaign");
+		s.state = "" + this.valueForToken("state");
+		s.zip = "" + this.valueForToken("zip");
+		s.events = "" + this.valueForToken("events");
+		s.purchaseID = "" + this.valueForToken("order_id");
+		s.eVar1 = "" + this.valueForToken("evar1");
+		s.eVar2 = "" + this.valueForToken("evar2");
+		s.eVar3 = "" + this.valueForToken("evar3");
+		s.eVar4 = "" + this.valueForToken("evar4");
+		s.eVar5 = "" + this.valueForToken("evar5");
 
 		window.s_code = s.t();
 		/*~POST*/

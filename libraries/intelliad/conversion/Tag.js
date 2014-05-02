@@ -69,26 +69,25 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		var ia_v = "" + this.valueForToken("order_total") + "";
-		var ia_vz = "" + this.valueForToken("order_type") + ""; // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
-		var ia_vv = ("" + this.valueForToken("order_currency") + "".length) ? "" +
-			this.valueForToken("order_currency") + "" : "EUR";
-		var ia_po = "" + this.valueForToken("order_id") + "";
-		var ia_c1 = "" + this.valueForToken("custom_param1") + "";
-		var ia_c2 = "" + this.valueForToken("custom_param2") + "";
-		var ia_c3 = "" + this.valueForToken("custom_param3") + "";
-		var ia_c4 = "" + this.valueForToken("custom_param4") + "";
+		window.ia_v = "" + this.valueForToken("order_total");
+		window.ia_vz = "" + this.valueForToken("order_type"); // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
+		window.ia_vv = (("" + this.valueForToken("order_currency")).length) ? 
+      "" + this.valueForToken("order_currency") : "EUR";
+		window.ia_po = "" + this.valueForToken("order_id");
+		window.ia_c1 = "" + this.valueForToken("custom_param1");
+		window.ia_c2 = "" + this.valueForToken("custom_param2");
+		window.ia_c3 = "" + this.valueForToken("custom_param3");
+		window.ia_c4 = "" + this.valueForToken("custom_param4");
 
 		var productIDs = [];
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 			productIDs.push(this.valueForToken("product_ids")[i]);
 		}
-		var ia_pi = productIDs.join("|");
-		var ia_tp = "//t23.intelliad.de/tc2.js";
-		var ia_cl = "" + this.valueForToken("client_id") + "";
-		var ia_rand = Math.floor(Math.random() * 11111139435231);
-		var ia_link = ia_tp +
+		window.ia_pi = productIDs.join("|");
+		window.ia_tp = "//t23.intelliad.de/tc2.js";
+		window.ia_cl = "" + this.valueForToken("client_id");
+		window.ia_rand = Math.floor(Math.random() * 11111139435231);
+		window.ia_link = ia_tp +
 			'?cl=' + ia_cl +
 			'&v=' + ia_v +
 			'&vz=' + ia_vz +

@@ -82,19 +82,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		var adperftrackobj = {
-			client: "" + this.valueForToken("CLIENT_ID") + "",
-			amount: "" + this.valueForToken("AMOUNT") + "",
-			invoice_id: "" + this.valueForToken("ORDERID") + "",
+		window.adperftrackobj = {
+			client: "" + this.valueForToken("CLIENT_ID"),
+			amount: "" + this.valueForToken("AMOUNT"),
+			invoice_id: "" + this.valueForToken("ORDERID"),
 			quantity: this.valueForToken("PRODUCT_IDS").length,
 			is_client: this.valueForToken("IS_CLIENT"),
 			optional_parameters: {
-				"N1": "" + this.valueForToken("OPTIONAL1") + "",
-				"N2": "" + this.valueForToken("OPTIONAL2") + "",
-				"customer_name": "" + this.valueForToken("CUSTOMER_NAME") + ""
+				"N1": "" + this.valueForToken("OPTIONAL1"),
+				"N2": "" + this.valueForToken("OPTIONAL2"),
+				"customer_name": "" + this.valueForToken("CUSTOMER_NAME")
 			},
 
-			fullhost: '' + this.valueForToken("HOST") + '',
+			fullhost: '' + this.valueForToken("HOST"),
 			site: this.valueForToken("SITE"),
 			conversion_page: this.valueForToken("CONVERSION_PAGE")
 		}

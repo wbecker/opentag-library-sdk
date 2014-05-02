@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Sovendus [All Fields]",
 		async: true,
 		description: "<div id=\"gutscheinconnection-container\"></div> (the banner) should first be placed on the confirmation page, and positioned (using css) exactly where you'd like the banner to appear, before activating this tag on the confirmation page",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sovendus-logo.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -74,9 +74,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
 			var waitForSovendusDiv = function() {
 				if (document.getElementById('gutscheinconnection-container')) {
 					var sovendusNewDate = new Date();
@@ -100,30 +97,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 					_gconData.length = 0;
 
-					_gconData.push(['_shopId', '' + this.valueForToken("shop_id") + '']);
-					_gconData.push(['_bannerId', '' + this.valueForToken("banner_id") + '']);
+					_gconData.push(['_shopId', '' + this.valueForToken("shop_id")]);
+					_gconData.push(['_bannerId', '' + this.valueForToken("banner_id")]);
 					_gconData.push(['_sessionId', sovendusSessionId]);
 					_gconData.push(['_timestamp', sovendusTimestamp]);
-					_gconData.push(['_customerSalutation', '' + this.valueForToken(
-						"salutation") + '']);
-					_gconData.push(['_customerFirstName', '' + this.valueForToken(
-						"first_name") + '']);
-					_gconData.push(['_customerLastName', '' + this.valueForToken("last_name") +
-						''
+					_gconData.push(['_customerSalutation', '' + this.valueForToken("salutation")]);
+					_gconData.push(['_customerFirstName', '' + this.valueForToken("first_name")]);
+					_gconData.push(['_customerLastName', '' + this.valueForToken("last_name")
 					]);
-					_gconData.push(['_customerEmail', '' + this.valueForToken("email") + '']);
-					_gconData.push(['_orderId', '' + this.valueForToken("order_id") + '']);
-					_gconData.push(['_orderValue', '' + this.valueForToken("order_value") +
-						''
-					]);
-					_gconData.push(['_orderCurrency', '' + this.valueForToken(
-						"order_currency") + '']);
+					_gconData.push(['_customerEmail', '' + this.valueForToken("email")]);
+					_gconData.push(['_orderId', '' + this.valueForToken("order_id")]);
+					_gconData.push(['_orderValue', '' + this.valueForToken("order_value")]);
+					_gconData.push(['_orderCurrency', '' + this.valueForToken("order_currency")]);
 					_gconData.push(['_usedCouponCode', '' + this.valueForToken("coupon_code") +
 						''
 					]);
 					_gconData.push(['_htmlElementId', 'gutscheinconnection-container']);
 
-					var sovendusScript = document.createElement('script')
+					var sovendusScript = document.createElement('script');
 					document.body.appendChild(sovendusScript);
 					sovendusScript.type = "text/javascript";
 					sovendusScript.src = ('https:' == document.location.protocol ?
@@ -135,9 +126,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 
 			waitForSovendusDiv();
-
-		})();
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

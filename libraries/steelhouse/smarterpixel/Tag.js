@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Smarter Pixel",
 		async: true,
 		description: "The SteelHouse SmarterPixel is an all-in-one tracking solution intended to be deployed on every page of the site.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/SteelHouse.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -24,12 +24,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			"use strict";
 			var e = null,
 				b = "4.0.0",
-				n = "" + this.valueForToken("merchant_id") + "",
+				n = "" + this.valueForToken("merchant_id"),
 				additional = "",
 				t, r, i;
 			try {
@@ -72,7 +70,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			c.src = ("https:" === document.location.protocol ? "https://" : "http://") +
 				h;
 			v.parentNode.insertBefore(c, v)
-		})()
 		/*~SCRIPT*/
 	},
 	pre: function() {

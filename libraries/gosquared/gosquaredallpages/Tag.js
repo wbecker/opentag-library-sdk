@@ -24,9 +24,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		var GoSquared = {};
-		GoSquared.acct = "" + this.valueForToken("account_no") + "";
+		window.GoSquared = {};
+		GoSquared.acct = "" + this.valueForToken("account_no");
 		(function(w) {
 			function gs() {
 				w._gstc_lt = +(new Date);

@@ -45,17 +45,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var _struqPI = _struqPI || [];
+		window._struqPI = window._struqPI || [];
 
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("p_id_list").length; i < ii; i++) {
 			productArr.push(this.valueForToken("p_id_list")[i]);
 		}
 
-		var productIDStr = productArr.join(",");
+		window.productIDStr = productArr.join(",");
 
 		_struqPI.push(['injectTrackingPixel', {
-			trackingPixelId: '' + this.valueForToken("id") + '',
+			trackingPixelId: '' + this.valueForToken("id"),
 			route: '/s/cd/',
 			collectData: false,
 			data: [{
@@ -65,10 +65,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				tv: "1"
 			}, {
 				title: "summary",
-				oid: "" + this.valueForToken("confirmation_id") + "",
-				tot: "" + this.valueForToken("confirmation_total") + "",
+				oid: "" + this.valueForToken("confirmation_id"),
+				tot: "" + this.valueForToken("confirmation_total"),
 				dis: "0",
-				cur: "" + this.valueForToken("confirmation_currency") + ""
+				cur: "" + this.valueForToken("confirmation_currency")
 			}],
 			options: {
 				timeoutMs: 2000

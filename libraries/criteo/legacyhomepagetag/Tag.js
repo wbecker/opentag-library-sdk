@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Legacy - Home Page Tag",
 		async: true,
 		description: "The home page tag has to be integrated on the home page of the advertiser website.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -39,8 +39,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			function pcto_dis() {
 				if (document.createElement) {
 					var cto_dis_im = document.createElement('iframe');
@@ -71,17 +69,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			var domain = window.location.protocol === "https:" ?
 				"https://sslwidget.criteo.com" : "http://" + this.valueForToken(
-					"subdomain") + "";
+					"subdomain");
 
 			var _cr_i = document.createElement("img");
-			_cr_i.src = domain + "/" + this.valueForToken("call_parameter") +
-				"/display.js?p1=" + escape('v=2&wi=' + this.valueForToken("wi") +
-					'&pt1=0&pt2=1') + "&t1=sendEvent&resptype=gif&cb=" + Math.floor(Math.random() *
-					99999999999);
+			_cr_i.src = domain + "/"
+              + this.valueForToken("call_parameter") +
+				"/display.js?p1=" + escape('v=2&wi=' +
+        this.valueForToken("wi") +'&pt1=0&pt2=1') +
+        "&t1=sendEvent&resptype=gif&cb=" + Math.floor(Math.random() * 99999999999);
 			_cr_i.onload = pcto_dis;
 			_cr_d2.appendChild(_cr_i);
 			document.body.appendChild(_cr_d2);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

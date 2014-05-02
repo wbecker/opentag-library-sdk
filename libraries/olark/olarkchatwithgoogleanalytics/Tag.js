@@ -30,8 +30,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		/*{literal}<![CDATA[*/
-
 		(window.olark && Object.prototype.toString.call(window.olark) ===
 			"[object Function]") || (function(c) {
 			var f = window,
@@ -124,11 +122,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		});
 
 		/* custom configuration goes here (www.olark.com/documentation) */
-		olark.identify('" + this.valueForToken("SITE_ID") + "');
-		olark.configure("GoogleAnalytics.custom_tracking_id", "this.valueForToken("
-			ga_id ")");
+		olark.identify("" + this.valueForToken("SITE_ID"));
+		olark.configure("GoogleAnalytics.custom_tracking_id","" + this.valueForToken("ga_id"));
 
-		/*]]>{/literal}*/
 		/*~SCRIPT*/
 	},
 	pre: function() {

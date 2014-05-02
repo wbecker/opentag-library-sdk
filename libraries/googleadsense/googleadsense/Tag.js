@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Google Adsense",
 		async: true,
 		description: "Deploy Google adsense asynchronously to a specific html element (by id).",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/googleadsense.jpeg",
 		locationDetail: "",
 		isPrivate: false,
@@ -52,25 +52,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 
 			window.adsbygoogle = window.adsbygoogle || [];
 
 			var ins = document.createElement("ins");
 			ins.setAttribute("class", "adsbygoogle");
 			ins.style.display = "inline-block";
-			ins.style.width = "" + this.valueForToken("width") + "px";
-			ins.style.height = "" + this.valueForToken("height") + "px";
+			ins.style.width = this.valueForToken("width") + "px";
+			ins.style.height = this.valueForToken("height") + "px";
 
-			ins.setAttribute("data-ad-client", "ca-pub-" + this.valueForToken(
-				"ad_client") + "");
-			ins.setAttribute("data-ad-slot", "" + this.valueForToken("ad_slot") + "");
-			document.getElementById("" + this.valueForToken("parent_id") + "").appendChild(
-				ins);
+			ins.setAttribute("data-ad-client", "ca-pub-" + this.valueForToken("ad_client"));
+			ins.setAttribute("data-ad-slot", "" + this.valueForToken("ad_slot"));
+			document.getElementById("" + this.valueForToken("parent_id")).appendChild(ins);
 
 			window.adsbygoogle.push({});
 
-		}());
 		/*~POST*/
 	}
 });

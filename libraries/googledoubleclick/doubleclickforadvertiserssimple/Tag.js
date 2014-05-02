@@ -34,7 +34,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var axel = Math.random() + "";
 		var a = axel * 1000000000000;
 		var fl_if = document.createElement("iframe");

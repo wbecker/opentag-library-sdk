@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "EU Site Notice",
 		async: true,
 		description: "This tag handles the Site Notice functionality for EU sites, both for implied and explicit consent notices. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon).",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -30,7 +30,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var hn = document.createElement('script');
 			hn.type = 'text/javascript';
 			hn.async = true;
@@ -40,7 +39,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				'c.betrad.com/geo/h1.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(hn, s);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

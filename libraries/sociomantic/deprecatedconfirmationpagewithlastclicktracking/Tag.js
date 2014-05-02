@@ -59,11 +59,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var sale = {
+		window.sale = {
 			confirmed: true
 		};
 
-		var basket = {
+		window.basket = {
 			products: []
 		};
 
@@ -71,14 +71,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			basket.products.push({
 				identifier: this.valueForToken("product_id_list")[i],
 				amount: this.valueForToken("amt_list")[i],
-				currency: '' + this.valueForToken("trans_currency") + '',
+				currency: '' + this.valueForToken("trans_currency"),
 				quantity: this.valueForToken("qty_list")[i]
 			});
 		}
 
-		basket.transaction = '' + this.valueForToken("trans_id") + '';
-		basket.amount = '' + this.valueForToken("trans_total") + '';
-		basket.currency = '' + this.valueForToken("trans_currency") + '';
+		basket.transaction = '' + this.valueForToken("trans_id");
+		basket.amount = '' + this.valueForToken("trans_total");
+		basket.currency = '' + this.valueForToken("trans_currency");
 		window.basket = basket;
 		/*~PRE*/
 	},

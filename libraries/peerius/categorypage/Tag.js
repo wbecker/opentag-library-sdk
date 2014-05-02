@@ -38,12 +38,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var PeeriusCallbacks = {
+		window.PeeriusCallbacks = {
 			track: {
 				type: "category",
-				lang: "" + this.valueForToken("lang") + "",
-				category: "" + this.valueForToken("subcategory") + "".replace(/\s-\s/g,
-					">")
+				lang: "" + this.valueForToken("lang"),
+				category: ("" + this.valueForToken("subcategory")).replace(/\s-\s/g, ">")
 			}
 		};
 		/*~PRE*/

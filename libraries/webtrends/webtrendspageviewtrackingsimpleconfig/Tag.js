@@ -44,15 +44,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	pre: function() {
 		/*PRE*/
 		window.webtrendsAsyncInit = function() {
-
 			var options = {
-				dcsid: "" + this.valueForToken("id") + "",
-				domain: "" + this.valueForToken("domain") + "",
+				dcsid: "" + this.valueForToken("id"),
+				domain: "" + this.valueForToken("domain"),
 				timezone: this.valueForToken("timezone")
 			};
-
 			// User id
-			var userId = "" + this.valueForToken("user_id") + "";
+			var userId = "" + this.valueForToken("user_id");
 			if (userId) options.vtid = userId;
 
 			var dcs = new Webtrends.dcs(options);

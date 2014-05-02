@@ -43,14 +43,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var product = {
-			identifier: '' + this.valueForToken("product_id") + ''
+		window.product = {
+			identifier: '' + this.valueForToken("product_id")
 		};
 		window.product = product;
 		window.customer = window.customer || {};
 
 		//Allows for custom scripts altering the customer object. Skipped over if user_id or user_email is false-like
-		var email = '' + this.valueForToken("user_email") + '';
+		window.email = '' + this.valueForToken("user_email");
 		if (email && email.toLowerCase() !== "false") {
 			email = email;
 			email = CryptoJS.SHA1(email).toString();
@@ -64,7 +64,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			if (parts.length == 2) window.customer.mhash = parts.pop().split(";").shift();
 		}
 
-		var user_id = '' + this.valueForToken("user_id") + '';
+		window.user_id = '' + this.valueForToken("user_id");
 		if (user_id && user_id.toLowerCase() !== "false") {
 			user_id = user_id;
 			var date = new Date();

@@ -1,0 +1,4 @@
+/**ignore at merge**/
+//:include tagsdk-current.js
+qubit.opentag.Utils.namespace('criteo.legacybasketpagetag.local');
+criteo.legacybasketpagetag.local.Config = {"parameters":[{"name":"Criteo wi Parameter","description":"A Parameter wi provided by Criteo","token":"wi","uv":"","inputVariable":"2"},{"name":"Criteo Call Parameter","description":"Call Parameter provided by Criteo","token":"call_parameter","uv":"","inputVariable":"3"},{"name":"Product IDs","description":"","token":"product_ids","uv":"universal_variable.basket.line_items[#].product.id","inputVariable":""},{"name":"Product Unit Prices","description":"","token":"product_unit_prices","uv":"universal_variable.basket.line_items[#].product.unit_sale_price","inputVariable":""},{"name":"Quantities","description":"","token":"quantities","uv":"universal_variable.basket.line_items[#].quantity","inputVariable":""}]};

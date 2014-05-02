@@ -49,19 +49,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 		window.VDNA.queue.push({
-			apiKey: "" + this.valueForToken("api_key") + "",
+			apiKey: "" + this.valueForToken("api_key"),
 			method: "reportConversion",
 			args: ["added_to_basket", {
-				"product_id": "" + this.valueForToken("product_id") + "",
-				"partner_user_id_type": "" + this.valueForToken("product_id") + "",
-				"product_name": "" + this.valueForToken("product_name") + "",
-				"product_category_id": "" + this.valueForToken("product_category") + "",
-				"product_price": "" + this.valueForToken("price") + "",
-				"currency": "" + this.valueForToken("currency") + ""
+				"product_id": "" + this.valueForToken("product_id"),
+				"partner_user_id_type": "" + this.valueForToken("product_id"),
+				"product_name": "" + this.valueForToken("product_name"),
+				"product_category_id": "" + this.valueForToken("product_category"),
+				"product_price": "" + this.valueForToken("price"),
+				"currency": "" + this.valueForToken("currency")
 			}]
 		});
 		/*~SCRIPT*/

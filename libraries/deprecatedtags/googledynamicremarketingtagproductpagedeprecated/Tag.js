@@ -52,19 +52,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 
 
-		var google_tag_params = {
-			prodid: '' + this.valueForToken("product_id") + '',
-			pagetype: '' + this.valueForToken("page_category") + '',
-			pvalue: '' + this.valueForToken("product_value") + ''
+		window.google_tag_params = {
+			prodid: '' + this.valueForToken("product_id"),
+			pagetype: '' + this.valueForToken("page_category"),
+			pvalue: '' + this.valueForToken("product_value")
 		};
 
-		var google_conversion_id = this.valueForToken("google_conversion_id");
-		var google_conversion_label = "" + this.valueForToken(
-			"google_conversion_label") + "";
-		var google_custom_params = window.google_tag_params;
-		var google_remarketing_only = true;
+		window.google_conversion_id = this.valueForToken("google_conversion_id");
+		window.google_conversion_label = "" + this.valueForToken("google_conversion_label");
+		window.google_custom_params = window.google_tag_params;
+		window.google_remarketing_only = true;
 
-		var script = document.createElement('script');
+		window.script = document.createElement('script');
 		script.type = "text/javascript";
 		script.src = "//www.googleadservices.com/pagead/conversion.js";
 		document.head.appendChild(script);

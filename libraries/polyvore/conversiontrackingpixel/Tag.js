@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Tracking Pixel",
 		async: true,
 		description: "Increased visibility on your campaign enables you to better react and optimize to meet business objectives. Integrating the Polyvore conversion tracking pixel provides you access to the following metrics through the Promoted Products Report: Orders, Sales, Conversion-to-sale, Average order size, Return on ad spend",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/polyvore.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -45,7 +45,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var skus = "";
 			for (var i = 0; i < this.valueForToken("skus").length; i++) {
 				if (i > 0) {
@@ -54,10 +53,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				skus += this.valueForToken("skus")[i];
 			}
 			new Image().src = document.location.protocol +
-				"//www.polyvore.com/conversion/beacon.gif?adv=" + this.valueForToken(
-					"hostname") + "&amt=" + this.valueForToken("subtotal") + "&oid=" + this.valueForToken(
-					"id") + "&skus=" + skus + "&cur=" + this.valueForToken("currency") + "";
-		})();
+				"//www.polyvore.com/conversion/beacon.gif?adv=" +
+        this.valueForToken("hostname") + "&amt=" +
+        this.valueForToken("subtotal") + "&oid=" +
+        this.valueForToken("id") + "&skus=" + skus + "&cur=" +
+        this.valueForToken("currency");
 		/*~SCRIPT*/
 	},
 	pre: function() {

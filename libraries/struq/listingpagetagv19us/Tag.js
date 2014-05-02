@@ -37,7 +37,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		}
 		var productStr = productArr.join(",");
 		_struqPI.push(['injectTrackingPixel', {
-			trackingPixelId: '' + this.valueForToken("pixelid") + '',
+			trackingPixelId: '' + this.valueForToken("pixelid"),
 			route: '/s/sa/',
 			collectData: false,
 			data: [{
@@ -52,7 +52,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 		}]);
 
-		var struq = document.createElement('script');
+		window.struq = document.createElement('script');
 		struq.type = 'text/javascript';
 		struq.async = true;
 		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Non basket/confirmation",
 		async: true,
 		description: "Conexance tag for non basket/confirmation pages. Requires tag ID (specifies which page).",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -39,9 +39,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
+    var _this = this;
 			var require = function(url, cb) {
 				var script = document.createElement("script");
 				script.type = "text/javascript";
@@ -59,14 +57,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				document.getElementsByTagName("head")[0].appendChild(script);
 			};
 
-			require("" + this.valueForToken("web1by1_functions_script") + "", function() {
-				require("" + this.valueForToken("web1by1_config_script") + "", function() {
-					window.w1x1.iSet(this.valueForToken("tag_type"), "" + this.valueForToken(
-						"value") + "");
+			require("" + _this.valueForToken("web1by1_functions_script"), function() {
+				require("" + _this.valueForToken("web1by1_config_script"), function() {
+					window.w1x1.iSet(
+                  _this.valueForToken("tag_type"),
+                  "" + _this.valueForToken("value"));
 				});
 			});
 
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

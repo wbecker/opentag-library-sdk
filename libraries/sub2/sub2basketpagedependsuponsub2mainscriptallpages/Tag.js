@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Sub2 - Basket Page (depends upon \"Sub2 - Main Script - All Pages\")",
 		async: true,
 		description: "This script should be placed on the basket page and fire each time the contents of that basket change",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -45,25 +45,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
+    var _this = this;
 			var waitFor_S2Tech_SendBasket = setInterval(function() {
 				if (typeof S2Tech_SendBasket === 'function') {
 					clearInterval(waitFor_S2Tech_SendBasket);
 
 					var basketData = "<Store>";
 
-					for (var i = 0; i < this.valueForToken("sku").length; i++) {
+					for (var i = 0; i < _this.valueForToken("sku").length; i++) {
 						basketData += "<Product>";
-						basketData += "<SKU>" + this.valueForToken("sku")[i] + "</SKU>";
-						basketData += "<Product_ID>" + this.valueForToken("product_id")[i] +
+						basketData += "<SKU>" + _this.valueForToken("sku")[i] + "</SKU>";
+						basketData += "<Product_ID>" + _this.valueForToken("product_id")[i] +
 							"</Product_ID>";
-						basketData += "<Product_Name>" + this.valueForToken("product_name")[i] +
+						basketData += "<Product_Name>" + _this.valueForToken("product_name")[i] +
 							"</Product_Name>";
-						basketData += "<Unit_Price>" + this.valueForToken("unit_price")[i] +
+						basketData += "<Unit_Price>" + _this.valueForToken("unit_price")[i] +
 							"</Unit_Price>";
-						basketData += "<Quantity>" + this.valueForToken("quantity")[i] +
+						basketData += "<Quantity>" + _this.valueForToken("quantity")[i] +
 							"</Quantity>";
 						basketData += "</Product>";
 					}
@@ -78,7 +76,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				clearInterval(waitFor_S2Tech_SendBasket);
 			}, 5000);
 
-		})();
 
 		/*~SCRIPT*/
 	},

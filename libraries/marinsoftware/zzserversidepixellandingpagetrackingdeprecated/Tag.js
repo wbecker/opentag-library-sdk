@@ -26,12 +26,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var _ml = document.createElement("script");
+		window._ml = document.createElement("script");
 		_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") +
 			".js";
 
-		var _m_loaded = false;
-		var _m_loader = function() {
+		window._m_loaded = false;
+		window._m_loader = function() {
 			if (!_m_loaded) {
 				_m_loaded = true;
 				document.write = function(pixel) {

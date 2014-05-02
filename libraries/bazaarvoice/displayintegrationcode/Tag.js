@@ -42,8 +42,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		$BV.ui("rr", "show_reviews", {
-			productId: "" + this.valueForToken("product_id") + ""
+		windopw.$BV.ui("rr", "show_reviews", {
+			productId: "" + this.valueForToken("product_id")
 		});
 		/*~POST*/
 	}

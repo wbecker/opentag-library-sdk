@@ -70,19 +70,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		var _roi = _roi || [];
 
-		_roi.push(['_setMerchantId', '' + this.valueForToken("client_id") + '']);
-		_roi.push(['_setOrderId', '' + this.valueForToken("order_id") + '']);
-		_roi.push(['_setOrderAmount', '' + this.valueForToken("subtotal") + '']);
-		_roi.push(['_setOrderNotes', '' + this.valueForToken("desc") + '']);
+		_roi.push(['_setMerchantId', this.valueForToken("client_id")]);
+		_roi.push(['_setOrderId', this.valueForToken("order_id")]);
+		_roi.push(['_setOrderAmount', this.valueForToken("subtotal")]);
+		_roi.push(['_setOrderNotes', this.valueForToken("desc")]);
 
 		for (var i = 0, ii = this.valueForToken("item_skus").length; i < ii; i++) {
 			_roi.push(['_addItem',
-				'' + this.valueForToken("item_skus") + '[i]',
-				'' + this.valueForToken("product_names") + '[i]',
+				'' + this.valueForToken("item_skus")[i],
+				'' + this.valueForToken("product_names")[i],
 				'',
-				'' + this.valueForToken("category_names") + '[i]',
-				'' + this.valueForToken("unit_prices") + '[i]',
-				'' + this.valueForToken("item_quantities") + '[i]'
+				'' + this.valueForToken("category_names")[i],
+				'' + this.valueForToken("unit_prices")[i],
+				'' + this.valueForToken("item_quantities")[i]
 			]);
 		}
 

@@ -30,18 +30,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
-			var i, ii, d, p = document.getElementById("mc_data");
-			for (i = 0, ii = this.valueForToken("Product_SKUs").length; i < ii; i++) {
-				d = document.createElement("div");
-				d.className = "mc_sku";
-				d.innerHTML = this.valueForToken("Product_SKUs")[i].toString();
-				p.appendChild(d);
-			}
-		})();
+    var i, ii, d, p = document.getElementById("mc_data");
+    for (i = 0, ii = this.valueForToken("Product_SKUs").length; i < ii; i++) {
+      d = document.createElement("div");
+      d.className = "mc_sku";
+      d.innerHTML = this.valueForToken("Product_SKUs")[i].toString();
+      p.appendChild(d);
+    }
 
-		var mc_api_url = "api.merchenta.com/merchenta/t";
-		(function() {
+		window.mc_api_url = "api.merchenta.com/merchenta/t";
 			var script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.async = true;
@@ -52,7 +49,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				script.src = "http://cdn.merchenta.com/track/t.js";
 			}
 			document.getElementsByTagName('head')[0].appendChild(script);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

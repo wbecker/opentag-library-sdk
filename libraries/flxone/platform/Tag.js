@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Platform",
 		async: true,
 		description: "Use iatDev=1 in your URL parameters, or cookies to enable debug mode.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/FlxOne.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -24,7 +24,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		(function(a) {
 			var d = document,
 				c = d.createElement("script");
@@ -32,7 +32,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				c)
 		})((iatDev = (window.location.href.indexOf("iatDev=1") > -1 || document.cookie
 				.indexOf("iatDev=1") > -1), "//" + (window.location.protocol == "http:" && !
-				iatDev ? "h" : "") + "j.flxpxl.com/" + this.valueForToken("client_id") +
+				iatDev ? "h" : "") + "j.flxpxl.com/" + _this.valueForToken("client_id") +
 			".js?r=" + Math.random() * 1e16 + (iatDev ? "&d=1" : "")))
 		/*~SCRIPT*/
 	},

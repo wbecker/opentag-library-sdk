@@ -70,7 +70,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken(
 			"storm_id") + '.js';
-		window.__ch = '' + this.valueForToken("channel") + '';
+		window.__ch = '' + this.valueForToken("channel");
 		/*~PRE*/
 	},
 	post: function() {
@@ -94,7 +94,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			m1: "Shipping cost"
 		})
 
-		saleTrack.orderid = "" + this.valueForToken("order_id") + "";
+		saleTrack.orderid = "" + this.valueForToken("order_id");
 		saleTrack.logSale(1);
 		/*~POST*/
 	}

@@ -53,11 +53,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 		window.google_trackConversion({
-			google_conversion_id: "" + this.valueForToken("conversion_id") + "",
-			google_conversion_label: "" + this.valueForToken("label") + "",
+			google_conversion_id: "" + this.valueForToken("conversion_id"),
+			google_conversion_label: "" + this.valueForToken("label"),
 			google_custom_params: {
 				ecomm_prodid: this.valueForToken("product_id"),
-				ecomm_pagetype: "" + this.valueForToken("page_type") + "",
+				ecomm_pagetype: "" + this.valueForToken("page_type"),
 				ecomm_totalvalue: this.valueForToken("total")
 			},
 			google_remarketing_only: true

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "US Site Notice (In-Page)",
 		async: true,
 		description: "This tag handles the Standard Notice functionality for US sites by adding an AdChoices link in the specified location. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon). The placement requires an element ID, or a classname and an index, corresponding to the element the tag should be placed into.",
-		html: "<!--@SRC@--><a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
+		html: "<a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -45,13 +45,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var lnk;
-
+      var _this = this;
 			function waitForLink() {
 				lnk = document.getElementById("_bapw-link");
 				if (lnk) {
-					(function() {
 						function v(n) {
 							var r = new Image;
 							r.src = u + "l.betrad.com/pub/p.gif?pid=" + e + "&ocid=" + t + "&i" +
@@ -135,8 +133,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 							return r
 						};
 						v("i")
-					})();
-					if (this.valueForToken("class")) {
+					if (_this.valueForToken("class")) {
 						waitForClass();
 					} else {
 						waitForID();
@@ -149,8 +146,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			waitForLink();
 
 			function waitForClass() {
-				var tag = document.querySelectorAll('.' + this.valueForToken("name") + '')[
-					Number('' + this.valueForToken("index") + '')];
+				var tag = document.querySelectorAll('.' + _this.valueForToken("name"))[
+					Number('' + _this.valueForToken("index"))];
 				if (tag) {
 					tag.appendChild(lnk);
 				} else {
@@ -159,14 +156,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 
 			function waitForID() {
-				var tag = document.getElementById('' + this.valueForToken("name") + '');
+				var tag = document.getElementById('' + _this.valueForToken("name"));
 				if (tag) {
 					tag.appendChild(lnk);
 				} else {
 					setTimeout(waitForID, 50);
 				}
 			}
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

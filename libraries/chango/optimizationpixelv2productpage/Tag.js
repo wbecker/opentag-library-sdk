@@ -59,29 +59,27 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+    var _this = this;
 
-
-		var __cho__ = {
+		window.__cho__ = {
 			"data": {
-				"pt": "" + this.valueForToken("PT_VALUE") + "",
+				"pt": "" + _this.valueForToken("PT_VALUE"),
 				"crt": "",
-				"na": "" + this.valueForToken("NA_VALUE") + "",
-				"op": "" + this.valueForToken("OP_VALUE") + "",
-				"sp": "" + this.valueForToken("SP_VALUE") + "",
-				"sku": "" + this.valueForToken("SKU_VALUE") + "",
-				"pc": "" + this.valueForToken("PC_VALUE") + ""
+				"na": "" + _this.valueForToken("NA_VALUE"),
+				"op": "" + _this.valueForToken("OP_VALUE"),
+				"sp": "" + _this.valueForToken("SP_VALUE"),
+				"sku": "" + _this.valueForToken("SKU_VALUE"),
+				"pc": "" + _this.valueForToken("PC_VALUE")
 			},
-			"pid": this.valueForToken("ID"),
-			"puid2": "" + this.valueForToken("PUID") + ""
+			"pid": _this.valueForToken("ID"),
+			"puid2": "" + _this.valueForToken("PUID")
 		};
-		(function() {
-			var c = document.createElement('script');
-			c.type = 'text/javascript';
-			c.async = true;
-			c.src = document.location.protocol + '//cc.chango.com/static/o.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(c, s);
-		})();
+    var c = document.createElement('script');
+    c.type = 'text/javascript';
+    c.async = true;
+    c.src = document.location.protocol + '//cc.chango.com/static/o.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(c, s);
 		/*~SCRIPT*/
 	},
 	pre: function() {

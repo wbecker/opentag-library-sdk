@@ -68,19 +68,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var pg_pangora_merchant_id = '' + this.valueForToken("merchant_id") + '';
-		var pg_order_id = '' + this.valueForToken("order_id") + '';
-		var pg_cart_value = '' + this.valueForToken("cart_value") + '';
-		var pg_currency = '' + this.valueForToken("currency") + '';
-		var pg_customer_flag = this.valueForToken("customer_flag") ? 'old' : 'new';
-		var pg_product_id = '';
-		var pg_product_name = '';
-		var pg_product_price = '';
-		var pg_product_units = '';
-		var pg_cart_size = 0;
+		window.pg_pangora_merchant_id = '' + this.valueForToken("merchant_id");
+		window.pg_order_id = '' + this.valueForToken("order_id");
+		window.pg_cart_value = '' + this.valueForToken("cart_value");
+		window.pg_currency = '' + this.valueForToken("currency");
+		window.pg_customer_flag = this.valueForToken("customer_flag") ? 'old' : 'new';
+		window.pg_product_id = '';
+		window.pg_product_name = '';
+		window.pg_product_price = '';
+		window.pg_product_units = '';
+		window.pg_cart_size = 0;
 
 		//Build CSVs and get cart size.
-		(function() {
 			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 				var tempid = this.valueForToken("product_ids")[i];
 				var tempnm = this.valueForToken("product_names")[i];
@@ -98,7 +97,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				pg_product_units += startString + String(tempqt);
 			}
 			pg_cart_size = String(pg_cart_size);
-		})();
 		/*~PRE*/
 	},
 	post: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Legacy - Confirmation Page Tag - Extra details",
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user made payment. This contains variables to specify whether the user is new and also whether the sale was post-click or post-impression.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -59,41 +59,38 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+    var src, newUser, isNotPostClick, params;
+    src = [
+      "https://", "sslwidget.criteo.com", "/",
+      "" + this.valueForToken("call_parameter"),
+      "/",
+      "display.js?",
+      "p1="
+    ];
+    newUser = ("" + this.valueForToken("returning") === "true") ? "0" : "1";
+    isNotPostClick = ("" + this.valueForToken("is_post_click") === "true") ? "0" : "1";
+    params = [
+      "v=2",
+      "&s=1",
+      "&nc=", newUser,
+      "&dd=", isNotPostClick,
+      "&wi=", "" + this.valueForToken("wi"),
+      "&t=", "" + this.valueForToken("order_id")
+    ];
 
-		(function() {
-			var src, newUser, isNotPostClick, params;
-			src = [
-				"https://", "sslwidget.criteo.com", "/", "" + this.valueForToken(
-					"call_parameter") + "", "/", "display.js?", "p1="
-			];
-			newUser = ("" + this.valueForToken("returning") + "" === "true") ? "0" :
-				"1";
-			isNotPostClick = ("" + this.valueForToken("is_post_click") + "" === "true") ?
-				"0" : "1";
-			params = [
-				"v=2",
-				"&s=1",
-				"&nc=", newUser,
-				"&dd=", isNotPostClick,
-				"&wi=", "" + this.valueForToken("wi") + "",
-				"&t=", "" + this.valueForToken("order_id") + ""
-			];
-
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				var index = i + 1;
-				params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
-				params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[
-					i]);
-				params.push("&q" + index + "=" + this.valueForToken("quantities")[i])
-			}
-			src.push(escape(params.join("")));
-			src.push("&t1=transaction&resptype=gif");
-			var img = document.createElement("img");
-			img.setAttribute("src", src.join(""));
-			img.setAttribute("height", "1");
-			img.setAttribute("width", "1");
-			document.body.appendChild(img);
-		})(); // empty
+    for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+      var index = i + 1;
+      params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
+      params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[i]);
+      params.push("&q" + index + "=" + this.valueForToken("quantities")[i])
+    }
+    src.push(escape(params.join("")));
+    src.push("&t1=transaction&resptype=gif");
+    var img = document.createElement("img");
+    img.setAttribute("src", src.join(""));
+    img.setAttribute("height", "1");
+    img.setAttribute("width", "1");
+    document.body.appendChild(img);
 		/*~SCRIPT*/
 	},
 	pre: function() {

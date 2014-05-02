@@ -46,11 +46,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var _mf = document.createElement("form");
+		window._mf = document.createElement("form");
 		_mf.style.display = "none";
 		_mf.name = "utmform";
 
-		var _mta = document.createElement("textarea");
+		window._mta = document.createElement("textarea");
 		_mta.id = "utmtrans";
 		_mta.value = "UTM:T|" + this.valueForToken("orderId") + "||" + this.valueForToken(
 			"total") + "|||||\nUTM:I|" + this.valueForToken("orderId") + "|" + this.valueForToken(
@@ -59,16 +59,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		_mf.appendChild(_mta);
 		document.body.appendChild(_mf);
 
-		var _marinTransaction = {
-			currency: "" + this.valueForToken("currency") + ""
+		window._marinTransaction = {
+			currency: "" + this.valueForToken("currency")
 		};
 
-		var _ml = document.createElement("script");
+		window._ml = document.createElement("script");
 		_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") +
 			".js";
 
-		var _m_loaded = false;
-		var _m_loader = function() {
+		window._m_loaded = false;
+		window._m_loader = function() {
 			if (!_m_loaded) {
 				_m_loaded = true;
 				document.write = function(pixel) {

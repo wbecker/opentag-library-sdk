@@ -10,7 +10,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Affiliate Window with Post Impression Parameter deprecated",
 		async: true,
 		description: "Affiliate window confirmation tag with a parameter to report post impression vs. post click",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
 		locationDetail: "",
 		isPrivate: true,
@@ -105,7 +105,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
 
 			var i, cg, cg_groups = {}, parts;
 			for (i = 0; i < this.valueForToken("productId").length; i++) {
@@ -127,16 +126,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			parts = parts.join("|");
 			var awinImgSrc = [
 				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + this.valueForToken(
-					"merchant_id") + "",
-				"&amount=" + this.valueForToken("orderTotal") + "",
-				"&ref=" + this.valueForToken("orderId") + "",
+					"merchant_id"),
+				"&amount=" + this.valueForToken("orderTotal"),
+				"&ref=" + this.valueForToken("orderId"),
 				"&parts=", parts,
-				"&vc=" + this.valueForToken("voucher") + "",
-				"&testmode=" + this.valueForToken("testmode") + "",
-				"&cr=" + this.valueForToken("orderCurrency") + "",
-				"&p1=" + this.valueForToken("custom_parameter1") + "",
-				"&p2=" + this.valueForToken("custom_parameter2") + "",
-				"&pv=" + this.valueForToken("isPostImpression") + ""
+				"&vc=" + this.valueForToken("voucher"),
+				"&testmode=" + this.valueForToken("testmode"),
+				"&cr=" + this.valueForToken("orderCurrency"),
+				"&p1=" + this.valueForToken("custom_parameter1"),
+				"&p2=" + this.valueForToken("custom_parameter2"),
+				"&pv=" + this.valueForToken("isPostImpression")
 			].join("");
 			var el = document.createElement("img");
 			el.setAttribute("src", awinImgSrc);
@@ -155,7 +154,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				if (this.valueForToken("commission_groups")[i] !== "IGNORE_ITEM") {
 					textareaText.push([
 						"AW:P|" + this.valueForToken("merchant_id") + "|",
-						"" + this.valueForToken("orderId") + "", "|",
+						"" + this.valueForToken("orderId"), "|",
 						this.valueForToken("productId")[i], "|",
 						this.valueForToken("productName")[i], "|",
 						this.valueForToken("productUnitPrice")[i], "|",
@@ -175,17 +174,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				Tracking: {
 					Sale: {
 						amount: this.valueForToken("orderTotal"),
-						currency: "" + this.valueForToken("orderCurrency") + "",
-						orderRef: "" + this.valueForToken("orderId") + "",
+						currency: "" + this.valueForToken("orderCurrency"),
+						orderRef: "" + this.valueForToken("orderId"),
 						parts: parts,
-						voucher: "" + this.valueForToken("voucher") + "",
-						test: "" + this.valueForToken("testmode") + "",
-						pvOnly: "" + this.valueForToken("isPostImpression") + ""
+						voucher: "" + this.valueForToken("voucher"),
+						test: "" + this.valueForToken("testmode"),
+						pvOnly: "" + this.valueForToken("isPostImpression")
 					}
 				}
 			};
 
-		})();
 		/*~PRE*/
 	},
 	post: function() {

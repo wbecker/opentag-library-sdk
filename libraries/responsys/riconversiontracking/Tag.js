@@ -59,23 +59,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		var customerID = "" + this.valueForToken("customer_id") + "";
-
+		var customerID = "" + this.valueForToken("customer_id");
 		var numberOfItems = this.valueForToken("purchased_items_array").length;
-
-		var imageSource = document.location.protocol + "//" + this.valueForToken(
-			"domain") + "/pub/cct?_ri_=" + this.valueForToken("client_ri") + "&_ei_=" +
-			this.valueForToken("client_ei") + "&action=once&OrderID=" + this.valueForToken(
-				"order_id") + "&OrderTotal=" + this.valueForToken("order_total") +
-			"&numItems=" + numberOfItems;
+    
+		var imageSource = document.location.protocol + "//" +
+      this.valueForToken("domain") + "/pub/cct?_ri_=" +
+      this.valueForToken("client_ri") + "&_ei_=" +
+			this.valueForToken("client_ei") + "&action=once&OrderID=" +
+      this.valueForToken("order_id") + "&OrderTotal=" +
+      this.valueForToken("order_total") + "&numItems=" + numberOfItems;
 
 		if (customerID !== "0") {
 			imageSource += "&customerID=" + customerID;
 		}
 
-		imageSource += "&Type=" + this.valueForToken("type") + "";
+		imageSource += "&Type=" + this.valueForToken("type");
 
 		var image = document.createElement('img');
 		image.src = imageSource;

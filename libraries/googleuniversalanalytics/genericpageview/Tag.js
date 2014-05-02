@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Generic Page View",
 		async: true,
 		description: "This tag registers a pageview, and is intended for any page other than confirmation pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -43,8 +43,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		})(window, document, 'script', '//www.google-analytics.com/analytics.js',
 			'ga');
 
-		ga('create', '' + this.valueForToken("web_property_id") + '', '' + this.valueForToken(
-			"url") + '');
+		ga('create', '' + this.valueForToken("web_property_id"),'' + this.valueForToken("url"));
 		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 

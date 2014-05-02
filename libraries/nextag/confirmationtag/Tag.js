@@ -38,9 +38,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		window.id = '' + this.valueForToken("nextag_id") + '';
-		window.rev = '' + this.valueForToken("order_total") + '';
-		window.order = '' + this.valueForToken("order_id") + '';
+		window.id = '' + this.valueForToken("nextag_id");
+		window.rev = '' + this.valueForToken("order_total");
+		window.order = '' + this.valueForToken("order_id");
 		/*~PRE*/
 	},
 	post: function() {

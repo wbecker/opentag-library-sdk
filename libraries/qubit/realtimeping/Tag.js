@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Realtime Ping",
 		async: true,
 		description: "Used for realtime stats in Deliver. Must have QTracker as a dependency.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -21,9 +21,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
 			if (!window.JSON) {
 				return;
 			}
@@ -164,8 +161,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					});
 				}
 			});
-
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

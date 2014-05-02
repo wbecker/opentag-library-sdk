@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Price Runner Sale Pixel",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Pricerunner.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -54,14 +54,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			var img = document.createElement("img");
 			var src = [
 				"https://www.emjcd.com/u?",
-				"CID=" + this.valueForToken("enterprise_id") + "",
-				"&OID=" + this.valueForToken("order_id") + "",
-				"&TYPE=" + this.valueForToken("action_id") + ""
+				"CID=" + this.valueForToken("enterprise_id"),
+				"&OID=" + this.valueForToken("order_id"),
+				"&TYPE=" + this.valueForToken("action_id")
 			];
 			for (var i = 0; i < this.valueForToken("ids").length; i++) {
 				var item = [];
@@ -71,13 +69,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				item.push("&qty" + index + "=" + this.valueForToken("quantities")[i]);
 				src.push(item.join(""));
 			}
-			src.push("&currency=" + this.valueForToken("currency") + "");
+			src.push("&currency=" + this.valueForToken("currency"));
 			src.push("&method=img");
 			img.setAttribute("src", src.join(""));
 			img.setAttribute("height", "1");
 			img.setAttribute("width", "20");
 			document.body.appendChild(img);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

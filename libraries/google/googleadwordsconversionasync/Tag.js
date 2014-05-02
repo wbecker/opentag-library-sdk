@@ -44,7 +44,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*POST*/
 		window.google_trackConversion({
 			google_conversion_id: this.valueForToken("conversion_id"),
-			google_conversion_label: "" + this.valueForToken("label") + "",
+			google_conversion_label: "" + this.valueForToken("label"),
 			google_conversion_value: this.valueForToken("value"),
 			google_conversion_format: "3",
 			google_is_call: true,

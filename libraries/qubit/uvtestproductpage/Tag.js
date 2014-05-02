@@ -85,19 +85,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		console.log("" + this.valueForToken("a") + "");
-		console.log("" + this.valueForToken("b") + "");
-		console.log("" + this.valueForToken("c") + "");
-		console.log("" + this.valueForToken("d") + "");
-		console.log("" + this.valueForToken("e") + "");
-		console.log("" + this.valueForToken("f") + "");
-		console.log("" + this.valueForToken("g") + "");
-		console.log("" + this.valueForToken("h") + "");
-		console.log("" + this.valueForToken("i") + "");
-		console.log("" + this.valueForToken("j") + "");
-		console.log("" + this.valueForToken("k") + "");
-		console.log("" + this.valueForToken("l") + "");
-		console.log("" + this.valueForToken("m") + "");
+		console.log("" + this.valueForToken("a"));
+		console.log("" + this.valueForToken("b"));
+		console.log("" + this.valueForToken("c"));
+		console.log("" + this.valueForToken("d"));
+		console.log("" + this.valueForToken("e"));
+		console.log("" + this.valueForToken("f"));
+		console.log("" + this.valueForToken("g"));
+		console.log("" + this.valueForToken("h"));
+		console.log("" + this.valueForToken("i"));
+		console.log("" + this.valueForToken("j"));
+		console.log("" + this.valueForToken("k"));
+		console.log("" + this.valueForToken("l"));
+		console.log("" + this.valueForToken("m"));
 		/*~SCRIPT*/
 	},
 	pre: function() {

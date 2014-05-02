@@ -33,22 +33,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var mainText =
+		window.mainText =
 			"For this website to run at its best, we ask the browser (like Google Chrome and Internet Explorer) for a little personal information. Nothing drastic, just enough to remember your preferences, login ID, and what you like to look at (on our site). Having this information to hand helps us understand your needs and improve our service to you.";
 
-		var cookiesAndPrivacyStatementUrl = "" + this.valueForToken("linkHref") + "";
+		window.cookiesAndPrivacyStatementUrl = "" + this.valueForToken("linkHref");
 
-		if ("" + this.valueForToken("mainText") + "") {
-			mainText = "" + this.valueForToken("mainText") + "";
+		if ("" + this.valueForToken("mainText")) {
+			mainText = "" + this.valueForToken("mainText");
 		}
 
-		var _q_pd = document.createElement("script");
-
+		window._q_pd = document.createElement("script");
 		_q_pd.src = "//d3c3cq33003psk.cloudfront.net/PostData.js";
 
 		document.getElementsByTagName("head")[0].appendChild(_q_pd);
 
-		var _q_ping = function(type, reason) {
+		window._q_ping = function(type, reason) {
 			if (!window._q_) {
 				setTimeout(function() {
 					_q_ping(type);
@@ -61,7 +60,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		//=Q=
 
-		var qcw = {
+		window.qcw = {
 			"mode": "notification",
 			"acceptButtonText": "Enable Cookies",
 			"declineButtonText": "No, Thank You",

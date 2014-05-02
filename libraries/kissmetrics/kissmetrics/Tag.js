@@ -24,8 +24,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		var _kmq = _kmq || [];
+    var _this = this;
+		window._kmq = window._kmq || [];
 		(function(w, d) {
 			function _kms(u) {
 				setTimeout(function() {
@@ -40,7 +40,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			function kmg() {
 				_kms('//i.kissmetrics.com/i.js');
-				_kms('//doug1izaerwt3.cloudfront.net/' + this.valueForToken("API_KEY") +
+				_kms('//doug1izaerwt3.cloudfront.net/' + _this.valueForToken("API_KEY") +
 					'.1.js');
 			}
 			if (w.addEventListener) {

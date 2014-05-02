@@ -44,13 +44,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		dcsMultiTrack({
-			"WT.pn_sku": "" + this.valueForToken("sku") + "",
-			"WT.pn_id": "" + this.valueForToken("id") + "",
-			"WT.pn_fa": "" + this.valueForToken("category") + "",
-			"WT.pn_ma": "" + this.valueForToken("manufacturer") + "",
-			"WT.pn_sc": "" + this.valueForToken("subcategory") + ""
+		window.dcsMultiTrack({
+			"WT.pn_sku": "" + this.valueForToken("sku"),
+			"WT.pn_id": "" + this.valueForToken("id"),
+			"WT.pn_fa": "" + this.valueForToken("category"),
+			"WT.pn_ma": "" + this.valueForToken("manufacturer"),
+			"WT.pn_sc": "" + this.valueForToken("subcategory")
 		});
 		/*~SCRIPT*/
 	},

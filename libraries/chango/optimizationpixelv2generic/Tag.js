@@ -26,7 +26,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 
 
-		var __cho__ = {
+		window.__cho__ = {
 			"data": {
 				"pt": "",
 				"crt": "",
@@ -39,14 +39,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"pid": this.valueForToken("ID"),
 			"puid2": ""
 		};
-		(function() {
 			var c = document.createElement('script');
 			c.type = 'text/javascript';
 			c.async = true;
 			c.src = document.location.protocol + '//cc.chango.com/static/o.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(c, s);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

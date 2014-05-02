@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "OneTag - Product",
 		async: true,
 		description: "This must be placed on all the advertiser product pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -47,9 +47,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 
-			var user_id = "" + this.valueForToken("customer_id") + "";
+			var user_id = "" + this.valueForToken("customer_id");
 			//Remove email if present.
 			if (user_id.indexOf("@") > -1) {
 				user_id = "";
@@ -64,13 +63,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				id: user_id
 			}, {
 				event: "setSiteType",
-				type: "" + this.valueForToken("site_type") + ""
+				type: "" + this.valueForToken("site_type")
 			}, {
 				event: "viewItem",
-				product: "" + this.valueForToken("product_id") + ""
+				product: "" + this.valueForToken("product_id")
 			});
 
-		}());
 		/*~POST*/
 	}
 });

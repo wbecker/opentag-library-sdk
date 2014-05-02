@@ -69,15 +69,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		//compile cart data
 		var cart = (function() {
 			if (window.universal_variable && window.universal_variable.line_items) {
 				var arr = [];
-				for (var i = 0; i < this.valueForToken("productNames").length; i++) {
+				for (var i = 0; i < _this.valueForToken("productNames").length; i++) {
 					arr.push({
-						na: this.valueForToken("productNames")[i],
-						sku: this.valueForToken("productSKU")[i]
+						na: _this.valueForToken("productNames")[i],
+						sku: _this.valueForToken("productSKU")[i]
 					});
 				}
 				return arr;
@@ -86,27 +86,27 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 		})();
 
-		var __cho__ = {
+		window.__cho__ = {
 			"data": {
-				"pt": "" + this.valueForToken("PT_VALUE") + "",
+				"pt": "" + this.valueForToken("PT_VALUE"),
 				"crt": cart,
-				"na": "" + this.valueForToken("NA_VALUE") + "",
-				"op": "" + this.valueForToken("OP_VALUE") + "",
-				"sp": "" + this.valueForToken("SP_VALUE") + "",
-				"sku": "" + this.valueForToken("SKU_VALUE") + "",
-				"pc": "" + this.valueForToken("PC_VALUE") + ""
+				"na": "" + this.valueForToken("NA_VALUE"),
+				"op": "" + this.valueForToken("OP_VALUE"),
+				"sp": "" + this.valueForToken("SP_VALUE"),
+				"sku": "" + this.valueForToken("SKU_VALUE"),
+				"pc": "" + this.valueForToken("PC_VALUE")
 			},
 			"pid": this.valueForToken("ID"),
-			"puid2": "" + this.valueForToken("PUID") + ""
+			"puid2": "" + this.valueForToken("PUID")
 		};
-		(function() {
-			var c = document.createElement('script');
-			c.type = 'text/javascript';
-			c.async = true;
-			c.src = document.location.protocol + '//cc.chango.com/static/o.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(c, s);
-		})();
+    
+    var c = document.createElement('script');
+    c.type = 'text/javascript';
+    c.async = true;
+    c.src = document.location.protocol + '//cc.chango.com/static/o.js';
+    var s = document.getElementsByTagName('script')[0];
+    
+    s.parentNode.insertBefore(c, s);
 		/*~SCRIPT*/
 	},
 	pre: function() {

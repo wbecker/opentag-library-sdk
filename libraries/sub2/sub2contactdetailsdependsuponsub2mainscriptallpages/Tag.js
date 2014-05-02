@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Sub2 - Contact Details (depends upon \"Sub2 - Main Script - All pages\")",
 		async: true,
 		description: "The purpose of this script is to capture the relevant contact details of any visitor to the site who has provided these details as part of the order, account creation or brochure request process. It should fire on all pages that contain these details.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -65,28 +65,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+    var _this = this;
+    var waitFor_S2Tech_MatchData_NA = setInterval(function() {
+      if (typeof S2Tech_MatchData_NA === 'function') {
+        clearInterval(waitFor_S2Tech_MatchData_NA);
 
+        S2Tech_MatchData_NA("" + _this.valueForToken("title"), "" + _this.valueForToken(
+            "firstname"), "" + _this.valueForToken("lastname"), "" +
+          _this.valueForToken("address"), "" + _this.valueForToken("postcode") +
+          "", "" + _this.valueForToken("email"), "" + _this.valueForToken(
+            "landline"), "" + _this.valueForToken("mobile"), "" + _this.valueForToken(
+            "OptIns"));
+      }
+    }, 100);
 
-		(function() {
-			var waitFor_S2Tech_MatchData_NA = setInterval(function() {
-				if (typeof S2Tech_MatchData_NA === 'function') {
-					clearInterval(waitFor_S2Tech_MatchData_NA);
-
-					S2Tech_MatchData_NA("" + this.valueForToken("title") + "", "" + this.valueForToken(
-							"firstname") + "", "" + this.valueForToken("lastname") + "", "" +
-						this.valueForToken("address") + "", "" + this.valueForToken("postcode") +
-						"", "" + this.valueForToken("email") + "", "" + this.valueForToken(
-							"landline") + "", "" + this.valueForToken("mobile") + "", "" + this.valueForToken(
-							"OptIns") + "");
-				}
-			}, 100);
-
-			setTimeout(function() {
-				clearInterval(waitFor_S2Tech_MatchData_NA);
-			}, 5000);
-
-		})();
-
+    setTimeout(function() {
+      clearInterval(waitFor_S2Tech_MatchData_NA);
+    }, 5000);
 		/*~SCRIPT*/
 	},
 	pre: function() {

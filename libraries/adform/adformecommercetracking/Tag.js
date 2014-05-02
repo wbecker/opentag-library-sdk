@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "AdForm - Ecommerce Tracking",
 		async: true,
 		description: "To be placed only on order confirmation page.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -123,16 +123,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
 
 			// The basic tracker
 			window._adftrack = {
-				pm: '' + this.valueForToken("campaignid") + '',
-				id: '' + this.valueForToken("pointid") + ''
+				pm: '' + this.valueForToken("campaignid"),
+				id: '' + this.valueForToken("pointid")
 			};
 
 			// Split the user name into first and last name
-			var full_name = '' + this.valueForToken("name") + '';
+			var full_name = '' + this.valueForToken("name");
 			var name_arr = full_name.split(' ');
 			var first_name = name_arr[0];
 			name_arr.splice(0, 1);
@@ -157,24 +156,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			// Add the order details
 			window._adftrack.order = {
-				sales: '' + this.valueForToken("subtotal") + '',
-				currency: '' + this.valueForToken("currency") + '',
+				sales: '' + this.valueForToken("subtotal"),
+				currency: '' + this.valueForToken("currency"),
 				basketsize: total_quantity,
-				country: '' + this.valueForToken("country") + '',
-				agegroup: '' + this.valueForToken("agegroup") + '',
-				gender: '' + this.valueForToken("gender") + '',
-				orderid: '' + this.valueForToken("order_id") + '',
-				email: '' + this.valueForToken("email") + '',
+				country: '' + this.valueForToken("country"),
+				agegroup: '' + this.valueForToken("agegroup"),
+				gender: '' + this.valueForToken("gender"),
+				orderid: '' + this.valueForToken("order_id"),
+				email: '' + this.valueForToken("email"),
 				firstname: first_name,
 				lastname: last_name,
-				address1: '' + this.valueForToken("delivery_address_1") + '',
-				address2: '' + this.valueForToken("delivery_address_2") + '',
-				phone: '' + this.valueForToken("phone") + '',
-				zip: '' + this.valueForToken("postcode") + '',
+				address1: '' + this.valueForToken("delivery_address_1"),
+				address2: '' + this.valueForToken("delivery_address_2"),
+				phone: '' + this.valueForToken("phone"),
+				zip: '' + this.valueForToken("postcode"),
 				itms: items
 			};
 
-		})();
 		/*~PRE*/
 	},
 	post: function() {

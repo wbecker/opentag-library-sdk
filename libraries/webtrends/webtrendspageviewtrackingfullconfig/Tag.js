@@ -88,34 +88,33 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
+    var _this = this;
 		window.webtrendsAsyncInit = function() {
 
 			var options = {
-
 				// Top level settings
-				dcsid: "" + this.valueForToken("id") + "",
-				domain: "" + this.valueForToken("domain") + "",
-				timezone: this.valueForToken("timezone"), // int
+				dcsid: "" + _this.valueForToken("id"),
+				domain: "" + _this.valueForToken("domain"),
+				timezone: _this.valueForToken("timezone"), // int
 
 				// Cookie settings
-				fpc: "" + this.valueForToken("cookie_name") + "",
-				fpcdom: "" + this.valueForToken("fpc_domain") + "",
-				cookieTypes: "" + this.valueForToken("cookieTypes") + "",
-				disablecookie: this.valueForToken("disabled_cookie"), // bool 
+				fpc: "" + _this.valueForToken("cookie_name"),
+				fpcdom: "" + _this.valueForToken("fpc_domain"),
+				cookieTypes: "" + _this.valueForToken("cookieTypes"),
+				disablecookie: _this.valueForToken("disabled_cookie"), // bool 
 
 				// Tracking functionality
-				preserve: this.valueForToken("preserve_config"), // bool 
-				metanames: "" + this.valueForToken("meta_names") + "",
-				dcsdelay: this.valueForToken("tracking_delay"), // int
+				preserve: _this.valueForToken("preserve_config"), // bool 
+				metanames: "" + _this.valueForToken("meta_names"),
+				dcsdelay: _this.valueForToken("tracking_delay"), // int
 
 				// Misc
-				enabled: this.valueForToken("data_collection_on"), // bool
-				i18n: this.valueForToken("internationalization"), // bool
-
+				enabled: _this.valueForToken("data_collection_on"), // bool
+				i18n: _this.valueForToken("internationalization"), // bool
 			};
 
 			// User id
-			var userId = "" + this.valueForToken("user_id") + "";
+			var userId = "" + _this.valueForToken("user_id");
 			if (userId) options.vtid = userId;
 
 			var dcs = new Webtrends.dcs(options);

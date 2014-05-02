@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Listing Page Tag v1.14",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -30,7 +30,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var productArr = [];
 			for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
 				productArr.push(this.valueForToken("products")[i]);
@@ -39,7 +38,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			window._struqPI = window._struqPI || [];
 			window._struqPI.push(['injectTrackingPixel', {
-				trackingPixelId: '' + this.valueForToken("pixelid") + '',
+				trackingPixelId: '' + this.valueForToken("pixelid"),
 				route: '/s/sa/',
 				collectData: false,
 				data: [{
@@ -61,7 +60,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				'http://') +
 				'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
 			document.getElementsByTagName('head')[0].appendChild(struq);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -50,15 +50,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var done = function() {
 			window.ClickTaleSSL = 1;
 			if (typeof ClickTale == 'function') {
-				ClickTale(this.valueForToken("ClickTaleId"), this.valueForToken(
-					"RecordingRatio"), "" + this.valueForToken("Partition") + "");
+				ClickTale(this.valueForToken("ClickTaleId"),
+          this.valueForToken("RecordingRatio"),
+          "" + this.valueForToken("Partition"));
 			}
 		}
 
 		ct.onload = done;
 		ct.onreadystatechange = function() {
 			if ((this.readyState === "complete") || (this.readyState === "loading")) {
-				setTimeout(done, 1)
+				setTimeout(done, 1);
 			}
 		}
 

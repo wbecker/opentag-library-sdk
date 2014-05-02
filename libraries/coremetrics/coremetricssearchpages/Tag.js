@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "CoreMetrics - Search Pages",
 		async: true,
 		description: "To be used on search pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -67,26 +67,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 
 			// Client Setup
 			window.cmSetClientID(
-				"" + this.valueForToken("client_id") + "",
+				"" + this.valueForToken("client_id"),
 				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain") + "",
-				"" + this.valueForToken("cookie_domain") + ""
+				"" + this.valueForToken("data_collection_domain"),
+				"" + this.valueForToken("cookie_domain")
 			);
 
 			// Page View
 			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id") + "",
-				"" + this.valueForToken("category_id") + "",
-				"" + this.valueForToken("search_query") + "",
-				"" + this.valueForToken("number_results") + ""
+				"" + this.valueForToken("page_id"),
+				"" + this.valueForToken("category_id"),
+				"" + this.valueForToken("search_query"),
+				"" + this.valueForToken("number_results")
 			);
 
 
-		}());
 		/*~POST*/
 	}
 });

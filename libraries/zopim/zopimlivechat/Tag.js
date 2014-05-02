@@ -24,7 +24,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		window.$zopim || (function(d, s) {
 			var z = $zopim = function(c) {
 				z._.push(c)
@@ -39,7 +39,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			z.set._ = [];
 			$.async = !0;
 			$.setAttribute('charset', 'utf-8');
-			$.src = '//v2.zopim.com/?' + this.valueForToken("client_id") + '';
+			$.src = '//v2.zopim.com/?' + _this.valueForToken("client_id");
 			z.t = +new Date;
 			$.
 			type = 'text/javascript';

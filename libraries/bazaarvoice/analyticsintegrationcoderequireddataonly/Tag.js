@@ -9,7 +9,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Analytics Integration Code (Required Data Only)",
 		async: true,
 		description: "Uses required data only. Add JavaScript code to your transaction and conversion pages to send information to Bazaaarvoice analytics.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/bazaarvoice.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -68,11 +68,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 			var data = {
-				"orderId": "" + this.valueForToken("orderId") + "",
-				"total": "" + this.valueForToken("total") + "",
-				"currency": "" + this.valueForToken("currency") + "",
+				"orderId": "" + this.valueForToken("orderId"),
+				"total": "" + this.valueForToken("total"),
+				"currency": "" + this.valueForToken("currency"),
 				"items": []
 			};
 			for (var i = 0; i < this.valueForToken("productIds").length; i++) {
@@ -81,8 +80,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					"quantity": this.valueForToken("quantities")[i]
 				});
 			}
-			$BV.SI.trackTransactionPageView(data);
-		})();
+			window.$BV.SI.trackTransactionPageView(data);
 		/*~POST*/
 	}
 });

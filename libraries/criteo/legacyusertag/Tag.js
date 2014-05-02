@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Legacy - User Tag",
 		async: true,
 		description: "The user tag is a special tag used on an ad hoc basis, most of the time with extra data.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -34,12 +34,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			var img = document.createElement("img");
 			var src = [
-				"//", "" + this.valueForToken("subdomain") + "", "/", "" + this.valueForToken(
-					"call_parameter") + "", "/display?",
+				"//",
+        "" + this.valueForToken("subdomain"),
+        "/",
+        "" + this.valueForToken("call_parameter"),
+        "/display?",
 				"p1=",
 				escape("v=2&wi=" + this.valueForToken("wi") + "&pt1=4"),
 				"&t1=sendevent&resptype=gif"
@@ -48,7 +49,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			img.setAttribute("height", "1");
 			img.setAttribute("width", "1");
 			document.body.appendChild(img);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

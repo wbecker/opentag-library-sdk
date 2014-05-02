@@ -49,12 +49,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*POST*/
 		var feedback_widget_options = {};
 		feedback_widget_options.display = "overlay";
-		feedback_widget_options.company = "" + this.valueForToken("COMPANY") + "";
+		feedback_widget_options.company = "" + this.valueForToken("COMPANY");
 		feedback_widget_options.placement = "" + this.valueForToken("PLACEMENT") +
 			"";
-		feedback_widget_options.color = "" + this.valueForToken("COLOR") + "";
-		feedback_widget_options.style = "" + this.valueForToken("STYLE") + "";
-		var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+		feedback_widget_options.color = "" + this.valueForToken("COLOR");
+		feedback_widget_options.style = "" + this.valueForToken("STYLE");
+		window.feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
 		/*~POST*/
 	}
 });

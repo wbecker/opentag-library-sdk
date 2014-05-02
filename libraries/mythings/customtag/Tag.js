@@ -38,18 +38,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		function _mt_ready() {
+    var _this = this;
+		window._mt_ready = function () {
 			if (typeof(MyThings) != "undefined") {
 				MyThings.Track({
 					EventType: MyThings.Event.Visit,
-					Action: "" + this.valueForToken("action_number") + ""
+					Action: "" + _this.valueForToken("action_number")
 				});
 			}
 		}
 
-		var mtHost = (("https:" == document.location.protocol) ? "https" : "http") +
+		window.mtHost = (("https:" == document.location.protocol) ? "https" : "http") +
 			"://" + this.valueForToken("subdomain") + ".mythings.com";
-		var mtAdvertiserToken = "" + this.valueForToken("advertiser_token") + "";
+		window.mtAdvertiserToken = "" + this.valueForToken("advertiser_token");
 		/*~PRE*/
 	},
 	post: function() {

@@ -50,20 +50,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var img = new Image();
-		var productsArr = [];
-		var howManyProducts = this.valueForToken("product_sku_list").length;
+		window.img = new Image();
+		window.productsArr = [];
+		window.howManyProducts = this.valueForToken("product_sku_list").length;
 		for (var i = 0; i < howManyProducts; i++) {
-			productsArr.push(escape("products[" + i + "][sku]") + "=" + this.valueForToken(
-				"product_sku_list")[i]);
-			productsArr.push(escape("products[" + i + "][price]") + "=" + this.valueForToken(
-				"product_price_list")[i]);
-			productsArr.push(escape("products[" + i + "][quantity]") + "=" + this.valueForToken(
-				"product_qty_list")[i]);
+			productsArr.push(escape("products[" + i + "][sku]") + "=" +
+              this.valueForToken("product_sku_list")[i]);
+			productsArr.push(escape("products[" + i + "][price]") + "=" +
+              this.valueForToken("product_price_list")[i]);
+			productsArr.push(escape("products[" + i + "][quantity]") + "=" +
+              this.valueForToken("product_qty_list")[i]);
 		}
-		img.src = "https://www.ktrkng.com/image.gif?amount=" + this.valueForToken(
-			"total") + "&rid=" + this.valueForToken("client_id") + "&oid=" + this.valueForToken(
-			"order_id") + "&" + productsArr.join("&");
+		img.src = "https://www.ktrkng.com/image.gif?amount=" +
+      this.valueForToken("total") + "&rid=" +
+      this.valueForToken("client_id") + "&oid=" +
+      this.valueForToken("order_id") + "&" + productsArr.join("&");
 		/*~SCRIPT*/
 	},
 	pre: function() {

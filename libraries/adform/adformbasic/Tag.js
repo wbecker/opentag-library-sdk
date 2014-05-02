@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "AdForm - Basic",
 		async: true,
 		description: "To be placed on any page except order confirmation pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -33,14 +33,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		(function() {
-
-			window._adftrack = {
-				pm: this.valueForToken("campaignid"),
-				id: this.valueForToken("pointid")
-			};
-
-		})();
+    window._adftrack = {
+      pm: this.valueForToken("campaignid"),
+      id: this.valueForToken("pointid")
+    };
 		/*~PRE*/
 	},
 	post: function() {

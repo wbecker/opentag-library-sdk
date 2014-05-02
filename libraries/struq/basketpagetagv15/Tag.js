@@ -30,17 +30,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var _struqPI = _struqPI || [];
+		window._struqPI = window_struqPI || [];
 
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) {
 			productArr.push(this.valueForToken("product_id_list")[i]);
 		}
 
-		var productIDStr = productArr.join(",");
+		windowproductIDStr = productArr.join(",");
 
 		_struqPI.push(['injectTrackingPixel', {
-			trackingPixelId: "" + this.valueForToken("id") + "",
+			trackingPixelId: "" + this.valueForToken("id"),
 			route: '/s/s/',
 			collectData: false,
 			data: [{

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Conversion Report",
 		async: true,
 		description: "This tag should fire on the user converting to a designated goal identified by a Conversion ID.\nThe tag must have a dependency on the Visual DNA Page View Report tag.\nThe \"Extra Data\" parameter should be assigned a string. The format/value of the string should be agreed with VisualDNA in advance on a partner­ by ­partner, conversion­ by ­conversion basis.\nIf no extra data is available, then an empty string should be assigned to that parameter",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -34,24 +34,21 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			window.VDNA = window.VDNA || {};
 			window.VDNA.queue = window.VDNA.queue || [];
 
-			var args = ["" + this.valueForToken("conversion_id") + ""];
+			var args = ["" + this.valueForToken("conversion_id")];
 
-			var extraData = "" + this.valueForToken("extra_data") + "";
+			var extraData = "" + this.valueForToken("extra_data");
 			if (extraData.length) {
 				args.push(extraData);
 			}
 
 			window.VDNA.queue.push({
-				apiKey: "" + this.valueForToken("api_key") + "",
+				apiKey: "" + this.valueForToken("api_key"),
 				method: "reportConversion",
 				args: args
 			});
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

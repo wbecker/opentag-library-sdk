@@ -43,16 +43,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 
 
-		var google_tag_params = {
-			pagetype: '' + this.valueForToken("page_category") + '',
-			pcat: '' + this.valueForToken("page_subcategory") + ''
+		window.google_tag_params = {
+			pagetype: '' + this.valueForToken("page_category"),
+			pcat: '' + this.valueForToken("page_subcategory")
 		};
 
-		var google_conversion_id = this.valueForToken("google_conversion_id");
-		var google_conversion_label = "" + this.valueForToken(
-			"google_conversion_label") + "";
-		var google_custom_params = window.google_tag_params;
-		var google_remarketing_only = true;
+		window.google_conversion_id = this.valueForToken("google_conversion_id");
+		window.google_conversion_label = "" + this.valueForToken(
+			"google_conversion_label");
+		window.google_custom_params = window.google_tag_params;
+		window.google_remarketing_only = true;
 
 		var script = document.createElement('script');
 		script.type = "text/javascript";

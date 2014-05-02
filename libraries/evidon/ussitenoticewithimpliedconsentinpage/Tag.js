@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			name: "US Site Notice with Implied Consent (In-Page)",
 			async: true,
 			description: "This tag handles the In-Page Implied Consent functionality for US sites by adding an AdChoices link in the specified location and showing a cookie consent notification. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon). The placement requires an element ID, or a classname and an index, corresponding to the element the tag should be placed into.",
-			html: "<!--@SRC@--><a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
+			html: "<a id=\"_bapw-link\" href=\"#\" target=\"_blank\" style=\"color:#000000 !important;font:10pt Arial !important;text-decoration:none !important\"><img id=\"_bapw-icon\" style=\"border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;\"/><span style=\"vertical-align:middle !important\">AdChoices</span></a>\n",
 			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
 			locationDetail: "",
 			isPrivate: true,
@@ -45,15 +45,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script: function() {
 			/*SCRIPT*/
 
-			(function() {
 					var lnk;
-
+          var _this = this;
 					function waitForLink() {
 						lnk = document.getElementById("_bapw-link");
 						if (lnk) {
 							(function() {
-								var k = this.valueForToken("pid"),
-									m = this.valueForToken("cid"),
+								var k = _this.valueForToken("pid"),
+									m = _this.valueForToken("cid"),
 									n = 1,
 									b = false,
 									l = document,
@@ -143,31 +142,34 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 						} else {
 							setTimeout(waitForLink, 100);
 						}
-
+          }
+          //seems  bracket is missing here
+          
+          
+          
 						waitForLink();
 
 						function waitForLocation() {
 							var tag;
-							if (this.valueForToken("class")) tag = document.querySelectorAll('.' +
-								this.valueForToken("name") + '')[Number('' + this.valueForToken("index") +
-								'')];
-							else tag = document.getElementById('' + this.valueForToken("name") + '');
+							if (_this.valueForToken("class")) 
+                tag = document.querySelectorAll('.' +_this.valueForToken("name"))[Number(_this.valueForToken("index"))];
+							else
+                tag = document.getElementById('' + _this.valueForToken("name"));
 							if (tag) {
 								tag.appendChild(lnk);
 								var hn = document.createElement('script');
 								hn.type = 'text/javascript';
 								hn.async = true;
-								hn.setAttribute('data-ev-hover-pid', this.valueForToken("pid"));
-								hn.setAttribute('data-ev-hover-ocid', this.valueForToken("cid"));
-								hn.src = ('https:' == document.location.protocol ? 'https://' :
-									'http://') + 'c.betrad.com/geo/h1.js';
+								hn.setAttribute('data-ev-hover-pid', _this.valueForToken("pid"));
+								hn.setAttribute('data-ev-hover-ocid', _this.valueForToken("cid"));
+								hn.src = ('https:' == document.location.protocol ? 
+                  'https://' : 'http://') + 'c.betrad.com/geo/h1.js';
 								var s = document.getElementsByTagName('script')[0];
 								s.parentNode.insertBefore(hn, s);
 							} else {
 								setTimeout(waitForLocation, 50);
 							}
 						}
-					})();
 				/*~SCRIPT*/
 			},
 			pre: function() {

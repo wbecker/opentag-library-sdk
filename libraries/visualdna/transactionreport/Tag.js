@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Transaction Report",
 		async: true,
 		description: "This tag should fire on the Transaction Confirmation page. The tag must have a dependency on the Visual DNA Page View Report tag.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -79,41 +79,38 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+    window.VDNA = window.VDNA || {};
+    window.VDNA.queue = window.VDNA.queue || [];
 
-		(function() {
-			window.VDNA = window.VDNA || {};
-			window.VDNA.queue = window.VDNA.queue || [];
+    window.VDNA.queue.push({
+      apiKey: "" + this.valueForToken("api_key"),
+      method: "reportConversion",
+      args: ["transaction", {
+        "transaction_id": "" + this.valueForToken("order_id"),
+        "value": this.valueForToken("subtotal"),
+        "currency": "" + this.valueForToken("currency"),
+        "payment_type": "" + this.valueForToken("payment"),
+        "transaction_discount": this.valueForToken("discount")
+      }]
+    });
 
-			window.VDNA.queue.push({
-				apiKey: "" + this.valueForToken("api_key") + "",
-				method: "reportConversion",
-				args: ["transaction", {
-					"transaction_id": "" + this.valueForToken("order_id") + "",
-					"value": this.valueForToken("subtotal"),
-					"currency": "" + this.valueForToken("currency") + "",
-					"payment_type": "" + this.valueForToken("payment") + "",
-					"transaction_discount": this.valueForToken("discount")
-				}]
-			});
-
-			for (var i = 0; i < this.valueForToken("names").length; i++) {
-				window.VDNA.queue.push({
-					apiKey: "" + this.valueForToken("api_key") + "",
-					method: "reportConversion",
-					args: ["purchased", {
-						"product_id": this.valueForToken("ids")[i],
-						"partner_user_id_type": this.valueForToken("ids")[i],
-						"product_name": this.valueForToken("names")[i],
-						"product_category_id": this.valueForToken("categories")[i],
-						"product_price": this.valueForToken("prices")[i],
-						"currency": "" + this.valueForToken("currency") + "",
-						"product_quantity": this.valueForToken("quantities")[i],
-						"transaction_id": "" + this.valueForToken("order_id") + "",
-						"product_line_discount": this.valueForToken("discounts")[i]
-					}]
-				});
-			}
-		})();
+    for (var i = 0; i < this.valueForToken("names").length; i++) {
+      window.VDNA.queue.push({
+        apiKey: "" + this.valueForToken("api_key"),
+        method: "reportConversion",
+        args: ["purchased", {
+          "product_id": this.valueForToken("ids")[i],
+          "partner_user_id_type": this.valueForToken("ids")[i],
+          "product_name": this.valueForToken("names")[i],
+          "product_category_id": this.valueForToken("categories")[i],
+          "product_price": this.valueForToken("prices")[i],
+          "currency": "" + this.valueForToken("currency"),
+          "product_quantity": this.valueForToken("quantities")[i],
+          "transaction_id": "" + this.valueForToken("order_id"),
+          "product_line_discount": this.valueForToken("discounts")[i]
+        }]
+      });
+    }
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -58,14 +58,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		istCompanyId = "" + this.valueForToken("id") + "";
-		istOrderId = this.valueForToken("orderId");
-		istTotal = this.valueForToken("orderTotal");
-		istItemCount = this.valueForToken("productSku").length;
-		istNewCustomer = false;
-		istPurchasedItems = "";
-		istPurchasedItemQuantities = "";
-		istPurchasedItemPrices = "";
+		window.istCompanyId = "" + this.valueForToken("id");
+		window.istOrderId = this.valueForToken("orderId");
+		window.istTotal = this.valueForToken("orderTotal");
+		window.istItemCount = this.valueForToken("productSku").length;
+		window.istNewCustomer = false;
+		window.istPurchasedItems = "";
+		window.istPurchasedItemQuantities = "";
+		window.istPurchasedItemPrices = "";
 		for (var i = 0; i < this.valueForToken("productSku").length; i++) {
 			istPurchasedItems += this.valueForToken("productSku")[i];
 			istPurchasedItemQuantities += this.valueForToken("quantity")[i].toString();
@@ -77,12 +77,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				istPurchasedItemPrices += "|";
 			}
 		}
-		istInstorePickup = false;
-		istUserDefinedFieldOne = "";
-		istUserDefinedFieldTwo = "";
-		istUserDefinedFieldThree = "";
-		istVoucherCode = this.valueForToken("voucher");
-		istLastAffiliateCode = "";
+		window.istInstorePickup = false;
+		window.istUserDefinedFieldOne = "";
+		window.istUserDefinedFieldTwo = "";
+		window.istUserDefinedFieldThree = "";
+		window.istVoucherCode = this.valueForToken("voucher");
+		window.istLastAffiliateCode = "";
 		/*~PRE*/
 	},
 	post: function() {

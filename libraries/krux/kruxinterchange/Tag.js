@@ -43,11 +43,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var KRUXSetup = {
-			pubid: "" + this.valueForToken("publisher_id") + "",
-			site: "" + this.valueForToken("site_url") + "",
-			section: "" + this.valueForToken("section") + "",
-			subSection: "" + this.valueForToken("subsection") + "",
+		window.KRUXSetup = {
+			pubid: "" + this.valueForToken("publisher_id"),
+			site: "" + this.valueForToken("site_url"),
+			section: "" + this.valueForToken("section"),
+			subSection: "" + this.valueForToken("subsection"),
 			async: true
 		};
 		/*~PRE*/

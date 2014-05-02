@@ -89,7 +89,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		function shaddslashes(e) {
 			"use strict";
 			if (e != undefined) {
@@ -102,7 +102,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				e = e.replace(/\+/g, "%25%32%42")
 			}
 			return e
-		}(function() {
+		}
+    (function() {
 			"use strict";
 			var e = null,
 				t = "3.4.0",
@@ -110,9 +111,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				//Define the basket item count given a UV list of basket item quantities.
 				basket_item_count = (function() {
 					var temp = 0;
-					for (var index = 0; index < this.valueForToken("basket_item_quantities")
+					for (var index = 0; index < _this.valueForToken("basket_item_quantities")
 						.length; index++) {
-						temp += Number(this.valueForToken("basket_item_quantities")[index]);
+						temp += Number(_this.valueForToken("basket_item_quantities")[index]);
 					}
 					return temp;
 				}()),
@@ -120,41 +121,41 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				//Create CSVs from UV lists. Will work for arrays supplied by clients
 				basket_skus = (function() {
 					var temp_skus = "";
-					for (var sku_index = 0; sku_index < this.valueForToken(
+					for (var sku_index = 0; sku_index < _this.valueForToken(
 						"basket_skus_list").length; sku_index++) {
-						temp_skus += this.valueForToken("basket_skus_list")[sku_index];
-						if (sku_index != this.valueForToken("basket_skus_list").length - 1)
+						temp_skus += _this.valueForToken("basket_skus_list")[sku_index];
+						if (sku_index != _this.valueForToken("basket_skus_list").length - 1)
 							temp_skus += ",";
 					}
 					return temp_skus;
 				})(),
 				basket_quantities = (function() {
 					var temp_quants = "";
-					for (var quant_index = 0; quant_index < this.valueForToken(
+					for (var quant_index = 0; quant_index < _this.valueForToken(
 						"basket_item_quantities").length; quant_index++) {
-						temp_quants += this.valueForToken("basket_item_quantities")[
+						temp_quants += _this.valueForToken("basket_item_quantities")[
 							quant_index];
-						if (quant_index != this.valueForToken("basket_item_quantities").length -
+						if (quant_index != _this.valueForToken("basket_item_quantities").length -
 							1) temp_quants += ",";
 					}
 					return temp_quants;
 				})(),
 
-				n = "" + this.valueForToken("merchant_id") + "",
-				r = shaddslashes("" + this.valueForToken("product_name") + ""),
-				i = shaddslashes("" + this.valueForToken("product_category") + ""),
-				s = shaddslashes("" + this.valueForToken("product_brand") + ""),
-				o = "" + this.valueForToken("product_price") + "",
-				u = "" + this.valueForToken("product_price_currency") + "",
-				a = "" + this.valueForToken("product_image_url") + "",
-				f = "" + this.valueForToken("product_sku") + "",
-				l = "" + this.valueForToken("product_inventory_count") + "",
-				c = "" + this.valueForToken("product_availability_ends") + "",
-				h = "" + this.valueForToken("basket_subtotal") + "",
+				n = "" + _this.valueForToken("merchant_id"),
+				r = shaddslashes("" + _this.valueForToken("product_name")),
+				i = shaddslashes("" + _this.valueForToken("product_category")),
+				s = shaddslashes("" + _this.valueForToken("product_brand")),
+				o = "" + _this.valueForToken("product_price"),
+				u = "" + _this.valueForToken("product_price_currency"),
+				a = "" + _this.valueForToken("product_image_url"),
+				f = "" + _this.valueForToken("product_sku"),
+				l = "" + _this.valueForToken("product_inventory_count"),
+				c = "" + _this.valueForToken("product_availability_ends"),
+				h = "" + _this.valueForToken("basket_subtotal"),
 				p = basket_item_count,
 				d = basket_skus,
 				v = basket_quantities,
-				shadditional = "" + this.valueForToken("additional_info") + "",
+				shadditional = "" + _this.valueForToken("additional_info"),
 				m, g, y;
 			try {
 				m = top.document.referer !== "" ? encodeURIComponent(top.document.referrer

@@ -50,15 +50,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var ebRev = "" + this.valueForToken("order_total") + "";
-		var ebOrderID = "" + this.valueForToken("order_id") + "";
-		var ebProductID = "";
-		var ebProductInfo = "";
-		var ebQuantity = 0;
-		var ebRand = Math.random() * 1000000;
+		window.ebRev = "" + this.valueForToken("order_total");
+		window.ebOrderID = "" + this.valueForToken("order_id");
+		window.ebProductID = "";
+		window.ebProductInfo = "";
+		window.ebQuantity = 0;
+		window.ebRand = Math.random() * 1000000;
 
 
-		(function() {
 			var i = 0,
 				ii = this.valueForToken("ids").length,
 				script;
@@ -80,8 +79,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				ebRev + "&OrderID=" + ebOrderID + "&ProductID=" + ebProductID +
 				"&ProductInfo=" + ebProductInfo + "&Quantity=" + ebQuantity;
 			document.getElementsByTagName("head")[0].appendChild(script);
-
-		})()
 
 		/*~SCRIPT*/
 	},

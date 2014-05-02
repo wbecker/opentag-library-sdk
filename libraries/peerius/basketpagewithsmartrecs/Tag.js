@@ -53,13 +53,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var PeeriusCallbacks = {
+		window.PeeriusCallbacks = {
 			track: {
 				type: "basket",
-				lang: "" + this.valueForToken("lang") + "",
+				lang: "" + this.valueForToken("lang"),
 				basket: {
 					items: [],
-					currency: "" + this.valueForToken("currency") + ""
+					currency: "" + this.valueForToken("currency")
 				}
 			},
 			smartRecs: function(jsonData) {

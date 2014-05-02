@@ -72,8 +72,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var form = iFrameDom.createElement('form');
 		form.name = "affilinetTrackingForm";
 		form.method = "post";
-		form.action = document.location.protocol + "//" + this.valueForToken(
-			"affilinet_tracking_domain") + "/registersale.asp";
+		form.action = document.location.protocol + "//" +
+            this.valueForToken("affilinet_tracking_domain")
+            + "/registersale.asp";
 		form.id = "affilinetTrackingForm";
 		iFrameDom.body.appendChild(form);
 
@@ -81,14 +82,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		input.type = "hidden";
 		input.id = "site";
 		input.name = "site";
-		input.value = "" + this.valueForToken("program_id") + "";
+		input.value = "" + this.valueForToken("program_id");
 		iFrameDom.getElementById("affilinetTrackingForm").appendChild(input);
 
 		var input = iFrameDom.createElement('input');
 		input.type = "hidden";
 		input.id = "order";
 		input.name = "order";
-		input.value = "" + this.valueForToken("order_id") + "";
+		input.value = "" + this.valueForToken("order_id");
 		iFrameDom.getElementById("affilinetTrackingForm").appendChild(input);
 
 		var textarea = iFrameDom.createElement('textarea');
@@ -105,12 +106,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				basketItemsData += "&";
 			}
 
-			basketItemsData += "articlenb=" + escape(this.valueForToken(
-				"basket_items_skus")[i]) + "&productname=" + escape(this.valueForToken(
-				"basket_items_names")[i]) + "&category=" + escape(this.valueForToken(
-				"basket_items_categories")[i]) + "&quantity=" + escape(this.valueForToken(
-				"basket_items_quantities")[i]) + "&singleprice=" + escape(this.valueForToken(
-				"basket_items_prices")[i]) + "&brand=";
+			basketItemsData += "articlenb=" + 
+              escape(this.valueForToken("basket_items_skus")[i]) +
+              "&productname=" + 
+              escape(this.valueForToken("basket_items_names")[i]) +
+              "&category=" +
+              escape(this.valueForToken("basket_items_categories")[i]) +
+              "&quantity=" +
+              escape(this.valueForToken("basket_items_quantities")[i]) +
+              "&singleprice=" +
+              escape(this.valueForToken("basket_items_prices")[i]) +
+              "&brand=";
 		}
 
 		iFrameDom.getElementById("basket").innerHTML = basketItemsData;

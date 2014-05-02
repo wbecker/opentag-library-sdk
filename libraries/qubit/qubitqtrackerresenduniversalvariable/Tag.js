@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "QuBit QTracker - resend Universal Variable",
 		async: true,
 		description: "Ties in with QuBit QTracker, re-sending Universal Variables to QTracker when they exist on the page. This is useful when the Universal Variable is not declared before OpenTag.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -21,8 +21,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			// Wait for UV and then resend data to QTracker
 			var wait = function() {
 				if (window.universal_variable) {
@@ -35,7 +33,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				}
 			};
 			wait();
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

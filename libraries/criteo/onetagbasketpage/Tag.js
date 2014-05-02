@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "OneTag - Basket Page",
 		async: true,
 		description: "The basket tag has to be integrated on the basket or checkout page.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 
 			var products = [];
 
@@ -69,7 +68,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				});
 			}
 
-			var user_id = "" + this.valueForToken("customer_id") + "";
+			var user_id = "" + this.valueForToken("customer_id");
 			//Remove email if present.
 			if (user_id.indexOf("@") > -1) {
 				user_id = "";
@@ -84,13 +83,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				id: user_id
 			}, {
 				event: "setSiteType",
-				type: "" + this.valueForToken("site_type") + ""
+				type: "" + this.valueForToken("site_type")
 			}, {
 				event: "viewBasket",
 				product: products
 			});
 
-		}());
 		/*~POST*/
 	}
 });

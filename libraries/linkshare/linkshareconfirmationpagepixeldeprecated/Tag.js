@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "LinkShare Confirmation Page Pixel - DEPRECATED",
 		async: true,
 		description: "Reports transactions to linkshare server",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/linkshare.gif",
 		locationDetail: "",
 		isPrivate: true,
@@ -54,9 +54,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
-
 			var x = document.createElement("img");
 
 			var skuList = [],
@@ -73,12 +70,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					parseInt(this.valueForToken("q_list")[i]));
 			}
 
-			x.src = "//track.linksynergy.com/ep?mid=" + this.valueForToken("mid") +
-				"&ord=" + this.valueForToken("order_id") + "&skulist=" + skuList.join("|") +
+			x.src = "//track.linksynergy.com/ep?mid=" +
+              this.valueForToken("mid") + "&ord=" +
+        this.valueForToken("order_id") + "&skulist=" + skuList.join("|") +
 				"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
 				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

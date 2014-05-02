@@ -23,32 +23,32 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-		\\
+    var _this = this;
 		d(function() {
 			window._gaq = window._gaq || [];
-			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID") + '']);
-			_gaq.push(['_setDomainName', '' + this.valueForToken("domainName") + '']);
+			_gaq.push(['_setAccount', '' + _this.valueForToken("PROFILE_ID")]);
+			_gaq.push(['_setDomainName', '' + _this.valueForToken("domainName")]);
 			_gaq.push(['_trackPageview']);
 
 			_gaq.push(['_addTrans',
-				'' + this.valueForToken("orderId") + '',
-				'' + this.valueForToken("storeName") + '',
-				'' + this.valueForToken("orderTotal") + '',
-				'' + this.valueForToken("orderTax") + '',
-				'' + this.valueForToken("orderShipping") + '',
-				'' + this.valueForToken("orderShippingCity") + '',
-				'' + this.valueForToken("orderShippingState") + '',
-				'' + this.valueForToken("orderShippingCountry") + ''
+				'' + _this.valueForToken("orderId"),
+				'' + _this.valueForToken("storeName"),
+				'' + _this.valueForToken("orderTotal"),
+				'' + _this.valueForToken("orderTax"),
+				'' + _this.valueForToken("orderShipping"),
+				'' + _this.valueForToken("orderShippingCity"),
+				'' + _this.valueForToken("orderShippingState"),
+				'' + _this.valueForToken("orderShippingCountry")
 			]);
 			var i, ii;
-			for (i = 0, ii = this.valueForToken("itemSkus").length; i < ii; i += 1) {
+			for (i = 0, ii = _this.valueForToken("itemSkus").length; i < ii; i += 1) {
 				_gaq.push(['_addItem',
-					'' + this.valueForToken("orderId") + '',
-					this.valueForToken("itemSkus")[i],
-					this.valueForToken("itemNames")[i],
-					this.valueForToken("itemCategories")[i],
-					this.valueForToken("itemUnitPrices")[i],
-					this.valueForToken("itemQuantities")[i]
+					'' + _this.valueForToken("orderId"),
+					_this.valueForToken("itemSkus")[i],
+					_this.valueForToken("itemNames")[i],
+					_this.valueForToken("itemCategories")[i],
+					_this.valueForToken("itemUnitPrices")[i],
+					_this.valueForToken("itemQuantities")[i]
 				]);
 			}
 			_gaq.push(['_trackTrans']);

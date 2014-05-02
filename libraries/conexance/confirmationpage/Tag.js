@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation Page",
 		async: true,
 		description: "To be placed on the confirmation page. Tracks order transactions. Order number is compulsory all other parameters should be filled with 0 if unavailable. No currency symbols allowed.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
 		locationDetail: "",
 		isPrivate: false,
@@ -59,8 +59,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
+    var _this = this;
 
 			var require = function(url, cb) {
 				var script = document.createElement("script");
@@ -79,15 +78,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				document.getElementsByTagName("head")[0].appendChild(script);
 			};
 
-			require("" + this.valueForToken("web1by1_function_script") + "", function() {
-				require("" + this.valueForToken("web1by1_config_script") + "", function() {
-					window.w1x1.sSend("" + this.valueForToken("confirmation_id") + "",
-						this.valueForToken("order_total"), this.valueForToken("tax"), this.valueForToken(
-							"shipping_cost"), this.valueForToken("other"));
+			require("" + _this.valueForToken("web1by1_function_script"), function() {
+				require("" + _this.valueForToken("web1by1_config_script"), function() {
+					window.w1x1.sSend(
+            "" + _this.valueForToken("confirmation_id"),
+						_this.valueForToken("order_total"),
+            _this.valueForToken("tax"),
+            _this.valueForToken("shipping_cost"),
+            _this.valueForToken("other"));
 				});
 			});
 
-		}());
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "iGoDigital Observation",
 		async: true,
 		description: "Monitors the behavior of your website traffic, including user activity, intent, and outcome.",
-		html: "<div id=“igdRTA”>\n 	\n           	\n</div>",
+		html: "<div id='igdRTA'>\n 	\n           	\n</div>",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/iGoDigital.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -94,25 +94,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
 		// iGoDigital RTA Initialization
-		var rtaRetailer = “this.valueForToken("rtaRetailer")”;
-		var rtaProductSKU = “this.valueForToken("rtaProductSKU")“;
-		var rtaCart = “this.valueForToken("rtaCart")“;
-		var rtaCartSku = “this.valueForToken("rtaEmail")“;
-		var rtaEmail = “this.valueForToken("rtaUniqueId")“;
-		var rtaConvertCart = “this.valueForToken("rtaConvertCart")“;
-		var rtaOrderNum = “this.valueForToken("rtaOrderNum")“;
-		var rtaCartAmounts = “this.valueForToken("rtaCartAmounts")“;
-		var rtaCartQuantities = “this.valueForToken("rtaCartQuantities")“;
-		var rtaReportingSegment1 = “this.valueForToken("rtaReportingSegment")“;
-		var rtaReportingSegment2 = ““;
-		var rtaRating = “this.valueForToken("rtaRating")“;
-		var rtaSearch = “this.valueForToken("rtaSearch")“;
-		var rtaCategory = “this.valueForToken("rtaCategory")“;
-		var rtaTags = “this.valueForToken("rtaTags")“;
-		var rtaSpecial = “this.valueForToken("rtaSpecial")“;
+		window.rtaRetailer = "" + this.valueForToken("rtaRetailer");
+		window.rtaProductSKU = "" + this.valueForToken("rtaProductSKU");
+		window.rtaCart = "" + this.valueForToken("rtaCart");
+		window.rtaCartSku = "" + this.valueForToken("rtaEmail");
+		window.rtaEmail = "" + this.valueForToken("rtaUniqueId");
+		window.rtaConvertCart = "" + this.valueForToken("rtaConvertCart");
+		window.rtaOrderNum = "" + this.valueForToken("rtaOrderNum");
+		window.rtaCartAmounts = "" + this.valueForToken("rtaCartAmounts");
+		window.rtaCartQuantities = "" + this.valueForToken("rtaCartQuantities");
+		window.rtaReportingSegment1 = "" + this.valueForToken("rtaReportingSegment");
+		window.rtaReportingSegment2 = "";
+		window.rtaRating = "" + this.valueForToken("rtaRating");
+		window.rtaSearch = "" + this.valueForToken("rtaSearch");
+		window.rtaCategory = "" + this.valueForToken("rtaCategory");
+		window.rtaTags = "" + this.valueForToken("rtaTags");
+		window.rtaSpecial = "" + this.valueForToken("rtaSpecial");
 		addLoadEvent(function() {
 			callRTA();
 		});

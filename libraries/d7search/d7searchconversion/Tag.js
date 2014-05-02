@@ -38,10 +38,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		},
 		pre: function() {
 			/*PRE*/
-			< script language = "JavaScript"
-			type = "text/javascript" >
-			var _7search_conversion_advid = this.valueForToken("7search_advertiserid");
-			var _7search_conversion_urlid = this.valueForToken("7search_urlid");
-			var _7search_conversion_type = "purchase";
-			var _7search_conversion_value = this.valueForToken("transaction_total"); <
-				/script>
+			window._7search_conversion_advid = this.valueForToken("7search_advertiserid");
+			window._7search_conversion_urlid = this.valueForToken("7search_urlid");
+			window._7search_conversion_type = "purchase";
+			window._7search_conversion_value = this.valueForToken("transaction_total");
+		},
+		post: function() {
+		  /*POST*/
+		  /*~POST*/
+		}
+});

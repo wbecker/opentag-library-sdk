@@ -43,10 +43,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var fb_param = {};
-		fb_param.pixel_id = '' + this.valueForToken("pixel_id") + '';
-		fb_param.value = '' + this.valueForToken("order_value") + '';
-		fb_param.currency = '' + this.valueForToken("currency") + '';
+		window.fb_param = {};
+		fb_param.pixel_id = '' + this.valueForToken("pixel_id");
+		fb_param.value = '' + this.valueForToken("order_value");
+		fb_param.currency = '' + this.valueForToken("currency");
 		/*~PRE*/
 	},
 	post: function() {

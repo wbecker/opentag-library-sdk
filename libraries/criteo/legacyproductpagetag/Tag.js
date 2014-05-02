@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Legacy - Product Page Tag",
 		async: true,
 		description: "This is a mandatory tag and must be placed on all the advertiser product pages.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -45,8 +45,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
-
+    var _this = this;
 			function pcto_dis() {
 				if (document.createElement) {
 					var cto_dis_im = document.createElement('IFRAME');
@@ -54,8 +53,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 						cto_dis_im.width = '1px';
 						cto_dis_im.height = '1px';
 						cto_dis_im.style.display = 'none';
-						var cto_dis_im_src = '//dis.criteo.com/dis/dis.aspx?p=' + this.valueForToken(
-							"partner_id") + '&c=2&cb=' + Math.floor(Math.random() * 99999999999);
+						var cto_dis_im_src = '//dis.criteo.com/dis/dis.aspx?p=' +
+                    _this.valueForToken("partner_id") + '&c=2&cb=' +
+                    Math.floor(Math.random() * 99999999999);
 						try {
 							cto_dis_im_src += '&ref=' + encodeURIComponent(document.referrer);
 						} catch (e) {}
@@ -77,19 +77,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			_cr_d2.style.display = "none";
 
 			var domain = window.location.protocol === "https:" ?
-				"https://sslwidget.criteo.com" : "http://" + this.valueForToken(
-					"subdomain") + "";
+				"https://sslwidget.criteo.com" : "http://" +
+                this.valueForToken("subdomain");
 
 			var _cr_i = document.createElement("img");
 			_cr_i.src = domain + "/" + this.valueForToken("call_parameter") +
 				"/display.js?p1=" + escape("v=2&wi=" + this.valueForToken("wi") +
-					"&pt1=2&i=" + this.valueForToken("product_id") + "") +
+					"&pt1=2&i=" + this.valueForToken("product_id")) +
 				"&t1=sendEvent&resptype=gif&cb=" + Math.floor(Math.random() * 99999999999);
 			_cr_i.onload = pcto_dis;
 			_cr_d2.appendChild(_cr_i);
 			document.body.appendChild(_cr_d2);
 
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

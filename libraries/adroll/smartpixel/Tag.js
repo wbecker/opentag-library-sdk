@@ -30,19 +30,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		window.adroll_adv_id = "" + this.valueForToken("adroll_adv_id") + "";
-		window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id") + "";
-		(function() {
-			window.__adroll_loaded = true;
-			var scr = document.createElement("script");
-			var host = (("https:" === document.location.protocol) ?
-				"https://s.adroll.com" : "http://a.adroll.com");
-			scr.setAttribute('async', 'true');
-			scr.type = "text/javascript";
-			scr.src = host + "/j/roundtrip.js";
-			((document.getElementsByTagName('head') || [null])[0] || document.getElementsByTagName(
-				'script')[0].parentNode).appendChild(scr);
-		}());
+		window.adroll_adv_id = "" + this.valueForToken("adroll_adv_id");
+		window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id");
+    window.__adroll_loaded = true;
+    var scr = document.createElement("script");
+    var host = (("https:" === document.location.protocol) ?
+      "https://s.adroll.com" : "http://a.adroll.com");
+    scr.setAttribute('async', 'true');
+    scr.type = "text/javascript";
+    scr.src = host + "/j/roundtrip.js";
+    ((document.getElementsByTagName('head') || [null])[0] ||
+            document.getElementsByTagName('script')[0].parentNode)
+              .appendChild(scr);
 		/*~SCRIPT*/
 	},
 	pre: function() {

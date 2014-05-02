@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Kenshoo Thank-You Page Tracking",
 		async: true,
 		description: "Kenshoo conversion tracking is an open, flexible system for collecting and utilizing information on conversions. You can track conversions through tracking pixels on the target website, transaction reports, or Kenshoo's Seamless Site Tracking option.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/KenshooLogo.jpg",
 		locationDetail: "",
 		isPrivate: false,
@@ -62,16 +62,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 			var params = new Array();
-			params[0] = 'id=' + this.valueForToken("id") + '';
-			params[1] = 'type=' + this.valueForToken("type") + '';
-			params[2] = 'val=' + this.valueForToken("order_total") + '';
-			params[3] = 'orderId=' + this.valueForToken("order_id") + '';
-			params[4] = 'promoCode=' + this.valueForToken("voucher") + '';
-			params[5] = 'valueCurrency=' + this.valueForToken("currency") + '';
-			window.k_trackevent(params, '' + this.valueForToken("ks_num") + '');
-		}());
+			params[0] = 'id=' + this.valueForToken("id");
+			params[1] = 'type=' + this.valueForToken("type");
+			params[2] = 'val=' + this.valueForToken("order_total");
+			params[3] = 'orderId=' + this.valueForToken("order_id");
+			params[4] = 'promoCode=' + this.valueForToken("voucher");
+			params[5] = 'valueCurrency=' + this.valueForToken("currency");
+			window.k_trackevent(params, '' + this.valueForToken("ks_num"));
 		/*~POST*/
 	}
 });

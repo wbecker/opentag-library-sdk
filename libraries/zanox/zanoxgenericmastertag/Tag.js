@@ -27,9 +27,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		window._zx = window._zx || [];
 		window._zx.push({
-			"id": "" + this.valueForToken("zanoxPageId") + ""
+			"id": "" + this.valueForToken("zanoxPageId")
 		});
-		var waitForZanoxDiv = function() {
+		window.waitForZanoxDiv = function() {
 			if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") +
 				".zx_mediaslot")) {
 				(function(d) {

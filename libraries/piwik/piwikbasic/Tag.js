@@ -38,7 +38,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		var piwikTracker = Piwik.getTracker('' + this.valueForToken("piwik_url") +
+		window.piwikTracker = Piwik.getTracker('' + this.valueForToken("piwik_url") +
 			'' + "piwik.php", 1);
 		piwikTracker.trackPageView();
 		piwikTracker.enableLinkTracking();

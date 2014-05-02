@@ -40,7 +40,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		img = new Image();
+		window.img = new Image();
 		img.src = "//conversion-pixel.invitemedia.com/pixel?pixelID=" + this.valueForToken(
 			"pixel_id") + "&clientID=" + this.valueForToken("client_id") +
 			"&partnerID=" + this.valueForToken("partner_id") + "&key=conv&orderID=" +

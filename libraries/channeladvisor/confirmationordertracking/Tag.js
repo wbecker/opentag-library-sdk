@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "Confirmation - Order Tracking",
 		async: true,
 		description: "The Order Tracking pixels captures order and conversion information which is used to measure the effectiveness of each campaign.  The code has several parameters ( order value, order ID, Product ID ) that will need to be integrated and customized for the particular store or shopping cart.",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -62,7 +62,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-		(function() {
 			window._caq = window._caq || [];
 			var products = [];
 
@@ -75,12 +74,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 
 			_caq.push(["Order", {
-				OrderId: "" + this.valueForToken("order_id") + "",
-				oVal: "" + this.valueForToken("order_subtotal") + "",
-				CurrencyCode: "" + this.valueForToken("order_currency") + "",
+				OrderId: "" + this.valueForToken("order_id"),
+				oVal: "" + this.valueForToken("order_subtotal"),
+				CurrencyCode: "" + this.valueForToken("order_currency"),
 				Products: products
 			}]);
-		}());
 		/*~POST*/
 	}
 });

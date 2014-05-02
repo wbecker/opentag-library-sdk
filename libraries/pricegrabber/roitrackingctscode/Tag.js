@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		name: "ROI Tracking (CTS Code)",
 		async: true,
 		description: "Tracking tag to be placed on the confirmation page",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/price_grabber.png",
 		locationDetail: "",
 		isPrivate: false,
@@ -49,13 +49,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-		(function() {
-
 			var pixel = new Image();
-			var source = "https://www.pricegrabber.com/conversion.php?retid=" + this.valueForToken(
-				"account_id") + "";
+			var source = "https://www.pricegrabber.com/conversion.php?retid=" +
+              this.valueForToken("account_id");
 			var item, items = "";
 
 			for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {
@@ -72,9 +68,6 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			source += items;
 			pixel.src = source;
-
-		}());
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

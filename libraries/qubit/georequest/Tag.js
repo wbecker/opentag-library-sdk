@@ -53,8 +53,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			return;
 		} else {
 
-			var clientId = "" + this.valueForToken("client_id") + ""; // this is the client's tracking id
-			var cookieId = document.cookie.match(/_qubitTracker=([0-9.]+);/);
+			var clientId = window.clientId = "" + this.valueForToken("client_id"); // this is the client's tracking id
+			var copokieId = window.cookieId = document.cookie.match(/_qubitTracker=([0-9.]+);/);
 			if (cookieId && !! cookieId[1]) {
 				cookieId = cookieId[1];
 			} else {
@@ -74,9 +74,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					//Overwrite push to just run the function now.
 					window.qb_geo_cbs.push = function(cb) {
 						cb();
-					}
+					};
 				}
-			}
+			};
 
 		}
 		/*~SCRIPT*/

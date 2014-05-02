@@ -59,7 +59,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+    var _this = this;
 		function shaddslashes(e) {
 			"use strict";
 			if (e != undefined) {
@@ -77,18 +77,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		//Will work if the customer provides actual arrays, too (though join would be cleaner).
 		function getSKUs() {
 			var temp_skus = "";
-			for (var sku_index = 0; sku_index < this.valueForToken("skus").length; sku_index++) {
-				temp_skus += this.valueForToken("skus")[sku_index];
-				if (sku_index != this.valueForToken("skus").length - 1) temp_skus += ",";
+			for (var sku_index = 0; sku_index < _this.valueForToken("skus").length; sku_index++) {
+				temp_skus += _this.valueForToken("skus")[sku_index];
+				if (sku_index != _this.valueForToken("skus").length - 1) temp_skus += ",";
 			}
 			return sku_index;
 		}
 
 		function getQtys() {
 			var temp_quants = "";
-			for (var quant_index = 0; quant_index < this.valueForToken("quantities").length; quant_index++) {
-				temp_quants += this.valueForToken("quantities")[quant_index];
-				if (quant_index != this.valueForToken("quantities").length - 1) temp_quants +=
+			for (var quant_index = 0; quant_index < _this.valueForToken("quantities").length; quant_index++) {
+				temp_quants += _this.valueForToken("quantities")[quant_index];
+				if (quant_index != _this.valueForToken("quantities").length - 1) temp_quants +=
 					",";
 			}
 			return temp_quants;
@@ -96,17 +96,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		function getCount() {
 			var temp = 0;
-			for (var index = 0; index < this.valueForToken("quantities").length; index++) {
-				temp += Number(this.valueForToken("quantities")[index]);
+			for (var index = 0; index < _this.valueForToken("quantities").length; index++) {
+				temp += Number(_this.valueForToken("quantities")[index]);
 			}
 			return temp;
 		}
 
 		function getPrices() {
 			var temp_prices = "";
-			for (var price_index = 0; price_index < this.valueForToken("prices").length; price_index++) {
-				temp_prices += this.valueForToken("prices")[price_index];
-				if (price_index != this.valueForToken("prices").length - 1) temp_prices +=
+			for (var price_index = 0; price_index < _this.valueForToken("prices").length; price_index++) {
+				temp_prices += _this.valueForToken("prices")[price_index];
+				if (price_index != _this.valueForToken("prices").length - 1) temp_prices +=
 					",";
 			}
 			return temp_prices;
@@ -119,16 +119,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				//this next line would make a CSV from an array for f later on
 				//stock_counts = ${stock_counts}.join(","),
 				t = "3.4.0",
-				n = "" + this.valueForToken("advertiser_id") + "",
-				r = "" + this.valueForToken("order_id") + "",
-				i = "" + this.valueForToken("order_total") + "",
-				s = "" + this.valueForToken("order_currency") + "",
+				n = "" + _this.valueForToken("advertiser_id"),
+				r = "" + _this.valueForToken("order_id"),
+				i = "" + _this.valueForToken("order_total"),
+				s = "" + _this.valueForToken("order_currency"),
 				o = getSKUs(),
 				u = getQtys(),
 				a = getPrices(),
 				//f here could be a stock count CSV if a client ever wants it
 				f = "",
-				shadditional = "" + this.valueForToken("custom") + "",
+				shadditional = "" + _this.valueForToken("custom"),
 				l, c, h;
 			try {
 				l = top.document.referer !== "" ? encodeURIComponent(top.document.referrer
@@ -189,7 +189,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"use strict";
 			var e = null,
 				t = "3.4.0",
-				n = "" + this.valueForToken("advertiser_id") + "",
+				n = "" + _this.valueForToken("advertiser_id"),
 				r = shaddslashes(""),
 				i = shaddslashes(""),
 				s = shaddslashes(""),
@@ -199,11 +199,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				f = "",
 				l = "",
 				c = "",
-				h = "" + this.valueForToken("order_total") + "",
+				h = "" + _this.valueForToken("order_total"),
 				p = getCount(),
 				d = getSKUs(),
 				v = getQtys(),
-				shadditional = "" + this.valueForToken("custom") + "",
+				shadditional = "" + _this.valueForToken("custom"),
 				m, g, y;
 			try {
 				m = top.document.referer !== "" ? encodeURIComponent(top.document.referrer
