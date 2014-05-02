@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "peerius.categorypage" + version;
+var tagVersion = "";
+var classPath = "peerius.categorypage" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

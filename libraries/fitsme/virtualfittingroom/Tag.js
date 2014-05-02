@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "fitsme.virtualfittingroom" + version;
+var tagVersion = "";
+var classPath = "fitsme.virtualfittingroom" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

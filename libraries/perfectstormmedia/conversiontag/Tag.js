@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "perfectstormmedia.conversiontag" + version;
+var tagVersion = "";
+var classPath = "perfectstormmedia.conversiontag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "merchenta.shoppingcarttag" + version;
+var tagVersion = "";
+var classPath = "merchenta.shoppingcarttag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

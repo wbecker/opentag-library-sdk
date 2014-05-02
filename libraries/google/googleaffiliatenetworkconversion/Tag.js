@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "google.googleaffiliatenetworkconversion" + version;
+var tagVersion = "";
+var classPath = "google.googleaffiliatenetworkconversion" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

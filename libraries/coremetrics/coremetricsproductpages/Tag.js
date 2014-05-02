@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "coremetrics.coremetricsproductpages" + version;
+var tagVersion = "";
+var classPath = "coremetrics.coremetricsproductpages" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "qubit.qubitcookieconsent" + version;
+var tagVersion = "";
+var classPath = "qubit.qubitcookieconsent" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

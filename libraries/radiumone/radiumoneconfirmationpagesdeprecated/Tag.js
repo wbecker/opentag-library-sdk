@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "radiumone.radiumoneconfirmationpagesdeprecated" + version;
+var tagVersion = "";
+var classPath = "radiumone.radiumoneconfirmationpagesdeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

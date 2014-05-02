@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "googleanalytics.googleanalyticscrossdomain" + version;
+var tagVersion = "";
+var classPath = "googleanalytics.googleanalyticscrossdomain" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

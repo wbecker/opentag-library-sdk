@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "merchenta.conversiontag" + version;
+var tagVersion = "";
+var classPath = "merchenta.conversiontag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

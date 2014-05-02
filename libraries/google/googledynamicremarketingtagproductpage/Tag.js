@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "google.googledynamicremarketingtagproductpage" + version;
+var tagVersion = "";
+var classPath = "google.googledynamicremarketingtagproductpage" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

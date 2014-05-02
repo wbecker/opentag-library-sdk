@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "qubit.uvtestconfirmationpage" + version;
+var tagVersion = "";
+var classPath = "qubit.uvtestconfirmationpage" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

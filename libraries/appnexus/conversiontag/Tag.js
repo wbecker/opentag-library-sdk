@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "appnexus.conversiontag" + version;
+var tagVersion = "";
+var classPath = "appnexus.conversiontag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

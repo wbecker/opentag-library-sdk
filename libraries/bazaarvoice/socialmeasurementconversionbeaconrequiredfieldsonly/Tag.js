@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
+var tagVersion = "";
 var classPath =
-	"bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly" + version;
+	"bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

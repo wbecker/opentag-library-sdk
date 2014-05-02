@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "sessioncam.imamorondeleteme" + version;
+var tagVersion = "";
+var classPath = "sessioncam.imamorondeleteme" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

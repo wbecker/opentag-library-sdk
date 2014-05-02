@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "kissmetrics.kissinsightssurvey" + version;
+var tagVersion = "";
+var classPath = "kissmetrics.kissinsightssurvey" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

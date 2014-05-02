@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "googleanalytics.ecommercetrackingrequiredfieldsonly" + version;
+var tagVersion = "";
+var classPath = "googleanalytics.ecommercetrackingrequiredfieldsonly" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

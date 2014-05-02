@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "optimizely.optimizely" + version;
+var tagVersion = "";
+var classPath = "optimizely.optimizely" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

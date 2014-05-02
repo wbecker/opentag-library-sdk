@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "googleadsense.googleadsense" + version;
+var tagVersion = "";
+var classPath = "googleadsense.googleadsense" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

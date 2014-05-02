@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "olark.olarkchatwithgoogleanalytics" + version;
+var tagVersion = "";
+var classPath = "olark.olarkchatwithgoogleanalytics" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -149,6 +149,44 @@ function saveConfig(refNode) {
   });
 }
 
+function classPath(string) {
+    var chunks = string.split(".");
+    for (var i = 0 ; i< chunks.length; i++) {
+        var chunk = chunks[i];
+        chunk = chunk.replace(/[\W+]/g, "");
+        chunk = chunk.replace(/^\d+/g, "");
+        chunks[i] = chunk;
+    }
+    var result = chunks.join(".");
+    return result
+            .replace(/^[\.]+/g, "")
+            .replace(/[\.]+$/g, "")
+            .replace(/\.+/g,".");
+}
+
+function saveNewVersion(refNode) {
+  refNode = getLibraryReferenceNode(refNode);
+  var tagRef = refNode.reference;
+  var versionName = prompt("Please choose version name.\n Example: v10");
+  versionName = classPath(versionName);
+  alert("Version name: " + versionName);
+  
+  //var newPackageName = tagRef.PACKAGE_NAME + "." + versionName;  
+  var data = "classPath=libraries." +
+          tagRef.PACKAGE_NAME
+          + "&version=" + versionName;
+  
+  POST("/saveNewVersion", data, function(msg, httpr) {
+    if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
+      logError("Error while creating new version: " + msg);
+    } else {
+      info("Created new version.");
+      info("Please REBUILD library and reload page..", 10000);
+    }
+  });
+}
+
+
 function openInEditor(refNode) {
   var tagRef = refNode.reference;
   openInEditorAndCreate("libraries." + tagRef.PACKAGE_NAME, "Tag.js", false);
@@ -253,6 +291,8 @@ function GET(url, callback, async) {
     };
   } catch (ex) {}
 
+//  xmlhttp.setRequestHeader("Cache-Control", "no-cache, must-revalidate");
+//  xmlhttp.setRequestHeader("Pragma", "no-cache");
   xmlhttp.open("GET", fakeParam(url), async);
   xmlhttp.send();
 }
@@ -270,6 +310,8 @@ function POST(url, data, callback, async) {
       logError("Error while sending POST:" + e);
     };
   } catch (ex) {}
+//  xmlhttp.setRequestHeader("Cache-Control", "no-cache, must-revalidate");
+//  xmlhttp.setRequestHeader("Pragma", "no-cache");
   xmlhttp.open("POST", fakeParam(url), async);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send(data);

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "pubnub.pubnub312" + version;
+var tagVersion = "";
+var classPath = "pubnub.pubnub312" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

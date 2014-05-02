@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "criteo.legacyproductpagetag" + version;
+var tagVersion = "";
+var classPath = "criteo.legacyproductpagetag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

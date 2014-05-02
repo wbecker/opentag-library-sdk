@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "netbooster.remarketingpixel" + version;
+var tagVersion = "";
+var classPath = "netbooster.remarketingpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

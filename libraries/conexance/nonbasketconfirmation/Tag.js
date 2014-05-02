@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "conexance.nonbasketconfirmation" + version;
+var tagVersion = "";
+var classPath = "conexance.nonbasketconfirmation" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

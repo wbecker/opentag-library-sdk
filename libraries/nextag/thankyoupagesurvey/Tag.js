@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "nextag.thankyoupagesurvey" + version;
+var tagVersion = "";
+var classPath = "nextag.thankyoupagesurvey" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

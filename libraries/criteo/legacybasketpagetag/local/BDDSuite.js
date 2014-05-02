@@ -21,15 +21,13 @@ var suite = describe("when song has been paused", function() {
   });
 
   it("tag should execute as all parameters are set.", function () {
-    tag.getParameterByTokenName("wi").variable = {value: "value a"};
-    tag.getParameterByTokenName("call_parameter").variable = {value: "value b"};
-    tag.getParameterByTokenName("product_ids").variable = {value: "value c"};
-    tag.getParameterByTokenName("product_unit_prices").variable = {value: "value d"};
-    //tag.setParameterByTokenName("product_unit_prices", "value d");
-    tag.getParameterByTokenName("quantities").variable = {value: "value e"};
+    tag.setParameterByTokenName("wi", "value a");
+    tag.setParameterByTokenName("call_parameter", "value b");
+    tag.setParameterByTokenName("product_ids", "value c");
+    tag.setParameterByTokenName("product_unit_prices", "value d");
+    tag.setParameterByTokenName("quantities", "value e");
 
     tag.run();
-
     expect(tag.scriptExecuted > 0).to.be(true);
   });
 

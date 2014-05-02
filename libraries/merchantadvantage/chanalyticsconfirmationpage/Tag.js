@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "merchantadvantage.chanalyticsconfirmationpage" + version;
+var tagVersion = "";
+var classPath = "merchantadvantage.chanalyticsconfirmationpage" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

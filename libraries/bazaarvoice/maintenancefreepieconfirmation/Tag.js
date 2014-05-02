@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "bazaarvoice.maintenancefreepieconfirmation" + version;
+var tagVersion = "";
+var classPath = "bazaarvoice.maintenancefreepieconfirmation" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "krux.kruxinterchange" + version;
+var tagVersion = "";
+var classPath = "krux.kruxinterchange" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

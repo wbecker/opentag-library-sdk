@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "appnexus.appnexusthankyoupagewithcustomdomain" + version;
+var tagVersion = "";
+var classPath = "appnexus.appnexusthankyoupagewithcustomdomain" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

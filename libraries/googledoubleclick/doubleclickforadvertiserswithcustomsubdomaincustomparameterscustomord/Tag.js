@@ -1,8 +1,8 @@
 //:include tagsdk-current.js
-var version = "";
+var tagVersion = "";
 var classPath =
-	"googledoubleclick.doubleclickforadvertiserswithcustomsubdomaincustomparameterscustomord" +
-	version;
+	"googledoubleclick.doubleclickforadvertiserswithcustomsubdomaincustomparameterscustomord" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

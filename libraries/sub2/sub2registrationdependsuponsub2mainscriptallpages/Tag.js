@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "sub2.sub2registrationdependsuponsub2mainscriptallpages" +
-	version;
+var tagVersion = "";
+var classPath = "sub2.sub2registrationdependsuponsub2mainscriptallpages" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

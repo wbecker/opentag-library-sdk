@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "qubit.combineduvlistener" + version;
+var tagVersion = "";
+var classPath = "qubit.combineduvlistener" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

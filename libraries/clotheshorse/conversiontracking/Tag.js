@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "clotheshorse.conversiontracking" + version;
+var tagVersion = "";
+var classPath = "clotheshorse.conversiontracking" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

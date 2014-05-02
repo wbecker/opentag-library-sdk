@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "everesttech.efficientfrontierconversiontag" + version;
+var tagVersion = "";
+var classPath = "everesttech.efficientfrontierconversiontag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

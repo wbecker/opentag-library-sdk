@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "qubit.qubitqtrackerresenduniversalvariable" + version;
+var tagVersion = "";
+var classPath = "qubit.qubitqtrackerresenduniversalvariable" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

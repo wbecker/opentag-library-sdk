@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "emailvision.emailvisionconfirmation" + version;
+var tagVersion = "";
+var classPath = "emailvision.emailvisionconfirmation" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

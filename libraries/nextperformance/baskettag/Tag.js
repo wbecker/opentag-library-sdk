@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "nextperformance.baskettag" + version;
+var tagVersion = "";
+var classPath = "nextperformance.baskettag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

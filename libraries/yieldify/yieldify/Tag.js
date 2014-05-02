@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "yieldify.yieldify" + version;
+var tagVersion = "";
+var classPath = "yieldify.yieldify" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

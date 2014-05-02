@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
+var tagVersion = "";
 var classPath =
-	"affiliatewindow.confirmationtagwithproductdetailandpvparameter" + version;
+	"affiliatewindow.confirmationtagwithproductdetailandpvparameter" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

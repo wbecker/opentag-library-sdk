@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "struq.basketpagetagv19us" + version;
+var tagVersion = "";
+var classPath = "struq.basketpagetagv19us" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

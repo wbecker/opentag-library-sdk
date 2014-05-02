@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "lyticsio.initiatejstag" + version;
+var tagVersion = "";
+var classPath = "lyticsio.initiatejstag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

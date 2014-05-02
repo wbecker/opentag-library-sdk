@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "emailvision.basketpagetaginactive" + version;
+var tagVersion = "";
+var classPath = "emailvision.basketpagetaginactive" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

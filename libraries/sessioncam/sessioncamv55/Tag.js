@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "sessioncam.sessioncamv55" + version;
+var tagVersion = "";
+var classPath = "sessioncam.sessioncamv55" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

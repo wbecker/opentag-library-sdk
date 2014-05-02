@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "weborama.weboramafunneltag" + version;
+var tagVersion = "";
+var classPath = "weborama.weboramafunneltag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

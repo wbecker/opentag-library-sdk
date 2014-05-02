@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "facebook.facebookpixelwithcurrency" + version;
+var tagVersion = "";
+var classPath = "facebook.facebookpixelwithcurrency" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

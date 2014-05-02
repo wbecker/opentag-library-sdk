@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "snowplowanalytics.snowploweventtracker" + version;
+var tagVersion = "";
+var classPath = "snowplowanalytics.snowploweventtracker" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

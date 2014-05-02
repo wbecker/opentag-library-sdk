@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "calltrackingmetrics.trackingcode" + version;
+var tagVersion = "";
+var classPath = "calltrackingmetrics.trackingcode" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

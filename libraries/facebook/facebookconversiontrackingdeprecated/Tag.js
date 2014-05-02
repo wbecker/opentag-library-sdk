@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "facebook.facebookconversiontrackingdeprecated" + version;
+var tagVersion = "";
+var classPath = "facebook.facebookconversiontrackingdeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

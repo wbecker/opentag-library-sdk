@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "conexance.basketpagedeprecated" + version;
+var tagVersion = "";
+var classPath = "conexance.basketpagedeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

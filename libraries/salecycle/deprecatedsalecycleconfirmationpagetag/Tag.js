@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "salecycle.deprecatedsalecycleconfirmationpagetag" + version;
+var tagVersion = "";
+var classPath = "salecycle.deprecatedsalecycleconfirmationpagetag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "sovendus.sovendusdeprecated" + version;
+var tagVersion = "";
+var classPath = "sovendus.sovendusdeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

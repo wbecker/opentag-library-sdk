@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "freespee.yetanotheroopsiforgottochangethedefaultstag" +
-	version;
+var tagVersion = "";
+var classPath = "freespee.yetanotheroopsiforgottochangethedefaultstag" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

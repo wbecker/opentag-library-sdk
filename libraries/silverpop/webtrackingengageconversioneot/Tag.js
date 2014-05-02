@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "silverpop.webtrackingengageconversioneot" + version;
+var tagVersion = "";
+var classPath = "silverpop.webtrackingengageconversioneot" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

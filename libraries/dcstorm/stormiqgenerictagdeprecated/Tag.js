@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "dcstorm.stormiqgenerictagdeprecated" + version;
+var tagVersion = "";
+var classPath = "dcstorm.stormiqgenerictagdeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

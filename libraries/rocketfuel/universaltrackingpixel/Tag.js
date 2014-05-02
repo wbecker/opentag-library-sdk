@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "rocketfuel.universaltrackingpixel" + version;
+var tagVersion = "";
+var classPath = "rocketfuel.universaltrackingpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

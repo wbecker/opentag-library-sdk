@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "bizrate.bizratenonbuyersurvey" + version;
+var tagVersion = "";
+var classPath = "bizrate.bizratenonbuyersurvey" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

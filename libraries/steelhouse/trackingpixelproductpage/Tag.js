@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "steelhouse.trackingpixelproductpage" + version;
+var tagVersion = "";
+var classPath = "steelhouse.trackingpixelproductpage" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

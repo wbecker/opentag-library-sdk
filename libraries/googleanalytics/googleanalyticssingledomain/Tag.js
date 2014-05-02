@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "googleanalytics.googleanalyticssingledomain" + version;
+var tagVersion = "";
+var classPath = "googleanalytics.googleanalyticssingledomain" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "drawbridge.drawbridge" + version;
+var tagVersion = "";
+var classPath = "drawbridge.drawbridge" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

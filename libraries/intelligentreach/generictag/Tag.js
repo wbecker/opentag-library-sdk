@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "intelligentreach.generictag" + version;
+var tagVersion = "";
+var classPath = "intelligentreach.generictag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

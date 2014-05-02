@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "mentionme.alternativeordertrackingtag" + version;
+var tagVersion = "";
+var classPath = "mentionme.alternativeordertrackingtag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

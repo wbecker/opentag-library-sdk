@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "responsetap.responsetapclicktocall" + version;
+var tagVersion = "";
+var classPath = "responsetap.responsetapclicktocall" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

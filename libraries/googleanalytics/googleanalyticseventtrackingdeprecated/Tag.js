@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "googleanalytics.googleanalyticseventtrackingdeprecated" +
-	version;
+var tagVersion = "";
+var classPath = "googleanalytics.googleanalyticseventtrackingdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

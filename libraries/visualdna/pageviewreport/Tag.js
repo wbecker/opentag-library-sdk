@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "visualdna.pageviewreport" + version;
+var tagVersion = "";
+var classPath = "visualdna.pageviewreport" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

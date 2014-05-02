@@ -33,7 +33,8 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
 
   libraryNode.innerHTML = libraryTemplate;
   
-  var version = "current";
+  var version = "current " +
+          "(<a href='#-3' onclick='saveNewVersion(this)'>create new version</a>)";
   if (libraryClass.versionOf) {
     version = libraryClass.prototype.PACKAGE_NAME
             .replace(libraryClass.versionOf.prototype.PACKAGE_NAME + ".", "");

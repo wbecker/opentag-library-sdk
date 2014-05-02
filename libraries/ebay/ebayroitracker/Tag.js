@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "ebay.ebayroitracker" + version;
+var tagVersion = "";
+var classPath = "ebay.ebayroitracker" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

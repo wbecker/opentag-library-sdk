@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "gosquared.gosquaredallpages" + version;
+var tagVersion = "";
+var classPath = "gosquared.gosquaredallpages" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

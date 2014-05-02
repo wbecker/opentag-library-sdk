@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "intelliad.impressionpixel" + version;
+var tagVersion = "";
+var classPath = "intelliad.impressionpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

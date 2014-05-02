@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "dcstorm.stormiqconfirmationpagetagnoshipping" + version;
+var tagVersion = "";
+var classPath = "dcstorm.stormiqconfirmationpagetagnoshipping" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

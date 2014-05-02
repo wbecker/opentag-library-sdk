@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "polyvore.conversiontrackingpixel" + version;
+var tagVersion = "";
+var classPath = "polyvore.conversiontrackingpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

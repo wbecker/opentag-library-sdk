@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "decibelinsight.allpagestag" + version;
+var tagVersion = "";
+var classPath = "decibelinsight.allpagestag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

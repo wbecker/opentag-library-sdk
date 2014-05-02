@@ -6718,6 +6718,9 @@ var JSON = {};
    * @return {Function} reference to extended class
    */
   LibraryTag.define = function (namespace, libConfig) {
+    namespace = namespace.replace(/^[\.]+/g, "")
+      .replace(/[\.]+$/g, "")
+      .replace(/\.+/g,".");
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = libConfig.config;

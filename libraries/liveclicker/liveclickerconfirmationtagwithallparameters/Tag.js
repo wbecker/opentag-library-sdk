@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "liveclicker.liveclickerconfirmationtagwithallparameters" +
-	version;
+var tagVersion = "";
+var classPath = "liveclicker.liveclickerconfirmationtagwithallparameters" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "modernizr.modernizr206" + version;
+var tagVersion = "";
+var classPath = "modernizr.modernizr206" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

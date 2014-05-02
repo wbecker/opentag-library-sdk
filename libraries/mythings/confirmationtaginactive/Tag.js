@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "mythings.confirmationtaginactive" + version;
+var tagVersion = "";
+var classPath = "mythings.confirmationtaginactive" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "mediamind.generictagnosession" + version;
+var tagVersion = "";
+var classPath = "mediamind.generictagnosession" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

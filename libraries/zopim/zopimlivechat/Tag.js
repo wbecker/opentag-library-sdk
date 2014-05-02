@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "zopim.zopimlivechat" + version;
+var tagVersion = "";
+var classPath = "zopim.zopimlivechat" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

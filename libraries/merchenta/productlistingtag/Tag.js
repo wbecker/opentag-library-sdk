@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "merchenta.productlistingtag" + version;
+var tagVersion = "";
+var classPath = "merchenta.productlistingtag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

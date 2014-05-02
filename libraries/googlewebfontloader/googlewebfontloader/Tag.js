@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "googlewebfontloader.googlewebfontloader" + version;
+var tagVersion = "";
+var classPath = "googlewebfontloader.googlewebfontloader" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

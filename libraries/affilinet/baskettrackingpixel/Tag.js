@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "affilinet.baskettrackingpixel" + version;
+var tagVersion = "";
+var classPath = "affilinet.baskettrackingpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "bluetriangle.bluetrianglepagetag" + version;
+var tagVersion = "";
+var classPath = "bluetriangle.bluetrianglepagetag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

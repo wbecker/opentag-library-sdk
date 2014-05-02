@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "unidays.redemptiontracking" + version;
+var tagVersion = "";
+var classPath = "unidays.redemptiontracking" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "sociomantic.defaultinclhomepagetags" + version;
+var tagVersion = "";
+var classPath = "sociomantic.defaultinclhomepagetags" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

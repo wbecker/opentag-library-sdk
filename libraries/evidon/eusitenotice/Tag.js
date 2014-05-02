@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "evidon.eusitenotice" + version;
+var tagVersion = "";
+var classPath = "evidon.eusitenotice" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

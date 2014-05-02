@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "tradedoubler.confirmationpagetagdeprecated" + version;
+var tagVersion = "";
+var classPath = "tradedoubler.confirmationpagetagdeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

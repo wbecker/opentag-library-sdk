@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "google.googleremarketingconversionasync" + version;
+var tagVersion = "";
+var classPath = "google.googleremarketingconversionasync" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

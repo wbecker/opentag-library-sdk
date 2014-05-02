@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "mediaplex.categoryiframe" + version;
+var tagVersion = "";
+var classPath = "mediaplex.categoryiframe" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

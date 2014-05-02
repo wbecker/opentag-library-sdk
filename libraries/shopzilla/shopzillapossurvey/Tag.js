@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "shopzilla.shopzillapossurvey" + version;
+var tagVersion = "";
+var classPath = "shopzilla.shopzillapossurvey" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

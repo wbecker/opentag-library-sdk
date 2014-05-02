@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "linkshare.linkshareconfirmationpagepixeldeprecated" + version;
+var tagVersion = "";
+var classPath = "linkshare.linkshareconfirmationpagepixeldeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

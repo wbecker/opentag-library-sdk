@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "bazaarvoice.displayintegrationcode" + version;
+var tagVersion = "";
+var classPath = "bazaarvoice.displayintegrationcode" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

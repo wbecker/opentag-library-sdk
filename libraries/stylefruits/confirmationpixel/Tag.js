@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "stylefruits.confirmationpixel" + version;
+var tagVersion = "";
+var classPath = "stylefruits.confirmationpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "chango.optimizationpixelv2" + version;
+var tagVersion = "";
+var classPath = "chango.optimizationpixelv2" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

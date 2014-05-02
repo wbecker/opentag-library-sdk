@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "pricegrabber.thankyoupagesurvey" + version;
+var tagVersion = "";
+var classPath = "pricegrabber.thankyoupagesurvey" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

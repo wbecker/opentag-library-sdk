@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "prismastar.orderconfirmationtrackingpixel" + version;
+var tagVersion = "";
+var classPath = "prismastar.orderconfirmationtrackingpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

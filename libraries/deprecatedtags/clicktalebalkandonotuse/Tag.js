@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "deprecatedtags.clicktalebalkandonotuse" + version;
+var tagVersion = "";
+var classPath = "deprecatedtags.clicktalebalkandonotuse" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

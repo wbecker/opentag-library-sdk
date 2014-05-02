@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "adinsight.adinsightclicktocalldeprecated" + version;
+var tagVersion = "";
+var classPath = "adinsight.adinsightclicktocalldeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

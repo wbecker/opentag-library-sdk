@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "clicktale.clicktaleatlaslegacy" + version;
+var tagVersion = "";
+var classPath = "clicktale.clicktaleatlaslegacy" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

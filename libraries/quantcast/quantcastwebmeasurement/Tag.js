@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "quantcast.quantcastwebmeasurement" + version;
+var tagVersion = "";
+var classPath = "quantcast.quantcastwebmeasurement" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

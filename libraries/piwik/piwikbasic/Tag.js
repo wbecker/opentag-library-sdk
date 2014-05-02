@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "piwik.piwikbasic" + version;
+var tagVersion = "";
+var classPath = "piwik.piwikbasic" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "marinsoftware.zzserversidepixellandingpagetrackingdeprecated" +
-	version;
+var tagVersion = "";
+var classPath = "marinsoftware.zzserversidepixellandingpagetrackingdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

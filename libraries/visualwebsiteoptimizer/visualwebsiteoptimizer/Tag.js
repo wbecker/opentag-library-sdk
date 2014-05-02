@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "visualwebsiteoptimizer.visualwebsiteoptimizer" + version;
+var tagVersion = "";
+var classPath = "visualwebsiteoptimizer.visualwebsiteoptimizer" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "mythings.endoftransactiontag" + version;
+var tagVersion = "";
+var classPath = "mythings.endoftransactiontag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

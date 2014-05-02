@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "marinsoftware.productlevelconversionanonymizeip" + version;
+var tagVersion = "";
+var classPath = "marinsoftware.productlevelconversionanonymizeip" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

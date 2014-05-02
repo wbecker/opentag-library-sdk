@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "criteo.onetagsearchresultpage" + version;
+var tagVersion = "";
+var classPath = "criteo.onetagsearchresultpage" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

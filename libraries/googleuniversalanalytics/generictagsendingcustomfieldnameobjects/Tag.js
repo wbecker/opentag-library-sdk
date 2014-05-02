@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
+var tagVersion = "";
 var classPath =
-	"googleuniversalanalytics.generictagsendingcustomfieldnameobjects" + version;
+	"googleuniversalanalytics.generictagsendingcustomfieldnameobjects" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

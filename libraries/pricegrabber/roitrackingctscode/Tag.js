@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "pricegrabber.roitrackingctscode" + version;
+var tagVersion = "";
+var classPath = "pricegrabber.roitrackingctscode" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

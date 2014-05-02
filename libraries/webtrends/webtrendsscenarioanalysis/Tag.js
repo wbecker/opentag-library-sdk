@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "webtrends.webtrendsscenarioanalysis" + version;
+var tagVersion = "";
+var classPath = "webtrends.webtrendsscenarioanalysis" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

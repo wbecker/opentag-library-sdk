@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "channeladvisor.confirmationordertracking" + version;
+var tagVersion = "";
+var classPath = "channeladvisor.confirmationordertracking" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "veinteractive.confirmationpixel" + version;
+var tagVersion = "";
+var classPath = "veinteractive.confirmationpixel" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

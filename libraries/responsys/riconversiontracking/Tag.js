@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "responsys.riconversiontracking" + version;
+var tagVersion = "";
+var classPath = "responsys.riconversiontracking" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

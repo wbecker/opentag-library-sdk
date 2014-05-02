@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "qubit.googletagmanagerconverterdatalayeruv" + version;
+var tagVersion = "";
+var classPath = "qubit.googletagmanagerconverterdatalayeruv" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

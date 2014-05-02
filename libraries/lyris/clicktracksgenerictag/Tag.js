@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "lyris.clicktracksgenerictag" + version;
+var tagVersion = "";
+var classPath = "lyris.clicktracksgenerictag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

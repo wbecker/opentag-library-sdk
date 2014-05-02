@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "d7search.d7searchconversion" + version;
+var tagVersion = "";
+var classPath = "d7search.d7searchconversion" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		config: {

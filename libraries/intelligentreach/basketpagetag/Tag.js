@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "intelligentreach.basketpagetag" + version;
+var tagVersion = "";
+var classPath = "intelligentreach.basketpagetag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

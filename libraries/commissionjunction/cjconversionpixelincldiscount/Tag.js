@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "commissionjunction.cjconversionpixelincldiscount" + version;
+var tagVersion = "";
+var classPath = "commissionjunction.cjconversionpixelincldiscount" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

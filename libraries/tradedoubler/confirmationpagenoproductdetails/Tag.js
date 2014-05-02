@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "tradedoubler.confirmationpagenoproductdetails" + version;
+var tagVersion = "";
+var classPath = "tradedoubler.confirmationpagenoproductdetails" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

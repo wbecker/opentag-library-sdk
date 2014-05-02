@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "marinsoftware.zzconversioncapturecodedeprecated" + version;
+var tagVersion = "";
+var classPath = "marinsoftware.zzconversioncapturecodedeprecated" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

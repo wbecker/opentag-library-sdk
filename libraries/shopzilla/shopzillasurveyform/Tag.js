@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "shopzilla.shopzillasurveyform" + version;
+var tagVersion = "";
+var classPath = "shopzilla.shopzillasurveyform" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

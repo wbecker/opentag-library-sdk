@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "emailvision.emailvisionconfirmationpagewithcustomserver" +
-	version;
+var tagVersion = "";
+var classPath = "emailvision.emailvisionconfirmationpagewithcustomserver" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

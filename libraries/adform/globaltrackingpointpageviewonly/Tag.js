@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "adform.globaltrackingpointpageviewonly" + version;
+var tagVersion = "";
+var classPath = "adform.globaltrackingpointpageviewonly" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

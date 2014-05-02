@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "VERSION_NAME";
-var classPath = "PACKAGE_NAME" + version;
+var tagVersion = "VERSION_NAME";
+var classPath = "PACKAGE_NAME" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

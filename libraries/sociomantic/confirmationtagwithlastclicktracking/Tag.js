@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "sociomantic.confirmationtagwithlastclicktracking" + version;
+var tagVersion = "";
+var classPath = "sociomantic.confirmationtagwithlastclicktracking" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
-var version = "";
-var classPath = "mediaplex.znotneeded" + version;
+var tagVersion = "";
+var classPath = "mediaplex.znotneeded" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
