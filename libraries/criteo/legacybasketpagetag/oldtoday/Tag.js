@@ -1,5 +1,5 @@
 //:include tagsdk-current.js
-var tagVersion = "emre";
+var tagVersion = "oldtoday"
 var classPath = "criteo.legacybasketpagetag" + "." + tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -16,7 +16,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		usesDocWrite: true,
 		parameters: [{
 			name: "Criteo wi Parameter",
-			description: "A Parameter wi provided by Criteo df",
+			description: "A Parameter wi provided by Criteo",
 			token: "wi",
 			uv: ""
 		}, {

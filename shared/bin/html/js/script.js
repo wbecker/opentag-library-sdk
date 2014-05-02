@@ -35,9 +35,10 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   
   var version = "current " +
           "(<a href='#-3' onclick='saveNewVersion(this)'>create new version</a>)";
-  if (libraryClass.versionOf) {
+  
+  if (libraryClass.versionClassPath) {
     version = libraryClass.prototype.PACKAGE_NAME
-            .replace(libraryClass.versionOf.prototype.PACKAGE_NAME + ".", "");
+            .replace(libraryClass.versionClassPath + ".", "");
   }
   
   libraryNode.children[0].children[1].innerHTML = instance.config.name +
@@ -454,23 +455,24 @@ function renderAllLibrariesToPage() {
     for (var lprop in vendor) {
       try {
         var libraryClass = vendor[lprop].Tag;
-        
+        var libraryClassPath = [vprop, lprop].join(".");
         
         //var versions = findTags(vendor[lprop]);
         
-        var ctest = new libraryClass({});
-        ctest.unregister();
-        if ((ctest) instanceof qubit.opentag.LibraryTag) {
-          addLibrary(vendorNode, libraryClass);
-          
-          //versions
-          var versions = findTags(vendor[lprop]);
-          
-          for (var i = 0; i < versions.length; i++) {
-            versions[i].versionOf = libraryClass;
-            addLibrary(vendorNode, versions[i]);
+        if (libraryClass) {
+          var ctest = new libraryClass({});
+          libraryClassPath = libraryClass.prototype.PACKAGE_NAME;
+          ctest.unregister();
+          if ((ctest) instanceof qubit.opentag.LibraryTag) {
+            addLibrary(vendorNode, libraryClass);
           }
-          
+        }
+        //versions
+        var versions = findTags(vendor[lprop]);
+
+        for (var i = 0; i < versions.length; i++) {
+          versions[i].versionClassPath = libraryClassPath;
+          addLibrary(vendorNode, versions[i]);
         }
       } catch (ex) {
         //must prompt
