@@ -4612,6 +4612,27 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
+   * Simple manual parameter setter. This funmction is intended to use for
+   * debugging and testing purposes. Parameters and variables should be defined
+   * and bond at configuration time.
+   * @param {type} tokenName
+   * @param {type} variable
+   * @returns {Boolean} true if parameter was founmd, false otherwise
+   */
+  BaseTag.prototype.setParameterByTokenName = function (tokenName, variable) {
+    var param = this.getParameterByTokenName(tokenName);
+    if (param !== null) {
+      //it will be automatically converted by TagHelper to 
+      //the instance on first access.
+      param.variable = {
+        value: variable
+      };
+      return true;
+    }
+    return false;
+  };
+  
+  /**
    * 
    * @param {type} name
    * @returns {Object}
@@ -6553,7 +6574,6 @@ var JSON = {};
 
 (function () {
   var Utils = qubit.opentag.Utils;
-  var log = new qubit.opentag.Log("LibraryTag -> ");
   
   /**
    * ## Library tag instance class.
