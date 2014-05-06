@@ -21,9 +21,10 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var img = new Image();
-			img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") +
-				"r" + Math.round(Math.random() * 10000000);
+		var img = new Image();
+		img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") +
+			"r" + Math.round(Math.random() * 10000000);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

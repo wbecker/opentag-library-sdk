@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "quantcast.deprecatedquantcastconfirmationpage" + "." + tagVersion;
+var classPath = "quantcast.deprecatedquantcastconfirmationpage" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -37,19 +38,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		window._qevents = _qevents || [];
 
-    var elem = document.createElement('script');
-    elem.src = (document.location.protocol == "https:" ? "https://secure" :
-      "http://edge") + ".quantserve.com/quant.js";
-    elem.async = true;
-    elem.type = "text/javascript";
-    document.getElementsByTagName('head')[0].appendChild(elem);
+		var elem = document.createElement('script');
+		elem.src = (document.location.protocol == "https:" ? "https://secure" :
+			"http://edge") + ".quantserve.com/quant.js";
+		elem.async = true;
+		elem.type = "text/javascript";
+		document.getElementsByTagName('head')[0].appendChild(elem);
 
-    _qevents.push({
-      qacct: "" + this.valueForToken("account_no"),
-      labels: "_fp.event.Confirmation Page",
-      orderid: "" + this.valueForToken("order_id"),
-      revenue: "" + this.valueForToken("revenue")
+		_qevents.push({
+			qacct: "" + this.valueForToken("account_no"),
+			labels: "_fp.event.Confirmation Page",
+			orderid: "" + this.valueForToken("order_id"),
+			revenue: "" + this.valueForToken("revenue")
 		});
+
 
 		/*~SCRIPT*/
 	},

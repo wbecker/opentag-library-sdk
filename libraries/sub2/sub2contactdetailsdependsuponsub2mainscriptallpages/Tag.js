@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "sub2.sub2contactdetailsdependsuponsub2mainscriptallpages" + "." +
+var classPath = "sub2.sub2contactdetailsdependsuponsub2mainscriptallpages" +
+	"." +
 	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -65,23 +66,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
-    var waitFor_S2Tech_MatchData_NA = setInterval(function() {
-      if (typeof S2Tech_MatchData_NA === 'function') {
-        clearInterval(waitFor_S2Tech_MatchData_NA);
+		var _this = this;
+		var waitFor_S2Tech_MatchData_NA = setInterval(function() {
+			if (typeof S2Tech_MatchData_NA === 'function') {
+				clearInterval(waitFor_S2Tech_MatchData_NA);
 
-        S2Tech_MatchData_NA("" + _this.valueForToken("title"), "" + _this.valueForToken(
-            "firstname"), "" + _this.valueForToken("lastname"), "" +
-          _this.valueForToken("address"), "" + _this.valueForToken("postcode") +
-          "", "" + _this.valueForToken("email"), "" + _this.valueForToken(
-            "landline"), "" + _this.valueForToken("mobile"), "" + _this.valueForToken(
-            "OptIns"));
-      }
-    }, 100);
+				S2Tech_MatchData_NA("" + _this.valueForToken("title"), "" + _this.valueForToken(
+						"firstname"), "" + _this.valueForToken("lastname"), "" +
+					_this.valueForToken("address"), "" + _this.valueForToken("postcode") +
+					"", "" + _this.valueForToken("email"), "" + _this.valueForToken(
+						"landline"), "" + _this.valueForToken("mobile"), "" + _this.valueForToken(
+						"OptIns"));
+			}
+		}, 100);
 
-    setTimeout(function() {
-      clearInterval(waitFor_S2Tech_MatchData_NA);
-    }, 5000);
+		setTimeout(function() {
+			clearInterval(waitFor_S2Tech_MatchData_NA);
+		}, 5000);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -62,6 +62,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		}
 		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
 			(new Date()).getTime() + '?' + p.join("&");
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

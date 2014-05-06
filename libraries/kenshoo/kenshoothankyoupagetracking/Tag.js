@@ -62,14 +62,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-			var params = new Array();
-			params[0] = 'id=' + this.valueForToken("id");
-			params[1] = 'type=' + this.valueForToken("type");
-			params[2] = 'val=' + this.valueForToken("order_total");
-			params[3] = 'orderId=' + this.valueForToken("order_id");
-			params[4] = 'promoCode=' + this.valueForToken("voucher");
-			params[5] = 'valueCurrency=' + this.valueForToken("currency");
-			window.k_trackevent(params, '' + this.valueForToken("ks_num"));
+		var params = new Array();
+		params[0] = 'id=' + this.valueForToken("id");
+		params[1] = 'type=' + this.valueForToken("type");
+		params[2] = 'val=' + this.valueForToken("order_total");
+		params[3] = 'orderId=' + this.valueForToken("order_id");
+		params[4] = 'promoCode=' + this.valueForToken("voucher");
+		params[5] = 'valueCurrency=' + this.valueForToken("currency");
+		window.k_trackevent(params, '' + this.valueForToken("ks_num"));
+
 		/*~POST*/
 	}
 });

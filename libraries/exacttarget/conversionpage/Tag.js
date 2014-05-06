@@ -50,47 +50,48 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			function getCookie(cookiename) {
-				if (document.cookie.length > 0) {
-					startC = document.cookie.indexOf(cookiename + "=");
-					if (startC != -1) {
-						startC += cookiename.length + 1;
-						endC = document.cookie.indexOf(";", startC);
-						if (endC == -1) endC = document.cookie.length;
-						return unescape(document.cookie.substring(startC, endC));
-					}
+		function getCookie(cookiename) {
+			if (document.cookie.length > 0) {
+				startC = document.cookie.indexOf(cookiename + "=");
+				if (startC != -1) {
+					startC += cookiename.length + 1;
+					endC = document.cookie.indexOf(";", startC);
+					if (endC == -1) endC = document.cookie.length;
+					return unescape(document.cookie.substring(startC, endC));
 				}
-				return null;
 			}
+			return null;
+		}
 
-			var imgSrc = document.location.protocol +
-				"//click.exacttarget.com/conversion.aspx?xml=";
-			imgSrc += "<system>";
-			imgSrc += "<system_name>tracking</system_name>";
-			imgSrc += "<action>conversion</action>";
-			imgSrc += "<member_id>" + getCookie("MemberID") + "</member_id>";
-			imgSrc += "<job_id>" + getCookie("JobID") + "</job_id>";
-			imgSrc += "<email>" + getCookie("EmailAddr") + "</email>";
-			imgSrc += "<list>" + getCookie("ListID") + "</list>";
-			imgSrc += "<BatchID>" + getCookie("BatchID") + "</BatchID>";
-			imgSrc += "<original_link_id>" + getCookie("UrlID") +
-				"</original_link_id>";
-			imgSrc += "<conversion_link_id>" +
-              this.valueForToken("unique_conversion_page_id") + "</conversion_link_id>";
-			imgSrc += "<link_alias>" +
-              this.valueForToken("conversion_page_name") +
-				"</link_alias>";
-			imgSrc += "<display_order>" +
-              this.valueForToken("conversion_display_order") + "</display_order>";
-			imgSrc += "<data_set><data amt=" +
-              this.valueForToken("conversion_value") +
-            " unit=" +
-            this.valueForToken("measurement_unit") +
-            " accumulate=" +
-            this.valueForToken("accumulate") + "/></data_set>";
-    imgSrc += "</system>";
+		var imgSrc = document.location.protocol +
+			"//click.exacttarget.com/conversion.aspx?xml=";
+		imgSrc += "<system>";
+		imgSrc += "<system_name>tracking</system_name>";
+		imgSrc += "<action>conversion</action>";
+		imgSrc += "<member_id>" + getCookie("MemberID") + "</member_id>";
+		imgSrc += "<job_id>" + getCookie("JobID") + "</job_id>";
+		imgSrc += "<email>" + getCookie("EmailAddr") + "</email>";
+		imgSrc += "<list>" + getCookie("ListID") + "</list>";
+		imgSrc += "<BatchID>" + getCookie("BatchID") + "</BatchID>";
+		imgSrc += "<original_link_id>" + getCookie("UrlID") +
+			"</original_link_id>";
+		imgSrc += "<conversion_link_id>" +
+			this.valueForToken("unique_conversion_page_id") + "</conversion_link_id>";
+		imgSrc += "<link_alias>" +
+			this.valueForToken("conversion_page_name") +
+			"</link_alias>";
+		imgSrc += "<display_order>" +
+			this.valueForToken("conversion_display_order") + "</display_order>";
+		imgSrc += "<data_set><data amt=" +
+			this.valueForToken("conversion_value") +
+			" unit=" +
+			this.valueForToken("measurement_unit") +
+			" accumulate=" +
+			this.valueForToken("accumulate") + "/></data_set>";
+		imgSrc += "</system>";
 
-			new Image().src = imgSrc;
+		new Image().src = imgSrc;
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

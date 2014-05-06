@@ -101,12 +101,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var run = function() {
 			for (var i = 0, ii = _this.valueForToken("skus").length; i < ii; i++) {
 				window.w1x1.scAdd(
-								_this.valueForToken("skus")[i],
-								_this.valueForToken("quantities")[i],
-								_this.valueForToken("totals_novat")[i],
-								_this.valueForToken("totals_vat")[i],
-								_this.valueForToken("prices")[i],
-								_this.valueForToken("voucher"));
+					_this.valueForToken("skus")[i],
+					_this.valueForToken("quantities")[i],
+					_this.valueForToken("totals_novat")[i],
+					_this.valueForToken("totals_vat")[i],
+					_this.valueForToken("prices")[i],
+					_this.valueForToken("voucher"));
 			}
 			window.w1x1.scSend();
 		};
@@ -118,6 +118,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 						run();
 					});
 			});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

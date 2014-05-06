@@ -15,8 +15,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		url: "",
 		usesDocWrite: false,
 		parameters: [{
-			name: "test",
-			description: "test",
+			name: "test2",
+			description: "param",
 			token: "param",
 			uv: ""
 		}, {
@@ -30,6 +30,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 		console.log("" + this.valueForToken("param"))
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

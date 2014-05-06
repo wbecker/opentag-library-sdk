@@ -48,26 +48,27 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-			var user_id = "" + this.valueForToken("customer_id");
-			//Remove email if present.
-			if (user_id.indexOf("@") > -1) {
-				user_id = "";
-			}
+		var user_id = "" + this.valueForToken("customer_id");
+		//Remove email if present.
+		if (user_id.indexOf("@") > -1) {
+			user_id = "";
+		}
 
-			window.criteo_q = window.criteo_q || [];
-			window.criteo_q.push({
-				event: "setAccount",
-				account: this.valueForToken("partner_id")
-			}, {
-				event: "setCustomerId",
-				id: user_id
-			}, {
-				event: "setSiteType",
-				type: "" + this.valueForToken("site_type")
-			}, {
-				event: "viewItem",
-				product: "" + this.valueForToken("product_id")
-			});
+		window.criteo_q = window.criteo_q || [];
+		window.criteo_q.push({
+			event: "setAccount",
+			account: this.valueForToken("partner_id")
+		}, {
+			event: "setCustomerId",
+			id: user_id
+		}, {
+			event: "setSiteType",
+			type: "" + this.valueForToken("site_type")
+		}, {
+			event: "viewItem",
+			product: "" + this.valueForToken("product_id")
+		});
+
 
 		/*~POST*/
 	}

@@ -42,10 +42,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		var x = document.createElement("script");
 		x.src = (document.location.protocol === "https:") ?
-      "" + this.valueForToken("secure_domain") :
-      "" + this.valueForToken("non_secure_domain");
+			"" + this.valueForToken("secure_domain") :
+			"" + this.valueForToken("non_secure_domain");
 		x.type = "text/javascript";
 		document.getElementsByTagName("head")[0].appendChild(x);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

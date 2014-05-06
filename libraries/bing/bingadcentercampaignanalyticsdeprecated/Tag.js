@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "bing.bingadcentercampaignanalyticsdeprecated" + "." + tagVersion;
+var classPath = "bing.bingadcentercampaignanalyticsdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -38,22 +39,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-			if (!window.mstag) {
-				window.mstag = {
-					loadTag: function() {},
-					time: (new Date()).getTime()
-				};
-			}
+		if (!window.mstag) {
+			window.mstag = {
+				loadTag: function() {},
+				time: (new Date()).getTime()
+			};
+		}
+
 		/*~PRE*/
 	},
 	post: function() {
 		/*POST*/
-			window.mstag.loadTag("analytics", {
-				dedup: "1",
-				domainId: "" + this.valueForToken("domain_id"),
-				type: "1",
-				actionid: "" + this.valueForToken("action_id")
-			});
+		window.mstag.loadTag("analytics", {
+			dedup: "1",
+			domainId: "" + this.valueForToken("domain_id"),
+			type: "1",
+			actionid: "" + this.valueForToken("action_id")
+		});
+
 		/*~POST*/
 	}
 });

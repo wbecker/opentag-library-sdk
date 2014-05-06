@@ -94,15 +94,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		window.wgItems = function() {
 			var itemList = [];
 
 			for (i = 0; i < _this.valueForToken("unit_prices").length; i++) {
 				var itemInfo = [];
 				//Add the specific event ID if it exists, otherwise just add the client's ID
-				itemInfo.push(_this.valueForToken("product_event_id").length !== 0 ? _this.valueForToken(
-					"product_event_id")[i] : "" + _this.valueForToken("client_event_id"));
+				itemInfo.push(_this.valueForToken("product_event_id").length !== 0 ? _this
+					.valueForToken(
+						"product_event_id")[i] : "" + _this.valueForToken("client_event_id"));
 				//Add the item's price.
 				itemInfo.push(_this.valueForToken("unit_prices")[i]);
 				//Add the item's name.
@@ -148,6 +149,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		// Load the image pixel
 		var img = new Image();
 		img.src = wgUri;
+
 
 		/*~SCRIPT*/
 	},

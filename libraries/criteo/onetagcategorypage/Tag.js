@@ -53,37 +53,38 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-			//Criteo suggests that this list should only be 3 products long.
-			var products = [];
+		//Criteo suggests that this list should only be 3 products long.
+		var products = [];
 
-			var ii = (this.valueForToken("product_ids").length < 3) ?
-        this.valueForToken("product_ids").length : 3;
+		var ii = (this.valueForToken("product_ids").length < 3) ?
+			this.valueForToken("product_ids").length : 3;
 
-			for (i = 0; i < ii; i++) {
-				products.push(this.valueForToken("product_ids")[i]);
-			}
+		for (i = 0; i < ii; i++) {
+			products.push(this.valueForToken("product_ids")[i]);
+		}
 
-			var user_id = "" + this.valueForToken("customer_id");
-			//Remove email if present.
-			if (user_id.indexOf("@") > -1) {
-				user_id = "";
-			}
+		var user_id = "" + this.valueForToken("customer_id");
+		//Remove email if present.
+		if (user_id.indexOf("@") > -1) {
+			user_id = "";
+		}
 
-			window.criteo_q = window.criteo_q || [];
-			window.criteo_q.push({
-				event: "setAccount",
-				account: this.valueForToken("partner_id")
-			}, {
-				event: "setCustomerId",
-				id: user_id
-			}, {
-				event: "setSiteType",
-				type: "" + this.valueForToken("site_type")
-			}, {
-				event: "viewList",
-				product: products,
-				keywords: "" + this.valueForToken("list_keywords")
-			});
+		window.criteo_q = window.criteo_q || [];
+		window.criteo_q.push({
+			event: "setAccount",
+			account: this.valueForToken("partner_id")
+		}, {
+			event: "setCustomerId",
+			id: user_id
+		}, {
+			event: "setSiteType",
+			type: "" + this.valueForToken("site_type")
+		}, {
+			event: "viewList",
+			product: products,
+			keywords: "" + this.valueForToken("list_keywords")
+		});
+
 
 		/*~POST*/
 	}

@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "channeladvisor.channeladvisorconfirmationpage" + "." + tagVersion;
+var classPath = "channeladvisor.channeladvisorconfirmationpage" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -40,28 +41,29 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
-				this.valueForToken("client_id");
-			src += "&oVal=" + this.valueForToken("total");
-			src += "&OrderID=" + this.valueForToken("order_id");
-			src += "&ProductID=";
+		var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
+			this.valueForToken("client_id");
+		src += "&oVal=" + this.valueForToken("total");
+		src += "&OrderID=" + this.valueForToken("order_id");
+		src += "&ProductID=";
 
-			// Add the product ids
-			var i = 0,
-				ii = this.valueForToken("product_id_list").length,
-				arr = [];
-			for (; i < ii; i++) {
-				arr.push(this.valueForToken("product_id_list")[i]);
-			}
-			src += arr.join(',');
+		// Add the product ids
+		var i = 0,
+			ii = this.valueForToken("product_id_list").length,
+			arr = [];
+		for (; i < ii; i++) {
+			arr.push(this.valueForToken("product_id_list")[i]);
+		}
+		src += arr.join(',');
 
-			// Append to body
-			var img = document.createElement('image');
-			img.src = src;
-			img.width = 1;
-			img.height = 1;
-			img.style.display = 'none';
-			document.body.appendChild(img);
+		// Append to body
+		var img = document.createElement('image');
+		img.src = src;
+		img.width = 1;
+		img.height = 1;
+		img.style.display = 'none';
+		document.body.appendChild(img);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

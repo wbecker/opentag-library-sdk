@@ -40,7 +40,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		var img = new Image(), arr = [];
+		var img = new Image(),
+			arr = [];
 
 		for (var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) {
 			arr.push(this.valueForToken("product_id_list")[i] + ":" + this.valueForToken(
@@ -52,6 +53,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"&orderId=" + this.valueForToken("trans_id");
 
 		document.body.appendChild(img);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

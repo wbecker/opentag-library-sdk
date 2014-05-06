@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "google.googledynamicremarketingtagproductpage" + "." + tagVersion;
+var classPath = "google.googledynamicremarketingtagproductpage" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -45,21 +46,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			window.google_tag_params = {
-				ecomm_prodid: '' + this.valueForToken("product_id"),
-				ecomm_pagetype: '' + this.valueForToken("page_category"),
-				ecomm_pvalue: '' + this.valueForToken("product_value")
-			};
+		window.google_tag_params = {
+			ecomm_prodid: '' + this.valueForToken("product_id"),
+			ecomm_pagetype: '' + this.valueForToken("page_category"),
+			ecomm_pvalue: '' + this.valueForToken("product_value")
+		};
 
-			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label = "" + this.valueForToken("google_conversion_label");
-			window.google_custom_params = window.google_tag_params;
-			window.google_remarketing_only = true;
+		window.google_conversion_id = this.valueForToken("google_conversion_id");
+		window.google_conversion_label = "" + this.valueForToken(
+			"google_conversion_label");
+		window.google_custom_params = window.google_tag_params;
+		window.google_remarketing_only = true;
 
-			var script = document.createElement('script');
-			script.type = "text/javascript";
-			script.src = "//www.googleadservices.com/pagead/conversion.js";
-			document.head.appendChild(script);
+		var script = document.createElement('script');
+		script.type = "text/javascript";
+		script.src = "//www.googleadservices.com/pagead/conversion.js";
+		document.head.appendChild(script);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

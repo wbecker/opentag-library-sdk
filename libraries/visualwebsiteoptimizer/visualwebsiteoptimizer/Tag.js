@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "visualwebsiteoptimizer.visualwebsiteoptimizer" + "." + tagVersion;
+var classPath = "visualwebsiteoptimizer.visualwebsiteoptimizer" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -39,7 +40,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		var _vwo_code = (function() {
 			var account_id = _this.valueForToken("accountid"),
 				settings_tolerance = _this.valueForToken("settings_tolerance"),
@@ -93,6 +94,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 		}());
 		_vwo_settings_timer = _vwo_code.init();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		};
 		waitForZanoxDiv();
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

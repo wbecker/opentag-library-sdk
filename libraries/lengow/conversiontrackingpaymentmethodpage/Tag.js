@@ -50,27 +50,28 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			var lengowProductNamesString = "";
+		var lengowProductNamesString = "";
 
-			for (var i = 0; i < this.valueForToken("lengow_product_name_list").length; i++) {
-				lengowProductNamesString = lengowProductNamesString +
-                this.valueForToken("lengow_product_name_list")[i];
+		for (var i = 0; i < this.valueForToken("lengow_product_name_list").length; i++) {
+			lengowProductNamesString = lengowProductNamesString +
+				this.valueForToken("lengow_product_name_list")[i];
 
-				if (this.valueForToken("lengow_product_name_list").length !== 1 && i <
-					this.valueForToken("lengow_product_name_list").length - 1) {
-					lengowProductNamesString = lengowProductNamesString + "|";
-				}
+			if (this.valueForToken("lengow_product_name_list").length !== 1 && i <
+				this.valueForToken("lengow_product_name_list").length - 1) {
+				lengowProductNamesString = lengowProductNamesString + "|";
 			}
+		}
 
-			var lengowTrackPixel = new Image();
+		var lengowTrackPixel = new Image();
 
-			lengowTrackPixel.src = "https://tracking.lengow.com/lead.php?idClient=" +
-				this.valueForToken("lengow_customer_id") + "&idGroup=" +
-        this.valueForToken("lengow_group_id") + "&price=" +
-        this.valueForToken("lengow_order_value") +"&idCommande=" +
-        this.valueForToken("lengow_order_id") + "&modePaiement=" +
-				this.valueForToken("lengow_payment_method") + "&listingProduit=" +
-				lengowProductNamesString;
+		lengowTrackPixel.src = "https://tracking.lengow.com/lead.php?idClient=" +
+			this.valueForToken("lengow_customer_id") + "&idGroup=" +
+			this.valueForToken("lengow_group_id") + "&price=" +
+			this.valueForToken("lengow_order_value") + "&idCommande=" +
+			this.valueForToken("lengow_order_id") + "&modePaiement=" +
+			this.valueForToken("lengow_payment_method") + "&listingProduit=" +
+			lengowProductNamesString;
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

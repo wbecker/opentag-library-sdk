@@ -45,36 +45,37 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
-			var waitFor_S2Tech_SendBasket = setInterval(function() {
-				if (typeof S2Tech_SendBasket === 'function') {
-					clearInterval(waitFor_S2Tech_SendBasket);
-
-					var basketData = "<Store>";
-
-					for (var i = 0; i < _this.valueForToken("sku").length; i++) {
-						basketData += "<Product>";
-						basketData += "<SKU>" + _this.valueForToken("sku")[i] + "</SKU>";
-						basketData += "<Product_ID>" + _this.valueForToken("product_id")[i] +
-							"</Product_ID>";
-						basketData += "<Product_Name>" + _this.valueForToken("product_name")[i] +
-							"</Product_Name>";
-						basketData += "<Unit_Price>" + _this.valueForToken("unit_price")[i] +
-							"</Unit_Price>";
-						basketData += "<Quantity>" + _this.valueForToken("quantity")[i] +
-							"</Quantity>";
-						basketData += "</Product>";
-					}
-
-					basketData += "</Store>";
-
-					S2Tech_SendBasket(basketData);
-				}
-			}, 100);
-
-			setTimeout(function() {
+		var _this = this;
+		var waitFor_S2Tech_SendBasket = setInterval(function() {
+			if (typeof S2Tech_SendBasket === 'function') {
 				clearInterval(waitFor_S2Tech_SendBasket);
-			}, 5000);
+
+				var basketData = "<Store>";
+
+				for (var i = 0; i < _this.valueForToken("sku").length; i++) {
+					basketData += "<Product>";
+					basketData += "<SKU>" + _this.valueForToken("sku")[i] + "</SKU>";
+					basketData += "<Product_ID>" + _this.valueForToken("product_id")[i] +
+						"</Product_ID>";
+					basketData += "<Product_Name>" + _this.valueForToken("product_name")[i] +
+						"</Product_Name>";
+					basketData += "<Unit_Price>" + _this.valueForToken("unit_price")[i] +
+						"</Unit_Price>";
+					basketData += "<Quantity>" + _this.valueForToken("quantity")[i] +
+						"</Quantity>";
+					basketData += "</Product>";
+				}
+
+				basketData += "</Store>";
+
+				S2Tech_SendBasket(basketData);
+			}
+		}, 100);
+
+		setTimeout(function() {
+			clearInterval(waitFor_S2Tech_SendBasket);
+		}, 5000);
+
 
 
 		/*~SCRIPT*/

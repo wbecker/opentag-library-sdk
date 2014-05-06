@@ -82,35 +82,36 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-			var i = 0,
-				ii = this.valueForToken("product_ids").length;
+		var i = 0,
+			ii = this.valueForToken("product_ids").length;
 
-			// Client Setup
-			window.cmSetClientID(
-				"" + this.valueForToken("client_id"),
-				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain"),
-				"" + this.valueForToken("cookie_domain")
+		// Client Setup
+		window.cmSetClientID(
+			"" + this.valueForToken("client_id"),
+			this.valueForToken("data_collection_method"),
+			"" + this.valueForToken("data_collection_domain"),
+			"" + this.valueForToken("cookie_domain")
+		);
+
+		// Page View
+		window.cmCreatePageviewTag(
+			"" + this.valueForToken("page_id"),
+			"" + this.valueForToken("category_id")
+		);
+
+		// Products
+		for (; i < ii; i++) {
+			window.cmCreateShopAction5Tag(
+				this.valueForToken("product_ids")[i],
+				this.valueForToken("product_names")[i],
+				this.valueForToken("product_quantities")[i],
+				this.valueForToken("product_unit_sale_prices")[i],
+				this.valueForToken("product_category_id_list")[i]
 			);
+		};
 
-			// Page View
-			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id"),
-				"" + this.valueForToken("category_id")
-			);
+		window.cmDisplayShops();
 
-			// Products
-			for (; i < ii; i++) {
-				window.cmCreateShopAction5Tag(
-					this.valueForToken("product_ids")[i],
-					this.valueForToken("product_names")[i],
-					this.valueForToken("product_quantities")[i],
-					this.valueForToken("product_unit_sale_prices")[i],
-					this.valueForToken("product_category_id_list")[i]
-				);
-			};
-
-			window.cmDisplayShops();
 		/*~POST*/
 	}
 });

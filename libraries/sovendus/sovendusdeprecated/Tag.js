@@ -86,8 +86,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		_gconData.push(['_timestamp', sovendusTimestamp]);
 		_gconData.push(['_customerSalutation', '' + this.valueForToken("salutation")]);
 		_gconData.push(['_customerFirstName', '' + this.valueForToken("first_name")]);
-		_gconData.push(['_customerLastName', '' + this.valueForToken("last_name")
-		]);
+		_gconData.push(['_customerLastName', '' + this.valueForToken("last_name")]);
 		_gconData.push(['_customerEmail', '' + this.valueForToken("email")]);
 		_gconData.push(['_orderId', '' + this.valueForToken("order_id")]);
 		_gconData.push(['_orderValue', '' + this.valueForToken("order_value")]);
@@ -100,12 +99,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		_gconData.push(['_checksum', '' + this.valueForToken("checksum")]);
 		_gconData.push(['_htmlElementId', 'gutscheinconnection-container']);
 
-    var sovendusScript = document.createElement('script');
-    document.body.appendChild(sovendusScript);
-    sovendusScript.type = "text/javascript";
-    sovendusScript.src = ('https:' == document.location.protocol ? 'https://' :
-      'http://') + "api.gutscheinconnection.de/js/client.js";
-    sovendusScript.async = "true";
+		var sovendusScript = document.createElement('script');
+		document.body.appendChild(sovendusScript);
+		sovendusScript.type = "text/javascript";
+		sovendusScript.src = ('https:' == document.location.protocol ? 'https://' :
+			'http://') + "api.gutscheinconnection.de/js/client.js";
+		sovendusScript.async = "true";
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

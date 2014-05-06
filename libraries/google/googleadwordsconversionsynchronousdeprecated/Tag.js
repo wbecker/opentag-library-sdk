@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "google.googleadwordsconversionsynchronousdeprecated" + "." + tagVersion;
+var classPath = "google.googleadwordsconversionsynchronousdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.google_conversion_color = "" + this.valueForToken("conversion_color");
 		window.google_conversion_label = "" + this.valueForToken("label");
 		window.google_conversion_value = this.valueForToken("value");
+
 		/*~PRE*/
 	},
 	post: function() {

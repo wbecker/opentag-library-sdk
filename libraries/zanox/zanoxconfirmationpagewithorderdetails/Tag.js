@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "zanox.zanoxconfirmationpagewithorderdetails" + "." + tagVersion;
+var classPath = "zanox.zanoxconfirmationpagewithorderdetails" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -157,6 +158,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 		};
 		waitForZanoxDiv();
+
 
 
 		/*~SCRIPT*/

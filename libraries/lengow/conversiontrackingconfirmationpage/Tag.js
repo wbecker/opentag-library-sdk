@@ -39,14 +39,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var lengowTrackPixel = new Image();
-    lengowTrackPixel.src =
-    "https://tracking.lengow.com/leadValidation.php?idClient=" +
-    this.valueForToken("lengow_customer_id") + "&idGroup=" +
-    this.valueForToken("lengow_group_id") + "&price=" +
-    this.valueForToken("lengow_order_value") +"&idCommande=" +
-    this.valueForToken("lengow_order_id");
-    lengowTrackPixel.alt = "";
+		var lengowTrackPixel = new Image();
+		lengowTrackPixel.src =
+			"https://tracking.lengow.com/leadValidation.php?idClient=" +
+			this.valueForToken("lengow_customer_id") + "&idGroup=" +
+			this.valueForToken("lengow_group_id") + "&price=" +
+			this.valueForToken("lengow_order_value") + "&idCommande=" +
+			this.valueForToken("lengow_order_id");
+		lengowTrackPixel.alt = "";
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

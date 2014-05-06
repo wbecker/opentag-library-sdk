@@ -128,62 +128,63 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-			var i = 0,
-				ii = this.valueForToken("product_ids").length;
+		var i = 0,
+			ii = this.valueForToken("product_ids").length;
 
-			// Client Setup
-			window.cmSetClientID(
-				"" + this.valueForToken("client_id"),
-				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain"),
-				"" + this.valueForToken("cookie_domain")
-			);
+		// Client Setup
+		window.cmSetClientID(
+			"" + this.valueForToken("client_id"),
+			this.valueForToken("data_collection_method"),
+			"" + this.valueForToken("data_collection_domain"),
+			"" + this.valueForToken("cookie_domain")
+		);
 
-			// Pageview
-			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id"),
-				"" + this.valueForToken("category_id")
-			);
+		// Pageview
+		window.cmCreatePageviewTag(
+			"" + this.valueForToken("page_id"),
+			"" + this.valueForToken("category_id")
+		);
 
 
 
-			// Track each product purchased
-			for (; i < ii; i++) {
-				window.cmCreateShopAction9Tag(
-					this.valueForToken("product_ids")[i],
-					this.valueForToken("product_names")[i],
-					this.valueForToken("product_quantities")[i],
-					this.valueForToken("product_unit_sale_prices")[i],
-					"" + this.valueForToken("registration_id"),
-					"" + this.valueForToken("order_id"),
-					"" + this.valueForToken("order_subtotal"),
-					this.valueForToken("product_category_id_list")[i]
-				);
-			};
-
-			// Needs to be called after the createShopAction5Tag is fully called
-			window.cmDisplayShops();
-
-			// Track the transaction
-			window.cmCreateOrderTag(
+		// Track each product purchased
+		for (; i < ii; i++) {
+			window.cmCreateShopAction9Tag(
+				this.valueForToken("product_ids")[i],
+				this.valueForToken("product_names")[i],
+				this.valueForToken("product_quantities")[i],
+				this.valueForToken("product_unit_sale_prices")[i],
+				"" + this.valueForToken("registration_id"),
 				"" + this.valueForToken("order_id"),
 				"" + this.valueForToken("order_subtotal"),
-				"" + this.valueForToken("shipping_cost"),
-				"" + this.valueForToken("registration_id"),
-				"" + this.valueForToken("city"),
-				"" + this.valueForToken("state"),
-				"" + this.valueForToken("post_code")
+				this.valueForToken("product_category_id_list")[i]
 			);
+		};
 
-			// Connect the user who's just purchased with the session cookie
-			window.cmCreateRegistrationTag(
-				"" + this.valueForToken("registration_id"),
-				"" + this.valueForToken("email"),
-				"" + this.valueForToken("city"),
-				"" + this.valueForToken("state"),
-				"" + this.valueForToken("post_code"),
-				"" + this.valueForToken("country")
-			);
+		// Needs to be called after the createShopAction5Tag is fully called
+		window.cmDisplayShops();
+
+		// Track the transaction
+		window.cmCreateOrderTag(
+			"" + this.valueForToken("order_id"),
+			"" + this.valueForToken("order_subtotal"),
+			"" + this.valueForToken("shipping_cost"),
+			"" + this.valueForToken("registration_id"),
+			"" + this.valueForToken("city"),
+			"" + this.valueForToken("state"),
+			"" + this.valueForToken("post_code")
+		);
+
+		// Connect the user who's just purchased with the session cookie
+		window.cmCreateRegistrationTag(
+			"" + this.valueForToken("registration_id"),
+			"" + this.valueForToken("email"),
+			"" + this.valueForToken("city"),
+			"" + this.valueForToken("state"),
+			"" + this.valueForToken("post_code"),
+			"" + this.valueForToken("country")
+		);
+
 
 		/*~POST*/
 	}

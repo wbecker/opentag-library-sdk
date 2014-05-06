@@ -42,12 +42,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		window._qevents = _qevents || [];
 
-    var elem = document.createElement('script');
-    elem.src = (document.location.protocol == "https:" ? "https://secure" :
-      "http://edge") + ".quantserve.com/quant.js";
-    elem.async = true;
-    elem.type = "text/javascript";
-    document.getElementsByTagName('head')[0].appendChild(elem);
+		var elem = document.createElement('script');
+		elem.src = (document.location.protocol == "https:" ? "https://secure" :
+			"http://edge") + ".quantserve.com/quant.js";
+		elem.async = true;
+		elem.type = "text/javascript";
+		document.getElementsByTagName('head')[0].appendChild(elem);
 
 		_qevents.push({
 			qacct: "" + this.valueForToken("account_no"),
@@ -55,6 +55,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			orderid: "" + this.valueForToken("order_id"),
 			revenue: "" + this.valueForToken("revenue")
 		});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

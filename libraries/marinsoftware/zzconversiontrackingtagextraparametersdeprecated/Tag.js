@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"marinsoftware.zzconversiontrackingtagextraparametersdeprecated" + "." + tagVersion;
+	"marinsoftware.zzconversiontrackingtagextraparametersdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -122,16 +123,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		_mTrack.push(['processOrders']);
 
-			var mClientId = '' + this.valueForToken("marin_tracker_id");
-			var mProto = ('https:' == document.location.protocol ? 'https://' :
-				'http://');
-			var mHost = 'tracker.marinsm.com';
-			var mt = document.createElement('script');
-			mt.type = 'text/javascript';
-			mt.async = true;
-			mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-			var fscr = document.getElementsByTagName('script')[0];
-			fscr.parentNode.insertBefore(mt, fscr);
+		var mClientId = '' + this.valueForToken("marin_tracker_id");
+		var mProto = ('https:' == document.location.protocol ? 'https://' :
+			'http://');
+		var mHost = 'tracker.marinsm.com';
+		var mt = document.createElement('script');
+		mt.type = 'text/javascript';
+		mt.async = true;
+		mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+		var fscr = document.getElementsByTagName('script')[0];
+		fscr.parentNode.insertBefore(mt, fscr);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

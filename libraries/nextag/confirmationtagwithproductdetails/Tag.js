@@ -54,22 +54,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	pre: function() {
 		/*PRE*/
 
-			var cats = [],
-				prods = [],
-				units = [];
+		var cats = [],
+			prods = [],
+			units = [];
 
-			for (var i = 0, ii = this.valueForToken("names").length; i < ii; i++) {
-				cats.push(this.valueForToken("cats")[i]);
-				prods.push(this.valueForToken("names")[i]);
-				units.push(this.valueForToken("quantities")[i]);
-			}
+		for (var i = 0, ii = this.valueForToken("names").length; i < ii; i++) {
+			cats.push(this.valueForToken("cats")[i]);
+			prods.push(this.valueForToken("names")[i]);
+			units.push(this.valueForToken("quantities")[i]);
+		}
 
-			window.id = '' + this.valueForToken("nextag_id");
-			window.rev = '' + this.valueForToken("order_subtotal");
-			window.order = '' + this.valueForToken("order_id");
-			window.cats = cats.join("|");
-			window.prods = prods.join("|");
-			window.units = units.join("|");
+		window.id = '' + this.valueForToken("nextag_id");
+		window.rev = '' + this.valueForToken("order_subtotal");
+		window.order = '' + this.valueForToken("order_id");
+		window.cats = cats.join("|");
+		window.prods = prods.join("|");
+		window.units = units.join("|");
+
 
 		/*~PRE*/
 	},

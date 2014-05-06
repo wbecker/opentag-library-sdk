@@ -38,8 +38,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-    var _this = this;
-		window._mt_ready = function () {
+		var _this = this;
+		window._mt_ready = function() {
 			if (typeof(MyThings) != "undefined") {
 				MyThings.Track({
 					EventType: MyThings.Event.Visit,
@@ -51,6 +51,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.mtHost = (("https:" == document.location.protocol) ? "https" : "http") +
 			"://" + this.valueForToken("subdomain") + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("advertiser_token");
+
 		/*~PRE*/
 	},
 	post: function() {

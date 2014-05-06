@@ -29,13 +29,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		ch212['token'] = '' + this.valueForToken("client_token");
 		ch212['ts'] = new Date().getTime();
 
-			var ch = document.createElement('script');
-			ch.type = 'text/javascript';
-			ch.async = true;
-			ch.src = '//script.clotheshor.se/widget/conversion?token=' +
-							ch212['token'] + '&ts=' + ch212['ts'];
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(ch, s);
+		var ch = document.createElement('script');
+		ch.type = 'text/javascript';
+		ch.async = true;
+		ch.src = '//script.clotheshor.se/widget/conversion?token=' +
+			ch212['token'] + '&ts=' + ch212['ts'];
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ch, s);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

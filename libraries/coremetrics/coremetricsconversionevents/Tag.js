@@ -46,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"" + this.valueForToken("event_category_id"),
 			"" + this.valueForToken("points")
 		);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -30,36 +30,37 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			var productArr = [];
-			for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
-				productArr.push(this.valueForToken("products")[i]);
+		var productArr = [];
+		for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
+			productArr.push(this.valueForToken("products")[i]);
+		}
+		var productStr = productArr.join(",");
+
+		window._struqPI = window._struqPI || [];
+		window._struqPI.push(['injectTrackingPixel', {
+			trackingPixelId: '' + this.valueForToken("pixelid"),
+			route: '/s/sa/',
+			collectData: false,
+			data: [{
+				title: "si",
+				pid: productStr
+			}],
+			options: {
+				timeoutMs: 2000,
+				firstPartyDomain: '',
+				firstPartyCookie: '',
+				firstPartyUid: ''
 			}
-			var productStr = productArr.join(",");
+		}]);
 
-			window._struqPI = window._struqPI || [];
-			window._struqPI.push(['injectTrackingPixel', {
-				trackingPixelId: '' + this.valueForToken("pixelid"),
-				route: '/s/sa/',
-				collectData: false,
-				data: [{
-					title: "si",
-					pid: productStr
-				}],
-				options: {
-					timeoutMs: 2000,
-					firstPartyDomain: '',
-					firstPartyCookie: '',
-					firstPartyUid: ''
-				}
-			}]);
+		var struq = document.createElement('script');
+		struq.type = 'text/javascript';
+		struq.async = true;
+		struq.src = ('https:' == document.location.protocol ? 'https://' :
+			'http://') +
+			'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
+		document.getElementsByTagName('head')[0].appendChild(struq);
 
-			var struq = document.createElement('script');
-			struq.type = 'text/javascript';
-			struq.async = true;
-			struq.src = ('https:' == document.location.protocol ? 'https://' :
-				'http://') +
-				'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
-			document.getElementsByTagName('head')[0].appendChild(struq);
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -96,11 +96,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			a.async = 1;
 			a.src = g;
 			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', '//www.google-analytics.com/analytics.js','ga');
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+			'ga');
 
 		ga('create',
-          "" + this.valueForToken("web_property_id"),
-          "" +  this.valueForToken("url"));
+			"" + this.valueForToken("web_property_id"),
+			"" + this.valueForToken("url"));
 		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 		ga('require', 'ecommerce', 'ecommerce.js');
@@ -115,18 +116,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		});
 
 		//Loop through transaction items. Don't pollute the globe!
-			for (var i = 0; i < this.valueForToken("item_names").length; i++) {
-				ga('ecommerce:addItem', {
-					'id': "" + this.valueForToken("order_id"), //Required
-					'name': String(this.valueForToken("item_names")[i]), //Required
-					'sku': String(this.valueForToken("item_skus")[i]),
-					'category': String(this.valueForToken("item_cats")[i]),
-					'price': String(this.valueForToken("item_prices")[i]),
-					'quantity': String(this.valueForToken("item_quantities")[i])
-				});
-			}
+		for (var i = 0; i < this.valueForToken("item_names").length; i++) {
+			ga('ecommerce:addItem', {
+				'id': "" + this.valueForToken("order_id"), //Required
+				'name': String(this.valueForToken("item_names")[i]), //Required
+				'sku': String(this.valueForToken("item_skus")[i]),
+				'category': String(this.valueForToken("item_cats")[i]),
+				'price': String(this.valueForToken("item_prices")[i]),
+				'quantity': String(this.valueForToken("item_quantities")[i])
+			});
+		}
 
 		ga('ecommerce:send');
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

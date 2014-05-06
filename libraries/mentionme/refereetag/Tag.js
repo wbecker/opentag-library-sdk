@@ -58,11 +58,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			situation: "" + this.valueForToken("situation")
 		}
 		if (("" + this.valueForToken("email")).length)
-      paramObj["email"] = "" +this.valueForToken("email");
+			paramObj["email"] = "" + this.valueForToken("email");
 		if (("" + this.valueForToken("fullname")).length)
-      paramObj["fullname"] ="" + this.valueForToken("fullname");
+			paramObj["fullname"] = "" + this.valueForToken("fullname");
 		if (("" + this.valueForToken("implementation")).length)
-      paramObj["implementation"] = "" + this.valueForToken("implementation");
+			paramObj["implementation"] = "" + this.valueForToken("implementation");
 
 		for (var param in paramObj) {
 			var value = paramObj[param];
@@ -71,6 +71,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		mmScript.src = baseUrl + paramArr.join("&");
 		document.body.appendChild(mmScript);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

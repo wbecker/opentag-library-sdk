@@ -29,12 +29,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var cachebust = (Math.random() + "").substr(2);
-			var img = new Image();
-			img.src = "//" +
-        this.valueForToken("campaign_id") +"p.rfihub.com/ca.gif?rb=" +
-        this.valueForToken("merchant_id") + "&ca=" +
-				this.valueForToken("campaign_id") + "&ra=" + cachebust;
+		var cachebust = (Math.random() + "").substr(2);
+		var img = new Image();
+		img.src = "//" +
+			this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" +
+			this.valueForToken("merchant_id") + "&ca=" +
+			this.valueForToken("campaign_id") + "&ra=" + cachebust;
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

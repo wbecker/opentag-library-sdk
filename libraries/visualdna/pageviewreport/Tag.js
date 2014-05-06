@@ -47,6 +47,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			object.args = this.valueForToken("window_history");
 		}
 		window.VDNA.queue.push(object);
+
 		/*~POST*/
 	}
 });

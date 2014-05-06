@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "marinsoftware.zzconversiontrackingtagrevenueonlydeprecated" + "." +
+var classPath = "marinsoftware.zzconversiontrackingtagrevenueonlydeprecated" +
+	"." +
 	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -88,6 +89,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 		};
 		document.body.appendChild(_ml);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

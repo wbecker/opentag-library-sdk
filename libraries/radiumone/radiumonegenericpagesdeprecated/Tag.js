@@ -24,19 +24,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			// Get timestamp (cachebuster)
-			var time = new Date().getTime();
-			// Iframe
-			iframe = document.createElement('iframe');
-			iframe.src = "//rs.gwallet.com/r1/pixel/x6036r" + time + "?shop_id=" +
-				this.valueForToken("shop_id");
-			iframe.width = 1;
-			iframe.height = 1;
-			iframe.frameBorder = 0;
-			iframe.marginWidth = 0;
-			iframe.marginHeight = 0;
-			iframe.scrolling = 'no';
-			document.body.appendChild(iframe);
+		// Get timestamp (cachebuster)
+		var time = new Date().getTime();
+		// Iframe
+		iframe = document.createElement('iframe');
+		iframe.src = "//rs.gwallet.com/r1/pixel/x6036r" + time + "?shop_id=" +
+			this.valueForToken("shop_id");
+		iframe.width = 1;
+		iframe.height = 1;
+		iframe.frameBorder = 0;
+		iframe.marginWidth = 0;
+		iframe.marginHeight = 0;
+		iframe.scrolling = 'no';
+		document.body.appendChild(iframe);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "merchantadvantage.chanalyticsconfirmationpage" + "." + tagVersion;
+var classPath = "merchantadvantage.chanalyticsconfirmationpage" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -64,13 +65,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		for (var i = 0; i < this.valueForToken("prod_ids").length; i++) {
 			createAppendPixel(
-        "zmam=" + this.valueForToken("merchant_id") +
+				"zmam=" + this.valueForToken("merchant_id") +
 				"&zmas=" + this.valueForToken("store_id") +
 				"&zmaq=N&quantity=" + this.valueForToken("prod_qtys")[i] +
 				"&pcode=" + this.valueForToken("prod_ids")[i] +
 				"&zman=" + this.valueForToken("order_id") +
 				"&zmat=" + this.valueForToken("order_tot"));
 		}
+
 		/*~PRE*/
 	},
 	post: function() {

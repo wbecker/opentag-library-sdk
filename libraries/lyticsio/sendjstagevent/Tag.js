@@ -25,12 +25,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			if (window.jstag && jstag.send && window.JSON) {
-				try {
-					var data = this.valueForToken("event_json");
-					jstag.send(data);
-				} catch (e) {}
-			}
+		if (window.jstag && jstag.send && window.JSON) {
+			try {
+				var data = this.valueForToken("event_json");
+				jstag.send(data);
+			} catch (e) {}
+		}
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

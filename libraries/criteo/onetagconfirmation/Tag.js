@@ -73,49 +73,50 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-    var products = [];
+		var products = [];
 
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				products.push({
-					id: this.valueForToken("product_ids")[i],
-					price: this.valueForToken("product_prices")[i],
-					quantity: this.valueForToken("product_quantities")[i]
-				});
-			}
-
-			var user_id = "" + this.valueForToken("customer_id");
-			//Remove email if present.
-			if (user_id.indexOf("@") > -1) {
-				user_id = "";
-			}
-      
-      var _this = this;
-			var ret = (function() {
-				if (typeof _this.valueForToken("old_customer") === "undefined"
-                || _this.valueForToken("old_customer") === null) {
-					return "";
-				} else {
-					return Number(!_this.valueForToken("old_customer"));
-				}
-			})();
-
-			window.criteo_q = window.criteo_q || [];
-			window.criteo_q.push({
-				event: "setAccount",
-				account: this.valueForToken("partner_id")
-			}, {
-				event: "setCustomerId",
-				id: user_id
-			}, {
-				event: "setSiteType",
-				type: "" + this.valueForToken("site_type")
-			}, {
-				event: "trackTransaction",
-				id: "" + this.valueForToken("order_id"),
-				new_customer: ret,
-				deduplication: this.valueForToken("criteo_referral"),
-				product: products
+		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+			products.push({
+				id: this.valueForToken("product_ids")[i],
+				price: this.valueForToken("product_prices")[i],
+				quantity: this.valueForToken("product_quantities")[i]
 			});
+		}
+
+		var user_id = "" + this.valueForToken("customer_id");
+		//Remove email if present.
+		if (user_id.indexOf("@") > -1) {
+			user_id = "";
+		}
+
+		var _this = this;
+		var ret = (function() {
+			if (typeof _this.valueForToken("old_customer") === "undefined" || _this.valueForToken(
+				"old_customer") === null) {
+				return "";
+			} else {
+				return Number(!_this.valueForToken("old_customer"));
+			}
+		})();
+
+		window.criteo_q = window.criteo_q || [];
+		window.criteo_q.push({
+			event: "setAccount",
+			account: this.valueForToken("partner_id")
+		}, {
+			event: "setCustomerId",
+			id: user_id
+		}, {
+			event: "setSiteType",
+			type: "" + this.valueForToken("site_type")
+		}, {
+			event: "trackTransaction",
+			id: "" + this.valueForToken("order_id"),
+			new_customer: ret,
+			deduplication: this.valueForToken("criteo_referral"),
+			product: products
+		});
+
 		/*~POST*/
 	}
 });

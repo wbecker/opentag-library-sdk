@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "sociomantic.deprecateddefaulttagincludinghomepage" + "." + tagVersion;
+var classPath = "sociomantic.deprecateddefaulttagincludinghomepage" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

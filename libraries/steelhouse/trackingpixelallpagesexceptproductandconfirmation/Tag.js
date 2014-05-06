@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "steelhouse.trackingpixelallpagesexceptproductandconfirmation" + "." +
+var classPath = "steelhouse.trackingpixelallpagesexceptproductandconfirmation" +
+	"." +
 	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -45,7 +46,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
+
 		function shaddslashes(e) {
 			"use strict";
 			if (e != undefined) {
@@ -59,7 +61,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 			return e
 		}
-    (function() {
+		(function() {
 			"use strict";
 			var e = null,
 				t = "3.4.0",
@@ -67,7 +69,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				//Define the basket item count given a UV list of basket item quantities.
 				basket_item_count = (function() {
 					var temp = 0;
-					for (var index = 0; index < _this.valueForToken("basket_item_quantities")
+					for (var index = 0; index < _this.valueForToken(
+							"basket_item_quantities")
 						.length; index++) {
 						temp += Number(_this.valueForToken("basket_item_quantities")[index]);
 					}
@@ -77,7 +80,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				//Create CSVs from UV lists. Will work for arrays supplied by clients
 				basket_skus = (function() {
 					var temp_skus = "";
-					for (var sku_index = 0; sku_index < _this.valueForToken("basket_skus_list").length; sku_index++) {
+					for (var sku_index = 0; sku_index < _this.valueForToken(
+						"basket_skus_list").length; sku_index++) {
 						temp_skus += _this.valueForToken("basket_skus_list")[sku_index];
 						if (sku_index != _this.valueForToken("basket_skus_list").length - 1)
 							temp_skus += ",";
@@ -86,11 +90,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				})(),
 				basket_quantities = (function() {
 					var temp_quants = "";
-					for (var quant_index = 0; quant_index < _this.valueForToken("basket_item_quantities").length; quant_index++) {
+					for (var quant_index = 0; quant_index < _this.valueForToken(
+						"basket_item_quantities").length; quant_index++) {
 						temp_quants += _this.valueForToken("basket_item_quantities")[
 							quant_index];
-						if (quant_index != _this.valueForToken("basket_item_quantities").length - 1)
-              temp_quants += ",";
+						if (quant_index != _this.valueForToken("basket_item_quantities").length -
+							1)
+							temp_quants += ",";
 					}
 					return temp_quants;
 				})(),
@@ -168,6 +174,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 			e.load()
 		})()
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

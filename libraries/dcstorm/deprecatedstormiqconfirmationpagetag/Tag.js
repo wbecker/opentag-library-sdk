@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "dcstorm.deprecatedstormiqconfirmationpagetag" + "." + tagVersion;
+var classPath = "dcstorm.deprecatedstormiqconfirmationpagetag" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -71,6 +72,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken(
 			"storm_id") + '.js';
 		window.__ch = '' + this.valueForToken("channel");
+
 		/*~PRE*/
 	},
 	post: function() {
@@ -96,6 +98,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		saleTrack.orderid = "" + this.valueForToken("order_id");
 		saleTrack.logSale(1);
+
 		/*~POST*/
 	}
 });

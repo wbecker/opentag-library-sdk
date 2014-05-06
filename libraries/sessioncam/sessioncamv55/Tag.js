@@ -46,7 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					objIdArr = [],
 					listenersArr = [],
 					storedAltContent, storedAltContentId, storedCallbackFn, storedCallbackObj,
-						isDomLoaded = false,
+					isDomLoaded = false,
 					isExpressInstallActive = false,
 					dynamicStylesheet, dynamicStylesheetMedia, autoHideShow = true,
 					ua = function() {
@@ -118,27 +118,27 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 									}
 								});
 								if (win == top) {
-										if (isDomLoaded) {
-											return;
-										}
-										try {
-											doc.documentElement.doScroll("left");
-										} catch (e) {
-											setTimeout(arguments.callee, 0);
-											return;
-										}
-										callDomLoadFunctions();
-								}
-							}
-							if (ua.wk) {
 									if (isDomLoaded) {
 										return;
 									}
-									if (!/loaded|complete/.test(doc.readyState)) {
+									try {
+										doc.documentElement.doScroll("left");
+									} catch (e) {
 										setTimeout(arguments.callee, 0);
 										return;
 									}
 									callDomLoadFunctions();
+								}
+							}
+							if (ua.wk) {
+								if (isDomLoaded) {
+									return;
+								}
+								if (!/loaded|complete/.test(doc.readyState)) {
+									setTimeout(arguments.callee, 0);
+									return;
+								}
+								callDomLoadFunctions();
 							}
 							addLoadEvent(callDomLoadFunctions);
 						}
@@ -203,20 +203,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					var t = b.appendChild(o);
 					if (t) {
 						var counter = 0;
-							if (typeof t.GetVariable != UNDEF) {
-								var d = t.GetVariable("$version");
-								if (d) {
-									d = d.split(" ")[1].split(",");
-									ua.pv = [parseInt(d[0], 10), parseInt(d[1], 10), parseInt(d[2], 10)];
-								}
-							} else if (counter < 10) {
-								counter++;
-								setTimeout(arguments.callee, 10);
-								return;
+						if (typeof t.GetVariable != UNDEF) {
+							var d = t.GetVariable("$version");
+							if (d) {
+								d = d.split(" ")[1].split(",");
+								ua.pv = [parseInt(d[0], 10), parseInt(d[1], 10), parseInt(d[2], 10)];
 							}
-							b.removeChild(o);
-							t = null;
-							matchVersions();
+						} else if (counter < 10) {
+							counter++;
+							setTimeout(arguments.callee, 10);
+							return;
+						}
+						b.removeChild(o);
+						t = null;
+						matchVersions();
 					} else {
 						matchVersions();
 					}
@@ -287,11 +287,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 						obj.parentNode.insertBefore(el, obj);
 						el.parentNode.replaceChild(abstractAltContent(obj), el);
 						obj.style.display = "none";
-							if (obj.readyState == 4) {
-								obj.parentNode.removeChild(obj);
-							} else {
-								setTimeout(arguments.callee, 10);
-							}
+						if (obj.readyState == 4) {
+							obj.parentNode.removeChild(obj);
+						} else {
+							setTimeout(arguments.callee, 10);
+						}
 					} else {
 						obj.parentNode.replaceChild(abstractAltContent(obj), obj);
 					}
@@ -388,11 +388,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					if (obj && obj.nodeName == "OBJECT") {
 						if (ua.ie && ua.win) {
 							obj.style.display = "none";
-								if (obj.readyState == 4) {
-									removeObjectInIE(id);
-								} else {
-									setTimeout(arguments.callee, 10);
-								}
+							if (obj.readyState == 4) {
+								removeObjectInIE(id);
+							} else {
+								setTimeout(arguments.callee, 10);
+							}
 						} else {
 							obj.parentNode.removeChild(obj);
 						}
@@ -688,6 +688,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		}();
 		ServiceTickDetection.AddServiceTick();
 		//]]>
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

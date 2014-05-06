@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "bing.bingadcentercampaignanalyticsfullycustomizable" + "." + tagVersion;
+var classPath = "bing.bingadcentercampaignanalyticsfullycustomizable" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {

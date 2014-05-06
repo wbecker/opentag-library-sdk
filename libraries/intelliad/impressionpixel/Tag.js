@@ -54,29 +54,30 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var t = (new Date()).getTime();
-    var paramObj = {
-      cl: "" + this.valueForToken("client_id"),
-      cp: "" + this.valueForToken("campaign_id"),
-      ag: "" + this.valueForToken("ad_group_id"),
-      bm: "" + this.valueForToken("buy_market"),
-      bmcl: "" + this.valueForToken("client_market_id"),
-      crid: "" + this.valueForToken("keyword_id"),
-      timestamp: t
-    };
-    if (("" + this.valueForToken("cost_per_impression")).length) {
-      paramObj.co = "" + this.valueForToken("cost_per_impression");
-    }
-    var src = "//t23.intelliad.de/impression.php?";
-    for (var key in paramObj) {
-      if (paramObj.hasOwnProperty(key)) {
-        var val = paramObj[key];
-        src += key + "=" + val + "&";
-      }
-    }
+		var t = (new Date()).getTime();
+		var paramObj = {
+			cl: "" + this.valueForToken("client_id"),
+			cp: "" + this.valueForToken("campaign_id"),
+			ag: "" + this.valueForToken("ad_group_id"),
+			bm: "" + this.valueForToken("buy_market"),
+			bmcl: "" + this.valueForToken("client_market_id"),
+			crid: "" + this.valueForToken("keyword_id"),
+			timestamp: t
+		};
+		if (("" + this.valueForToken("cost_per_impression")).length) {
+			paramObj.co = "" + this.valueForToken("cost_per_impression");
+		}
+		var src = "//t23.intelliad.de/impression.php?";
+		for (var key in paramObj) {
+			if (paramObj.hasOwnProperty(key)) {
+				var val = paramObj[key];
+				src += key + "=" + val + "&";
+			}
+		}
 
-    var img = new Image();
-    img.src = src.slice(0, -1);
+		var img = new Image();
+		img.src = src.slice(0, -1);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

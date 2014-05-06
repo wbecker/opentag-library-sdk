@@ -133,31 +133,31 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		};
 
 		if (("" + this.valueForToken("customer_id")).length)
-      paramObj["customer_id"] = "" + this.valueForToken("customer_id");
+			paramObj["customer_id"] = "" + this.valueForToken("customer_id");
 		if (("" + this.valueForToken("custom_field")).length)
-      paramObj["custom_field"] = "" + this.valueForToken("custom_field");
+			paramObj["custom_field"] = "" + this.valueForToken("custom_field");
 		if (("" + this.valueForToken("surname")).length)
-      paramObj["surname"] = "" +this.valueForToken("surname");
+			paramObj["surname"] = "" + this.valueForToken("surname");
 		if (("" + this.valueForToken("firstname")).length)
-      paramObj["firstname"] ="" + this.valueForToken("firstname");
+			paramObj["firstname"] = "" + this.valueForToken("firstname");
 		if (("" + this.valueForToken("coupon_code")).length)
-      paramObj["coupon_code"] = "" + this.valueForToken("coupon_code");
+			paramObj["coupon_code"] = "" + this.valueForToken("coupon_code");
 		if (("" + this.valueForToken("address_line1")).length)
-      paramObj["address_line1"] = "" + this.valueForToken("address_line1");
+			paramObj["address_line1"] = "" + this.valueForToken("address_line1");
 		if (("" + this.valueForToken("address_line2")).length)
-      paramObj["address_line2"] = "" + this.valueForToken("address_line2");
+			paramObj["address_line2"] = "" + this.valueForToken("address_line2");
 		if (("" + this.valueForToken("address_city")).length)
-      paramObj["address_city"] = "" + this.valueForToken("address_city");
+			paramObj["address_city"] = "" + this.valueForToken("address_city");
 		if (("" + this.valueForToken("address_postcode")).length)
-      paramObj["address_postcode"] = "" + this.valueForToken("address_postcode");
+			paramObj["address_postcode"] = "" + this.valueForToken("address_postcode");
 		if (("" + this.valueForToken("address_country")).length)
-      paramObj["address_country"] = "" + this.valueForToken("address_country");
+			paramObj["address_country"] = "" + this.valueForToken("address_country");
 		if (("" + this.valueForToken("address_county")).length)
-      paramObj["address_county"] = "" + this.valueForToken("address_county");
+			paramObj["address_county"] = "" + this.valueForToken("address_county");
 		if (("" + this.valueForToken("implementation")).length)
-      paramObj["implementation"] = "" + this.valueForToken("implementation");
+			paramObj["implementation"] = "" + this.valueForToken("implementation");
 		if (("" + this.valueForToken("segment")).length)
-      paramObj["segment"] = "" +this.valueForToken("segment");
+			paramObj["segment"] = "" + this.valueForToken("segment");
 
 		for (var param in paramObj) {
 			var value = paramObj[param];
@@ -183,6 +183,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		function beginningZero(digit) {
 			return (digit < 10) ? "0" + digit : "" + digit;
 		}
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

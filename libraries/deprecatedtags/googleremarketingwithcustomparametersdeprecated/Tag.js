@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"deprecatedtags.googleremarketingwithcustomparametersdeprecated" + "." + tagVersion;
+	"deprecatedtags.googleremarketingwithcustomparametersdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -52,6 +53,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		console.debug(options);
 
 		window.google_trackConversion(options);
+
 		/*~POST*/
 	}
 });

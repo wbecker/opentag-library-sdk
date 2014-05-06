@@ -54,62 +54,63 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var now = new Date();
-			var day = now.getUTCDate() + "";
-			if (day.length === 1) day = "0" + day;
-			var month = (now.getUTCMonth() + 1) + "";
-			if (month.length === 1) month = "0" + month;
-			var year = now.getUTCFullYear();
-			var date = month + "/" + day + "/" + year;
-			var time = now.toUTCString().match(/..:..:../)[0];
+		var now = new Date();
+		var day = now.getUTCDate() + "";
+		if (day.length === 1) day = "0" + day;
+		var month = (now.getUTCMonth() + 1) + "";
+		if (month.length === 1) month = "0" + month;
+		var year = now.getUTCFullYear();
+		var date = month + "/" + day + "/" + year;
+		var time = now.toUTCString().match(/..:..:../)[0];
 
-			var ids = [];
-			var skus = [];
-			var categories = [];
-			var manufacturers = [];
-			var quantities = [];
-			var unit_sale_prices = [];
+		var ids = [];
+		var skus = [];
+		var categories = [];
+		var manufacturers = [];
+		var quantities = [];
+		var unit_sale_prices = [];
 
-			for (var i = this.valueForToken("ids").length - 1; i >= 0; i--) {
-				ids.push(this.valueForToken("ids")[i]);
-				skus.push(this.valueForToken("skus")[i]);
-				categories.push(this.valueForToken("categories")[i]);
-				manufacturers.push(this.valueForToken("manufacturers")[i]);
-				quantities.push(this.valueForToken("quantities")[i]);
-				unit_sale_prices.push(this.valueForToken("unit_sale_prices")[i]);
-			};
+		for (var i = this.valueForToken("ids").length - 1; i >= 0; i--) {
+			ids.push(this.valueForToken("ids")[i]);
+			skus.push(this.valueForToken("skus")[i]);
+			categories.push(this.valueForToken("categories")[i]);
+			manufacturers.push(this.valueForToken("manufacturers")[i]);
+			quantities.push(this.valueForToken("quantities")[i]);
+			unit_sale_prices.push(this.valueForToken("unit_sale_prices")[i]);
+		};
 
-			// Calculate subtotals
-			var subtotals = [];
-			for (var i = 0; i < unit_sale_prices.length; i++) {
-				subtotals.push(unit_sale_prices[i] * quantities[i]);
-			}
+		// Calculate subtotals
+		var subtotals = [];
+		for (var i = 0; i < unit_sale_prices.length; i++) {
+			subtotals.push(unit_sale_prices[i] * quantities[i]);
+		}
 
 
-			dcsMultiTrack({
+		dcsMultiTrack({
 
-				// Identify this event as a purchase
-				"WT.tx_e": "p",
+			// Identify this event as a purchase
+			"WT.tx_e": "p",
 
-				// Transaction parameters
-				"WT.tx_u": quantities.join(';'),
-				"WT.tx_s": subtotals.join(';'),
-				"WT.tx_i": "" + this.valueForToken("order_id"),
+			// Transaction parameters
+			"WT.tx_u": quantities.join(';'),
+			"WT.tx_s": subtotals.join(';'),
+			"WT.tx_i": "" + this.valueForToken("order_id"),
 
-				// Product parameters
-				"WT.pn_sku": skus.join(';'),
-				"WT.pn_id": ids.join(';'),
+			// Product parameters
+			"WT.pn_sku": skus.join(';'),
+			"WT.pn_id": ids.join(';'),
 
-				"WT.pn_fa": categories.join(';'),
-				"WT.pn_ma": manufacturers.join(";"),
+			"WT.pn_fa": categories.join(';'),
+			"WT.pn_ma": manufacturers.join(";"),
 
-				// conversion timestamp
-				"WT.tx_id": date,
-				"WT.tx_it": time,
+			// conversion timestamp
+			"WT.tx_id": date,
+			"WT.tx_it": time,
 
-				"WT.dl": 1
+			"WT.dl": 1
 
-			});
+		});
+
 
 		/*~SCRIPT*/
 	},

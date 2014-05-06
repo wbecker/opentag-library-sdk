@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "quantcast.quantcastwebmeasurementwithlabels" + "." + tagVersion;
+var classPath = "quantcast.quantcastwebmeasurementwithlabels" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -32,15 +33,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		window._qevents = window._qevents || [];
 
-    var e = document.createElement("script");
-    e.src = (document.location.protocol === "https:" ? "https://secure" :
-      "http://edge") + ".quantserve.com/quant.js";
-    e.async = true;
-    document.getElementsByTagName("head")[0].appendChild(e);
-    _qevents.push({
-      qacct: "" + this.valueForToken("account_no"),
-      labels: "" + this.valueForToken("labels")
-    });
+		var e = document.createElement("script");
+		e.src = (document.location.protocol === "https:" ? "https://secure" :
+			"http://edge") + ".quantserve.com/quant.js";
+		e.async = true;
+		document.getElementsByTagName("head")[0].appendChild(e);
+		_qevents.push({
+			qacct: "" + this.valueForToken("account_no"),
+			labels: "" + this.valueForToken("labels")
+		});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

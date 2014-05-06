@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "salecycle.deprecatedsalecycleconfirmationpagetag" + "." + tagVersion;
+var classPath = "salecycle.deprecatedsalecycleconfirmationpagetag" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -29,14 +30,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var src = [
-				'https://app.salecycle.com/Import/PixelCapture.aspx?',
-				'c=', '' + this.valueForToken("clientID"),
-				'&e=', '' + this.valueForToken("userEmail")
-			].join('');
-			var img = document.createElement('img');
-			img.setAttribute('src', src);
-			document.body.append(img);
+		var src = [
+			'https://app.salecycle.com/Import/PixelCapture.aspx?',
+			'c=', '' + this.valueForToken("clientID"),
+			'&e=', '' + this.valueForToken("userEmail")
+		].join('');
+		var img = document.createElement('img');
+		img.setAttribute('src', src);
+		document.body.append(img);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

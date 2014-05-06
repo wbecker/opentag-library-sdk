@@ -60,46 +60,47 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			// Fire the confirmation tag
-			var url = "//ad.zanox.com/pps/?" + this.valueForToken("program_id");
-			url += "&mode=[[" + this.valueForToken("mode") + "]]";
-			url += "&CID=[[" + this.valueForToken("cid") + "]]";
-			url += "&CustomerID=[[" + this.valueForToken("user_id") + "]]";
-			url += "&OrderID=[[" + this.valueForToken("order_id") + "]]";
-			url += "&CurrencySymbol=[[" + this.valueForToken("currency") + "]]";
-			url += "&TotalPrice=[[" + this.valueForToken("subtotal") + "]]";
-			var script = document.createElement('script');
-			script.src = url;
-			script.type = "text/javascript";
-			document.body.appendChild(script);
+		// Fire the confirmation tag
+		var url = "//ad.zanox.com/pps/?" + this.valueForToken("program_id");
+		url += "&mode=[[" + this.valueForToken("mode") + "]]";
+		url += "&CID=[[" + this.valueForToken("cid") + "]]";
+		url += "&CustomerID=[[" + this.valueForToken("user_id") + "]]";
+		url += "&OrderID=[[" + this.valueForToken("order_id") + "]]";
+		url += "&CurrencySymbol=[[" + this.valueForToken("currency") + "]]";
+		url += "&TotalPrice=[[" + this.valueForToken("subtotal") + "]]";
+		var script = document.createElement('script');
+		script.src = url;
+		script.type = "text/javascript";
+		document.body.appendChild(script);
 
-			// Set globals for usage by the master tag
-			window.zx_products = [];
-			window.zx_transaction = "" + this.valueForToken("order_id");
-			window.zx_total_amount = "" + this.valueForToken("subtotal");
-			window.zx_total_currency = "" + this.valueForToken("currency");
+		// Set globals for usage by the master tag
+		window.zx_products = [];
+		window.zx_transaction = "" + this.valueForToken("order_id");
+		window.zx_total_amount = "" + this.valueForToken("subtotal");
+		window.zx_total_currency = "" + this.valueForToken("currency");
 
-			// The standard mastertag
-			window._zx = window._zx || [];
-			window._zx.push({
-				"id": "" + this.valueForToken("zanox_page_id")
-			});
-			window.waitForZanoxDiv = function() {
-				if (document.querySelector(".zx_" + this.valueForToken("zanox_page_id") +
-					".zx_mediaslot")) {
-					(function(d) {
-						var s = d.createElement("script");
-						s.async = true;
-						s.src = (d.location.protocol == "https:" ? "https:" : "http:") +
-							"//static.zanox.com/scripts/zanox.js";
-						var a = d.getElementsByTagName("script")[0];
-						a.parentNode.insertBefore(s, a);
-					}(document));
-				} else {
-					setTimeout(waitForZanoxDiv, 100);
-				}
-			};
-			waitForZanoxDiv();
+		// The standard mastertag
+		window._zx = window._zx || [];
+		window._zx.push({
+			"id": "" + this.valueForToken("zanox_page_id")
+		});
+		window.waitForZanoxDiv = function() {
+			if (document.querySelector(".zx_" + this.valueForToken("zanox_page_id") +
+				".zx_mediaslot")) {
+				(function(d) {
+					var s = d.createElement("script");
+					s.async = true;
+					s.src = (d.location.protocol == "https:" ? "https:" : "http:") +
+						"//static.zanox.com/scripts/zanox.js";
+					var a = d.getElementsByTagName("script")[0];
+					a.parentNode.insertBefore(s, a);
+				}(document));
+			} else {
+				setTimeout(waitForZanoxDiv, 100);
+			}
+		};
+		waitForZanoxDiv();
+
 
 
 		/*~SCRIPT*/

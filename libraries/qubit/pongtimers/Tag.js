@@ -24,34 +24,35 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    if (performance && performance.timing && (window.XDomainRequest ||
-      XMLHttpRequest)) {
+		if (performance && performance.timing && (window.XDomainRequest ||
+			XMLHttpRequest)) {
 
-      var r = Math.floor(Math.random() * 50000);
-      var url = "//pong.qubitproducts.com/qc?" + r;
+			var r = Math.floor(Math.random() * 50000);
+			var url = "//pong.qubitproducts.com/qc?" + r;
 
-      var start = new Date();
-      if (window.XDomainRequest) {
-        var xdr = new window.XDomainRequest();
-        xdr.open("GET", url);
-        xdr.send();
-      } else {
-        var request = new XMLHttpRequest();
-        request.open("GET", url, false);
-        request.send(null);
-      }
+			var start = new Date();
+			if (window.XDomainRequest) {
+				var xdr = new window.XDomainRequest();
+				xdr.open("GET", url);
+				xdr.send();
+			} else {
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+			}
 
-      var end = new Date();
-      var times = {
-        _c_ping_start: start.getTime() - performance.timing.requestStart,
-        _c_ping_end: end.getTime() - performance.timing.requestStart
-      };
+			var end = new Date();
+			var times = {
+				_c_ping_start: start.getTime() - performance.timing.requestStart,
+				_c_ping_end: end.getTime() - performance.timing.requestStart
+			};
 
-      window._qtd = window._qtd || [];
-      window._qtd.push({
-        data: times
-      });
-    }
+			window._qtd = window._qtd || [];
+			window._qtd.push({
+				data: times
+			});
+		}
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

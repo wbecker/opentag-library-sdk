@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "fitsme.virtualfittingroomtagwithdatapopulation" + "." + tagVersion;
+var classPath = "fitsme.virtualfittingroomtagwithdatapopulation" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -63,44 +64,46 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-    var _this = this;
-    var fm_categories = (function() {
-      var temp = [];
-      if ("" + _this.valueForToken("category")) 
-        temp.push("" + _this.valueForToken("category"));
-      if ("" + _this.valueForToken("subcategory")) 
-        temp.push("" + _this.valueForToken("subcategory"));
-      return temp;
-    })();
+		var _this = this;
+		var fm_categories = (function() {
+			var temp = [];
+			if ("" + _this.valueForToken("category"))
+				temp.push("" + _this.valueForToken("category"));
+			if ("" + _this.valueForToken("subcategory"))
+				temp.push("" + _this.valueForToken("subcategory"));
+			return temp;
+		})();
 
-    var fm_sizes = (function() {
-      var temp = [];
-      for (var i = 0; i < _this.valueForToken("sizeids").length; i++) {
-        temp.push({
-          "ID": String(_this.valueForToken("sizeids")[i]),
-          "Title": String(_this.valueForToken("titles")[i]),
-          "Price": String(_this.valueForToken("prices")[i])
-        });
-      }
-      return temp;
-    })();
+		var fm_sizes = (function() {
+			var temp = [];
+			for (var i = 0; i < _this.valueForToken("sizeids").length; i++) {
+				temp.push({
+					"ID": String(_this.valueForToken("sizeids")[i]),
+					"Title": String(_this.valueForToken("titles")[i]),
+					"Price": String(_this.valueForToken("prices")[i])
+				});
+			}
+			return temp;
+		})();
 
-    var fmd = window.FitsMeData || {};
-    fmd.SKU = fmd.SKU || "" + _this.valueForToken("sku");
-    fmd.ProductTitle = fmd.ProductTitle || "" + _this.valueForToken("name");
-    fmd.ProductImageUrl = fmd.ProductImageUrl || "" + _this.valueForToken("prodimg");
-    if (!fmd.ProductCategories || fmd.ProductCategories.length === 0) {
-      fmd.ProductCategories = fm_categories;
-    }
-    if (!fmd.Sizes || fmd.Sizes.length === 0) {
-      fmd.Sizes = fm_sizes;
-    }
+		var fmd = window.FitsMeData || {};
+		fmd.SKU = fmd.SKU || "" + _this.valueForToken("sku");
+		fmd.ProductTitle = fmd.ProductTitle || "" + _this.valueForToken("name");
+		fmd.ProductImageUrl = fmd.ProductImageUrl || "" + _this.valueForToken(
+			"prodimg");
+		if (!fmd.ProductCategories || fmd.ProductCategories.length === 0) {
+			fmd.ProductCategories = fm_categories;
+		}
+		if (!fmd.Sizes || fmd.Sizes.length === 0) {
+			fmd.Sizes = fm_sizes;
+		}
 
-    window.FitsMeData = fmd;
+		window.FitsMeData = fmd;
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_setAllowHash', false]);
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_setAllowHash', false]);
+
 		/*~PRE*/
 	},
 	post: function() {

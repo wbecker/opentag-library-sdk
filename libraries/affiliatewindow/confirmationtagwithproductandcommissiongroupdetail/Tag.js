@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"affiliatewindow.confirmationtagwithproductandcommissiongroupdetail" + "." + tagVersion;
+	"affiliatewindow.confirmationtagwithproductandcommissiongroupdetail" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -163,6 +164,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				}
 			}
 		};
+
 
 		/*~PRE*/
 	},

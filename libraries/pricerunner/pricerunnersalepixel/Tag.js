@@ -54,27 +54,28 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var img = document.createElement("img");
-			var src = [
-				"https://www.emjcd.com/u?",
-				"CID=" + this.valueForToken("enterprise_id"),
-				"&OID=" + this.valueForToken("order_id"),
-				"&TYPE=" + this.valueForToken("action_id")
-			];
-			for (var i = 0; i < this.valueForToken("ids").length; i++) {
-				var item = [];
-				var index = i + 1;
-				item.push("&item" + index + "=" + this.valueForToken("ids")[i]);
-				item.push("&amt" + index + "=" + this.valueForToken("unit_prices")[i]);
-				item.push("&qty" + index + "=" + this.valueForToken("quantities")[i]);
-				src.push(item.join(""));
-			}
-			src.push("&currency=" + this.valueForToken("currency"));
-			src.push("&method=img");
-			img.setAttribute("src", src.join(""));
-			img.setAttribute("height", "1");
-			img.setAttribute("width", "20");
-			document.body.appendChild(img);
+		var img = document.createElement("img");
+		var src = [
+			"https://www.emjcd.com/u?",
+			"CID=" + this.valueForToken("enterprise_id"),
+			"&OID=" + this.valueForToken("order_id"),
+			"&TYPE=" + this.valueForToken("action_id")
+		];
+		for (var i = 0; i < this.valueForToken("ids").length; i++) {
+			var item = [];
+			var index = i + 1;
+			item.push("&item" + index + "=" + this.valueForToken("ids")[i]);
+			item.push("&amt" + index + "=" + this.valueForToken("unit_prices")[i]);
+			item.push("&qty" + index + "=" + this.valueForToken("quantities")[i]);
+			src.push(item.join(""));
+		}
+		src.push("&currency=" + this.valueForToken("currency"));
+		src.push("&method=img");
+		img.setAttribute("src", src.join(""));
+		img.setAttribute("height", "1");
+		img.setAttribute("width", "20");
+		document.body.appendChild(img);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

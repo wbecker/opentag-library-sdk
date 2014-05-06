@@ -28,12 +28,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		window._gaq = window._gaq || [];
 		window._gaq.push(['_trackEvent',
-      '' + this.valueForToken("category"),
+			'' + this.valueForToken("category"),
 			'' + this.valueForToken("action"),
-      '' + this.valueForToken("label"),
-      '' + this.valueForToken("value"),
-      '' + this.valueForToken("non_interaction")
+			'' + this.valueForToken("label"),
+			'' + this.valueForToken("value"),
+			'' + this.valueForToken("non_interaction")
 		]);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

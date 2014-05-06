@@ -40,30 +40,31 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 		var _this = this;
-			var require = function(url, cb) {
-				var script = document.createElement("script");
-				script.type = "text/javascript";
-				if (script.readyState) { //IE
-					script.onreadystatechange = function() {
-						if (script.readyState == "loaded" || script.readyState == "complete") {
-							script.onreadystatechange = null;
-							cb();
-						}
-					};
-				} else { //Others
-					script.onload = cb;
-				}
-				script.src = url;
-				document.getElementsByTagName("head")[0].appendChild(script);
-			};
+		var require = function(url, cb) {
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			if (script.readyState) { //IE
+				script.onreadystatechange = function() {
+					if (script.readyState == "loaded" || script.readyState == "complete") {
+						script.onreadystatechange = null;
+						cb();
+					}
+				};
+			} else { //Others
+				script.onload = cb;
+			}
+			script.src = url;
+			document.getElementsByTagName("head")[0].appendChild(script);
+		};
 
-			require("" + _this.valueForToken("web1by1_functions_script"), function() {
-				require("" + _this.valueForToken("web1by1_config_script"), function() {
-					window.w1x1.iSet(
-									_this.valueForToken("tag_type"),
-									"" + _this.valueForToken("value"));
-				});
+		require("" + _this.valueForToken("web1by1_functions_script"), function() {
+			require("" + _this.valueForToken("web1by1_config_script"), function() {
+				window.w1x1.iSet(
+					_this.valueForToken("tag_type"),
+					"" + _this.valueForToken("value"));
 			});
+		});
+
 
 		/*~SCRIPT*/
 	},

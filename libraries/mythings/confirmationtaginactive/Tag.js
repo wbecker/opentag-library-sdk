@@ -66,7 +66,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			productArray.push(product);
 		}
 
-		window._mt_ready = function () {
+		window._mt_ready = function() {
 			if (typeof(MyThings) != "undefined") {
 				MyThings.Track({
 					EventType: MyThings.Event.Conversion,
@@ -77,12 +77,14 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				});
 			}
 		}
-       
-		window.mtHost = (("https:" == document.location.protocol) ? "https://rainbowx" :
+
+		window.mtHost = (("https:" == document.location.protocol) ?
+			"https://rainbowx" :
 			"http://rainbow") + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("advertiser_token");
 		document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok=" +
 			mtAdvertiserToken + "' type='text/javascript'%3E%3C/script%3E"));
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "affiliatewindow.confirmationtagwithproductdetail" + "." + tagVersion;
+var classPath = "affiliatewindow.confirmationtagwithproductdetail" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -88,47 +89,47 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-			var awinImgSrc = [
-				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + 
-								this.valueForToken("merchant_id") + "&amount=",
-				"" + this.valueForToken("orderTotal"),
-				"&ref=", "" + this.valueForToken("orderId"),
-				"&parts=" + this.valueForToken("commission_group") + ":",
-				"" + this.valueForToken("orderTotal"),
-				"&vc=", "" + this.valueForToken("voucher"),
-				"&testmode=" + this.valueForToken("testmode") + "&cr=",
-				"" + this.valueForToken("orderCurrency")
-			].join("");
-			var el = document.createElement("img");
-			el.setAttribute("src", awinImgSrc);
-			document.body.appendChild(el);
+		var awinImgSrc = [
+			"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" +
+			this.valueForToken("merchant_id") + "&amount=",
+			"" + this.valueForToken("orderTotal"),
+			"&ref=", "" + this.valueForToken("orderId"),
+			"&parts=" + this.valueForToken("commission_group") + ":",
+			"" + this.valueForToken("orderTotal"),
+			"&vc=", "" + this.valueForToken("voucher"),
+			"&testmode=" + this.valueForToken("testmode") + "&cr=",
+			"" + this.valueForToken("orderCurrency")
+		].join("");
+		var el = document.createElement("img");
+		el.setAttribute("src", awinImgSrc);
+		document.body.appendChild(el);
 
-			var form = document.createElement("form");
-			form.setAttribute("style", "display:none;");
-			form.setAttribute("name", "aw_basket_form");
+		var form = document.createElement("form");
+		form.setAttribute("style", "display:none;");
+		form.setAttribute("name", "aw_basket_form");
 
-			var textarea = document.createElement("textarea");
-			textarea.setAttribute("wrap", "physical");
-			textarea.setAttribute("id", "aw_basket");
+		var textarea = document.createElement("textarea");
+		textarea.setAttribute("wrap", "physical");
+		textarea.setAttribute("id", "aw_basket");
 
-			var textareaText = [];
-			for (var i = 0; i < this.valueForToken("productId").length; i++) {
-				textareaText.push([
-					"AW:P|" + this.valueForToken("merchant_id") + "|",
-					"" + this.valueForToken("orderId"), "|",
-					this.valueForToken("productId")[i], "|",
-					this.valueForToken("productName")[i], "|",
-					this.valueForToken("productUnitPrice")[i], "|",
-					this.valueForToken("quantity")[i], "|",
-					this.valueForToken("productSku")[i], "|",
-					"" + this.valueForToken("commission_group") + "|",
-					this.valueForToken("productCategory")[i], "|"
-				].join(""));
-			}
-			textarea.innerHTML = textareaText.join("\n");
+		var textareaText = [];
+		for (var i = 0; i < this.valueForToken("productId").length; i++) {
+			textareaText.push([
+				"AW:P|" + this.valueForToken("merchant_id") + "|",
+				"" + this.valueForToken("orderId"), "|",
+				this.valueForToken("productId")[i], "|",
+				this.valueForToken("productName")[i], "|",
+				this.valueForToken("productUnitPrice")[i], "|",
+				this.valueForToken("quantity")[i], "|",
+				this.valueForToken("productSku")[i], "|",
+				"" + this.valueForToken("commission_group") + "|",
+				this.valueForToken("productCategory")[i], "|"
+			].join(""));
+		}
+		textarea.innerHTML = textareaText.join("\n");
 
-			form.appendChild(textarea);
-			document.body.appendChild(form);
+		form.appendChild(textarea);
+		document.body.appendChild(form);
 
 		var AWIN = {
 			Tracking: {
@@ -137,12 +138,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 					currency: "" + this.valueForToken("orderCurrency"),
 					orderRef: "" + this.valueForToken("orderId"),
 					parts: "" + this.valueForToken("commission_group") + ":" +
-									this.valueForToken("orderTotal"),
+						this.valueForToken("orderTotal"),
 					voucher: "" + this.valueForToken("voucher"),
 					test: "" + this.valueForToken("testmode")
 				}
 			}
 		};
+
 		/*~PRE*/
 	},
 	post: function() {

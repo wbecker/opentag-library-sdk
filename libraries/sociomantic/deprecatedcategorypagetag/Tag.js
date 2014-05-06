@@ -40,9 +40,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.product = {
 			category: ['' + this.valueForToken("CATEGORY"),
-        '' + this.valueForToken("SUBCATEGORY")]
+				'' + this.valueForToken("SUBCATEGORY")
+			]
 		};
 		window.product = product;
+
 		/*~PRE*/
 	},
 	post: function() {

@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "googleanalytics.googleanalyticseventtracking" + "." + tagVersion;
+var classPath = "googleanalytics.googleanalyticseventtracking" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -48,8 +49,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window._gaq = window._gaq || [];
 		window._gaq.push(['_trackEvent', '' + this.valueForToken("category"),
 			'' + this.valueForToken("action"), '' + this.valueForToken("label"),
-      this.valueForToken("value"), this.valueForToken("non_interaction")
+			this.valueForToken("value"), this.valueForToken("non_interaction")
 		]);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

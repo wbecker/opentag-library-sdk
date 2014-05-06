@@ -71,8 +71,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 		window.ia_v = "" + this.valueForToken("order_total");
 		window.ia_vz = "" + this.valueForToken("order_type"); // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
-		window.ia_vv = (("" + this.valueForToken("order_currency")).length) ? 
-      "" + this.valueForToken("order_currency") : "EUR";
+		window.ia_vv = (("" + this.valueForToken("order_currency")).length) ?
+			"" + this.valueForToken("order_currency") : "EUR";
 		window.ia_po = "" + this.valueForToken("order_id");
 		window.ia_c1 = "" + this.valueForToken("custom_param1");
 		window.ia_c2 = "" + this.valueForToken("custom_param2");
@@ -103,6 +103,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var script = document.createElement("script");
 		script.src = ia_link;
 		document.getElementsByTagName("head")[0].appendChild(script);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

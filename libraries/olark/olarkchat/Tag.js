@@ -118,6 +118,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/* custom configuration goes here (www.olark.com/documentation) */
 		olark.identify('' + this.valueForToken("SITE_ID"));
 		/*]]>{/literal}*
+
 	/*~SCRIPT*/
 	},
 	pre: function() {

@@ -61,33 +61,34 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*SCRIPT*/
 		var _this = this;
 
-			var require = function(url, cb) {
-				var script = document.createElement("script");
-				script.type = "text/javascript";
-				if (script.readyState) { //IE
-					script.onreadystatechange = function() {
-						if (script.readyState == "loaded" || script.readyState == "complete") {
-							script.onreadystatechange = null;
-							cb();
-						}
-					};
-				} else { //Others
-					script.onload = cb;
-				}
-				script.src = url;
-				document.getElementsByTagName("head")[0].appendChild(script);
-			};
+		var require = function(url, cb) {
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			if (script.readyState) { //IE
+				script.onreadystatechange = function() {
+					if (script.readyState == "loaded" || script.readyState == "complete") {
+						script.onreadystatechange = null;
+						cb();
+					}
+				};
+			} else { //Others
+				script.onload = cb;
+			}
+			script.src = url;
+			document.getElementsByTagName("head")[0].appendChild(script);
+		};
 
-			require("" + _this.valueForToken("web1by1_function_script"), function() {
-				require("" + _this.valueForToken("web1by1_config_script"), function() {
-					window.w1x1.sSend("" + _this.valueForToken("confirmation_id"),
-						_this.valueForToken("order_total"),
-						_this.valueForToken("tax"),
-						_this.valueForToken("shipping_cost"),
-						_this.valueForToken("other"));
-					window.w1x1.iSet('e', '' + _this.valueForToken("email"));
-				});
+		require("" + _this.valueForToken("web1by1_function_script"), function() {
+			require("" + _this.valueForToken("web1by1_config_script"), function() {
+				window.w1x1.sSend("" + _this.valueForToken("confirmation_id"),
+					_this.valueForToken("order_total"),
+					_this.valueForToken("tax"),
+					_this.valueForToken("shipping_cost"),
+					_this.valueForToken("other"));
+				window.w1x1.iSet('e', '' + _this.valueForToken("email"));
 			});
+		});
+
 
 		/*~SCRIPT*/
 	},

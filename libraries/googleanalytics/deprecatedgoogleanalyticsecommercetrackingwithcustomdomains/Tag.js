@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains" + "." +
+	"googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains" +
+	"." +
 	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -23,7 +24,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		d(function() {
 			window._gaq = window._gaq || [];
 			_gaq.push(['_setAccount', '' + _this.valueForToken("PROFILE_ID")]);
@@ -61,6 +62,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
 		})();
+
 
 		/*~SCRIPT*/
 	},

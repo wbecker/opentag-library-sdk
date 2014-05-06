@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "facebook.facebookconversiontrackingdeprecated" + "." + tagVersion;
+var classPath = "facebook.facebookconversiontrackingdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -33,11 +34,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.fb_param = {};
 		fb_param.pixel_id = '' + this.valueForToken("pixel_id");
 		fb_param.value = '' + this.valueForToken("subtotal");
-    var fpw = document.createElement('script');
-    fpw.async = true;
-    fpw.src = '//connect.facebook.net/en_US/fp.js';
-    var ref = document.getElementsByTagName('script')[0];
-    ref.parentNode.insertBefore(fpw, ref);
+		var fpw = document.createElement('script');
+		fpw.async = true;
+		fpw.src = '//connect.facebook.net/en_US/fp.js';
+		var ref = document.getElementsByTagName('script')[0];
+		ref.parentNode.insertBefore(fpw, ref);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

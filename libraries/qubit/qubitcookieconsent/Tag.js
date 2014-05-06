@@ -134,6 +134,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				window._q_ping("consentDismiss", reason);
 			}
 		};
+
 		/*~PRE*/
 	},
 	post: function() {

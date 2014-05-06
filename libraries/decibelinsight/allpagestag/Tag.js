@@ -33,15 +33,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			_da_.err.push(e);
 			_da_oldErr && _da_oldErr(e);
 		};
-    var _this = this;
+		var _this = this;
 		(function(d) {
 			var da = d.createElement('script');
 			da.type = 'text/javascript';
 			da.async = 'async';
 			da.src = location.protocol + '//decibelinsight.net/i/' +
-              _this.valueForToken("account_id") + '/di.js';
+				_this.valueForToken("account_id") + '/di.js';
 			d.getElementsByTagName('head')[0].appendChild(da);
 		})(document);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

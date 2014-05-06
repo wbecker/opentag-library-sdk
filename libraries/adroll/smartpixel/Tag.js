@@ -40,8 +40,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		scr.type = "text/javascript";
 		scr.src = host + "/j/roundtrip.js";
 		((document.getElementsByTagName('head') || [null])[0] ||
-						document.getElementsByTagName('script')[0].parentNode)
-							.appendChild(scr);
+			document.getElementsByTagName('script')[0].parentNode)
+			.appendChild(scr);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

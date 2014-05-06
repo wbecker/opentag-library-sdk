@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "criteo.legacyconfirmationpagetagextradetails" + "." + tagVersion;
+var classPath = "criteo.legacyconfirmationpagetagextradetails" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -59,38 +60,41 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var src, newUser, isNotPostClick, params;
-    src = [
-      "https://", "sslwidget.criteo.com", "/",
-      "" + this.valueForToken("call_parameter"),
-      "/",
-      "display.js?",
-      "p1="
-    ];
-    newUser = ("" + this.valueForToken("returning") === "true") ? "0" : "1";
-    isNotPostClick = ("" + this.valueForToken("is_post_click") === "true") ? "0" : "1";
-    params = [
-      "v=2",
-      "&s=1",
-      "&nc=", newUser,
-      "&dd=", isNotPostClick,
-      "&wi=", "" + this.valueForToken("wi"),
-      "&t=", "" + this.valueForToken("order_id")
-    ];
+		var src, newUser, isNotPostClick, params;
+		src = [
+			"https://", "sslwidget.criteo.com", "/",
+			"" + this.valueForToken("call_parameter"),
+			"/",
+			"display.js?",
+			"p1="
+		];
+		newUser = ("" + this.valueForToken("returning") === "true") ? "0" : "1";
+		isNotPostClick = ("" + this.valueForToken("is_post_click") === "true") ? "0" :
+			"1";
+		params = [
+			"v=2",
+			"&s=1",
+			"&nc=", newUser,
+			"&dd=", isNotPostClick,
+			"&wi=", "" + this.valueForToken("wi"),
+			"&t=", "" + this.valueForToken("order_id")
+		];
 
-    for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-      var index = i + 1;
-      params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
-      params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[i]);
-      params.push("&q" + index + "=" + this.valueForToken("quantities")[i])
-    }
-    src.push(escape(params.join("")));
-    src.push("&t1=transaction&resptype=gif");
-    var img = document.createElement("img");
-    img.setAttribute("src", src.join(""));
-    img.setAttribute("height", "1");
-    img.setAttribute("width", "1");
-    document.body.appendChild(img);
+		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+			var index = i + 1;
+			params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
+			params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[
+				i]);
+			params.push("&q" + index + "=" + this.valueForToken("quantities")[i])
+		}
+		src.push(escape(params.join("")));
+		src.push("&t1=transaction&resptype=gif");
+		var img = document.createElement("img");
+		img.setAttribute("src", src.join(""));
+		img.setAttribute("height", "1");
+		img.setAttribute("width", "1");
+		document.body.appendChild(img);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

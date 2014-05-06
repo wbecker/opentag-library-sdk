@@ -24,7 +24,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		window.$zopim || (function(d, s) {
 			var z = $zopim = function(c) {
 				z._.push(c)
@@ -45,6 +45,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			type = 'text/javascript';
 			e.parentNode.insertBefore($, e)
 		})(document, 'script');
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

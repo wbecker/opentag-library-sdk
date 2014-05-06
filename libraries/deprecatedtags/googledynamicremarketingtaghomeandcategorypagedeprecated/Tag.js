@@ -1,8 +1,9 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated" + "."
-	tagVersion;
+	"deprecatedtags.googledynamicremarketingtaghomeandcategorypagedeprecated" +
+	"."
+tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -58,6 +59,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script.type = "text/javascript";
 		script.src = "//www.googleadservices.com/pagead/conversion.js";
 		document.head.appendChild(script);
+
 
 		/*~SCRIPT*/
 	},

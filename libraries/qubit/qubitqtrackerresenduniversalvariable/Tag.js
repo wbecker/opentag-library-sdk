@@ -21,18 +21,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			// Wait for UV and then resend data to QTracker
-			var wait = function() {
-				if (window.universal_variable) {
-					window._qtd = window._qtd || [];
-					window._qtd.push({
-						resendUniversalVariables: 1
-					});
-				} else {
-					setTimeout(wait, 200);
-				}
-			};
-			wait();
+		// Wait for UV and then resend data to QTracker
+		var wait = function() {
+			if (window.universal_variable) {
+				window._qtd = window._qtd || [];
+				window._qtd.push({
+					resendUniversalVariables: 1
+				});
+			} else {
+				setTimeout(wait, 200);
+			}
+		};
+		wait();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

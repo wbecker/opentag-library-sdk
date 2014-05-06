@@ -100,13 +100,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				price: this.valueForToken("unit_sale_price_list")[i]
 			});
 		}
+
 		/*~PRE*/
 	},
 	post: function() {
 		/*POST*/
 		var orderString = JSON.stringify(PeeriusCallbacks.track.order);
 		var order = encodeURIComponent(orderString);
-		Peerius.sendAjax("" + this.valueForToken("url_start") + "/order/add.pagex?order=" + order);
+		Peerius.sendAjax("" + this.valueForToken("url_start") +
+			"/order/add.pagex?order=" + order);
+
 		/*~POST*/
 	}
 });

@@ -50,14 +50,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		/* Profondeur Frame */
 		window.WRP_ACC;
+
 		/*~PRE*/
 	},
 	post: function() {
 		/*POST*/
 		if (wreport_ok == 1) {
-			window.w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID, WRP_ACC);
+			window.w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID,
+				WRP_ACC);
 			w_counter.count();
 		}
+
 		/*~POST*/
 	}
 });

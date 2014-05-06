@@ -63,6 +63,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script.src = "https://www.shopzilla.com/css/roi_tracker.js";
 		document.getElementsByTagName('head')[0].appendChild(script);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

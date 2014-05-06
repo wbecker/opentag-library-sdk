@@ -73,16 +73,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var paramObj = {
 			situation: "" + this.valueForToken("situation")
 		}
-		if (("" + this.valueForToken("fullname")).length) 
-      paramObj["fullname"] = "" + this.valueForToken("fullname");
-		if (("" + this.valueForToken("implementation")).length) 
-      paramObj["implementation"] = "" + this.valueForToken("implementation");
-		if (("" + this.valueForToken("key")).length) 
-      paramObj["key"] = "" + this.valueForToken("key");
-		if (("" + this.valueForToken("segment")).length) 
-      paramObj["segment"] = "" + this.valueForToken("segment");
-		if (("" + this.valueForToken("locale")).length) 
-      paramObj["locale"] = "" + this.valueForToken("locale");
+		if (("" + this.valueForToken("fullname")).length)
+			paramObj["fullname"] = "" + this.valueForToken("fullname");
+		if (("" + this.valueForToken("implementation")).length)
+			paramObj["implementation"] = "" + this.valueForToken("implementation");
+		if (("" + this.valueForToken("key")).length)
+			paramObj["key"] = "" + this.valueForToken("key");
+		if (("" + this.valueForToken("segment")).length)
+			paramObj["segment"] = "" + this.valueForToken("segment");
+		if (("" + this.valueForToken("locale")).length)
+			paramObj["locale"] = "" + this.valueForToken("locale");
 
 		for (var param in paramObj) {
 			var value = paramObj[param];
@@ -91,6 +91,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		mmScript.src = baseUrl + paramArr.join("&");
 		document.body.appendChild(mmScript);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

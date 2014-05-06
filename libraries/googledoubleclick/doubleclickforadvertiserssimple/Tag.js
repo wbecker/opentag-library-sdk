@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "googledoubleclick.doubleclickforadvertiserssimple" + "." + tagVersion;
+var classPath = "googledoubleclick.doubleclickforadvertiserssimple" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -46,6 +47,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		fl_if.frameborder = "0";
 		fl_if.style.display = "none";
 		document.body.appendChild(fl_if);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

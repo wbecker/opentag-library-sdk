@@ -76,7 +76,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			"id": "" + this.valueForToken("zanoxPageId")
 		});
 		window.waitForZanoxDiv = function() {
-			if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") + ".zx_mediaslot")) {
+			if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") +
+				".zx_mediaslot")) {
 				(function(d) {
 					var s = d.createElement("script");
 					s.async = true;
@@ -90,6 +91,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			}
 		};
 		waitForZanoxDiv();
+
 
 		/*~SCRIPT*/
 	},

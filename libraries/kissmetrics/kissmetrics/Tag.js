@@ -24,7 +24,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		window._kmq = window._kmq || [];
 		(function(w, d) {
 			function _kms(u) {
@@ -49,6 +49,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				w.attachEvent("onload", kmg);
 			}
 		}(window, document))
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

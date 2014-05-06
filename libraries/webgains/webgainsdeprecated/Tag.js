@@ -95,36 +95,36 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-    var _this = this;
+		var _this = this;
 		window.wgItems = function() {
 			var wgItemsString = "";
 
 			for (var i = 0; i < _this.valueForToken("unit_prices").length; i++) {
 				/* if there's a dynamic event id specific to each item - it will be used */
 				if (_this.valueForToken("product_event_id").length !== 0) {
-					wgItemsString = wgItemsString + 
-            _this.valueForToken("product_event_id")[i] +
-						"::" + (Number(_this.valueForToken("unit_prices")[i]) * 
-            Number(_this.valueForToken("unit_quantity")[i])) + "::" +
-            _this.valueForToken("unit_quantity")[i] +
+					wgItemsString = wgItemsString +
+						_this.valueForToken("product_event_id")[i] +
+						"::" + (Number(_this.valueForToken("unit_prices")[i]) *
+							Number(_this.valueForToken("unit_quantity")[i])) + "::" +
+						_this.valueForToken("unit_quantity")[i] +
 						"x" + _this.valueForToken("unit_names")[i] + "::" +
-            _this.valueForToken("product_id_list")[i] + "::" + 
-            _this.valueForToken("voucher_code") +
+						_this.valueForToken("product_id_list")[i] + "::" +
+						_this.valueForToken("voucher_code") +
 						"";
 				}
 				/* othwerwise - if there's not an event id specific to each item - the static client-id value will be used*/
 				else {
 					wgItemsString = wgItemsString + _this.valueForToken("client_event_id") +
-						"" + "::" + (Number(_this.valueForToken("unit_prices")[i]) * 
-            Number(_this.valueForToken("unit_quantity")[i])) + "::" +
-            _this.valueForToken("unit_quantity")[i] + "x" + 
-            _this.valueForToken("unit_names")[i] + "::" + 
-            _this.valueForToken("product_id_list")[i] + "::" +
-            _this.valueForToken("voucher_code") +
+						"" + "::" + (Number(_this.valueForToken("unit_prices")[i]) *
+							Number(_this.valueForToken("unit_quantity")[i])) + "::" +
+						_this.valueForToken("unit_quantity")[i] + "x" +
+						_this.valueForToken("unit_names")[i] + "::" +
+						_this.valueForToken("product_id_list")[i] + "::" +
+						_this.valueForToken("voucher_code") +
 						"";
 				}
-				if (_this.valueForToken("unit_prices").length !== 1 && 
-                i < _this.valueForToken("unit_prices").length - 1) {
+				if (_this.valueForToken("unit_prices").length !== 1 &&
+					i < _this.valueForToken("unit_prices").length - 1) {
 					wgItemsString = wgItemsString + "|";
 				}
 			}
@@ -157,6 +157,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		// Load the image pixel
 		var img = new Image();
 		img.src = wgUri;
+
 
 		/*~SCRIPT*/
 	},

@@ -34,21 +34,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			window.VDNA = window.VDNA || {};
-			window.VDNA.queue = window.VDNA.queue || [];
+		window.VDNA = window.VDNA || {};
+		window.VDNA.queue = window.VDNA.queue || [];
 
-			var args = ["" + this.valueForToken("conversion_id")];
+		var args = ["" + this.valueForToken("conversion_id")];
 
-			var extraData = "" + this.valueForToken("extra_data");
-			if (extraData.length) {
-				args.push(extraData);
-			}
+		var extraData = "" + this.valueForToken("extra_data");
+		if (extraData.length) {
+			args.push(extraData);
+		}
 
-			window.VDNA.queue.push({
-				apiKey: "" + this.valueForToken("api_key"),
-				method: "reportConversion",
-				args: args
-			});
+		window.VDNA.queue.push({
+			apiKey: "" + this.valueForToken("api_key"),
+			method: "reportConversion",
+			args: args
+		});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

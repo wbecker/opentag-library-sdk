@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"googleuniversalanalytics.googleuniversalanalyticsautosenduvevents" + "." + tagVersion;
+	"googleuniversalanalytics.googleuniversalanalyticsautosenduvevents" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 			}
 		]);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

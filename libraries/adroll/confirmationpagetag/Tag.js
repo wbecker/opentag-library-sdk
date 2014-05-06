@@ -66,6 +66,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				'script')[0].parentNode).appendChild(scr);
 			if (oldonload) oldonload();
 		};
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

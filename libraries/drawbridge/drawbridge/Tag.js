@@ -47,6 +47,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.drawbridge_partner_sign  =  "" + this.valueForToken("partner_sign");
 		window.drawbridge_app_id  =  "" + this.valueForToken("app_id");
 		window.drawbridge_label  =  "" + this.valueForToken("label");
+
 		/*~PRE*/
 	},
 	post: function() {

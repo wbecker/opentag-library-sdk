@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "sociomantic.deprecatedconfirmationpagewithlastclicktracking" + "." +
+var classPath = "sociomantic.deprecatedconfirmationpagewithlastclicktracking" +
+	"." +
 	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -80,6 +81,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		basket.amount = '' + this.valueForToken("trans_total");
 		basket.currency = '' + this.valueForToken("trans_currency");
 		window.basket = basket;
+
 		/*~PRE*/
 	},
 	post: function() {

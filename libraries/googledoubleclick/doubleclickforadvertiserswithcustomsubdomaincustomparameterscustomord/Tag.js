@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"googledoubleclick.doubleclickforadvertiserswithcustomsubdomaincustomparameterscustomord" + "." +
+	"googledoubleclick.doubleclickforadvertiserswithcustomsubdomaincustomparameterscustomord" +
+	"." +
 	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -60,18 +61,19 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		var a = axel * 1000000000000;
 		var fl_if = document.createElement("iframe");
 		fl_if.src = '//' +
-      this.valueForToken("subdomain") + '.fls.doubleclick.net/activity' +
-      this.valueForToken("activity_letter") + ';src=' +
-      this.valueForToken("doubleclick_id") + ';type=' +
-      this.valueForToken("type") + ';cat=' +
-      this.valueForToken("cat") + ';' +
-      this.valueForToken("custom_params") + ';ord=' +
-      this.valueForToken("ord") + a + '?';
+			this.valueForToken("subdomain") + '.fls.doubleclick.net/activity' +
+			this.valueForToken("activity_letter") + ';src=' +
+			this.valueForToken("doubleclick_id") + ';type=' +
+			this.valueForToken("type") + ';cat=' +
+			this.valueForToken("cat") + ';' +
+			this.valueForToken("custom_params") + ';ord=' +
+			this.valueForToken("ord") + a + '?';
 		fl_if.width = "1";
 		fl_if.height = "1";
 		fl_if.frameborder = "0";
 		fl_if.style.display = "none";
 		document.body.appendChild(fl_if);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

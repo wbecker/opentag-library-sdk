@@ -123,7 +123,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		/* custom configuration goes here (www.olark.com/documentation) */
 		olark.identify("" + this.valueForToken("SITE_ID"));
-		olark.configure("GoogleAnalytics.custom_tracking_id","" + this.valueForToken("ga_id"));
+		olark.configure("GoogleAnalytics.custom_tracking_id", "" + this.valueForToken(
+			"ga_id"));
+
 
 		/*~SCRIPT*/
 	},

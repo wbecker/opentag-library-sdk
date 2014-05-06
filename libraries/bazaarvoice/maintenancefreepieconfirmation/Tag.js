@@ -67,22 +67,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-			var data = {
-				"orderId": "" + this.valueForToken("order_id"),
-				"total": this.valueForToken("order_total"),
-				"email": "" + this.valueForToken("user_email"),
-				"items": []
-			};
+		var data = {
+			"orderId": "" + this.valueForToken("order_id"),
+			"total": this.valueForToken("order_total"),
+			"email": "" + this.valueForToken("user_email"),
+			"items": []
+		};
 
-			for (var i = 0; i < this.valueForToken("product_sku_list").length; i++) {
-				data.items.push({
-					"sku": this.valueForToken("product_sku_list")[i],
-					"quantity": this.valueForToken("product_quantity_list")[i],
-					"price": this.valueForToken("product_prices")[i]
-				});
-			}
+		for (var i = 0; i < this.valueForToken("product_sku_list").length; i++) {
+			data.items.push({
+				"sku": this.valueForToken("product_sku_list")[i],
+				"quantity": this.valueForToken("product_quantity_list")[i],
+				"price": this.valueForToken("product_prices")[i]
+			});
+		}
 
-			window.$BV.SI.trackTransactionPageView(data);
+		window.$BV.SI.trackTransactionPageView(data);
+
 		/*~POST*/
 	}
 });

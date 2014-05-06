@@ -35,29 +35,30 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			var i, ii, d, p = document.getElementById("mc_data");
+		var i, ii, d, p = document.getElementById("mc_data");
+		d = document.createElement("div");
+		d.className = "mc_order_ref";
+		d.innerHTML = "" + this.valueForToken("order_id");
+		p.appendChild(d);
+		for (i = 0, ii = this.valueForToken("product_ids").length; i < ii; i++) {
 			d = document.createElement("div");
-			d.className = "mc_order_ref";
-			d.innerHTML = "" + this.valueForToken("order_id");
+			d.className = "mc_sku";
+			d.innerHTML = this.valueForToken("product_ids")[i].toString();
 			p.appendChild(d);
-			for (i = 0, ii = this.valueForToken("product_ids").length; i < ii; i++) {
-				d = document.createElement("div");
-				d.className = "mc_sku";
-				d.innerHTML = this.valueForToken("product_ids")[i].toString();
-				p.appendChild(d);
-			}
+		}
 
 		window.mc_api_url = "api.merchenta.com/merchenta/t";
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = true;
-    var secure = (window.parent.document.location.protocol == "https:");
-    if (secure) {
-      script.src = "https://api.merchenta.com/track/t.js";
-    } else {
-      script.src = "http://cdn.merchenta.com/track/t.js";
-    }
-    document.getElementsByTagName('head')[0].appendChild(script);
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.async = true;
+		var secure = (window.parent.document.location.protocol == "https:");
+		if (secure) {
+			script.src = "https://api.merchenta.com/track/t.js";
+		} else {
+			script.src = "http://cdn.merchenta.com/track/t.js";
+		}
+		document.getElementsByTagName('head')[0].appendChild(script);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

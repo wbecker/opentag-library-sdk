@@ -58,19 +58,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-			// Top level settings	
-			window.cmSetClientID(
-				"" + this.valueForToken("client_id"),
-				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain"),
-				"" + this.valueForToken("cookie_domain")
-			);
+		// Top level settings	
+		window.cmSetClientID(
+			"" + this.valueForToken("client_id"),
+			this.valueForToken("data_collection_method"),
+			"" + this.valueForToken("data_collection_domain"),
+			"" + this.valueForToken("cookie_domain")
+		);
 
-			// Track pageviews with whatever data we have
-			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id"),
-				"" + this.valueForToken("category_id")
-			);
+		// Track pageviews with whatever data we have
+		window.cmCreatePageviewTag(
+			"" + this.valueForToken("page_id"),
+			"" + this.valueForToken("category_id")
+		);
+
 
 		/*~POST*/
 	}

@@ -40,6 +40,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*PRE*/
 		window.ia_tc = "" + this.valueForToken("campaign_id");
 		window.ia_sc = "" + this.valueForToken("ad_id");
+
 		/*~PRE*/
 	},
 	post: function() {

@@ -24,7 +24,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 		(function(a) {
 			var d = document,
 				c = d.createElement("script");
@@ -34,6 +34,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				.indexOf("iatDev=1") > -1), "//" + (window.location.protocol == "http:" && !
 				iatDev ? "h" : "") + "j.flxpxl.com/" + _this.valueForToken("client_id") +
 			".js?r=" + Math.random() * 1e16 + (iatDev ? "&d=1" : "")))
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

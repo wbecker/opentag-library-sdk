@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "webtrends.webtrendspageviewtrackingsimpleconfig" + "." + tagVersion;
+var classPath = "webtrends.webtrendspageviewtrackingsimpleconfig" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -58,6 +59,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			dcs.track();
 
 		};
+
 		/*~PRE*/
 	},
 	post: function() {

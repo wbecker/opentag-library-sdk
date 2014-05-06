@@ -54,24 +54,25 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var item_count = 0;
-			for (var i = 0; i < this.valueForToken("item_qtys").length; i++) {
-				item_count += this.valueForToken("item_qtys")[i];
-			}
+		var item_count = 0;
+		for (var i = 0; i < this.valueForToken("item_qtys").length; i++) {
+			item_count += this.valueForToken("item_qtys")[i];
+		}
 
-			var frame = document.createElement("iframe");
-			var src = "https://secure.img-cdn.mediaplex.com/0/" +
-        this.valueForToken("client_id") + "/universal.html?page_name=" +
-        this.valueForToken("page_name") + "&" +
-        this.valueForToken("event_name") + "=1&Currency=" +
-				this.valueForToken("currency") + "&Quantity=" + item_count + "&Amount=" +
-				this.valueForToken("order_total") + "&mpuid=" +
-        this.valueForToken("order_id");
-			frame.src = src;
-			frame.height = 1;
-			frame.width = 1;
-			frame.frameborder = 0;
-			document.body.appendChild(frame);
+		var frame = document.createElement("iframe");
+		var src = "https://secure.img-cdn.mediaplex.com/0/" +
+			this.valueForToken("client_id") + "/universal.html?page_name=" +
+			this.valueForToken("page_name") + "&" +
+			this.valueForToken("event_name") + "=1&Currency=" +
+			this.valueForToken("currency") + "&Quantity=" + item_count + "&Amount=" +
+			this.valueForToken("order_total") + "&mpuid=" +
+			this.valueForToken("order_id");
+		frame.src = src;
+		frame.height = 1;
+		frame.width = 1;
+		frame.frameborder = 0;
+		document.body.appendChild(frame);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

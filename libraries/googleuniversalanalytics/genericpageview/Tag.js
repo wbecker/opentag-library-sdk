@@ -43,9 +43,11 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		})(window, document, 'script', '//www.google-analytics.com/analytics.js',
 			'ga');
 
-		ga('create', '' + this.valueForToken("web_property_id"),'' + this.valueForToken("url"));
+		ga('create', '' + this.valueForToken("web_property_id"), '' + this.valueForToken(
+			"url"));
 		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
+
 
 		/*~SCRIPT*/
 	},

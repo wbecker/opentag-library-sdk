@@ -62,23 +62,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-			window._caq = window._caq || [];
-			var products = [];
+		window._caq = window._caq || [];
+		var products = [];
 
-			for (var i = 0; i < this.valueForToken("sku_list").length; i++) {
-				products.push({
-					ProductID: this.valueForToken("sku_list")[i],
-					UnitPrice: this.valueForToken("product_subtotals")[i],
-					Quantity: this.valueForToken("qty_list")[i]
-				});
-			}
+		for (var i = 0; i < this.valueForToken("sku_list").length; i++) {
+			products.push({
+				ProductID: this.valueForToken("sku_list")[i],
+				UnitPrice: this.valueForToken("product_subtotals")[i],
+				Quantity: this.valueForToken("qty_list")[i]
+			});
+		}
 
-			_caq.push(["Order", {
-				OrderId: "" + this.valueForToken("order_id"),
-				oVal: "" + this.valueForToken("order_subtotal"),
-				CurrencyCode: "" + this.valueForToken("order_currency"),
-				Products: products
-			}]);
+		_caq.push(["Order", {
+			OrderId: "" + this.valueForToken("order_id"),
+			oVal: "" + this.valueForToken("order_subtotal"),
+			CurrencyCode: "" + this.valueForToken("order_currency"),
+			Products: products
+		}]);
+
 		/*~POST*/
 	}
 });

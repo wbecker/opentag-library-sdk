@@ -22,17 +22,17 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			function setCookie(domain, label, val, minutes) {
-				var txpDate = new Date();
-				txpDate.setTime(txpDate.getTime() + (minutes * 60 * 1000));
-				document.cookie = label + "=" + escape(val) + ";domain=" + domain +
-					";path =/" + (!minutes ? "" : ";expires=" + txpDate.toGMTString());
-			}
+		function setCookie(domain, label, val, minutes) {
+			var txpDate = new Date();
+			txpDate.setTime(txpDate.getTime() + (minutes * 60 * 1000));
+			document.cookie = label + "=" + escape(val) + ";domain=" + domain +
+				";path =/" + (!minutes ? "" : ";expires=" + txpDate.toGMTString());
+		}
 
-			setCookie(".office.co.uk",
-      "opentag_emailvision_timestamp",
-        (new Date()).getTime(),
-				60 * 24 * 2);
+		setCookie(".office.co.uk",
+			"opentag_emailvision_timestamp", (new Date()).getTime(),
+			60 * 24 * 2);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

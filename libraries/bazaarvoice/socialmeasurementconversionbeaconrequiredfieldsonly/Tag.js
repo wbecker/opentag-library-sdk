@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly" + "." + tagVersion;
+	"bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -68,36 +69,38 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	post: function() {
 		/*POST*/
-			try {
-				var item_count = 0;
-				var items = [];
-				
-				for (var i = 0; i < this.valueForToken("ids").length; i++) {
-					items.push([
-						this.valueForToken("ids")[i],
-						"", "",
-						this.valueForToken("qtys")[i],
-						this.valueForToken("prices")[i]]);
+		try {
+			var item_count = 0;
+			var items = [];
 
-					item_count += this.valueForToken("qtys")[i];
-				}
-				
-				var tracker = POWERREVIEWS.tracker.createTracker({
-					merchantGroupId: "" + this.valueForToken("group_id")
-				});
-				
-				tracker.trackPageview("c", {
-					merchantId: "" + this.valueForToken("merchant_id"),
-					locale: "en_US",
-					merchantUserId: "" + this.valueForToken("merchant_user_id"),
-					orderId: "" + this.valueForToken("order_id"),
-					orderSubtotal: "" + this.valueForToken("order_subtotal"),
-					orderNumberOfItems: String(item_count),
-					orderItems: items
-				});
-			} catch (e) {
-				window.console && window.console.log(e);
+			for (var i = 0; i < this.valueForToken("ids").length; i++) {
+				items.push([
+					this.valueForToken("ids")[i],
+					"", "",
+					this.valueForToken("qtys")[i],
+					this.valueForToken("prices")[i]
+				]);
+
+				item_count += this.valueForToken("qtys")[i];
 			}
+
+			var tracker = POWERREVIEWS.tracker.createTracker({
+				merchantGroupId: "" + this.valueForToken("group_id")
+			});
+
+			tracker.trackPageview("c", {
+				merchantId: "" + this.valueForToken("merchant_id"),
+				locale: "en_US",
+				merchantUserId: "" + this.valueForToken("merchant_user_id"),
+				orderId: "" + this.valueForToken("order_id"),
+				orderSubtotal: "" + this.valueForToken("order_subtotal"),
+				orderNumberOfItems: String(item_count),
+				orderItems: items
+			});
+		} catch (e) {
+			window.console && window.console.log(e);
+		}
+
 		/*~POST*/
 	}
 });

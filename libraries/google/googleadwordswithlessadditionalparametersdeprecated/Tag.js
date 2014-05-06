@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "google.googleadwordswithlessadditionalparametersdeprecated" + "." +
+var classPath = "google.googleadwordswithlessadditionalparametersdeprecated" +
+	"." +
 	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
@@ -60,6 +61,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			google_conversion_format: "" + this.valueForToken("conversion_format"),
 			google_conversion_color: "" + this.valueForToken("conversion_color")
 		});
+
 		/*~POST*/
 	}
 });

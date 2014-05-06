@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"googleanalytics.googleanalyticsecommercesupportsdisplayadvertising" + "." + tagVersion;
+	"googleanalytics.googleanalyticsecommercesupportsdisplayadvertising" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -86,40 +87,41 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			window._gaq = window._gaq || [];
-			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
-			_gaq.push(['_trackPageview']);
+		window._gaq = window._gaq || [];
+		_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
+		_gaq.push(['_trackPageview']);
 
-			_gaq.push(['_addTrans',
+		_gaq.push(['_addTrans',
+			'' + this.valueForToken("orderId"),
+			'',
+			'' + this.valueForToken("orderTotal"),
+			'' + this.valueForToken("orderTax"),
+			'' + this.valueForToken("orderShipping"),
+			'' + this.valueForToken("orderShippingCity"),
+			'' + this.valueForToken("orderShippingState"),
+			'' + this.valueForToken("orderShippingCountry")
+		]);
+		var i, ii;
+		for (i = 0, ii = this.valueForToken("itemSkus").length; i < ii; i += 1) {
+			_gaq.push(['_addItem',
 				'' + this.valueForToken("orderId"),
-				'',
-				'' + this.valueForToken("orderTotal"),
-				'' + this.valueForToken("orderTax"),
-				'' + this.valueForToken("orderShipping"),
-				'' + this.valueForToken("orderShippingCity"),
-				'' + this.valueForToken("orderShippingState"),
-				'' + this.valueForToken("orderShippingCountry")
+				this.valueForToken("itemSkus")[i],
+				this.valueForToken("itemNames")[i],
+				this.valueForToken("itemCategories")[i],
+				this.valueForToken("itemUnitPrices")[i],
+				this.valueForToken("itemQuantities")[i]
 			]);
-			var i, ii;
-			for (i = 0, ii = this.valueForToken("itemSkus").length; i < ii; i += 1) {
-				_gaq.push(['_addItem',
-					'' + this.valueForToken("orderId"),
-					this.valueForToken("itemSkus")[i],
-					this.valueForToken("itemNames")[i],
-					this.valueForToken("itemCategories")[i],
-					this.valueForToken("itemUnitPrices")[i],
-					this.valueForToken("itemQuantities")[i]
-				]);
-			}
-			_gaq.push(['_trackTrans']);
+		}
+		_gaq.push(['_trackTrans']);
 
-			var ga = document.createElement('script');
-			ga.type = 'text/javascript';
-			ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
-				'stats.g.doubleclick.net/dc.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(ga, s);
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+			'stats.g.doubleclick.net/dc.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+
 
 		/*~SCRIPT*/
 	},

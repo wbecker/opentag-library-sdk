@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"deprecatedtags.deprecatedgoogleremarketingconversiontagsynchronous" + "." + tagVersion;
+	"deprecatedtags.deprecatedgoogleremarketingconversiontagsynchronous" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -50,10 +51,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	pre: function() {
 		/*PRE*/
 		window.google_conversion_id = this.valueForToken("conversion_id");
-		window.google_conversion_language = "" + this.valueForToken("conversion_language");
+		window.google_conversion_language = "" + this.valueForToken(
+			"conversion_language");
 		window.google_conversion_color = "" + this.valueForToken("conversion_color");
 		window.google_conversion_label = "" + this.valueForToken("conversion_label");
-		window.google_conversion_format = "" + this.valueForToken("conversion_format");
+		window.google_conversion_format = "" + this.valueForToken(
+			"conversion_format");
+
 		/*~PRE*/
 	},
 	post: function() {

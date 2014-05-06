@@ -74,27 +74,28 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-			// Client Setup
-			window.cmSetClientID(
-				"" + this.valueForToken("client_id"),
-				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain"),
-				"" + this.valueForToken("cookie_domain")
-			);
+		// Client Setup
+		window.cmSetClientID(
+			"" + this.valueForToken("client_id"),
+			this.valueForToken("data_collection_method"),
+			"" + this.valueForToken("data_collection_domain"),
+			"" + this.valueForToken("cookie_domain")
+		);
 
-			// Page View
-			window.cmCreatePageviewTag(
-				"" + this.valueForToken("page_id"),
-				"" + this.valueForToken("category_id")
-			);
+		// Page View
+		window.cmCreatePageviewTag(
+			"" + this.valueForToken("page_id"),
+			"" + this.valueForToken("category_id")
+		);
 
-			// Product View
-			window.cmCreateProductviewTag(
-				"" + this.valueForToken("product_id"),
-				"" + this.valueForToken("product_name"),
-				"" + this.valueForToken("category_id"),
-				"" + this.valueForToken("custom_attribute")
-			);
+		// Product View
+		window.cmCreateProductviewTag(
+			"" + this.valueForToken("product_id"),
+			"" + this.valueForToken("product_name"),
+			"" + this.valueForToken("category_id"),
+			"" + this.valueForToken("custom_attribute")
+		);
+
 
 		/*~POST*/
 	}

@@ -37,6 +37,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			pm: this.valueForToken("campaignid"),
 			id: this.valueForToken("pointid")
 		};
+
 		/*~PRE*/
 	},
 	post: function() {

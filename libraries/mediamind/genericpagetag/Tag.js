@@ -33,11 +33,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.ebRand = Math.random() * 1000000;
 		window.ebSession = "" + this.valueForToken("session_id");
 
-    var script = document.createElement("script");
-    script.src =
-      "//bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&ActivityID=" +
-      this.valueForToken("activity_id") + "&rnd=" + ebRand + "&Session=" + ebSession;
-    document.getElementsByTagName("head")[0].appendChild(script);
+		var script = document.createElement("script");
+		script.src =
+			"//bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&ActivityID=" +
+			this.valueForToken("activity_id") + "&rnd=" + ebRand + "&Session=" +
+			ebSession;
+		document.getElementsByTagName("head")[0].appendChild(script);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

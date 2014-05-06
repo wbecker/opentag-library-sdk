@@ -93,6 +93,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.istUserDefinedFieldThree = "";
 		window.istVoucherCode = "" + this.valueForToken("voucher");
 		window.istLastAffiliateCode = "";
+
 		/*~PRE*/
 	},
 	post: function() {

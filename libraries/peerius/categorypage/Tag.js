@@ -45,6 +45,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				category: ("" + this.valueForToken("subcategory")).replace(/\s-\s/g, ">")
 			}
 		};
+
 		/*~PRE*/
 	},
 	post: function() {

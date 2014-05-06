@@ -59,7 +59,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
+
 		function shaddslashes(e) {
 			"use strict";
 			if (e != undefined) {
@@ -88,8 +89,9 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			var temp_quants = "";
 			for (var quant_index = 0; quant_index < _this.valueForToken("quantities").length; quant_index++) {
 				temp_quants += _this.valueForToken("quantities")[quant_index];
-				if (quant_index != _this.valueForToken("quantities").length - 1) temp_quants +=
-					",";
+				if (quant_index != _this.valueForToken("quantities").length - 1)
+					temp_quants +=
+						",";
 			}
 			return temp_quants;
 		}
@@ -262,6 +264,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			};
 			e.load()
 		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

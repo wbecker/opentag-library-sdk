@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "marinsoftware.zzconversioncapturecodedeprecated" + "." + tagVersion;
+var classPath = "marinsoftware.zzconversioncapturecodedeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -55,50 +56,51 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			window._mTrack = window._mTrack || [];
+		window._mTrack = window._mTrack || [];
 
-			var productIDs = "";
-			var productCategories = "";
-			var productQuantities = "";
+		var productIDs = "";
+		var productCategories = "";
+		var productQuantities = "";
 
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				if (i > 0) {
-					productIDs += "^";
-					productCategories += "^";
-					productQuantities += "^";
-				}
-
-				productIDs += this.valueForToken("product_ids")[i];
-				productCategories += this.valueForToken("product_categories")[i];
-				productQuantities += this.valueForToken("product_quantities")[i];
+		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+			if (i > 0) {
+				productIDs += "^";
+				productCategories += "^";
+				productQuantities += "^";
 			}
 
-			var items = [{
-				convType: "orders",
-				price: this.valueForToken("order_total"),
-				orderId: "" + this.valueForToken("order_id"),
-				product: productIDs,
-				category: productCategories,
-				quantity: productQuantities
-			}];
+			productIDs += this.valueForToken("product_ids")[i];
+			productCategories += this.valueForToken("product_categories")[i];
+			productQuantities += this.valueForToken("product_quantities")[i];
+		}
+
+		var items = [{
+			convType: "orders",
+			price: this.valueForToken("order_total"),
+			orderId: "" + this.valueForToken("order_id"),
+			product: productIDs,
+			category: productCategories,
+			quantity: productQuantities
+		}];
 
 
-			window._mTrack.push(['addTrans', {
-				currency: "" + this.valueForToken("currency"),
-				items: items
-			}]);
+		window._mTrack.push(['addTrans', {
+			currency: "" + this.valueForToken("currency"),
+			items: items
+		}]);
 
-			window._mTrack.push(['processOrders']);
-      var mClientId = "" + this.valueForToken("tracking_id");
-      var mProto = ('https:' == document.location.protocol ? 'https://' :
-        'http://');
-      var mHost = 'tracker.marinsm.com';
-      var mt = document.createElement('script');
-      mt.type = 'text/javascript';
-      mt.async = true;
-      mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-      var fscr = document.getElementsByTagName('script')[0];
-      fscr.parentNode.insertBefore(mt, fscr);
+		window._mTrack.push(['processOrders']);
+		var mClientId = "" + this.valueForToken("tracking_id");
+		var mProto = ('https:' == document.location.protocol ? 'https://' :
+			'http://');
+		var mHost = 'tracker.marinsm.com';
+		var mt = document.createElement('script');
+		mt.type = 'text/javascript';
+		mt.async = true;
+		mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+		var fscr = document.getElementsByTagName('script')[0];
+		fscr.parentNode.insertBefore(mt, fscr);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -124,54 +124,55 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	pre: function() {
 		/*PRE*/
 
-			// The basic tracker
-			window._adftrack = {
-				pm: '' + this.valueForToken("campaignid"),
-				id: '' + this.valueForToken("pointid")
-			};
+		// The basic tracker
+		window._adftrack = {
+			pm: '' + this.valueForToken("campaignid"),
+			id: '' + this.valueForToken("pointid")
+		};
 
-			// Split the user name into first and last name
-			var full_name = '' + this.valueForToken("name");
-			var name_arr = full_name.split(' ');
-			var first_name = name_arr[0];
-			name_arr.splice(0, 1);
-			var last_name = name_arr.join(' ');
+		// Split the user name into first and last name
+		var full_name = '' + this.valueForToken("name");
+		var name_arr = full_name.split(' ');
+		var first_name = name_arr[0];
+		name_arr.splice(0, 1);
+		var last_name = name_arr.join(' ');
 
-			// Get items and total order quantity
-			var i = 0,
-				ii = this.valueForToken("product_id_arr").length,
-				total_quantity = 0,
-				items = [];
-			for (; i < ii; i++) {
-				total_quantity += this.valueForToken("order_quantity_list")[i];
-				var item = {
-					categoryname: this.valueForToken("category_name_arr")[i],
-					productid: this.valueForToken("product_id_arr")[i],
-					productname: this.valueForToken("product_name_arr")[i],
-					productcount: this.valueForToken("product_count_arr")[i],
-					productsales: this.valueForToken("product_sales_arr")[i]
-				}
-				items[i] = item;
+		// Get items and total order quantity
+		var i = 0,
+			ii = this.valueForToken("product_id_arr").length,
+			total_quantity = 0,
+			items = [];
+		for (; i < ii; i++) {
+			total_quantity += this.valueForToken("order_quantity_list")[i];
+			var item = {
+				categoryname: this.valueForToken("category_name_arr")[i],
+				productid: this.valueForToken("product_id_arr")[i],
+				productname: this.valueForToken("product_name_arr")[i],
+				productcount: this.valueForToken("product_count_arr")[i],
+				productsales: this.valueForToken("product_sales_arr")[i]
 			}
+			items[i] = item;
+		}
 
-			// Add the order details
-			window._adftrack.order = {
-				sales: '' + this.valueForToken("subtotal"),
-				currency: '' + this.valueForToken("currency"),
-				basketsize: total_quantity,
-				country: '' + this.valueForToken("country"),
-				agegroup: '' + this.valueForToken("agegroup"),
-				gender: '' + this.valueForToken("gender"),
-				orderid: '' + this.valueForToken("order_id"),
-				email: '' + this.valueForToken("email"),
-				firstname: first_name,
-				lastname: last_name,
-				address1: '' + this.valueForToken("delivery_address_1"),
-				address2: '' + this.valueForToken("delivery_address_2"),
-				phone: '' + this.valueForToken("phone"),
-				zip: '' + this.valueForToken("postcode"),
-				itms: items
-			};
+		// Add the order details
+		window._adftrack.order = {
+			sales: '' + this.valueForToken("subtotal"),
+			currency: '' + this.valueForToken("currency"),
+			basketsize: total_quantity,
+			country: '' + this.valueForToken("country"),
+			agegroup: '' + this.valueForToken("agegroup"),
+			gender: '' + this.valueForToken("gender"),
+			orderid: '' + this.valueForToken("order_id"),
+			email: '' + this.valueForToken("email"),
+			firstname: first_name,
+			lastname: last_name,
+			address1: '' + this.valueForToken("delivery_address_1"),
+			address2: '' + this.valueForToken("delivery_address_2"),
+			phone: '' + this.valueForToken("phone"),
+			zip: '' + this.valueForToken("postcode"),
+			itms: items
+		};
+
 
 		/*~PRE*/
 	},

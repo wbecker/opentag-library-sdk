@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "google.googleadwordswithadditionalparameters" + "." + tagVersion;
+var classPath = "google.googleadwordswithadditionalparameters" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -71,6 +72,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			google_conversion_value: this.valueForToken("conversion_value"),
 			google_remarketing_only: this.valueForToken("remarketing")
 		});
+
 		/*~POST*/
 	}
 });

@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "cheetahmail.tracktopurchasewithitemtracking" + "." + tagVersion;
+var classPath = "cheetahmail.tracktopurchasewithitemtracking" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -72,23 +73,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 
 
-			var items = [];
+		var items = [];
 
-			for (var i = 0; i < this.valueForToken("product_names").length; i++) {
-				items.push(String(this.valueForToken("product_names")[i]) + "@" +
-								String(this.valueForToken("product_qtys")[i]) + "@" +
-							String(this.valueForToken("product_prices")[i]));
-			}
+		for (var i = 0; i < this.valueForToken("product_names").length; i++) {
+			items.push(String(this.valueForToken("product_names")[i]) + "@" +
+				String(this.valueForToken("product_qtys")[i]) + "@" +
+				String(this.valueForToken("product_prices")[i]));
+		}
 
-			var script = document.createElement("script");
-			script.src = "https://" + this.valueForToken("domain") +
-							"/a/r" + this.valueForToken("affiliate_ids") +
-							"/" + this.valueForToken("client") +
-							".gif?a=" + this.valueForToken("order_id") +
-							"&b=" + this.valueForToken("order_total") +
-							"&c=" + items.join("|") + "&d=" + this.valueForToken("cust1") +
-							"&e=" + this.valueForToken("cust2");
-			document.getElementsByTagName("head")[0].appendChild(script);
+		var script = document.createElement("script");
+		script.src = "https://" + this.valueForToken("domain") +
+			"/a/r" + this.valueForToken("affiliate_ids") +
+			"/" + this.valueForToken("client") +
+			".gif?a=" + this.valueForToken("order_id") +
+			"&b=" + this.valueForToken("order_total") +
+			"&c=" + items.join("|") + "&d=" + this.valueForToken("cust1") +
+			"&e=" + this.valueForToken("cust2");
+		document.getElementsByTagName("head")[0].appendChild(script);
+
 
 
 		/*~SCRIPT*/

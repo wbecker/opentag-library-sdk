@@ -44,22 +44,23 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-    var _this = this;
+		var _this = this;
 
-    var $ = window["" + _this.valueForToken("jquery_name")];
+		var $ = window["" + _this.valueForToken("jquery_name")];
 
-    $(document).ready(function() {
-      $("" + _this.valueForToken("selector")).click(function() {
-        Webtrends.multiTrack({
-          element: this,
-          argsa: [
-            "WT.ti", "" + _this.valueForToken("title"),
-            "DCS.dcsuri", "" + _this.valueForToken("url"),
-            'WT.dl', "" + _this.valueForToken("type")
-          ]
-        });
-      });
-    });
+		$(document).ready(function() {
+			$("" + _this.valueForToken("selector")).click(function() {
+				Webtrends.multiTrack({
+					element: this,
+					argsa: [
+						"WT.ti", "" + _this.valueForToken("title"),
+						"DCS.dcsuri", "" + _this.valueForToken("url"),
+						'WT.dl', "" + _this.valueForToken("type")
+					]
+				});
+			});
+		});
+
 
 		/*~SCRIPT*/
 	},

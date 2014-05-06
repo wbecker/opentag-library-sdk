@@ -54,36 +54,37 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var pixel = new Image();
-			var src = "https://www.emjcd.com/u?";
-			var items = [];
-			var item;
-			var j;
+		var pixel = new Image();
+		var src = "https://www.emjcd.com/u?";
+		var items = [];
+		var item;
+		var j;
 
-			for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {
-				item = [];
-				j = i + 1;
-				item.push("ITEM" + j + "=" + this.valueForToken("ids")[i]);
-				item.push("AMT" + j + "=" + this.valueForToken("prices")[i]);
-				item.push("QTY" + j + "=" + this.valueForToken("quants")[i]);
-				items.push(item.join("&"));
-			}
+		for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {
+			item = [];
+			j = i + 1;
+			item.push("ITEM" + j + "=" + this.valueForToken("ids")[i]);
+			item.push("AMT" + j + "=" + this.valueForToken("prices")[i]);
+			item.push("QTY" + j + "=" + this.valueForToken("quants")[i]);
+			items.push(item.join("&"));
+		}
 
 
-			var params = [
-				"CID=" + this.valueForToken("CID"),
-				"OID=" + this.valueForToken("order_id"),
-				"TYPE=" + this.valueForToken("TYPE"),
-				items.join("&"),
-				"CURRENCY=" + this.valueForToken("currency"),
-				"METHOD=IMG"
-			];
+		var params = [
+			"CID=" + this.valueForToken("CID"),
+			"OID=" + this.valueForToken("order_id"),
+			"TYPE=" + this.valueForToken("TYPE"),
+			items.join("&"),
+			"CURRENCY=" + this.valueForToken("currency"),
+			"METHOD=IMG"
+		];
 
-			pixel.src = src + params.join("&");
+		pixel.src = src + params.join("&");
 		/*
 <img src="https://www.emjcd.com/u?CID=<ENTERPRISEID>&OID=<OID>&TYPE=<ACTIONID>&ITEM1=
 <ITEMID>&AMT1=<AMT>&QTY1=<QTY>&CURRENCY=<CURRENCY>&METHOD=IMG" height="1" 
 width="20">*/
+
 
 
 		/*~SCRIPT*/

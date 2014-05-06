@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "linkshare.linkshareconfirmationpagepixeldeprecated" + "." + tagVersion;
+var classPath = "linkshare.linkshareconfirmationpagepixeldeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -54,28 +55,29 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var x = document.createElement("img");
+		var x = document.createElement("img");
 
-			var skuList = [],
-				qList = [],
-				amtList = [],
-				nameList = [],
-				i, ii;
+		var skuList = [],
+			qList = [],
+			amtList = [],
+			nameList = [],
+			i, ii;
 
-			for (i = 0, ii = this.valueForToken("q_list").length; i < ii; i++) {
-				skuList.push(this.valueForToken("sku_list")[i]);
-				qList.push(this.valueForToken("q_list")[i]);
-				nameList.push(this.valueForToken("name_list")[i]);
-				amtList.push(parseInt(parseFloat(this.valueForToken("amt_list")[i]) * 100) *
-					parseInt(this.valueForToken("q_list")[i]));
-			}
+		for (i = 0, ii = this.valueForToken("q_list").length; i < ii; i++) {
+			skuList.push(this.valueForToken("sku_list")[i]);
+			qList.push(this.valueForToken("q_list")[i]);
+			nameList.push(this.valueForToken("name_list")[i]);
+			amtList.push(parseInt(parseFloat(this.valueForToken("amt_list")[i]) * 100) *
+				parseInt(this.valueForToken("q_list")[i]));
+		}
 
-			x.src = "//track.linksynergy.com/ep?mid=" +
-              this.valueForToken("mid") + "&ord=" +
-        this.valueForToken("order_id") + "&skulist=" + skuList.join("|") +
-				"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
-				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
-			document.body.appendChild(x);
+		x.src = "//track.linksynergy.com/ep?mid=" +
+			this.valueForToken("mid") + "&ord=" +
+			this.valueForToken("order_id") + "&skulist=" + skuList.join("|") +
+			"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
+			this.valueForToken("cur") + "&namelist=" + nameList.join("|");
+		document.body.appendChild(x);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "commissionjunction.cjconversionpixelincldiscount" + "." + tagVersion;
+var classPath = "commissionjunction.cjconversionpixelincldiscount" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -75,20 +76,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
 			url += "ITEM" + (i + 1) + "=" + this.valueForToken("skus")[i] +
-							"&AMT" +(i + 1) + "=" + this.valueForToken("prices")[i] +
-							"&QTY" + (i + 1) + "=" + this.valueForToken("quantities")[i] + "&";
+				"&AMT" + (i + 1) + "=" + this.valueForToken("prices")[i] +
+				"&QTY" + (i + 1) + "=" + this.valueForToken("quantities")[i] + "&";
 
-			if (this.valueForToken("discounts").length === 
-							this.valueForToken("skus").length) {
+			if (this.valueForToken("discounts").length ===
+				this.valueForToken("skus").length) {
 				url += "DCNT" + (i + 1) + "=" +
-								this.valueForToken("discounts")[i] + "&";
+					this.valueForToken("discounts")[i] + "&";
 			}
 		}
 
 		url += "CID=" + this.valueForToken("enterprise_id") +
-						"&OID=" + this.valueForToken("order_id") +
-						"&TYPE=" + this.valueForToken("action_id") +
-						"&CURRENCY=" + this.valueForToken("currency");
+			"&OID=" + this.valueForToken("order_id") +
+			"&TYPE=" + this.valueForToken("action_id") +
+			"&CURRENCY=" + this.valueForToken("currency");
 
 		if (this.valueForToken("discounts").length !== this.valueForToken("skus").length) {
 			url += "&DISCOUNT=" + this.valueForToken("discount");
@@ -101,6 +102,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		iframe.scrolling = 0;
 		iframe.src = url;
 		document.body.appendChild(iframe);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

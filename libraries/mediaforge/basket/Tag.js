@@ -44,6 +44,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		script.src = "//tags.mediaforge.com/js/" + this.valueForToken("merchant_id") +
 			"/?cart=" + this.valueForToken("basket_total") + "&prodID=" + productIDs;
 		document.body.appendChild(script);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

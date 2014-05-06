@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 var tagVersion = "";
 var classPath =
-	"affiliatewindow.confirmationtagwithproductdetailandpvparameter" + "." + tagVersion;
+	"affiliatewindow.confirmationtagwithproductdetailandpvparameter" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -89,47 +90,47 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-			var awinImgSrc = [
-				"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" +
-								this.valueForToken("merchant_id") + "&amount=",
-				"" + this.valueForToken("order_total"),
-				"&ref=", "" + this.valueForToken("order_id"),
-				"&parts=" + this.valueForToken("commission_group") + ":",
-				"" + this.valueForToken("order_total"),
-				"&vc=", "" + this.valueForToken("voucher"),
-				"&testmode=" + this.valueForToken("test_mode") + "&cr=",
-				"" + this.valueForToken("currency")
-			].join("");
-			var el = document.createElement("img");
-			el.setAttribute("src", awinImgSrc);
-			document.body.appendChild(el);
+		var awinImgSrc = [
+			"https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" +
+			this.valueForToken("merchant_id") + "&amount=",
+			"" + this.valueForToken("order_total"),
+			"&ref=", "" + this.valueForToken("order_id"),
+			"&parts=" + this.valueForToken("commission_group") + ":",
+			"" + this.valueForToken("order_total"),
+			"&vc=", "" + this.valueForToken("voucher"),
+			"&testmode=" + this.valueForToken("test_mode") + "&cr=",
+			"" + this.valueForToken("currency")
+		].join("");
+		var el = document.createElement("img");
+		el.setAttribute("src", awinImgSrc);
+		document.body.appendChild(el);
 
-			var form = document.createElement("form");
-			form.setAttribute("style", "display:none;");
-			form.setAttribute("name", "aw_basket_form");
+		var form = document.createElement("form");
+		form.setAttribute("style", "display:none;");
+		form.setAttribute("name", "aw_basket_form");
 
-			var textarea = document.createElement("textarea");
-			textarea.setAttribute("wrap", "physical");
-			textarea.setAttribute("id", "aw_basket");
+		var textarea = document.createElement("textarea");
+		textarea.setAttribute("wrap", "physical");
+		textarea.setAttribute("id", "aw_basket");
 
-			var textareaText = [];
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				textareaText.push([
-					"AW:P|" + this.valueForToken("merchant_id") + "|",
-					"" + this.valueForToken("order_id"), "|",
-					this.valueForToken("product_ids")[i], "|",
-					this.valueForToken("product_names")[i], "|",
-					this.valueForToken("product_prices")[i], "|",
-					this.valueForToken("product_quantities")[i], "|",
-					this.valueForToken("product_skus")[i], "|",
-					"" + this.valueForToken("commission_group") + "|",
-					this.valueForToken("product_categories")[i], "|"
-				].join(""));
-			}
-			textarea.innerHTML = textareaText.join("\n");
+		var textareaText = [];
+		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+			textareaText.push([
+				"AW:P|" + this.valueForToken("merchant_id") + "|",
+				"" + this.valueForToken("order_id"), "|",
+				this.valueForToken("product_ids")[i], "|",
+				this.valueForToken("product_names")[i], "|",
+				this.valueForToken("product_prices")[i], "|",
+				this.valueForToken("product_quantities")[i], "|",
+				this.valueForToken("product_skus")[i], "|",
+				"" + this.valueForToken("commission_group") + "|",
+				this.valueForToken("product_categories")[i], "|"
+			].join(""));
+		}
+		textarea.innerHTML = textareaText.join("\n");
 
-			form.appendChild(textarea);
-			document.body.appendChild(form);
+		form.appendChild(textarea);
+		document.body.appendChild(form);
 
 		window.AWIN = {
 			Tracking: {
@@ -145,6 +146,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				}
 			}
 		};
+
 		/*~PRE*/
 	},
 	post: function() {

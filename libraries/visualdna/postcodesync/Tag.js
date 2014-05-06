@@ -39,6 +39,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				"partner_user_id_type": "postcode"
 			}]
 		});
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

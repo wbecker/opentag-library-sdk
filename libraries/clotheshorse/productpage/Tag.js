@@ -36,6 +36,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			'&ts=' + ch212['ts'];
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(ch, s);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

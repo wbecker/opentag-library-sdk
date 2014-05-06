@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "googledoubleclick.doubleclickforadvertiserscustom" + "." + tagVersion;
+var classPath = "googledoubleclick.doubleclickforadvertiserscustom" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -54,23 +55,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		fl_if.src = '//' + this.valueForToken("doubleclick_id") +
 			'.fls.doubleclick.net/activityi;src=' +
-      this.valueForToken("doubleclick_id") +
+			this.valueForToken("doubleclick_id") +
 			';type=' +
-      this.valueForToken("type") +
-      ';cat=' +
-      this.valueForToken("cat") +
+			this.valueForToken("type") +
+			';cat=' +
+			this.valueForToken("cat") +
 			';qty=1;cost=' +
-      this.valueForToken("order_total") +
-      ';' +
-      this.valueForToken("custom") +
-      ';ord=' +
-      this.valueForToken("order_id") +
-      '?';
+			this.valueForToken("order_total") +
+			';' +
+			this.valueForToken("custom") +
+			';ord=' +
+			this.valueForToken("order_id") +
+			'?';
 		fl_if.width = "1";
 		fl_if.height = "1";
 		fl_if.frameborder = "0";
 		fl_if.style.display = "none";
 		document.body.appendChild(fl_if);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

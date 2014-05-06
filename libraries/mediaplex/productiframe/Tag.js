@@ -49,21 +49,22 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var frame = document.createElement("iframe");
-			var src = (document.location.protocol === "https:") ? "https://secure." :
-				"http://";
-			src = src + "img-cdn.mediaplex.com/0/" +
-        this.valueForToken("client_id") +"/universal.html?page_name=" +
-        this.valueForToken("page_name") + "&" +
-				this.valueForToken("event_name") + "=1&Primary_Category=" +
-        this.valueForToken("category") + "&Sub_Category=" +
-        this.valueForToken("subcategory") +"&SKU=" +
-        this.valueForToken("product_sku") + "&mpuid=";
-			frame.src = src;
-			frame.height = 1;
-			frame.width = 1;
-			frame.frameborder = 0;
-			document.body.appendChild(frame);
+		var frame = document.createElement("iframe");
+		var src = (document.location.protocol === "https:") ? "https://secure." :
+			"http://";
+		src = src + "img-cdn.mediaplex.com/0/" +
+			this.valueForToken("client_id") + "/universal.html?page_name=" +
+			this.valueForToken("page_name") + "&" +
+			this.valueForToken("event_name") + "=1&Primary_Category=" +
+			this.valueForToken("category") + "&Sub_Category=" +
+			this.valueForToken("subcategory") + "&SKU=" +
+			this.valueForToken("product_sku") + "&mpuid=";
+		frame.src = src;
+		frame.height = 1;
+		frame.width = 1;
+		frame.frameborder = 0;
+		document.body.appendChild(frame);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

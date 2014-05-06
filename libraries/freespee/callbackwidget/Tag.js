@@ -62,11 +62,13 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		__fs_conf.push(['setAdv', {
 			'id': '' + this.valueForToken("client_id"),
-			'cbw_answering_number_id': '' + this.valueForToken("cbw_answering_number_id"),
+			'cbw_answering_number_id': '' + this.valueForToken(
+				"cbw_answering_number_id"),
 			'cbw_style': '' + this.valueForToken("cbw_style"),
 			'cbw_caller_id': '' + this.valueForToken("cbw_caller_id"),
 			'cbw_visible_number': '' + this.valueForToken("cbw_visible_number")
 		}]);
+
 		/*~PRE*/
 	},
 	post: function() {

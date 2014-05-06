@@ -30,14 +30,15 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			var revenue = parseFloat(this.valueForToken("order_total")) * 100;
-			var script = document.createElement('script');
+		var revenue = parseFloat(this.valueForToken("order_total")) * 100;
+		var script = document.createElement('script');
 
-			script.src =
-				'https://sc.liveclicker.net/service/track?kind=order&account_id=' +
-        this.valueForToken("account_id") + '&value=' + revenue;
+		script.src =
+			'https://sc.liveclicker.net/service/track?kind=order&account_id=' +
+			this.valueForToken("account_id") + '&value=' + revenue;
 
-			document.getElementsByTagName('head')[0].appendChild(script);
+		document.getElementsByTagName('head')[0].appendChild(script);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

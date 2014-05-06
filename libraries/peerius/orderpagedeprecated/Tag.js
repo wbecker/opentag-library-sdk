@@ -75,6 +75,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 				price: window.universal_variable.basket.line_items[i].product.unit_sale_price
 			});
 		}
+
 		/*~PRE*/
 	},
 	post: function() {

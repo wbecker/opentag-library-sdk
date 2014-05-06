@@ -32,15 +32,16 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 
 		window._qevents = window._qevents || [];
 
-    var e = document.createElement("script");
-    e.src = (document.location.protocol === "https:" ? "https://secure" :
-      "http://edge") + ".quantserve.com/quant.js";
-    e.async = true;
-    document.getElementsByTagName("head")[0].appendChild(e);
-    _qevents.push({
-      qacct: "" + this.valueForToken("account_no"),
-      labels: "_fp.event." + this.valueForToken("custom_page")
-    });
+		var e = document.createElement("script");
+		e.src = (document.location.protocol === "https:" ? "https://secure" :
+			"http://edge") + ".quantserve.com/quant.js";
+		e.async = true;
+		document.getElementsByTagName("head")[0].appendChild(e);
+		_qevents.push({
+			qacct: "" + this.valueForToken("account_no"),
+			labels: "_fp.event." + this.valueForToken("custom_page")
+		});
+
 
 		/*~SCRIPT*/
 	},

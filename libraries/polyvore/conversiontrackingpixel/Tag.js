@@ -45,19 +45,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			var skus = "";
-			for (var i = 0; i < this.valueForToken("skus").length; i++) {
-				if (i > 0) {
-					skus += ",";
-				}
-				skus += this.valueForToken("skus")[i];
+		var skus = "";
+		for (var i = 0; i < this.valueForToken("skus").length; i++) {
+			if (i > 0) {
+				skus += ",";
 			}
-			new Image().src = document.location.protocol +
-				"//www.polyvore.com/conversion/beacon.gif?adv=" +
-        this.valueForToken("hostname") + "&amt=" +
-        this.valueForToken("subtotal") + "&oid=" +
-        this.valueForToken("id") + "&skus=" + skus + "&cur=" +
-        this.valueForToken("currency");
+			skus += this.valueForToken("skus")[i];
+		}
+		new Image().src = document.location.protocol +
+			"//www.polyvore.com/conversion/beacon.gif?adv=" +
+			this.valueForToken("hostname") + "&amt=" +
+			this.valueForToken("subtotal") + "&oid=" +
+			this.valueForToken("id") + "&skus=" + skus + "&cur=" +
+			this.valueForToken("currency");
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

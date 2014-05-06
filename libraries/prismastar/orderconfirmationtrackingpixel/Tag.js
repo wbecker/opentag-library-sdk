@@ -54,24 +54,25 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var pixel = new Image();
-			var source = "https://" +
-        this.valueForToken("GATEWAY_PREFIX") +
-        ".cpr.prismastar.com/v2_0/recorder/?type=order&customerCode=" +
-        this.valueForToken("CUSTOMER_CODE") + "&customerOrderId=" +
-        this.valueForToken("ORDER_ID") + "&order=";
+		var pixel = new Image();
+		var source = "https://" +
+			this.valueForToken("GATEWAY_PREFIX") +
+			".cpr.prismastar.com/v2_0/recorder/?type=order&customerCode=" +
+			this.valueForToken("CUSTOMER_CODE") + "&customerOrderId=" +
+			this.valueForToken("ORDER_ID") + "&order=";
 
-			for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {
-				var productArray = [
-					this.valueForToken("ids")[i],
-					this.valueForToken("quants")[i],
-					this.valueForToken("prices")[i],
-					this.valueForToken("categories")[i]
-				];
-				source += productArray.join("|") + ";";
-			}
+		for (var i = 0, ii = this.valueForToken("ids").length; i < ii; i++) {
+			var productArray = [
+				this.valueForToken("ids")[i],
+				this.valueForToken("quants")[i],
+				this.valueForToken("prices")[i],
+				this.valueForToken("categories")[i]
+			];
+			source += productArray.join("|") + ";";
+		}
 
-			pixel.src = source;
+		pixel.src = source;
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

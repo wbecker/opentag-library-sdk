@@ -78,32 +78,33 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 
-			// Top level settings	
-			cmSetClientID(
-				"" + this.valueForToken("client_id"),
-				this.valueForToken("data_collection_method"),
-				"" + this.valueForToken("data_collection_domain"),
-				"" + this.valueForToken("cookie_domain")
-			);
+		// Top level settings	
+		cmSetClientID(
+			"" + this.valueForToken("client_id"),
+			this.valueForToken("data_collection_method"),
+			"" + this.valueForToken("data_collection_domain"),
+			"" + this.valueForToken("cookie_domain")
+		);
 
-			// Extra custom attributes
-			var attributeString, extraFieldString;
+		// Extra custom attributes
+		var attributeString, extraFieldString;
 
-			// Track pageviews with whatever data we have
-			cmCreatePageviewTag(
-				"" + this.valueForToken("page_id"),
-				"" + this.valueForToken("category_id")
-			);
+		// Track pageviews with whatever data we have
+		cmCreatePageviewTag(
+			"" + this.valueForToken("page_id"),
+			"" + this.valueForToken("category_id")
+		);
 
-			// Create the custom event
-			cmCreateConversionEventTag(
-				"" + this.valueForToken("event_id"),
-				"" + this.valueForToken("action_type"),
-				"" + this.valueForToken("event_category_id"),
-				"" + this.valueForToken("points"),
-				attributeString,
-				extraFieldString
-			);
+		// Create the custom event
+		cmCreateConversionEventTag(
+			"" + this.valueForToken("event_id"),
+			"" + this.valueForToken("action_type"),
+			"" + this.valueForToken("event_category_id"),
+			"" + this.valueForToken("points"),
+			attributeString,
+			extraFieldString
+		);
+
 
 		/*~POST*/
 	}

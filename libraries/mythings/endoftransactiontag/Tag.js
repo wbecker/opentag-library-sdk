@@ -58,31 +58,32 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-    var _this = this;
-			var products = [];
-			for (var i = 0; i < this.valueForToken("productIds").length; i++) {
-				products.push({
-					id: this.valueForToken("productIds")[i],
-					price: this.valueForToken("productUnitPrice")[i],
-					qty: this.valueForToken("quantities")[i]
+		var _this = this;
+		var products = [];
+		for (var i = 0; i < this.valueForToken("productIds").length; i++) {
+			products.push({
+				id: this.valueForToken("productIds")[i],
+				price: this.valueForToken("productUnitPrice")[i],
+				qty: this.valueForToken("quantities")[i]
+			});
+		}
+		window._mt_ready = function() {
+			if (typeof(MyThings) != "undefined") {
+				MyThings.Track({
+					EventType: MyThings.Event.Conversion,
+					Action: "9902",
+					Products: products,
+					TransactionReference: "" + _this.valueForToken("orderId"),
+					TransactionAmount: "" + _this.valueForToken("total")
 				});
 			}
-			window._mt_ready = function() {
-				if (typeof(MyThings) != "undefined") {
-					MyThings.Track({
-						EventType: MyThings.Event.Conversion,
-						Action: "9902",
-						Products: products,
-						TransactionReference: "" + _this.valueForToken("orderId"),
-						TransactionAmount: "" + _this.valueForToken("total")
-					});
-				}
-			}
+		}
 
 		window.mtHost = (("https:" == document.location.protocol) ? "https://" +
 			this.valueForToken("subdomain") : "http://" +
-      this.valueForToken("subdomain")) + ".mythings.com";
+			this.valueForToken("subdomain")) + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("token");
+
 		/*~PRE*/
 	},
 	post: function() {

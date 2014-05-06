@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "adobesitecatalyst.sitecatalystconversiontag" + "." + tagVersion;
+var classPath = "adobesitecatalyst.sitecatalystconversiontag" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -160,20 +161,20 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		s.prop5 = "" + this.valueForToken("prop5");
 
 
-			var i = 0,
-				ii = this.valueForToken("product_ids").length,
-				productList = [];
+		var i = 0,
+			ii = this.valueForToken("product_ids").length,
+			productList = [];
 
-			for (; i < ii; i++) {
-				var product = [];
-				product.push(this.valueForToken("product_names")[i],
-					this.valueForToken("product_ids")[i]);
-				product.push(this.valueForToken("quants")[i],
-					this.valueForToken("categories")[i]);
-				productList.push(product.join(";"));
-			}
+		for (; i < ii; i++) {
+			var product = [];
+			product.push(this.valueForToken("product_names")[i],
+				this.valueForToken("product_ids")[i]);
+			product.push(this.valueForToken("quants")[i],
+				this.valueForToken("categories")[i]);
+			productList.push(product.join(";"));
+		}
 
-			s.products = productList.join(",");
+		s.products = productList.join(",");
 
 
 		/* Conversion Variables */
@@ -189,6 +190,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		s.eVar5 = "" + this.valueForToken("evar5");
 
 		window.s_code = s.t();
+
 		/*~POST*/
 	}
 });

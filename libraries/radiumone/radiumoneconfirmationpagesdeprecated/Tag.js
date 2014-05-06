@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "radiumone.radiumoneconfirmationpagesdeprecated" + "." + tagVersion;
+var classPath = "radiumone.radiumoneconfirmationpagesdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -47,6 +48,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		iframe.marginHeight = 0;
 		iframe.scrolling = 'no';
 		document.body.appendChild(iframe);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -60,17 +60,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-			var pms = "?CustomerId=" + this.valueForToken("unidays_customer_id") + "&";
-			pms += "TransactionId=" + this.valueForToken("order_id") + "&";
-			pms += "StudentId=" + this.valueForToken("student_id") + "&";
-			pms += "Currency=" + this.valueForToken("currency") + "&";
-			pms += "OrderTotal=" + this.valueForToken("subtotal") + "&";
-			pms += "DiscountAmount=" + this.valueForToken("discount") + "&";
-			pms += "Code=" + this.valueForToken("unidays_discount_code") + "&";
-			pms += "Signature=" + this.valueForToken("unidays_secret_hash_key");
+		var pms = "?CustomerId=" + this.valueForToken("unidays_customer_id") + "&";
+		pms += "TransactionId=" + this.valueForToken("order_id") + "&";
+		pms += "StudentId=" + this.valueForToken("student_id") + "&";
+		pms += "Currency=" + this.valueForToken("currency") + "&";
+		pms += "OrderTotal=" + this.valueForToken("subtotal") + "&";
+		pms += "DiscountAmount=" + this.valueForToken("discount") + "&";
+		pms += "Code=" + this.valueForToken("unidays_discount_code") + "&";
+		pms += "Signature=" + this.valueForToken("unidays_secret_hash_key");
 
-			(new Image()).src = document.location.protocol +
-				"//tracking.myunidays.com/perks/redemption/v1.0.gif" + pms;
+		(new Image()).src = document.location.protocol +
+			"//tracking.myunidays.com/perks/redemption/v1.0.gif" + pms;
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

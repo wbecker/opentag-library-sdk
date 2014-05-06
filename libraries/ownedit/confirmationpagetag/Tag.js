@@ -103,6 +103,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	post: function() {
 		/*POST*/
 		var _this = this;
+
 		function post_to_owned_it() {
 			var details = {
 				"customer_email": "" + _this.valueForToken("USER_EMAIL"),
@@ -127,6 +128,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 			post_it(details);
 		}
 		onLoadCallBack(post_to_owned_it);
+
 		/*~POST*/
 	}
 });

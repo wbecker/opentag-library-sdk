@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "intelligentreach.confirmationpagetagdeprecated" + "." + tagVersion;
+var classPath = "intelligentreach.confirmationpagetagdeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -83,6 +84,7 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.istUserDefinedFieldThree = "";
 		window.istVoucherCode = this.valueForToken("voucher");
 		window.istLastAffiliateCode = "";
+
 		/*~PRE*/
 	},
 	post: function() {

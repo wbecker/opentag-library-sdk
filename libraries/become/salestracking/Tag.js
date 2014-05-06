@@ -72,7 +72,8 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.pg_order_id = '' + this.valueForToken("order_id");
 		window.pg_cart_value = '' + this.valueForToken("cart_value");
 		window.pg_currency = '' + this.valueForToken("currency");
-		window.pg_customer_flag = this.valueForToken("customer_flag") ? 'old' : 'new';
+		window.pg_customer_flag = this.valueForToken("customer_flag") ? 'old' :
+			'new';
 		window.pg_product_id = '';
 		window.pg_product_name = '';
 		window.pg_product_price = '';
@@ -80,23 +81,24 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		window.pg_cart_size = 0;
 
 		//Build CSVs and get cart size.
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				var tempid = this.valueForToken("product_ids")[i];
-				var tempnm = this.valueForToken("product_names")[i];
-				var temppr = this.valueForToken("product_prices")[i];
-				var tempqt = this.valueForToken("product_qtys")[i];
+		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+			var tempid = this.valueForToken("product_ids")[i];
+			var tempnm = this.valueForToken("product_names")[i];
+			var temppr = this.valueForToken("product_prices")[i];
+			var tempqt = this.valueForToken("product_qtys")[i];
 
-				//Build the cart size sum
-				pg_cart_size += Number(tempqt);
+			//Build the cart size sum
+			pg_cart_size += Number(tempqt);
 
-				//Start each string with a comma, so long as it's not the first.
-				var startString = (i === 0) ? '' : ',';
-				pg_product_id += startString + String(tempid);
-				pg_product_name += startString + String(tempnm);
-				pg_product_price += startString + String(temppr);
-				pg_product_units += startString + String(tempqt);
-			}
-			pg_cart_size = String(pg_cart_size);
+			//Start each string with a comma, so long as it's not the first.
+			var startString = (i === 0) ? '' : ',';
+			pg_product_id += startString + String(tempid);
+			pg_product_name += startString + String(tempnm);
+			pg_product_price += startString + String(temppr);
+			pg_product_units += startString + String(tempqt);
+		}
+		pg_cart_size = String(pg_cart_size);
+
 		/*~PRE*/
 	},
 	post: function() {

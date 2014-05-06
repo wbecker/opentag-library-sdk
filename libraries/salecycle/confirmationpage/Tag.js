@@ -34,17 +34,18 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var src = ['//app.salecycle.com/Import/PixelCapture.aspx?',
-				'c=', '' + this.valueForToken("client_id"),
-				'&e=', '' + this.valueForToken("customer_email"),
-				'&sfs=orderNumber^' + this.valueForToken("order_id")
-			].join('');
-			var img = document.createElement('img');
-			img.setAttribute('src', src);
-			img.width = '1';
-			img.height = '1';
-			img.style.display = 'none';
-			document.body.appendChild(img);
+		var src = ['//app.salecycle.com/Import/PixelCapture.aspx?',
+			'c=', '' + this.valueForToken("client_id"),
+			'&e=', '' + this.valueForToken("customer_email"),
+			'&sfs=orderNumber^' + this.valueForToken("order_id")
+		].join('');
+		var img = document.createElement('img');
+		img.setAttribute('src', src);
+		img.width = '1';
+		img.height = '1';
+		img.style.display = 'none';
+		document.body.appendChild(img);
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

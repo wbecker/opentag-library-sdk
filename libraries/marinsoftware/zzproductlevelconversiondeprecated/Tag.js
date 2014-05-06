@@ -1,6 +1,7 @@
 //:include tagsdk-current.js
 var tagVersion = "";
-var classPath = "marinsoftware.zzproductlevelconversiondeprecated" + "." + tagVersion;
+var classPath = "marinsoftware.zzproductlevelconversiondeprecated" + "." +
+	tagVersion;
 
 qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	config: {
@@ -64,42 +65,43 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			window._mTrack = window._mTrack || [];
+		window._mTrack = window._mTrack || [];
 
-			var items = [];
+		var items = [];
 
-			for (var i = 0; i < this.valueForToken("skus").length; i++) {
-				items.push({
-					orderId: "" + this.valueForToken("order_id"),
-					convType: "" + this.valueForToken("conv_type"),
-					product: this.valueForToken("skus")[i],
-					prices: this.valueForToken("prices")[i],
-					category: this.valueForToken("categories")[i],
-					quantities: this.valueForToken("quantities")[i]
-				});
-			}
+		for (var i = 0; i < this.valueForToken("skus").length; i++) {
+			items.push({
+				orderId: "" + this.valueForToken("order_id"),
+				convType: "" + this.valueForToken("conv_type"),
+				product: this.valueForToken("skus")[i],
+				prices: this.valueForToken("prices")[i],
+				category: this.valueForToken("categories")[i],
+				quantities: this.valueForToken("quantities")[i]
+			});
+		}
 
-			window._mTrack.push(['addTrans', {
-				currency: "" + this.valueForToken("currency"),
-				items: items
-			}]);
+		window._mTrack.push(['addTrans', {
+			currency: "" + this.valueForToken("currency"),
+			items: items
+		}]);
 
-			if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip"))) {
-				window._mTrack.push(['activateAnonymizeIp']);
-			}
+		if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip"))) {
+			window._mTrack.push(['activateAnonymizeIp']);
+		}
 
-			window._mTrack.push(['processOrders']);
+		window._mTrack.push(['processOrders']);
 
-				var mClientId = "" + this.valueForToken("marin_tracking_id");
-				var mProto = ('https:' == document.location.protocol ? 'https://' :
-					'http://');
-				var mHost = 'tracker.marinsm.com';
-				var mt = document.createElement('script');
-				mt.type = 'text/javascript';
-				mt.async = true;
-				mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
-				var fscr = document.getElementsByTagName('script')[0];
-				fscr.parentNode.insertBefore(mt, fscr);
+		var mClientId = "" + this.valueForToken("marin_tracking_id");
+		var mProto = ('https:' == document.location.protocol ? 'https://' :
+			'http://');
+		var mHost = 'tracker.marinsm.com';
+		var mt = document.createElement('script');
+		mt.type = 'text/javascript';
+		mt.async = true;
+		mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+		var fscr = document.getElementsByTagName('script')[0];
+		fscr.parentNode.insertBefore(mt, fscr);
+
 
 		/*~SCRIPT*/
 	},
