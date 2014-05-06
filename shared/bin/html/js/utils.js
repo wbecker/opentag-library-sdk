@@ -172,22 +172,19 @@ function saveNewVersion(refNode) {
   refNode = getLibraryReferenceNode(refNode);
   var tagRef = refNode.reference;
   var versionName =
-          prompt("Please choose a new version name. \n\n" +
-          "System will copy existing library into a new location. " +
-          "\nNew location will be the current library directory.\n\n" + 
-          "Example: v10\n\n");
+            prompt("Please enter the name of the new version, eg 'v1'.\n\n");
   
   if (!versionName) {
     return;
   }
   
   versionName = classPath(versionName);
-  var proceed = confirm(
+  var proceed = true; /*confirm(
         "New library version to be created.\n\n" +
         "Version name: " + versionName + "\n\n" +
         "Location: " + (tagRef.PACKAGE_NAME + "." + versionName)
           .replace(/\./g, "/") +
-        "\n\n\nPlease confirm.\n\n");
+        "\n\n\nPlease confirm.\n\n");*/
   
   if (!proceed) {
     return;
@@ -209,8 +206,6 @@ function saveNewVersion(refNode) {
   });
 }
 
-
-
 function rebuildAndReload() {
   if (window.buildLocationString) {
     var data = "path=" +  encodeURIComponent(window.buildLocationString);
@@ -219,9 +214,8 @@ function rebuildAndReload() {
         logError("Rebuild failed! " + msg);
       } else {
         info("System has been rebuilt for " + window.buildLocationString, 10000);
-        if (confirm("Page will reload - confirm to continue or reload it manually.")) {
-          location.reload();
-        }
+        info("Reloading page.");
+        location.reload();
       }
     });
   }

@@ -69,7 +69,7 @@ var bddSuiteCodeTemplate =
 " * BDD tests are well known unit tests supporting API used by mocha and\n" +
 " * other test runners. Please see more info about how to use them online.\n" +
 " */\n" +
-"var suite = describe(\"when song has been paused\", function() {\n" +
+"var suite = describe(\"firing a tag\", function() {\n" +
 "\n" +
 "  var tag = null;\n" +
 "\n" +
@@ -83,20 +83,20 @@ var bddSuiteCodeTemplate =
 "\n" +
 "  });\n" +
 "\n" +
-"  it(\"shall fail as true is never falsy...\", function() {\n" +
+"  it(\"should fail\", function() {\n" +
 "    expect(true).to.be(false);\n" +
 "  });\n" +
 "\n" +
-"  it(\"it shall not fail as true is naturally true...\", function() {\n" +
+"  it(\"should pass\", function() {\n" +
 "    expect(true).to.be(true);\n" +
 "  });\n" +
 "\n" +
-"  it(\"it will throw an exception...\", function() {\n" +
+"  it(\"should throw an exception\", function() {\n" +
 "    throw \"exception!\";\n" +
 "  });\n" +
 "});\n" +
 "\n" +
-"qubit.opentag.Utils.namespace('_PACKAGE_.local.BDDSuite', suite);";
+"qubit.opentag.Utils.namespace('_PACKAGE_.local.BDDSuite', suite);"
 
 function addEditDescribeTests(node) {
   node = getLibraryReferenceNode(node);
