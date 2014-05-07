@@ -552,10 +552,6 @@ function _loadLibrary(url, index, callback) {
   });
 }
 
-function bodyLoaded () {
-  setTimeout(keepRunningTests, 1000);
-}
-
 function keepRunningTests() {
   if (location.href.indexOf("runTests=true") !== -1) {
     info("Running tests...");
@@ -600,7 +596,6 @@ function listScripts() {
  * 
  * 
  */
-
 window.Main = function () {
   window.qlog = new qconsole();
   window.toggleConsole = function () {
@@ -632,3 +627,10 @@ window.Main = function () {
     maxTime: 4 * 1000
   });
 };
+
+
+/*** ALL READY ***/
+
+function bodyLoaded () {
+  setTimeout(keepRunningTests, 1000);
+}

@@ -82,15 +82,9 @@ java -jar $TOOLS/bin/LibraryWizard.jar  --build $SRC
 # -vv
 
 ##prepare debug page
-#cat $HTML/prefix.html > $HTML/indexplain.html
-#cat $HTML/scripts.htmlf >> $HTML/indexplain.html
-#cat $HTML/body-debug.html >> $HTML/indexplain.html
-#cat $HTML/suffix.html >> $HTML/indexplain.html
-#
-##prepare debug page
 #cat $HTML/prefix.html > $HTML/index.html
 #cat $HTML/scripts.htmlf >> $HTML/index.html
-#cat $HTML/body-tester.html >> $HTML/index.html
+#cat $HTML/body.html >> $HTML/index.html
 #cat $HTML/suffix.html >> $HTML/index.html
 
 

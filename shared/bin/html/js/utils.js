@@ -23,13 +23,37 @@ function toggleShowSibling(start) {
   }
 
   if (next) {
-    if (next.style.display === "none") {
+    var cmEditorAttachedAndHidden =
+            next.cmNode && next.cmNode.style.display === "none";
+    if (cmEditorAttachedAndHidden) {
+      next.cmNode.style.display = "";
+    } else if (!next.cmNode && next.style.display === "none") {
       next.style.display = "";
+      if (next.tagName === "TEXTAREA") {
+        attachEditor(next);
+      }
       fitTextarea(next);
     } else {
       next.style.display = "none";
+      if (next.cmNode) {
+        next.cmNode.style.display = "none";
+      }
     }
   }
+}
+
+function attachEditor(node) {
+  node.cm = CodeMirror.fromTextArea(node, {
+        lineNumbers: true,
+        mode: "javascript",
+        theme: "ambiance",
+        tabMode: "indent",
+        matchBrackets: true
+      });
+  node.cm.on("change", function() {
+    node.value = node.cm.getValue();
+  });
+  node.cmNode = node.nextSibling;
 }
 
 function getParametersAndConfigForTagNode(referencingNode, ignoreRed, paramsOnly) {

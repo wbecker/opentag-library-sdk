@@ -879,3 +879,9 @@ a.plain:hover {background-color:#fcfafa;}
 .html-reporter.showDetails #details,.html-reporter .result-message span.result {
   display:block;
 }
+
+.content-body .CodeMirror {
+  line-height: 1;
+  border: 1px solid rgb(231, 231, 231);
+  margin: 8px;
+}
