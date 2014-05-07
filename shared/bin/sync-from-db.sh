@@ -29,8 +29,7 @@ EXCLUDE=".*/dist.*,.*/build.*"
 echo "================================================================================"
 echo "Vendor: $SRC"
 echo "================================================================================"
-echo "VENDOR: $SRC"
-echo "TAG: $TAG"
+echo "Tags: $TAG"
 
 
 #build output with all dependencies
