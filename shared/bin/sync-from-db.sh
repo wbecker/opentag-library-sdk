@@ -33,7 +33,7 @@ echo "Tags: $TAG"
 
 
 #build output with all dependencies
-java -jar shared/bin/LibraryManager.jar \
+java -jar shared/bin/lib/LibraryManager.jar \
  --libraries-dir "libraries" \
  --sync-from-database \
  --template "shared/template" \
