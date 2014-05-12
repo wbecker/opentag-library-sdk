@@ -39,4 +39,5 @@ java -jar shared/bin/lib/LibraryManager.jar \
  --formatted \
  --vendors "$SRC" \
  --tags "$TAG"\
- -v
+ -v\
+ --logo

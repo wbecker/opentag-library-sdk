@@ -38,7 +38,9 @@ java -jar shared/bin/lib/LibraryManager.jar \
  --sync-from-database \
  --template "shared/template" \
  --formatted \
+ --logo\
  --vendors "$SRC" \
  --tags "$TAG"\
+ -v
 
 
