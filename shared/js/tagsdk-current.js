@@ -963,35 +963,42 @@ var UNDEF = undefined;
     return c = xconsole;
   };
   
-  /**
+  /*
    * @protected
    * Print method.
    * Override this method if you prefer different logging output.
    * By default all messages are redirected to console.
-   * This method is used by all logging methods as final output.
    * 
-   * @param {String} message Message to be logged. 
+   * This method is used by all logging methods as final output.
+   * @param {type} message
+   * @param {type} style
+   * @param {type} type
+   * @param {type} level
+   * @returns {undefined}
    */
   Log.prototype.print = function (message, style, type, level) {
     //pre-eliminary step
     if (level !== undefined && Log.LEVEL < level) {
       return;
     }
-    
-    if (c && c.log) {
-      if (style && Log.isStyleSupported()){
-        try{
-          c[type]("%c" + message, style);
-        } catch (ex) {
-          c.log("%c" + message, style);
-        }
-      } else {
-        try{
-          c[type](message);
-        } catch (ex) {
-          c.log(message);
+    try {
+      if (c && c.log) {
+        if (style && Log.isStyleSupported()){
+          if (type && c[type]) {
+            c[type]("%c" + message, style);
+          } else {
+            c.log("%c" + message, style);
+          }
+        } else {
+          if (type && c[type]) {
+            c[type](message);
+          } else {
+            c.log(message);
+          }
         }
       }
+    } catch (ex) {
+      //swollow...
     }
   };
   
@@ -1024,7 +1031,7 @@ var UNDEF = undefined;
   };
   
   /**
-   * 
+   * Clears console and the logs collection.
    */
   Log.clearAllLogs = function () {
     try {
@@ -1550,7 +1557,6 @@ q.html.fileLoader.tidyUrl = function (path) {
 
 (function () {
   var Utils = qubit.opentag.Utils;
-  var log = new qubit.opentag.Log("BaseFilter -> ");
   var counter = 0;
   /**
    * 
@@ -1561,6 +1567,11 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @param config {Object} config object used to build instance
    */
   function BaseFilter (config) {
+    /*log*/
+    this.log = new qubit.opentag.Log("", function () {
+      return this.CLASS_NAME + "[" + this.uniqueId + "]";
+    }.bind(this), "collectLogs");
+    /*~log*/
     this.config = {
       /**
        * @cfg order
@@ -1587,13 +1598,13 @@ q.html.fileLoader.tidyUrl = function (path) {
         }
       }
     }
-    //dummy log
-    this.log = log;//L
   }
   
   BaseFilter.prototype.CLASS_NAME = "BaseFilter";
   BaseFilter.prototype.PACKAGE_NAME = "qubit.opentag.filter";
   
+  //this.status value higher than 0 is used to distinqt delayed filters.
+  //the positive value says how often in ms it is checked.
   BaseFilter.status = {
     DISABLED: -2,
     PASS: -1, //positive numbers are used for timeout
@@ -2191,18 +2202,12 @@ q.html.HtmlInjector.getAttributes = function (node) {
     
     /*log*/
     //Add for all detailed logger and collector
-    var log = new qubit.opentag.Log("", function () {
-      return this.CLASS_NAME + "[" + this.config.name + "]";
-    }.bind(this));
-    
-    log.print = function (message, style, plain, type) {
-      qubit.opentag.Log.prototype.print.apply(log, arguments);
-      this.logs.push(message);
-    }.bind(this);
-    
-    this.log = log;
-    this.logs = [];
+    this.log = new qubit.opentag.Log("", function () {
+      return this.CLASS_NAME + "[" + this.uniqueId + "]";
+    }.bind(this), "collectLogs");
     /*~log*/
+    
+    this.parameter = null;
     
     if (config) {
       this.uniqueId = "BV" + BV_COUNTER++;
@@ -2219,15 +2224,56 @@ q.html.HtmlInjector.getAttributes = function (node) {
       if (config.defaultValue !== undefined) {
         this.defaultValue = config.defaultValue;
       }
+      
+      var ret = BaseVariable.register(this);
+      if (ret && ret !== this) {
+        ret.log.FINEST("Variable config already registered.");
+        ret.log.FINEST("Returning existing one.");
+      }
+      return ret;
+      //return this or an existing configuration
     }
-    
-    this.parameter = null;
   }
   
   BaseVariable.ALL_VARIABLES = {};
   
   BaseVariable.prototype.CLASS_NAME = "BaseVariable";
   BaseVariable.prototype.PACKAGE_NAME = "qubit.opentag.pagevariable";
+  
+  BaseVariable.pageVariables = [];
+
+  /**
+   * @static
+   * @param {type} config
+   */
+  BaseVariable.register = function (variable) {
+    if (variable instanceof BaseVariable) {
+      for (var i = 0; i < BaseVariable.pageVariables.length; i++) {
+        var regVar = BaseVariable.pageVariables[i];
+        if ((variable.constructor === regVar.constructor) &&
+                (propertiesMatch(regVar.config, variable.config))) {
+          return regVar;//exit
+        }
+      }
+      BaseVariable.pageVariables.push(variable);
+      return variable;
+    }
+    return null;
+  };
+  
+  function propertiesMatch(cfg, ccfg) {
+    for (var cprop in ccfg) {
+      var value = ccfg[cprop];
+      for (var prop in cfg) {
+        if (cfg.hasOwnProperty(prop)) {
+          if (cfg[prop] !== value) {
+            return false;
+          }
+        } 
+      }
+    }
+    return true;
+  }
   
   /**
    * BaseVariable returns exactly whats set.
@@ -3079,16 +3125,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   function GenericLoader(config) {
     /*log*/
     //advanced logger section for tag
-    var log = new qubit.opentag.Log("", function () {
-      return this.CLASS_NAME + "[" + this.config.name + "]";
-    }.bind(this), "collectLogs");
-    
     /**
      * Dedicated logger. It collects plenty of useful information about startup
      * and execution. See qubit.opentag.Log for Log API.
      * @property {qubit.opentag.Log}
      */
-    this.log = log;
+    this.log = new qubit.opentag.Log("", function () {
+      return this.CLASS_NAME + "[" + this.config.name + "]";
+    }.bind(this), "collectLogs");
     /*~log*/
     
     this.urlsLoaded = 0;
@@ -3269,8 +3313,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       success = true;
       this.log.INFO("executed without errors.");
     } catch (ex) {
-      this.log.INFO("error while executing: " + ex);
-      this.log.ERROR("There was and error while executing instance of tag: "
+      this.setStatus("EXECUTED_WITH_ERRORS");
+      this.log.ERROR("Error while executing: " + ex);
+      this.log.ERROR("There was an error while executing instance of tag: "
               + this.CLASS_NAME + " from package: " + this.PACKAGE_NAME);//L
       this.log.ERROR(ex, true);
     } finally {
@@ -3663,12 +3708,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     LOADING_URL: 8,
     LOADED_URL: 16,
     EXECUTED: 32,
-    FILTERS_FAILED: 64,
-    FAILED_TO_LOAD_DEPENDENCIES: 128,
-    FAILED_TO_LOAD_URL: 256,
-    FAILED_TO_EXECUTE: 512,
-    TIMED_OUT: 1024,
-    UNEXPECTED_FAIL: 2048
+    EXECUTED_WITH_ERRORS: 64,
+    FILTERS_FAILED: 128,
+    FAILED_TO_LOAD_DEPENDENCIES: 256,
+    FAILED_TO_LOAD_URL: 512,
+    FAILED_TO_EXECUTE: 1024,
+    TIMED_OUT: 2048,
+    UNEXPECTED_FAIL: 4096
   };
   
   /**
@@ -3976,6 +4022,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           if (callback) {
             callback(true);
           }
+        } catch (ex) {
+          this.log.ERROR("Callback error:" + ex);
         } finally {
           this.onScriptsLoadSuccess();
         }
@@ -3988,6 +4036,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           if (callback) {
             callback(false);
           }
+        } catch (ex) {
+          this.log.ERROR("Callback error:" + ex);
         } finally {
           this.onScriptLoadError();
         }
@@ -4276,7 +4326,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.setStatus("INITIAL");
 
       try {
-        BaseTag.registerTag(this);
+        BaseTag.register(this);
       } catch (ex) {
         this.log.WARN("Problem with registering tag " + this.config.name);
         this.log.WARN(ex, true);
@@ -4430,12 +4480,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     LOADING_URL: 16,
     LOADED_URL: 32,
     EXECUTED: 64,
-    FILTERS_FAILED: 128,
-    FAILED_TO_LOAD_DEPENDENCIES: 256,
-    FAILED_TO_LOAD_URL: 512,
-    FAILED_TO_EXECUTE: 1024,
-    TIMED_OUT: 2048,
-    UNEXPECTED_FAIL: 4096
+    EXECUTED_WITH_ERRORS: 128,
+    FILTERS_FAILED: 256,
+    FAILED_TO_LOAD_DEPENDENCIES: 512,
+    FAILED_TO_LOAD_URL: 1024,
+    FAILED_TO_EXECUTE: 2048,
+    TIMED_OUT: 4096,
+    UNEXPECTED_FAIL: 2*4096
   };
   
   /**
@@ -4478,10 +4529,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     if (this.status & s.EXECUTED)
         this.statusStack.push(
                 "Main script has been executed.");
+
+    if (this.status & s.EXECUTED_WITH_ERRORS)
+        this.statusStack.push(
+                "Main script has been executed but errors occured.");
         
     if (this.status & s.FILTER_ACTIVE)
         this.statusStack
-              .push("Tag running for filters triggered.");
+              .push("Tag running if filters pass triggered.");
       
     if (this.status & s.FAILED_TO_LOAD_DEPENDENCIES)
         this.statusStack.push(
@@ -4734,7 +4789,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * Method used to register a qubit.opentag.BaseTag
    * @param {type} tag
    */
-  BaseTag.registerTag = function (tag) {
+  BaseTag.register = function (tag) {
     log.FINEST("registering tag named \"" +
             tag.config.name + "\", instance of:");//L
     log.FINEST(tag, true);
@@ -4749,8 +4804,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     }
   };
   
-  BaseTag.prototype.unregister = function () {
-    BaseTag.unregisterTag(this);
+  BaseTag.prototype.unregister = function (ref) {
+    BaseTag.unregister(ref || this);
   };
   
   /**
@@ -4758,7 +4813,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param {type} tag
    * @returns {undefined}
    */
-  BaseTag.unregisterTag = function (tag) {
+  BaseTag.unregister = function (tag) {
     log.FINEST("Un-registering tag named \"" +
             tag.config.name + "\", instance of:");//L
     log.FINEST(tag, true);
@@ -4820,7 +4875,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param param {Object}
    */
   BaseTag.prototype.getVariableForParameter = function(param) {
-    return TagHelper.getVariableForParameter(param);
+    var variable = TagHelper.getVariableForParameter(param);
+    return variable;
   };
   
   Utils.namespace("qubit.opentag.BaseTag", BaseTag);
@@ -5886,13 +5942,10 @@ var JSON = {};
    */
   function Container (config) {
     this.runQueue = [];
-    
     /*log*/
-    var log = new qubit.opentag.Log("", function () {
+    this.log = new qubit.opentag.Log("", function () {
       return this.CLASS_NAME + "[" + this.config.name + "]";
     }.bind(this), true);
-    
-    this.log = log;
     /*~log*/
     
     /**
@@ -5900,7 +5953,6 @@ var JSON = {};
      * @property {Map<qubit.opentag.BaseTag>}
      */
     this.tags = {};
-    this.pageVariables = [];
 
     this.config = {/*CFG*/
       /**
@@ -5981,7 +6033,7 @@ var JSON = {};
       this.isTellingLoadTimes =
           this.config.tellLoadTimesProbability > Math.random();
 
-      Container.registerContainer(this);
+      Container.register(this);
       this.log.FINE("container registered.");
       /*no-send*/
       this.ping = new qubit.opentag.Ping(this.config);
@@ -6005,12 +6057,12 @@ var JSON = {};
    * @static
    * @param {type} ref
    */
-  Container.registerContainer = function (ref) {
+  Container.register = function (ref) {
     Utils.addToArrayIfNotExist(containers, ref);
   };
 
   Container.prototype.unregister = function () {
-    Container.unregisterContainer(this);
+    Container.unregister(this);
   };
 
   /**
@@ -6018,7 +6070,7 @@ var JSON = {};
    * @param {type} ref
    * @returns {undefined}
    */
-  Container.unregisterContainer = function (ref) {
+  Container.unregister = function (ref) {
     Utils.addToArrayIfNotExist(containers, ref);
     log.FINEST("Un-registering container named \"" +
             ref.config.name + "\", instance of:");//L
@@ -6038,10 +6090,12 @@ var JSON = {};
   };
 
   /**
-   *  Registering container function. Same as `Container.registerContainer`.
+   *  Registering container function. Same as `Container.register`.
    * @param {type} ref
    */
-  Container.prototype.registerContainer = Container.registerContainer;
+  Container.prototype.register = function (ref) {
+    Container.register(ref || this);
+  };
 
   /**
    * @param {type} ref
@@ -6243,7 +6297,7 @@ var JSON = {};
       var results = this.getAllTagsByState();
       var awaitingLen = results.awaiting === null ?
                                   0 : Utils.keys(results.awaiting).length;
-      var styling =  " ;color: #0F7600;font-si_waitForAllTagsToFinishWaitingze: 12px;font-weight:bold; ";
+      var styling = " ;color: #0F7600;font-size: 12px;font-weight:bold; ";
 
       this.log.INFO("********************************************************",
         0, styling);
@@ -6513,20 +6567,22 @@ var JSON = {};
   };
   
   /**
-   * 
-   * @param {type} configs
+   * Returns all variables associated with this container.
+   * @param {type} config
    */
-  Container.prototype.addPageVariables = function (configs) {
-    for (var i = 0; i < configs.length; i++) {
-      if (configs[i] instanceof BaseVariable) {
-        this.pageVariables.push(configs[i]);
-      } else {
-        this.pageVariables.push(new BaseVariable(configs[i]));
+  Container.prototype.getPageVariables = function () {
+    var variables = [];
+    for (var i = 0; i < this.tags.length; i++) {
+      //take each tags parameters
+      var variables = this.tags[i].getPageVariables();
+      for (var j = 0; j < variables.length; j++) {
+        //for each parameter, get variable instance if not added already
+        var variable = variables[j];
+        Utils.addToArrayIfNotExist(variables, variable);
       }
     }
+    return variables;
   };
-  
-  
   
   /**
    * Gets this container related page variables.
@@ -6569,6 +6625,47 @@ var JSON = {};
 
   Utils.namespace("qubit.opentag.Container", Container);
 })();
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  
+  /**
+   * Class representing a custom tag type. It inherits all default behaviour
+   * from BaseTag.
+   * 
+   * ## How to implement basic tag.
+   * 
+   * 
+   * See opentag.qubit.BaseTag-cfg for more details on config object.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.CustomTag
+   * @extends qubit.opentag.BaseTag
+   * @param config {Object} config object used to build instance
+   */
+  function CustomTag(config) {
+    
+    var defaults = {
+      url: null,
+      html: "",
+      location: "beggining",
+      locationObject: "body"
+    };
+    
+    Utils.setIfUnset(config, defaults);
+    
+    CustomTag.superclass.call(this, config);
+  }
+  
+  CustomTag.superclass = qubit.opentag.BaseTag;
+  CustomTag.prototype = new CustomTag.superclass();
+  CustomTag.prototype.CLASS_NAME = "CustomTag";
+  
+  Utils.namespace("qubit.opentag.CustomTag", CustomTag);
+}());
 
 
 
@@ -6818,9 +6915,7 @@ var JSON = {};
   var BaseFilter = qubit.opentag.filter.BaseFilter;
   var Timed = qubit.opentag.Timed;
   var PatternType = qubit.opentag.filter.pattern.PatternType;
-  
-  var log = new qubit.opentag.Log("URLFilter -> ");
-  
+    
   /**
    * URLFilter filter type.
    * 
@@ -6855,8 +6950,6 @@ var JSON = {};
     }
     
     URLFilter.superclass.call(this, defaultConfig);
-
-    this.log = log;//L
   }
   
   URLFilter.superclass = BaseFilter;
@@ -6925,7 +7018,6 @@ var counter = 0;
 (function () {
   var Utils = qubit.opentag.Utils;
   var BaseFilter = qubit.opentag.filter.BaseFilter;
-  var log = new qubit.opentag.Log("SessionVariable -> ");
 
   /**
    * SessionVariable filter type.
@@ -6978,7 +7070,6 @@ var counter = 0;
     }
     
     SessionVariableFilter.superclass.call(this, defaultConfig);
-    this.log = log;//L
   }
   
   SessionVariableFilter.superclass = BaseFilter;
@@ -7049,7 +7140,8 @@ var counter = 0;
         }
       }
     }
-  
+    
+    this.lastState = pass;
     return pass;
   };
   
@@ -7184,7 +7276,7 @@ var counter = 0;
           locationObject: location,
           async: loader.async,
           needsConsent: loader.needsConsent,
-          usesDocWrite: loader.usesDocWrite,
+          usesDocumentWrite: loader.usesDocWrite,
           genericDependencies: loader.genericDependencies
         };
         
@@ -7424,44 +7516,3 @@ var counter = 0;
 
   Utils.namespace("qubit.opentag.OldTagRunner", OldTagRunner);
 })();
-
-
-
-(function () {
-  var Utils = qubit.opentag.Utils;
-  
-  /**
-   * Class representing a custom tag type. It inherits all default behaviour
-   * from BaseTag.
-   * 
-   * ## How to implement basic tag.
-   * 
-   * 
-   * See opentag.qubit.BaseTag-cfg for more details on config object.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.opentag.CustomTag
-   * @extends qubit.opentag.BaseTag
-   * @param config {Object} config object used to build instance
-   */
-  function CustomTag(config) {
-    
-    var defaults = {
-      url: null,
-      html: "",
-      location: "beggining",
-      locationObject: "body"
-    };
-    
-    Utils.setIfUnset(config, defaults);
-    
-    CustomTag.superclass.call(this, config);
-  }
-  
-  CustomTag.superclass = qubit.opentag.BaseTag;
-  CustomTag.prototype = new CustomTag.superclass();
-  CustomTag.prototype.CLASS_NAME = "CustomTag";
-  
-  Utils.namespace("qubit.opentag.CustomTag", CustomTag);
-}());
