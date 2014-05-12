@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "socketio.socketio070" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("socketio.socketio070.Tag", {
 	config: {
 		/*DATA*/
 		name: "socket.io 0.7.0",

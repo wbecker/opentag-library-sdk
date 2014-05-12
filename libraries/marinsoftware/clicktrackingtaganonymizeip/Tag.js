@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "marinsoftware.clicktrackingtaganonymizeip" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtaganonymizeip.Tag", {
 	config: {
 		/*DATA*/
 		name: "Click Tracking Tag - Anonymize IP",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "facebook.facebookpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("facebook.facebookpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Facebook Pixel",

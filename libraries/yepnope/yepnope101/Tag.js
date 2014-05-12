@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "yepnope.yepnope101" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("yepnope.yepnope101.Tag", {
 	config: {
 		/*DATA*/
 		name: "yepnope 1.0.1",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "marinsoftware.basicconversionanonymizeip" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("marinsoftware.basicconversionanonymizeip.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basic Conversion - Anonymize IP",

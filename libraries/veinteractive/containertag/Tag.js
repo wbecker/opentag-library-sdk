@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "veinteractive.containertag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("veinteractive.containertag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Container Tag",

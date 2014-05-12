@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "matiro.matirotag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("matiro.matirotag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Matiro Tag",

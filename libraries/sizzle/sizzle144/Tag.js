@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sizzle.sizzle144" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sizzle.sizzle144.Tag", {
 	config: {
 		/*DATA*/
 		name: "sizzle 1.4.4",

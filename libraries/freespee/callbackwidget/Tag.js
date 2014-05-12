@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "freespee.callbackwidget" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("freespee.callbackwidget.Tag", {
 	config: {
 		/*DATA*/
 		name: "CallBack Widget",

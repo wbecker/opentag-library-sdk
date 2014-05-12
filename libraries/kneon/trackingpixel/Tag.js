@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "kneon.trackingpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("kneon.trackingpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Tracking Pixel",

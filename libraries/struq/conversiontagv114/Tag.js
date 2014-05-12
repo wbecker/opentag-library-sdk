@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "struq.conversiontagv114" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("struq.conversiontagv114.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tag v1.14",

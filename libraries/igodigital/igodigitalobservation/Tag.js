@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "igodigital.igodigitalobservation" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.Tag", {
 	config: {
 		/*DATA*/
 		name: "iGoDigital Observation",

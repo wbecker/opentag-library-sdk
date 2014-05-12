@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adgear.confirmationpageconversionpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Conversion Pixel",

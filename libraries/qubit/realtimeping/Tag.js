@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "qubit.realtimeping" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("qubit.realtimeping.Tag", {
 	config: {
 		/*DATA*/
 		name: "Realtime Ping",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "drawbridge.crossdevicepixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("drawbridge.crossdevicepixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Cross Device Pixel",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "webtrends.webtrendsecommercetracking" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.Tag", {
 	config: {
 		/*DATA*/
 		name: "Webtrends - Ecommerce tracking",

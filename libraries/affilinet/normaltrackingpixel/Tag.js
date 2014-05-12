@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "affilinet.normaltrackingpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Normal Tracking Pixel",

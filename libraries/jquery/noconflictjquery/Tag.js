@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "jquery.noconflictjquery" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("jquery.noconflictjquery.Tag", {
 	config: {
 		/*DATA*/
 		name: "Noconflict jQuery",

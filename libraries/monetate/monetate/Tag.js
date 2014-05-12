@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "monetate.monetate" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("monetate.monetate.Tag", {
 	config: {
 		/*DATA*/
 		name: "Monetate",

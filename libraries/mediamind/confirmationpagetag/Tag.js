@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediamind.confirmationpagetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediamind.confirmationpagetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Tag",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "veinteractive.confirmationpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("veinteractive.confirmationpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Pixel",

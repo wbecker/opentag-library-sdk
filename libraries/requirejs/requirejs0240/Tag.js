@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "requirejs.requirejs0240" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("requirejs.requirejs0240.Tag", {
 	config: {
 		/*DATA*/
 		name: "require.js 0.24.0",

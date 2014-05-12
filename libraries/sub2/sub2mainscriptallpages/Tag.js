@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sub2.sub2mainscriptallpages" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.Tag", {
 	config: {
 		/*DATA*/
 		name: "Sub2 - Main Script - All Pages",

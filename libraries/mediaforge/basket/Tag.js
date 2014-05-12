@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediaforge.basket" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediaforge.basket.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basket",

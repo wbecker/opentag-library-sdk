@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "qubit.georequest" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("qubit.georequest.Tag", {
 	config: {
 		/*DATA*/
 		name: "Geo Request",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "qubit.supertag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("qubit.supertag.Tag", {
 	config: {
 		/*DATA*/
 		name: "SuperTag",

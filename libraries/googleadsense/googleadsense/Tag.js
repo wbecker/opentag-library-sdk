@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "googleadsense.googleadsense" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("googleadsense.googleadsense.Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Adsense",

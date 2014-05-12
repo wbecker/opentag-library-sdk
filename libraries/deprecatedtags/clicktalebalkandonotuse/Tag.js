@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "deprecatedtags.clicktalebalkandonotuse" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.Tag", {
 	config: {
 		/*DATA*/
 		name: "ClickTale - balkan - donotuse",

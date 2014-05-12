@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "criteo.onetagconfirmation" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.Tag", {
 	config: {
 		/*DATA*/
 		name: "OneTag - Confirmation",

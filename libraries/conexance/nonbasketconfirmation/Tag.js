@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "conexance.nonbasketconfirmation" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.Tag", {
 	config: {
 		/*DATA*/
 		name: "Non basket/confirmation",

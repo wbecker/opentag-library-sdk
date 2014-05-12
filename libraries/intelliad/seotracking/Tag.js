@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "intelliad.seotracking" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("intelliad.seotracking.Tag", {
 	config: {
 		/*DATA*/
 		name: "SEO Tracking",

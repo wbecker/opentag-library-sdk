@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "dojo.dojo160" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("dojo.dojo160.Tag", {
 	config: {
 		/*DATA*/
 		name: "Dojo 1.6.0",

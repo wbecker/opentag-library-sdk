@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "netbooster.remarketingpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("netbooster.remarketingpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Re-Marketing Pixel",

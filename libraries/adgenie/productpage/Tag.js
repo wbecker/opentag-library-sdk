@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adgenie.productpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adgenie.productpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Product Page",

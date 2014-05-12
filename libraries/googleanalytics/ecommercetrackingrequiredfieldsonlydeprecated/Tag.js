@@ -1,100 +1,97 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "googleanalytics.ecommercetrackingrequiredfieldsonlydeprecated" +
-	"." +
-	tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
-	config: {
-		/*DATA*/
-		name: "E-Commerce Tracking (Required Fields Only) DEPRECATED",
-		async: true,
-		description: "Before Google Analytics can report ecommerce activity for your website, you must enable ecommerce tracking on the profile settings page for your website.",
-		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
-		locationDetail: "",
-		isPrivate: false,
-		url: "",
-		usesDocWrite: false,
-		parameters: [{
-			name: "Profile ID",
-			description: "",
-			token: "PROFILE_ID",
-			uv: ""
-		}, {
-			name: "Order ID",
-			description: "",
-			token: "orderId",
-			uv: "universal_variable.transaction.order_id"
-		}, {
-			name: "Order Total",
-			description: "",
-			token: "orderTotal",
-			uv: "universal_variable.transaction.total"
-		}, {
-			name: "Product SKU List",
-			description: "",
-			token: "itemSkus",
-			uv: "universal_variable.transaction.line_items[#].product.sku_code"
-		}, {
-			name: "Product Unit Price List",
-			description: "",
-			token: "itemUnitPrices",
-			uv: "universal_variable.transaction.line_items[#].product.unit_price"
-		}, {
-			name: "Product Quantity List",
-			description: "",
-			token: "itemQuantities",
-			uv: "universal_variable.transaction.line_items[#].quantity"
-		}]
-		/*~DATA*/
-	},
-	script: function() {
-		/*SCRIPT*/
+qubit.opentag.LibraryTag.define(
+	"googleanalytics.ecommercetrackingrequiredfieldsonlydeprecated.Tag", {
+		config: {
+			/*DATA*/
+			name: "E-Commerce Tracking (Required Fields Only) DEPRECATED",
+			async: true,
+			description: "Before Google Analytics can report ecommerce activity for your website, you must enable ecommerce tracking on the profile settings page for your website.",
+			html: "",
+			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+			locationDetail: "",
+			isPrivate: false,
+			url: "",
+			usesDocWrite: false,
+			parameters: [{
+				name: "Profile ID",
+				description: "",
+				token: "PROFILE_ID",
+				uv: ""
+			}, {
+				name: "Order ID",
+				description: "",
+				token: "orderId",
+				uv: "universal_variable.transaction.order_id"
+			}, {
+				name: "Order Total",
+				description: "",
+				token: "orderTotal",
+				uv: "universal_variable.transaction.total"
+			}, {
+				name: "Product SKU List",
+				description: "",
+				token: "itemSkus",
+				uv: "universal_variable.transaction.line_items[#].product.sku_code"
+			}, {
+				name: "Product Unit Price List",
+				description: "",
+				token: "itemUnitPrices",
+				uv: "universal_variable.transaction.line_items[#].product.unit_price"
+			}, {
+				name: "Product Quantity List",
+				description: "",
+				token: "itemQuantities",
+				uv: "universal_variable.transaction.line_items[#].quantity"
+			}]
+			/*~DATA*/
+		},
+		script: function() {
+			/*SCRIPT*/
 
-		window._gaq = window._gaq || [];
-		_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
-		_gaq.push(['_trackPageview']);
+			window._gaq = window._gaq || [];
+			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
+			_gaq.push(['_trackPageview']);
 
-		_gaq.push(['_addTrans',
-			'' + this.valueForToken("orderId"),
-			'',
-			'' + this.valueForToken("orderTotal"),
-			'',
-			'',
-			'',
-			'',
-			''
-		]);
-		var i, ii;
-		for (i = 0, ii = this.valueForToken("itemSkus").length; i < ii; i += 1) {
-			_gaq.push(['_addItem',
+			_gaq.push(['_addTrans',
 				'' + this.valueForToken("orderId"),
-				this.valueForToken("itemSkus")[i],
-				'N/A',
 				'',
-				this.valueForToken("itemUnitPrices")[i],
-				this.valueForToken("itemQuantities")[i]
+				'' + this.valueForToken("orderTotal"),
+				'',
+				'',
+				'',
+				'',
+				''
 			]);
+			var i, ii;
+			for (i = 0, ii = this.valueForToken("itemSkus").length; i < ii; i += 1) {
+				_gaq.push(['_addItem',
+					'' + this.valueForToken("orderId"),
+					this.valueForToken("itemSkus")[i],
+					'N/A',
+					'',
+					this.valueForToken("itemUnitPrices")[i],
+					this.valueForToken("itemQuantities")[i]
+				]);
+			}
+			_gaq.push(['_trackTrans']);
+
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+				'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+
+			/*~SCRIPT*/
+		},
+		pre: function() {
+			/*PRE*/
+			/*~PRE*/
+		},
+		post: function() {
+			/*POST*/
+			/*~POST*/
 		}
-		_gaq.push(['_trackTrans']);
-
-		var ga = document.createElement('script');
-		ga.type = 'text/javascript';
-		ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
-			'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(ga, s);
-
-		/*~SCRIPT*/
-	},
-	pre: function() {
-		/*PRE*/
-		/*~PRE*/
-	},
-	post: function() {
-		/*POST*/
-		/*~POST*/
-	}
-});
+	});

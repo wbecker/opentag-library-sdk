@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "steelhouse.trackingpixelproductpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("steelhouse.trackingpixelproductpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Tracking Pixel - Product Page",

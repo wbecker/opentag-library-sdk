@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "peerius.basketpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("peerius.basketpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basket Page",

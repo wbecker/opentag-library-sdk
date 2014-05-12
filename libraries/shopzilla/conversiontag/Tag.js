@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "shopzilla.conversiontag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("shopzilla.conversiontag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tag",

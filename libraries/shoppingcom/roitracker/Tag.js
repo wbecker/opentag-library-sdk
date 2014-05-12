@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "shoppingcom.roitracker" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("shoppingcom.roitracker.Tag", {
 	config: {
 		/*DATA*/
 		name: "ROI Tracker",

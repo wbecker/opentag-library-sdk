@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "qubit.uvapichangelistener" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("qubit.uvapichangelistener.Tag", {
 	config: {
 		/*DATA*/
 		name: "UV API - change listener",

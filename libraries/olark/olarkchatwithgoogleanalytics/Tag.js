@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "olark.olarkchatwithgoogleanalytics" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.Tag", {
 	config: {
 		/*DATA*/
 		name: "Olark Chat with Google Analytics",

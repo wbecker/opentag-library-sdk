@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mythings.confirmationtaginactive" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag - INACTIVE",

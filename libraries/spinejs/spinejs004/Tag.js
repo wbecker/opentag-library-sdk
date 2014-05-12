@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "spinejs.spinejs004" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("spinejs.spinejs004.Tag", {
 	config: {
 		/*DATA*/
 		name: "spinejs 0.0.4",

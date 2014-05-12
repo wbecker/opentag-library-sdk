@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "qubit.uvtrackaddingnewevents" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("qubit.uvtrackaddingnewevents.Tag", {
 	config: {
 		/*DATA*/
 		name: "UV - track adding new events",

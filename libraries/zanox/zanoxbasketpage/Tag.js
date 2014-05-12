@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "zanox.zanoxbasketpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Zanox Basket Page",

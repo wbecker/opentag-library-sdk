@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "stylefruits.confirmationpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Pixel",

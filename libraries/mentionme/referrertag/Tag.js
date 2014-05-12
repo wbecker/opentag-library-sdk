@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mentionme.referrertag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mentionme.referrertag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Referrer Tag",

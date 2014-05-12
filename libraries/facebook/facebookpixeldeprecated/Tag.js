@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "facebook.facebookpixeldeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("facebook.facebookpixeldeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "Facebook Pixel [DEPRECATED]",

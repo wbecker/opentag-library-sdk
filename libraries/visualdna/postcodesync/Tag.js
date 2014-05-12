@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "visualdna.postcodesync" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("visualdna.postcodesync.Tag", {
 	config: {
 		/*DATA*/
 		name: "Postcode Sync",

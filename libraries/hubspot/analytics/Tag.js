@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "hubspot.analytics" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("hubspot.analytics.Tag", {
 	config: {
 		/*DATA*/
 		name: "Analytics",

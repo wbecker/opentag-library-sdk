@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "chango.conversionpixelv2" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("chango.conversionpixelv2.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Pixel [v2]",

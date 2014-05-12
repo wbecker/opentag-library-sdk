@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adobesitecatalyst.sitecatalystcustomtag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystcustomtag.Tag", {
 	config: {
 		/*DATA*/
 		name: "SiteCatalyst Custom Tag",

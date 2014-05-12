@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "kenshoo.orderpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("kenshoo.orderpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Order Pixel",

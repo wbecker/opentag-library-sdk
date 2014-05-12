@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "jquery.asynchronous" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("jquery.asynchronous.Tag", {
 	config: {
 		/*DATA*/
 		name: "Asynchronous",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "responsys.riconversiontrackingdeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("responsys.riconversiontrackingdeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "RI Conversion Tracking [DEPRECATED]",

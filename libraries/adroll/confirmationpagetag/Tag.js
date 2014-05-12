@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adroll.confirmationpagetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page Tag",

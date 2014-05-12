@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "google.googleadwordsconversionasync" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.Tag", {
 	config: {
 		/*DATA*/
 		name: "Google AdWords Conversion Async",

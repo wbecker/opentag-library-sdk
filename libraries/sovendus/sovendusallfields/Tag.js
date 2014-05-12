@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sovendus.sovendusallfields" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.Tag", {
 	config: {
 		/*DATA*/
 		name: "Sovendus [All Fields]",

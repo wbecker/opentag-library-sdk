@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sammy.sammyjs063" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sammy.sammyjs063.Tag", {
 	config: {
 		/*DATA*/
 		name: "sammy.js 0.6.3",

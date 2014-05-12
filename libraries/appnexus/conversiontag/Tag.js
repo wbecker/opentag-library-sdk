@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "appnexus.conversiontag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("appnexus.conversiontag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tag",

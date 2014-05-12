@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "criteo.legacylistingpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("criteo.legacylistingpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Legacy - Listing Page",

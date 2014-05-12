@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "bizrate.bizratenonbuyersurvey" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("bizrate.bizratenonbuyersurvey.Tag", {
 	config: {
 		/*DATA*/
 		name: "BizRate Non-Buyer Survey",

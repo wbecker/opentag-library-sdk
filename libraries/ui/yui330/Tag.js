@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "ui.yui330" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("ui.yui330.Tag", {
 	config: {
 		/*DATA*/
 		name: "YUI 3.3.0",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "rocketfuel.conversionpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Pixel",

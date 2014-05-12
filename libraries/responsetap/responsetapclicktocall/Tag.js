@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "responsetap.responsetapclicktocall" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.Tag", {
 	config: {
 		/*DATA*/
 		name: "Response Tap Click to Call",

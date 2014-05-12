@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediaplex.znotneeded" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediaplex.znotneeded.Tag", {
 	config: {
 		/*DATA*/
 		name: "z Not Needed",

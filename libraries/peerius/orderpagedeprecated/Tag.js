@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "peerius.orderpagedeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "Order Page DEPRECATED",

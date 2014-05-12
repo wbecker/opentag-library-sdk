@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "salecycle.genericmobile" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("salecycle.genericmobile.Tag", {
 	config: {
 		/*DATA*/
 		name: "Generic [Mobile]",

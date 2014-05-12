@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "d7search.d7searchconversion" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("d7search.d7searchconversion.Tag", {
 	config: {
 		/*DATA*/
 		name: "7Search Conversion",
@@ -47,4 +45,12 @@ qubit.opentag.LibraryTag.define(classPath + ".Tag", {
 		/*POST*/
 		/*~POST*/
 	}
+});
+/*~PRE*/
+},
+post: function() {
+	/*POST*/
+	//write here post execution code
+	/*~POST*/
+}
 });

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "peerius.confirmationpageasync" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("peerius.confirmationpageasync.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page (Async)",

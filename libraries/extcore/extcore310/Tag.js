@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "extcore.extcore310" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("extcore.extcore310.Tag", {
 	config: {
 		/*DATA*/
 		name: "ext-core 3.1.0",

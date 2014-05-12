@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "firefly.generictag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("firefly.generictag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Generic Tag",

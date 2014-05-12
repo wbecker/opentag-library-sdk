@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "appnexus.conversiontagsecure" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("appnexus.conversiontagsecure.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tag (Secure)",

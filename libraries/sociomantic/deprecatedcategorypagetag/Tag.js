@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sociomantic.deprecatedcategorypagetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sociomantic.deprecatedcategorypagetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "{DEPRECATED} Category Page Tag",

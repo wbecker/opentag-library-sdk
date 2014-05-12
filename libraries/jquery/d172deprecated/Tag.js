@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "jquery.d172deprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("jquery.d172deprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "1.7.2 Deprecated",

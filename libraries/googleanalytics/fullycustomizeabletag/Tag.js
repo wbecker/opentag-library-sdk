@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "googleanalytics.fullycustomizeabletag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("googleanalytics.fullycustomizeabletag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Fully Customizeable Tag",

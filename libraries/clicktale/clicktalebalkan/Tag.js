@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "clicktale.clicktalebalkan" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.Tag", {
 	config: {
 		/*DATA*/
 		name: "ClickTale - Balkan",

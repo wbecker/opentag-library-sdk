@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "jssignals.jssignals061" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("jssignals.jssignals061.Tag", {
 	config: {
 		/*DATA*/
 		name: "js-signals 0.6.1",

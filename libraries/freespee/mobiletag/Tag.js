@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "freespee.mobiletag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("freespee.mobiletag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Mobile Tag",

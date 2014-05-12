@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "coremetrics.coremetricselementtracking" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.Tag", {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Element Tracking",

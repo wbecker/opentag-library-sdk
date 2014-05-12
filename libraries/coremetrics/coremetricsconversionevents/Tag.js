@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "coremetrics.coremetricsconversionevents" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionevents.Tag", {
 	config: {
 		/*DATA*/
 		name: "CoreMetrics - Conversion Events",

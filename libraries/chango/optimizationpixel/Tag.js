@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "chango.optimizationpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("chango.optimizationpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Optimization Pixel",

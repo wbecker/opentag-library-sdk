@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "quantcast.quantcastconfirmationpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "QuantCast - Confirmation Page",

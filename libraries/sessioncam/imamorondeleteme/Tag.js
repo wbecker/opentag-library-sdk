@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sessioncam.imamorondeleteme" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sessioncam.imamorondeleteme.Tag", {
 	config: {
 		/*DATA*/
 		name: "i'm a moron, delete me",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "marinsoftware.clicktrackingtag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Click Tracking Tag",

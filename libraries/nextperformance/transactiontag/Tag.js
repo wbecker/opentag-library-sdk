@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "nextperformance.transactiontag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("nextperformance.transactiontag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Transaction Tag",

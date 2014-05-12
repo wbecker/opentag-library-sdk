@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediaplex.vouchercodeenterediframe" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.Tag", {
 	config: {
 		/*DATA*/
 		name: "Voucher code entered iframe",

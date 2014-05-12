@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "googleuniversalanalytics.genericpageview" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("googleuniversalanalytics.genericpageview.Tag", {
 	config: {
 		/*DATA*/
 		name: "Generic Page View",

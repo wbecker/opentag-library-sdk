@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "skimlinks.skimlinks" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("skimlinks.skimlinks.Tag", {
 	config: {
 		/*DATA*/
 		name: "Skimlinks",

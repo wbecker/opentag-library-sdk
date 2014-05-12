@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "opentag.blanktag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("opentag.blanktag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Blank Tag",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sociomantic.categorytag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sociomantic.categorytag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Category Tag",

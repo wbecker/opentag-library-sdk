@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "qubit.uvtestbasketpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("qubit.uvtestbasketpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "UV Test - Basket Page",

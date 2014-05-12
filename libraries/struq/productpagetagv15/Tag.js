@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "struq.productpagetagv15" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("struq.productpagetagv15.Tag", {
 	config: {
 		/*DATA*/
 		name: "Product Page tag v1.5",

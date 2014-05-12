@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "zopim.zopimlivechat" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("zopim.zopimlivechat.Tag", {
 	config: {
 		/*DATA*/
 		name: "Zopim Livechat",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "conexance.confirmationpagewithuseremail" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("conexance.confirmationpagewithuseremail.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation page - with user email",

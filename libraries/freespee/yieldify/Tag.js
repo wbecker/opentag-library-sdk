@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "freespee.yieldify" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("freespee.yieldify.Tag", {
 	config: {
 		/*DATA*/
 		name: "Yieldify",

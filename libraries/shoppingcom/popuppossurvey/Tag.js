@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "shoppingcom.popuppossurvey" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("shoppingcom.popuppossurvey.Tag", {
 	config: {
 		/*DATA*/
 		name: "Popup PoS Survey",

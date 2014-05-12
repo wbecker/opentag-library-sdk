@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "buyat.conversiontagdeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("buyat.conversiontagdeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tag DEPRECATED",

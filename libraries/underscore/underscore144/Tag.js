@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "underscore.underscore144" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("underscore.underscore144.Tag", {
 	config: {
 		/*DATA*/
 		name: "underscore 1.4.4",

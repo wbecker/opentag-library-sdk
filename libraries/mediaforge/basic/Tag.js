@@ -1,14 +1,12 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediaforge.basic" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediaforge.basic.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basic",
 		async: true,
 		description: "The Basic Tag might be placed on a home/landing page where no product or category specific information is available.",
-		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}\"></script>",
+		html: "<script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}\"></script><!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaFORGE.png",
 		locationDetail: "",
 		isPrivate: false,

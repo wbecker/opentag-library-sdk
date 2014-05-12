@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "freespee.freespeedeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("freespee.freespeedeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "FreeSpee [DEPRECATED]",

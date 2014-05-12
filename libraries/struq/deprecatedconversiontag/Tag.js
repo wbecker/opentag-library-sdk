@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "struq.deprecatedconversiontag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.Tag", {
 	config: {
 		/*DATA*/
 		name: "[Deprecated] Conversion Tag",

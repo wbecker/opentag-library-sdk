@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "peerius.otherpagewithsmartrecs" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("peerius.otherpagewithsmartrecs.Tag", {
 	config: {
 		/*DATA*/
 		name: "Other Page (with SmartRecs)",

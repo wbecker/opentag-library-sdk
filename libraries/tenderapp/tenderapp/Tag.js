@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "tenderapp.tenderapp" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("tenderapp.tenderapp.Tag", {
 	config: {
 		/*DATA*/
 		name: "Tender App",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "emailvision.emailvisionconfirmation" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.Tag", {
 	config: {
 		/*DATA*/
 		name: "Emailvision - Confirmation",

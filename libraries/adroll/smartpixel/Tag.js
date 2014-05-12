@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adroll.smartpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adroll.smartpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "SmartPixel",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "webgains.webgainsdeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "WebGains [DEPRECATED]",

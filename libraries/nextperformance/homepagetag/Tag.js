@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "nextperformance.homepagetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("nextperformance.homepagetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Home Page Tag",

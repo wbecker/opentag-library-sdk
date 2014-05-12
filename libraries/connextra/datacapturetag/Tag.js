@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "connextra.datacapturetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("connextra.datacapturetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Data Capture Tag",

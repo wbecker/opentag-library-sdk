@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "salecycle.confirmationpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("salecycle.confirmationpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page",

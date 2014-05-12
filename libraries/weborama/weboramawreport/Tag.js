@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "weborama.weboramawreport" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("weborama.weboramawreport.Tag", {
 	config: {
 		/*DATA*/
 		name: "Weborama - WReport",

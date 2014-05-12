@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "radiumone.radiumonebasketpagedeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("radiumone.radiumonebasketpagedeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "RadiumOne - Basket Page DEPRECATED",

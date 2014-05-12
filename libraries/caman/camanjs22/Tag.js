@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "caman.camanjs22" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("caman.camanjs22.Tag", {
 	config: {
 		/*DATA*/
 		name: "camanjs 2.2",

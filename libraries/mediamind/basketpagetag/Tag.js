@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediamind.basketpagetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediamind.basketpagetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basket Page Tag",

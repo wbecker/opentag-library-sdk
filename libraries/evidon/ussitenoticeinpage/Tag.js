@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "evidon.ussitenoticeinpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "US Site Notice (In-Page)",

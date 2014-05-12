@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "marinsoftware.productlevelconversion" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.Tag", {
 	config: {
 		/*DATA*/
 		name: "Product Level Conversion",

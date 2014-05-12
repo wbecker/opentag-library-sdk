@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "uservoice.uservoicechat" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("uservoice.uservoicechat.Tag", {
 	config: {
 		/*DATA*/
 		name: "User Voice Chat",

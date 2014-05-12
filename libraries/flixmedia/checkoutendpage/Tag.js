@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "flixmedia.checkoutendpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("flixmedia.checkoutendpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Checkout End Page",

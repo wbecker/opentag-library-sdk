@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "criteo.onetagtravelsearchpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "OneTag - Travel Search Page",

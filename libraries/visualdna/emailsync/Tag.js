@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "visualdna.emailsync" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("visualdna.emailsync.Tag", {
 	config: {
 		/*DATA*/
 		name: "Email Sync",

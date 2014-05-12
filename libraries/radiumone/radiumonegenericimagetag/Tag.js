@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "radiumone.radiumonegenericimagetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("radiumone.radiumonegenericimagetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "RadiumOne - Generic image tag",

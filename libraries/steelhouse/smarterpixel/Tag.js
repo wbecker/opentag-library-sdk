@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "steelhouse.smarterpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Smarter Pixel",

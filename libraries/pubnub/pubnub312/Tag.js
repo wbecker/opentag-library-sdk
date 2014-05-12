@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "pubnub.pubnub312" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("pubnub.pubnub312.Tag", {
 	config: {
 		/*DATA*/
 		name: "PubNub 3.1.2",

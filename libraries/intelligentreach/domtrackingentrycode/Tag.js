@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "intelligentreach.domtrackingentrycode" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("intelligentreach.domtrackingentrycode.Tag", {
 	config: {
 		/*DATA*/
 		name: "DOM Tracking Entry Code",

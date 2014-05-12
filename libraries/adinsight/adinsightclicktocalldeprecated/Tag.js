@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adinsight.adinsightclicktocalldeprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adinsight.adinsightclicktocalldeprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "AdInsight Click to Call DEPRECATED",

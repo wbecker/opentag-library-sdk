@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "unidays.redemptiontracking" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("unidays.redemptiontracking.Tag", {
 	config: {
 		/*DATA*/
 		name: "Redemption Tracking",

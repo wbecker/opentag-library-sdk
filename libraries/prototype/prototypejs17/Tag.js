@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "prototype.prototypejs17" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("prototype.prototypejs17.Tag", {
 	config: {
 		/*DATA*/
 		name: "Prototype JS 1.7",

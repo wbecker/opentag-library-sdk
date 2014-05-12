@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "radiumone.radiumonegenerictag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("radiumone.radiumonegenerictag.Tag", {
 	config: {
 		/*DATA*/
 		name: "RadiumOne - Generic tag",

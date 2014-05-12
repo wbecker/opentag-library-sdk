@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "steelhouse.conversionpixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Pixel",

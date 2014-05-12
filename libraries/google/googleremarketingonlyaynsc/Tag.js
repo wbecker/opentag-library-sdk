@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "google.googleremarketingonlyaynsc" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("google.googleremarketingonlyaynsc.Tag", {
 	config: {
 		/*DATA*/
 		name: "Google Remarketing Only Aynsc",

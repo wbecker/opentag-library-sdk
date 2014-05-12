@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "hellobar.hellobar" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("hellobar.hellobar.Tag", {
 	config: {
 		/*DATA*/
 		name: "Hello Bar",

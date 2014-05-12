@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "commissionjunction.commissionjunction" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.Tag", {
 	config: {
 		/*DATA*/
 		name: "Commission Junction",

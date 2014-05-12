@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "silverpop.webtracking" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("silverpop.webtracking.Tag", {
 	config: {
 		/*DATA*/
 		name: "Web Tracking",

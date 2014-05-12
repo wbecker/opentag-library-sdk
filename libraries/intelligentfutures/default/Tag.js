@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "intelligentfutures.default" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("intelligentfutures.default.Tag", {
 	config: {
 		/*DATA*/
 		name: "Default",

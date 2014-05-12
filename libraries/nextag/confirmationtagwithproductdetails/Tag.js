@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "nextag.confirmationtagwithproductdetails" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("nextag.confirmationtagwithproductdetails.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Tag with product details",

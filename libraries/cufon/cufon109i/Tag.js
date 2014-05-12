@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "cufon.cufon109i" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("cufon.cufon109i.Tag", {
 	config: {
 		/*DATA*/
 		name: "cufon 1.09i",

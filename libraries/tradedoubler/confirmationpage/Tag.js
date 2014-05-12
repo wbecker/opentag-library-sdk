@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "tradedoubler.confirmationpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Confirmation Page",

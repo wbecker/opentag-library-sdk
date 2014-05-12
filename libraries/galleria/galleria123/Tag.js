@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "galleria.galleria123" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("galleria.galleria123.Tag", {
 	config: {
 		/*DATA*/
 		name: "galleria 1.2.3",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "qubit.uvbreadcrumbconverter" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.Tag", {
 	config: {
 		/*DATA*/
 		name: "UV Breadcrumb Converter",

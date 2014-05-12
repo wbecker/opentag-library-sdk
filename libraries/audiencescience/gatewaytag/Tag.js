@@ -1,14 +1,12 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "audiencescience.gatewaytag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("audiencescience.gatewaytag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Gateway Tag",
 		async: true,
 		description: "",
-		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//js.revsci.net/gateway/gw.js?csid=${clientID}&auto=t\"></script>",
+		html: "<script type=\"text/javascript\" src=\"//js.revsci.net/gateway/gw.js?csid=${clientID}&auto=t\"></script><!--@SRC@-->",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/audiencescience.png",
 		locationDetail: "",
 		isPrivate: false,

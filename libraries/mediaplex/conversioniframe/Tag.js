@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediaplex.conversioniframe" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion iframe",

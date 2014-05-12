@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "jquery.synchronous" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("jquery.synchronous.Tag", {
 	config: {
 		/*DATA*/
 		name: "Synchronous",

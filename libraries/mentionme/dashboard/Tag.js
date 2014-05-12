@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mentionme.dashboard" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mentionme.dashboard.Tag", {
 	config: {
 		/*DATA*/
 		name: "Dashboard",

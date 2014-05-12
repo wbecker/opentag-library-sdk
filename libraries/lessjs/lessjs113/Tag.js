@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "lessjs.lessjs113" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("lessjs.lessjs113.Tag", {
 	config: {
 		/*DATA*/
 		name: "less.js 1.1.3",

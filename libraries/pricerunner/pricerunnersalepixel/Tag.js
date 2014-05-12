@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "pricerunner.pricerunnersalepixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "Price Runner Sale Pixel",

@@ -1,14 +1,12 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediaforge.category" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediaforge.category.Tag", {
 	config: {
 		/*DATA*/
 		name: "Category",
 		async: true,
 		description: "To be placed of Product Listing pages",
-		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?catID=${category_id}\"></script>",
+		html: "<script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?catID=${category_id}\"></script><!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

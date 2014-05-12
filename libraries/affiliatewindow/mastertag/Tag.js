@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "affiliatewindow.mastertag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("affiliatewindow.mastertag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Master Tag",

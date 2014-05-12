@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "weborama.weboramaconversiontracking" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("weborama.weboramaconversiontracking.Tag", {
 	config: {
 		/*DATA*/
 		name: "Weborama - Conversion Tracking",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "conexance.basketpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("conexance.basketpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basket Page",

@@ -1,14 +1,12 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mediaforge.product" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mediaforge.product.Tag", {
 	config: {
 		/*DATA*/
 		name: "Product",
 		async: true,
 		description: "To be placed on product display pages.",
-		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?prodID=${product_id}\"></script>",
+		html: "<script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?prodID=${product_id}\"></script><!--@SRC@-->",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,

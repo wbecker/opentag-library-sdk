@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "ebay.ebayroitracker" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("ebay.ebayroitracker.Tag", {
 	config: {
 		/*DATA*/
 		name: "eBay ROI Tracker",

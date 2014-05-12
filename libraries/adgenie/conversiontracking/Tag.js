@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adgenie.conversiontracking" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adgenie.conversiontracking.Tag", {
 	config: {
 		/*DATA*/
 		name: "Conversion Tracking",

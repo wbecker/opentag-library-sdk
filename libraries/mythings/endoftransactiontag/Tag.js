@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "mythings.endoftransactiontag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("mythings.endoftransactiontag.Tag", {
 	config: {
 		/*DATA*/
 		name: "End of Transaction Tag",

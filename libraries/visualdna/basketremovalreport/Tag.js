@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "visualdna.basketremovalreport" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("visualdna.basketremovalreport.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basket Removal Report",

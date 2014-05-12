@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "exacttarget.landingpage" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("exacttarget.landingpage.Tag", {
 	config: {
 		/*DATA*/
 		name: "Landing Page",

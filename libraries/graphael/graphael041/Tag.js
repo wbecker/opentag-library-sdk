@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "graphael.graphael041" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("graphael.graphael041.Tag", {
 	config: {
 		/*DATA*/
 		name: "graphael 0.4.1",

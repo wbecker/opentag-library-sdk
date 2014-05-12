@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "lodash.lodashnoconflict" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.Tag", {
 	config: {
 		/*DATA*/
 		name: "Lodash NoConflict",

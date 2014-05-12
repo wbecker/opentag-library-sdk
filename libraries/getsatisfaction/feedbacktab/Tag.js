@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "getsatisfaction.feedbacktab" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.Tag", {
 	config: {
 		/*DATA*/
 		name: "Feedback Tab",

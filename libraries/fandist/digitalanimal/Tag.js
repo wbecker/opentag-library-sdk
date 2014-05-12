@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "fandist.digitalanimal" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("fandist.digitalanimal.Tag", {
 	config: {
 		/*DATA*/
 		name: "Digital Animal",

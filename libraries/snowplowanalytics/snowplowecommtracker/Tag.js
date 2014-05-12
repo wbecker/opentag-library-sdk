@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "snowplowanalytics.snowplowecommtracker" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.Tag", {
 	config: {
 		/*DATA*/
 		name: "Snowplow EcommTracker",

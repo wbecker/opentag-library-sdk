@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "cryptojs.sha1" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("cryptojs.sha1.Tag", {
 	config: {
 		/*DATA*/
 		name: "SHA1",

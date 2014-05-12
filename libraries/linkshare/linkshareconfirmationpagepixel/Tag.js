@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "linkshare.linkshareconfirmationpagepixel" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("linkshare.linkshareconfirmationpagepixel.Tag", {
 	config: {
 		/*DATA*/
 		name: "LinkShare Confirmation Page Pixel",

@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "sessioncam.sessioncamv53deprecated" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("sessioncam.sessioncamv53deprecated.Tag", {
 	config: {
 		/*DATA*/
 		name: "SessionCam v5.3 - DEPRECATED",

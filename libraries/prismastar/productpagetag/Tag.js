@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "prismastar.productpagetag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("prismastar.productpagetag.Tag", {
 	config: {
 		/*DATA*/
 		name: "Product Page Tag",

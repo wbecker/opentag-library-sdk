@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "zanox.zanoxgenericmastertag" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.Tag", {
 	config: {
 		/*DATA*/
 		name: "zanox Generic MasterTag",

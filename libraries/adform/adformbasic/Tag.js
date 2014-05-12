@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "";
-var classPath = "adform.adformbasic" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("adform.adformbasic.Tag", {
 	config: {
 		/*DATA*/
 		name: "AdForm - Basic",
