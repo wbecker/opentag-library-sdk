@@ -215,7 +215,7 @@ function saveNewVersion(refNode) {
   }
   
   //var newPackageName = tagRef.PACKAGE_NAME + "." + versionName;  
-  var data = "classPath=libraries." +
+  var data = "location=libraries&classPath=" +
           tagRef.PACKAGE_NAME
           + "&version=" + versionName;
   

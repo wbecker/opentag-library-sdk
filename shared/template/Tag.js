@@ -1,8 +1,6 @@
 //:include tagsdk-current.js
-var tagVersion = "VERSION_NAME";
-var classPath = "PACKAGE_NAME" + "." + tagVersion;
 
-qubit.opentag.LibraryTag.define(classPath + ".Tag", {
+qubit.opentag.LibraryTag.define("PACKAGE_NAME.Tag", {
 	config: {
 		/*DATA*/
 		imageUrl: "https://example.com/img/example-logo.png",
