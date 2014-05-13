@@ -1,5 +1,4 @@
 /*
- * Opentag, a tag deployment platform.
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * @author Peter Fronc peter.fronc@qubitproducts.com
@@ -8,7 +7,9 @@
  * For details please see attached LICENSE file or go to:
  * https://www.gnu.org/licenses/lgpl.html
  */
-
+/**
+ * JavaScript serializer. JSON compatible at default use.
+ */
 (function () {
   
   var json = {};
