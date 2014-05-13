@@ -1,4 +1,5 @@
 var libraryTemplate = document.getElementById("library-template").innerHTML;
+
 /**
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
@@ -127,7 +128,6 @@ function addLibrary(anchor, libraryClass) {
   }
 }
 
-
 var parameterTemplate = document.getElementById("parameter-template").innerHTML;
 var parametersTemplate = document.getElementById("parameters-template").innerHTML;
 /**
@@ -183,8 +183,6 @@ function addParameters(anchor, params) {
 }
 
 
-
-
 var excluded = [
   "parameters",
   "PACKAGE",
@@ -225,6 +223,7 @@ function propertyHiddenFromConfig(prop) {
   }
   return false;
 }
+
 function prepareConfigElement(prop, value, configTemplate) {
   var e = document.createElement("div");
   var p = value;
@@ -597,10 +596,13 @@ function listScripts() {
  * 
  */
 window.Main = function () {
+  
   window.qlog = new qconsole();
+  
   window.toggleConsole = function () {
     qlog.hidden ? qlog.show() : qlog.hide();
   };
+  
   window.logError = function (m, time) {
     log("<span style='color: red'>" + m + "</span>");
     info("<span style='color: #FF766F'>" + m + "</span>", time || 5000);
@@ -630,7 +632,8 @@ window.Main = function () {
 
 
 /*** ALL READY ***/
-
+// this is exit call, it is called after everything is loaded.
 function bodyLoaded () {
+  // run self testing loop - uff applies
   setTimeout(keepRunningTests, 1000);
 }
