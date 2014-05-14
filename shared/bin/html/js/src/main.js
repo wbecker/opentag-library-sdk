@@ -53,13 +53,13 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   libraryNode.id = fullName;
 
   var params = instance.config.parameters;
-  var head = libraryNode.children[6].children[0];
-  var contents = libraryNode.children[6].children[1];
+  var head = libraryNode.children[7].children[0];
+  var contents = libraryNode.children[7].children[1];
   try {
     var configObject = qubit.opentag.Utils
             .getObjectUsingPath(instance.PACKAGE_NAME + ".local.Config");
     if (configObject && configObject.parameters) {
-      mergeParameters(params, configObject.parameters);
+      _mergeParameters(params, configObject.parameters);
     }
   } catch (ex) {
     //may not be in there
@@ -77,7 +77,7 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   addTestsSuite(contents, instance);
 }
 
-function mergeParameters(to, from) {
+function _mergeParameters(to, from) {
   for (var i = 0; i < to.length; i++) {
     var paramTo = to[i];
     for (var j = 0; j < from.length; j++) {
@@ -485,32 +485,45 @@ function renderAllLibrariesToPage() {
   }
 }
 
-var scripts = [];
-var totalScripts = 0;
-var total = 1;
+var total = 1;//extra 1 is for final rendering.
 var counted = 0;
-function loadAllLibs() {
-  createProgressBar("Loading scipts", function () {
+
+function loadAllLibs(scriptsPassed) {
+	var scripts = [];
+	total = 1;
+  counted = 0;
+	
+	if (!scriptsPassed) {
+		var srcs = document.getElementsByTagName("font");
+		scriptsPassed = [];
+		for (var i = 0; i < srcs.length; i++) {
+			 scriptsPassed.push(srcs[i].getAttribute("link"));
+		}
+	}
+	
+	theProgressBar("Loading scipts", function () {
     if (counted === 0) {
       return 0;
     }
-    return 100 * (counted/(totalScripts+total));
+    return 100 * (counted/(scriptsPassed.length + total));
   });
-  var srcs = document.getElementsByTagName("font");
-  totalScripts = srcs.length;
+	
   var counter = 0;
-    var loader = function () {
-      if (counter === srcs.length) {
-        return;
-      }
-      var index = counter;
-      counter++;
-      var url = srcs[index].getAttribute("link");
-      setTimeout(function () {_loadLibrary(url, index, loader);}, 0);
-    };
-    loader();
+	var loader = function () {
+		if (counter === scriptsPassed.length) {
+			return;
+		}
+		var index = counter;
+		counter++;
+		var url = scriptsPassed[index];
+		setTimeout(function () {
+			_loadSingle(url, index, loader, scriptsPassed, scripts);
+		}, 0);//can be slown down
+	};
+	loader();
 }
-function _loadLibrary(url, index, callback) {
+
+function _loadSingle(url, index, callback, scriptsPassed, scripts) {
   GET(url, function(msg, xhrobj) {
     try {
       scripts[index] = {
@@ -519,29 +532,9 @@ function _loadLibrary(url, index, callback) {
       };
       log(url);
       counted++;
-      if (totalScripts === counted) {
-        
+      if (scriptsPassed.length === counted) {
         // READY:
-        
-        for (var x = 0; x < scripts.length; x++) {
-          try {
-            eval(scripts[x].expr);
-          } catch (ex) {
-            logError("Failed to load: " + scripts[x].url + "\nException: " + ex);
-          }
-        }
-        createProgressBar.title += ", rendering... ";
-        listScripts();
-        setTimeout(function () {
-          counted++;
-          renderAllLibrariesToPage();
-          window.toggleConsole();
-          
-          qubit.opentag.Log.LEVEL = 3;
-          qubit.opentag.Log.COLLECT_LEVEL = 5;
-          
-          setTimeout(bodyLoaded, 200);
-        }, 50);
+        _allScriptsFetched(scripts);
       }
     } finally {
       if (callback) {
@@ -549,6 +542,30 @@ function _loadLibrary(url, index, callback) {
       }
     }
   });
+}
+
+function _allScriptsFetched(scripts) {
+	for (var x = 0; x < scripts.length; x++) {
+    try {
+			eval(scripts[x].expr);
+		} catch (ex) {
+			logError("Failed to load: " + scripts[x].url + "\nException: " + ex);
+		}
+	}
+	
+	theProgressBar.title += ", rendering... ";
+	listScripts();
+	
+	setTimeout(function() {
+		counted++;
+		renderAllLibrariesToPage();
+		window.toggleConsole();
+
+		qubit.opentag.Log.LEVEL = 3;
+		qubit.opentag.Log.COLLECT_LEVEL = 5;
+		//delay
+		setTimeout(bodyLoaded, 200);
+	}, 50);
 }
 
 function keepRunningTests() {
@@ -581,9 +598,7 @@ function listScripts() {
   for (var i = 0; i < scripts.length; i++) {
     var src = scripts[i].getAttribute("link");
     if (src) {
-      html += "<a href='" + src + "' target='frame" + i + "' >" +
-              src +
-              "</a><br/>";
+      html += "<a href='" + src + "' target='frame" + i + "' >" + src + "</a>";
     }
   }
   html += "</div>";

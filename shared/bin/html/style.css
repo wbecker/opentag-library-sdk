@@ -885,3 +885,17 @@ a.plain:hover {background-color:#fcfafa;}
   border: 1px solid rgb(231, 231, 231);
   margin: 8px;
 }
+
+.CodeMirror-foldgutter-open, .CodeMirror-foldgutter-folded {
+  color: #C49500 !important;
+  cursor: pointer;
+}
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto !important;
+}
+.CodeMirror-scroll {
+  height: auto !important;
+  overflow-y: hidden !important;
+  overflow-x: auto !important;
+}

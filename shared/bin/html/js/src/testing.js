@@ -1,55 +1,20 @@
 
-var testSuiteCodeTemplate = 
-"/**ignore at merge**/\n" +
-"//:include tagsdk-current.js\n" +
-"//:include _TAGPATH_\n" +
-"\n" +
-"var tag = null;\n" +
-"\n" +
-"/*\n" +
-" * This is a simple tests suite, all that tests must do is to pass or fail.\n" +
-" * Only one test will be run at the time, untill pass or fail method will \n" +
-" * be called - test will block runner to wait for test.\n" +
-" */\n" +
-"var TestsSuite = new Suite({\n" +
-"\n" +
-"  \"it shall fail as true is never falsy...\": function() {\n" +
-"    this.fail(true, \"Failed.\");\n" +
-"  },\n" +
-"\n" +
-"  \"it shall not fail as true is naturally true...\": function() {\n" +
-"    this.pass(true, \"Passed.\");\n" +
-"  },\n" +
-"\n" +
-"  \"it shall again not fail as true is naturally true...\": function() {\n" +
-"    this.pass(true, \"Passed again.\");\n" +
-"  },\n" +
-"\n" +
-"  \"it shall fail later, in two seconds\": function() {\n" +
-"    var _this = this;\n" +
-"    setTimeout(function() {\n" +
-"      _this.fail(true, \"failed after 2 seconds\");\n" +
-"    }, 2000);\n" +
-"  }\n" +
-"});\n" +
-"\n" +
-"TestsSuite.beforeEach = function(test) {\n" +
-"  tag = new _TAG_({\n" +
-"    name: \"Specify a name here\"\n" +
-"  });\n" +
-"};\n" +
-"\n" +
-"TestsSuite.afterEach = function(test) {\n" +
-"\n" +
-"};\n" +
-"\n" +
-"qubit.opentag.Utils.namespace('_PACKAGE_.local.TestsSuite', TestsSuite);";
+var testSuiteCodeTemplateURL = "/shared/templates/TestsSuite.js";
+function addEditTests(node, template) {
+	GET(testSuiteCodeTemplateURL, function (message, xhr) {
+		if (xhr.status !== 200) {
+      logError(message);
+    } else {
+			addEditStandardTests(node, message);
+		}
+	});
+}
 
-function addEditTests(node) {
+function addEditStandardTests(node, template) {
   node = getLibraryReferenceNode(node);
   if (node) {
     var tag = node.reference;
-    var data = testSuiteCodeTemplate.replace("_PACKAGE_", tag.PACKAGE_NAME);
+    var data = template.replace("_PACKAGE_", tag.PACKAGE_NAME);
     data = data.replace("_TAG_", tag.PACKAGE_NAME + ".Tag");
     var path = tag.PACKAGE_NAME.split(".").join("/");
     data = data.replace("_TAGPATH_", path + "/Tag.js");
@@ -60,49 +25,22 @@ function addEditTests(node) {
   }
 }
 
-var bddSuiteCodeTemplate = 
-"/**ignore at merge**/\n" +
-"//:include tagsdk-current.js\n" +
-"//:include _TAGPATH_\n" +
-"\n" +
-"/*\n" +
-" * BDD tests are well known unit tests supporting API used by mocha and\n" +
-" * other test runners. Please see more info about how to use them online.\n" +
-" */\n" +
-"var suite = describe(\"firing a tag\", function() {\n" +
-"\n" +
-"  var tag = null;\n" +
-"\n" +
-"  beforeEach(function() {\n" +
-"    tag = new _TAG_({\n" +
-"      name: \"Specify a name here\"\n" +
-"    });\n" +
-"  });\n" +
-"\n" +
-"  afterEach(function() {\n" +
-"\n" +
-"  });\n" +
-"\n" +
-"  it(\"should fail\", function() {\n" +
-"    expect(true).to.be(false);\n" +
-"  });\n" +
-"\n" +
-"  it(\"should pass\", function() {\n" +
-"    expect(true).to.be(true);\n" +
-"  });\n" +
-"\n" +
-"  it(\"should throw an exception\", function() {\n" +
-"    throw \"exception!\";\n" +
-"  });\n" +
-"});\n" +
-"\n" +
-"qubit.opentag.Utils.namespace('_PACKAGE_.local.BDDSuite', suite);"
-
+var bddSuiteCodeTemplateURL = "/shared/templates/BDDSuite.js";
 function addEditDescribeTests(node) {
+	GET(bddSuiteCodeTemplateURL, function (message, xhr) {
+		if (xhr.status != 200) {
+      logError(message);
+    } else {
+			addEditBDDTests(node, message);
+		}
+	});
+}
+
+function addEditBDDTests(node, template) {
   node = getLibraryReferenceNode(node);
   if (node) {
     var tag = node.reference;
-    var data = bddSuiteCodeTemplate.replace("_PACKAGE_", tag.PACKAGE_NAME);
+    var data = template.replace("_PACKAGE_", tag.PACKAGE_NAME);
     data = data.replace("_TAG_", tag.PACKAGE_NAME + ".Tag");
     var path = tag.PACKAGE_NAME.split(".").join("/");
     data = data.replace("_TAGPATH_", path + "/Tag.js");
@@ -192,7 +130,7 @@ function runAllTests(callback) {
     try {
       var node = testNodes[index];
       if (!node) {return;}
-      runTests(node, function () {
+      runTestsHandler(node, function () {
         ++counted;
         if (counted < total) {
           setTimeout(function() {
@@ -212,7 +150,7 @@ function runAllTests(callback) {
   
   sequence(0);
   
-  createProgressBar("Running test suites...", function () {
+  theProgressBar("Running test suites...", function () {
     if (counted === 0) {
       return 0;
     }
@@ -220,7 +158,7 @@ function runAllTests(callback) {
   });
 }
 
-function runTests(referencingNode, callback) {
+function runTestsHandler(referencingNode, callback) {
   try {
     var tagRef = referencingNode.reference;
     var Utils = qubit.opentag.Utils;

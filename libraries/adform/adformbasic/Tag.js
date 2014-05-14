@@ -35,7 +35,6 @@ qubit.opentag.LibraryTag.define("adform.adformbasic.Tag", {
 			pm: this.valueForToken("campaignid"),
 			id: this.valueForToken("pointid")
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

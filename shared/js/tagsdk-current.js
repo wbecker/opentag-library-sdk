@@ -1660,12 +1660,14 @@ q.html.fileLoader.tidyUrl = function (path) {
     } else {
       //process default config
     }
+    
     if (isNaN(+passed)) {
       this.log.WARN("filters should use a numerical status as a return " +
               "for getStatus():" +//L
               " BaseFilter.status. Filter will fail. Returned: " + passed);//L
       passed = BaseFilter.status.FAIL;
     }
+    
     this.lastState = +passed;
     
     return passed;
@@ -3100,7 +3102,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   var TagsUtils = qubit.opentag.TagsUtils;
   var Timed = qubit.opentag.Timed;
   var TagHelper = qubit.opentag.TagHelper;
-  var log = new qubit.opentag.Log("GenericLoader -> ");
   var nameCounter = 0;
 
   /*
@@ -3480,7 +3481,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.execute();      
     } else if (this.loadingDependenciesFailed) {
       this.log.ERROR("script execution failed before running");
-      this.log.ERROR("dependencies FAILED to load! Tag in fail state.");
+      this.log.ERROR("dependencies failed to load! Tag in fail state.");
       this.scriptExecuted = -(new Date().valueOf());
       this._markFinished();
       this.setStatus("FAILED_TO_EXECUTE");
@@ -3709,12 +3710,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     LOADED_URL: 16,
     EXECUTED: 32,
     EXECUTED_WITH_ERRORS: 64,
-    FILTERS_FAILED: 128,
-    FAILED_TO_LOAD_DEPENDENCIES: 256,
-    FAILED_TO_LOAD_URL: 512,
-    FAILED_TO_EXECUTE: 1024,
-    TIMED_OUT: 2048,
-    UNEXPECTED_FAIL: 4096
+    FAILED_TO_LOAD_DEPENDENCIES: 128,
+    FAILED_TO_LOAD_URL: 256,
+    FAILED_TO_EXECUTE: 512,
+    TIMED_OUT: 1024,
+    UNEXPECTED_FAIL: 2048
   };
   
   /**
@@ -3792,7 +3792,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         if (this.dependenciesLoaded(true)) {//give last chance for defaults
           this._markLoadedSuccesfuly();
         } else {
-          this.log.ERROR("timed out while loading dependencies.");
+          this.log.WARN("timed out while loading dependencies.");
           this.setStatus("TIMED_OUT");
           this.loadingDependenciesFailed = new Date().valueOf();
           this.onLoadError();
@@ -4416,6 +4416,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     if (status === BaseFilter.status.PASS) {
       this.filtersPassed = new Date().valueOf();
       this.log.FINE("tag passed filters tests");
+      try {
+        this.onFiltersPassed();
+      } catch (ex) {
+        this.log.ERROR("error running onFiltersDelayed:" + ex);
+      }
       this.run();
     } else if(status === BaseFilter.status.FAIL) {
       this.log.FINE("tag failed to pass filters");
@@ -4433,9 +4438,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           this._awaitingForFilterInformed = new Date().valueOf();
           
           try {
-            this.onFilterDelayed();
+            this.onFiltersDelayed();
           } catch (ex) {
-            this.log.ERROR("error running onFilterDelayed:" + ex);
+            this.log.ERROR("error running onFiltersDelayed:" + ex);
           }
         }
         Timed.setTimeout(this.runIfFiltersPass.bind(this), status);
@@ -4446,6 +4451,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.log.WARN("awaiting for filters timed out.");
       }
     }
+    
+    try {
+      this.onFiltersCheck(status);
+    } catch (e) {
+      this.log.ERROR(e);
+    }
+    
     return status;
   };
 
@@ -4490,21 +4502,35 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
+   * @event
+   * Status being set event.
+   * @param {qubit.opentag.BaseTag} tag reference
+   */
+  BaseTag.onStatusChange = EMPTY_FUN;
+
+  /**
    * 
    * @param {type} statusName
    */
   BaseTag.prototype.setStatus = function (statusName) {
     BaseTag.superclass.prototype.setStatus.call(this, statusName);
+    
+    try {
+      BaseTag.onStatusChange(this);
+    } catch (ex) {
+      this.log.ERROR(ex);
+    }
+    
     this.statusStack = [];
     var s = this.STATUS;
     
     if (this.status & s.INITIAL)
         this.statusStack
               .push("Initial state.");
-      
-    if (this.status & s.FILTERS_FAILED)
-        this.statusStack.push(
-                "Filters failed to pass.");
+        
+    if (this.status & s.FILTER_ACTIVE)
+        this.statusStack
+              .push("Tag running with filters pass triggered.");
 
     if (this.status & s.STARTED)
         this.statusStack.push(
@@ -4533,11 +4559,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     if (this.status & s.EXECUTED_WITH_ERRORS)
         this.statusStack.push(
                 "Main script has been executed but errors occured.");
-        
-    if (this.status & s.FILTER_ACTIVE)
-        this.statusStack
-              .push("Tag running if filters pass triggered.");
-      
+
+    if (this.status & s.FILTERS_FAILED)
+        this.statusStack.push(
+                "Filters failed to pass.");
+
     if (this.status & s.FAILED_TO_LOAD_DEPENDENCIES)
         this.statusStack.push(
                 "Dependencies has failed to load.");
@@ -4563,9 +4589,22 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   /**
    * Event triggered if tag has run filter delaying request.
    * Filters delaying execution will trigger this event once only.
-   * @event onFilterDelayed
+   * @event onFiltersDelayed
    */
-  BaseTag.prototype.onFilterDelayed = EMPTY_FUN;
+  BaseTag.prototype.onFiltersDelayed = EMPTY_FUN;
+  
+  /**
+   * Event triggered if tag has passed all filters succesfuly.
+   * @event onFiltersPassed
+   */
+  BaseTag.prototype.onFiltersPassed = EMPTY_FUN;
+  
+  /**
+   * Event triggered if tag is checking filters.
+   * @event onFiltersCheck
+   * @param {qubit.opentag.BaseFilter.status}
+   */
+  BaseTag.prototype.onFiltersCheck = EMPTY_FUN;
   
   /**
    * Property representing binary table with this tag's status
@@ -4795,7 +4834,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     log.FINEST(tag, true);
     var index = Utils.addToArrayIfNotExist(tags, tag);
     if (index !== -1) {
-      log.WARN("tag already exists in tags registry.");
+      log.FINE("tag already exists in tags registry.");
     }
     if (index === -1) {
       tag._tagIndex = tags.length - 1;
@@ -4819,7 +4858,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     log.FINEST(tag, true);
     var index = Utils.removeFromArray(tags, tag);
     if (!index || index.length === 0) {
-      log.FINE("tag is already unregisterd.");
+      log.FINEST("tag " + tag.config.name + " is already unregisterd.");
     }
 
     tag._tagIndex = -1;
@@ -7272,7 +7311,7 @@ var counter = 0;
           ID: loader.id,
           url: loader.url,
           html: loader.html,
-          locationPlaceHolder: ((+loader.positionId) === 1),
+          locationPlaceHolder: ((+loader.positionId) === 1) ? "end" : "notEnd",
           locationObject: location,
           async: loader.async,
           needsConsent: loader.needsConsent,

@@ -57,10 +57,11 @@
 				<div class="title"></div>
 			</div>
 			<a href="#-4" class="show-hide-library" onclick="showButtonHandler(this)">show</a>
-			<button class="test-library" onclick="testTag(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
-			<button class="open-editor" onclick="openInEditor(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit</button>
-			<button class="reload" onclick="reloadTag(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload</button>
-			<button class="run-tests" onclick="runTests(this.parentNode)" alt="run tests"><i class="fa fa-rocket"></i> Run test</button>
+			<button class="test-library" onclick="runTagHandler(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
+			<button class="open-editor" onclick="openInEditorHandler(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit</button>
+			<button class="reload" onclick="reloadTagHandler(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload</button>
+			<button class="edit-uv" onclick="editUVURLHandler(this.parentNode)" alt="Edit UV"><i class="fa fa-code"></i> Edit UV</button>
+			<button class="run-tests" onclick="runTestsHandler(this.parentNode)" alt="run tests"><i class="fa fa-rocket"></i> Run test</button>
 			<div class="contents">
 				<div class="head"><div class="desc"></div></div>
 				<div class="content-body"></div>
@@ -200,6 +201,7 @@
 		
 	</div>
 	<script src='js/src/utils.js'></script>
+	<script src='js/src/button-calls.js'></script>
 	<script src='js/src/testing.js'></script>
 	<script src='js/src/main.js'></script>
 	<script src='js/src/uv-chooser.js'></script>
@@ -229,7 +231,7 @@
 	
 	<!--SOURCES-->
 	<div id="sources-content">
-		<h3>Source files</h3>
+		<h3 onclick="toggleShowSibling(this);">Source files</h3>
 		<div id="sources"></div>
 	</div>
 	<font link='build-location.js'></font>
