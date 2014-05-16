@@ -126,15 +126,13 @@ function saveNewVersion(refNode, e) {debugger;
     return;
   }
   
-//	var cpChunks = tagRef.PACKAGE_NAME.split(".");
-//	//vendor + tag library cp name
-//	var cp = cpChunks[0] + "." + cpChunks[1];
-//	
-	var cp = tagRef.PACKAGE_NAME;
-	
+	var cpChunks = tagRef.PACKAGE_NAME.split(".");
+	//vendor + tag library cp name
+	var cp = cpChunks[0] + "." + cpChunks[1];
+	debugger;
   //var newPackageName = tagRef.PACKAGE_NAME + "." + versionName;  
   var data = "location=libraries&classPath=" +
-          cp + "&version=" + versionName;
+				tagRef.PACKAGE_NAME + "&version=" + cp + "." + versionName;
   
   POST("/saveNewVersion", data, function(msg, httpr) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
