@@ -34,16 +34,18 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
 
   libraryNode.innerHTML = libraryTemplate;
   
-  var version = "current - " +
-          "<a href='#-3' onclick='saveNewVersion(this)'>create new version</a>";
+  var versionHTML = "" +
+          "<a href='#-3' onclick='saveNewVersion(this, arguments[0]);'> clone </a>";
   
+	var version = "";
   if (libraryClass.versionClassPath) {
-    version = libraryClass.prototype.PACKAGE_NAME
-            .replace(libraryClass.versionClassPath + ".", "");
+    version = "<span class='version-title'> (" +
+				libraryClass.prototype.PACKAGE_NAME
+            .replace(libraryClass.versionClassPath + ".", "") + ") </span>";
   }
   
   libraryNode.children[0].children[1].innerHTML = 
-          instance.config.name + " [" + version + "]";
+          instance.config.name + version + versionHTML;
   qubit.opentag.Utils.addClass(libraryNode, "library");
   if (className) {
     qubit.opentag.Utils.addClass(libraryNode, className);

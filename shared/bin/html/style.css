@@ -106,6 +106,14 @@ h3{font-size:16px;
   overflow: hidden;
 }
 
+.version-title {
+  color: #D14835;
+}
+
+.library-title {
+  cursor: pointer;
+}
+
 .library-title .status {
   float: left;
   height: 15px;

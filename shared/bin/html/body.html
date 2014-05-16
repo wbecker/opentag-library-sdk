@@ -18,11 +18,14 @@
 	<p>Use this page to test your tag library settings.</p>
 
 	<script>
-		function showButtonHandler(node) {
-			var shown = node.parentNode.className.indexOf("show") !== -1;
-			qubit.opentag.Utils.removeClass(node.parentNode, shown ? "show" : "hide");
-			qubit.opentag.Utils.addClass(node.parentNode, shown ? "hide" : "show");
-			node.innerHTML = shown ? "show" : "hide";
+		function showButtonHandler(node, e) {
+      var event = e || window.event;
+      if(event.ignoreEvent) {
+        return false;
+      }
+			var shown = node.className.indexOf("show") !== -1;
+			qubit.opentag.Utils.removeClass(node, shown ? "show" : "hide");
+			qubit.opentag.Utils.addClass(node, shown ? "hide" : "show");
 		}
 		function onFocusInput(node) {
 			if (!node.entered && node.value === '') {
@@ -52,15 +55,15 @@
 		<div id="vendor-template"></div>
 
 		<div id="library-template">
-			<div class="library-title">
+			<div class="library-title"  onclick="showButtonHandler(this.parentNode, arguments[0])">
 				<div class="status"></div>
 				<div class="title"></div>
 			</div>
-			<a href="#-4" class="show-hide-library" onclick="showButtonHandler(this)">show</a>
+      <span marker="true"></span>
 			<button class="test-library" onclick="runTagHandler(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
 			<button class="open-editor" onclick="openInEditorHandler(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit</button>
 			<button class="reload" onclick="reloadTagHandler(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload</button>
-			<button class="edit-uv" onclick="editUVURLHandler(this.parentNode)" alt="Edit UV"><i class="fa fa-code"></i> Edit UV</button>
+			<button class="edit-uv" onclick="editUVURLHandler(this.parentNode)" alt="UV"><i class="fa fa-code"></i> Edit UV</button>
 			<button class="run-tests" onclick="runTestsHandler(this.parentNode)" alt="run tests"><i class="fa fa-rocket"></i> Run test</button>
 			<div class="contents">
 				<div class="head"><div class="desc"></div></div>
@@ -70,7 +73,7 @@
 
 		<div id="parameters-template">
 			<div class="parameter-header">
-				Parameters <a href="#-3" onclick="saveConfig(this)">save</a>
+				Parameters <a href="#-3" onclick="saveConfig(this, arguments[0])">save</a>
 			</div>
 			<div class="contents"></div>
 		</div>

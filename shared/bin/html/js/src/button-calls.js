@@ -102,7 +102,9 @@ function saveConfig(refNode) {
   });
 }
 
-function saveNewVersion(refNode) {
+function saveNewVersion(refNode, e) {
+	var event = e || window.event;
+	event.ignoreEvent = true;
   refNode = getLibraryReferenceNode(refNode);
   var tagRef = refNode.reference;
   var versionName =
@@ -124,10 +126,13 @@ function saveNewVersion(refNode) {
     return;
   }
   
+	var cpChunks = tagRef.PACKAGE_NAME.split(".");
+	//vendor + tag library cp name
+	var cp = cpChunks[0] + "." + cpChunks[1];
+	
   //var newPackageName = tagRef.PACKAGE_NAME + "." + versionName;  
   var data = "location=libraries&classPath=" +
-          tagRef.PACKAGE_NAME
-          + "&version=" + versionName;
+          cp + "&version=" + versionName;
   
   POST("/saveNewVersion", data, function(msg, httpr) {
     if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
@@ -214,4 +219,12 @@ function reloadTagHandler(refNode) {
       logError("Error loading tag: " + ex);
     }
   });
+}
+
+function cancelEvent(e) {
+	if (e.stopPropagation) {
+		e.stopPropagation();
+	} else {
+		e.cancelBubble = true;
+	}
 }
