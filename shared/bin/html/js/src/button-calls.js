@@ -102,7 +102,7 @@ function saveConfig(refNode) {
   });
 }
 
-function saveNewVersion(refNode, e) {
+function saveNewVersion(refNode, e) {debugger;
 	var event = e || window.event;
 	event.ignoreEvent = true;
   refNode = getLibraryReferenceNode(refNode);
@@ -126,9 +126,11 @@ function saveNewVersion(refNode, e) {
     return;
   }
   
-	var cpChunks = tagRef.PACKAGE_NAME.split(".");
-	//vendor + tag library cp name
-	var cp = cpChunks[0] + "." + cpChunks[1];
+//	var cpChunks = tagRef.PACKAGE_NAME.split(".");
+//	//vendor + tag library cp name
+//	var cp = cpChunks[0] + "." + cpChunks[1];
+//	
+	var cp = tagRef.PACKAGE_NAME;
 	
   //var newPackageName = tagRef.PACKAGE_NAME + "." + versionName;  
   var data = "location=libraries&classPath=" +
