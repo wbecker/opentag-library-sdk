@@ -1,11 +1,11 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
+qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.v1.Tag", {
 	config: {
 		/*DATA*/
-		name: "Legacy - Basket Page Tag",
+		name: "Legacy - Confirmation Page Tag",
 		async: true,
-		description: "The basket tag has to be integrated on the basket or checkout page.",
+		description: "This is a mandatory tag and must be executed on the confirmation page after user made payment.",
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
@@ -13,36 +13,40 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
 		url: "",
 		usesDocWrite: true,
 		parameters: [{
-			name: "Criteo wi Parameter",
-			description: "A Parameter wi provided by Criteo df",
+			name: "Criteo wi parameter",
+			description: "Criteo wi parameter value",
 			token: "wi",
 			uv: ""
 		}, {
-			name: "Criteo Call Parameter",
-			description: "Call Parameter provided by Criteo",
+			name: "Criteo call parameter value",
+			description: "Criteo call parameter value",
 			token: "call_parameter",
 			uv: ""
+		}, {
+			name: "Order ID",
+			description: "",
+			token: "order_id",
+			uv: "universal_variable.transaction.order_id"
 		}, {
 			name: "Product IDs",
 			description: "",
 			token: "product_ids",
-			uv: "universal_variable.basket.line_items[#].product.id"
+			uv: "universal_variable.transaction.line_items[#].product.id"
 		}, {
-			name: "Product Unit Prices",
+			name: "Product Unit Sale Prices",
 			description: "",
 			token: "product_unit_prices",
-			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
+			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 		}, {
 			name: "Quantities",
 			description: "",
 			token: "quantities",
-			uv: "universal_variable.basket.line_items[#].quantity"
+			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
 		/*~DATA*/
 	},
 	script: function() {
 		/*SCRIPT*/
-		//changed
 		var src = [
 			"https://", "sslwidget.criteo.com", "/",
 			"" + this.valueForToken("call_parameter"),
@@ -50,8 +54,9 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
 		];
 		var params = [
 			"v=2",
+			"&s=1",
 			"&wi=", "" + this.valueForToken("wi"),
-			"&s=0"
+			"&t=", "" + this.valueForToken("order_id")
 		];
 
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {

@@ -1,56 +1,31 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
+qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 	config: {
 		/*DATA*/
 		name: "Legacy - Basket Page Tag",
 		async: true,
-		description: "The basket tag has to be integrated on the basket or checkout page.",
+		description: "The basket tag has to be integrated on the basket or checkout pagee.",
 		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
-		usesDocWrite: true,
-		parameters: [{
-			name: "Criteo wi Parameter",
-			description: "A Parameter wi provided by Criteo df",
-			token: "wi",
-			uv: ""
-		}, {
-			name: "Criteo Call Parameter",
-			description: "Call Parameter provided by Criteo",
-			token: "call_parameter",
-			uv: ""
-		}, {
-			name: "Product IDs",
-			description: "",
-			token: "product_ids",
-			uv: "universal_variable.basket.line_items[#].product.id"
-		}, {
-			name: "Product Unit Prices",
-			description: "",
-			token: "product_unit_prices",
-			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
-		}, {
-			name: "Quantities",
-			description: "",
-			token: "quantities",
-			uv: "universal_variable.basket.line_items[#].quantity"
-		}]
+		usesDocWrite: false,
+		parameters: [
+
+		]
 		/*~DATA*/
 	},
 	script: function() {
 		/*SCRIPT*/
-		//changed
 		var src = [
-			"https://", "sslwidget.criteo.com", "/",
-			"" + this.valueForToken("call_parameter"),
-			"/", "display.js?", "p1="
+			"https://", "sslwidget.criteo.com", "/", "" + this.valueForToken(
+				"call_parameter") + "", "/", "display.js?", "p1="
 		];
 		var params = [
 			"v=2",
-			"&wi=", "" + this.valueForToken("wi"),
+			"&wi=", "" + this.valueForToken("wi") + "",
 			"&s=0"
 		];
 
@@ -69,10 +44,14 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
 		img.setAttribute("width", "1");
 		document.body.appendChild(img);
 
+
 		/*~SCRIPT*/
 	},
 	pre: function() {
 		/*PRE*/
+		//exit
+
+
 		/*~PRE*/
 	},
 	post: function() {
