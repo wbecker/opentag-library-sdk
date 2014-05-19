@@ -21,7 +21,7 @@ function runTagHandler(referencingNode) {
     }
 		try {
 			if (evalIt) {
-				info("Evaluating UVConf.js from " + url); debugger;
+				info("Evaluating UVConf.js from " + url); 
 				qubit.opentag.Utils.geval(message);
 			}
 		} catch (ex) {
@@ -102,7 +102,7 @@ function saveConfig(refNode) {
   });
 }
 
-function saveNewVersion(refNode, e) {debugger;
+function saveNewVersion(refNode, e) {
 	var event = e || window.event;
 	event.ignoreEvent = true;
   refNode = getLibraryReferenceNode(refNode);
@@ -129,7 +129,7 @@ function saveNewVersion(refNode, e) {debugger;
 	var cpChunks = tagRef.PACKAGE_NAME.split(".");
 	//vendor + tag library cp name
 	var cp = cpChunks[0] + "." + cpChunks[1];
-	debugger;
+	
   //var newPackageName = tagRef.PACKAGE_NAME + "." + versionName;  
   var data = "location=libraries&classPath=" +
 				tagRef.PACKAGE_NAME + "&version=" + cp + "." + versionName;
