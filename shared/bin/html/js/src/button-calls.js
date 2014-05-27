@@ -9,19 +9,18 @@ function runTagHandler(referencingNode) {
 	}
 	
 	var tagRef = referencingNode.reference;
-	var url = "/libraries/" +
-			(tagRef.PACKAGE_NAME + ".local.UVConf").replace(/\.+/g, "/") +
-			".js";
+	var url = "/getClassPath?classPath=libraries." +
+			tagRef.PACKAGE_NAME + ".local&file=UVConf.js";
 	
 	GET(url, function (message, xhr) {
 		var evalIt = true;
 		if (xhr.status !== 200) {
 			evalIt = false;
-      info("UVConfig not found. Proceeding normally.");
+      log("UVConfig not found. Proceeding normally.");
     }
 		try {
 			if (evalIt) {
-				info("Evaluating UVConf.js from " + url); 
+				log("Evaluating UVConf.js from " + url); 
 				qubit.opentag.Utils.geval(message);
 			}
 		} catch (ex) {
