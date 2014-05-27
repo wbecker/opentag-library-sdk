@@ -39,9 +39,11 @@ function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
   
 	var version = "";
   if (libraryClass.versionClassPath) {
-    version = "<span class='version-title'> (" +
-				libraryClass.prototype.PACKAGE_NAME
-            .replace(libraryClass.versionClassPath + ".", "") + ") </span>";
+		var versionString = libraryClass.prototype.PACKAGE_NAME
+            .replace(libraryClass.versionClassPath + ".", "");
+		versionString = versionString.replace(/\._(\d)/g,".$1");
+    version = "<span class='version-title'> (" + versionString
+				 + ") </span>";
   }
   
   libraryNode.children[0].children[1].innerHTML = 
