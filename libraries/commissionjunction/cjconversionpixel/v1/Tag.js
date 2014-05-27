@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Item IDs",
 			description: "Item IDs",

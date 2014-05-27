@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("krux.kruxinterchange.v1.Tag", {
 		isPrivate: false,
 		url: "http://cdn.krxd.net/krux.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Publisher Id",
 			description: "Your unique publisher id",

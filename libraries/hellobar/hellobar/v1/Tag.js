@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("hellobar.hellobar.v1.Tag", {
 		isPrivate: false,
 		url: "www.hellobar.com/hellobar.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account Id",
 			description: "Your account id with Hello Bar",

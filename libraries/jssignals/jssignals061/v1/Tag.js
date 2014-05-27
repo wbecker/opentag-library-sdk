@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("jssignals.jssignals061.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/js-signals/0.6.1/js-signals.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

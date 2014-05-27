@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("salecycle.genericmobile.v1.Tag", {
 		isPrivate: false,
 		url: "d16fk4ms6rqz1v.cloudfront.net/capture/mobile/${client_name}.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client Name",
 			description: "The client name that identifies you to SaleCycle",

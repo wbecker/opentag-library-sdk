@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("exacttarget.landingpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Cookie Duration",
 			description: "Number of days the cookie should last",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv19us.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Struq Listing Page Pixel ID",
 			description: "",

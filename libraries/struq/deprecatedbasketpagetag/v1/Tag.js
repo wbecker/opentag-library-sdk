@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.deprecatedbasketpagetag.v1.Tag", {
 		isPrivate: true,
 		url: "media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Basket Product ID Listing",
 			description: "An array of the product IDs in the basket",

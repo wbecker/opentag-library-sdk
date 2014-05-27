@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("requirejs.requirejs.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

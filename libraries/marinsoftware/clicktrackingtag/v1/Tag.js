@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Marin Tracking ID",
 			description: "Marin Tracking ID",

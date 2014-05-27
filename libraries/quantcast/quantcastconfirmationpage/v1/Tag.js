@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account Number",
 			description: "Your Quantcast account number",

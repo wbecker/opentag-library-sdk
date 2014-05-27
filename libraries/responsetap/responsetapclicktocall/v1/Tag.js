@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account Id",
 			description: "Your Response Tap account id, generally a 3-4 digit number",

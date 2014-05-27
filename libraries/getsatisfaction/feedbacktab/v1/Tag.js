@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.v1.Tag", {
 		isPrivate: true,
 		url: "https://d3rdqalhjaisuu.cloudfront.net/javascripts/feedback-v2.js",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Company Name",
 			description: "Your Company name/id with Get Satisfaction",

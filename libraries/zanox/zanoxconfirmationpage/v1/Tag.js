@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Program id",
 			description: "Unique identifier, e.g. 10292C1904329647",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client ID",
 			description: "Client's tracking ID",

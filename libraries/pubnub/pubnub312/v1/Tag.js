@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("pubnub.pubnub312.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/pubnub/3.1.2/pubnub.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

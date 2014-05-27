@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("drawbridge.crossdevicepixel.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Drawbridge Partner ID",
 			description: "The ID that Drawbridge have given you",

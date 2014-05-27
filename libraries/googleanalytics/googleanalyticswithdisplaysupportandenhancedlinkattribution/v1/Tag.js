@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "GA Profile ID",
 				description: "The ID provided to you by Google Analytics",

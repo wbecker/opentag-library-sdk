@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("bizrate.bizratenonbuyersurvey.v1.Tag", {
 		isPrivate: false,
 		url: "eval.bizrate.com/js/survey_${merchant_id}_1.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "BizRate Merchant ID",
 			description: "The identifier that corresponds to the merchant.",

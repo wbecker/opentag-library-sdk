@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "SteelHouse Advertiser ID",
 			description: "The ID assigned to you by SteelHouse",

@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "List of Purchased Items",
 				description: "array of purchased items",

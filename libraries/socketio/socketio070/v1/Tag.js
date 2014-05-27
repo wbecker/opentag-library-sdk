@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("socketio.socketio070.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/socket.io/0.7.0/socket.io.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

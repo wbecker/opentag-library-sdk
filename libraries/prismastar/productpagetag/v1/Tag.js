@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("prismastar.productpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Gateway Prefix",
 			description: "Your gateway prefix assigned by your PrismaStar account manager",

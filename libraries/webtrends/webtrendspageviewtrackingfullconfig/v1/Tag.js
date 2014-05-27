@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "d22rutvoghj3db.cloudfront.net/opentag-cdn/webtrends.min.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "SmartSource Site ID",
 				description: "The SmartSource Site id (DCSID).",

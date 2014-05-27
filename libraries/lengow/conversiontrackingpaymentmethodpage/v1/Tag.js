@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Lengow Customer ID",
 				description: "(mandatory) Your Lengow customer ID (integer value)",

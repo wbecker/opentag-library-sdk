@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "Criteo WI Parameter",
 				description: "Criteo wi parameter value",

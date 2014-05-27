@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Affilinet Tracking Domain",
 			description: "Domain of the affilinet country you are working with, e.g.	partners.webmasterplan.com",

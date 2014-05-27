@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Evidon Company ID",
 				description: "The ID assigned to you by Evidon",

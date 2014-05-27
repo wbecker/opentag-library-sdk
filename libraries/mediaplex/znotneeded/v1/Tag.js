@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mediaplex.znotneeded.v1.Tag", {
 		isPrivate: true,
 		url: "https://secure.img-cdn.mediaplex.com/0/${client_id}/universal.html?page_name=${page_name}&${event_name}=1&mpuid=",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Mediaplex Client ID",
 			description: "The ID assigned to you by Mediaplex",

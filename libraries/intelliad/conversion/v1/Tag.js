@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Transaction Order Total",
 			description: "The total amount for the conversion",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("firefly.generictag.v1.Tag", {
 		isPrivate: false,
 		url: "firefly-071591.s3.amazonaws.com/scripts/loaders/loader.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Firefly Token",
 			description: "The token specific to the client using Firefly",

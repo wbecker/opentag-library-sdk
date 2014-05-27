@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("calltrackingmetrics.trackingcode.v1.Tag", {
 		isPrivate: false,
 		url: "${client_id}.tctm.co/t.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "CallTrackingMetrics Client ID",
 			description: "The client ID given to you in your generated code from CallTrackingMetrics",

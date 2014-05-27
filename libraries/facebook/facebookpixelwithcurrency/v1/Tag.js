@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixelwithcurrency.v1.Tag", {
 		isPrivate: false,
 		url: "connect.facebook.net/${countrycode}/fp.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Country Code",
 			description: "",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Pixel id",
 			description: "The identifier unique to each Struq tag",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Program ID",
 			description: "Program ID is fixed and defined by the platform when the advertiser is setup",

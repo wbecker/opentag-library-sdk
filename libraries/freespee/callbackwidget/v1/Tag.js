@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("freespee.callbackwidget.v1.Tag", {
 		isPrivate: true,
 		url: "//${domain_name}.freespee.com/js/external/fs.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "FreeSpee ID",
 			description: "the ID provided by FreeSpee when entering the \"allowed number\" in the FreeSpee Dashboard. [REQUIRED]",

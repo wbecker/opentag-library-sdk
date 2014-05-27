@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Order Product IDs",
 			description: "",

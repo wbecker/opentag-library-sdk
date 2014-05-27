@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mythings.endoftransactiontag.v1.Tag", {
 		isPrivate: false,
 		url: "${subdomain}.mythings.com/c.aspx?atok=${token}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "MyThings Advertiser Token",
 			description: "advertiser token provided by myThings",

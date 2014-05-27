@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "t1.stormiq.com/dcv4/jslib/${storm_id}.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "StormIQ ID",
 				description: "",

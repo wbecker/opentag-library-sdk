@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("netbooster.remarketingpixel.v1.Tag", {
 		isPrivate: false,
 		url: "segment-pixel.invitemedia.com/pixel?pixelID=${pixel_id}&partnerID=${partner_id}&clientID=${client_id}&key=segment&returnType=js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Pixel ID",
 			description: "",

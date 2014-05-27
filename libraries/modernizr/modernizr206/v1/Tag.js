@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("modernizr.modernizr206.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

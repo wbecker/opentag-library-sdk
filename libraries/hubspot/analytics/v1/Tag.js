@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Hubspot ID",
 			description: "",

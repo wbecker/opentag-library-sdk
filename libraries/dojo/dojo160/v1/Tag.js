@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("dojo.dojo160.v1.Tag", {
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

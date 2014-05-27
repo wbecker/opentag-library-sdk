@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Product IDs",
 				description: "Product IDs",
@@ -24,15 +25,20 @@ qubit.opentag.LibraryTag.define(
 				token: "product_categories",
 				uv: "universal_variable.transaction.line_items[#].product.category"
 			}, {
+				name: "Product Values",
+				description: "Product Values",
+				token: "product_values",
+				uv: "universal_variable.transaction.line_items[#].product.unit_price"
+			}, {
 				name: "Page Category",
 				description: "Page Category",
 				token: "page_category",
 				uv: "universal_variable.page.category"
 			}, {
-				name: "Product Values",
-				description: "Product Values",
-				token: "product_values",
-				uv: "universal_variable.transaction.line_items[#].product.unit_price"
+				name: "Google Conversion ID",
+				description: "Google Conversion ID",
+				token: "google_id",
+				uv: ""
 			}, {
 				name: "Google Conversion ID",
 				description: "Google Conversion ID",

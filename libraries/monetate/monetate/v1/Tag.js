@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("monetate.monetate.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Montetate ID",
 			description: "Your unique id, e.g. a-64624593",

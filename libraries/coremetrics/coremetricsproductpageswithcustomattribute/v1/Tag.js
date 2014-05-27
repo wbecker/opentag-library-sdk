@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "libs.coremetrics.com/eluminate.js",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "CoreMetrics Client ID",
 				description: "The ID corresponding to you given by CoreMetrics",

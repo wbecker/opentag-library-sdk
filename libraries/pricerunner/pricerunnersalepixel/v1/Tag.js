@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Enterprise ID",
 			description: "The Enterprise ID is an ID that enables a single integration across multiple Commission Junction products. This parameter is static and can be hard-coded into the URL call for the image.",

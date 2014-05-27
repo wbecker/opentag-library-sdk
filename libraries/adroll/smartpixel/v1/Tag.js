@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adroll.smartpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "AdRoll Advertiser ID",
 			description: "ID for the Advertiser",

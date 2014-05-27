@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("uservoice.uservoicechat.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Unique Id",
 			description: "Unique JavaScript File name",

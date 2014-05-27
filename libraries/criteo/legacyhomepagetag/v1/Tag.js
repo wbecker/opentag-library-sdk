@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("criteo.legacyhomepagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Criteo wi Parameter",
 			description: "Criteo wi parameter",

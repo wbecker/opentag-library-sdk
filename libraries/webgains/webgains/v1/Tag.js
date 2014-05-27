@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("webgains.webgains.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Program ID",
 			description: "unique identifier for merchant (e.g. 1234) [COMPULSORY]",

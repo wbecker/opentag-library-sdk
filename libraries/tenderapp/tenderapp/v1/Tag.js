@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("tenderapp.tenderapp.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Subdomain",
 			description: "Please enter your subdomain. Example: yourdomain.tenderapp.com",

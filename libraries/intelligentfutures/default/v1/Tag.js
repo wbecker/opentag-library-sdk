@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelligentfutures.default.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

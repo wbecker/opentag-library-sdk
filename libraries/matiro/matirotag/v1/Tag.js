@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("matiro.matirotag.v1.Tag", {
 		isPrivate: false,
 		url: "asset.matiro.com/${pixel_id}?m1=${order_id}&m2=${order_amount}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Matiro Pixel Identifier",
 			description: "ID for the Matiro tracking pixel",

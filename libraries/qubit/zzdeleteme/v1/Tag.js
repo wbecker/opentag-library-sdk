@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.zzdeleteme.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "test2",
 			description: "param",

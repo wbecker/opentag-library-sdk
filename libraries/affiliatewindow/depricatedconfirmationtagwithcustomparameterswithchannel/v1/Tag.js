@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "www.dwin1.com/${merchant_id}.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [
 
 			]

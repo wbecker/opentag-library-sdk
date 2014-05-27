@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Web1b1 Function Script URL",
 			description: "Full URL of your Web 1b1 script e.g. w1x1.js",

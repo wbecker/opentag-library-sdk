@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qype.qype.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Review Count",
 			description: "The amount of reviews to show, must be < 24",

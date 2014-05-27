@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("ui.yui330.v1.Tag", {
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/yui/3.3.0/build/yui/yui-min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

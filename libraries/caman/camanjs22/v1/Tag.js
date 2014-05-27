@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("caman.camanjs22.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/camanjs/2.2/caman.full.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

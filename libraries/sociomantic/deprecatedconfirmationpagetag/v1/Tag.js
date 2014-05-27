@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Products Ids",
 				description: "A list of product IDs currently in the basket",

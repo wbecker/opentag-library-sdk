@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpage.v1.Tag", {
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Peerius Client Name",
 			description: "The name of the client for which the tag is to be implemented",

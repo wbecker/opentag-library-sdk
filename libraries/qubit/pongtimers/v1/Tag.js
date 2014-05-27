@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.pongtimers.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Pong URL",
 			description: "URL of the pong to be tested",

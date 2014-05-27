@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Additional Product Values excl. SKU code",
 				description: "\"no\" if none - else, an array of strings of \"^\" separated extra product values for every item",

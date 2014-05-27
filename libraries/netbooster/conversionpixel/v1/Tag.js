@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("netbooster.conversionpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Pixel ID",
 			description: "",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("buyat.conversiontagdeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "BuyAt ID",
 			description: "",

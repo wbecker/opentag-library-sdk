@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adform.globaltrackingpointpageviewonly.v1.Tag",
 		isPrivate: true,
 		url: "//track.adform.net/serving/scripts/trackpoint/async/",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Page Name",
 			description: "Unique name defining the page being viewed, without any url parameters.",

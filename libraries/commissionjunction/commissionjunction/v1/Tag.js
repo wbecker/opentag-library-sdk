@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.v1.Tag", 
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Commission Junction Enterprise ID",
 			description: "View the Enterprise ID in your CJ Account Manager>Account>Tracking Settings area",

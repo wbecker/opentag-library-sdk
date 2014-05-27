@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("conexance.confirmationpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Confirmation ID",
 			description: "The unique identifier corresponding to the current transaction",

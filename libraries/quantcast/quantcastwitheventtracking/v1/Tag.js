@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "QuantCast Account Number",
 			description: "Your quantcast account number",

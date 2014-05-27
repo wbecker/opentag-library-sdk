@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("extcore.extcore310.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/ext-core/3.1.0/ext-core.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

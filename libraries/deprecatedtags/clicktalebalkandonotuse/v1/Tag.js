@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.v1.Tag",
 		isPrivate: true,
 		url: "${clicktale_url}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "ClickTale URL",
 			description: "Set this to the JavaScript variable 'window.clicktale_url' which is created by the Pre-Script",

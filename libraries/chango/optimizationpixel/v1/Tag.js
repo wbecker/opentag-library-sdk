@@ -10,8 +10,9 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixel.v1.Tag", {
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Chango.png",
 		locationDetail: "",
 		isPrivate: true,
-		url: "//cc.chango.com/static/o.js",
+		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account ID",
 			description: "Your Chango Account ID",

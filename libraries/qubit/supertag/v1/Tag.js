@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.supertag.v1.Tag", {
 		isPrivate: false,
 		url: "s3-eu-west-1.amazonaws.com/opentag-images/super_tags.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

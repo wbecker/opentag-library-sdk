@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("cufon.cufon109i.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/cufon/1.09i/cufon-yui.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

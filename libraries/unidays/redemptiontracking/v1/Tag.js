@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("unidays.redemptiontracking.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "UNiDAYS Customer ID",
 			description: "Provided by UNiDAYS - See tag description on how to encrypt",

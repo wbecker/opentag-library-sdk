@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.v1.Tag", {
 		isPrivate: false,
 		url: "${SOURCE_URL}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "WRP_ID",
 			description: "Site Id",

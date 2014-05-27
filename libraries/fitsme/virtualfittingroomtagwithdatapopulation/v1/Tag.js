@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "www.fits.me/vfr.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Product SKU",
 				description: "The SKU identifying the current product",

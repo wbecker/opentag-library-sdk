@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("zopim.zopimlivechat.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Client ID",
 			description: "The unique client id, e.g. \"183c79emDOKRZl6272Y1DS6nmuZiWCDTf3e\"",

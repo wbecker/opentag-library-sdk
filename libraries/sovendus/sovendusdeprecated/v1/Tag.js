@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Sovendus Shop ID",
 			description: "The Shop ID you have received from Sovendus.",

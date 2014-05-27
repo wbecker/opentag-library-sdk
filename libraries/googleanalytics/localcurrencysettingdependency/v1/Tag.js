@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Local Currency",
 				description: "The currency code for the transaction's payment, eg 'GBP', 'EUR', or 'USD'",

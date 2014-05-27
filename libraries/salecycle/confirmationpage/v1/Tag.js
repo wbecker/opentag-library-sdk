@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("salecycle.confirmationpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client ID",
 			description: "Implementation consultant will provide you with your Client ID",

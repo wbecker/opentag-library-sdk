@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.combineduvlistener.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

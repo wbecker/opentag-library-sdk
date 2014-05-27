@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sammy.sammyjs063.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/sammy.js/0.6.3/sammy.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

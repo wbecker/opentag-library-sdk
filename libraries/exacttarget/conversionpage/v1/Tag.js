@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("exacttarget.conversionpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Unique Conversion Page ID",
 			description: "e.g. for a standard Confirmation page it would be the Order ID",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mythings.customtag.v1.Tag", {
 		isPrivate: false,
 		url: "https://${subdomain}.mythings.com/c.aspx?atok=${advertiser_token}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "myThings Advertiser Token",
 			description: "Token provided by myThings",

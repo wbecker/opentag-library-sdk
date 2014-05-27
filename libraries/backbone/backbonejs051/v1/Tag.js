@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("backbone.backbonejs051.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.1/backbone-min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

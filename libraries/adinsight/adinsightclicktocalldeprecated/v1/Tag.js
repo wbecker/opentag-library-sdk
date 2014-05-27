@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "static.adinsight.eu/static/scripts/adiTrack.min.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Account Id",
 				description: "Your AdInsight account id, generally a 3 digit number",

@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Advertiser Id",
 				description: "Your Company ID, provided by Google Affiliate Network. This value is the same for all orders.",

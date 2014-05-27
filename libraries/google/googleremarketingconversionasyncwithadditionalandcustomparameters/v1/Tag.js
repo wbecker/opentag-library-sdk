@@ -11,8 +11,9 @@ qubit.opentag.LibraryTag.define(
 			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 			locationDetail: "",
 			isPrivate: true,
-			url: "www.googleadservices.com/pagead/conversion_async.js",
+			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Google Conversion ID",
 				description: "Your Google ID provided in the script.",

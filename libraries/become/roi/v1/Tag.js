@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Merchant ID",
 			description: "The ID specific to the merchant using the Become tag",

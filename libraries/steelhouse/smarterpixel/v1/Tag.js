@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "SteelHouse Merchant ID",
 			description: "The merchant ID provided by SteelHouse",

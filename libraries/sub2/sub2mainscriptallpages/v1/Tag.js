@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client ID",
 			description: "e.g. xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",

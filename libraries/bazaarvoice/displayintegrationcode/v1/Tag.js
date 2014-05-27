@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.v1.Tag", {
 		isPrivate: false,
 		url: "${client_code}.ugc.bazaarvoice.com/static/${display_code}/bvapi.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client Code",
 			description: "Represents your client code",

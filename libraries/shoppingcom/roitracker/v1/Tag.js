@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 		isPrivate: false,
 		url: "stat.dealtime.com/ROI/ROI2.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Shopping.com Client ID",
 			description: "The Shopping.com identifier for the client",

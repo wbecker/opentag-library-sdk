@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "PT Value",
 			description: "Page Type - If not available input a black hardcoded parameter",

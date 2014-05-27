@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("affiliatewindow.mastertag.v1.Tag", {
 		isPrivate: false,
 		url: "www.dwin1.com/${MERCHANT_ID}.js",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Affiliate Window Merchant ID",
 			description: "Affiliate Window Merchant ID",

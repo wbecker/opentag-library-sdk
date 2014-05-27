@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv15.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Confirmation Product ID List",
 			description: "An array of all the confirmation IDs on the confirmation page",

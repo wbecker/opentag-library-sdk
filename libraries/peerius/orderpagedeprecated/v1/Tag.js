@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "pt.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Peerius Language",
 			description: "The language of the page that the current tag is on",

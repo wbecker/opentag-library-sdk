@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2productpage.v1.Tag", 
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "ID",
 			description: "",

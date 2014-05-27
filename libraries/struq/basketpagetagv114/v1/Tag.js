@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv114.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Struq Basket Page Pixel ID",
 			description: "",

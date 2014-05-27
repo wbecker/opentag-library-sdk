@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "jQuery name",
 			description: "This tag requires jQuery. Input the variable jQuery is assigned to on the page.",

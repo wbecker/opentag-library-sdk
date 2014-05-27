@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Event ID",
 				description: "A unique identifier for the type of conversion, such as “Account Creation” or “Special Registration\"",

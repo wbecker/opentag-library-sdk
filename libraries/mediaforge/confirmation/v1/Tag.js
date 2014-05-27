@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mediaforge.confirmation.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "mediaFORGE Merchant ID",
 			description: "The ID relating you to mediaFORGE",

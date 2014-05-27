@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("lyticsio.initiatejstag.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Lytics.io Client ID",
 			description: "The ID given to you by Lytics.io",

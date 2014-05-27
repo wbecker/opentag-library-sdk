@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtrackaddingnewevents.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

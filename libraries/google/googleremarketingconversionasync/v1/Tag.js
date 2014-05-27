@@ -13,7 +13,13 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "www.googleadservices.com/pagead/conversion_async.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
+				name: "Google Conversion ID",
+				description: "Google Conversion ID",
+				token: "google_id",
+				uv: ""
+			}, {
 				name: "Google Conversion ID",
 				description: "Your Google id provided in the script",
 				token: "conversion_id",

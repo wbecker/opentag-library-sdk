@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mentionme.referrertagdeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Email",
 			description: "The customer's email address e.g. waldosmith@mention-me.com",

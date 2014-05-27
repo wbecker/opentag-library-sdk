@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "t.channeladvisor.com/v2/${ca_id}.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Order Id",
 				description: "The unique identifier corresponding to the transaction",

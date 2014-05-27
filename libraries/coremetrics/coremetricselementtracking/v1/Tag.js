@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.v1.Tag",
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Element ID",
 			description: "The unique identifier or name for the Element and the value that is displayed in the Elements report",

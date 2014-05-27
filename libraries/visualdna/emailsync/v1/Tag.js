@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("visualdna.emailsync.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "API Key",
 			description: "API Key",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "UV - Ignore Last Breadcrumb",
 			description: "Ignore the last breadcrumb",

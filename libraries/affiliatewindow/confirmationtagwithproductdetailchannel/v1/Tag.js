@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "www.dwin1.com/${merchant_id}.js",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "Affiliate Window Merchant ID",
 				description: "",

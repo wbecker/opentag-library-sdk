@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Tag Type",
 			description: "The type of the tag i.e. what value is getting picked up (for example '1' refers to product pages)",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adgenie.productpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "adGENIE Client ID",
 			description: "The ID of the company using adGENIE tag",

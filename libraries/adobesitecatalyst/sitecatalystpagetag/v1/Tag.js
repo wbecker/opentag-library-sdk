@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystpagetag.v1.Tag", 
 		isPrivate: false,
 		url: "${scriptURL}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Omniture S Code URL",
 			description: "The custom s_code.js provided to you should be hosted on your server e.g. abc.com/scripts/s_code.js",

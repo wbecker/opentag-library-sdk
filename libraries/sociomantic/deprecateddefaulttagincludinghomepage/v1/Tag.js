@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${TOKEN}",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Advertiser Token",
 				description: "Your Sociomantic customer ID. Please only use the token that has been created and sent to you.",

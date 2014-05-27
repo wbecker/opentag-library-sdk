@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("connextra.datacapturetag.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Connextra Client ID",
 			description: "Your Connextra account ID",

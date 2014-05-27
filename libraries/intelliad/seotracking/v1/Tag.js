@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelliad.seotracking.v1.Tag", {
 		isPrivate: false,
 		url: "t13.intelliad.de/cl/${client_id}.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "IntelliAd Client ID",
 			description: "The identifier that relates you to IntelliAd",

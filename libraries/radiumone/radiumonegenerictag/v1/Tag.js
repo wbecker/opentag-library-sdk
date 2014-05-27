@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenerictag.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

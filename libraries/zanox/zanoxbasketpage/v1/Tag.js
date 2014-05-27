@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "ID",
 			description: "client/page specific ID",

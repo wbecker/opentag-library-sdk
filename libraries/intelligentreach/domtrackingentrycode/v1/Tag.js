@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.domtrackingentrycode.v1.Tag", 
 		isPrivate: false,
 		url: "www.ist-track.com/ProcessClickJavaScript.ashx?id=${id}&useDom=1",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "IntelligentReach ID",
 			description: "Unique ID assigned by IntelligentReach - must remain the same across the whole site",

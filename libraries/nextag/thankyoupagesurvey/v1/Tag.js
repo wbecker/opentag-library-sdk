@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("nextag.thankyoupagesurvey.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Nextag Seller ID",
 			description: "",

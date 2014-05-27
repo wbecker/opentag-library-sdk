@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictagdeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "t1.stormiq.com/dcv4/jslib/${storm_id}.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "DC Storm ID",
 			description: "",

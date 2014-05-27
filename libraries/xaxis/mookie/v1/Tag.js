@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Xaxis Client ID",
 			description: "Client identifier",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("chango.conversionpixel.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Conversion ID",
 			description: "This is a value provided by Chango when they generate the conversion tag for you",

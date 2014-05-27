@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "URL ID",
 				description: "The id in the url of the script, eg fb9804c9-b48f-46d1-a20e-88c3ff3302cc",

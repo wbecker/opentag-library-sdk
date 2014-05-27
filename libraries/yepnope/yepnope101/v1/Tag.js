@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("yepnope.yepnope101.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/yepnope/1.0.1/yepnope.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

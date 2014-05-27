@@ -13,7 +13,18 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
+				name: "Google Conversion ID",
+				description: "Google Conversion ID",
+				token: "google_id",
+				uv: ""
+			}, {
+				name: "Page Category",
+				description: "Page Category",
+				token: "cat",
+				uv: "universal_variable.page.category"
+			}, {
 				name: "Page Type",
 				description: "Page Type",
 				token: "page_category",

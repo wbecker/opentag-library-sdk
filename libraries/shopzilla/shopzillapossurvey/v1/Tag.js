@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillapossurvey.v1.Tag", {
 		isPrivate: false,
 		url: "eval.bizrate.com/js/pos_${merchant_id}.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Merchant id",
 			description: "Your unique merchant id for Shopzilla",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("optimizely.optimizely.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account Id",
 			description: "Please enter your account ID. Do not include the .js",

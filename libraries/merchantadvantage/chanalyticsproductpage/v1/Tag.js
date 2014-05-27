@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "http://chanalytics.merchantadvantage.com/inchannel/maq.js",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [
 
 			]

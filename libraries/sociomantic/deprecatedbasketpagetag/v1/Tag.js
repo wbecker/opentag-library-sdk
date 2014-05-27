@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.v1.Tag", {
 		isPrivate: true,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Product Ids",
 			description: "A list of identifiers relating to products in the basket",

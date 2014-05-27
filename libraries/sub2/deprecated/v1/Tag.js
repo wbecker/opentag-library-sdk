@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Order ID",
 			description: "Transaction Order ID",

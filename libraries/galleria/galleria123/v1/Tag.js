@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("galleria.galleria123.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/galleria/1.2.3/galleria.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

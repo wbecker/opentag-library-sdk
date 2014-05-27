@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "tb${tracking_type}.tradedoubler.com/report?organization=${org_id}&event=${evt_id}&orderNumber=${order_id}&orderValue=${order_total}&currency=${currency}",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "TradeDoubler Tracking Type",
 				description: "Enter hard coded value such as s for sales tracking or l for lead tracking",

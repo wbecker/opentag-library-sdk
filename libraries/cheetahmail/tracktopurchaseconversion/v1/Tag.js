@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("cheetahmail.tracktopurchaseconversion.v1.Tag", 
 		isPrivate: false,
 		url: "//${domain}/a/r${affiliate_ids}/${client}.gif?a=${order_id}&b=${order_total}&c=${cust1}&d=${cust2}&e=${cust3}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client Domain",
 			description: "Client domain hosted by CheetahMail",

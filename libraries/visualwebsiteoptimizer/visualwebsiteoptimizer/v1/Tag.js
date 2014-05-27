@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "Account ID",
 				description: "The ID of the account used for Visual Website Optimizer",

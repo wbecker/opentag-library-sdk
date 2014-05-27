@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("gosquared.gosquaredallpages.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account ID",
 			description: "The ID specific to your GoSquared account.",

@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=${id}",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "Ultimate Feed ID",
 				description: "Ultimate Feed client ID",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "StyleFruits Partner ID",
 			description: "This is your partner-ID which must not be modified.",

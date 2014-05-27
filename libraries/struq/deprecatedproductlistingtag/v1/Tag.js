@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 		isPrivate: true,
 		url: "media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Product ID Listing",
 			description: "An array containing a list of product IDs",

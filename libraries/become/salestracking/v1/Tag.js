@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
 		isPrivate: false,
 		url: "https://clicks.pangora.com/sales-tracking/salesTracker.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Pangora Merchant ID",
 			description: "Your Merchant ID that is provided by Pangora. This ID is essential for a working tracking.",

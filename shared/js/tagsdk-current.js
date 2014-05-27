@@ -6864,6 +6864,11 @@ var JSON = {};
      */
     isPrivate: false,
     /**
+     * Library can be notified for version upgrades.
+     * @cfg {Boolean} [upgradeable=true]
+     */
+    upgradeable: true,
+    /**
      * HTML content to be appended to the page body
      * @cfg {String} [vendor=null]
      */

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("underscore.underscore144.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

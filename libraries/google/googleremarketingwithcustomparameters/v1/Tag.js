@@ -13,15 +13,11 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "www.googleadservices.com/pagead/conversion_async.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Google Conversion ID",
-				description: "Your Google id provided in the script",
-				token: "conversion_id",
-				uv: ""
-			}, {
-				name: "Google Conversion Label",
-				description: "A alphanumeric label of your conversion tracking",
-				token: "label",
+				description: "Google Conversion ID",
+				token: "google_id",
 				uv: ""
 			}, {
 				name: "Product ID",
@@ -37,6 +33,16 @@ qubit.opentag.LibraryTag.define(
 				name: "Total value/price",
 				description: "Specify the value of the product. On a basket/purchase page, this should be the total sum of items.",
 				token: "total",
+				uv: ""
+			}, {
+				name: "Google Conversion ID",
+				description: "Your Google id provided in the script",
+				token: "conversion_id",
+				uv: ""
+			}, {
+				name: "Google Conversion Label",
+				description: "A alphanumeric label of your conversion tracking",
+				token: "label",
 				uv: ""
 			}]
 			/*~DATA*/

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("flixmedia.checkoutstartpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Array of product SKU codes",
 			description: "Array of product SKU codes",

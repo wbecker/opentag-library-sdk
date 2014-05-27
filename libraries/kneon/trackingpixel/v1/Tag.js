@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("kneon.trackingpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Transaction SKU List",
 			description: "The list of SKU ids on the transaction page",

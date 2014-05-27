@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Site ID",
 			description: "",

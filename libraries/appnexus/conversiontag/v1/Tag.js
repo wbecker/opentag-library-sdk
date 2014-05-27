@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("appnexus.conversiontag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "AppNexus ID",
 			description: "",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", 
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Email",
 			description: "The email address of the customer",

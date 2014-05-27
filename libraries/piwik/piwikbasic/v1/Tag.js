@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("piwik.piwikbasic.v1.Tag", {
 		isPrivate: true,
 		url: "${piwik_url}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Piwik URL",
 			description: "The URL of your website",

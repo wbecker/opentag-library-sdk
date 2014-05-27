@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.v1.Tag", {
 		isPrivate: false,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Conversion ID",
 			description: "Your Google id provided in the script",

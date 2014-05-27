@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("jquery.d172deprecated.v1.Tag", {
 		isPrivate: true,
 		url: "ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

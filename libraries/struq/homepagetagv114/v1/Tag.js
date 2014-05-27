@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv114.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Struq Homepage Tracking ID",
 			description: "The Struq Homepage tracking pixel ID",

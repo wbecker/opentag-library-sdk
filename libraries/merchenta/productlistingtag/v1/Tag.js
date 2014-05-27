@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("merchenta.productlistingtag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Merchenta Retailer Code",
 			description: "Your Merchenta account ID",

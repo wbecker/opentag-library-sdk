@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("weborama.weboramafunneltag.v1.Tag", {
 		isPrivate: false,
 		url: "cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Funnel Id",
 			description: "Set your funnel id here",

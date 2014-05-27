@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("ownedit.confirmationpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "www.ownedit.com/ownedit_js/ownedit.js?store_id=${STORE_ID}&anchor=${DIV_CLASS_NAME}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Store Id",
 			description: "Each store is allocated a unique store ID by Owned it.",

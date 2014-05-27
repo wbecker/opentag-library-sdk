@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("nextperformance.homepagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account (zid)",
 			description: "zid value provided by NextPerformance",

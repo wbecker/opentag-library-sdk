@@ -12,9 +12,33 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
-		parameters: [
-
-		]
+		upgradeable: true,
+		parameters: [{
+			name: "Criteo wi Parameter",
+			description: "A Parameter wi provided by Criteo",
+			token: "wi",
+			uv: ""
+		}, {
+			name: "Criteo Call Parameter",
+			description: "Call Parameter provided by Criteo",
+			token: "call_parameter",
+			uv: ""
+		}, {
+			name: "Product IDs",
+			description: "",
+			token: "product_ids",
+			uv: "universal_variable.basket.line_items[#].product.id"
+		}, {
+			name: "Product Unit Prices",
+			description: "",
+			token: "product_unit_prices",
+			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
+		}, {
+			name: "Quantities",
+			description: "",
+			token: "quantities",
+			uv: "universal_variable.basket.line_items[#].quantity"
+		}]
 		/*~DATA*/
 	},
 	script: function() {

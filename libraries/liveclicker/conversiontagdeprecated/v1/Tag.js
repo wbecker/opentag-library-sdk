@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Order Total",
 			description: "",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mootools.mootools.v1.Tag", {
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mythings.productpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Advertiser Token",
 			description: "advertiser token provided by myThings",

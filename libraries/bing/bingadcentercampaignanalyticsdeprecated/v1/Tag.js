@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "flex.atdmt.com/mstag/site/${url_guid}/mstag.js",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "URL ID",
 				description: "The id in the url of the script, eg fb9804c9-b48f-46d1-a20e-88c3ff3302cc",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "IntelliAd Client ID",
 			description: "The ID that relates you to IntelliAd",

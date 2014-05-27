@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 		isPrivate: true,
 		url: "d3c3cq33003psk.cloudfront.net/consent/consent-widget-1.1.0.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Privacy & Cookies Policy Statement Link [compulsory]",
 			description: "add the URL of your Privacy & Cookies Policy Statement",

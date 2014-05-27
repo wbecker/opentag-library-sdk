@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mediamind.genericpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "MediaMind Page Activity ID",
 			description: "The ID unique to the page the tag is running on",

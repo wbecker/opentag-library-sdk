@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("audiencescience.gatewaytag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "CSID",
 			description: "advertiser-code (CSID) provided by AudienceScience",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("graphael.graphael041.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/graphael/0.4.1/g.raphael-min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

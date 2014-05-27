@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("bluetriangle.bluetrianglepagetag.v1.Tag", {
 		isPrivate: false,
 		url: "${clientId}.btttag.com/BTT/btt.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client ID",
 			description: "Client ID provided by Blue Triangle. e.g. demo.btttag.com/BTT/btt.js, demo is your client ID",

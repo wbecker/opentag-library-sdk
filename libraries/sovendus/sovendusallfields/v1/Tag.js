@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Sovendus Shop ID",
 			description: "The Shop ID you have received from Sovendus - e.g. 1",

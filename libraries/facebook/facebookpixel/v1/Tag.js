@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixel.v1.Tag", {
 		isPrivate: false,
 		url: "connect.facebook.net/${url_locale}/fp.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "FB Country Code",
 			description: "e.g. en_UK ( if not sure, use : en_US )",

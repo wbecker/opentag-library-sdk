@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "MediaMind Basket Activity ID",
 			description: "",

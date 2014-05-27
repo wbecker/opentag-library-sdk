@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "Marin Client Id",
 				description: "Your unique marin client id",

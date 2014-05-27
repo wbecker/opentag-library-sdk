@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("responsys.riconversiontracking.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Array of Purchased Items",
 			description: "Array of Purchased Items",

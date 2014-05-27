@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtestbasketpage.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Basket Total",
 			description: "",

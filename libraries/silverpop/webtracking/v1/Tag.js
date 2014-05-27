@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Secure Domain URL",
 			description: "The domain for secure pages on your site provided by your Org Admin",

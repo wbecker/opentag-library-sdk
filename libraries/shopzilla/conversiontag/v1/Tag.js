@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("shopzilla.conversiontag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Order ID",
 			description: "",

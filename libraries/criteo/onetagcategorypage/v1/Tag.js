@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagcategorypage.v1.Tag", {
 		isPrivate: false,
 		url: "static.criteo.net/js/ld/ld.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Criteo Partner ID",
 			description: "The ID assigned to you by Criteo",

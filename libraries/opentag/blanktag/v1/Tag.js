@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("opentag.blanktag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

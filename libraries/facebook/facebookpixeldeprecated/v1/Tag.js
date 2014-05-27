@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixeldeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

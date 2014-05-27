@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("netbooster.deprecatedconversionpixel.v1.Tag", {
 		isPrivate: false,
 		url: "conversion-pixel.invitemedia.com/pixel?pixelID=${pixel_id}&partnerID=${partner_id}&clientID=${client_id}&key=conv&returnType=js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Pixel ID",
 			description: "",

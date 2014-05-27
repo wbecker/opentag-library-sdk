@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv19us.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Struq Conversion Pixel ID",
 			description: "",

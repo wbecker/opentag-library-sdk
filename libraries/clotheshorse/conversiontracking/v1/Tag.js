@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("clotheshorse.conversiontracking.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Clothes Horse Client Token",
 			description: "The token specific to the client using the tag",

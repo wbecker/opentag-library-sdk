@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.uvlistproductlistingpage.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Product Listing - Query",
 			description: "",

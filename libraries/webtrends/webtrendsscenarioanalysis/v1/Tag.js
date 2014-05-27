@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Scenario Analysis name",
 			description: "Identifies the name of the Scenario Analysis. The maximum length for each Name is 64 bytes.",

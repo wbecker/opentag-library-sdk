@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("peerius.basketpage.v1.Tag", {
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Peerius Basket Currency",
 			description: "The currency of the basket page items",

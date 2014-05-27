@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("jquery.noconflictjquery.v1.Tag", {
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/jquery/${version}/jquery.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "jQuery version",
 			description: "version e.g. 1.8.3",

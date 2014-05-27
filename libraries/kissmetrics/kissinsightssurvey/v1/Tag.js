@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.v1.Tag", {
 		isPrivate: false,
 		url: "s3.amazonaws.com/ki.js/${account_id}/${website_id}.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Account Id",
 			description: "The account id of your KISS subscription - the first number in the URL",

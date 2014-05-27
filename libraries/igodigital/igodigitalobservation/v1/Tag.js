@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "rtaRetailer",
 			description: "The unique client name provided by iGoDigital set on every page",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("pricegrabber.thankyoupagesurvey.v1.Tag", {
 		isPrivate: false,
 		url: "https://www.pricegrabber.com/rating_merchrevpopjs.php?retid=${account_number}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "PriceGrabber Account Number",
 			description: "",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2transaction.v1.Tag", 
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Page Type",
 			description: "Page type. Category info about the page the pixel is on (e.g. Homepage, Product page, Cart page)",

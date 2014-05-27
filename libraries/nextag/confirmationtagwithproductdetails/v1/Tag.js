@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "imgsrv.nextag.com/imagefiles/includes/roitrack.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Nextag ID",
 				description: "",

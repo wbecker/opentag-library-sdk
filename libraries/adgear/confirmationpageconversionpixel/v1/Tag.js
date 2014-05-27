@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.v1.Tag",
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Account ID",
 			description: "The account ID for AdGear",

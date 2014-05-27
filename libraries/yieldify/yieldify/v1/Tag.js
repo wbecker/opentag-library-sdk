@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("yieldify.yieldify.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Yieldify ID",
 			description: "Your Yieldify ID",

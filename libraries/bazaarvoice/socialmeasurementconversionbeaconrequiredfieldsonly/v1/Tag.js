@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "static.powerreviews.com/t/v1/tracker.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Bazaarvoice Merchant Group ID",
 				description: "Should match Merchant Group ID from PowerReviews	Dashboard’s Configure Reviews section",

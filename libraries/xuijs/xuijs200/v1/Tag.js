@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("xuijs.xuijs200.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/xuijs/2.0.0/xui.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

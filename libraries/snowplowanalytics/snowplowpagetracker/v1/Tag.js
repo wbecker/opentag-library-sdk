@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.v1.Tag", 
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Cloudfront Domain",
 			description: "Your cloudfront domain hosting Snowplow",

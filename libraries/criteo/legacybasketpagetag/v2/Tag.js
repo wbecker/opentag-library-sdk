@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Criteo wi Parameter",
 			description: "A Parameter wi provided by Criteo df",

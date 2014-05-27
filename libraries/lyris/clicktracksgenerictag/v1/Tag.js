@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksgenerictag.v1.Tag", {
 		isPrivate: false,
 		url: "stats2.clicktracks.com/cgi-bin/ctasp-server.cgi?i=${id}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Click Tracks ID",
 			description: "",

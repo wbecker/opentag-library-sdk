@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "MediaMind ID",
 			description: "The ID that relates this pixel to MediaMind",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sizzle.sizzle144.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/sizzle/1.4.4/sizzle.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

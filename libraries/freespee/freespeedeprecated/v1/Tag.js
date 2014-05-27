@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("freespee.freespeedeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 		isPrivate: false,
 		url: "stat.dealtime.com/ROI/ROI2.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "eBay Merchant ID",
 			description: "Your eBay ROI Tracker ID",

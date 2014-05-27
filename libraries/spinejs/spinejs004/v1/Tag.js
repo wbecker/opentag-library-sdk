@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("spinejs.spinejs004.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/spinejs/0.0.4/spine.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "AdRoll Advertiser ID",
 			description: "The identifier for the advertiser",

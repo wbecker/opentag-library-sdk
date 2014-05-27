@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("visualdna.basketadditionreport.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Product ID",
 			description: "Product ID",

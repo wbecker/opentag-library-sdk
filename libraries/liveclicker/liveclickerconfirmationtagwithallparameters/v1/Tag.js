@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "https://sc.liveclicker.net/service/track?kind=order&account_id=${account_id}&value=${subtotal}&order_id=${order_id}&currency=${currency}",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Liveclicker Account ID",
 				description: "",

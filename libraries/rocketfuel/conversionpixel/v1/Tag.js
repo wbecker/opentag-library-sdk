@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "RocketFuel Merchant ID",
 			description: "The ID assigned to you by RocketFuel",

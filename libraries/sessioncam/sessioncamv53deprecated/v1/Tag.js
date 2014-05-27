@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv53deprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

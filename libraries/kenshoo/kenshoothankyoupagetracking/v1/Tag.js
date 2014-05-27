@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.v1.Tag", {
 		isPrivate: false,
 		url: "${ks_num}.xg4ken.com/media/getpx.php?cid=${id}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Kenshoo Number",
 			description: "The server number provided by Kenshoo. e.g. enter 110 if the submain provided is 110.xg4gen.com/...",

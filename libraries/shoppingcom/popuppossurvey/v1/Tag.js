@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("shoppingcom.popuppossurvey.v1.Tag", {
 		isPrivate: false,
 		url: "https://www.shopping.com/xMSJ?pt=js&direct=1&mid=${merchant_id}&lid=1",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Shopping.com Merchant ID",
 			description: "The merchant ID which represents your site.",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("lessjs.lessjs113.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/less.js/1.1.3/less-1.1.3.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

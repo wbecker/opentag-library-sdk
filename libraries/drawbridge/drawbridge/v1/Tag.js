@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("drawbridge.drawbridge.v1.Tag", {
 		isPrivate: false,
 		url: "api.adsymptotic.com/js/trackconversion.js",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Drawbridge Partner ID",
 			description: "The partner ID given to you by Drawbridge",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mentionme.refereetag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "MentionMe Partner Code",
 			description: "The partner id given to you by MentionMe",

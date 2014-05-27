@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("freespee.aesptag.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Test Param 1",
 			description: "Test",

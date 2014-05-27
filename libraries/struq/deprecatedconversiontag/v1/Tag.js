@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Struq Conversion Page ID",
 			description: "",

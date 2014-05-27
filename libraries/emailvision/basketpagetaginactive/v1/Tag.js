@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("emailvision.basketpagetaginactive.v1.Tag", {
 		isPrivate: true,
 		url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

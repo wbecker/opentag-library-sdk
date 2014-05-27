@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.basketpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "www.ist-track.com/ContainerBasketJavaScript.ashx?companyId=${id}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Basket SKU List",
 			description: "",

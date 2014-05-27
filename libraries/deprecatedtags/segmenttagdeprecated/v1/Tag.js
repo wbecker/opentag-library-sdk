@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("deprecatedtags.segmenttagdeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "AppNexus Segment",
 			description: "Segment id for use with AppNexus tag",

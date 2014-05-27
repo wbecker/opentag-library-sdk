@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Custom variables",
 			description: "You should return an object (key/value) from within a self executing anonymous function.",

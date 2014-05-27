@@ -10,8 +10,9 @@ qubit.opentag.LibraryTag.define("google.googleremarketingonlyaynsc.v1.Tag", {
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 		locationDetail: "",
 		isPrivate: false,
-		url: "www.googleadservices.com/pagead/conversion_async.js",
+		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Google Conversion ID",
 			description: "",

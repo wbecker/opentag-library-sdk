@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("visualdna.transactionreport.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Array of product names",
 			description: "Array of product names",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("flxone.platform.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "FlxOne Client ID",
 			description: "The client ID given to you by FlxOne",

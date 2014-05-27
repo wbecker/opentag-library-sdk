@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("peerius.productpagewithsmartrecs.v1.Tag", {
 		isPrivate: false,
 		url: "${client_name}.peerius.com/tracker/peerius.page",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Peerius Client Name",
 			description: "The client name given to you from Peerius",

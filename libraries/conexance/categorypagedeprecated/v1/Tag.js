@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("conexance.categorypagedeprecated.v1.Tag", {
 		isPrivate: true,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Web1by1 Function Script URL",
 			description: "The full URL (i.e. http://www.your-website.com/w1x1.js) for the Web1by1 Function Script",

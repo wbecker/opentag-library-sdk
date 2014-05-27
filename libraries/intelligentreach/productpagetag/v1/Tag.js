@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.productpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "www.ist-track.com/ContainerItemJavaScript.ashx?id=${id}",
 		usesDocWrite: true,
+		upgradeable: true,
 		parameters: [{
 			name: "Intelligent Reach ID",
 			description: "",

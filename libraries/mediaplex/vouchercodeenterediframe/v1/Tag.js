@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Mediaplex Client ID",
 			description: "The ID assigned to you by Mediaplex",

@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: true,
 			url: "ajax.googleapis.com/ajax/libs/webfont/1.0.19/webfont.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [
 
 			]

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
 		isPrivate: true,
 		url: "media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

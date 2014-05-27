@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.v1.Tag", {
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/lodash.js/${version}/lodash.compat.min.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Version",
 			description: "The version number you wish to use e.g. \"1.2.1\"",

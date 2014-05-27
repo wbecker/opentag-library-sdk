@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Decibel Insight Account ID",
 			description: "The ID specific to your account given by Decibel",

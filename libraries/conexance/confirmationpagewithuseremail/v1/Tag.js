@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Web1by1 Function Script URL",
 				description: "The full URL of the Web1by1 functions script i.e. http://www.your-website.com/w1x1.js",

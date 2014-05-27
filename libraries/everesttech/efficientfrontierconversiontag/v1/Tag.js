@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "www.everestjs.net/static/st.v2.js",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "Efficient Frontier User ID",
 				description: "",

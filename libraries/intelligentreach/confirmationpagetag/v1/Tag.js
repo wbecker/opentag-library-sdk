@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetag.v1.Tag", {
 		isPrivate: false,
 		url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=${id}&useDom=1",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Intelligent Reach ID",
 			description: "Intelligent Reach client ID",

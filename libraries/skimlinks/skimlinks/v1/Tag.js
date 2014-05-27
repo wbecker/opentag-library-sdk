@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("skimlinks.skimlinks.v1.Tag", {
 		isPrivate: false,
 		url: "s.skimresources.com/js/${publisher_id}.skimlinks.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Publisher ID",
 			description: "A publisher ID provided by Skimlinks. The format should be 0000X1111",

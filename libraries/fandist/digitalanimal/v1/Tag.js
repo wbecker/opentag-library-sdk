@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("fandist.digitalanimal.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Fandi.st Client ID",
 			description: "The ID relating the script to you",

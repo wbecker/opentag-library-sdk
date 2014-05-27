@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("salecycle.generic.v1.Tag", {
 		isPrivate: false,
 		url: "d16fk4ms6rqz1v.cloudfront.net/capture/${clientName}.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Client Name",
 			description: "needs to be changed to reflect your company name minus any spaces",

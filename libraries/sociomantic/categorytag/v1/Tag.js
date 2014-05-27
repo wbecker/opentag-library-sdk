@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("sociomantic.categorytag.v1.Tag", {
 		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Advertiser ID",
 			description: "An identifier for the client",

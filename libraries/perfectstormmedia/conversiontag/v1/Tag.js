@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Perfect Storm Client Name",
 			description: "",

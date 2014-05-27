@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.json2.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

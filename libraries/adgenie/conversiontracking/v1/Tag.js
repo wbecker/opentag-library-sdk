@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adgenie.conversiontracking.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "adGENIE Company ID",
 			description: "The identifier for the client using adGENIE",

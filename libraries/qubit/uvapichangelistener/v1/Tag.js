@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("qubit.uvapichangelistener.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [
 
 		]

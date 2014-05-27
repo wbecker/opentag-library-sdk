@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 		isPrivate: false,
 		url: "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Adsense Client ID",
 			description: "Your unique client id, e.g. 5244112791143524",

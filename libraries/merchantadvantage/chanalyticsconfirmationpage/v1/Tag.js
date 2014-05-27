@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "https://secure.merchantadvantage.com/inChannel/ma2q.js",
 			usesDocWrite: true,
+			upgradeable: true,
 			parameters: [{
 				name: "MerchantAdvantage ID",
 				description: "Your Unique MerchantAdvantage identifier.  It is usually 8 characters",

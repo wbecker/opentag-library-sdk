@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("adform.adformecommercetracking.v1.Tag", {
 		isPrivate: false,
 		url: "track.adform.net/serving/scripts/trackpoint/async/",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "AdForm Campaign ID",
 			description: "Unique client id for AdForm",

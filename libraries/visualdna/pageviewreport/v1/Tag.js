@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("visualdna.pageviewreport.v1.Tag", {
 		isPrivate: false,
 		url: "a1.vdna-assets.com/analytics.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "API Key",
 			description: "API Key",

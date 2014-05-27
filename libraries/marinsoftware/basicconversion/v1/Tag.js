@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
 		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "Marin Conversion Type",
 			description: "Marin Conversion Type",

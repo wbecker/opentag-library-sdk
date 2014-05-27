@@ -13,6 +13,7 @@ qubit.opentag.LibraryTag.define(
 			isPrivate: false,
 			url: "",
 			usesDocWrite: false,
+			upgradeable: true,
 			parameters: [{
 				name: "LinkShare Merchant ID",
 				description: "A static numeric merchant ID constant provided to you by  LinkShare.",

@@ -12,6 +12,7 @@ qubit.opentag.LibraryTag.define("d7search.d7searchconversion.v1.Tag", {
 		isPrivate: false,
 		url: "https://conversion.7search.com/conversion/v1/conversion.js",
 		usesDocWrite: false,
+		upgradeable: true,
 		parameters: [{
 			name: "7Serach Advertiser ID",
 			description: "The advertsier ID for your 7Search Account",
