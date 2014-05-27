@@ -106,7 +106,8 @@ function classPath(string) {
     var chunks = string.split(".");
     for (var i = 0 ; i< chunks.length; i++) {
         var chunk = chunks[i];
-        chunk = chunk.replace(/[\W+]/g, "_");
+				chunk = chunk.replace(/\s+/g,"_");
+        chunk = chunk.replace(/[\W+]/g, "");
         if (chunk.match(/^\d+/)) {
 					chunk = "_" + chunk;
 				}
