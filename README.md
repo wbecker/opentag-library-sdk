@@ -17,7 +17,7 @@ java -jar shared/bin/LibraryWizard.jar --build-and-run libraries/vendor_name
 This option will also try automatically to open default system browser to open tag libraries testing page.
 By default the server will serve contents using 8888 port, to change the port add --port <port number> option.
 
-If your system support unix commandline, one may want to use shell script:
+If your system support unix commandline, it may be more convinient to use shell script:
 
 ```
 shared/bin/build.sh libraries/vendor_name
