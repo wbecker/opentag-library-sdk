@@ -1,4 +1,4 @@
-# Tag Libraries Development Tools
+# Tag Libraries Repository & Development Tools
 
 ## Requirements
 - Java (version 1.5 or higher) your computer should have Java already installed, if not, download it from https://www.java.com/en/download/
