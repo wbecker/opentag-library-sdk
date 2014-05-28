@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "This script should be added to all pages on the site which capture customer contact details, such as email address. \nThe code can be placed on the page such as the Thank You page following registration/newsletter sign up or can be executed \non clicking on the submit button.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sub2_logo.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

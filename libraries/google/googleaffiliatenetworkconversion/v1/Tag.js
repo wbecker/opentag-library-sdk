@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Conversion script for Google Affiliate Network",
 			html: "<img src=\"https://gan.doubleclick.net/gan_conversion?advid=${ADVERTISER_ID}&oid=${ORDER_ID}&amt=${SUB_TOTAL}&fxsrc=${CURRENCY}&clickid=${CLICK_ID}&event_type=${EVENT_TYPE}\" width=\"1\" height=\"1\">",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

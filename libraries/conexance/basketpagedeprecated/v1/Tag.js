@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("conexance.basketpagedeprecated.v1.Tag", {
 		async: true,
 		description: "Picks up on basket page abandonment",
 		html: "\n\n\n",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

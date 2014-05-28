@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.v1.Tag", {
 		async: true,
 		description: "Analyse paths through your website to measure conversion or abandonment. Depends on the main Webtrends pageview tag.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webtrends.jpg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

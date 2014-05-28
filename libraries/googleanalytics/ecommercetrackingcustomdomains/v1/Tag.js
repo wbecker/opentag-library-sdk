@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Provides the full functionality of Google Analytics Ecommerce tracking with the option to specify custom domains.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

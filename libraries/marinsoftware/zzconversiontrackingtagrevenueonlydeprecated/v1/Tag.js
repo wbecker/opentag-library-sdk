@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "This conversion pixel tracks revenue only. Use either this or the asynchronous Conversion Capture Code depending on the instructions you have been given by Marin.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Marin.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",

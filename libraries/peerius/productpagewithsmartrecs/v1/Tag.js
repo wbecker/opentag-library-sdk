@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("peerius.productpagewithsmartrecs.v1.Tag", {
 		async: true,
 		description: "Peerius tag for the product pages. SmartRecs uses the global function renderRecsProduct, which needs to be defined on the window.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_name}.peerius.com/tracker/peerius.page",

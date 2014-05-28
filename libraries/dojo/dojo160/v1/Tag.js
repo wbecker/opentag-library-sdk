@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("dojo.dojo160.v1.Tag", {
 		async: false,
 		description: "Dojo saves you time, delivers powerful performance, and scales with your development process. Itâ€™s the toolkit experienced developers turn to for building superior desktop and mobile web experiences.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Dojo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js",

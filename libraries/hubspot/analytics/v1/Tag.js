@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 		async: true,
 		description: "For all Professional and Enterprise HubSpot customers that want to use HubSpot's website analytics on a non-HubSpot hosted website.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/HubSpot.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

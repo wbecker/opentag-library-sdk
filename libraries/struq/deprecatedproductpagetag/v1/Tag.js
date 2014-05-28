@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductpagetag.v1.Tag", {
 		async: true,
 		description: "To be placed on the product page only",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js",

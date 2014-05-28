@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mentionme.referrertagdeprecated.v1.Tag", {
 		async: true,
 		description: "The implementation can be either as a modal popup or embedded in the page using an iFrame, both of which lead to a popup where the customer can register to become a referrer. If the client requires, they can set the implementation parameter to 'embed', in which case the content is loaded into an iframe within the page. This is inserted within a DIV <div id=\"mmWrapper\"></div> which should be on the page.\n\nAll parameters marked with * are optional (if not used populate with empty hardcoded value, even if default is 'uses universal variable')",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/MentionMe.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

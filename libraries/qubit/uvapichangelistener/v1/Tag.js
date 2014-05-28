@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.uvapichangelistener.v1.Tag", {
 		async: true,
 		description: "Uses polling to check for changes to the UV, running callbacks when changes occur. Changes are detected on a deep level.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

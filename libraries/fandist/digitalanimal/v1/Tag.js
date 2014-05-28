@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("fandist.digitalanimal.v1.Tag", {
 		async: true,
 		description: "This will enable fandi.st to show you what impact your Campaigns are having on your site.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Fandi.st.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

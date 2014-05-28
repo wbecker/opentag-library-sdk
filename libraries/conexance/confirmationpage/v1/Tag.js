@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("conexance.confirmationpage.v1.Tag", {
 		async: true,
 		description: "To be placed on the confirmation page. Tracks order transactions. Order number is compulsory all other parameters should be filled with 0 if unavailable. No currency symbols allowed.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

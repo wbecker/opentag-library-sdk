@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("peerius.basketpagewithsmartrecs.v1.Tag", {
 		async: true,
 		description: "The Peerius tag for the Basket page include SmartRecs. Uses renderRecsBasket function. renderRecsBasket needs to be a global function on the window",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",

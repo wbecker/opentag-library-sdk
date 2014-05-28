@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Script to generate reports on the success of your advertising campaigns via Bing Search. Fully customizable.",
 			html: "<iframe src=\"//flex.atdmt.com/mstag/tag/${URL_ID}/analytics.html?dedup=${DEDUPE}&domainId=${DOMAIN_ID}&type=${TYPE}&revenue=${REVENUE}&actionid=${ACTION_ID}\" frameborder=\"0\" scrolling=\"no\" width=\"1\" height=\"1\" style=\"visibility:hidden;display:none\">",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Bing.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

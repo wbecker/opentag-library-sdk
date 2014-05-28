@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
 		async: true,
 		description: "The basket tag has to be integrated on the basket or checkout page.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

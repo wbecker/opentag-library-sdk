@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("jquery.synchronous.v1.Tag", {
 		async: false,
 		description: "Load any specific version of jQuery synchronously",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/jQuery.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/jquery/${version}/jquery.min.js",

@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("freespee.yieldify.v1.Tag", {
 		async: true,
 		description: "Yieldify is a software solution which allows you to maximise your opt-in rates and revenue from visitors leaving your website.",
 		html: "<!-- Start of Yieldify Code -->\n \n<!-- End of Yieldify Code -->",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/yeildify.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

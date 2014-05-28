@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("adform.adformecommercetracking.v1.Tag", {
 		async: true,
 		description: "To be placed only on order confirmation page.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "track.adform.net/serving/scripts/trackpoint/async/",

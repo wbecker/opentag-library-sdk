@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("freespee.freespeedeprecated.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/freespee_logo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("calltrackingmetrics.trackingcode.v1.Tag", {
 		async: true,
 		description: "By assigning a tracking number to each campaign you want to track, you can link calls back to the campaign. Dynamic tracking code placed on your website will enable your business phone number to update to the correct tracking number based on how a visitor found your site.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/CallTrackingMetrics.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_id}.tctm.co/t.js",

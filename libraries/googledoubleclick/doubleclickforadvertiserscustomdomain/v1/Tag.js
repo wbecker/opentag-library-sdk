@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The non-conversion version of the DoubleClick tag with custom domain id",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/double-click.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

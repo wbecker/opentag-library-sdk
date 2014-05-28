@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("intelliad.seotracking.v1.Tag", {
 		async: true,
 		description: "The intelliAd SEO tracking allows you to track organic Google traffic as well as other search engine traffic, direct traffic, type-in traffic and referrer traffic from backlinks.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "t13.intelliad.de/cl/${client_id}.js",

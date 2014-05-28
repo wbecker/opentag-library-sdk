@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 		async: true,
 		description: "To be placed only on the confirmation page",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

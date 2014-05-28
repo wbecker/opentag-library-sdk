@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "As confirmation page tag, but with last click tracking",
 			html: "",
-			imageUrl: ".",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiser_id}",

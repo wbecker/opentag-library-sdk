@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Affiliate window confirmation tag with a parameter to report post impression vs. post click",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "www.dwin1.com/${merchant_id}.js",

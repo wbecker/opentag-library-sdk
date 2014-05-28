@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("steelhouse.trackingpixelproductpage.v1.Tag", {
 		async: true,
 		description: "The generic Steelhouse tracking pixel for product pages only.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/SteelHouse.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

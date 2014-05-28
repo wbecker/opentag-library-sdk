@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
 		async: true,
 		description: "<div id=\"gutscheinconnection-container\"></div> (the banner) should first be placed on the confirmation page, and positioned (using css) exactly where you'd like the banner to appear, before activating this tag on the confirmation page",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sovendus-logo.jpg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

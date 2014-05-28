@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("responsys.riconversiontracking.v1.Tag", {
 		async: true,
 		description: "Conversion Tracking allows you to evaluate how affective your email campaign is in driving a particular \npost-clickthrough action (such as making a purchase). With this feature you can monitor and report on \nthe success of a campaign (with link-tracking enabled) based on its resulting conversions.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/responsys-logo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

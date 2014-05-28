@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

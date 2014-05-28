@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Track custom conversion events with CoreMetrics. Note that this tag depends on other CoreMetrics tags having already loaded on the page.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

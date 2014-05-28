@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("modernizr.modernizr206.v1.Tag", {
 		async: true,
 		description: "Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.",
 		html: "",
-		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=modernizr",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js",

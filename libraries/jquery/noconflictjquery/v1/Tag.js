@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("jquery.noconflictjquery.v1.Tag", {
 		async: true,
 		description: "Load jQuery and set it as a specified variable name attached to a window variable, not populating window.$ or window.jQuery.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/jQuery.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/jquery/${version}/jquery.min.js",

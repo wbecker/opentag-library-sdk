@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("hellobar.hellobar.v1.Tag", {
 		async: true,
 		description: "The Hello bar is a Web Toolbar that Helps You Get More Clicks on Your Website. Delopy this simple notification bar to better engage your users.",
 		html: "",
-		imageUrl: "https://www.hellobar.com/assets/images/hello-bar-logo2.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.hellobar.com/hellobar.js",

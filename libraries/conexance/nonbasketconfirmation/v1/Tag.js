@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.v1.Tag", {
 		async: true,
 		description: "Conexance tag for non basket/confirmation pages. Requires tag ID (specifies which page).",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Conexance.gif",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

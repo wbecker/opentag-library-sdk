@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.v1.Tag", {
 		async: true,
 		description: "The stylefruits tracking code has to be integrated on the final page of your checkout process. The \ncode has to be generated dynamically for every order.",
 		html: "<img src=\"//clicks.stylefruits.de/reg?partner=${partner_id}&price=${order_total}&order=${order_id}\"  alt=\"stylefruits.de\" width=\"1\" height=\"1\" /> \n",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/StyleFruits.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

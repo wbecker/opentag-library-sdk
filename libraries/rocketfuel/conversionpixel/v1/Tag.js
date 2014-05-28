@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 		async: true,
 		description: "To be placed on confirmation page.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/rocketfuel.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

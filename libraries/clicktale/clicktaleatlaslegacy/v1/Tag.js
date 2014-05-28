@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.v1.Tag", {
 		async: true,
 		description: "Mouse tracking tag",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Clicktale.jpeg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

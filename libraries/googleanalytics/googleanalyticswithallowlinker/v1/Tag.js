@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Setup cross domain tracking with GA, using just setAllowLinker (assumes domain will be set dynamically elsewhere)",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

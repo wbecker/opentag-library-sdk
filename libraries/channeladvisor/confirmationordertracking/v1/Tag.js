@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The Order Tracking pixels captures order and conversion information which is used to measure the effectiveness of each campaign.	The code has several parameters ( order value, order ID, Product ID ) that will need to be integrated and customized for the particular store or shopping cart.",
 			html: "",
-			imageUrl: ".",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "t.channeladvisor.com/v2/${ca_id}.js",

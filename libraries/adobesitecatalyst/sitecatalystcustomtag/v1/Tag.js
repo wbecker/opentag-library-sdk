@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Generic script which can be configured to send up to 5 custom eVars and props. Any unused variables should be left blank. Advised only for advanced use.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sitecatalyst.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "${scriptURL}",

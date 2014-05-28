@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mythings.productpagetag.v1.Tag", {
 		async: true,
 		description: "Only place the following tag on ALL products pages",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mythings.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

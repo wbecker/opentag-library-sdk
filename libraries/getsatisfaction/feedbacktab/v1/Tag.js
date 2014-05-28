@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.v1.Tag", {
 		async: true,
 		description: "Collect and prioritize product-specific customer feedback by adding a feedback tab to any (or every) page of your site.",
 		html: "",
-		imageUrl: "http://www.smartinsights.com/wp-content/uploads/2012/05/Get-Satisfaction-Logo-Large.jpg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "https://d3rdqalhjaisuu.cloudfront.net/javascripts/feedback-v2.js",

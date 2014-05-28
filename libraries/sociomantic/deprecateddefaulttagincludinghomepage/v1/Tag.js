@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Homepage tracking code as Default for all pages that can't be assigned to a specific page type",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${TOKEN}",

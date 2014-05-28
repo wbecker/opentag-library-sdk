@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.v1.Tag", {
 		async: true,
 		description: "The category iframe, in addition to a pageview, passes the particular product categories the customer is viewing.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

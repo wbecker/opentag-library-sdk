@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.v1.Tag", {
 		async: true,
 		description: "The intelliAd Conversion Tracking is specifically tailored for our system and provides you and our bid management tool extensive data on individual conversions.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelliAd.gif",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

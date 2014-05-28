@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 		async: true,
 		description: "Response Tap click to call script that replaces the phone number on your page.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/ResponseTap.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

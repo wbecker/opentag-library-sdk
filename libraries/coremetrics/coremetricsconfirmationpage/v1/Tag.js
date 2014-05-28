@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "To be placed on the confirmation page.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "libs.coremetrics.com/eluminate.js",

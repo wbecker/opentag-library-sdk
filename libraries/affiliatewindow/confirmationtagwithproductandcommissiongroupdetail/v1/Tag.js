@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Use this if you have different commission groups per product.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AffiliateWindow.jpg",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "www.dwin1.com/${merchant_id}.js",

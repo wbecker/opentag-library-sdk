@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtestpageinformation.v1.Tag", {
 		async: true,
 		description: "Test details about the current page",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

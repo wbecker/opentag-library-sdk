@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagproduct.v1.Tag", {
 		async: true,
 		description: "This must be placed on all the advertiser product pages.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "static.criteo.net/js/ld/ld.js",

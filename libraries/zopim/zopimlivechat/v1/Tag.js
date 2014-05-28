@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("zopim.zopimlivechat.v1.Tag", {
 		async: true,
 		description: "Real-time customer satisfaction made simple. Implement Zopim's live chat functionality on your site.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zopim.jpeg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

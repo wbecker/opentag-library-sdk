@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.v1.Tag", {
 		async: true,
 		description: "Tracks users that have converted who previously clicked through on an ad.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.googleadservices.com/pagead/conversion_async.js",

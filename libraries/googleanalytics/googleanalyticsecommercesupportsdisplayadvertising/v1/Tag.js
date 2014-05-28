@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The standard ecommerce tag, but pointing to the Doubleclick servers to support display advertising.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

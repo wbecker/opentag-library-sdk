@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.v1.Tag", {
 		async: true,
 		description: "This tag is to fire on every page to provide general pageview tracking.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/rocketfuel.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

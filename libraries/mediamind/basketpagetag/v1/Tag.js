@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
 		async: true,
 		description: "To be placed only on the basket",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediamind.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

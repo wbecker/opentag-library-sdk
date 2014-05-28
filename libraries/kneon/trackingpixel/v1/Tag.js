@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("kneon.trackingpixel.v1.Tag", {
 		async: true,
 		description: "The pixel would be embedded on your ‘thank you’ page, allowing Kneon to automate the process of tracking both referrals and successful sales. At no point does Kneon ever collect any personally identifiable information including: customer name, physical address, email address, or credit card number.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Kneon.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

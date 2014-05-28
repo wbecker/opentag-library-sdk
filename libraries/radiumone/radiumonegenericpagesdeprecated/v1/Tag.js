@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "\n\n",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The conversion pixel code to enable Commission Junction to track purchases on the confirmation pages. If individual product discounts are available (one at least), then an array of these discounts (of equal length to the number of products) should be used. If no individual product discounts are available, then a total discount should be assigned to the transaction (either zero or whatever value is available). Check documentation on how to calculate the individual product discounts.",
 			html: "",
-			imageUrl: ".",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

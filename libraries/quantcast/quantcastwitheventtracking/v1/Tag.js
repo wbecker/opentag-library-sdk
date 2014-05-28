@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 		async: true,
 		description: "Track custom events with QuantCast.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/quantcast.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

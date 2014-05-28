@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.v1.Tag", {
 		async: true,
 		description: "The Zanox confirmation page tag with CID parameter",
 		html: "<!--@SRC@--><div class=\"zx_${zanox_page_id} zx_mediaslot\">\n  \n</div>",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Conversion tracking helps businesses measure the return on investment of their Facebook Ads by reporting on the actions people take after viewing those ads.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/facebook.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",

@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The confirmation page tag creates image pixels for each unique type of product in the order, then makes a call to MerchantAdvantage to track the full order details.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/merchantadvantage.gif",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "https://secure.merchantadvantage.com/inChannel/ma2q.js",

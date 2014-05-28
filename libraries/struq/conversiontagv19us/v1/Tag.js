@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv19us.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

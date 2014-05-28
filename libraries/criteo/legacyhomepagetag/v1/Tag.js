@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("criteo.legacyhomepagetag.v1.Tag", {
 		async: true,
 		description: "The home page tag has to be integrated on the home page of the advertiser website.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

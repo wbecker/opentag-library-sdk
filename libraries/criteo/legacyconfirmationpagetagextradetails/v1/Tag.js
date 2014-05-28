@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "This is a mandatory tag and must be executed on the confirmation page after user made payment. This contains variables to specify whether the user is new and also whether the sale was post-click or post-impression.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Criteo.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

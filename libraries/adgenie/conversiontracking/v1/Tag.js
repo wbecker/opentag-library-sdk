@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("adgenie.conversiontracking.v1.Tag", {
 		async: true,
 		description: "This should be called when a customer has successfully completed a transaction.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adGENIE.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.pongtimers.v1.Tag", {
 		async: false,
 		description: "Times how long it takes to load pong and pings the stats back.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

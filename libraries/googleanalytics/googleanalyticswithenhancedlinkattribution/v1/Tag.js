@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Enhanced link attribution offers more-detailed reports, and disambiguates clicks to the same destination page that come from more than one element on the page. However, the additional detail comes at the cost of some speed in generating the report, so only turn it on if you need it.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/GoogleAnalytics.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

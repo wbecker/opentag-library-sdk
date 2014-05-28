@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "To be placed only on the confirmation page",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/blank.gif",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "www.everestjs.net/static/st.v2.js",

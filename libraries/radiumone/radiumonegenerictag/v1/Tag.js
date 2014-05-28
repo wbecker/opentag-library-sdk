@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenerictag.v1.Tag", {
 		async: true,
 		description: "RadiumOne is changing the face of online advertising through a unique combination of programmatic buying, proprietary data, patent-pending intelligence algorithms, and multi-channel capabilities.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

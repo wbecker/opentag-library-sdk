@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "To be placed on all product pages for MerchantAdvantage's Chanalytics tracking.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/merchantadvantage.gif",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "http://chanalytics.merchantadvantage.com/inchannel/maq.js",

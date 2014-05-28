@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsbasketpage.v1.Tag", {
 		async: true,
 		description: "The shop action 5 tag, to be placed on basket pages.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/coremetrics.gif",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "libs.coremetrics.com/eluminate.js",

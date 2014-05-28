@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mediamind.confirmationpagetag.v1.Tag", {
 		async: true,
 		description: "To be placed on the confirmation page only",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

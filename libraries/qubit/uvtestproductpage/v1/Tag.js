@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 		async: true,
 		description: "test opentag on a product page",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

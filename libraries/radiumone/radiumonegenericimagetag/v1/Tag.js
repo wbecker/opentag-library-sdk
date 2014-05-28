@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenericimagetag.v1.Tag", {
 		async: true,
 		description: "A generic RadiumOne image tag.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/radiumone.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

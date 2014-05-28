@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
 		async: true,
 		description: "Sales tracking tag to be placed on the confirmation page, for customers with Pangora IDs to track more sale information.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Become.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "https://clicks.pangora.com/sales-tracking/salesTracker.js",

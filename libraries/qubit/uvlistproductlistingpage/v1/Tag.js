@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.uvlistproductlistingpage.v1.Tag", {
 		async: true,
 		description: "Test Universal Variables on a search or category page",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

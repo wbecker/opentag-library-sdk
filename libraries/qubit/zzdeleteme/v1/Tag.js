@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.zzdeleteme.v1.Tag", {
 		async: true,
 		description: "Charlie didn't think to just write a custom script for his testing.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/adform.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

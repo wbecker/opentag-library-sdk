@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mentionme.dashboard.v1.Tag", {
 		async: true,
 		description: "Providing registered referrers with a dashboard to encourage more sharing. Requires the div <div id=\"mmWrapper\"></div> to be on the page.\nThe * represents parameters that can be left as an empty value.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

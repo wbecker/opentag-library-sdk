@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("visualdna.basketadditionreport.v1.Tag", {
 		async: true,
 		description: "This tag should fire when a user adds an item to their basket. The tag must have a dependency on the Visual DNA Page View Report tag.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

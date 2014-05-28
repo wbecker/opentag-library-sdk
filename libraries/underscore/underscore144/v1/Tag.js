@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("underscore.underscore144.v1.Tag", {
 		async: true,
 		description: "Underscore is a utility-belt library for JavaScript that provides a lot of the functional programming support that you would expect in Prototype.js (or Ruby), but without extending any of the built-in JavaScript objects. It's the tie to go along with jQuery's tux.",
 		html: "",
-		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=underscore",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js",

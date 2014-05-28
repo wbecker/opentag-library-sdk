@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("cufon.cufon109i.v1.Tag", {
 		async: true,
 		description: "Fast text replacement with canvas and VML - no Flash or images required.",
 		html: "",
-		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=cufon",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/cufon/1.09i/cufon-yui.js",

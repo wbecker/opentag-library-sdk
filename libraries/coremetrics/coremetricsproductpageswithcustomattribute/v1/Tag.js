@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The same as the product page tag, but with the extra parameter to distinguish a specific type of product page view content.",
 			html: "",
-			imageUrl: ".",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "libs.coremetrics.com/eluminate.js",

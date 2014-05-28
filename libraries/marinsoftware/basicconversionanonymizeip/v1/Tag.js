@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "This tag is the same as the Basic Conversion tag but also anonymizes the user's IP address",
 			html: "",
-			imageUrl: ".",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

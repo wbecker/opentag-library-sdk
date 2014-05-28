@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 		async: true,
 		description: "Converts UV page breadcrumbs to be in the new format.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

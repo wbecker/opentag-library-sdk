@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
 		async: true,
 		description: "This tag should fire on any successful login or registration of a user with a known postcode. The tag must have a dependency on the Visual DNA Page View Report tag.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

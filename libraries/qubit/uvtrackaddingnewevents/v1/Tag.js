@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtrackaddingnewevents.v1.Tag", {
 		async: true,
 		description: "With this library tag it is possible to listen for events being added to the Universal Variable events parameter. Useful if you want to have multiple event trackers working off the same model. \n\nExample: uv.events.on('add', function () {\n  // run your code here\n});\n\nIf you have any trackers running off this tag, ensure that this tag is set as a dependency for them.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/qubit_Q.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

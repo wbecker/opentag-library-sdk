@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Reports transactions to linkshare server",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/linkshare.gif",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

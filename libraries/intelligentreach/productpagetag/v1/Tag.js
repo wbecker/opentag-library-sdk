@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.productpagetag.v1.Tag", {
 		async: true,
 		description: "This tag should be applied to product pages only",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.ist-track.com/ContainerItemJavaScript.ashx?id=${id}",

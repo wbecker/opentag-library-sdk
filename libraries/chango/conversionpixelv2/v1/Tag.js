@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("chango.conversionpixelv2.v1.Tag", {
 		async: true,
 		description: "The conversion pixel passes back information about the order placed and should be placed only on the confirmation page.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Chango.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

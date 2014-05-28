@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 		async: true,
 		description: "The conversion pixel code to enable Commission Junction to track purchases on the confirmation pages.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/CommissionJunction.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

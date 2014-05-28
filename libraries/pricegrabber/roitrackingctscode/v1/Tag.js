@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.v1.Tag", {
 		async: true,
 		description: "Tracking tag to be placed on the confirmation page",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/price_grabber.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

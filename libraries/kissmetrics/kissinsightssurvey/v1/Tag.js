@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.v1.Tag", {
 		async: true,
 		description: "KISSInsights customer survey slider",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Kissmetrics.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "s3.amazonaws.com/ki.js/${account_id}/${website_id}.js",

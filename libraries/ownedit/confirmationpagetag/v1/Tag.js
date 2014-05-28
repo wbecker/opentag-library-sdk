@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("ownedit.confirmationpagetag.v1.Tag", {
 		async: true,
 		description: "Owned it is integrated at the order confirmation page of a store. Owned it allocates a unique store ID for each\nstore to manage, test and analyse post-purchase campaigns from its back end.",
 		html: "",
-		imageUrl: "https://www.ownedit.com/assets/css/OwnedItLogo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.ownedit.com/ownedit_js/ownedit.js?store_id=${STORE_ID}&anchor=${DIV_CLASS_NAME}",

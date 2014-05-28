@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.v1.Tag", {
 		async: true,
 		description: "Requires the Initiate JSTag script to be on the page first.\nIt sends an event to JSTag in the form of valid JSON.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

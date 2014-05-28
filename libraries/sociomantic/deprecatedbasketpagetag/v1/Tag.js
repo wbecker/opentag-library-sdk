@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.v1.Tag", {
 		async: true,
 		description: "Product ID is required on the basket page, along with additional information like quantity, amount, currency",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",

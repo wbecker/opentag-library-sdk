@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.v1.Tag", {
 		async: true,
 		description: "KISSMetrics tracking tag - ASync",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Kissmetrics.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.v1.Tag", {
 		async: true,
 		description: "Decibel Insight’s ground-breaking visual analytics software introduces the most advanced, innovative and complete heatmapping tool in the world, designed to help businesses of all types and sizes generate better results from their websites.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Decibel.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

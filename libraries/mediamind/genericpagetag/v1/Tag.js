@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mediamind.genericpagetag.v1.Tag", {
 		async: true,
 		description: "Tag to be placed on any unique page with an activity ID associated",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

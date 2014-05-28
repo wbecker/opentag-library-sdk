@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("yepnope.yepnope101.v1.Tag", {
 		async: true,
 		description: "yepnope is an asynchronous conditional resource loader that's super-fast, and allows you to load only the scripts that your users need.",
 		html: "",
-		imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=yepnope",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/yepnope/1.0.1/yepnope.min.js",

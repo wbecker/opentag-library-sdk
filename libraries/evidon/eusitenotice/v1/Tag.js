@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("evidon.eusitenotice.v1.Tag", {
 		async: true,
 		description: "This tag handles the Site Notice functionality for EU sites, both for implied and explicit consent notices. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon).",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/evidon.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

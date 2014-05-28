@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "To be placed on the confirmation page only. Provides space for 3 custom metrics.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/dc_storm.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "t1.stormiq.com/dcv4/jslib/${storm_id}.js",

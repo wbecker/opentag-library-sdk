@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "This should be placed only conversion/confirmation page. Any unused variables should be left blank.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sitecatalyst.jpg",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "${scriptURL}",

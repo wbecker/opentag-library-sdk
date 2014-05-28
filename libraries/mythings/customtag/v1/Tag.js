@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mythings.customtag.v1.Tag", {
 		async: true,
 		description: "This is a custom myThings tracking tag in which the action number can be specified.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "https://${subdomain}.mythings.com/c.aspx?atok=${advertiser_token}",

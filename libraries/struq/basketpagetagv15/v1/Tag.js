@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
 		async: true,
 		description: "To be placed on the basket page only",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/struq.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

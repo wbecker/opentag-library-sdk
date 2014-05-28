@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Provides audience information showcasing your website’s traffic, demographic, geographic, affinities and business stats. This version includes the \"labels\" parameter.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/quantcast.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

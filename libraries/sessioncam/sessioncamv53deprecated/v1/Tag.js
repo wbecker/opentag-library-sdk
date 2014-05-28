@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv53deprecated.v1.Tag", {
 		async: true,
 		description: "SessionCam tag v5.3",
 		html: "<!-- www.SessionCam.com Client Integration v5.3 -->\n\n<!-- SessionCam -->",
-		imageUrl: "http://www.sessioncam.com/wp-content/themes/v2.0/images/logo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

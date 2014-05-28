@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("freespee.aesptag.v1.Tag", {
 		async: true,
 		description: "Blah",
 		html: "",
-		imageUrl: "#",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

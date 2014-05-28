@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("peerius.categorypage.v1.Tag", {
 		async: true,
 		description: "Peerius tag for the category page (if using universal_variable: universal_variable.page.subcategory should be in - separated format e.g. * - * - * etc)",
 		html: "",
-		imageUrl: "http://s3-eu-west-1.amazonaws.com/opentag-images/Peerius.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",

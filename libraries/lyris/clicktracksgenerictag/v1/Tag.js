@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksgenerictag.v1.Tag", {
 		async: true,
 		description: "All pages except confirmation page",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "stats2.clicktracks.com/cgi-bin/ctasp-server.cgi?i=${id}",

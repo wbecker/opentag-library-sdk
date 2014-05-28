@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("sessioncam.imamorondeleteme.v1.Tag", {
 		async: true,
 		description: "Oli got lost. Delete this",
 		html: "",
-		imageUrl: "http://www.sessioncam.com/wp-content/themes/v2.0/images/logo.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

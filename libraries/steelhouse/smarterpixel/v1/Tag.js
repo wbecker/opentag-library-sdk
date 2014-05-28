@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 		async: true,
 		description: "The SteelHouse SmarterPixel is an all-in-one tracking solution intended to be deployed on every page of the site.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/SteelHouse.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

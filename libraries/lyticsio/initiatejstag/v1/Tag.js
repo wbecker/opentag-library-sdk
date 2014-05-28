@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("lyticsio.initiatejstag.v1.Tag", {
 		async: true,
 		description: "**This script is REQUIRED BEFORE any events are sent**\nAnalytics tag for collecting data from browser and sending to server. This implementation has the minimum config. If more config is required, please send an email to customersupport@qubitdigital.com and we will make an update.",
 		html: "\n",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Lytics.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("sociomantic.defaultinclhomepagetags.v1.Tag", {
 		async: true,
 		description: "Homepage tracking code as Default for all pages that can't be assigned to a specific page type. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/sociomantic.jpg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",

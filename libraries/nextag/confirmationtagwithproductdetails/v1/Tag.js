@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "ROI Tag without product details",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/NexTag.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "imgsrv.nextag.com/imagefiles/includes/roitrack.js",

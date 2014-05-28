@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mediaforge.category.v1.Tag", {
 		async: true,
 		description: "To be placed of Product Listing pages",
 		html: "<script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}/?catID=${category_id}\"></script><!--@SRC@-->",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

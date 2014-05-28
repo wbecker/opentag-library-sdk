@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.v1.Tag", {
 		async: true,
 		description: "This iframe passes back the pageview along with the validated voucher code being used. It should be fired once, as soon as possible after validating a voucher (before confirmation).",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/mediaplex.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

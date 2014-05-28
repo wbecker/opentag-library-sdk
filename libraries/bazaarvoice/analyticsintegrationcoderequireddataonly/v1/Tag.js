@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Uses required data only. Add JavaScript code to your transaction and conversion pages to send information to Bazaaarvoice analytics.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/bazaarvoice.jpg",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "${client_code}.ugc.bazaarvoice.com/static/${display_code}/bvapi.js",

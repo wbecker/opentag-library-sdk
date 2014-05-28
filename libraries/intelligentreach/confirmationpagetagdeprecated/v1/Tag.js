@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The tag is placed on final checkout confirmation page only.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/IntelligentReach.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=${id}",

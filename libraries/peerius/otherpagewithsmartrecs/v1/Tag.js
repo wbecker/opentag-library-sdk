@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("peerius.otherpagewithsmartrecs.v1.Tag", {
 		async: true,
 		description: "Peerius tag for all other pages. Uses the renderRecsLanding function, so requires window.renderRecsLanding to be defined on all pages the tag is on.",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_name}.peerius.com/tracker/peerius.page",

@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/blank.gif",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

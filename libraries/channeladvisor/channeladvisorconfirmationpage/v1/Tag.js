@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Use this tag to track confirmation pages with ChannelAdvisor.",
 			html: "",
-			imageUrl: "http://dummyimage.com/100x100/000/fff.png&text=ChannelAdvisor",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

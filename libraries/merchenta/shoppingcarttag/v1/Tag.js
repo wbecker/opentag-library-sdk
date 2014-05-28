@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("merchenta.shoppingcarttag.v1.Tag", {
 		async: true,
 		description: "Place this tag on the shopping cart or basket page (Optional).",
 		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">CART</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n</div>\n\n",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Merchenta.jpg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

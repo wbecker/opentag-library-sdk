@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 		async: true,
 		description: "To be placed on product pages. Passes back product details as well as running the standard mastertag.",
 		html: "<div class=\"zx_${zanoxPageId} zx_mediaslot\">\n  \n</div>",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

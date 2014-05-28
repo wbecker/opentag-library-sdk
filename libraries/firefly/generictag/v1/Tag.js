@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("firefly.generictag.v1.Tag", {
 		async: true,
 		description: "The standard Firefly tag",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Firefly.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "firefly-071591.s3.amazonaws.com/scripts/loaders/loader.js",

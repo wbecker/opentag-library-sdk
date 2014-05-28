@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The Zanox confirmation page tag with order details. Includes generic \"MasterTag\" tracking pixel.",
 			html: "<div class=\"zx_${page_id} zx_mediaslot\">\n  \n</div>",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

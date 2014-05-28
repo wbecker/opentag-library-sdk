@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Script to generate reports on the success of your advertising campaigns via Bing Search",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Bing.png",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "flex.atdmt.com/mstag/site/${url_guid}/mstag.js",

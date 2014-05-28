@@ -8,7 +8,7 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "To be placed on the conversion page in order to integrate Social Measurement with Bazaarvoice's other solutions.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/bazaarvoice.jpg",
+			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "static.powerreviews.com/t/v1/tracker.js",

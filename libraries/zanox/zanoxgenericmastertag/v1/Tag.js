@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 		async: true,
 		description: "The MasterTag for all pages. Different IDs needed for each page type.",
 		html: "<div class=\"zx_${zanoxPageId} zx_mediaslot\">\n	\n</div>",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/zanox.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

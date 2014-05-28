@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.v1.Tag", {
 		async: true,
 		description: "This tag is typically placed on all pages of a site and is used for web analytics.",
 		html: "",
-		imageUrl: "http://www.weborama.com/files/2012/02/Logo.jpg",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${SOURCE_URL}",

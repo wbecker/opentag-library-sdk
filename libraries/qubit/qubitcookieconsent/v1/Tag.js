@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 		async: true,
 		description: "customisable  cookie consent drop-down slider",
 		html: "",
-		imageUrl: ".",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "d3c3cq33003psk.cloudfront.net/consent/consent-widget-1.1.0.min.js",

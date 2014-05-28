@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("gosquared.gosquaredallpages.v1.Tag", {
 		async: true,
 		description: "Real-time analytics for your website. GoSquared helps you understand and improve your online presence.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/gosquared.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

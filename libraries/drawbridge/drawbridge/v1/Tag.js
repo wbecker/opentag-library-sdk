@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("drawbridge.drawbridge.v1.Tag", {
 		async: true,
 		description: "Drawbridge provides advertisers with the unique capability of reaching 3rd party Desktop audiences on mobile devices.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Drawbridge.png",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "api.adsymptotic.com/js/trackconversion.js",

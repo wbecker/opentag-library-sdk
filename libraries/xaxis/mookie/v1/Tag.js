@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 		async: true,
 		description: "Fires a pixel with transaction information and 5 custom parameters.",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/xaxis.png?AWSAccessKeyId=ASIAJLLUDWFIY3ANST5A&Expi",
+		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
