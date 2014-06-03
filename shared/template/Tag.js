@@ -3,7 +3,6 @@
 qubit.opentag.LibraryTag.define("PACKAGE_NAME.Tag", {
 	config: {
 		/*DATA*/
-		imageUrl: "https://example.com/img/example-logo.png",
 		description: "DESCRIPTION.",
 		name: "TAG_NAME",
 		async: true,
