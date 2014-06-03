@@ -7,7 +7,7 @@
 ## Building Tag Library(ies)
 Build system is based on plain files and is using miniMerge tool for merging and simple dependency management (see https://github.com/QubitProducts/miniMerge for more details). Any directory or file specified by build will cause the build program to find all *.js files, analyse any dependencies defined in files and include them into build output. Paths with names "dist" and "build" will be ignored by build system and by Git (see what is ignored in .gitignore file).
 
-To build tag library, entire vondor's libraries directory or all of the libraries, specify path to the resource as in the example below:
+To build tag library, entire vendor's libraries directory or all of the libraries, specify path to the resource as in the example below:
 
 ```
 java -jar shared/bin/LibraryWizard.jar --build-and-run libraries/vendor_name
