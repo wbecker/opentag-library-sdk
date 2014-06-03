@@ -22,18 +22,15 @@
   };
 }());
 
-var global = null;
+var global = this;
 try {
-  global = (false || eval)("this") ||
-          (function () { return this; }()) ||
-          window;
-} catch (e) {
-}
+  global = (false || eval)("this") || (function (){return this;}()) || window;
+} catch (e) {}
+
 global.NAMESPACE = global;
 
 global.qubit = {
-  VERSION: "0.0.1",
-  EMAIL: "peter.fronc@qubitdigital.com"
+  VERSION: "0.9.1"
 };
 
 //shortcuts
@@ -173,7 +170,7 @@ var UNDEF = undefined;
     return (value !== undefined) && (value !== null) && (value !== "");
   };
 
-
+/*TRASH*/
 //  /**
 //   * @delete
 //   * @param {opentag.qubit.BaseTag} tag
@@ -224,7 +221,8 @@ var UNDEF = undefined;
 //    str = str.replace(new RegExp(token + "(\\[.*?\\])", "g"), start + "$1" + end);
 //    return str;
 //  };
-  
+/*~TRASH*/
+
   Utils.ANON_VARS = [];
   /**
    * Function will create anonymous accessro string that when evaluated returns
@@ -8053,7 +8051,11 @@ var JSON = {};
    * @returns {Boolean}
    */
   SessionVariableFilter.prototype.match = function () {
-    return !!this.config.customScript(this.session);
+    try {
+      return !!this.config.customScript(this.session);
+    } catch (ex) {
+      this.log.ERROR("Filter match throws exception:" + ex);
+    }
   };
   
   /**
