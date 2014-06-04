@@ -52,10 +52,15 @@ function addEditBDDTests(node, template) {
 }
 
 function reloadTests(refNode) {
+	_reloadTest(refNode, "BDDSuite.js");
+	//_reloadTest(refNode, "TestsSuite.js");
+}
+
+function _reloadTest(refNode, name) {
   var Utils = qubit.opentag.Utils;
   var tagRef = refNode.reference;
   var data = ("classPath=libraries." +
-          tagRef.PACKAGE_NAME + ".local&file=TestsSuite.js");
+          tagRef.PACKAGE_NAME + ".local&file=" + name);
   
   POST("/getClassPath", data, function(msg, httpr) {
     if (httpr.status !== 200) {
@@ -172,7 +177,8 @@ function runTestsHandler(referencingNode, callback) {
       var notFinished = false;
       if (suite && !suite.isFinished()) {
         notFinished = true;
-      } else if (bddSuite && !bddSuite.isFinished) { //finished is used to distinkt jasmine
+      } else if (bddSuite && !bddSuite.isFinished) { 
+				//finished is used to distinkt jasmine
         notFinished = true;
       }
       
