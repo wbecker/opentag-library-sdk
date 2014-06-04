@@ -145,8 +145,10 @@ function addParameters(anchor, params) {
   e.innerHTML = parametersTemplate;
   e.className = "parameters-container";
   anchor.appendChild(e);
-  anchor = e.children[1];
-  for (var i = 0; i < params.length; i++) {
+  anchor = e.children[1].children[0];
+  var saveAnchor = e.children[1].children[1];
+	
+	for (var i = 0; i < params.length; i++) {
     e = document.createElement("div");
     var parameter = params[i];
     e.innerHTML = parameterTemplate;
@@ -184,6 +186,13 @@ function addParameters(anchor, params) {
     })(e);
     anchor.appendChild(e);
   }
+	
+	if (params.length === 0) {
+		saveAnchor.style.display = "none";
+		anchor.innerHTML = "No parameters defined."
+	} else {
+		saveAnchor.style.display = "";
+	}
 }
 
 
@@ -252,7 +261,7 @@ function addConfig(anchor, config) {
   el.innerHTML = hiddenConfigTemplate;
   el.className = "config-header";
   var confHead = el.children[0].children[0];
-  confHead.innerHTML = "+ Configuration";
+  confHead.innerHTML = "<span plus='true'>+</span> Configuration";
   toggleShowSibling(confHead);
   var configAnchor = el.children[0].children[1];
   anchor.appendChild(el);
@@ -269,7 +278,7 @@ function addConfig(anchor, config) {
   var confHead = hel.children[0].children[0];
   configAnchor = hel.children[0].children[1];
   toggleShowSibling(confHead);
-  confHead.innerHTML = "+ Advanced";
+  confHead.innerHTML = "<span plus='true'>+</span> Advanced";
   for (var prop in config) {
     if (!propertyExcludedFromConfig(prop) && propertyHiddenFromConfig(prop)) {
       var e = prepareConfigElement(prop, config[prop], configTemplate);
@@ -630,6 +639,7 @@ window.Main = function () {
   window.info = function (msg, time, id) {
     DefaultNotificationsMgr
             .notify(id || new Date().valueOf(), msg, time || 2800, "", true);
+	  log(msg);
   };
   
   window.log = function (m) {

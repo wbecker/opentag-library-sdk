@@ -23,12 +23,15 @@ function toggleShowSibling(start) {
   }
 
   if (next) {
+		var plus = false;
     var cmEditorAttachedAndHidden =
             next.cmNode && next.cmNode.style.display === "none";
     if (cmEditorAttachedAndHidden) {
       next.cmNode.style.display = "";
+			plus = true;
     } else if (!next.cmNode && next.style.display === "none") {
       next.style.display = "";
+			plus = true;
       if (next.tagName === "TEXTAREA") {
         attachEditor(next);
       }
@@ -39,6 +42,15 @@ function toggleShowSibling(start) {
         next.cmNode.style.display = "none";
       }
     }
+		
+		var plusNode = start.children[0];
+		if (plusNode && plusNode.getAttribute("plus") === "true") {
+			if (plus) {
+				plusNode.innerHTML = "-";
+			} else {
+				plusNode.innerHTML = "+";
+			}
+		}
   }
 }
 

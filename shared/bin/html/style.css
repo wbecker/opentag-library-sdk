@@ -302,12 +302,17 @@ button {
 .unit-tests-head,
 .parameter-header, .config-header, .post a, .pre a, .script a{
   font-size:13px;
-  color:#666;
   padding: 20px 45px; 
   display:block;
   *font-weight: bold;
-
 }
+
+.save-pramaters {
+  margin: 12px;
+  margin-left: 59px;
+  float: none !important;
+}
+
 .parameter label, .config label {
   *font-weight: normal;
 }
@@ -637,7 +642,6 @@ a.plain:hover {background-color:#fcfafa;}
   float: left;
   background: #F5F5F5;
 }
-
 
 
 

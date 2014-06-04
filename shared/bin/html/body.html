@@ -60,11 +60,11 @@
 				<div class="title"></div>
 			</div>
       <span marker="true"></span>
-			<button class="test-library" onclick="runTagHandler(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run script</button>
-			<button class="reload" onclick="reloadTagHandler(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload</button>
-			<button class="edit-uv" onclick="editUVURLHandler(this.parentNode)" alt="UV"><i class="fa fa-code"></i> Edit UV</button>
-			<button class="run-tests" onclick="runTestsHandler(this.parentNode)" alt="run tests"><i class="fa fa-rocket"></i> Run test</button>
-			<button class="open-editor" onclick="openInEditorHandler(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit</button>
+			<button class="test-library" onclick="runTagHandler(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run </button>
+			<button class="reload" onclick="reloadTagHandler(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload </button>
+			<button class="edit-uv" onclick="editUVURLHandler(this.parentNode)" alt="UV"><i class="fa fa-code"></i> UV</button>
+			<button class="run-tests" onclick="runTestsHandler(this.parentNode)" alt="run tests"><i class="fa fa-rocket"></i> Run test </button>
+			<button class="open-editor" onclick="openInEditorHandler(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit </button>
 			<div class="contents">
 				<div class="head"><div class="desc"></div></div>
 				<div class="content-body"></div>
@@ -72,10 +72,11 @@
 		</div>
 
 		<div id="parameters-template">
-			<div class="parameter-header">
-				Parameters <a href="#-3" onclick="saveConfig(this, arguments[0])">save</a>
-			</div>
-			<div class="contents"></div>
+      <a href="#-2"  class="parameter-header" onclick="toggleShowSibling(this);"><span plus="true">-</span> Parameters</a>
+      <div class="contents">
+        <div></div>
+        <button href="#-3" class="save-pramaters" onclick="saveConfig(this, arguments[0])">Save Parameters</button>
+      </div>
 		</div>
 		
 		<div id="parameter-template">
@@ -103,15 +104,15 @@
 
 		<div id="pre-post-script-template">
 			<div class="pre">
-				<a href="#-2" onclick="toggleShowSibling(this);">+ Pre function contents</a>
+        <a href="#-2" onclick="toggleShowSibling(this);"><span plus="true">+</span> Pre function contents</a>
 				<textarea onkeydown="fitTextarea(this)"></textarea>
 			</div>
 			<div class="post">
-				<a href="#-2" onclick="toggleShowSibling(this);">+ Post function contents</a>
+				<a href="#-2" onclick="toggleShowSibling(this);"><span plus="true">+</span> Post function contents</a>
 				<textarea onkeydown="fitTextarea(this)"></textarea>
 			</div>
 			<div class="script">
-				<a href="#-2" onclick="toggleShowSibling(this);">+ Script function contents</a>
+				<a href="#-2" onclick="toggleShowSibling(this);"><span plus="true">+</span> Script function contents</a>
 				<textarea onkeydown="fitTextarea(this)"></textarea>
 			</div>
 		</div>
@@ -203,14 +204,14 @@
 	<div id="unit-tests">
 		
 	</div>
-	<script src='js/src/utils.js'></script>
-	<script src='js/src/button-calls.js'></script>
-	<script src='js/src/testing.js'></script>
-	<script src='js/src/main.js'></script>
-	<script src='js/src/uv-chooser.js'></script>
+	<script src='js/src/utils.js?v1'></script>
+	<script src='js/src/button-calls.js?v1'></script>
+	<script src='js/src/testing.js?v1'></script>
+	<script src='js/src/main.js?v1'></script>
+	<script src='js/src/uv-chooser.js?v1'></script>
 	
-	<script src='../../../shared/js/qtest.js'></script>
-	<script src="../../../shared/js/jquery-2.1.0.min.js"></script>
+	<script src='../../../shared/js/qtest.js?v1'></script>
+	<script src="../../../shared/js/jquery-2.1.0.min.js?v1"></script>
 	
 	<script type="text/javascript" src="js/jasmine-2.0.0/jasmine.js"></script>
 	<script type="text/javascript" src="js/jasmine-2.0.0/jasmine-html.js"></script>
@@ -227,9 +228,9 @@
 		mocha.globals(['jQuery']);
 	</script-->
 	
-	<link rel="stylesheet" href="js/src/notifier/Notification.css"> 
-	<script src='js/src/notifier/Notification.js'></script>
-	<script src='js/src/notifier/NotificationManager.js'></script>
+	<link rel="stylesheet" href="js/src/notifier/Notification.css?v1"> 
+	<script src='js/src/notifier/Notification.js?v1'></script>
+	<script src='js/src/notifier/NotificationManager.js?v1'></script>
 	
 	
 	<!--SOURCES-->
