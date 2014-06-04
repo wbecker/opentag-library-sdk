@@ -61,10 +61,10 @@ function runTag(referencingNode, configWithParams) {
     var instance = new clazz(config);
     info("triggering run() for " + instance.config.name + " ...");
     instance.run();
-    var message = "Currently executed tag instance is exposed as: window.instance";
+    var message = "Currently executed tag instance is exposed as <pre>window.instance<pre>";
     instance.log.INFO(message);
-    info(message + "<br/> Please open web console to see more logs." +
-				" To view library the logs run:<pre>\ninstance.log.rePrint(5);\n</pre>" +
+    info(message + "Please open web console to see more logs." +
+				"<br/>To view library the logs run:<pre>instance.log.rePrint(5);</pre>" +
 				"in web console.", 5000);
     window.instance = instance;
   } catch (ex) {
