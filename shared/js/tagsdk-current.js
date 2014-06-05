@@ -30,7 +30,7 @@ try {
 global.NAMESPACE = global;
 
 global.qubit = {
-  VERSION: "0.9.1"
+  VERSION: "0.9.2"
 };
 
 //shortcuts
@@ -912,10 +912,18 @@ var UNDEF = undefined;
   Log.LEVEL_NONE = -1;
   
   /**
+   * @static
    * @property {Number} [MAX_LOG_LEN=-1]
    * Static property used to limit maximum amount of logs collected.
    */
   Log.MAX_LOG_LEN = -1;
+  
+  /**
+   * @property {Number} [MAX_LOG_LEN=-1]
+   * Maximum log collection limit for this instance, 
+   * default is -1, which means no limit is set.
+   */
+  Log.prototype.MAX_LOG_LEN = -1;
   
   /**
    * @property LEVEL
@@ -1041,7 +1049,7 @@ var UNDEF = undefined;
    * you like.
    * @type Array
    */
-  Log.delayPrint = 15;
+  Log.delayPrint = -1;
   
   var _last_run = new Date().valueOf();
   /*
@@ -1204,10 +1212,6 @@ var UNDEF = undefined;
     return results;
   };
 
-  /**
-   * Maximum log collection limit, default is -1, which means no limit is set.
-   */
-  Log.prototype.MAX_LOG_LEN = -1;
 
   /**
    * Re-printing function for all instance log.
@@ -2494,6 +2498,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * In new TagSDK API, also variable object can have default value - in old
    * qtag configuration this feature is not used.
    * 
+   * **Please note: variables with same configurations return old instance.**
+   * 
    * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.pagevariable.BaseVariable
@@ -2510,7 +2516,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     }.bind(this), "collectLogs");
     /*~log*/
     
-    this.parameter = null;
+    this.parameters = null;
     
     if (config) {
       this.uniqueId = "BV" + BV_COUNTER++;
@@ -2632,20 +2638,21 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * Relative value is a value fallbing back in order:
    * 1) try normal value
    * 2) try defaults value suggested by argument
-   * 3) try fallback defaults of variable instance
+   * 3) try fallback defaults of variable instance itself
    * 
-   * @param {Boolean} defaults Try internal defaults if all fails
+   * @param {Boolean} useDefaults Try internal defaults if all fails
    * @param {Object} defaultValue Alternative value if does not exist. Note, it
    *        has higher priority than variable defaults.
    * @returns {Object}
    */
-  BaseVariable.prototype.getRelativeValue = function (defaults, defaultValue) {
+  BaseVariable.prototype.getRelativeValue = 
+          function (useDefaults, defaultValue) {
     var pageValue = this.getValue();
     
     if (!Utils.variableExists(pageValue)) {
       pageValue = defaultValue;
     }
-    if (defaults && !Utils.variableExists(pageValue)) {
+    if (useDefaults && !Utils.variableExists(pageValue)) {
       pageValue = this.getDefaultValue();
     }
     return pageValue;
@@ -2956,8 +2963,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
         ret = Expression.parseUVArray(this.value);
       }
     } catch (e) {
-      var msg = "could not read value of expression: " + this.value +
-              " , exact cause: " + e;
+      var msg = "could not read value of expression: \n" + this.value +
+              "\nexact cause: " + e;
       if (this._failMsg !== msg) {
         this._failMsg = msg;
         this.log.WARN(this._failMsg);
@@ -3389,9 +3396,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * This function ALWAYS return BaseVariable instance, for parameters without 
    * variables it will initialize empty one and return it.
    * @param {Object} param parameter object
-   * @returns {qubit.opentag.pagevariable.BaseVariable}
+   * @returns {qubit.opentag.pagevariable.BaseVariable} instance of 
+   *    BaseVariable or null
    */
-  TagHelper.getVariableForParameter = function(param) {
+  TagHelper.validateAndGetVariableForParameter = function(param) {
     if (param.hasOwnProperty("variable")) {
       if (param.variable) {
         return param.variable = TagHelper.initPageVariable(param.variable);
@@ -3403,8 +3411,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       });
     }
     //got here? well: not set! initialize.
-    return param.variable = new BaseVariable({
-      value: undefined
+    return param.variable = TagHelper.initPageVariable({
+      value: undefined,
+      empty: true
     });
   };
   
@@ -3412,7 +3421,28 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * Function will initialize variable object depending on configuration
    * object passed. If the object is an instance of BaseVariable, it will
    * be returned unchanged.
-   * @param {Object} cfg Config object or Variable instance
+   * @param {Object} cfg Config object or Variable instance with properties:
+   *  
+   *  - `cfg.type` if type is defined it will be used to resolve by number 
+   *  or a type name:
+   *  
+   *    - `"EPRESSION"` or `2` - to instance of 
+   *      qubit.opentag.pagevariable.Expression
+   *    
+   *    - `"URL_PARAMETER"` or `3` - to instance of 
+   *      qubit.opentag.pagevariable.URLQuery
+   *    
+   *    - `"COOKIE_VALUE"` or `4` - to instance of 
+   *      qubit.opentag.pagevariable.Cookie`
+   *    
+   *    - `"DOM_VALUE"` or `5` - to instance of 
+   *      qubit.opentag.pagevariable.DOMText
+   *    
+   *    - `"any other value"` - to instance of 
+   *      qubit.opentag.pagevariable.BaseVariable
+   *  
+   *  The `cfg` config is passed to paga variable constructor as object config.
+   * 
    * @returns {qubit.opentag.pagevariable.BaseVariable}
    */
   TagHelper.initPageVariable = function (cfg) {
@@ -3427,6 +3457,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       case COOKIE_VALUE:
         return new Cookie(cfg);
       case ELEMENT_VALUE:
+        return new DOMText(cfg);
+      case 'EPRESSION':
+        return new Expression(cfg);
+      case 'URL_PARAMETER':
+        return  new URLQuery(cfg);
+      case 'COOKIE_VALUE':
+        return new Cookie(cfg);
+      case 'DOM_VALUE':
         return new DOMText(cfg);
       default:
         return new BaseVariable(cfg);
@@ -3713,8 +3751,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.genericDependencies = 
           this.genericDependencies.concat(config.genericDependencies);
       }
+      
       if (config.dependencies) {
         this.dependencies = config.dependencies.concat(this.dependencies);
+      }
+      
+      if (config.package) {
+        this._package = config.package;
       }
       
       this.onInit();
@@ -4855,7 +4898,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       * @cfg filterTimeout
       * @type Number
       */
-      filterTimeout: this.config.filterTimeout || this.FILTER_WAIT_TIMEOUT,
+      filterTimeout: (config && config.filterTimeout) 
+              || this.FILTER_WAIT_TIMEOUT,
       /**
        * Package property indicates where this tag will reside
        * (in what namespace). This property is used by structure packagers to
@@ -4866,7 +4910,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        * @cfg package
        * @type Object 
        */
-      PACKAGE: this.config.PACKAGE,
+      PACKAGE: (config && config.PACKAGE),
       /**
        * Is this tag a dedupe tag? `dedupe` option indicates that tag is
        * deduplicating statistic information - this typically happens only for
@@ -4913,9 +4957,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
      * parameters. In old tag running mechanism this array is never used.
      * In case of any page variable object that is added here, tag will include
      * it as page variable dependency.
+     * 
+     * Named variables is a new feature. To get page variables related to 
+     * parameters use `this.getPageVariables()`
      * @property Array[qubit.opentag.filter.BaseFilter]
      */
-    this.namedPageVariables = {};  
+    this.namedVariables = {};  
     
     /**
      * Parameters array. Parasmeters are a plain objects containing:
@@ -4965,15 +5012,22 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       }
       
       if (config.parameters) {
-        this.parameters = config.parameters.concat(this.parameters);
+        this.parameters = this.parameters.concat(config.parameters);
       }
       
       if (config.variables) {
         for (var prop in config.variables) {
           if (config.variables.hasOwnProperty(prop)) {
             var param = this.getParameterByTokenName(prop);
-            if(!param.variable) {
-              param.variable = config.variables[prop];
+            if(param) {
+              var variable = config.variables[prop];
+              param.variable = variable;
+              if (variable.defaultValue !== undefined) {
+                param.defaultValue = variable.defaultValue;
+              }
+              if (variable.uv !== undefined) {
+                param.uv = variable.uv;
+              }
             }
           }
         }
@@ -4993,6 +5047,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * If page varable exist and is bound to a parameter using
    * specific token name equal to `token` argument it will be returned by 
    * this function.
+   * This function tries first to read from parameters variables and parameter
+   * default values , if not found any **variable** (including defaults) 
+   * `this.namedVariables` will be searched for the value of variable witn
+   * name matching the token.
+   * 
+   * Note: if variable is defined dierctly for parameter - even if unset it 
+   * will be used **only**.
+   * 
    * @param {String} token
    * @returns 
    */
@@ -5005,6 +5067,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         }
       }
       return this.getParameterValue(param, defaults);
+    }
+    if (this.namedVariables && this.namedVariables[token]) {
+      var variable = _getSetNamedVariable(this, token);
+      if (variable) {
+        return variable.getRelativeValue(defaults);
+      }
     }
     return undefined;
   };
@@ -5321,7 +5389,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param tryDefaults {Boolean} name try also defaults if variables are unset.
    * @returns {Boolean} True if all variables have values.
    */
-  BaseTag.prototype.pageVariablesLoaded = function (tryDefaults) {
+  BaseTag.prototype.arePageVariablesLoaded = function (tryDefaults) {
     return TagHelper.allParameterVariablesReadyForTag(this, tryDefaults);
   };
   
@@ -5340,7 +5408,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           function (tryDefaults, arrayToAdd) {
     var failures = arrayToAdd || [];
     
-    if (!this.pageVariablesLoaded(tryDefaults)) {
+    if (!this.arePageVariablesLoaded(tryDefaults)) {
       failures.push("page variables");
     }
     
@@ -5393,7 +5461,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * This function is used to replace any string with tokens in it with its 
    * corresponding values. It delegates some of replacement process to 
    * [BaseVariable.prototype.replaceToken](
-   * #!/api/qubit.opentag.pagevariable.BaseVariable-method-replaceToken) 
+     #!/api/qubit.opentag.pagevariable.BaseVariable-method-replaceToken) 
    * per variable that is used.
    * @param {String} string
    * @returns {String} resulting string
@@ -5416,17 +5484,19 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   
   /**
    * Function gets parameter object by parameter name.
+   * **Last parameter matchin name is returned.**
    * @param {String} name parameter name
    * @returns {Object} parameter reference
    */
   BaseTag.prototype.getParameter = function (name) {
     var params = this.parameters;
+    var ret = null;
     if (params) for (var i = 0; i < params.length; i++) {
       if (params[i].name === name) {
-        return params[i];
+        ret = params[i];
       }
     }
-    return null;
+    return ret;
   };
   
   /**
@@ -5475,7 +5545,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           return value;
         } catch (ex) {
           this.log.ERROR("error while trying to resolve variable value:" + ex);
-          throw ex;
+          this.log.ERROR("Variable defaults string is invalid: " + 
+                  param.defaultValue);//L
+          return undefined;
+          //throw ex;
         }
       }
     }
@@ -5540,15 +5613,16 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {Object}
    */
   BaseTag.prototype.getParameterByTokenName = function (name) {
+    var ret = null;
     if (this.parameters) {
       var params = this.parameters;
       for (var i = 0; i < params.length; i++) {
         if (params[i].token === name) {
-          return params[i];
+          ret = params[i];
         }
       }
     }
-    return null;
+    return ret;
   };
   
   /**
@@ -5649,15 +5723,24 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     var params = this.parameters;
     if (params) {
       for (var i = 0; i < params.length; i++) {
-        params[i].variable = TagHelper.initPageVariable(params[i].variable);
+        params[i].variable = TagHelper
+                .validateAndGetVariableForParameter(params[i]);
+      }
+    }
+    if (this.namedVariables) {
+      for (var prop in this.namedVariables) {
+        if (this.namedVariables.hasOwnProperty(prop)) {
+          this.namedVariables[prop] = 
+                  TagHelper.initPageVariable(this.namedVariables[prop]);
+        }
       }
     }
   };
   
   /**
-   * Function returns all oage variables defined within this tag.
+   * Function returns all page variables defined within this tag.
    * All variables assigned to parameters and any variables alone from 
-   * `this.namedPageVariables`.
+   * `this.namedVariables`.
    * During getting variables from `this.parameters` array, 
    * they will be re-validated.
    * @returns {Array} BaseVariable
@@ -5674,11 +5757,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         }
       }
     }
-    //add named variables
-    for (var key in this.namedPageVariables) {
-      Utils.addToArrayIfNotExist(vars, this.namedPageVariables[key]);
+    //add named variables and do not duplicate
+    if (this.namedVariables) {
+      for (var key in this.namedVariables) {
+        //getSetVariable validates each time variable
+        Utils.addToArrayIfNotExist(vars, _getSetNamedVariable(this, key));
+      }
     }
-    
     return vars;
   };
   
@@ -5701,12 +5786,26 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * object is.
    * @param param {Object}
    * @returns {qubit.opentag.pagevariable.BaseVariable} BaseVariable instance
-   */
-  BaseTag.prototype.getVariableForParameter = function(param) {
-    var variable = TagHelper.getVariableForParameter(param);
+   */ 
+  BaseTag.prototype.getVariableForParameter = function (param) {
+    var variable = TagHelper.validateAndGetVariableForParameter(param);
+
+    if (variable && !variable.config.empty) {
+      //if exists and is not empty variable
+      //ignore parameter has own variable
+    } else if (this.namedVariables && this.namedVariables[param.token]) {
+      //@todo clean it up
+      //use alternative value
+      variable = _getSetNamedVariable(this, param.token);
+    }
     return variable;
   };
 
+  function _getSetNamedVariable(tag, token) {
+    var variable = TagHelper.initPageVariable(tag.namedVariables[token]);
+    tag.namedVariables[token] = variable;
+    return variable;
+  };
 }());
 
 
@@ -6999,6 +7098,13 @@ var JSON = {};
   };
   
   /**
+   * Function called wheh tag is registered with this container.
+   * @event
+   * @param {qubit.opentag.BaseTag} tag
+   */
+  Container.prototype.onTagRegistered = function (tag) {};
+  
+  /**
    * Function registering tag instance with this class instance.
    * Registered tag will have validated and possibly injected extra 
    * configuration.
@@ -7016,6 +7122,11 @@ var JSON = {};
       this.log.FINE("Tag with name `" + name + "` already is registered!");
     } else {
       this.tags[name] = tag;
+      try {
+        this.onTagRegistered(tag);
+      } catch (ex) {
+        this.log.ERROR("onTagRegistered exception: " + ex);
+      }
     }
   };
   /**
@@ -7717,9 +7828,11 @@ var JSON = {};
     prototypeTemplate.CONSTRUCTOR = function (cfg) {
       //update instance properties for new defaults
       cfg = cfg || {};
-      for(var prop in libraryDefaultConfig) {
+      //@todo repair this
+      var defaultsCopy = Utils.objectCopy(libraryDefaultConfig, 4);
+      for(var prop in defaultsCopy) {
         if (!cfg.hasOwnProperty(prop)) {
-          cfg[prop] = libraryDefaultConfig[prop];
+          cfg[prop] = defaultsCopy[prop];
         }
       }
       //run library standard constructor
