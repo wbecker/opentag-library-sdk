@@ -2414,7 +2414,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
             try {
               f.runTag(tag);
             } catch (ex) {
-              f.log.ERROR("error trying custom starter:" + ex);
+              f.log.FINEST("trying custom starter failed:" + ex);
             }
           }
         }
