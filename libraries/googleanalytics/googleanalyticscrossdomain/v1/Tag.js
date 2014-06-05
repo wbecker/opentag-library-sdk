@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Setup cross domain tracking with GA, using setDomainName and setAllowLinker.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

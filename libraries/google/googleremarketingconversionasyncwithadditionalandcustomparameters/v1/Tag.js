@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Contains additional parameters including color, language, and format. Also includes custom parameter support.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",

@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Automatically send UV events as GA events using Universal Analytics. Depends on the main Universal Analytics script.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "See https://support.google.com/analytics/answer/2444872 for details.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Enables ecommerce tracking of multiple domains within one Google Analytics account.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",

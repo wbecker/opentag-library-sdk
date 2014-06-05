@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Ecommerce tracking allows you to measure the number of transactions and revenue that your website generates. Place this tag on a confirmation page only.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

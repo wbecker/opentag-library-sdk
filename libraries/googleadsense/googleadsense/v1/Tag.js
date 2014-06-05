@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 		async: true,
 		description: "Deploy Google adsense asynchronously to a specific html element (by id).",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",

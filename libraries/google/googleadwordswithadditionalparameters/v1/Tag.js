@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Tracks users that have converted who previously clicked through on an ad.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "www.googleadservices.com/pagead/conversion_async.js",

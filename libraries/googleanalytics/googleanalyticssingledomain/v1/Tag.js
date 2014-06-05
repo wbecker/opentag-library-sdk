@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Google Analytics is the enterprise class web analytics solution that gives you rich insights into your website traffic and marketing effectiveness. Powerful, flexible and easy to use features now let you see and analyze your traffic data in an entirely new way. With Google Analytics, you're more prepared to write better targeted ads, strengthen your marketing initiatives and create higher converting websites.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

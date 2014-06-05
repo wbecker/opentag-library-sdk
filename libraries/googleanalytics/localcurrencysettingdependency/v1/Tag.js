@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Allows setting of a currency for the current transaction, which Google will automatically convert to the account's currency using an estimated exchange rate for reports. If used, this tag MUST be set as a dependency for the associated ecommerce tag.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
