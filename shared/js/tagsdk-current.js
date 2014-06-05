@@ -3756,8 +3756,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.dependencies = config.dependencies.concat(this.dependencies);
       }
       
-      if (config.package) {
-        this._package = config.package;
+      if (config.PACKAGE) {
+        this._package = config.PACKAGE;
       }
       
       this.onInit();
