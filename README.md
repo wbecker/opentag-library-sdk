@@ -1,33 +1,67 @@
-# Tag Libraries Repository & Development Tools
+# Tag Library Repository & Development Tools
 
-## Requirements
-- Java (version 1.5 or higher) your computer should have Java already installed, if not, download it from https://www.java.com/en/download/
-- Git, no specific version required here. Your installation should have command line tools for git - it is a standard option during Git installation. You can download git from http://git-scm.com/downloads.
+## Introduction
 
-## Building Tag Library(ies)
-Build system is based on plain files and is using miniMerge tool for merging and simple dependency management (see https://github.com/QubitProducts/miniMerge for more details). Any directory or file specified by build will cause the build program to find all *.js files, analyse any dependencies defined in files and include them into build output. Paths with names "dist" and "build" will be ignored by build system and by Git (see what is ignored in .gitignore file).
+[Opentag](https://opentag.qubitproducts.com/QDashboard) hosts an ever-growing number of script tags submitted by vendors and curated by [Qubit](http://www.qubitproducts.com) that makes it easy for webmasters and marketers to get them running on their websites. 
 
-To build tag library, entire vendor's libraries directory or all of the libraries, specify path to the resource as in the example below:
+This repository contains these tags in an easy to add and edit format. 
+
+## Full Documentation
+
+- [Guides](https://opentag.qubitproducts.com/tagsdk/docs/#!/guide/getting_started)
+- [Opentag API](https://opentag.qubitproducts.com/tagsdk/docs/#!/api)
+
+## Quickstart guide
+
+###Requirements
+
+- [Java](https://www.java.com/en/download/) (version 1.5 or higher) 
+- [Git](http://git-scm.com/downloads). 
+
+###Contribution process
+
+If you want to contribute code back to this repository, please use the following procedure:
+
+ * Fork this repository (by clicking the fork button above). 
+ * Checkout your fork of the repository 
+
+   ```git clone git@github.com:<your git account>/opentag-vendor-sdk.git```
+ 
+ * Make a branch for the new/altered tag(s) 
+ 
+   ```git checkout -b my-new-tag-name```
+ 
+ * Make your changes against the branch. 
+ * Commit changes back to your personal repository 
+ 
+   ```git commit -am "added new tag 'my new tag' " && git push```
+ 
+ * Pull request from your local repository back to the parent repostory. 
+
+ * We will review the changes, ask for any improvements, and if all is well, sync it back to repository. 
+
+ * Users using older versions of your tags will be notified of changes to their implementations when they next log in.
+
+###Building Tag Libraries
+
+As the above process specifies, fork the main repository, and check it out.
+
+Next boot up your build server - this allows communication between our build tool, the file system and git. 
+
+Navigate to your repository, then run:
 
 ```
-java -jar shared/bin/LibraryWizard.jar --build-and-run libraries/vendor_name
+java -jar shared/bin/LibraryWizard.jar --build-and-run libraries/<vendor_name>
 ```
 
---build-and-run option will cause building the directory and running local server to serve build contents.
-This option will also try automatically to open default system browser to open tag libraries testing page.
-By default the server will serve contents using 8888 port, to change the port add --port <port number> option.
-
-If your system support unix commandline, it may be more convinient to use shell script:
+or (if you are not on Windows):
 
 ```
-shared/bin/build.sh libraries/vendor_name
+shared/bin/build.sh libraries/<vendor_name>
 ```
 
-To see more information on wizard tool, simply run:
+where ```<vendor_name>``` matches a directory in the libraries folder. By default the build server will serve contents using port 8888 (to change the port, use the --port <port number> option).
 
-```
-java -jar shared/bin/LibraryWizard.jar
-```
+This will launch a browser showing the tag-library build tool. From here you can edit existing tags, create new versions of tags that will notify users of changes and write tests against your tags.
 
-## Extra notes
-Please associate your favourite editor for javascript files - application will use it to open the javascript files when clicking "edit" buttons.
+When you have finished editing your tags, commit them back to your local repository and pull request against our main repository.  
