@@ -330,13 +330,16 @@ var UNDEF = undefined;
   
   //private helper for objectCopy
   var travelArray = [];
-  function existsInPath(object, max) {
-    for (var i = 0; i < max && i < travelArray.length; i++) {
+  function existsInPath(object, copy) {
+    var len = travelArray.length;
+    for (var i = 0; i < len; i++) {
       if (object === travelArray[i][0]) {
-        //console.log(object+"");
-        return travelArray[i];
+        return travelArray[i][1];
       }
     }
+    
+    travelArray[travelArray.length] = [object, copy];
+
     return false;
   }
   /**
@@ -345,32 +348,85 @@ var UNDEF = undefined;
    * 
    * Note that functions are treated as objects and some global scope objects
    *  are excluded from traversing.
-   * 
+   *  
+   *  **Remember: by default DOM node and window element types are excluded
+   *  from inclusion as they hage enormous properties tree contents - function 
+   *  does circural checks but still the object is enormous.**
+   *  
    * @param {Object} obj object to copy
-   * @param {Number} maxDeep how deep to enter to copy object
-   * @param {Boolean} allObjects If enabled, it follow Node elements refernces
-       and window.
+   * @param cfg Configuration object:
+   * 
+   * - {Number} maxDeep how deep to enter to copy object
+   * 
+   * - {Boolean} nodes If enabled, it follow Node elements refernces
+   *   and window.
+   *   
+   * - {Boolean} noOwn property if set cause excluding default "hasOwnProperty"
+   * check.
+   * 
+   * - {Boolean} noFunctions If enabled, it excludes functions from copying
+   * 
+   * - {Boolean} proto If enabled, it ewill include `prototype` object(!), 
+   * useful when cloning with inheritance.
+   * 
+   * - {Boolean} copyReference If enabled, it will set for
+   *    each object "___copy_reference" property referring to copied object
+   * 
+   * - {Boolean} all This config option causes setting defaults to include any 
+   * tupoe of objects in traversing process (win. nodes, etc. are set to true)
    * @returns {Object} copy of the object
    */
-  Utils.objectCopy = function (obj, maxDeep, allObjects) {
-    return _objectCopy (obj, maxDeep, allObjects);
+  Utils.objectCopy = function (obj, cfg) {
+    cfg = cfg || {};
+    var res = _objectCopy (obj, cfg, cfg.maxDeep);
+    travelArray = [];
+    return res;
   };
   
-  function _objectCopy(obj, maxDeep, allObjects, start) {
+  function _objectCopy(obj, cfg, maxDeep, start, parentObj) {
+    var nodes = false,
+      noOwn = false,
+      noFunctions = false,
+      win = false,
+      all = false,
+      copyReference = false;
+    
+    if (cfg) {
+      all = !!cfg.all;
+      nodes = all || cfg.nodes;
+      win = all || cfg.win;
+      noOwn = all;
+      noFunctions = cfg.noFunctions && !all;
+      
+      if (cfg.noOwn !== undefined) {
+        noOwn = !!cfg.noOwn;
+      }      
+      if (cfg.noFunctions !== undefined) {
+        noFunctions =  !!cfg.noFunctions;
+      }
+      if (cfg.win !== undefined) {
+        win = !!cfg.win;
+      }
+      if (cfg.nodes !== undefined) {
+        nodes = !!cfg.nodes;
+      }
+      
+      copyReference = !!cfg.copyReference;
+    }
+    
     if (maxDeep !== undefined && !maxDeep) {
       return;
     } else if (maxDeep !== undefined) {
       maxDeep--;
     }
-    
-    if (!(obj instanceof Object)) {
+
+    if (!obj || !(obj instanceof Object)) {
       return obj;
     }
-    
-    if (!allObjects) {
+
+    if (!nodes) {
       try {
         if (obj instanceof Node) {
-          //dont follow those objects
           return obj;
         }
       } catch (ie) {
@@ -378,53 +434,83 @@ var UNDEF = undefined;
           return obj; //IE case, no comment
         }
       }
-      if (obj === window ||
-              obj === document ||
-              obj === global) {
-          //dont copy those objects, they are read only
+      if (obj === document) {
+        return obj;
+      }
+    }
+    
+    if (!win) {
+      if (obj === window || obj === global) {
         return obj;
       }
     }
 
     var copy = (obj instanceof Array) ? [] : {};
+
+    if (obj instanceof Date) {
+      copy = new Date(obj);
+    }
+
+    if (!noFunctions && obj instanceof Function) {
+      var funStr = String(obj).replace(/\s+/g,"");
+      if ((funStr.indexOf("{[nativecode]}") + 14) === funStr.length) {
+        //native case
+        copy = function() {
+          return obj.apply(parentObj || this, arguments);
+        };
+      } else {
+        copy = function() {
+          return obj.apply(this, arguments);
+        };
+      }
+    }
+
     if (start === undefined) {
       travelArray = [];
       start = 0;
     }
     
-    var object, exists, i;
+    var existingCopy = existsInPath(obj, copy);
     
+    if (existingCopy) {
+      return existingCopy;
+    }
+    
+    // DONT follow native accessors!: obj[i] === obj[i]
+    
+    var i;
     if (copy instanceof Array) {
       for (i = 0; i < obj.length; i++) {
-        object = obj[i];
-        travelArray[start] = [object, copy, i];
-        exists = existsInPath(object, start);
-        if (!exists) {
-          copy.push(_objectCopy(object, maxDeep, allObjects, start + 1));
+        if (obj[i] === obj[i]) {
+          copy[copy.length] = _objectCopy(obj[i], cfg, maxDeep, start + 1, obj);
         } else {
-          //pass existing copy!
-          copy.push(exists[1][exists[2]]);
+          copy[copy.length] = obj[i];
         }
       }
     } else {
       i = 0;
       for (var prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-          object = obj[prop];
-          travelArray[start] = [object, copy, i];
-          exists = existsInPath(object, start);
-          if (!exists) {
-            copy[prop] = _objectCopy(object, maxDeep, allObjects, start + 1);
+        if (noOwn || obj.hasOwnProperty(prop)) {
+          if (obj[prop] === obj[prop]) {
+            copy[prop] = _objectCopy(obj[prop], cfg, maxDeep, start + 1, obj);
           } else {
-            //pass existing copy!
-            copy[prop] = exists[1][exists[2]];
+            copy[prop] = obj[prop];
           }
         }
         i++;
       }
     }
+    
+    if (cfg.proto) {
+      copy.prototype = _objectCopy(obj.prototype, cfg, maxDeep, start + 1, obj);
+    }
+    
+    if (copyReference) {
+      copy.___copy_ref = obj;
+    }
+    
     return copy;
-  };
+  }
   
   var traverseArray = [];
   function existsInTraversePath(object, max) {
@@ -461,7 +547,7 @@ var UNDEF = undefined;
    * - `nodes` if DOM nodes should be included in traverse (default false)
    */
    Utils.traverse = function (obj, exe, cfg) {
-     _traverse(obj, exe, cfg)
+     _traverse(obj, exe, cfg);
    };
    
    function _traverse(obj, exe, cfg, start, parent, prop, trackPath) {
@@ -630,7 +716,7 @@ var UNDEF = undefined;
       var keys = [];
       for (var prop in obj) {
         if (obj.hasOwnProperty(prop)) {
-          keys.push(prop);
+          keys[keys.length] = prop;
         }
       }
       return keys;
@@ -677,7 +763,7 @@ var UNDEF = undefined;
       }
     }
     if (!exists) {
-      array.push(obj);
+      array[array.length] = obj;
       i = -1;
     }
     return i;
@@ -1037,7 +1123,17 @@ var UNDEF = undefined;
     return _ssupported;
   };
   
+  var altConsole = {
+    
+  };
+  /**
+   * 
+   * Attach console object to controll logging print method.
+   * @param {Object} xconsole
+   * @returns {Object} console attached
+   */
   Log.setConsole = function (xconsole) {
+    xconsole = xconsole || altConsole;
     return c = xconsole;
   };
   
@@ -1823,16 +1919,34 @@ q.html.fileLoader.tidyUrl = function (path) {
        */
       name: "Filter-" + (counter++),
       /**
-       * If defined, it will be used to resolve script state.
+       * If defined, it will be used as final status decision maker.
+       * It takes 2 arguments: (`this`, `passed`). passed argument is
+       * the last status decision value taken.
+       * @cfg {Function} [script=undefined]
        */
-      script: undefined
+      script: undefined,
+      /**
+       * Session object - can be passed via configuration.
+       * @cfg {qubit.opentag.Session} [session=undefined]
+       */
+      session: undefined
     };
+    
+    /**
+     * Session object - if attached, it will be attached normally by 
+     * tag instance.
+     * @property {qubit.opentag.Session} session
+     */
+    this.session = null;
     
     if (config) {
       for (var prop in config) {
         if (config.hasOwnProperty(prop)) {
           this.config[prop] = config[prop];
         }
+      }
+      if (config.session) {
+        this.setSession(config.session);
       }
     }
   }
@@ -1888,6 +2002,22 @@ q.html.fileLoader.tidyUrl = function (path) {
    */
   BaseFilter.prototype.match = function () {
     return true;
+  };
+  
+  /**
+   * Session object setter for filter.
+   * @param {qubit.opentag.Session} session
+   */
+  BaseFilter.prototype.setSession = function (session) {
+    this.session = session;
+  };
+  
+  /**
+   * Session object getter for filter.
+   * @returns {qubit.opentag.Session}
+   */
+  BaseFilter.prototype.getSession = function () {
+    return this.session;
   };
   
   /**
@@ -2352,8 +2482,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
       
       for (var i = 0; i < filters.length; i++) {
         var filter = filters[i];
+        filter.setSession(session);
+        
         if (filter.match()) {
-          var response = filter.getStatus(session);
+          var response = filter.getStatus();
           // positive response means that filter tells to WAIT for execution
           // and try in 'response' miliseconds
           if (response > 0) {
@@ -3549,13 +3681,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * 
    * Example of a loader that will load the jQuery link and run hello 
    * world code:
-   *
+   
         var loader = new qubit.opentag.GenericLoader({
           url: [
               "http://code.jquery.com/jquery.js",
               "http://underscorejs.org/underscore-min.js"
           ],
-          html: "<img src='http://www.qubitproducts.com/sites/all/themes/qubit/img/logo.png
+          html: "<img src='http://www.qubitproducts.com/sites/all/themes/qubit/img/logo.png'>"
           // this image will be inserted after scripts are fetched
         });
         
@@ -5008,7 +5140,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       }
       
       if (config.filters) {
-        this.filters = config.filters.concat(this.filters);
+        for (var i = 0; i < config.filters.length; i++) {
+          this.addFilter(config.filters[i]);
+        }
       }
       
       if (config.parameters) {
@@ -5576,6 +5710,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param filter {qubit.opentag.filter.BaseFilter}
    */
   BaseTag.prototype.addFilter = function (filter) {
+    if (this.session) {
+      filter.setSession(this.session);
+    }
     this.filters.push(filter);
   };
   
@@ -7829,7 +7966,7 @@ var JSON = {};
       //update instance properties for new defaults
       cfg = cfg || {};
       //@todo repair this
-      var defaultsCopy = Utils.objectCopy(libraryDefaultConfig, 4);
+      var defaultsCopy = Utils.objectCopy(libraryDefaultConfig, {maxDeep: 5});
       for(var prop in defaultsCopy) {
         if (!cfg.hasOwnProperty(prop)) {
           cfg[prop] = defaultsCopy[prop];
@@ -8135,20 +8272,12 @@ var JSON = {};
       }
     };
     
-    /**
-     * Session object - if attached, it will be attached normally by 
-     * tag instance.
-     * @property {qubit.opentag.Session} session
-     */
-    this.session = null;
-    
     if (config) {
       for(var prop in config) {
         if (config.hasOwnProperty(prop)) {
           defaultConfig[prop] = config[prop];
         }
       }
-      this.session = config.session || null;
     }
     
     SessionVariableFilter.superclass.call(this, defaultConfig);
@@ -8165,7 +8294,7 @@ var JSON = {};
    */
   SessionVariableFilter.prototype.match = function () {
     try {
-      return !!this.config.customScript(this.session);
+      return !!this.config.customScript(this.getSession());
     } catch (ex) {
       this.log.ERROR("Filter match throws exception:" + ex);
     }
@@ -8181,7 +8310,7 @@ var JSON = {};
       if (this.config.customStarter) {
         //trigger "customStarter", only once
         this._runTag = true;
-        this.config.customStarter(this.session, function (rerun) {
+        this.config.customStarter(this.getSession(), function (rerun) {
           this.lastRun = new Date().valueOf();
           if (rerun === true) {
             tag.run();
@@ -8200,7 +8329,9 @@ var JSON = {};
    * @param {qubit.opentag.Session} session optional session
    */
   SessionVariableFilter.prototype.getStatus = function (session) {
-    this.session = session;
+    if (session) {
+      this.setSession(session);
+    }
     var pass = SessionVariableFilter.superclass.prototype.getStatus.call(this);
     
     if (pass === BaseFilter.status.DISABLED) {
@@ -8214,7 +8345,7 @@ var JSON = {};
     }
     
     if (this.config.script) {
-      pass = this.config.script.call(this, pass, session);
+      pass = this.config.script.call(this, pass, this.getSession());
     }
     
     this.lastState = pass;
