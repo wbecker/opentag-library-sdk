@@ -459,6 +459,7 @@ function renderAllLibrariesToPage() {
     var vendor = vendors[vprop];
     var vendorNode = prepareVendorNode(vprop);
 
+		var libraries = [];
     for (var lprop in vendor) {
       try {
         var libraryClass = vendor[lprop].Tag;
@@ -471,7 +472,7 @@ function renderAllLibrariesToPage() {
           libraryClassPath = libraryClass.prototype.PACKAGE_NAME;
           ctest.unregister();
           if ((ctest) instanceof qubit.opentag.LibraryTag) {
-            addLibrary(vendorNode, libraryClass);
+            libraries.push([vendorNode, libraryClass]);
           }
         }
         //versions
@@ -479,7 +480,7 @@ function renderAllLibrariesToPage() {
 
         for (var i = 0; i < versions.length; i++) {
           versions[i].versionClassPath = libraryClassPath;
-          addLibrary(vendorNode, versions[i]);
+          libraries.push([vendorNode, versions[i]]);
         }
       } catch (ex) {
         //must prompt
@@ -494,6 +495,29 @@ function renderAllLibrariesToPage() {
         }
       }
     }
+		
+		libraries.sort(function (a, b) {
+		  var aClass = a[1];
+			var aTest = new aClass({});
+			aTest.unregister();
+			var bClass = b[1];
+			var bTest = new bClass({});
+			bTest.unregister();
+			console.log(aTest.config.name);
+			var aBigger = aTest.config.name > bTest.config.name;
+			
+			if (aBigger) {
+				
+			}
+			return aBigger;
+		});
+		
+		for (var f = 0; f < libraries.length; f++) {
+			var vendorNode = libraries[f][0];
+			var libraryClass = libraries[f][1];
+			addLibrary(vendorNode, libraryClass);
+		}
+		
     librariesNode.appendChild(vendorNode);
   }
 }
