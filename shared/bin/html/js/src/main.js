@@ -503,13 +503,34 @@ function renderAllLibrariesToPage() {
 			var bClass = b[1];
 			var bTest = new bClass({});
 			bTest.unregister();
-			console.log(aTest.config.name);
-			var aBigger = aTest.config.name > bTest.config.name;
+			var aBigger = aTest.config.name === bTest.config.name;
 			
 			if (aBigger) {
+				var versionStringA = "";
+				var versionStringB = "";
+				if (aClass.versionClassPath) {
+					versionStringA = aClass.prototype.PACKAGE_NAME
+            .replace(aClass.versionClassPath + ".", "");
+				}
+				if (bClass.versionClassPath) {
+					versionStringB = bClass.prototype.PACKAGE_NAME
+            .replace(bClass.versionClassPath + ".", "");
+				}
 				
+				if (versionStringA.charAt(0) !== versionStringB.charAt(0)) {
+					return versionStringA > versionStringB;
+				}
+				
+				var deep = 
+						Math.max(versionStringA.split(".").length,
+										 versionStringB.split(".").length);
+				var vNumA = versionNumber(versionStringA, deep);
+				var vNumB = versionNumber(versionStringB, deep);
+				return vNumA < vNumB;
+			} else {
+				return aTest.config.name > bTest.config.name;
 			}
-			return aBigger;
+			
 		});
 		
 		for (var f = 0; f < libraries.length; f++) {
@@ -558,6 +579,17 @@ function loadAllLibs(scriptsPassed) {
 		}, 0);//can be slown down
 	};
 	loader();
+}
+
+function versionNumber(str, deep) {
+	var num = str.replace(/[^\d\.]/g,"");
+	num = num.split(".");
+	var number = 0;
+	deep = deep || num.length -1;
+	for (var i = deep; i >= 0; i--) {
+		number += Math.pow(10, deep - i) * (isNaN(num[i]) ? 0 : num[i]);
+	}
+	return number;
 }
 
 function _loadSingle(url, index, callback, scriptsPassed, scripts) {
