@@ -170,58 +170,58 @@ var UNDEF = undefined;
     return (value !== undefined) && (value !== null) && (value !== "");
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*TRASH*/
+//  /**
+//   * @delete
+//   * @param {opentag.qubit.BaseTag} tag
+//   * @returns {Boolean}
+//   */
+//  Utils.determineIfSync = function (tag) {
+//    var i, ii, script, scripts, src;
+//    scripts = document.getElementsByTagName("script");
+//    for (i = 0, ii = scripts.length; i < ii; i += 1) {
+//      script = scripts[i];
+//      src = script.getAttribute("src");
+//      //removed "opentag", white labelling!!!
+//      if (!!src && (src.indexOf("" + 
+//          tag.config.opentagClientId + "-" + tag.config.profileName +
+//          ".js") > 0)) {
+//        return (script.getAttribute("async") === null && 
+//            //handle ie7
+//            (script.getAttribute("defer") === false ||
+//            //handle ie8
+//            script.getAttribute("defer") === "" ||
+//            //handle chrome/firefox
+//            script.getAttribute("defer") === null));
+//      } 
+//    }
+//    return true;
+//  };
+//  
+//  /**
+//   * @delete
+//   * COPY FROM OLD.
+//   * This function replaces following patterns ONLY:
+//   * a.b.c[#] + "ZZZ ${T}[i] YYY" -> "ZZZ a.b.c[i] YYY"
+//   * a.b.c[#] + "ZZZ ${T}.length YYY" -> "ZZZ a.b.c.length YYY"
+//   * 
+//   * It is a VERY private function.
+//   * 
+//   * @param {qubit.opentag.pagevariable.BaseVariable} pageVar
+//   * @param {String} token
+//   * @param {String} str
+//   * @returns {String}
+//   */
+//  Utils.substituteArray = function (pageVar, token, str) {
+//    var start, end, index, tok;
+//    index = pageVar.value.indexOf("[#]");
+//    start = pageVar.value.substring(0, index);
+//    end = pageVar.value.substring(index + 3);
+//    str = str.replace(new RegExp(token + "\\.length", "g"), start + ".length"); 
+//    str = str.replace(new RegExp(token + "(\\[.*?\\])", "g"), start + "$1" + end);
+//    return str;
+//  };
+/*~TRASH*/
 
   Utils.ANON_VARS = [];
   /**
