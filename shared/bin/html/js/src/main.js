@@ -472,15 +472,17 @@ function renderAllLibrariesToPage() {
           libraryClassPath = libraryClass.prototype.PACKAGE_NAME;
           ctest.unregister();
           if ((ctest) instanceof qubit.opentag.LibraryTag) {
-            libraries.push([vendorNode, libraryClass]);
+            libraries.push([vendorNode, libraryClass, ctest]);
           }
         }
         //versions
         var versions = findTags(vendor[lprop]);
 
         for (var i = 0; i < versions.length; i++) {
+					var c = new versions[i]({});
+          c.unregister();
           versions[i].versionClassPath = libraryClassPath;
-          libraries.push([vendorNode, versions[i]]);
+          libraries.push([vendorNode, versions[i], c]);
         }
       } catch (ex) {
         //must prompt
@@ -495,12 +497,12 @@ function renderAllLibrariesToPage() {
         }
       }
     }
-		
+//		
 		libraries.sort(function (a, b) {
 		  var aClass = a[1];
 			var bClass = b[1];
-			var aConf = aClass.prototype.defaultConfig;
-			var bConf = bClass.prototype.defaultConfig;
+			var aConf = a[2].config;
+			var bConf = b[2].config;
 			var equal = aConf.name === bConf.name;
 			
 			if (equal) {
@@ -542,11 +544,7 @@ function renderAllLibrariesToPage() {
 				}
 			}
 		});
-		
-		for (var i = 0; i < libraries.length; i++) {
-			console.log(libraries[i][1].prototype.defaultConfig.name);
-		}
-		
+	
 		for (var f = 0; f < libraries.length; f++) {
 			var vendorNode = libraries[f][0];
 			var libraryClass = libraries[f][1];

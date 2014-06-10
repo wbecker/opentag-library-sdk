@@ -7788,14 +7788,9 @@ var JSON = {};
    * @extends qubit.opentag.BaseTag
    * @param config {Object} config object used to build instance
    */
-  var counter = 0;
-  
   function LibraryTag(config) {
-    if (config && !config.name) {
-      config.name = this.defaultConfig.name + "[Default-" + (counter++) + "]";
-    }
     
-    Utils.setIfUnset(config, this.defaultConfig);
+    Utils.setIfUnset(config, LibraryTag.defaultConfig);
     
     if (this.singleton) {
       var path = this.PACKAGE_NAME  + "." + this.CLASS_NAME;
@@ -7814,11 +7809,11 @@ var JSON = {};
   Utils.clazz("qubit.opentag.LibraryTag", LibraryTag, qubit.opentag.BaseTag);
   
   /**
+   * @static
    * Default configuration object.
-   * Bare in mind that it is shared if not overwritten.
    * @property {Object}
    */
-  LibraryTag.prototype.defaultConfig = {
+  LibraryTag.defaultConfig = {
     /*DATA*/
     /**
      * Optional, vendor's name.
@@ -7970,19 +7965,12 @@ var JSON = {};
       }
     }
     
-    prototypeTemplate.defaultConfig = 
-            Utils.objectCopy(libraryDefaultConfig, {maxDeep: 6});
-    
-    Utils.setIfUnset(
-            prototypeTemplate.defaultConfig,
-            LibraryTag.prototype.defaultConfig);
-    
     //add new constructor
     prototypeTemplate.CONSTRUCTOR = function (cfg) {
       //update instance properties for new defaults
       cfg = cfg || {};
-      //@todo we need a copy always!
-      var defaultsCopy = Utils.objectCopy(this.defaultConfig, {maxDeep: 6});
+      //@todo repair this
+      var defaultsCopy = Utils.objectCopy(libraryDefaultConfig, {maxDeep: 5});
       for(var prop in defaultsCopy) {
         if (!cfg.hasOwnProperty(prop)) {
           cfg[prop] = defaultsCopy[prop];
