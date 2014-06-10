@@ -208,7 +208,10 @@ button {
   width: 64px;
 }
 
-
+.no-params {
+  padding: 4px;
+  padding-left: 64px;
+}
 
 .library button{
   display: block;

@@ -189,7 +189,7 @@ function addParameters(anchor, params) {
 	
 	if (params.length === 0) {
 		saveAnchor.style.display = "none";
-		anchor.innerHTML = "No parameters defined."
+		anchor.innerHTML = "<div class='no-params'>No parameters defined.</div>"
 	} else {
 		saveAnchor.style.display = "";
 	}
@@ -436,7 +436,7 @@ function findTags(object, array) {
   array = array || [];
   qubit.opentag.Utils.traverse(object, function (obj, parent, prop, trackPath) {
     if (obj && obj.prototype && prop !== "superclass" 
-            && obj.prototype instanceof qubit.opentag.GenericLoader
+            && obj.prototype instanceof qubit.opentag.BaseTag
             && obj !== qubit.opentag.BaseTag
             && obj !== qubit.opentag.LibraryTag
             && obj !== qubit.opentag.CustomTag
@@ -498,14 +498,12 @@ function renderAllLibrariesToPage() {
 		
 		libraries.sort(function (a, b) {
 		  var aClass = a[1];
-			var aTest = new aClass({});
-			aTest.unregister();
 			var bClass = b[1];
-			var bTest = new bClass({});
-			bTest.unregister();
-			var aBigger = aTest.config.name === bTest.config.name;
+			var aConf = aClass.prototype.defaultConfig;
+			var bConf = bClass.prototype.defaultConfig;
+			var equal = aConf.name === bConf.name;
 			
-			if (aBigger) {
+			if (equal) {
 				var versionStringA = "";
 				var versionStringB = "";
 				if (aClass.versionClassPath) {
@@ -526,12 +524,28 @@ function renderAllLibrariesToPage() {
 										 versionStringB.split(".").length);
 				var vNumA = versionNumber(versionStringA, deep);
 				var vNumB = versionNumber(versionStringB, deep);
-				return vNumA < vNumB;
+				
+				if (vNumA < vNumB) {
+					return 1;
+				} else if (vNumA === vNumB) {
+					return 0;
+				} else {
+					return -1;
+				}
 			} else {
-				return aTest.config.name > bTest.config.name;
+				if (aConf.name > bConf.name) {
+					return 1;
+				} else if (aConf.name === bConf.name) {
+					return 0;
+				} else {
+					return -1;
+				}
 			}
-			
 		});
+		
+		for (var i = 0; i < libraries.length; i++) {
+			console.log(libraries[i][1].prototype.defaultConfig.name);
+		}
 		
 		for (var f = 0; f < libraries.length; f++) {
 			var vendorNode = libraries[f][0];
