@@ -1,0 +1,115 @@
+//:include tagsdk-current.js
+
+qubit.opentag.LibraryTag.define(
+	"sojern.datapartnertagrentalcarpurchaseconfirmation.v1.Tag", {
+		config: {
+			/*DATA*/
+			name: "Data Partner Tag - Rental Car Purchase Confirmation",
+			async: true,
+			description: "",
+			html: "<!--@SRC@-->",
+			imageUrl: ".",
+			locationDetail: "",
+			isPrivate: false,
+			url: "",
+			usesDocWrite: false,
+			upgradeable: true,
+			parameters: [{
+				name: "Sojern Partner Key",
+				description: "Sojern Partner Key",
+				token: "sojern_partner_key",
+				uv: ""
+			}, {
+				name: "Closest Airport to Car Pick-Up Location",
+				description: "Blank string if not available",
+				token: "airport_to_pickup",
+				uv: ""
+			}, {
+				name: "Car Pick-Up City",
+				description: "Blank string if not available",
+				token: "pickup_city",
+				uv: ""
+			}, {
+				name: "Car Pick-Up Date",
+				description: "yyyy-mm-dd (Blank string if not available)",
+				token: "pickup_date",
+				uv: ""
+			}, {
+				name: "Closest Airport to Car Drop-Off Location",
+				description: "Blank string if not available",
+				token: "airport_to_dropoff",
+				uv: ""
+			}, {
+				name: "Car Drop-Off City",
+				description: "Blank string if not available",
+				token: "dropoff_city",
+				uv: ""
+			}, {
+				name: "Car Drop-Off Date",
+				description: "yyyy-mm-dd (Blank string if not available)",
+				token: "dropoff_date",
+				uv: ""
+			}, {
+				name: "Class of Car",
+				description: "Blank string if not available",
+				token: "car_class",
+				uv: ""
+			}, {
+				name: "Number of Travellers",
+				description: "Blank string if not available",
+				token: "number_of_travellers",
+				uv: ""
+			}, {
+				name: "Hash of Customer Loyalty Program Number",
+				description: "Blank string if not available",
+				token: "customer_loyalty_hash",
+				uv: ""
+			}, {
+				name: "Gender",
+				description: "0 for male 1 for female (Blank string if not available)",
+				token: "gender",
+				uv: ""
+			}, {
+				name: "Customer First name",
+				description: "Blank string if not available",
+				token: "first_name",
+				uv: ""
+			}, {
+				name: "Car Purchase Price",
+				description: "e.g. if price is $350.23 then pass 350 only",
+				token: "car_purchase_price",
+				uv: ""
+			}]
+			/*~DATA*/
+		},
+		script: function() {
+			/*SCRIPT*/
+
+			(function() {
+				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+					this.valueForToken("sojern_partner_key") + "/rc?";
+				src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
+				src += "rc1=" + this.valueForToken("pickup_city") + "&";
+				src += "rd1=" + this.valueForToken("pickup_date") + "&";
+				src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
+				src += "rc2=" + this.valueForToken("dropoff_city") + "&";
+				src += "rd2=" + this.valueForToken("dropoff_date") + "&";
+				src += "rc=" + this.valueForToken("car_class") + "&";
+				src += "t=" + this.valueForToken("number_of_travellers") + "&";
+				src += "rl=" + this.valueForToken("customer_loyalty_hash") + "&";
+				src += "rp=" + this.valueForToken("car_purchase_price") + "&";
+				src += "g=" + this.valueForToken("gender") + "&";
+				src += "n=" + this.valueForToken("first_name") + "";
+				(new Image()).src = src;
+			})();
+			/*~SCRIPT*/
+		},
+		pre: function() {
+			/*PRE*/
+			/*~PRE*/
+		},
+		post: function() {
+			/*POST*/
+			/*~POST*/
+		}
+	});
