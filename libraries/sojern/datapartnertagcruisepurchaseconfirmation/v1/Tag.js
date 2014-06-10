@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Data Partner Tag - Cruise Purchase Confirmation",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -74,8 +74,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-			(function() {
 				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 					this.valueForToken("sojern_partner_key") + "/cc?";
 				src += "cco=" + this.valueForToken("cruise_line") + "&";
@@ -89,7 +87,6 @@ qubit.opentag.LibraryTag.define(
 				src += "g=" + this.valueForToken("gender") + "&";
 				src += "n=" + this.valueForToken("name") + "";
 				(new Image()).src = src;
-			})();
 			/*~SCRIPT*/
 		},
 		pre: function() {

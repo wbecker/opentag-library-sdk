@@ -23,8 +23,6 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2generic.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
 		window.__cho__ = {
 			"data": {
 				"pt": "",

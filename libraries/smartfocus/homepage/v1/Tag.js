@@ -43,8 +43,8 @@ qubit.opentag.LibraryTag.define("smartfocus.homepage.v1.Tag", {
 			_suggest: {
 				code: "home",
 				layout: {
-					selector: "" + this.valueForToken("selector") + "",
-					title: "" + this.valueForToken("title") + ""
+					selector: "" + this.valueForToken("selector"),
+					title: "" + this.valueForToken("title")
 				}
 			}
 		});

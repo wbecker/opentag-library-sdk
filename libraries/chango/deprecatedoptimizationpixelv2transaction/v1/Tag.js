@@ -58,7 +58,7 @@ qubit.opentag.LibraryTag.define(
 				return arr;
 			})();
 
-			var __cho__ = {
+			window.__cho__ = {
 				"data": {
 					"pt": "" + this.valueForToken("PT_VALUE") + "",
 					"crt": cart,

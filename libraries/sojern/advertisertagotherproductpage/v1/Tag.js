@@ -33,10 +33,9 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagotherproductpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		(new Image()).src = "https://beacon.sojern.com/p/1?opid=" + this.valueForToken(
 			"id") + "&opn=" + this.valueForToken("name") + "&date" + this.valueForToken(
-			"date") + "";
+			"date");
 		/*~SCRIPT*/
 	},
 	pre: function() {

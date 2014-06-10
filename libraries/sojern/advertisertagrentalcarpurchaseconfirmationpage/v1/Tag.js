@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Advertiser Tag - Rental Car Purchase Confirmation Page",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -149,8 +149,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-			(function() {
 				var src = "https://beacon.sojern.com/p/7?";
 				src += "et=" + this.valueForToken("event") + "&";
 				src += "ra1=" + this.valueForToken("pickup_nearest") + "&";
@@ -177,9 +175,8 @@ qubit.opentag.LibraryTag.define(
 				src += "racris=" + this.valueForToken("acriss") + "&";
 				src += "rrate=" + this.valueForToken("base") + "&";
 				src += "rpnow=" + this.valueForToken("method") + "&";
-				src += "rair=" + this.valueForToken("airline") + "";
+				src += "rair=" + this.valueForToken("airline");
 				(new Image()).src = src;
-			})();
 			/*~SCRIPT*/
 		},
 		pre: function() {

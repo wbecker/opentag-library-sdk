@@ -30,7 +30,6 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixel.v1.Tag", {
 		window.__cho__ = {
 			"pid": this.valueForToken("id")
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

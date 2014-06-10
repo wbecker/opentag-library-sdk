@@ -70,7 +70,7 @@ qubit.opentag.LibraryTag.define("chango.deprecatedoptimizationpixelv2.v1.Tag", {
 		/*SCRIPT*/
 
 		//compile cart data
-		var cart = (function() {
+		window.cart = (function() {
 			if (window.universal_variable && window.universal_variable.line_items) {
 				var arr = [];
 				for (var i = 0; i < this.valueForToken("productNames").length; i++) {
@@ -85,7 +85,7 @@ qubit.opentag.LibraryTag.define("chango.deprecatedoptimizationpixelv2.v1.Tag", {
 			}
 		})();
 
-		var __cho__ = {
+		window.__cho__ = {
 			"data": {
 				"pt": "" + this.valueForToken("PT_VALUE") + "",
 				"crt": cart,

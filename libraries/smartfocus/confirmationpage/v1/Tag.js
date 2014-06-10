@@ -68,7 +68,7 @@ qubit.opentag.LibraryTag.define("smartfocus.confirmationpage.v1.Tag", {
 		var items = [];
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
 			items.push({
-				sku: this.valueForToken("skus")[i] + "",
+				sku: this.valueForToken("skus")[i],
 				quantity: this.valueForToken("quants")[i],
 				price: this.valueForToken("prices")[i]
 			});
@@ -76,7 +76,7 @@ qubit.opentag.LibraryTag.define("smartfocus.confirmationpage.v1.Tag", {
 
 		window._advisorq.push({
 			_buy: {
-				currency: "" + this.valueForToken("currency") + "",
+				currency: "" + this.valueForToken("currency"),
 				items: items,
 				charges: this.valueForToken("total") - this.valueForToken("subtotal")
 			}

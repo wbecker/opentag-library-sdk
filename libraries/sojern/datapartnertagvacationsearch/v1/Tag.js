@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagvacationsearch.v1.Tag", {
 		name: "Data Partner Tag - Vacation Search",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -54,7 +54,7 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagvacationsearch.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
+
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/vs?";
 			src += "va1=" + this.valueForToken("origin_airport_code") + "&";
@@ -62,9 +62,9 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagvacationsearch.v1.Tag", {
 			src += "vd1=" + this.valueForToken("departure_date") + "&";
 			src += "vd2=" + this.valueForToken("return_date") + "&";
 			src += "t=" + this.valueForToken("number_of_travellers") + "&";
-			src += "vc=" + this.valueForToken("service_class") + "";
+			src += "vc=" + this.valueForToken("service_class");
 			(new Image()).src = src;
-		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

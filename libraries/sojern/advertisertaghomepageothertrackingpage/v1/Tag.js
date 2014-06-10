@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Advertiser Tag - Homepage/Other Tracking Page",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -54,8 +54,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-			(function() {
 				var src = "https://beacon.sojern.com/p/1?";
 				src += "n=" + this.valueForToken("page") + "&";
 				src += "fl=" + this.valueForToken("flight_loyal") + "&";
@@ -63,9 +61,8 @@ qubit.opentag.LibraryTag.define(
 				src += "rl=" + this.valueForToken("rental_loyal") + "&";
 				src += "cl=" + this.valueForToken("cruise_loyal") + "&";
 				src += "l=" + this.valueForToken("language") + "&";
-				src += "c=" + this.valueForToken("residence") + "";
+				src += "c=" + this.valueForToken("residence");
 				(new Image()).src = src;
-			})();
 			/*~SCRIPT*/
 		},
 		pre: function() {

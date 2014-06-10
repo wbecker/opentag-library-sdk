@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Advertiser Tag - Vacation Purchase Confirmation Page",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -75,7 +75,6 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 
-			(function() {
 				var src = "https://beacon.sojern.com/p/9?";
 				src += "et=" + this.valueForToken("event") + "&";
 				src += "va1=" + this.valueForToken("origin") + "&";
@@ -87,9 +86,8 @@ qubit.opentag.LibraryTag.define(
 				src += "vp=" + this.valueForToken("price") + "&";
 				src += "g=" + this.valueForToken("gender") + "&";
 				src += "n=" + this.valueForToken("name") + "&";
-				src += "vconfno=" + this.valueForToken("id") + "";
+				src += "vconfno=" + this.valueForToken("id");
 				(new Image()).src = src;
-			})();
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -67,40 +67,36 @@ qubit.opentag.LibraryTag.define(
 			/*~DATA*/
 		},
 		script: function() {
-			/*SCRIPT*/
+                    /*SCRIPT*/
+                    var productIdsArray = [];
+                    for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
+                            productIdsArray.push(this.valueForToken("product_ids")[i]);
+                    }
+                    var productCategoriesArray = [];
+                    for (var i = 0; i < this.valueForToken("product_categories").length; i++) {
+                            productCategoriesArray.push(this.valueForToken("product_categories")[i]);
+                    }
+                    var productValuesArray = [];
+                    for (var i = 0; i < this.valueForToken("product_values").length; i++) {
+                            productValuesArray.push(this.valueForToken("product_values")[i]);
+                    }
+                    window.google_tag_params = {
+                            ecomm_prodid: productIdsArray,
+                            ecomm_pagetype: '' + this.valueForToken("page_category"),
+                            ecomm_pcat: productCategoriesArray,
+                            ecomm_pvalue: productValuesArray
+                    };
 
-			var productIdsArray = [];
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				productIdsArray.push(this.valueForToken("product_ids")[i]);
-			}
-			var productCategoriesArray = [];
-			for (var i = 0; i < this.valueForToken("product_categories").length; i++) {
-				productCategoriesArray.push(this.valueForToken("product_categories")[i]);
-			}
-			var productValuesArray = [];
-			for (var i = 0; i < this.valueForToken("product_values").length; i++) {
-				productValuesArray.push(this.valueForToken("product_values")[i]);
-			}
+                    window.google_conversion_id = this.valueForToken("google_conversion_id");
+                    window.google_conversion_label = "" + this.valueForToken("google_conversion_label");
+                    window.google_custom_params = window.google_tag_params;
+                    window.google_remarketing_only = true;
 
-			window.google_tag_params = {
-				ecomm_prodid: productIdsArray,
-				ecomm_pagetype: '' + this.valueForToken("page_category"),
-				ecomm_pcat: productCategoriesArray,
-				ecomm_pvalue: productValuesArray
-			};
-
-			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label = "" + this.valueForToken(
-				"google_conversion_label");
-			window.google_custom_params = window.google_tag_params;
-			window.google_remarketing_only = true;
-
-			var script = document.createElement('script');
-			script.type = "text/javascript";
-			script.src = "//www.googleadservices.com/pagead/conversion.js";
-			document.head.appendChild(script);
-
-			/*~SCRIPT*/
+                    var script = document.createElement('script');
+                    script.type = "text/javascript";
+                    script.src = "//www.googleadservices.com/pagead/conversion.js";
+                    document.head.appendChild(script);
+                    /*~SCRIPT*/
 		},
 		pre: function() {
 			/*PRE*/

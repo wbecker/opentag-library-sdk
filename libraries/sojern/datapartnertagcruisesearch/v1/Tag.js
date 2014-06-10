@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagcruisesearch.v1.Tag", {
 		name: "Data Partner Tag - Cruise Search",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -58,8 +58,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagcruisesearch.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		(function() {
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/cs?";
 			src += "cco=" + this.valueForToken("cruise_line") + "&";
@@ -70,7 +68,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagcruisesearch.v1.Tag", {
 			src += "t=" + this.valueForToken("travellers") + "&";
 			src += "cr=" + this.valueForToken("rooms") + "";
 			(new Image()).src = src;
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

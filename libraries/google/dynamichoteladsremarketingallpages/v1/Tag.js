@@ -52,16 +52,16 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
+                        var _this = this;
 			var poll = function() {
 				if (window.google_trackConversion) {
 					window.google_trackConversion({
-						google_conversion_id: this.valueForToken("id"),
+						google_conversion_id: _this.valueForToken("id"),
 						google_custom_params: { 
-							hotel_hotelid:  '' + this.valueForToken("hotelid") + '',
-							 
-							hotel_pagetype:  '' + this.valueForToken("pagetype") + '',
-							hotel_checkindate:  '' + this.valueForToken("checkin") + '',
-							hotel_checkoutdate:  '' + this.valueForToken("checkout") + '' 
+							hotel_hotelid:  '' + _this.valueForToken("hotelid"),
+							hotel_pagetype:  '' + _this.valueForToken("pagetype"),
+							hotel_checkindate:  '' + _this.valueForToken("checkin"),
+							hotel_checkoutdate:  '' + _this.valueForToken("checkout") 
 						},
 						google_remarketing_only: true
 					});

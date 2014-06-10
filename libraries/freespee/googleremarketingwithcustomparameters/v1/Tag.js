@@ -15,7 +15,6 @@ qubit.opentag.LibraryTag.define(
 			usesDocWrite: false,
 			upgradeable: true,
 			parameters: [
-
 			]
 			/*~DATA*/
 		},
@@ -29,14 +28,15 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
+                        var _this = this;
 			var poll = function() {
 				if (window.google_trackConversion) {
 					window.google_trackConversion({
-						google_conversion_id: "" + this.valueForToken("conversion_id") + "",
+						google_conversion_id: "" + _this.valueForToken("conversion_id"),
 						google_custom_params: {
-							ecomm_prodid: this.valueForToken("product_id"),
-							ecomm_pagetype: "" + this.valueForToken("page_type") + "",
-							ecomm_totalvalue: this.valueForToken("total")
+							ecomm_prodid: _this.valueForToken("product_id"),
+							ecomm_pagetype: "" + _this.valueForToken("page_type"),
+							ecomm_totalvalue: _this.valueForToken("total")
 						},
 						google_remarketing_only: true
 					});

@@ -40,9 +40,9 @@ qubit.opentag.LibraryTag.define("smartfocus.allpages.v1.Tag", {
 		window._advisorq = window._advisorq || [];
 		window._advisorq.push({
 			_setAccount: {
-				endpoint: "" + this.valueForToken("endpoint") + "",
-				username: "" + this.valueForToken("user") + "",
-				accid: "" + this.valueForToken("accid") + ""
+				endpoint: "" + this.valueForToken("endpoint"),
+				username: "" + this.valueForToken("user"),
+				accid: "" + this.valueForToken("accid")
 			}
 		});
 		/*~PRE*/

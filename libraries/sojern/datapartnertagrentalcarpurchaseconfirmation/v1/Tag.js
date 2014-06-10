@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Data Partner Tag - Rental Car Purchase Confirmation",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -85,7 +85,7 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 
-			(function() {
+	
 				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 					this.valueForToken("sojern_partner_key") + "/rc?";
 				src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
@@ -99,9 +99,9 @@ qubit.opentag.LibraryTag.define(
 				src += "rl=" + this.valueForToken("customer_loyalty_hash") + "&";
 				src += "rp=" + this.valueForToken("car_purchase_price") + "&";
 				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("first_name") + "";
+				src += "n=" + this.valueForToken("first_name");
 				(new Image()).src = src;
-			})();
+	
 			/*~SCRIPT*/
 		},
 		pre: function() {

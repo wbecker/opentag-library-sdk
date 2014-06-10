@@ -41,8 +41,8 @@ qubit.opentag.LibraryTag.define("smartfocus.d404page.v1.Tag", {
 			_suggest: {
 				code: "404",
 				layout: {
-					selector: "" + this.valueForToken("selector") + "",
-					title: "" + this.valueForToken("title") + ""
+					selector: "" + this.valueForToken("selector"),
+					title: "" + this.valueForToken("title")
 				}
 			}
 		});

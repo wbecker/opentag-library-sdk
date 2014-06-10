@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Advertiser Tag - Flight Purchase Confirmation Page",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -99,8 +99,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-			(function() {
 				var src = "https://beacon.sojern.com/p/3?";
 				src += "et=" + this.valueForToken("event") + "&";
 				src += "fa1=" + this.valueForToken("origin") + "&";
@@ -117,9 +115,8 @@ qubit.opentag.LibraryTag.define(
 				src += "ffl=" + this.valueForToken("level") + "&";
 				src += "ffc=" + this.valueForToken("fare") + "&";
 				src += "fconfno=" + this.valueForToken("id") + "&";
-				src += "fan=" + this.valueForToken("airline") + "";
+				src += "fan=" + this.valueForToken("airline");
 				(new Image()).src = src;
-			})();
 			/*~SCRIPT*/
 		},
 		pre: function() {

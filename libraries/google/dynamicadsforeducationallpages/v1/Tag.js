@@ -46,16 +46,15 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforeducationallpages.v1.Tag", 
 	},
 	post: function() {
 		/*POST*/
+                var _this = this;
 		var poll = function() {
 			if (window.google_trackConversion) {
 				window.google_trackConversion({
-					google_conversion_id: this.valueForToken("id"),
+					google_conversion_id: _this.valueForToken("id"),
 					google_custom_params: {
-						edu_pid:  '' + this.valueForToken("educationprogram") + '',
-						 
-						edu_plocid:  ;
-						'' + this.valueForToken("locationid") + '',  
-						edu_pagetype:  '' + this.valueForToken("pagetype") + ''
+						edu_pid:  '' + _this.valueForToken("educationprogram"),
+						edu_plocid:  '' + _this.valueForToken("locationid"),  
+						edu_pagetype:  '' + _this.valueForToken("pagetype")
 					},
 					google_remarketing_only: true
 				});

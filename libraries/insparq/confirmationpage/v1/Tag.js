@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("insparq.confirmationpage.v1.Tag", {
 		name: "Confirmation Page",
 		async: true,
 		description: "inSparq uses tracking pixel data to capture purchase information for two purposes: (1) Using purchase numbers as a signal in calculating trending products for display (2) Tracking the business performance of inSparq installations in our analytics",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/insparq.png",
 		locationDetail: "",
 		isPrivate: true,
@@ -53,37 +53,35 @@ qubit.opentag.LibraryTag.define("insparq.confirmationpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+            var ids = "";
+            var names = "";
+            var prices = "";
+            var quantity = 0;
 
-		(function() {
-			var ids = "";
-			var names = "";
-			var prices = "";
-			var quantity = 0;
+            for (var i = 0; i < this.valueForToken("ids").length; i++) {
+                    if (i > 0) {
+                            ids += "|";
+                            prices += "|";
+                            names += "|";
+                    }
+                    ids += this.valueForToken("ids")[i];
+                    names += this.valueForToken("names")[i];
+                    prices += this.valueForToken("prices")[i];
+                    quantity += this.valueForToken("quantities")[i];
+            }
 
-			for (var i = 0; i < this.valueForToken("ids").length; i++) {
-				if (i > 0) {
-					ids += "|";
-					prices += "|";
-					names += "|";
-				}
-				ids += this.valueForToken("ids")[i] + "";
-				names += this.valueForToken("names")[i] + "";
-				prices += this.valueForToken("prices")[i] + "";
-				quantity += this.valueForToken("quantities")[i];
-			}
+            var src = document.location.protocol +
+                    "//api.insparq.com/api/v20120319/key/" +
+                    this.valueForToken("insparq_api_key") +
+                    "/user?pageType=purcon";
+            src += "&orderID=" + this.valueForToken("id");
+            src += "&cartValue=" + this.valueForToken("subtotal");
+            src += "&cartItemCount=" + quantity;
+            src += "&productIDs=" + ids;
+            src += "&productNames=" + names;
+            src += "&productPrices=" + prices;
 
-			var src = document.location.protocol +
-				"//api.insparq.com/api/v20120319/key/" + this.valueForToken(
-					"insparq_api_key") + "/user?pageType=purcon";
-			src += "&orderID=" + this.valueForToken("id") + "";
-			src += "&cartValue=" + this.valueForToken("subtotal") + "";
-			src += "&cartItemCount=" + quantity;
-			src += "&productIDs=" + ids;
-			src += "&productNames=" + names;
-			src += "&productPrices=" + prices;
-
-			(new Image()).src = src;
-		})();
+            (new Image()).src = src;
 		/*~SCRIPT*/
 	},
 	pre: function() {

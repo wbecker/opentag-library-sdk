@@ -56,10 +56,10 @@ qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 
 		window._advisorq.push({
 			_setConfig: {
-				sku: "CAT:" + this.valueForToken("id") + "",
+				sku: "CAT:" + this.valueForToken("id"),
 				exclusionSkus: skus.join(","),
-				currentPath: "" + this.valueForToken("path") + "",
-				currentCategory: "" + this.valueForToken("id") + ""
+				currentPath: "" + this.valueForToken("path"),
+				currentCategory: "" + this.valueForToken("id")
 			}
 		});
 
@@ -67,8 +67,8 @@ qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 			_suggest: {
 				code: "category",
 				layout: {
-					selector: "" + this.valueForToken("selector") + "",
-					title: "" + this.valueForToken("title") + ""
+					selector: "" + this.valueForToken("selector"),
+					title: "" + this.valueForToken("title")
 				}
 			}
 		});

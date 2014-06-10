@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Advertiser Tag - Cruise Search Results Page",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -59,8 +59,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-			(function() {
 				var src = "https://beacon.sojern.com/p/10?";
 				src += "et=" + this.valueForToken("event") + "&";
 				src += "cco=" + this.valueForToken("line") + "&";
@@ -69,9 +67,8 @@ qubit.opentag.LibraryTag.define(
 				src += "cf1=" + this.valueForToken("destination") + "&";
 				src += "s=" + this.valueForToken("postcode") + "&";
 				src += "t=" + this.valueForToken("travellers") + "&";
-				src += "cr=" + this.valueForToken("rooms") + "";
+				src += "cr=" + this.valueForToken("rooms");
 				(new Image()).src = src;
-			})();
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -22,7 +22,7 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55deprecated.v1.Tag", {
 		/*SCRIPT*/
 
 		//<![CDATA[
-		var ServiceTickDetection = function() {
+		window.ServiceTickDetection = function() {
 			var version = '5.5';
 			var reqflashversion = '9.0.0';
 			var recorder = window.location.protocol +

@@ -39,10 +39,9 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			(new Image()).src = "https://beacon.sojern.com/p/11?op=" + this.valueForToken(
 				"price") + "&oconfno" + this.valueForToken("id") + "&ono1=" + this.valueForToken(
-				"quantity") + "&oz1=" + this.valueForToken("postcode") + "";
+				"quantity") + "&oz1=" + this.valueForToken("postcode");
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -83,7 +83,7 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 			return str;
 		})();
 
-		var __chconv__ = {
+		var __chconv__ = window.__chconv__ = {
 			"conversion_id": this.valueForToken("ID"),
 			"quantity": totalQuantity,
 			"order_id": "" + this.valueForToken("ORDER_ID") + "",

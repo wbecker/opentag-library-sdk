@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagrentalcarsearch.v1.Tag", {
 		name: "Data Partner Tag - Rental Car Search",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -64,7 +64,7 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagrentalcarsearch.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
+
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/rs?";
 			src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
@@ -74,9 +74,9 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagrentalcarsearch.v1.Tag", {
 			src += "rc2=" + this.valueForToken("dropoff_city") + "&";
 			src += "rd2=" + this.valueForToken("dropoff_date") + "&";
 			src += "rc=" + this.valueForToken("car_class") + "&";
-			src += "t=" + this.valueForToken("number_of_travellers") + "";
+			src += "t=" + this.valueForToken("number_of_travellers");
 			(new Image()).src = src;
-		})();
+
 		/*~SCRIPT*/
 	},
 	pre: function() {

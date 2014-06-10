@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Data Partner Tag - Vacation Purchase Confirmation",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->",
+			html: "",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -70,7 +70,7 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 
-			(function() {
+	
 				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 					this.valueForToken("sojern_partner_key") + "/vc?";
 				src += "va1=" + this.valueForToken("origin_airport_code") + "&";
@@ -81,9 +81,9 @@ qubit.opentag.LibraryTag.define(
 				src += "vc=" + this.valueForToken("service_class") + "&";
 				src += "vp=" + this.valueForToken("purchase_price") + "&";
 				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("first_name") + "";
+				src += "n=" + this.valueForToken("first_name");
 				(new Image()).src = src;
-			})();
+	
 			/*~SCRIPT*/
 		},
 		pre: function() {

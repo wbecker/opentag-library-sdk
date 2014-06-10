@@ -27,7 +27,7 @@ qubit.opentag.LibraryTag.define("chango.deprecatedoptimizationpixel.v1.Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var __cho__ = {
+		window.__cho__ = {
 			"pid": this.valueForToken("id")
 		};
 		/*~PRE*/

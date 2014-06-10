@@ -27,7 +27,7 @@ code.google.com/p/crypto-js
 (c) 2009-2013 by Jeff Mott. All rights reserved.
 code.google.com/p/crypto-js/wiki/License
 */
-		var CryptoJS = CryptoJS || function(s, p) {
+		window.CryptoJS = CryptoJS || function(s, p) {
 				var m = {}, l = m.lib = {}, n = function() {}, r = l.Base = {
 						extend: function(b) {
 							n.prototype = this;

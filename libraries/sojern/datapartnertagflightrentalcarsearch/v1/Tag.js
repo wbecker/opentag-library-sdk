@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Data Partner Tag - Flight + Rental Car Search",
 			async: true,
 			description: "",
-			html: "<!--@SRC@-->\n",
+			html: "\n",
 			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
@@ -90,7 +90,6 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 
-			(function() {
 				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 					this.valueForToken("sojern_partner_key") + "/fs?";
 				src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
@@ -105,9 +104,8 @@ qubit.opentag.LibraryTag.define(
 				src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
 				src += "rc2=" + this.valueForToken("dropoff_location_city") + "&";
 				src += "rd2=" + this.valueForToken("dropoff_date") + "&";
-				src += "rc=" + this.valueForToken("car_class") + "";
+				src += "rc=" + this.valueForToken("car_class");
 				(new Image()).src = src;
-			})();
 			/*~SCRIPT*/
 		},
 		pre: function() {

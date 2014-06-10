@@ -30,10 +30,11 @@ qubit.opentag.LibraryTag.define("google.googleremarketingonlyaynsc.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
+                var _this = this;
 		var poll = function() {
 			if (window.google_trackConversion) {
 				window.google_trackConversion({
-					google_conversion_id: "" + this.valueForToken("conversionid"),
+					google_conversion_id: "" + _this.valueForToken("conversionid"),
 					google_remarketing_only: true,
 					google_custom_params: window.google_tag_params || {}
 				});

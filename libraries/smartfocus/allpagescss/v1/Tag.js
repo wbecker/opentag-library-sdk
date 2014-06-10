@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("smartfocus.allpagescss.v1.Tag", {
 		name: "All Pages (CSS)",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
@@ -21,7 +21,6 @@ qubit.opentag.LibraryTag.define("smartfocus.allpagescss.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		(function() {
 			var styleContent = "";
 			styleContent += ".advisor_suggestion_container .item {";
 			styleContent += "    margin: 5px;";
@@ -52,7 +51,6 @@ qubit.opentag.LibraryTag.define("smartfocus.allpagescss.v1.Tag", {
 			var style = document.createElement('style');
 			style.innerHTML = styleContent;
 			document.head.appendChild(style);
-		})();
 		/*~SCRIPT*/
 	},
 	pre: function() {

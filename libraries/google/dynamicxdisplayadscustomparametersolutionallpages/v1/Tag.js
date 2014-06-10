@@ -47,15 +47,15 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
+                        var _this = this;
 			var poll = function() {
 				if (window.google_trackConversion) {
 					window.google_trackConversion({
-						google_conversion_id: this.valueForToken("id"),
+						google_conversion_id: _this.valueForToken("id"),
 						google_custom_params: {
-							dynx_itemid:  '' + this.valueForToken("itemid") + '',
-							  
-							dynx_locid:  '' + this.valueForToken("itemlocationid") + '',
-							dynx_pagetype:  '' + this.valueForToken("pagetype") + ''
+							dynx_itemid:  '' + _this.valueForToken("itemid"),
+							dynx_locid:  '' + _this.valueForToken("itemlocationid"),
+							dynx_pagetype:  '' + _this.valueForToken("pagetype")
 						},
 						google_remarketing_only: true
 					});

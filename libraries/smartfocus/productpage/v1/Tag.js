@@ -46,8 +46,8 @@ qubit.opentag.LibraryTag.define("smartfocus.productpage.v1.Tag", {
 
 		window._advisorq.push({
 			_setConfig: {
-				sku: "" + this.valueForToken("sku") + "",
-				currentPath: "" + this.valueForToken("path") + ""
+				sku: "" + this.valueForToken("sku"),
+				currentPath: "" + this.valueForToken("path")
 			}
 		});
 
@@ -55,8 +55,8 @@ qubit.opentag.LibraryTag.define("smartfocus.productpage.v1.Tag", {
 			_suggest: {
 				code: "product",
 				layout: {
-					selector: "" + this.valueForToken("selector") + "",
-					title: "" + this.valueForToken("title") + ""
+					selector: "" + this.valueForToken("selector"),
+					title: "" + this.valueForToken("title")
 				}
 			}
 		});

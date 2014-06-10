@@ -47,7 +47,7 @@ qubit.opentag.LibraryTag.define("smartfocus.basketpage.v1.Tag", {
 		window._advisorq.push({
 			_setConfig: {
 				sku: 'CAT:CART',
-				exclusionSkus: skus.join(",");
+				exclusionSkus: skus.join(",")
 			}
 		});
 
@@ -55,8 +55,8 @@ qubit.opentag.LibraryTag.define("smartfocus.basketpage.v1.Tag", {
 			_suggest: {
 				code: "cart",
 				layout: {
-					selector: "" + this.valueForToken("selector") + "",
-					title: "" + this.valueForToken("title") + ""
+					selector: "" + this.valueForToken("selector"),
+					title: "" + this.valueForToken("title")
 				}
 			}
 		});
