@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 		async: true,
 		description: "A free campaign measurement tool available to all merchants enrolled in the Shopping.com Merchant \nProgram. Displays product and category – level performance data.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "stat.dealtime.com/ROI/ROI2.js",

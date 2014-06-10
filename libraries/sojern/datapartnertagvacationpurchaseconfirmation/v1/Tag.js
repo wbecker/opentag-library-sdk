@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -70,20 +69,20 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 
-	
-				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-					this.valueForToken("sojern_partner_key") + "/vc?";
-				src += "va1=" + this.valueForToken("origin_airport_code") + "&";
-				src += "va2=" + this.valueForToken("destination_airport_code") + "&";
-				src += "vd1=" + this.valueForToken("departure_date") + "&";
-				src += "vd2=" + this.valueForToken("return_date") + "&";
-				src += "t=" + this.valueForToken("number_of_travellers") + "&";
-				src += "vc=" + this.valueForToken("service_class") + "&";
-				src += "vp=" + this.valueForToken("purchase_price") + "&";
-				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("first_name");
-				(new Image()).src = src;
-	
+
+			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+				this.valueForToken("sojern_partner_key") + "/vc?";
+			src += "va1=" + this.valueForToken("origin_airport_code") + "&";
+			src += "va2=" + this.valueForToken("destination_airport_code") + "&";
+			src += "vd1=" + this.valueForToken("departure_date") + "&";
+			src += "vd2=" + this.valueForToken("return_date") + "&";
+			src += "t=" + this.valueForToken("number_of_travellers") + "&";
+			src += "vc=" + this.valueForToken("service_class") + "&";
+			src += "vp=" + this.valueForToken("purchase_price") + "&";
+			src += "g=" + this.valueForToken("gender") + "&";
+			src += "n=" + this.valueForToken("first_name");
+			(new Image()).src = src;
+
 			/*~SCRIPT*/
 		},
 		pre: function() {

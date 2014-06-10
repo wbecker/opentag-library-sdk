@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("netbooster.conversionpixel.v1.Tag", {
 		async: true,
 		description: "",
 		html: "\n",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

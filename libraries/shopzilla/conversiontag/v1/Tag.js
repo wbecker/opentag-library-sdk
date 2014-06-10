@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("shopzilla.conversiontag.v1.Tag", {
 		async: true,
 		description: "Place only on the confirmation page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

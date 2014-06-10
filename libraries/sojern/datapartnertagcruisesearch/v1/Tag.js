@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagcruisesearch.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -58,16 +57,16 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagcruisesearch.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-				this.valueForToken("sojern_partner_key") + "/cs?";
-			src += "cco=" + this.valueForToken("cruise_line") + "&";
-			src += "cd1=" + this.valueForToken("departure_date") + "&";
-			src += "cd=" + this.valueForToken("number_of_cruise_nights") + "&";
-			src += "cf1=" + this.valueForToken("destination") + "&";
-			src += "s=" + this.valueForToken("residence") + "&";
-			src += "t=" + this.valueForToken("travellers") + "&";
-			src += "cr=" + this.valueForToken("rooms") + "";
-			(new Image()).src = src;
+		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+			this.valueForToken("sojern_partner_key") + "/cs?";
+		src += "cco=" + this.valueForToken("cruise_line") + "&";
+		src += "cd1=" + this.valueForToken("departure_date") + "&";
+		src += "cd=" + this.valueForToken("number_of_cruise_nights") + "&";
+		src += "cf1=" + this.valueForToken("destination") + "&";
+		src += "s=" + this.valueForToken("residence") + "&";
+		src += "t=" + this.valueForToken("travellers") + "&";
+		src += "cr=" + this.valueForToken("rooms") + "";
+		(new Image()).src = src;
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestpageinformation.v1.Tag", {
 		async: true,
 		description: "Test details about the current page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

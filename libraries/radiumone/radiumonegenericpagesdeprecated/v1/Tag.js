@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "\n\n",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",

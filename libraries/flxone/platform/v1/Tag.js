@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("flxone.platform.v1.Tag", {
 		async: true,
 		description: "Use iatDev=1 in your URL parameters, or cookies to enable debug mode.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("chango.optimizationbasketpage.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Chango.png",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -53,59 +52,59 @@ qubit.opentag.LibraryTag.define("chango.optimizationbasketpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-            var namesAndSkus = [];
-            var names = [];
-            var prices = [];
-            var salePrices = [];
-            var skus = [];
-            var cats = [];
+		var namesAndSkus = [];
+		var names = [];
+		var prices = [];
+		var salePrices = [];
+		var skus = [];
+		var cats = [];
 
-            for (var i = 0; i < this.valueForToken("skus").length; i++) {
-                    namesAndSkus.push({
-                            na: this.valueForToken("names")[i] + "",
-                            sku: this.valueForToken("skus")[i] + ""
-                    });
-                    names.push(this.valueForToken("names")[i] + "");
-                    prices.push(this.valueForToken("prices")[i]);
-                    salePrices.push(this.valueForToken("sale_prices")[i]);
-                    skus.push(this.valueForToken("skus")[i] + "");
-                    cats.push(this.valueForToken("cats")[i] + "");
-            }
+		for (var i = 0; i < this.valueForToken("skus").length; i++) {
+			namesAndSkus.push({
+				na: this.valueForToken("names")[i] + "",
+				sku: this.valueForToken("skus")[i] + ""
+			});
+			names.push(this.valueForToken("names")[i] + "");
+			prices.push(this.valueForToken("prices")[i]);
+			salePrices.push(this.valueForToken("sale_prices")[i]);
+			skus.push(this.valueForToken("skus")[i] + "");
+			cats.push(this.valueForToken("cats")[i] + "");
+		}
 
-            var stringifiedArrayOfObjects = function(data) {
-                    var string = ""
-                    for (var obj in data) {
-                            if (data.hasOwnProperty(obj)) {
-                                    for (var prop in data[obj]) {
-                                            if (data[obj].hasOwnProperty(prop)) {
-                                                    string += "," + prop + ':' + data[obj][prop];
-                                            }
-                                    }
-                            }
-                    }
-                    string = string.replace(/^,/, '');
-                    return encodeURI(string);
-            };
+		var stringifiedArrayOfObjects = function(data) {
+			var string = ""
+			for (var obj in data) {
+				if (data.hasOwnProperty(obj)) {
+					for (var prop in data[obj]) {
+						if (data[obj].hasOwnProperty(prop)) {
+							string += "," + prop + ':' + data[obj][prop];
+						}
+					}
+				}
+			}
+			string = string.replace(/^,/, '');
+			return encodeURI(string);
+		};
 
-            window.__cho__ = {
-                    "data": {
-                            "pt": "basket",
-                            "crt": stringifiedArrayOfObjects(namesAndSkus),
-                            "na": names,
-                            "op": prices,
-                            "sp": salePrices,
-                            "sku": skus,
-                            "pc": cats
-                    },
-                    "pid": "" + this.valueForToken("chango_id") + "",
-                    "puid2": "" + this.valueForToken("visitor_id") + ""
-            };
+		window.__cho__ = {
+			"data": {
+				"pt": "basket",
+				"crt": stringifiedArrayOfObjects(namesAndSkus),
+				"na": names,
+				"op": prices,
+				"sp": salePrices,
+				"sku": skus,
+				"pc": cats
+			},
+			"pid": "" + this.valueForToken("chango_id") + "",
+			"puid2": "" + this.valueForToken("visitor_id") + ""
+		};
 
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.async = true;
-            script.src = document.location.protocol + '//cc.chango.com/static/o.js';
-            document.head.appendChild(script);
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.async = true;
+		script.src = document.location.protocol + '//cc.chango.com/static/o.js';
+		document.head.appendChild(script);
 		/*~SCRIPT*/
 	},
 	pre: function() {

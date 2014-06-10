@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55.v1.Tag", {
 		async: true,
 		description: "SessionCam v5.5",
 		html: "<!-- www.SessionCam.com Client Integration v5.5 -->\n\n<!-- SessionCam -->",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
 		async: true,
 		description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together. This version has fewer metrics for only basic conversion tracking.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

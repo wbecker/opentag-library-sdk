@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("graphael.graphael041.v1.Tag", {
 		async: true,
 		description: "GraphaÃ«l's goal is to help you create stunning charts on your website. It is based on RaphaÃ«l graphics library.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/graphael/0.4.1/g.raphael-min.js",

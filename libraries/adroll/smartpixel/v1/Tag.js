@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("adroll.smartpixel.v1.Tag", {
 		async: true,
 		description: "Asynchronously and independently registers a callback within the browser that will be called only at the end of the rendering process - adds an image to the head tag.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

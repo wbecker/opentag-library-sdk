@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "To be placed on the confirmation page, allowing for a custom domain.",
 			html: "<img src=\"https://${domain}/px?id=${id}&seg=${segment}&order_id=${order_id}&value=${subtotal}&t=${t}\" width=\"1\" height=\"1\" /> ",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

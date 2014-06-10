@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsloginpages.v1.Tag", {
 		async: true,
 		description: "To be placed on login/signup completes, or after account updates.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "libs.coremetrics.com/eluminate.js",

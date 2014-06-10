@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.v1.Tag", {
 		async: true,
 		description: "Requirement: 1) Place the following code on every product page where you want to display the ratings summary. <div id=\"BVRRSummaryContainer\"></div> 2) Place the following code on every product page where you want to display review content. <div id=\"BVRRContainer\"></div>",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_code}.ugc.bazaarvoice.com/static/${display_code}/bvapi.js",

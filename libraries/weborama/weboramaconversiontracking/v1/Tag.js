@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("weborama.weboramaconversiontracking.v1.Tag", {
 		async: true,
 		description: "Conversion tracking script",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("criteo.legacyproductpagetag.v1.Tag", {
 		async: true,
 		description: "This is a mandatory tag and must be placed on all the advertiser product pages.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

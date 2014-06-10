@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.v1.Tag", {
 		async: true,
 		description: "Provides audience information showcasing your website’s traffic, demographic, geographic, affinities and business stats.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

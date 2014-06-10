@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("freespee.mobiletag.v1.Tag", {
 		async: true,
 		description: "The same as the generic tag but for mobile",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

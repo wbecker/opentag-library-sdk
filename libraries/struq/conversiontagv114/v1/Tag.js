@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv114.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

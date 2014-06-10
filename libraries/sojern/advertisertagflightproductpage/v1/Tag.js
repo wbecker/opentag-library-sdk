@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagflightproductpage.v1.Tag", 
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -23,8 +22,8 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagflightproductpage.v1.Tag", 
 	},
 	script: function() {
 		/*SCRIPT*/
-		(new Image()).src = "https://beacon.sojern.com/p/1?fpid=" + 
-                        this.valueForToken("product_id");
+		(new Image()).src = "https://beacon.sojern.com/p/1?fpid=" +
+			this.valueForToken("product_id");
 		/*~SCRIPT*/
 	},
 	pre: function() {

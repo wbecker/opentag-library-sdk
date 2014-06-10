@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.json2.v1.Tag", {
 		async: true,
 		description: "The standard JSON2 library by Douglas Crockford.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

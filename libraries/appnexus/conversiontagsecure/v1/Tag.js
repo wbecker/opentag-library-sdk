@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("appnexus.conversiontagsecure.v1.Tag", {
 		async: true,
 		description: "",
 		html: "<img src=\"https://secure.adnxs.com/px?id=${appnexus_id}&seg=${appnexus_segment}&t=1\" height=\"1\" width=\"1\" alt=\"\" border=\"0\" style=\"display:none;\" />",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

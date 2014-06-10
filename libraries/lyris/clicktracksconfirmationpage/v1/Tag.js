@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "stats2.clicktracks.com/cgi-bin/ctasp-server.cgi?i=${id}",

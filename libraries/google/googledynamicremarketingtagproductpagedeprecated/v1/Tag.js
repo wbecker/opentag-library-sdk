@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",
@@ -44,21 +43,22 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-                    window.google_tag_params = {
-                            ecomm_prodid: '' + this.valueForToken("product_id"),
-                            ecomm_pagetype: '' + this.valueForToken("page_category"),
-                            ecomm_pvalue: '' + this.valueForToken("product_value")
-                    };
+			window.google_tag_params = {
+				ecomm_prodid: '' + this.valueForToken("product_id"),
+				ecomm_pagetype: '' + this.valueForToken("page_category"),
+				ecomm_pvalue: '' + this.valueForToken("product_value")
+			};
 
-                    window.google_conversion_id = this.valueForToken("google_conversion_id");
-                    window.google_conversion_label = "" + this.valueForToken("google_conversion_label") + "";
-                    window.google_custom_params = window.google_tag_params;
-                    window.google_remarketing_only = true;
+			window.google_conversion_id = this.valueForToken("google_conversion_id");
+			window.google_conversion_label = "" + this.valueForToken(
+				"google_conversion_label") + "";
+			window.google_custom_params = window.google_tag_params;
+			window.google_remarketing_only = true;
 
-                    var script = document.createElement('script');
-                    script.type = "text/javascript";
-                    script.src = "//www.googleadservices.com/pagead/conversion.js";
-				document.head.appendChild(script);
+			var script = document.createElement('script');
+			script.type = "text/javascript";
+			script.src = "//www.googleadservices.com/pagead/conversion.js";
+			document.head.appendChild(script);
 			/*~SCRIPT*/
 		},
 		pre: function() {

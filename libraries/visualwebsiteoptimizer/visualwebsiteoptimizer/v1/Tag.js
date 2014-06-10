@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Visual Website Optimizer is an A/B testing tool that allows marketing professionals to create different versions of their websites and landing pages using a point-and-click editor (no HTML knowledge needed!) and then see which version produces maximum conversion rate or sales.",
 			html: "<!-- Start Visual Website Optimizer Asynchronous Code -->\n\n<!-- End Visual Website Optimizer Asynchronous Code -->",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixelwithcurrency.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "connect.facebook.net/${countrycode}/fp.js",

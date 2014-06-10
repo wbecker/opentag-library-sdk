@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("d7search.d7searchconversion.v1.Tag", {
 		async: true,
 		description: "Conversion pixel for 7Search.com",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "https://conversion.7search.com/conversion/v1/conversion.js",

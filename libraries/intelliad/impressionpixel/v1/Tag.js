@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.v1.Tag", {
 		async: true,
 		description: "With intelliAd’s impression pixel you have the possibility to measure all impressions of your custom channels.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

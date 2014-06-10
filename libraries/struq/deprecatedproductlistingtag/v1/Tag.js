@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 		async: true,
 		description: "To be placed only on product listing/search result pages",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js",

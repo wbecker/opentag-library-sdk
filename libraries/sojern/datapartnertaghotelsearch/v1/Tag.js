@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -65,17 +64,17 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 		/*SCRIPT*/
 
 
-			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-				this.valueForToken("sojern_partner_key") + "/hs?";
-			src += "t=" + this.valueForToken("number_of_travellers") + "&";
-			src += "hr=" + this.valueForToken("number_of_rooms") + "&";
-			src += "hd1=" + this.valueForToken("checkin_date") + "&";
-			src += "hd2=" + this.valueForToken("checkout_date") + "&";
-			src += "hc1=" + this.valueForToken("city") + "&";
-			src += "hs1=" + this.valueForToken("state") + "&";
-			src += "hn1=" + this.valueForToken("country") + "&";
-			src += "ha1=" + this.valueForToken("airport_to_hotel");
-			(new Image()).src = src;
+		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+			this.valueForToken("sojern_partner_key") + "/hs?";
+		src += "t=" + this.valueForToken("number_of_travellers") + "&";
+		src += "hr=" + this.valueForToken("number_of_rooms") + "&";
+		src += "hd1=" + this.valueForToken("checkin_date") + "&";
+		src += "hd2=" + this.valueForToken("checkout_date") + "&";
+		src += "hc1=" + this.valueForToken("city") + "&";
+		src += "hs1=" + this.valueForToken("state") + "&";
+		src += "hn1=" + this.valueForToken("country") + "&";
+		src += "ha1=" + this.valueForToken("airport_to_hotel");
+		(new Image()).src = src;
 
 		/*~SCRIPT*/
 	},

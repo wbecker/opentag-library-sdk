@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("prismastar.productpagetag.v1.Tag", {
 		async: true,
 		description: "To be placed on all product pages",
 		html: "<img src=\"https://${GATEWAY_PREFIX}.cpr.prismastar.com/v2_0/recorder/?type=productPage&customerCode=${CUSTOMER_CODE}&order=${PRODUCT_ID}|1|${ITEM_PRICE}|${CATEGORY_CODE}\" style=\"display:none;\" />",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

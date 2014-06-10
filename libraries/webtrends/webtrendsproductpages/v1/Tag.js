@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsproductpages.v1.Tag", {
 		async: true,
 		description: "To be placed on product pages. Should be dependent on the main Webtrends tracking tag.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

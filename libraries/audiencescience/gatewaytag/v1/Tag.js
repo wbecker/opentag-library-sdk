@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("audiencescience.gatewaytag.v1.Tag", {
 		async: true,
 		description: "",
 		html: "<script type=\"text/javascript\" src=\"//js.revsci.net/gateway/gw.js?csid=${clientID}&auto=t\"></script><!--@SRC@-->",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

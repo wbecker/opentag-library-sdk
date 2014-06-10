@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("merchenta.visittag.v1.Tag", {
 		async: true,
 		description: "Use this tag to track visits to your home page or landing pages.",
 		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">VISIT</div>\n  <div class=\"mc_retailer\">${Merchenta_Id}</div>\n</div>\n\n",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

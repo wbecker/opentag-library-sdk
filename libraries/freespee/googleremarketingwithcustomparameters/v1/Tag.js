@@ -8,13 +8,13 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The standard GA re-marketing tag, but allows for custom parameter as per the guide: http://bit.ly/14iZMqu. Return an object within an anonymous function to populate the parameters.",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: true,
 			url: "www.googleadservices.com/pagead/conversion_async.js",
 			usesDocWrite: false,
 			upgradeable: true,
 			parameters: [
+
 			]
 			/*~DATA*/
 		},
@@ -28,7 +28,7 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-                        var _this = this;
+			var _this = this;
 			var poll = function() {
 				if (window.google_trackConversion) {
 					window.google_trackConversion({

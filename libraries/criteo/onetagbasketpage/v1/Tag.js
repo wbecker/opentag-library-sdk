@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagbasketpage.v1.Tag", {
 		async: true,
 		description: "The basket tag has to be integrated on the basket or checkout page.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "static.criteo.net/js/ld/ld.js",

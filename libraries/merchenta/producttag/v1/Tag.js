@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("merchenta.producttag.v1.Tag", {
 		async: true,
 		description: "Place this tag on each product page to track the products visitors are viewing.",
 		html: "<div id=\"mc_data\" style=\"display:none;\">\n  <div class=\"mc_event\">VIEW</div>\n  <div class=\"mc_retailer\">${Merchenta_ID}</div>\n  <div class=\"mc_sku\">${Product_code}</div>\n</div>\n\n",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

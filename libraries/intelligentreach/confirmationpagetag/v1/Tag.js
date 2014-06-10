@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetag.v1.Tag", {
 		async: true,
 		description: "The tag is placed on final checkout confirmation page only.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=${id}&useDom=1",

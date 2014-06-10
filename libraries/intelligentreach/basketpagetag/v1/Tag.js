@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("intelligentreach.basketpagetag.v1.Tag", {
 		async: true,
 		description: "The tag is placed on basket page only.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.ist-track.com/ContainerBasketJavaScript.ashx?companyId=${id}",

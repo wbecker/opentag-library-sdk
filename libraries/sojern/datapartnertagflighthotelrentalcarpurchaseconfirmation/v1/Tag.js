@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -174,40 +173,40 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-					this.valueForToken("sojern_partner_key") + "/fc?";
-				src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
-				src += "fa2=" + this.valueForToken("destination_airport_code") + "&";
-				src += "fd1=" + this.valueForToken("departure_date") + "&";
-				src += "fd2=" + this.valueForToken("return_date") + "&";
-				src += "t=" + this.valueForToken("number_of_travellers") + "&";
-				src += "fc=" + this.valueForToken("service_class") + "&";
-				src += "fp=" + this.valueForToken("flight_purchase_price") + "&";
-				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("first_name") + "&";
-				src += "fl=" + this.valueForToken("frequent_flyer_hash") + "&";
-				src += "ffl=" + this.valueForToken("frequent_flyer_level") + "&";
-				src += "ffc=" + this.valueForToken("fare_code") + "&";
-				src += "hr=" + this.valueForToken("number_of_rooms") + "&";
-				src += "hd1=" + this.valueForToken("checkin_date") + "&";
-				src += "hd2=" + this.valueForToken("checkout_date") + "&";
-				src += "hc1=" + this.valueForToken("city") + "&";
-				src += "hs1=" + this.valueForToken("state") + "&";
-				src += "hn1=" + this.valueForToken("country") + "&";
-				src += "ha1=" + this.valueForToken("airport_to_hotel") + "&";
-				src += "hz1=" + this.valueForToken("hotel_postcode") + "&";
-				src += "hp=" + this.valueForToken("hotel_purchase_price") + "&";
-				src += "hl=" + this.valueForToken("customer_loyalty_hash") + "&";
-				src += "hc=" + this.valueForToken("room_type") + "&";
-				src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
-				src += "rc1=" + this.valueForToken("pickup_city") + "&";
-				src += "rd1=" + this.valueForToken("pickup_date") + "&";
-				src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
-				src += "rc2=" + this.valueForToken("dropoff_city") + "&";
-				src += "rd2=" + this.valueForToken("dropoff_date") + "&";
-				src += "rc=" + this.valueForToken("car_class");
+			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+				this.valueForToken("sojern_partner_key") + "/fc?";
+			src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
+			src += "fa2=" + this.valueForToken("destination_airport_code") + "&";
+			src += "fd1=" + this.valueForToken("departure_date") + "&";
+			src += "fd2=" + this.valueForToken("return_date") + "&";
+			src += "t=" + this.valueForToken("number_of_travellers") + "&";
+			src += "fc=" + this.valueForToken("service_class") + "&";
+			src += "fp=" + this.valueForToken("flight_purchase_price") + "&";
+			src += "g=" + this.valueForToken("gender") + "&";
+			src += "n=" + this.valueForToken("first_name") + "&";
+			src += "fl=" + this.valueForToken("frequent_flyer_hash") + "&";
+			src += "ffl=" + this.valueForToken("frequent_flyer_level") + "&";
+			src += "ffc=" + this.valueForToken("fare_code") + "&";
+			src += "hr=" + this.valueForToken("number_of_rooms") + "&";
+			src += "hd1=" + this.valueForToken("checkin_date") + "&";
+			src += "hd2=" + this.valueForToken("checkout_date") + "&";
+			src += "hc1=" + this.valueForToken("city") + "&";
+			src += "hs1=" + this.valueForToken("state") + "&";
+			src += "hn1=" + this.valueForToken("country") + "&";
+			src += "ha1=" + this.valueForToken("airport_to_hotel") + "&";
+			src += "hz1=" + this.valueForToken("hotel_postcode") + "&";
+			src += "hp=" + this.valueForToken("hotel_purchase_price") + "&";
+			src += "hl=" + this.valueForToken("customer_loyalty_hash") + "&";
+			src += "hc=" + this.valueForToken("room_type") + "&";
+			src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
+			src += "rc1=" + this.valueForToken("pickup_city") + "&";
+			src += "rd1=" + this.valueForToken("pickup_date") + "&";
+			src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
+			src += "rc2=" + this.valueForToken("dropoff_city") + "&";
+			src += "rd2=" + this.valueForToken("dropoff_date") + "&";
+			src += "rc=" + this.valueForToken("car_class");
 
-				(new Image()).src = src;
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

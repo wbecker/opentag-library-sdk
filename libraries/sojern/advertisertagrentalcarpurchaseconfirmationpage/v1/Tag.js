@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -149,34 +148,34 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-				var src = "https://beacon.sojern.com/p/7?";
-				src += "et=" + this.valueForToken("event") + "&";
-				src += "ra1=" + this.valueForToken("pickup_nearest") + "&";
-				src += "rc1=" + this.valueForToken("pickup_city") + "&";
-				src += "rd1=" + this.valueForToken("pickup_date") + "&";
-				src += "ra2=" + this.valueForToken("dropoff_nearest") + "&";
-				src += "rc2=" + this.valueForToken("dropoff_city") + "&";
-				src += "rd2=" + this.valueForToken("dropoff_date") + "&";
-				src += "rc=" + this.valueForToken("car_class") + "&";
-				src += "t=" + this.valueForToken("travellers") + "&";
-				src += "rl=" + this.valueForToken("loyal") + "&";
-				src += "rp=" + this.valueForToken("price") + "&";
-				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("name") + "&";
-				src += "rconfno=" + this.valueForToken("id") + "&";
-				src += "l=" + this.valueForToken("language") + "&";
-				src += "c=" + this.valueForToken("country") + "&";
-				src += "a=" + this.valueForToken("age") + "&";
-				src += "rdc=" + this.valueForToken("discount") + "&";
-				src += "rpc=" + this.valueForToken("promotion") + "&";
-				src += "rrq=" + this.valueForToken("rate") + "&";
-				src += "rcv=" + this.valueForToken("convention") + "&";
-				src += "rit=" + this.valueForToken("voucher") + "&";
-				src += "racris=" + this.valueForToken("acriss") + "&";
-				src += "rrate=" + this.valueForToken("base") + "&";
-				src += "rpnow=" + this.valueForToken("method") + "&";
-				src += "rair=" + this.valueForToken("airline");
-				(new Image()).src = src;
+			var src = "https://beacon.sojern.com/p/7?";
+			src += "et=" + this.valueForToken("event") + "&";
+			src += "ra1=" + this.valueForToken("pickup_nearest") + "&";
+			src += "rc1=" + this.valueForToken("pickup_city") + "&";
+			src += "rd1=" + this.valueForToken("pickup_date") + "&";
+			src += "ra2=" + this.valueForToken("dropoff_nearest") + "&";
+			src += "rc2=" + this.valueForToken("dropoff_city") + "&";
+			src += "rd2=" + this.valueForToken("dropoff_date") + "&";
+			src += "rc=" + this.valueForToken("car_class") + "&";
+			src += "t=" + this.valueForToken("travellers") + "&";
+			src += "rl=" + this.valueForToken("loyal") + "&";
+			src += "rp=" + this.valueForToken("price") + "&";
+			src += "g=" + this.valueForToken("gender") + "&";
+			src += "n=" + this.valueForToken("name") + "&";
+			src += "rconfno=" + this.valueForToken("id") + "&";
+			src += "l=" + this.valueForToken("language") + "&";
+			src += "c=" + this.valueForToken("country") + "&";
+			src += "a=" + this.valueForToken("age") + "&";
+			src += "rdc=" + this.valueForToken("discount") + "&";
+			src += "rpc=" + this.valueForToken("promotion") + "&";
+			src += "rrq=" + this.valueForToken("rate") + "&";
+			src += "rcv=" + this.valueForToken("convention") + "&";
+			src += "rit=" + this.valueForToken("voucher") + "&";
+			src += "racris=" + this.valueForToken("acriss") + "&";
+			src += "rrate=" + this.valueForToken("base") + "&";
+			src += "rpnow=" + this.valueForToken("method") + "&";
+			src += "rair=" + this.valueForToken("airline");
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

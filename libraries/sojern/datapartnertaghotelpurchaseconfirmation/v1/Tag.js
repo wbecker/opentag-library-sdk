@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -94,24 +93,24 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-					this.valueForToken("sojern_partner_key") + "/hc?";
+			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+				this.valueForToken("sojern_partner_key") + "/hc?";
 
-				src += "t=" + this.valueForToken("number_of_travellers") + "&";
-				src += "hr=" + this.valueForToken("number_of_rooms") + "&";
-				src += "hd1=" + this.valueForToken("checkin_date") + "&";
-				src += "hd2=" + this.valueForToken("checkout_date") + "&";
-				src += "hc1=" + this.valueForToken("city") + "&";
-				src += "hs1=" + this.valueForToken("state") + "&";
-				src += "hn1=" + this.valueForToken("country") + "&";
-				src += "ha1=" + this.valueForToken("airport_to_hotel") + "&";
-				src += "hz1=" + this.valueForToken("hotel_postcode") + "&";
-				src += "hp=" + this.valueForToken("hotel_purchase_price") + "&";
-				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("first_name") + "&";
-				src += "hl=" + this.valueForToken("customer_loyalty_hash") + "&";
-				src += "hc=" + this.valueForToken("room_type");
-				(new Image()).src = src;
+			src += "t=" + this.valueForToken("number_of_travellers") + "&";
+			src += "hr=" + this.valueForToken("number_of_rooms") + "&";
+			src += "hd1=" + this.valueForToken("checkin_date") + "&";
+			src += "hd2=" + this.valueForToken("checkout_date") + "&";
+			src += "hc1=" + this.valueForToken("city") + "&";
+			src += "hs1=" + this.valueForToken("state") + "&";
+			src += "hn1=" + this.valueForToken("country") + "&";
+			src += "ha1=" + this.valueForToken("airport_to_hotel") + "&";
+			src += "hz1=" + this.valueForToken("hotel_postcode") + "&";
+			src += "hp=" + this.valueForToken("hotel_purchase_price") + "&";
+			src += "g=" + this.valueForToken("gender") + "&";
+			src += "n=" + this.valueForToken("first_name") + "&";
+			src += "hl=" + this.valueForToken("customer_loyalty_hash") + "&";
+			src += "hc=" + this.valueForToken("room_type");
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

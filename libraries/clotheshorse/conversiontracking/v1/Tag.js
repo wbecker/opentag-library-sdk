@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("clotheshorse.conversiontracking.v1.Tag", {
 		async: true,
 		description: "Single Javascript tag for conversion tracking",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

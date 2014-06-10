@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 		async: true,
 		description: "",
 		html: "<div id=\"gutscheinconnection-container\"></div>\n\n",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

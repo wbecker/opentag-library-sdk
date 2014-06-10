@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("monetate.monetate.v1.Tag", {
 		async: true,
 		description: "Generic Monetate tag to be added on all pages.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

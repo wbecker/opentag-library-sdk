@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("freespee.callbackwidget.v1.Tag", {
 		async: true,
 		description: "The Callback Widget is a convient way for the end-user to be called directly or schedule a call within the next couple of days. When implemented on the advertiser site, it'll show up as a green phone symbol on the right hand side of the browser window. When the end-user activates the widget with a click it launches an overlay presenting a simple form. The form allows the end-user to enter his phone number and schedule the call to take place within 5 minutes or at a specific time in the next couple of days. When connecting the call, Freespee will first call the advertiser and after having confirmed that the advertiser did pick up the phone, the end-user will be called. Upon successful call establishment to both parties, the calls will be joined together, allowing the end-user and the advertiser to have a chat.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "//${domain_name}.freespee.com/js/external/fs.js",

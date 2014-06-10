@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
 		async: true,
 		description: "To be placed on the homepage only",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js",

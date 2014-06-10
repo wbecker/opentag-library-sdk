@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
 			html: "",
-			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 			locationDetail: "",
 			isPrivate: true,
 			url: "www.googleadservices.com/pagead/conversion_async.js",
@@ -37,7 +36,7 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-                        var _this = this;
+			var _this = this;
 			window.google_trackConversion({
 				google_conversion_id: "" + this.valueForToken("conversion_id"),
 				google_conversion_label: "" + this.valueForToken("label"),

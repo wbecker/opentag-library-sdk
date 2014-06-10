@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 		async: true,
 		description: "Fires a pixel with transaction information and 5 custom parameters.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

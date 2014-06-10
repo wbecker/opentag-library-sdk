@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforeducationallpages.v1.Tag", 
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Google.jpeg",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
@@ -46,14 +45,15 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforeducationallpages.v1.Tag", 
 	},
 	post: function() {
 		/*POST*/
-                var _this = this;
+		var _this = this;
 		var poll = function() {
 			if (window.google_trackConversion) {
 				window.google_trackConversion({
 					google_conversion_id: _this.valueForToken("id"),
 					google_custom_params: {
 						edu_pid:  '' + _this.valueForToken("educationprogram"),
-						edu_plocid:  '' + _this.valueForToken("locationid"),  
+						edu_plocid:  '' + _this.valueForToken("locationid"),
+						 
 						edu_pagetype:  '' + _this.valueForToken("pagetype")
 					},
 					google_remarketing_only: true

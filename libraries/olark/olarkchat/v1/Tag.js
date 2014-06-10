@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("olark.olarkchat.v1.Tag", {
 		async: true,
 		description: "In-page chat widget",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

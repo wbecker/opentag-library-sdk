@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.v1.Tag", {
 		async: true,
 		description: "The implementation can be either as an embedded form where the customer enters the name of their referrer or an embedded link, both of which lead to a modal popup where the customer can register to get their reward. The 'implementation' parameter is one of 'link' or 'form' which respectively load a link or a form into the div <div id=\"mmWrapper\" style=\"height:60px;\"></div> which should be on the page.\n\nAll parameters marked with * are optional (if not used populate with an empty hardcoded value, even if default is 'uses universal variable')",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

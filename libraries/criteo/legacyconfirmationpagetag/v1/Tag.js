@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.v1.Tag", {
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user made payment.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

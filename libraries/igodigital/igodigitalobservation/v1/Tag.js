@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.v1.Tag", {
 		async: true,
 		description: "Monitors the behavior of your website traffic, including user activity, intent, and outcome.",
 		html: "<div id='igdRTA'>\n 	\n           	\n</div>",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

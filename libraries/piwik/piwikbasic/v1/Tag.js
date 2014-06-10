@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("piwik.piwikbasic.v1.Tag", {
 		async: true,
 		description: "Implement the basic Piwik pageview and link tracking.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "${piwik_url}",

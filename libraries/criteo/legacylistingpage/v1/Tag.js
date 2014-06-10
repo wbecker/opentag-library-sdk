@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("criteo.legacylistingpage.v1.Tag", {
 		async: true,
 		description: "Add to a page with a listing of products, eg a Search or Category Page. This will pick off the first three values in the Listing Product IDs array and send them to Criteo.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

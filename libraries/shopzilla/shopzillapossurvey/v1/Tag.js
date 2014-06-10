@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillapossurvey.v1.Tag", {
 		async: true,
 		description: "Survey to be placed after a user has made a purchase.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "eval.bizrate.com/js/pos_${merchant_id}.js",

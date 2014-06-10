@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 		async: true,
 		description: "Should be placed on the confirmation page only",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

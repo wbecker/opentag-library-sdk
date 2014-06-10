@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("clotheshorse.productpage.v1.Tag", {
 		async: true,
 		description: "To be placed on all product pages of the website.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -99,24 +98,24 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-				var src = "https://beacon.sojern.com/p/3?";
-				src += "et=" + this.valueForToken("event") + "&";
-				src += "fa1=" + this.valueForToken("origin") + "&";
-				src += "fa2=" + this.valueForToken("destination") + "&";
-				src += "fd1=" + this.valueForToken("departure") + "&";
-				src += "fd2=" + this.valueForToken("return") + "&";
-				src += "t=" + this.valueForToken("travellers") + "&";
-				src += "fc=" + this.valueForToken("class") + "&";
-				src += "fp=" + this.valueForToken("price") + "&";
-				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("name") + "&";
-				src += "fz1=" + this.valueForToken("postcode") + "&";
-				src += "fl=" + this.valueForToken("frequent") + "&";
-				src += "ffl=" + this.valueForToken("level") + "&";
-				src += "ffc=" + this.valueForToken("fare") + "&";
-				src += "fconfno=" + this.valueForToken("id") + "&";
-				src += "fan=" + this.valueForToken("airline");
-				(new Image()).src = src;
+			var src = "https://beacon.sojern.com/p/3?";
+			src += "et=" + this.valueForToken("event") + "&";
+			src += "fa1=" + this.valueForToken("origin") + "&";
+			src += "fa2=" + this.valueForToken("destination") + "&";
+			src += "fd1=" + this.valueForToken("departure") + "&";
+			src += "fd2=" + this.valueForToken("return") + "&";
+			src += "t=" + this.valueForToken("travellers") + "&";
+			src += "fc=" + this.valueForToken("class") + "&";
+			src += "fp=" + this.valueForToken("price") + "&";
+			src += "g=" + this.valueForToken("gender") + "&";
+			src += "n=" + this.valueForToken("name") + "&";
+			src += "fz1=" + this.valueForToken("postcode") + "&";
+			src += "fl=" + this.valueForToken("frequent") + "&";
+			src += "ffl=" + this.valueForToken("level") + "&";
+			src += "ffc=" + this.valueForToken("fare") + "&";
+			src += "fconfno=" + this.valueForToken("id") + "&";
+			src += "fan=" + this.valueForToken("airline");
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

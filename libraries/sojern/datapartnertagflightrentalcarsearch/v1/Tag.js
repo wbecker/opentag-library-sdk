@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "\n",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -90,22 +89,22 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 
-				var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-					this.valueForToken("sojern_partner_key") + "/fs?";
-				src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
-				src += "fa2=" + this.valueForToken("destination_airport_code") + "&";
-				src += "fd1=" + this.valueForToken("departure_date") + "&";
-				src += "fd2=" + this.valueForToken("return_date") + "&";
-				src += "t=" + this.valueForToken("number_of_travellers") + "&";
-				src += "fc=" + this.valueForToken("service_class") + "&";
-				src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
-				src += "rc1=" + this.valueForToken("pickup_location_city") + "&";
-				src += "rd1=" + this.valueForToken("pickup_date") + "&";
-				src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
-				src += "rc2=" + this.valueForToken("dropoff_location_city") + "&";
-				src += "rd2=" + this.valueForToken("dropoff_date") + "&";
-				src += "rc=" + this.valueForToken("car_class");
-				(new Image()).src = src;
+			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+				this.valueForToken("sojern_partner_key") + "/fs?";
+			src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
+			src += "fa2=" + this.valueForToken("destination_airport_code") + "&";
+			src += "fd1=" + this.valueForToken("departure_date") + "&";
+			src += "fd2=" + this.valueForToken("return_date") + "&";
+			src += "t=" + this.valueForToken("number_of_travellers") + "&";
+			src += "fc=" + this.valueForToken("service_class") + "&";
+			src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
+			src += "rc1=" + this.valueForToken("pickup_location_city") + "&";
+			src += "rd1=" + this.valueForToken("pickup_date") + "&";
+			src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
+			src += "rc2=" + this.valueForToken("dropoff_location_city") + "&";
+			src += "rd2=" + this.valueForToken("dropoff_date") + "&";
+			src += "rc=" + this.valueForToken("car_class");
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

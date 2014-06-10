@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -54,15 +53,15 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-				var src = "https://beacon.sojern.com/p/1?";
-				src += "n=" + this.valueForToken("page") + "&";
-				src += "fl=" + this.valueForToken("flight_loyal") + "&";
-				src += "hl=" + this.valueForToken("hotel_loyal") + "&";
-				src += "rl=" + this.valueForToken("rental_loyal") + "&";
-				src += "cl=" + this.valueForToken("cruise_loyal") + "&";
-				src += "l=" + this.valueForToken("language") + "&";
-				src += "c=" + this.valueForToken("residence");
-				(new Image()).src = src;
+			var src = "https://beacon.sojern.com/p/1?";
+			src += "n=" + this.valueForToken("page") + "&";
+			src += "fl=" + this.valueForToken("flight_loyal") + "&";
+			src += "hl=" + this.valueForToken("hotel_loyal") + "&";
+			src += "rl=" + this.valueForToken("rental_loyal") + "&";
+			src += "cl=" + this.valueForToken("cruise_loyal") + "&";
+			src += "l=" + this.valueForToken("language") + "&";
+			src += "c=" + this.valueForToken("residence");
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

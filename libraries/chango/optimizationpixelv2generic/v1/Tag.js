@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2generic.v1.Tag", {
 		async: true,
 		description: "Chango's optimization pixel is a site-wide data gathering tool used to improve retargeting services. It should fire on every page.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

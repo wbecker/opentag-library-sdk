@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/smartfocus.png",
 		locationDetail: "",
 		isPrivate: false,
 		url: "js.advisor.smartfocus.com/advisor.min.js",

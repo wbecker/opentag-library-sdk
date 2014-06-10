@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.v1.Tag", {
 		async: true,
 		description: "This tag should be placed on ALL pages",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${subdomain}.mythings.com/c.aspx?atok=${token}",

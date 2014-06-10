@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mediaplex.znotneeded.v1.Tag", {
 		async: true,
 		description: "Converted all pixels to use the same protocol as the page.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "https://secure.img-cdn.mediaplex.com/0/${client_id}/universal.html?page_name=${page_name}&${event_name}=1&mpuid=",

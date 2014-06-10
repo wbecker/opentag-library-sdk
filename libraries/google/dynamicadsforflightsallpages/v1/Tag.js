@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforflightsallpages.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.googleadservices.com/pagead/conversion_async.js",
@@ -56,7 +55,7 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforflightsallpages.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-                var _this = this;
+		var _this = this;
 		var poll = function() {
 			if (window.google_trackConversion) {
 				window.google_trackConversion({

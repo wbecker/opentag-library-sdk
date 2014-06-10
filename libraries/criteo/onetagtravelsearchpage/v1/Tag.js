@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.v1.Tag", {
 		async: true,
 		description: "This is a search tag specifically built for travel enquiries, as it stores check-in and check-out dates.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "static.criteo.net/js/ld/ld.js",

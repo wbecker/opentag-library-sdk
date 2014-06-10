@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv15.v1.Tag", {
 		async: true,
 		description: "To be placed only on product listing/search result pages",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

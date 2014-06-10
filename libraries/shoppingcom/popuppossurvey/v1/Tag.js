@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("shoppingcom.popuppossurvey.v1.Tag", {
 		async: true,
 		description: "This will show a point of sale survey for customers to share their feedback about their shopping experience.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "https://www.shopping.com/xMSJ?pt=js&direct=1&mid=${merchant_id}&lid=1",

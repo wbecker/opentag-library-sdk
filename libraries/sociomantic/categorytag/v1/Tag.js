@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sociomantic.categorytag.v1.Tag", {
 		async: true,
 		description: "Information about what category page the user was interested in. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",

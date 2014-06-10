@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("pricegrabber.thankyoupagesurvey.v1.Tag", {
 		async: true,
 		description: "Adjust the values of popup_pos_x, popup_pos_y to change the location of the popup layer on your confirmation page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "https://www.pricegrabber.com/rating_merchrevpopjs.php?retid=${account_number}",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqcustomtrackingscript.v1.Tag", {
 		async: true,
 		description: "Extension of generic StormIQ tag that allows for a tracking script to be included after inclusion of StormIQ",
 		html: "<!--@SRC@--><script type=\"text/javascript\">\nvar __stormJs = 't1.stormiq.com/dcv4/jslib/${storm_id}.js';\nvar __ch =  '${channel}';\n</script><script type=\"text/javascript\" src=\"${track_url}\"></script>\n",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

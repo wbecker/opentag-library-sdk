@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqconfirmationpagetag.v1.Tag", {
 		async: true,
 		description: "To be placed on the confirmation page only",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "t1.stormiq.com/dcv4/jslib/${storm_id}.js",

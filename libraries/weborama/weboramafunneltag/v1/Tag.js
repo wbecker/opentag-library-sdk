@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("weborama.weboramafunneltag.v1.Tag", {
 		async: true,
 		description: "This tag is typically placed on pages that will lead to a  conversion page. It is away to set measure the path which leads to a conversion.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js",

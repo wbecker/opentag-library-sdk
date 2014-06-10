@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
 		async: true,
 		description: "Tag to be placed on all pages",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

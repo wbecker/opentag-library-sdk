@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("deprecatedtags.segmenttagdeprecated.v1.Tag", {
 		async: true,
 		description: "",
 		html: "<img src=\"http://ib.adnxs.com/seg?add=${segment}&t=2\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:none;\" />",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflighthotelsearch.v1.Tag",
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/qubit-etc/opentaglogos/sojern.png",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -59,16 +58,16 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflighthotelsearch.v1.Tag",
 	script: function() {
 		/*SCRIPT*/
 
-			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-				this.valueForToken("sojern_partner_key") + "/fs?";
-			src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
-			src += "fa2=" + this.valueForToken("destination_airport_code") + "&";
-			src += "fd1=" + this.valueForToken("departure_date") + "&";
-			src += "fd2=" + this.valueForToken("return_date") + "&";
-			src += "t=" + this.valueForToken("number_of_travellers") + "&";
-			src += "fc=" + this.valueForToken("service_class") + "&";
-			src += "hr=" + this.valueForToken("number_of_rooms") + "";
-			(new Image()).src = src;
+		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+			this.valueForToken("sojern_partner_key") + "/fs?";
+		src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
+		src += "fa2=" + this.valueForToken("destination_airport_code") + "&";
+		src += "fd1=" + this.valueForToken("departure_date") + "&";
+		src += "fd2=" + this.valueForToken("return_date") + "&";
+		src += "t=" + this.valueForToken("number_of_travellers") + "&";
+		src += "fc=" + this.valueForToken("service_class") + "&";
+		src += "hr=" + this.valueForToken("number_of_rooms") + "";
+		(new Image()).src = src;
 		/*~SCRIPT*/
 	},
 	pre: function() {

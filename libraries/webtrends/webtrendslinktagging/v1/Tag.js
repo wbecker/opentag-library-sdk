@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 		async: true,
 		description: "Designed to replace inline on click tagging. Usually you'll want one tag per link tagged. Uses jQuery selectors, so jQuery is required to exist on the page.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.v1.Tag", {
 		async: true,
 		description: "This tag is to fire on every page to provide general pageview tracking.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

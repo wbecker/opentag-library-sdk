@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("affiliatewindow.mastertag.v1.Tag", {
 		async: true,
 		description: "The Affiliate Window Master Tag should run on all pages.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.dwin1.com/${MERCHANT_ID}.js",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sociomantic.producttag.v1.Tag", {
 		async: true,
 		description: "This tracking code needs to go on all product pages in order to know which products user was interested in. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",

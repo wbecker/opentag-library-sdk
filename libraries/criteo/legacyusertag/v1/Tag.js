@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("criteo.legacyusertag.v1.Tag", {
 		async: true,
 		description: "The user tag is a special tag used on an ad hoc basis, most of the time with extra data.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

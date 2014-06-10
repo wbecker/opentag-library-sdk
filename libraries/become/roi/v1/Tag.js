@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 		async: true,
 		description: "ROI script to be placed on the Confirmation Page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

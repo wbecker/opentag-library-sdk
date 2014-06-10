@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("nextperformance.transactiontag.v1.Tag", {
 		async: true,
 		description: "Tag to be inserted on the order confirmation page, requires order ID, order number and amount excluding VAT.",
 		html: "<script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${zid}&id=${orderId}&mt=${total}\"></script><!--@SRC@-->",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

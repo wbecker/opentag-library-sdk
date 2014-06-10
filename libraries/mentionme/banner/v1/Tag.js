@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mentionme.banner.v1.Tag", {
 		async: true,
 		description: "Referrer promotional banner integration as an embedded iframe. Requires <div id=\"mmWrapper\"></div> to be on the page.\nThe * represents parameters that can be left as an empty value.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -48,6 +47,11 @@ qubit.opentag.LibraryTag.define("mentionme.banner.v1.Tag", {
 			description: "String representing the locale for the campaign",
 			token: "locale",
 			uv: "universal_variable.user.language"
+		}, {
+			name: "Username",
+			description: "username",
+			token: "username",
+			uv: "universal_variable.user.username"
 		}]
 		/*~DATA*/
 	},

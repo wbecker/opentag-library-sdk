@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 		async: true,
 		description: "This script should fire on all pages and all other Sub2 scripts should be dependent upon this script",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

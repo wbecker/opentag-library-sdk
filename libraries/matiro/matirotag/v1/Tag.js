@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("matiro.matirotag.v1.Tag", {
 		async: true,
 		description: "Real-time web market advertising tag",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "asset.matiro.com/${pixel_id}?m1=${order_id}&m2=${order_amount}",

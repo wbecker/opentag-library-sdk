@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.v1.Tag", {
 		async: true,
 		description: "The Steelhouse conversion pixel, for placing on confirmation pages. Bundled with the tracking pixel.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

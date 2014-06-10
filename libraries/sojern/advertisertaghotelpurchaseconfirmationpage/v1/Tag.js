@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -129,30 +128,30 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-				var src = "https://beacon.sojern.com/p/5?";
-				src += "et=" + this.valueForToken("event") + "&";
-				src += "t=" + this.valueForToken("travellers") + "&";
-				src += "hr=" + this.valueForToken("rooms") + "&";
-				src += "hd=" + this.valueForToken("nights") + "&";
-				src += "hd1=" + this.valueForToken("checkin") + "&";
-				src += "hd2=" + this.valueForToken("checkout") + "&";
-				src += "hc1=" + this.valueForToken("city") + "&";
-				src += "hs1=" + this.valueForToken("state") + "&";
-				src += "hn1=" + this.valueForToken("country") + "&";
-				src += "ha1=" + this.valueForToken("nearest") + "&";
-				src += "hz1=" + this.valueForToken("postcode") + "&";
-				src += "hz2=" + this.valueForToken("customer_postcode") + "&";
-				src += "hp=" + this.valueForToken("price") + "&";
-				src += "g=" + this.valueForToken("gender") + "&";
-				src += "n=" + this.valueForToken("name") + "&";
-				src += "hl=" + this.valueForToken("loyal") + "&";
-				src += "hc=" + this.valueForToken("room") + "&";
-				src += "hconfo=" + this.valueForToken("confirmation_id") + "&";
-				src += "hsr=" + this.valueForToken("stars") + "&";
-				src += "hb=" + this.valueForToken("brand") + "&";
-				src += "hpr=" + this.valueForToken("property") + "&";
-				src += "hlt=" + this.valueForToken("tier");
-				(new Image()).src = src;
+			var src = "https://beacon.sojern.com/p/5?";
+			src += "et=" + this.valueForToken("event") + "&";
+			src += "t=" + this.valueForToken("travellers") + "&";
+			src += "hr=" + this.valueForToken("rooms") + "&";
+			src += "hd=" + this.valueForToken("nights") + "&";
+			src += "hd1=" + this.valueForToken("checkin") + "&";
+			src += "hd2=" + this.valueForToken("checkout") + "&";
+			src += "hc1=" + this.valueForToken("city") + "&";
+			src += "hs1=" + this.valueForToken("state") + "&";
+			src += "hn1=" + this.valueForToken("country") + "&";
+			src += "ha1=" + this.valueForToken("nearest") + "&";
+			src += "hz1=" + this.valueForToken("postcode") + "&";
+			src += "hz2=" + this.valueForToken("customer_postcode") + "&";
+			src += "hp=" + this.valueForToken("price") + "&";
+			src += "g=" + this.valueForToken("gender") + "&";
+			src += "n=" + this.valueForToken("name") + "&";
+			src += "hl=" + this.valueForToken("loyal") + "&";
+			src += "hc=" + this.valueForToken("room") + "&";
+			src += "hconfo=" + this.valueForToken("confirmation_id") + "&";
+			src += "hsr=" + this.valueForToken("stars") + "&";
+			src += "hb=" + this.valueForToken("brand") + "&";
+			src += "hpr=" + this.valueForToken("property") + "&";
+			src += "hlt=" + this.valueForToken("tier");
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

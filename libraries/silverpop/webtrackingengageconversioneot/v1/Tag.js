@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "Web tracking if you use Engage Conversion Tracking EOT",
 			html: "<meta name=\"com.silverpop.page_name\" content=\"${page_name}\"/>\n<meta name=\"com.silverpop.brandeddomains\" content=\"${branded_domains}\" />\n<meta name=\"com.silverpop.cothost\" content=\"${cot_host}\" />\n\n",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpageasync.v1.Tag", {
 		async: true,
 		description: "For use in single page checkouts, when transaction can happen after page load (virtual page views)",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",

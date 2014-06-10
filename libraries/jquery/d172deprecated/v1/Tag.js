@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("jquery.d172deprecated.v1.Tag", {
 		async: true,
 		description: "Released March 21st, 2012",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",

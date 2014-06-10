@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.v1.Tag", {
 		async: true,
 		description: "To be placed on pages where you wish to pass back transactional data. Should be dependent on the main Webtrends tracking tag.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

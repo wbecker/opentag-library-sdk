@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("rocketfuel.homepage.v1.Tag", {
 		async: true,
 		description: "Place on the site's home page. Intended to fire once per session - requires custom implementation to enforce this.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

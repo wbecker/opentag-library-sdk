@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("skimlinks.skimlinks.v1.Tag", {
 		async: true,
 		description: "Converts any normal product or merchant link in your content into its equivalent affiliate link as a user clicks on it.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "s.skimresources.com/js/${publisher_id}.skimlinks.js",

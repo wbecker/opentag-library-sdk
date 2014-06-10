@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mediaplex.standardiframe.v1.Tag", {
 		async: true,
 		description: "The standard iframe can be used on any page which does not send back any parameters. It simply reports that a page has been visited. Example uses: Home page, help, contact us.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

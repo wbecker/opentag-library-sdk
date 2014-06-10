@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("bluetriangle.bluetrianglepagetag.v1.Tag", {
 		async: true,
 		description: "Page tag should be implemented on all pages. Blue Triangle will provide your client ID.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${clientId}.btttag.com/BTT/btt.js",

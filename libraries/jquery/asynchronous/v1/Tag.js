@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("jquery.asynchronous.v1.Tag", {
 		async: true,
 		description: "Load any specific version of jQuery asynchronously",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "ajax.googleapis.com/ajax/libs/jquery/${version}/jquery.min.js",

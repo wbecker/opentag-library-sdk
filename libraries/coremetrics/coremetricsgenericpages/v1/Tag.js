@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.v1.Tag", {
 		async: true,
 		description: "To be used on all pages that are not product, transactional, or conversion based.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "libs.coremetrics.com/eluminate.js",

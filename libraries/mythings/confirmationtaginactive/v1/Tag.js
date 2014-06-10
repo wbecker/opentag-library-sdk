@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

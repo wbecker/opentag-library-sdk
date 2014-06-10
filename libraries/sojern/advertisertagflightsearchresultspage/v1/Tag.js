@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -65,17 +64,17 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 
-				var src = "https://beacon.sojern.com/p/2?";
-				src += "et=" + this.valueForToken("event") + "&";
-				src += "fa1=" + this.valueForToken("origin") + "&";
-				src += "fa2=" + this.valueForToken("destination") + "&";
-				src += "fd1=" + this.valueForToken("departure") + "&";
-				src += "fd2=" + this.valueForToken("return") + "&";
-				src += "t=" + this.valueForToken("travellers") + "&";
-				src += "fc=" + this.valueForToken("class") + "&";
-				src += "fl=" + this.valueForToken("loyal") + "&";
-				src += "vl=" + this.valueForToken("vacation_loyal");
-				(new Image()).src = src;
+			var src = "https://beacon.sojern.com/p/2?";
+			src += "et=" + this.valueForToken("event") + "&";
+			src += "fa1=" + this.valueForToken("origin") + "&";
+			src += "fa2=" + this.valueForToken("destination") + "&";
+			src += "fd1=" + this.valueForToken("departure") + "&";
+			src += "fd2=" + this.valueForToken("return") + "&";
+			src += "t=" + this.valueForToken("travellers") + "&";
+			src += "fc=" + this.valueForToken("class") + "&";
+			src += "fl=" + this.valueForToken("loyal") + "&";
+			src += "vl=" + this.valueForToken("vacation_loyal");
+			(new Image()).src = src;
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 		async: true,
 		description: "test opentag on a product page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The main WebTrends tag with full configuration options. Should be placed on every page. See http://help.webtrends.com/en/jstag/ for full details of the different parameters.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "d22rutvoghj3db.cloudfront.net/opentag-cdn/webtrends.min.js",

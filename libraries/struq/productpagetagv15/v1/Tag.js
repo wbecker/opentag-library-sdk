@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("struq.productpagetagv15.v1.Tag", {
 		async: true,
 		description: "To be placed on the product page only",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

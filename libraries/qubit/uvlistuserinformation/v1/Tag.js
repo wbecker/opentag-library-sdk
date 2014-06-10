@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.v1.Tag", {
 		async: true,
 		description: "Test Universal Variables regarding users",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("peerius.homepagewithsmartrecs.v1.Tag", {
 		async: true,
 		description: "Home page tag with SmartRecs. Uses global function renderRecsHome. Need to make sure renderRecsHome is defined on the home page in the window.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_name}.peerius.com/tracker/peerius.page",

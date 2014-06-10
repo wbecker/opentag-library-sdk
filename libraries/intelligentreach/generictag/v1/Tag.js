@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("intelligentreach.generictag.v1.Tag", {
 		async: true,
 		description: "Tag to be applied to all pages",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "www.ist-track.com/ContainerJavaScript.ashx?id=${id}",

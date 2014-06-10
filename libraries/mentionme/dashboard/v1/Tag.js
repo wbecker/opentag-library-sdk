@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mentionme.dashboard.v1.Tag", {
 		async: true,
 		description: "Providing registered referrers with a dashboard to encourage more sharing. Requires the div <div id=\"mmWrapper\"></div> to be on the page.\nThe * represents parameters that can be left as an empty value.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -58,6 +57,11 @@ qubit.opentag.LibraryTag.define("mentionme.dashboard.v1.Tag", {
 			description: "Optional SHA256 Hash of the customer's email concatenated with the merchant secret key (auth)",
 			token: "key",
 			uv: ""
+		}, {
+			name: "Username",
+			description: "username",
+			token: "username",
+			uv: "universal_variable.user.username"
 		}]
 		/*~DATA*/
 	},

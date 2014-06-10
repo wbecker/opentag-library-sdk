@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "This is a mandatory tag and must be executed on the confirmation page after user made payment. This contains variables to specify whether the user is new and also whether the sale was post-click or post-impression.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.combineduvlistener.v1.Tag", {
 		async: true,
 		description: "Until the UV Listener is released via qtag and qtracker, load this in as a dependency to get its features. This requires JSON.stringify and JSON.parse - that'll be handled when it's actually loaded in properly, but for now we're just getting a stopgap solution in.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

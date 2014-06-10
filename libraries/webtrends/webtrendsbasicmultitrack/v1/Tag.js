@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.v1.Tag", {
 		async: true,
 		description: "Use multiTrack for sending back custom data, or overriding the values from Webtrends' standard set of data.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

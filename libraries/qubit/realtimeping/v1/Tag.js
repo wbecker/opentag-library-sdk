@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 		async: true,
 		description: "Used for realtime stats in Deliver. Must have QTracker as a dependency.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

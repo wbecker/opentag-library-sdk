@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv15.v1.Tag", {
 		async: true,
 		description: "To be placed on the homepage only",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

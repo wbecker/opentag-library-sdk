@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv15.v1.Tag", {
 		async: true,
 		description: "To be placed on the confirmation page only. Make sure that the order total is a valid number and has a dot as decimal point.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

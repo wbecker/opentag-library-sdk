@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 		async: true,
 		description: "To be placed on confirmation page.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

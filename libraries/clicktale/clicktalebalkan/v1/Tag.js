@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.v1.Tag", {
 		async: true,
 		description: "New Balkan version of ClickTale mouse tracking",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${clicktale_url}",

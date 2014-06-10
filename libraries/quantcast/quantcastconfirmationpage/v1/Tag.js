@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.v1.Tag", {
 		async: true,
 		description: "To be placed on the confirmation page instead of the regular Quantcast tag.",
 		html: "\n",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

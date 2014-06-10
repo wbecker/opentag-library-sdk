@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.v1.Tag", {
 		async: true,
 		description: "In-page chat widget, with Google Analytics tracking.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

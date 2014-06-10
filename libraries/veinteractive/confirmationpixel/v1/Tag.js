@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("veinteractive.confirmationpixel.v1.Tag", {
 		async: true,
 		description: "Tag to be added only to the confirmation page",
 		html: "<img src=\"//drs2.veinteractive.com/DataReceiverService.asmx/Pixel?journeycode=${id}\" width=\"1\" height=\"1\"/>",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

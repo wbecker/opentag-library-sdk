@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("cryptojs.sha1hashingv312.v1.Tag", {
 		async: true,
 		description: "e.g. var hash = CryptoJS.SHA1(\"Message\").toString();",
 		html: "",
-		imageUrl: "http://",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

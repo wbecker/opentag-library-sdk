@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sizzle.sizzle144.v1.Tag", {
 		async: true,
 		description: "A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/sizzle/1.4.4/sizzle.min.js",

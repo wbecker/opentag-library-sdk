@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.v1.Tag", {
 		async: true,
 		description: "DO NOT USE. Peerius tag for the order page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "pt.peerius.com/tracker/peerius.page",

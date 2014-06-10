@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("smartfocus.d404page.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "js.advisor.smartfocus.com/advisor.min.js",

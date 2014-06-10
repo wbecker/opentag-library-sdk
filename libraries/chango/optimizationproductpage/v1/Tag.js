@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("chango.optimizationproductpage.v1.Tag", {
 		async: true,
 		description: "",
 		html: "<!--@SRC@-->",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -68,52 +67,52 @@ qubit.opentag.LibraryTag.define("chango.optimizationproductpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-            window.__cho__ = {
-                    "data": {
-                            "pt": "product",
-                            "na": "" + this.valueForToken("name"),
-                            "op": this.valueForToken("price"),
-                            "sp": this.valueForToken("sale_price"),
-                            "sku": "" + this.valueForToken("sku"),
-                            "pc": "" + this.valueForToken("cat")
-                    },
-                    "pid": "" + this.valueForToken("chango_id"),
-                    "puid2": "" + this.valueForToken("visitor_id")
-            };
+		window.__cho__ = {
+			"data": {
+				"pt": "product",
+				"na": "" + this.valueForToken("name"),
+				"op": this.valueForToken("price"),
+				"sp": this.valueForToken("sale_price"),
+				"sku": "" + this.valueForToken("sku"),
+				"pc": "" + this.valueForToken("cat")
+			},
+			"pid": "" + this.valueForToken("chango_id"),
+			"puid2": "" + this.valueForToken("visitor_id")
+		};
 
-            if (this.valueForToken("track_basket")) {
-                    var stringifiedArrayOfObjects = function(data) {
-                            var string = "";
-                            for (var obj in data) {
-                                    if (data.hasOwnProperty(obj)) {
-                                            for (var prop in data[obj]) {
-                                                    if (data[obj].hasOwnProperty(prop)) {
-                                                            string += "," + prop + ':' + data[obj][prop];
-                                                    }
-                                            }
-                                    }
-                            }
-                            string = string.replace(/^,/, '');
-                            return encodeURI(string);
-                    };
+		if (this.valueForToken("track_basket")) {
+			var stringifiedArrayOfObjects = function(data) {
+				var string = "";
+				for (var obj in data) {
+					if (data.hasOwnProperty(obj)) {
+						for (var prop in data[obj]) {
+							if (data[obj].hasOwnProperty(prop)) {
+								string += "," + prop + ':' + data[obj][prop];
+							}
+						}
+					}
+				}
+				string = string.replace(/^,/, '');
+				return encodeURI(string);
+			};
 
-                    var basketItems = [];
+			var basketItems = [];
 
-                    for (var i = 0; i < this.valueForToken("skus").length; i++) {
-                            basketItems.push({
-                                    na: this.valueForToken("names")[i] + "",
-                                    sku: this.valueForToken("skus")[i] + ""
-                            });
-                    }
+			for (var i = 0; i < this.valueForToken("skus").length; i++) {
+				basketItems.push({
+					na: this.valueForToken("names")[i] + "",
+					sku: this.valueForToken("skus")[i] + ""
+				});
+			}
 
-                    __cho__.data["crt"] = stringifiedArrayOfObjects(basketItems);
-            }
+			__cho__.data["crt"] = stringifiedArrayOfObjects(basketItems);
+		}
 
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.async = true;
-            script.src = document.location.protocol + '//cc.chango.com/static/o.js';
-            document.head.appendChild(script);
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.async = true;
+		script.src = document.location.protocol + '//cc.chango.com/static/o.js';
+		document.head.appendChild(script);
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mythings.endoftransactiontag.v1.Tag", {
 		async: true,
 		description: "The tag should be placed on the end of transaction page.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${subdomain}.mythings.com/c.aspx?atok=${token}",

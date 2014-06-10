@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The tag is placed on final checkout confirmation page only.",
 			html: "",
-			imageUrl: "",
 			locationDetail: "",
 			isPrivate: true,
 			url: "www.ist-track.com/ProcessPurchaseJavaScript.ashx?companyId=${id}",

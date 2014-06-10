@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 		async: true,
 		description: "The script should be added to the Order Confirmation page on the website. The purpose of this script is to capture the relevant details relating to the user's order.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

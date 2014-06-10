@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55deprecated.v1.Tag", {
 		async: true,
 		description: "SessionCam v5.5",
 		html: "<!-- www.SessionCam.com Client Integration v5.5 -->\n\n<!-- SessionCam -->",
-		imageUrl: "http://www.sessioncam.com/wp-content/themes/v2.0/images/logo.png",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",
@@ -45,7 +44,7 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55deprecated.v1.Tag", {
 					objIdArr = [],
 					listenersArr = [],
 					storedAltContent, storedAltContentId, storedCallbackFn, storedCallbackObj,
-						isDomLoaded = false,
+					isDomLoaded = false,
 					isExpressInstallActive = false,
 					dynamicStylesheet, dynamicStylesheetMedia, autoHideShow = true,
 					ua = function() {

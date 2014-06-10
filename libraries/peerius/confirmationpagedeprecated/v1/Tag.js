@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpagedeprecated.v1.Tag", {
 		async: true,
 		description: "Peerius tag for the confirmation page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "${client_id}.peerius.com/tracker/peerius.page",

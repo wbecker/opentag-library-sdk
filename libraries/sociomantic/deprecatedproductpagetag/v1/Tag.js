@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.v1.Tag", {
 		async: true,
 		description: "This tracking code needs to go on all product pages in order to know which\nproducts user was interested in",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${ADVERTISER_TOKEN}",

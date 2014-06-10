@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestbasketpage.v1.Tag", {
 		async: true,
 		description: "Test Universal Variables on a basket page",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

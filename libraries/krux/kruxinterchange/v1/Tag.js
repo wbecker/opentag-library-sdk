@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("krux.kruxinterchange.v1.Tag", {
 		async: true,
 		description: "Leverage data to inform first party targeting of advertising, content, or commerce on your own web properties",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "http://cdn.krxd.net/krux.js",

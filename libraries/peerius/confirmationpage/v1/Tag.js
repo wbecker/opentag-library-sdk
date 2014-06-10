@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpage.v1.Tag", {
 		async: true,
 		description: "Peerius tag for the confirmation page, where 'type' = 'order'.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "${client_id}.peerius.com/tracker/peerius.page",

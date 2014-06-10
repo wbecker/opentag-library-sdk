@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
 		async: true,
 		description: "To be placed on the basket/cart page for cart abandonment targeting.",
 		html: " ",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

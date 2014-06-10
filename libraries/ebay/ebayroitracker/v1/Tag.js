@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 		async: true,
 		description: "A free campaign measurement tool available to all merchants. Displays product, category and order- level performance to give you the right visibility to effectively optimize for success.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "stat.dealtime.com/ROI/ROI2.js",

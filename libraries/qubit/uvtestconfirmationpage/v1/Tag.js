@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestconfirmationpage.v1.Tag", {
 		async: true,
 		description: "This script contains every confirmation page variable so that you can test your universal variable setup",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

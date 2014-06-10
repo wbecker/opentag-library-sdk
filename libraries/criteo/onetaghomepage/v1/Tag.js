@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v1.Tag", {
 		async: true,
 		description: "The home page tag has to be integrated on the home page of the advertiser website.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "static.criteo.net/js/ld/ld.js",

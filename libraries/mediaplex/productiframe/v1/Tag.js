@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mediaplex.productiframe.v1.Tag", {
 		async: true,
 		description: "The product iframe passes a pageview, product SKU, and the category/subcategory the product belongs in.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

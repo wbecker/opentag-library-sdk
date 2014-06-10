@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("connextra.datacapturetag.v1.Tag", {
 		async: true,
 		description: "The Data Capture feature will allow Connextra to locate content relating to the Account Name and the \namount bet or deposited from your website and store into Connextra stats for analytical purposes. For \ndata protection, you are required to encrypt any sensitive information about your customers.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

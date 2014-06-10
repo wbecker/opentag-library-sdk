@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.v1.Tag", {
 		async: true,
 		description: "The Emailvision tag to be used on confirmation pages.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

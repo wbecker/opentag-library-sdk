@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sociomantic.confirmationtag.v1.Tag", {
 		async: true,
 		description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "eu-sonar.sociomantic.com/js/2010-07-01/adpan/${advertiserid}",

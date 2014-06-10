@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagrentalcarsearch.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -65,17 +64,17 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagrentalcarsearch.v1.Tag", {
 		/*SCRIPT*/
 
 
-			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
-				this.valueForToken("sojern_partner_key") + "/rs?";
-			src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
-			src += "rc1=" + this.valueForToken("pickup_city") + "&";
-			src += "rd1=" + this.valueForToken("pickup_date") + "&";
-			src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
-			src += "rc2=" + this.valueForToken("dropoff_city") + "&";
-			src += "rd2=" + this.valueForToken("dropoff_date") + "&";
-			src += "rc=" + this.valueForToken("car_class") + "&";
-			src += "t=" + this.valueForToken("number_of_travellers");
-			(new Image()).src = src;
+		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+			this.valueForToken("sojern_partner_key") + "/rs?";
+		src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
+		src += "rc1=" + this.valueForToken("pickup_city") + "&";
+		src += "rd1=" + this.valueForToken("pickup_date") + "&";
+		src += "ra2=" + this.valueForToken("airport_to_dropoff") + "&";
+		src += "rc2=" + this.valueForToken("dropoff_city") + "&";
+		src += "rd2=" + this.valueForToken("dropoff_date") + "&";
+		src += "rc=" + this.valueForToken("car_class") + "&";
+		src += "t=" + this.valueForToken("number_of_travellers");
+		(new Image()).src = src;
 
 		/*~SCRIPT*/
 	},

@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghomepage.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "pixel.sojern.com/partner/${sojern_partner_key}/hp?n=${page_name}",

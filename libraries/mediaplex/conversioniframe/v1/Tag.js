@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.v1.Tag", {
 		async: true,
 		description: "The conversion iframe sends order details such as total, id, item count, and currency.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

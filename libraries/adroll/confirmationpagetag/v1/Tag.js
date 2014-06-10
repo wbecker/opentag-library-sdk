@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.v1.Tag", {
 		async: true,
 		description: "Tag must be implemented on the confirmation page after user has made payment.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

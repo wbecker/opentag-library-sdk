@@ -8,7 +8,6 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "",
 			html: "",
-			imageUrl: ".",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -26,7 +25,7 @@ qubit.opentag.LibraryTag.define(
 			/*SCRIPT*/
 
 			(new Image()).src = "https://beacon.sojern.com/p/1?vpid=" +
-                                this.valueForToken("product_id") + "";
+				this.valueForToken("product_id") + "";
 			/*~SCRIPT*/
 		},
 		pre: function() {

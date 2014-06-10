@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.v1.Tag", {
 		async: true,
 		description: "Load Lodash from a CDN in noConflict. Compat mode is loaded, so works in IE8.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/lodash.js/${version}/lodash.compat.min.js",

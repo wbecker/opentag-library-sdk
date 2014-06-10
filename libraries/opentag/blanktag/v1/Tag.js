@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("opentag.blanktag.v1.Tag", {
 		async: true,
 		description: "A blank tag",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

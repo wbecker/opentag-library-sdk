@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 		async: true,
 		description: "Engage Web Tracking is a tool that tracks visits to your Web sites. You can link this data to individual contacts \nand then target communications to contacts based on their Web behaviors.",
 		html: "<meta name=\"com.silverpop.page_name\" content=\"${page_name}\"/>\n<meta name=\"com.silverpop.brandeddomains\" content=\"${branded_domains}\" />\n\n",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

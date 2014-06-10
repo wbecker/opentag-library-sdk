@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("lessjs.lessjs113.v1.Tag", {
 		async: true,
 		description: "LESS extends CSS with dynamic behavior such as variables, mixins, operations and functions. LESS runs on both the client-side (IE 6+, Webkit, Firefox) and server-side, with Node.js.",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "cdnjs.cloudflare.com/ajax/libs/less.js/1.1.3/less-1.1.3.min.js",

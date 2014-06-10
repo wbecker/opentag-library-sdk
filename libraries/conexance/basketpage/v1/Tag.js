@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
 		async: true,
 		description: "Picks up on basket page abandonment",
 		html: "",
-		imageUrl: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
