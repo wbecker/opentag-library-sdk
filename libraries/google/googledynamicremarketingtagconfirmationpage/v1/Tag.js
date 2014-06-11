@@ -14,20 +14,20 @@ qubit.opentag.LibraryTag.define(
 			usesDocWrite: false,
 			upgradeable: true,
 			parameters: [{
-				name: "Product IDs",
-				description: "Product IDs",
+				name: "Array of Product IDs",
+				description: "Array of Product IDs",
 				token: "product_ids",
-				uv: "universal_variable.transaction.line_items[#].product.sku_code"
+				uv: "universal_variable.transaction.line_items[#].product.id"
 			}, {
-				name: "Product Categories",
-				description: "Product Categories",
+				name: "Array of Product Categories",
+				description: "Array of Product Categories",
 				token: "product_categories",
 				uv: "universal_variable.transaction.line_items[#].product.category"
 			}, {
-				name: "Product Values",
-				description: "Product Values",
+				name: "Array of Product Unit Sale Prices",
+				description: "Array of Product Unit Sale Prices",
 				token: "product_values",
-				uv: "universal_variable.transaction.line_items[#].product.unit_price"
+				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 			}, {
 				name: "Page Category",
 				description: "Page Category",
@@ -37,16 +37,6 @@ qubit.opentag.LibraryTag.define(
 				name: "Google Conversion ID",
 				description: "Google Conversion ID",
 				token: "google_id",
-				uv: ""
-			}, {
-				name: "Google Conversion ID",
-				description: "Google Conversion ID",
-				token: "google_conversion_id",
-				uv: ""
-			}, {
-				name: "Google Conversion Label",
-				description: "Google Conversion Label",
-				token: "google_conversion_label",
 				uv: ""
 			}]
 			/*~DATA*/
@@ -72,9 +62,7 @@ qubit.opentag.LibraryTag.define(
 				ecomm_pvalue: productValuesArray
 			};
 
-			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label = "" + this.valueForToken(
-				"google_conversion_label");
+			window.google_conversion_id = this.valueForToken("google_id");
 			window.google_custom_params = window.google_tag_params;
 			window.google_remarketing_only = true;
 
