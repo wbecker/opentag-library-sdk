@@ -899,6 +899,7 @@ a.plain:hover {background-color:#fcfafa;}
   line-height: 1;
   border: 1px solid rgb(231, 231, 231);
   margin: 8px;
+  font-size: 11pt;
 }
 
 .CodeMirror-foldgutter-open, .CodeMirror-foldgutter-folded {

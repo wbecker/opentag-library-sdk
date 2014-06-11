@@ -544,12 +544,35 @@ function renderAllLibrariesToPage() {
 				}
 			}
 		});
-	
-		for (var f = 0; f < libraries.length; f++) {
-			var vendorNode = libraries[f][0];
-			var libraryClass = libraries[f][1];
-			addLibrary(vendorNode, libraryClass);
-		}
+		
+		var librariesToRender = libraries.length;
+		var counted = 0;
+		theProgressBar("Rendering...", function () {
+			console.log([counted, librariesToRender])
+			return 100 * (counted/librariesToRender);
+		});
+				
+		(function (vendorNode) {
+			var idx = 0;
+			var callback = function () {
+				counted++;
+				if (idx === libraries.length) return;
+				
+				var vendorNode = libraries[idx][0];
+				var libraryClass = libraries[idx][1];
+				addLibrary(vendorNode, libraryClass);
+				idx++;
+				setTimeout(callback, 4);
+			};
+			callback();
+		}(vendorNode));
+		
+		
+//		for (var f = 0; f < libraries.length; f++) {
+//			var vendorNode = libraries[f][0];
+//			var libraryClass = libraries[f][1];
+//			addLibrary(vendorNode, libraryClass);
+//		}
 		
     librariesNode.appendChild(vendorNode);
   }

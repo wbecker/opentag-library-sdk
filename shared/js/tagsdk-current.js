@@ -8301,7 +8301,8 @@ var JSON = {};
     try {
       return !!this.config.customScript(this.getSession());
     } catch (ex) {
-      this.log.ERROR("Filter match throws exception:" + ex);
+      this.log.FINE("Filter match throws exception:" + ex);
+      return false;
     }
   };
   
