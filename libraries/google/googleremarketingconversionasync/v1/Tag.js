@@ -18,16 +18,6 @@ qubit.opentag.LibraryTag.define(
 				description: "Google Conversion ID",
 				token: "google_id",
 				uv: ""
-			}, {
-				name: "Google Conversion ID",
-				description: "Your Google id provided in the script",
-				token: "conversion_id",
-				uv: ""
-			}, {
-				name: "Google Conversion Label",
-				description: "A alphanumeric label of your conversion tracking",
-				token: "label",
-				uv: ""
 			}]
 			/*~DATA*/
 		},
@@ -41,12 +31,19 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-			window.google_trackConversion({
-				google_conversion_id: "" + this.valueForToken("conversion_id"),
-				google_conversion_label: "" + this.valueForToken("label"),
-				google_custom_params: {}
-			});
+			var _this = this;
+			var poll = function() {
+				if (window.google_trackConversion) {
+					google_trackConversion({
+						google_conversion_id: "" + _this.valueForToken("google_id"),
+						google_custom_params: {}
+					});
+				} else {
+					setTimeout(poll, 100);
+				}
+			};
 
+			poll();
 			/*~POST*/
 		}
 	});
