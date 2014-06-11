@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define(
 			/*DATA*/
 			name: "Google Retargeting Conversion Async with custom parameters",
 			async: true,
-			description: "Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
+			description: "",
 			html: "",
 			locationDetail: "",
 			isPrivate: false,
@@ -17,16 +17,6 @@ qubit.opentag.LibraryTag.define(
 				name: "Google Conversion ID",
 				description: "Google Conversion ID",
 				token: "google_id",
-				uv: ""
-			}, {
-				name: "Conversion ID",
-				description: "",
-				token: "conversion_id",
-				uv: ""
-			}, {
-				name: "Conversion Label",
-				description: "",
-				token: "conversion_label",
 				uv: ""
 			}]
 			/*~DATA*/
@@ -41,13 +31,20 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-			window.google_trackConversion({
-				google_conversion_id: this.valueForToken("conversion_id"),
-				google_conversion_label: "" + this.valueForToken("conversion_label"),
-				google_custom_params: window.google_tag_params || {},
-				google_remarketing_only: true
-			});
+			var _this = this;
+			var poll = function() {
+				if (window.google_trackConversion) {
+					window.google_trackConversion({
+						google_conversion_id: _this.valueForToken("google_id"),
+						google_custom_params: window.google_tag_params || {},
+						google_remarketing_only: true
+					});
+				} else {
+					setTimeout(poll, 100);
+				}
+			};
 
+			poll();
 			/*~POST*/
 		}
 	});
