@@ -224,9 +224,6 @@ qubit.opentag.LibraryTag.define(
 
 			// Start up
 			Adapater.initialize(dataLayerOptions);
-
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {
