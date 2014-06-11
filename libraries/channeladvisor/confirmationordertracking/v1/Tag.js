@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define(
 			/*DATA*/
 			name: "Confirmation - Order Tracking",
 			async: true,
-			description: "The Order Tracking pixels captures order and conversion information which is used to measure the effectiveness of each campaign.	The code has several parameters ( order value, order ID, Product ID ) that will need to be integrated and customized for the particular store or shopping cart.",
+			description: "The Order Tracking pixels captures order and conversion information which is used to measure the effectiveness of each campaign.  The code has several parameters ( order value, order ID, Product ID ) that will need to be integrated and customized for the particular store or shopping cart.",
 			html: "",
 			locationDetail: "",
 			isPrivate: false,
@@ -71,14 +71,13 @@ qubit.opentag.LibraryTag.define(
 					Quantity: this.valueForToken("qty_list")[i]
 				});
 			}
-
+			
 			_caq.push(["Order", {
 				OrderId: "" + this.valueForToken("order_id"),
 				oVal: "" + this.valueForToken("order_subtotal"),
 				CurrencyCode: "" + this.valueForToken("order_currency"),
 				Products: products
 			}]);
-
 			/*~POST*/
 		}
 	});
