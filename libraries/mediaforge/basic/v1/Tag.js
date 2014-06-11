@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("mediaforge.basic.v1.Tag", {
 		name: "Basic",
 		async: true,
 		description: "The Basic Tag might be placed on a home/landing page where no product or category specific information is available.",
-		html: "<script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}\"></script><!--@SRC@-->",
+		html: "<script type=\"text/javascript\" src=\"//tags.mediaforge.com/js/${merchant_id}\"></script>",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
