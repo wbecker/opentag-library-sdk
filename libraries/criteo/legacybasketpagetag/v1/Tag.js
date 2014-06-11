@@ -43,8 +43,13 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 		var src = [
-			"https://", "sslwidget.criteo.com", "/", "" + this.valueForToken(
-				"call_parameter") + "", "/", "display.js?", "p1="
+			"https://",
+			"sslwidget.criteo.com",
+			"/",
+			this.valueForToken("call_parameter") + "",
+			"/",
+			"display.js?",
+			"p1="
 		];
 		var params = [
 			"v=2",
