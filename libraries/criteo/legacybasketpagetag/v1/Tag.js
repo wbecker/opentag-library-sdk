@@ -60,8 +60,8 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 			var index = i + 1;
 			params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
-			params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[
-				i]);
+			params.push("&p" + index + "=" + 
+					this.valueForToken("product_unit_prices")[i]);
 			params.push("&q" + index + "=" + this.valueForToken("quantities")[i]);
 		}
 		src.push(escape(params.join("")));
