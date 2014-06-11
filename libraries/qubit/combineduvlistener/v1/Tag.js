@@ -19,7 +19,6 @@ qubit.opentag.LibraryTag.define("qubit.combineduvlistener.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		if (!(JSON && JSON.stringify && JSON.parse &&
 			typeof JSON.stringify === "function" &&
 			typeof JSON.parse === "function")) {
@@ -246,23 +245,23 @@ qubit.opentag.LibraryTag.define("qubit.combineduvlistener.v1.Tag", {
 		/*** INTENDED API ***/
 
 		/* USAGE
-  Change listening:
+			Change listening:
 
-  Fire a callback function on any change to UV:
-    window.uv_listener.push(["on", "change", callback]);
+			Fire a callback function on any change to UV:
+				window.uv_listener.push(["on", "change", callback]);
 
-  Fire a callback function on any change to specific part of UV:
-    window.uv_listener.push(["on", "change:keyString", callback])
-  where "keyString" is a property path within the UV. For example:
-    "change:transaction" will fire if the transaction object is changed
-    "change:basket.line_items.length" will fire if products are added to ore
-      removed from the basket
+			Fire a callback function on any change to specific part of UV:
+				window.uv_listener.push(["on", "change:keyString", callback])
+			where "keyString" is a property path within the UV. For example:
+				"change:transaction" will fire if the transaction object is changed
+				"change:basket.line_items.length" will fire if products are added to ore
+					removed from the basket
 
-  Event listening:
-    window.uv_listener.push(["on", "event", callback])
-  Note that the callback is expected to take an argument (the event object)
-    and also do the processing to determine if the event is relevant.
-*/
+			Event listening:
+				window.uv_listener.push(["on", "event", callback])
+			Note that the callback is expected to take an argument (the event object)
+				and also do the processing to determine if the event is relevant.
+		*/
 
 		UVListener.push = function(data) {
 			if (!UVListener._isArray(data)) {
