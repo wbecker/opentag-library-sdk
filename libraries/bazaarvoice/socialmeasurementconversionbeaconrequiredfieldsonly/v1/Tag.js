@@ -15,12 +15,12 @@ qubit.opentag.LibraryTag.define(
 			upgradeable: true,
 			parameters: [{
 				name: "Bazaarvoice Merchant Group ID",
-				description: "Should match Merchant Group ID from PowerReviews	Dashboard’s Configure Reviews section",
+				description: "Should match Merchant Group ID from PowerReviews  Dashboard’s Configure Reviews section",
 				token: "group_id",
 				uv: ""
 			}, {
 				name: "Bazaarvoice Merchant ID",
-				description: "Should match Merchant ID from PowerReviews	Dashboard’s Configure Reviews section",
+				description: "Should match Merchant ID from PowerReviews  Dashboard’s Configure Reviews section",
 				token: "merchant_id",
 				uv: ""
 			}, {
@@ -66,38 +66,37 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-			try {
-				var item_count = 0;
-				var items = [];
-
-				for (var i = 0; i < this.valueForToken("ids").length; i++) {
-					items.push([
-						this.valueForToken("ids")[i],
-						"", "",
-						this.valueForToken("qtys")[i],
-						this.valueForToken("prices")[i]
-					]);
-
-					item_count += this.valueForToken("qtys")[i];
+				try {
+					var item_count = 0;
+					var items = (function() {
+						var tmp = [];
+						for (var i = 0; i < this.valueForToken("ids").length; i++) {
+							tmp.push([
+								this.valueForToken("ids")[i],
+								"",
+								"",
+								this.valueForToken("qtys")[i],
+								this.valueForToken("prices")[i]
+							]);
+							item_count += this.valueForToken("qtys")[i];
+						}
+						return tmp;
+					})();
+					var tracker = POWERREVIEWS.tracker.createTracker({
+						merchantGroupId: "" + this.valueForToken("group_id") + ""
+					});
+					tracker.trackPageview("c", {
+						merchantId: "" + this.valueForToken("merchant_id"),
+						locale: "en_US",
+						merchantUserId: "" + this.valueForToken("merchant_user_id"),
+						orderId: "" + this.valueForToken("order_id"),
+						orderSubtotal: "" + this.valueForToken("order_subtotal"),
+						orderNumberOfItems: String(item_count),
+						orderItems: items
+					});
+				} catch (e) {
+					window.console && window.console.log(e)
 				}
-
-				var tracker = POWERREVIEWS.tracker.createTracker({
-					merchantGroupId: "" + this.valueForToken("group_id")
-				});
-
-				tracker.trackPageview("c", {
-					merchantId: "" + this.valueForToken("merchant_id"),
-					locale: "en_US",
-					merchantUserId: "" + this.valueForToken("merchant_user_id"),
-					orderId: "" + this.valueForToken("order_id"),
-					orderSubtotal: "" + this.valueForToken("order_subtotal"),
-					orderNumberOfItems: String(item_count),
-					orderItems: items
-				});
-			} catch (e) {
-				window.console && window.console.log(e);
-			}
-
 			/*~POST*/
 		}
 	});
