@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define(
 			/*DATA*/
 			name: "Google Remarketing Conversion Async, with additional parameters",
 			async: true,
-			description: "Contains additional parameters including color, language, and format.",
+			description: "Contains additional parameters including color, language, and format. Also includes custom parameter support.",
 			html: "",
 			locationDetail: "",
 			isPrivate: false,
@@ -19,35 +19,25 @@ qubit.opentag.LibraryTag.define(
 				token: "id",
 				uv: ""
 			}, {
-				name: "Google Conversion Language",
-				description: "e.g. \"en\"",
+				name: "Language",
+				description: "Language",
 				token: "lang",
 				uv: ""
 			}, {
-				name: "Google Conversion Format",
-				description: "The format of the conversion, e.g. \"3\"",
+				name: "Format",
+				description: "Format",
 				token: "format",
 				uv: ""
 			}, {
-				name: "Google Conversion Color",
-				description: "The related color to the conversion, e.g. \"ffffff\"",
+				name: "Color",
+				description: "Color",
 				token: "color",
 				uv: ""
 			}, {
-				name: "Google Conversion Value",
-				description: "The value associated with the conversion.",
+				name: "Value",
+				description: "Value",
 				token: "value",
-				uv: ""
-			}, {
-				name: "Google Conversion ID",
-				description: "Your Google id provided in the script",
-				token: "conversion_id",
-				uv: ""
-			}, {
-				name: "Google Conversion Label",
-				description: "A alphanumeric label of your conversion tracking",
-				token: "label",
-				uv: ""
+				uv: "universal_variable.transaction.subtotal"
 			}]
 			/*~DATA*/
 		},
@@ -61,16 +51,23 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-			window.google_trackConversion({
-				google_conversion_id: this.valueForToken("conversion_id"),
-				google_conversion_label: "" + this.valueForToken("label"),
-				google_conversion_language: "" + this.valueForToken("lang"),
-				google_conversion_format: "" + this.valueForToken("format"),
-				google_conversion_color: "" + this.valueForToken("color"),
-				google_conversion_value: this.valueForToken("value"),
-				google_custom_params: window.google_tag_params || {}
-			});
+			var _this = this;
+			var poll = function() {
+				if (window.google_trackConversion) {
+					window.google_trackConversion({
+						google_conversion_id: _this.valueForToken("id"),
+						google_conversion_language: "" + _this.valueForToken("lang"),
+						google_conversion_format: "" + _this.valueForToken("format"),
+						google_conversion_color: "" + _this.valueForToken("color"),
+						google_conversion_value: _this.valueForToken("value"),
+						google_custom_params: window.google_tag_params || {}
+					});
+				} else {
+					setTimeout(poll, 100);
+				}
+			};
 
+			poll();
 			/*~POST*/
 		}
 	});
