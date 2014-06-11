@@ -26,7 +26,7 @@ code.google.com/p/crypto-js
 (c) 2009-2013 by Jeff Mott. All rights reserved.
 code.google.com/p/crypto-js/wiki/License
 */
-		window.CryptoJS = CryptoJS || function(s, p) {
+		window.CryptoJS = window.CryptoJS || function(s, p) {
 			var m = {}, l = m.lib = {}, n = function() {}, r = l.Base = {
 					extend: function(b) {
 						n.prototype = this;
@@ -68,8 +68,9 @@ code.google.com/p/crypto-js/wiki/License
 						b = b.sigBytes;
 						this.clamp();
 						if (j % 4)
-							for (var g = 0; g < b; g++) h[j + g >>> 2] |= (a[g >>> 2] >>> 24 - 8 *
-								(g % 4) & 255) << 24 - 8 * ((j + g) % 4);
+							for (var g = 0; g < b; g++)
+								h[j + g >>> 2] |= (a[g >>> 2] >>> 24 - 8 *
+									(g % 4) & 255) << 24 - 8 * ((j + g) % 4);
 						else if (65535 < a.length)
 							for (g = 0; g < b; g += 4) h[j + g >>> 2] = a[g >>> 2];
 						else h.push.apply(h, a);
@@ -89,12 +90,12 @@ code.google.com/p/crypto-js/wiki/License
 						return b
 					},
 					random: function(b) {
-						for (var h = [], a = 0; a < b; a += 4) h.push(4294967296 * s.random() |
-							0);
+						for (var h = [], a = 0; a < b; a += 4)
+							h.push(4294967296 * s.random() | 0);
 						return new q.init(h, b)
 					}
 				}),
-				v = m.enc = {}, t = v.Hex = {
+					v = m.enc = {}, t = v.Hex = {
 					stringify: function(b) {
 						var a = b.words;
 						b = b.sigBytes;
@@ -106,22 +107,24 @@ code.google.com/p/crypto-js/wiki/License
 						return g.join("")
 					},
 					parse: function(b) {
-						for (var a = b.length, g = [], j = 0; j < a; j += 2) g[j >>> 3] |=
-							parseInt(b.substr(j,
-								2), 16) << 24 - 4 * (j % 8);
+						for (var a = b.length, g = [], j = 0; j < a; j += 2)
+							g[j >>> 3] |=
+									parseInt(b.substr(j,
+											2), 16) << 24 - 4 * (j % 8);
 						return new q.init(g, a / 2)
 					}
-				}, a = v.Latin1 = {
+					}, a = v.Latin1 = {
 					stringify: function(b) {
 						var a = b.words;
 						b = b.sigBytes;
-						for (var g = [], j = 0; j < b; j++) g.push(String.fromCharCode(a[j >>>
-							2] >>> 24 - 8 * (j % 4) & 255));
+						for (var g = [], j = 0; j < b; j++)
+							g.push(String.fromCharCode(a[j >>>
+									2] >>> 24 - 8 * (j % 4) & 255));
 						return g.join("")
 					},
 					parse: function(b) {
-						for (var a = b.length, g = [], j = 0; j < a; j++) g[j >>> 2] |= (b.charCodeAt(
-							j) & 255) << 24 - 8 * (j % 4);
+						for (var a = b.length, g = [], j = 0; j < a; j++)
+							g[j >>> 2] |= (b.charCodeAt(j) & 255) << 24 - 8 * (j % 4);
 						return new q.init(g, a)
 					}
 				}, u = v.Utf8 = {
@@ -156,7 +159,8 @@ code.google.com/p/crypto-js/wiki/License
 						b = m * k;
 						j = s.min(4 * b, j);
 						if (b) {
-							for (var l = 0; l < b; l += k) this._doProcessBlock(g, l);
+							for (var l = 0; l < b; l += k)
+								this._doProcessBlock(g, l);
 							l = g.splice(0, b);
 							a.sigBytes -= j
 						}
@@ -169,7 +173,7 @@ code.google.com/p/crypto-js/wiki/License
 					},
 					_minBufferSize: 0
 				});
-			l.Hasher = g.extend({
+				l.Hasher = g.extend({
 				cfg: r.extend(),
 				init: function(b) {
 					this.cfg = this.cfg.extend(b);
@@ -196,8 +200,7 @@ code.google.com/p/crypto-js/wiki/License
 				},
 				_createHmacHelper: function(b) {
 					return function(a, g) {
-						return (new k.HMAC.init(b,
-							g)).finalize(a)
+						return (new k.HMAC.init(b, g)).finalize(a)
 					}
 				}
 			});
@@ -224,8 +227,9 @@ code.google.com/p/crypto-js/wiki/License
 				a = a + (b ^ (k | ~h)) + l + m;
 				return (a << j | a >>> 32 - j) + k
 			}
-			for (var r = CryptoJS, q = r.lib, v = q.WordArray, t = q.Hasher, q = r.algo,
-					a = [], u = 0; 64 > u; u++) a[u] = 4294967296 * s.abs(s.sin(u + 1)) | 0;
+			for (var r = CryptoJS, q = r.lib, v = q.WordArray, t = q.Hasher,
+				q = r.algo, a = [], u = 0; 64 > u; u++)
+				a[u] = 4294967296 * s.abs(s.sin(u + 1)) | 0;
 			q = q.MD5 = t.extend({
 				_doReset: function() {
 					this._hash = new v.init([1732584193, 4023233417, 2562383102, 271733878])
@@ -233,9 +237,8 @@ code.google.com/p/crypto-js/wiki/License
 				_doProcessBlock: function(g, k) {
 					for (var b = 0; 16 > b; b++) {
 						var h = k + b,
-							w = g[h];
-						g[h] = (w << 8 | w >>> 24) & 16711935 | (w << 24 | w >>> 8) &
-							4278255360
+								w = g[h];
+						g[h] = (w << 8 | w >>> 24) & 16711935 | (w << 24 | w >>> 8) & 4278255360
 					}
 					var b = this._hash.words,
 						h = g[k + 0],
@@ -331,22 +334,22 @@ code.google.com/p/crypto-js/wiki/License
 				},
 				_doFinalize: function() {
 					var a = this._data,
-						k = a.words,
-						b = 8 * this._nDataBytes,
-						h = 8 * a.sigBytes;
+							k = a.words,
+							b = 8 * this._nDataBytes,
+							h = 8 * a.sigBytes;
 					k[h >>> 5] |= 128 << 24 - h % 32;
-					var l = s.floor(b /
-						4294967296);
+					var l = s.floor(b / 4294967296);
 					k[(h + 64 >>> 9 << 4) + 15] = (l << 8 | l >>> 24) & 16711935 | (l << 24 |
-						l >>> 8) & 4278255360;
+							l >>> 8) & 4278255360;
 					k[(h + 64 >>> 9 << 4) + 14] = (b << 8 | b >>> 24) & 16711935 | (b << 24 |
-						b >>> 8) & 4278255360;
+							b >>> 8) & 4278255360;
 					a.sigBytes = 4 * (k.length + 1);
 					this._process();
 					a = this._hash;
 					k = a.words;
-					for (b = 0; 4 > b; b++) h = k[b], k[b] = (h << 8 | h >>> 24) & 16711935 |
-						(h << 24 | h >>> 8) & 4278255360;
+					for (b = 0; 4 > b; b++)
+						h = k[b], k[b] = (h << 8 | h >>> 24) & 16711935 |
+								(h << 24 | h >>> 8) & 4278255360;
 					return a
 				},
 				clone: function() {
