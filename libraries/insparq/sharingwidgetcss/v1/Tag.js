@@ -33,7 +33,7 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetcss.v1.Tag", {
 			link.media = "all";
 			link.rel = "stylesheet";
 			link.type = "text/css";
-			link.href = "" + this.valueForToken("url") + "";
+			link.href = this.valueForToken("url");
 			document.head.appendChild(link);
 
 		/*~SCRIPT*/
