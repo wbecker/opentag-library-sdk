@@ -14,10 +14,10 @@ qubit.opentag.LibraryTag.define(
 			usesDocWrite: false,
 			upgradeable: true,
 			parameters: [{
-				name: "Product IDs",
-				description: "Product IDs",
+				name: "Array of Product IDs",
+				description: "Array of Product IDs",
 				token: "product_ids",
-				uv: "universal_variable.basket.line_items[#].product.sku_code"
+				uv: "universal_variable.basket.line_items[#].product.id"
 			}, {
 				name: "Array of Product Categories",
 				description: "Array of Product Categories",
@@ -38,31 +38,6 @@ qubit.opentag.LibraryTag.define(
 				description: "Google Conversion ID",
 				token: "google_id",
 				uv: ""
-			}, {
-				name: "Product Categories",
-				description: "Product Categories",
-				token: "product_categories",
-				uv: "universal_variable.basket.line_items[#].product.category"
-			}, {
-				name: "Page Type",
-				description: "Page Type",
-				token: "page_category",
-				uv: "universal_variable.page.category"
-			}, {
-				name: "Product Values",
-				description: "Product Values",
-				token: "product_values",
-				uv: "universal_variable.basket.line_items[#].product.unit_price"
-			}, {
-				name: "Google Conversion ID",
-				description: "Your Google Conversion ID",
-				token: "google_conversion_id",
-				uv: ""
-			}, {
-				name: "Google Conversion Label",
-				description: "Your Google Conversion Label ID",
-				token: "google_conversion_label",
-				uv: ""
 			}]
 			/*~DATA*/
 		},
@@ -73,23 +48,22 @@ qubit.opentag.LibraryTag.define(
 				productIdsArray.push(this.valueForToken("product_ids")[i]);
 			}
 			var productCategoriesArray = [];
-			for (var i = 0; i < this.valueForToken("product_categories").length; i++) {
-				productCategoriesArray.push(this.valueForToken("product_categories")[i]);
+			for (var i = 0; i < this.valueForToken("product_cats").length; i++) {
+				productCategoriesArray.push(this.valueForToken("product_cats")[i]);
 			}
 			var productValuesArray = [];
-			for (var i = 0; i < this.valueForToken("product_values").length; i++) {
-				productValuesArray.push(this.valueForToken("product_values")[i]);
+			for (var i = 0; i < this.valueForToken("prices").length; i++) {
+				productValuesArray.push(this.valueForToken("prices")[i]);
 			}
+
 			window.google_tag_params = {
 				ecomm_prodid: productIdsArray,
-				ecomm_pagetype: '' + this.valueForToken("page_category"),
+				ecomm_pagetype: '' + this.valueForToken("page_cat"),
 				ecomm_pcat: productCategoriesArray,
 				ecomm_pvalue: productValuesArray
 			};
 
-			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label = "" + this.valueForToken(
-				"google_conversion_label");
+			window.google_conversion_id = this.valueForToken("google_id");
 			window.google_custom_params = window.google_tag_params;
 			window.google_remarketing_only = true;
 
