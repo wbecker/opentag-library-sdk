@@ -5,12 +5,12 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 		/*DATA*/
 		name: "Legacy - Basket Page Tag",
 		async: true,
-		description: "The basket tag has to be integrated on the basket or checkout pagee.",
+		description: "The basket tag has to be integrated on the basket or checkout page.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
-		usesDocWrite: false,
+		usesDocWrite: true,
 		upgradeable: true,
 		parameters: [{
 			name: "Criteo wi Parameter",
@@ -66,15 +66,10 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "1");
 		document.body.appendChild(img);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {
 		/*PRE*/
-		//exit
-
-
 		/*~PRE*/
 	},
 	post: function() {
