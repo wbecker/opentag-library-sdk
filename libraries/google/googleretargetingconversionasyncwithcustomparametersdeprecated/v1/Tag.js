@@ -38,7 +38,7 @@ qubit.opentag.LibraryTag.define(
 			/*POST*/
 			window.google_trackConversion({
 				google_conversion_id: this.valueForToken("conversion_id"),
-				google_conversion_label: "" + this.valueForToken("conversion_label") + "",
+				google_conversion_label: "" + this.valueForToken("conversion_label"),
 				google_custom_params: window.google_tag_params || {},
 				google_remarketing_only: true
 			});
