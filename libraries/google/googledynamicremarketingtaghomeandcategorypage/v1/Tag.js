@@ -23,33 +23,16 @@ qubit.opentag.LibraryTag.define(
 				description: "Page Category",
 				token: "cat",
 				uv: "universal_variable.page.category"
-			}, {
-				name: "Page Type",
-				description: "Page Type",
-				token: "page_category",
-				uv: "universal_variable.page.category"
-			}, {
-				name: "Google Conversion ID",
-				description: "Your Google Conversion ID",
-				token: "google_conversion_id",
-				uv: ""
-			}, {
-				name: "Google Conversion Label",
-				description: "Your Google Conversion Label ID",
-				token: "google_conversion_label",
-				uv: ""
 			}]
 			/*~DATA*/
 		},
 		script: function() {
 			/*SCRIPT*/
 			window.google_tag_params = {
-				ecomm_pagetype: '' + this.valueForToken("page_category")
+				ecomm_pagetype: '' + this.valueForToken("cat")
 			};
 
-			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label = "" + this.valueForToken(
-				"google_conversion_label");
+			window.google_conversion_id = this.valueForToken("google_id");
 			window.google_custom_params = window.google_tag_params;
 			window.google_remarketing_only = true;
 
