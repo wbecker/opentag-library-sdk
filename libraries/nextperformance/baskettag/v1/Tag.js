@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("nextperformance.baskettag.v1.Tag", {
 		name: "Basket Tag",
 		async: true,
 		description: "Tag to be inserted on the shopping carts pages, pre-confirmation.",
-		html: "<script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${zid}\"></script><!--@SRC@-->",
+		html: "<script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${zid}\"></script>",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
