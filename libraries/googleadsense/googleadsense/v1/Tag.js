@@ -50,7 +50,6 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-
 		window.adsbygoogle = window.adsbygoogle || [];
 
 		var ins = document.createElement("ins");
@@ -59,15 +58,13 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 		ins.style.width = this.valueForToken("width") + "px";
 		ins.style.height = this.valueForToken("height") + "px";
 
-		ins.setAttribute("data-ad-client", "ca-pub-" + this.valueForToken(
-			"ad_client"));
+		ins.setAttribute("data-ad-client", "ca-pub-" +
+				this.valueForToken("ad_client"));
 		ins.setAttribute("data-ad-slot", "" + this.valueForToken("ad_slot"));
 		document.getElementById("" + this.valueForToken("parent_id")).appendChild(
 			ins);
 
 		window.adsbygoogle.push({});
-
-
 		/*~POST*/
 	}
 });
