@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationproductpage.v1.Tag", {
 		name: "Optimization - Product Page",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

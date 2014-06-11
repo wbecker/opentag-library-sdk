@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("tenderapp.tenderapp.v1.Tag", {
 		name: "Tender App",
 		async: true,
 		description: "Web 2.0 based support desk and knowlegebase software.",
-		html: "<script type=\"text/javascript\" src=\"//${SUBDOMAIN}.tenderapp.com/tender_widget.js\"></script><!--@SRC@-->",
+		html: "<script type=\"text/javascript\" src=\"//${SUBDOMAIN}.tenderapp.com/tender_widget.js\"></script>",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

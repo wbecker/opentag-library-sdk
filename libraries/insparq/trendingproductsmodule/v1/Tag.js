@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("insparq.trendingproductsmodule.v1.Tag", {
 		name: "Trending Products Module",
 		async: true,
 		description: "",
-		html: "<!--@SRC@-->",
+		html: "",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",

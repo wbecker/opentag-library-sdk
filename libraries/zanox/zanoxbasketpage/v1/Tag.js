@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.v1.Tag", {
 		name: "Zanox Basket Page",
 		async: true,
 		description: "Basket Page Master Tag",
-		html: "<!--@SRC@--><div class=\"zx_${id} zx_mediaslot\"></div>\n",
+		html: "<div class=\"zx_${id} zx_mediaslot\"></div>\n",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
