@@ -68,17 +68,18 @@ qubit.opentag.LibraryTag.define(
 			/*POST*/
 				try {
 					var item_count = 0;
+					var _this = this;
 					var items = (function() {
 						var tmp = [];
-						for (var i = 0; i < this.valueForToken("ids").length; i++) {
+						for (var i = 0; i < _this.valueForToken("ids").length; i++) {
 							tmp.push([
-								this.valueForToken("ids")[i],
+								_this.valueForToken("ids")[i],
 								"",
 								"",
-								this.valueForToken("qtys")[i],
-								this.valueForToken("prices")[i]
+								_this.valueForToken("qtys")[i],
+								_this.valueForToken("prices")[i]
 							]);
-							item_count += this.valueForToken("qtys")[i];
+							item_count += _this.valueForToken("qtys")[i];
 						}
 						return tmp;
 					})();
