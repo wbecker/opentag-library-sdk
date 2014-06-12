@@ -217,7 +217,7 @@ function reloadTagHandler(refNode) {
       qubit.opentag.Utils.geval(msg);
       var libraryClass = Utils.getObjectUsingPath(tagRef.PACKAGE_NAME + ".Tag");
 			libraryClass.versionClassPath = versionCP;
-      renderLibraryToNode(libraryClass ,null, null, cfg);
+      renderLibraryToNode(libraryClass, null, null, cfg);
     } catch (ex) {
       logError("Error loading tag: " + ex);
     }
