@@ -517,15 +517,15 @@ function renderAllLibrariesToPage() {
             .replace(bClass.versionClassPath + ".", "");
 				}
 								
-				var strA = versionStringA.replace(/\._/g,".").replace(/[\d+\.]/g,"");
-				var strB = versionStringB.replace(/\._/g,".").replace(/[\d+\.]/g,"");
-				if (strA !== strB) {
-					if (strA > strB ) {
-						return 1;
-					} else if (strA < strB) {
-						return -1;
-					}
-				}
+//				var strA = versionStringA.replace(/\._/g,".").replace(/[\d+\.]/g,"");
+//				var strB = versionStringB.replace(/\._/g,".").replace(/[\d+\.]/g,"");
+//				if (strA !== strB) {
+//					if (strA > strB ) {
+//						return 1;
+//					} else if (strA < strB) {
+//						return -1;
+//					}
+//				}
 				return  compareVersions(versionStringA, versionStringB);
 			} else {
 				if (aConf.name > bConf.name) {
@@ -613,35 +613,61 @@ function loadAllLibs(scriptsPassed) {
 }
 
 function compareVersions(A, B) {
-	var numA = A.replace(/[^\d\.]/g, "").replace(/\./g, ".");
-	var chunksA = numA.split(".")
-	var numB = B.replace(/[^\d\.]/g, "").replace(/\./g, ".");
+	var numA = A.replace(/\.+/g, ".").replace(/\._/g,".");
+	var chunksA = numA.split(".");
+	var numB = B.replace(/\.+/g, ".").replace(/\._/g,".");
 	var chunksB = numB.split(".");
 	var lesser = null;
-	//FIND LESSER THAN
-	for (var i = 0; i < chunksA.length && i < chunksB.length; i++) {
-		var b = chunksB[i];
-		var a = chunksA[i];
-		var sub = a.charAt(0) === "0"
-				|| b.charAt(0) === "0";
-		
-		if (sub && i !== 0) {
-			a = "0." + a;
-			b = "0." + b;
-		}
-		
-		if (+(a) < +(b)) {
+	console.log(numA + "    ---    " + numB);
+	for (var i = 0; i < chunksA.length || i < chunksB.length; i++) {
+		if (chunksA[i] === undefined && chunksB[i] !== undefined) {
 			lesser = true;
 			break;
-		} else if (+(a) > +(b)) {
+		}
+		if (chunksA[i] !== undefined && chunksB[i] === undefined) {
 			lesser = false;
 			break;
 		}
+    if (chunksA[i] > chunksB[i]) {
+			lesser = false;
+			break;
+		}
+		if (chunksA[i] < chunksB[i]) {
+			lesser = true;
+			break;
+		}
 	}
-
-	if (chunksA.length !== chunksB.length && lesser === null) {
-		lesser = (chunksA.length < chunksB.length);
-	}
+	
+//	var numA = A.replace(/[^\d\.]/g, "").replace(/\./g, ".");
+//	var chunksA = numA.split(".")
+//	var numB = B.replace(/[^\d\.]/g, "").replace(/\./g, ".");
+//	var chunksB = numB.split(".");
+//	//deprecated
+//	var lesser = null;
+//	//FIND LESSER THAN
+//	for (var i = 0; i < chunksA.length && i < chunksB.length; i++) {
+//		var b = chunksB[i];
+//		var a = chunksA[i];
+//		var sub = a.charAt(0) === "0"
+//				|| b.charAt(0) === "0";
+//		
+//		if (sub && i !== 0) {
+//			a = "0." + a;
+//			b = "0." + b;
+//		}
+//		
+//		if (+(a) < +(b)) {
+//			lesser = true;
+//			break;
+//		} else if (+(a) > +(b)) {
+//			lesser = false;
+//			break;
+//		}
+//	}
+//
+//	if (chunksA.length !== chunksB.length && lesser === null) {
+//		lesser = (chunksA.length < chunksB.length);
+//	}
 
 	if (lesser === true) {
 		return 1;
