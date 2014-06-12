@@ -239,9 +239,9 @@ qubit.opentag.LibraryTag.define("unidays.redemptiontracking.v1.Tag", {
 				var ja = c.algo = {};
 				return c
 			}(Math);
-			
-			window.CryptoJS = CryptoJS;
-			
+
+		window.CryptoJS = CryptoJS;
+
 		(function(a) {
 			var j = CryptoJS,
 				c = j.lib,
@@ -274,7 +274,7 @@ qubit.opentag.LibraryTag.define("unidays.redemptiontracking.v1.Tag", {
 				}
 			})
 		})();
-		
+
 		(function() {
 			function a() {
 				return f.create.apply(f, arguments)
@@ -479,27 +479,27 @@ qubit.opentag.LibraryTag.define("unidays.redemptiontracking.v1.Tag", {
 
 		// LOADING UNiDAYS
 
-			var studentID = "" + this.valueForToken("student_id");
-			if (studentID.length) {
-				studentID = CryptoJS.HmacSHA512("" + this.valueForToken("student_id") +
-					"", "" + this.valueForToken("unidays_secret_hash_key"));
-			}
+		var studentID = "" + this.valueForToken("student_id");
+		if (studentID.length) {
+			studentID = CryptoJS.HmacSHA512("" + this.valueForToken("student_id") +
+				"", "" + this.valueForToken("unidays_secret_hash_key"));
+		}
 
-			var customerID = CryptoJS.HmacSHA512("" + this.valueForToken(
-				"unidays_customer_id"), "" + this.valueForToken(
-				"unidays_secret_hash_key"));
+		var customerID = CryptoJS.HmacSHA512("" + this.valueForToken(
+			"unidays_customer_id"), "" + this.valueForToken(
+			"unidays_secret_hash_key"));
 
-			var pms = "?CustomerId=" + customerID + "&";
-			pms += "TransactionId=" + this.valueForToken("order_id") + "&";
-			pms += "StudentId=" + studentID + "&";
-			pms += "Currency=" + this.valueForToken("currency") + "&";
-			pms += "OrderTotal=" + this.valueForToken("subtotal") + "&";
-			pms += "DiscountAmount=" + this.valueForToken("discount") + "&";
-			pms += "Code=" + this.valueForToken("unidays_discount_code") + "&";
-			pms += "Signature=" + this.valueForToken("unidays_secret_hash_key");
+		var pms = "?CustomerId=" + customerID + "&";
+		pms += "TransactionId=" + this.valueForToken("order_id") + "&";
+		pms += "StudentId=" + studentID + "&";
+		pms += "Currency=" + this.valueForToken("currency") + "&";
+		pms += "OrderTotal=" + this.valueForToken("subtotal") + "&";
+		pms += "DiscountAmount=" + this.valueForToken("discount") + "&";
+		pms += "Code=" + this.valueForToken("unidays_discount_code") + "&";
+		pms += "Signature=" + this.valueForToken("unidays_secret_hash_key");
 
-			(new Image()).src = document.location.protocol +
-				"//tracking.myunidays.com/perks/redemption/v1.0.gif" + pms;
+		(new Image()).src = document.location.protocol +
+			"//tracking.myunidays.com/perks/redemption/v1.0.gif" + pms;
 
 		/*~SCRIPT*/
 	},

@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("nextperformance.producttag.v1.Tag", {
 		name: "Product Tag",
 		async: true,
 		description: "Tag to be inserted on the product pages, requires product ID.  For dynamic banners campaigns, the website's ID must be the same as in the product feed.",
-		html: "<script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${zid}&pid=${productId}\"></script>",
+		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${zid}&pid=${productId}\"></script>",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",

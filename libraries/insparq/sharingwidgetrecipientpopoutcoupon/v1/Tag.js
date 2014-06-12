@@ -32,9 +32,9 @@ qubit.opentag.LibraryTag.define(
 		},
 		pre: function() {
 			/*PRE*/
-			window._tmp_html = '<div id="issw"	data-issw-publisher-id="' + 
-					this.valueForToken("key") + 
-					'" data-issw-load-config="1" data-issw-page-mode="hidden"></div>';
+			window._tmp_html = '<div id="issw"	data-issw-publisher-id="' +
+				this.valueForToken("key") +
+				'" data-issw-load-config="1" data-issw-page-mode="hidden"></div>';
 			eval(
 				this.valueForToken("jQuery") + '(window._tmp_html).' +
 				this.valueForToken("selector")

@@ -56,9 +56,9 @@ qubit.opentag.LibraryTag.define("insparq.trendingproductsfeed.v1.Tag", {
 
 		// HTML
 		eval(
-					this.valueForToken("jQuery") + '(\'<div id="insparq"></div>\').' +
-				this.valueForToken("selector")
-			);
+			this.valueForToken("jQuery") + '(\'<div id="insparq"></div>\').' +
+			this.valueForToken("selector")
+		);
 
 		// JS
 		(function(d, t) {

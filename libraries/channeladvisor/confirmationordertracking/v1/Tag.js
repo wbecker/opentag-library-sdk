@@ -71,7 +71,7 @@ qubit.opentag.LibraryTag.define(
 					Quantity: this.valueForToken("qty_list")[i]
 				});
 			}
-			
+
 			_caq.push(["Order", {
 				OrderId: "" + this.valueForToken("order_id"),
 				oVal: "" + this.valueForToken("order_subtotal"),

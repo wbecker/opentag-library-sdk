@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("qype.qype.v1.Tag", {
 		name: "Qype",
 		async: true,
 		description: "Qype is a local review site - http://www.qype.co.uk/.",
-		html: "<script type=\"text/javascript\">var qypetoolConfig = {reviewCount: ${REVIEW_COUNT}, showStars: ${SHOW_STARS}}</script><script type=\"text/javascript\" src=\"http://www.qype.co.uk/qypetool/city_widget/world.en.js\"></script>",
+		html: "<!--@SRC@--><script type=\"text/javascript\">var qypetoolConfig = {reviewCount: ${REVIEW_COUNT}, showStars: ${SHOW_STARS}}</script><script type=\"text/javascript\" src=\"http://www.qype.co.uk/qypetool/city_widget/world.en.js\"></script>",
 		locationDetail: "${DIV_ID}",
 		isPrivate: false,
 		url: "",

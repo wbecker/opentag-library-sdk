@@ -66,38 +66,38 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-				try {
-					var item_count = 0;
-					var _this = this;
-					var items = (function() {
-						var tmp = [];
-						for (var i = 0; i < _this.valueForToken("ids").length; i++) {
-							tmp.push([
-								_this.valueForToken("ids")[i],
-								"",
-								"",
-								_this.valueForToken("qtys")[i],
-								_this.valueForToken("prices")[i]
-							]);
-							item_count += _this.valueForToken("qtys")[i];
-						}
-						return tmp;
-					})();
-					var tracker = POWERREVIEWS.tracker.createTracker({
-						merchantGroupId: "" + this.valueForToken("group_id") + ""
-					});
-					tracker.trackPageview("c", {
-						merchantId: "" + this.valueForToken("merchant_id"),
-						locale: "en_US",
-						merchantUserId: "" + this.valueForToken("merchant_user_id"),
-						orderId: "" + this.valueForToken("order_id"),
-						orderSubtotal: "" + this.valueForToken("order_subtotal"),
-						orderNumberOfItems: String(item_count),
-						orderItems: items
-					});
-				} catch (e) {
-					window.console && window.console.log(e)
-				}
+			try {
+				var item_count = 0;
+				var _this = this;
+				var items = (function() {
+					var tmp = [];
+					for (var i = 0; i < _this.valueForToken("ids").length; i++) {
+						tmp.push([
+							_this.valueForToken("ids")[i],
+							"",
+							"",
+							_this.valueForToken("qtys")[i],
+							_this.valueForToken("prices")[i]
+						]);
+						item_count += _this.valueForToken("qtys")[i];
+					}
+					return tmp;
+				})();
+				var tracker = POWERREVIEWS.tracker.createTracker({
+					merchantGroupId: "" + this.valueForToken("group_id") + ""
+				});
+				tracker.trackPageview("c", {
+					merchantId: "" + this.valueForToken("merchant_id"),
+					locale: "en_US",
+					merchantUserId: "" + this.valueForToken("merchant_user_id"),
+					orderId: "" + this.valueForToken("order_id"),
+					orderSubtotal: "" + this.valueForToken("order_subtotal"),
+					orderNumberOfItems: String(item_count),
+					orderItems: items
+				});
+			} catch (e) {
+				window.console && window.console.log(e)
+			}
 			/*~POST*/
 		}
 	});

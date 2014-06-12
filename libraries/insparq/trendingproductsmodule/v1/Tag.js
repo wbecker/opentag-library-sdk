@@ -40,7 +40,7 @@ qubit.opentag.LibraryTag.define("insparq.trendingproductsmodule.v1.Tag", {
 
 		(function() {
 			eval(
-					this.valueForToken("jQuery") + '(\'<div id="iecw"></div>\').' +
+				this.valueForToken("jQuery") + '(\'<div id="iecw"></div>\').' +
 				this.valueForToken("selector")
 			);
 

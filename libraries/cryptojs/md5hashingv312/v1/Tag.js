@@ -95,7 +95,7 @@ code.google.com/p/crypto-js/wiki/License
 						return new q.init(h, b)
 					}
 				}),
-					v = m.enc = {}, t = v.Hex = {
+				v = m.enc = {}, t = v.Hex = {
 					stringify: function(b) {
 						var a = b.words;
 						b = b.sigBytes;
@@ -109,17 +109,17 @@ code.google.com/p/crypto-js/wiki/License
 					parse: function(b) {
 						for (var a = b.length, g = [], j = 0; j < a; j += 2)
 							g[j >>> 3] |=
-									parseInt(b.substr(j,
-											2), 16) << 24 - 4 * (j % 8);
+								parseInt(b.substr(j,
+									2), 16) << 24 - 4 * (j % 8);
 						return new q.init(g, a / 2)
 					}
-					}, a = v.Latin1 = {
+				}, a = v.Latin1 = {
 					stringify: function(b) {
 						var a = b.words;
 						b = b.sigBytes;
 						for (var g = [], j = 0; j < b; j++)
 							g.push(String.fromCharCode(a[j >>>
-									2] >>> 24 - 8 * (j % 4) & 255));
+								2] >>> 24 - 8 * (j % 4) & 255));
 						return g.join("")
 					},
 					parse: function(b) {
@@ -173,7 +173,7 @@ code.google.com/p/crypto-js/wiki/License
 					},
 					_minBufferSize: 0
 				});
-				l.Hasher = g.extend({
+			l.Hasher = g.extend({
 				cfg: r.extend(),
 				init: function(b) {
 					this.cfg = this.cfg.extend(b);
@@ -228,7 +228,7 @@ code.google.com/p/crypto-js/wiki/License
 				return (a << j | a >>> 32 - j) + k
 			}
 			for (var r = CryptoJS, q = r.lib, v = q.WordArray, t = q.Hasher,
-				q = r.algo, a = [], u = 0; 64 > u; u++)
+					q = r.algo, a = [], u = 0; 64 > u; u++)
 				a[u] = 4294967296 * s.abs(s.sin(u + 1)) | 0;
 			q = q.MD5 = t.extend({
 				_doReset: function() {
@@ -237,8 +237,9 @@ code.google.com/p/crypto-js/wiki/License
 				_doProcessBlock: function(g, k) {
 					for (var b = 0; 16 > b; b++) {
 						var h = k + b,
-								w = g[h];
-						g[h] = (w << 8 | w >>> 24) & 16711935 | (w << 24 | w >>> 8) & 4278255360
+							w = g[h];
+						g[h] = (w << 8 | w >>> 24) & 16711935 | (w << 24 | w >>> 8) &
+							4278255360
 					}
 					var b = this._hash.words,
 						h = g[k + 0],
@@ -334,22 +335,22 @@ code.google.com/p/crypto-js/wiki/License
 				},
 				_doFinalize: function() {
 					var a = this._data,
-							k = a.words,
-							b = 8 * this._nDataBytes,
-							h = 8 * a.sigBytes;
+						k = a.words,
+						b = 8 * this._nDataBytes,
+						h = 8 * a.sigBytes;
 					k[h >>> 5] |= 128 << 24 - h % 32;
 					var l = s.floor(b / 4294967296);
 					k[(h + 64 >>> 9 << 4) + 15] = (l << 8 | l >>> 24) & 16711935 | (l << 24 |
-							l >>> 8) & 4278255360;
+						l >>> 8) & 4278255360;
 					k[(h + 64 >>> 9 << 4) + 14] = (b << 8 | b >>> 24) & 16711935 | (b << 24 |
-							b >>> 8) & 4278255360;
+						b >>> 8) & 4278255360;
 					a.sigBytes = 4 * (k.length + 1);
 					this._process();
 					a = this._hash;
 					k = a.words;
 					for (b = 0; 4 > b; b++)
 						h = k[b], k[b] = (h << 8 | h >>> 24) & 16711935 |
-								(h << 24 | h >>> 8) & 4278255360;
+							(h << 24 | h >>> 8) & 4278255360;
 					return a
 				},
 				clone: function() {

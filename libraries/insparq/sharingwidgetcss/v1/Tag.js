@@ -22,19 +22,19 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetcss.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-			var link = document.createElement('link');
-			link.media = "all";
-			link.rel = "stylesheet";
-			link.type = "text/css";
-			link.href = "//pinboard.insparq.com/assets/insparq.css";
-			document.head.appendChild(link);
+		var link = document.createElement('link');
+		link.media = "all";
+		link.rel = "stylesheet";
+		link.type = "text/css";
+		link.href = "//pinboard.insparq.com/assets/insparq.css";
+		document.head.appendChild(link);
 
-			link = document.createElement('link');
-			link.media = "all";
-			link.rel = "stylesheet";
-			link.type = "text/css";
-			link.href = this.valueForToken("url");
-			document.head.appendChild(link);
+		link = document.createElement('link');
+		link.media = "all";
+		link.rel = "stylesheet";
+		link.type = "text/css";
+		link.href = this.valueForToken("url");
+		document.head.appendChild(link);
 
 		/*~SCRIPT*/
 	},

@@ -37,12 +37,12 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetbuttons.v1.Tag", {
 	pre: function() {
 		/*PRE*/
 		window._tmp_html = '<div id="issw" data-issw-publisher-id="' +
-				this.valueForToken("key") +
-				'" data-issw-load-config="1" data-issw-page-mode="normal"></div>';
+			this.valueForToken("key") +
+			'" data-issw-load-config="1" data-issw-page-mode="normal"></div>';
 		//?
 		eval(
-				this.valueForToken("jQuery") + '(window._tmp_html).' +
-				this.valueForToken("selector")
+			this.valueForToken("jQuery") + '(window._tmp_html).' +
+			this.valueForToken("selector")
 		);
 		/*~PRE*/
 	},
