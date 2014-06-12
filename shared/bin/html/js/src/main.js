@@ -472,7 +472,9 @@ function renderAllLibrariesToPage() {
           libraryClassPath = libraryClass.prototype.PACKAGE_NAME;
           ctest.unregister();
           if ((ctest) instanceof qubit.opentag.LibraryTag) {
-            libraries.push([vendorNode, libraryClass, ctest]);
+            (function (objV, objC) {
+							libraries.push([objV, libraryClass, objC]);
+						}(vendorNode, ctest));
           }
         }
         //versions
@@ -482,7 +484,9 @@ function renderAllLibrariesToPage() {
 					var c = new versions[i]({});
           c.unregister();
           versions[i].versionClassPath = libraryClassPath;
-          libraries.push([vendorNode, versions[i], c]);
+					(function (objV, objC) {
+						libraries.push([objV, versions[i], objC]);
+					}(vendorNode, c));
         }
       } catch (ex) {
         //must prompt
@@ -538,36 +542,36 @@ function renderAllLibrariesToPage() {
 			}
 		});
 		
-		var librariesToRender = libraries.length;
-		var counted = 0;
-		theProgressBar("Rendering...", function () {
-			return 100 * (counted/librariesToRender);
-		});
-				
-		(function (vendorNode) {
-			var idx = 0;
-			var callback = function () {
-				counted++;
-				if (idx === libraries.length){
-					setTimeout(bodyLoaded, 200);
-					return;
-				}
-				
-				var vendorNode = libraries[idx][0];
-				var libraryClass = libraries[idx][1];
-				addLibrary(vendorNode, libraryClass);
-				idx++;
-				setTimeout(callback, 4);
-			};
-			callback();
-		}(vendorNode));
+//		var librariesToRender = libraries.length;
+//		var counted = 0;
+//		theProgressBar("Rendering...", function () {
+//			return 100 * (counted/librariesToRender);
+//		});
+
+
+//			var idx = 0;
+//			var callback = function () {
+//				counted++;
+//				if (idx === libraries.length){
+//					setTimeout(bodyLoaded, 200);
+//					return;
+//				}
+//				
+//				var node = libraries[idx][0];
+//				var libraryClass = libraries[idx][1];
+//				addLibrary(node, libraryClass);
+//				idx++;
+//				setTimeout(callback, 4);
+//			};
+//			callback();
+
 		
 		
-//		for (var f = 0; f < libraries.length; f++) {
-//			var vendorNode = libraries[f][0];
-//			var libraryClass = libraries[f][1];
-//			addLibrary(vendorNode, libraryClass);
-//		}
+		for (var f = 0; f < libraries.length; f++) {
+			var vendorNode = libraries[f][0];
+			var libraryClass = libraries[f][1];
+			addLibrary(vendorNode, libraryClass);
+		}
 		
     librariesNode.appendChild(vendorNode);
   }
