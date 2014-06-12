@@ -541,7 +541,6 @@ function renderAllLibrariesToPage() {
 		var librariesToRender = libraries.length;
 		var counted = 0;
 		theProgressBar("Rendering...", function () {
-			console.log([counted, librariesToRender])
 			return 100 * (counted/librariesToRender);
 		});
 				
@@ -618,7 +617,6 @@ function compareVersions(A, B) {
 	var numB = B.replace(/\.+/g, ".").replace(/\._/g,".");
 	var chunksB = numB.split(".");
 	var lesser = null;
-	console.log(numA + "    ---    " + numB);
 	for (var i = 0; i < chunksA.length || i < chunksB.length; i++) {
 		if (chunksA[i] === undefined && chunksB[i] !== undefined) {
 			lesser = true;
