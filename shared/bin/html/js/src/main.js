@@ -454,12 +454,13 @@ function findTags(object, array) {
 function renderAllLibrariesToPage() {
   var librariesNode = document.getElementById("libraries");
   librariesNode.innerHTML = "";
+	
+	var libraries = [];
   var vendors = qubit.opentag.libraries;
+	
   for (var vprop in vendors) {
     var vendor = vendors[vprop];
     var vendorNode = prepareVendorNode(vprop);
-
-		var libraries = [];
     for (var lprop in vendor) {
       try {
         var libraryClass = vendor[lprop].Tag;
@@ -467,16 +468,18 @@ function renderAllLibrariesToPage() {
         
         //var versions = findTags(vendor[lprop]);
         
+				//main class
         if (libraryClass) {
           var ctest = new libraryClass({});
           libraryClassPath = libraryClass.prototype.PACKAGE_NAME;
           ctest.unregister();
           if ((ctest) instanceof qubit.opentag.LibraryTag) {
-            (function (objV, objC) {
-							libraries.push([objV, libraryClass, objC]);
-						}(vendorNode, ctest));
+            (function (objV, clazz, objC) {
+							libraries.push([objV, clazz, objC]);
+						}(vendorNode, libraryClass, ctest));
           }
         }
+				
         //versions
         var versions = findTags(vendor[lprop]);
 
@@ -484,9 +487,9 @@ function renderAllLibrariesToPage() {
 					var c = new versions[i]({});
           c.unregister();
           versions[i].versionClassPath = libraryClassPath;
-					(function (objV, objC) {
-						libraries.push([objV, versions[i], objC]);
-					}(vendorNode, c));
+					(function (objV, clazz, objC) {
+						libraries.push([objV, clazz, objC]);
+					}(vendorNode, versions[i], c));
         }
       } catch (ex) {
         //must prompt
@@ -542,39 +545,45 @@ function renderAllLibrariesToPage() {
 			}
 		});
 		
-//		var librariesToRender = libraries.length;
-//		var counted = 0;
-//		theProgressBar("Rendering...", function () {
-//			return 100 * (counted/librariesToRender);
-//		});
-
-
-//			var idx = 0;
-//			var callback = function () {
-//				counted++;
-//				if (idx === libraries.length){
-//					setTimeout(bodyLoaded, 200);
-//					return;
-//				}
-//				
-//				var node = libraries[idx][0];
-//				var libraryClass = libraries[idx][1];
-//				addLibrary(node, libraryClass);
-//				idx++;
-//				setTimeout(callback, 4);
-//			};
-//			callback();
-
+		librariesToRender += libraries.length;
 		
-		
-		for (var f = 0; f < libraries.length; f++) {
-			var vendorNode = libraries[f][0];
-			var libraryClass = libraries[f][1];
-			addLibrary(vendorNode, libraryClass);
-		}
+//		for (var f = 0; f < libraries.length; f++) {
+//			var vendorNode = libraries[f][0];
+//			var libraryClass = libraries[f][1];
+//			addLibrary(vendorNode, libraryClass);
+//		}
 		
     librariesNode.appendChild(vendorNode);
   }
+	
+	var librariesToRender = libraries.length;
+	var counted = 0;
+	theProgressBar("Rendering...", function () {
+		return 100 * (counted/librariesToRender);
+	});
+	
+	var bodyLoadedDone = false;
+	(function (libraries) {
+		var idx = 0;
+		var callback = function () {
+			for (var i = 0; i < 8; i++) {
+				counted++;
+				if (idx === libraries.length) {
+					if (!bodyLoadedDone) setTimeout(bodyLoaded, 200);
+					bodyLoadedDone = true;
+					return;
+				}
+				var node = libraries[idx][0];
+				var libraryClass = libraries[idx][1];
+				addLibrary(node, libraryClass);
+				idx++;
+			}
+			setTimeout(callback, 4);
+		};
+		
+		callback();
+		
+	}(libraries));
 }
 
 var total = 1;//extra 1 is for final rendering.
