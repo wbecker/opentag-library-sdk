@@ -517,15 +517,18 @@ function renderAllLibrariesToPage() {
             .replace(bClass.versionClassPath + ".", "");
 				}
 				
-				if (versionStringA.charAt(0) !== versionStringB.charAt(0)) {
-					return versionStringA > versionStringB;
-				}
+//				if (versionStringA.charAt(0) !== versionStringB.charAt(0)) {
+//					return versionStringA > versionStringB;
+//				}
+//				
+//				var deep = 
+//						Math.max(versionStringA.split(".").length,
+//										 versionStringB.split(".").length);
+//				var vNumA = versionNumber(versionStringA, deep);
+//				var vNumB = versionNumber(versionStringB, deep);
 				
-				var deep = 
-						Math.max(versionStringA.split(".").length,
-										 versionStringB.split(".").length);
-				var vNumA = versionNumber(versionStringA, deep);
-				var vNumB = versionNumber(versionStringB, deep);
+				var vNumA = versionStringA;
+				var vNumB = versionStringB;
 				
 				if (vNumA < vNumB) {
 					return 1;
