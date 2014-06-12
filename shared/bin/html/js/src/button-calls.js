@@ -203,6 +203,7 @@ function openInEditorAndCreate(package, file, create, data) {
 function reloadTagHandler(refNode) {
   var Utils = qubit.opentag.Utils;
   var tagRef = refNode.reference;
+	var versionCP = refNode.classReference.versionClassPath;
   var data = ("classPath=libraries." +
           tagRef.PACKAGE_NAME + "&file=Tag.js");
   reloadTests(refNode);
@@ -215,6 +216,7 @@ function reloadTagHandler(refNode) {
       Utils.getObjectUsingPath(tagRef.PACKAGE_NAME).Tag = undefined;
       qubit.opentag.Utils.geval(msg);
       var libraryClass = Utils.getObjectUsingPath(tagRef.PACKAGE_NAME + ".Tag");
+			libraryClass.versionClassPath = versionCP;
       renderLibraryToNode(libraryClass ,null, null, cfg);
     } catch (ex) {
       logError("Error loading tag: " + ex);

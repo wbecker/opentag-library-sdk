@@ -4,7 +4,7 @@ var libraryTemplate = document.getElementById("library-template").innerHTML;
  * 
  * @type @exp;document@call;getElementById@pro;innerHTML
  */
-function renderLibraryToNode(libraryClass ,libraryNode, className, cfg) {
+function renderLibraryToNode(libraryClass, libraryNode, className, cfg) {
   cfg = cfg || {};
   var instance = new libraryClass();
   instance.unregister();
@@ -516,27 +516,17 @@ function renderAllLibrariesToPage() {
 					versionStringB = bClass.prototype.PACKAGE_NAME
             .replace(bClass.versionClassPath + ".", "");
 				}
-				
-//				if (versionStringA.charAt(0) !== versionStringB.charAt(0)) {
-//					return versionStringA > versionStringB;
-//				}
-//				
-//				var deep = 
-//						Math.max(versionStringA.split(".").length,
-//										 versionStringB.split(".").length);
-//				var vNumA = versionNumber(versionStringA, deep);
-//				var vNumB = versionNumber(versionStringB, deep);
-				
-				var vNumA = versionStringA;
-				var vNumB = versionStringB;
-				
-				if (vNumA < vNumB) {
-					return 1;
-				} else if (vNumA === vNumB) {
-					return 0;
-				} else {
-					return -1;
+								
+				var strA = versionStringA.replace(/\._/g,".").replace(/[\d+\.]/g,"");
+				var strB = versionStringB.replace(/\._/g,".").replace(/[\d+\.]/g,"");
+				if (strA !== strB) {
+					if (strA > strB ) {
+						return 1;
+					} else if (strA < strB) {
+						return -1;
+					}
 				}
+				return  compareVersions(versionStringA, versionStringB);
 			} else {
 				if (aConf.name > bConf.name) {
 					return 1;
@@ -559,7 +549,10 @@ function renderAllLibrariesToPage() {
 			var idx = 0;
 			var callback = function () {
 				counted++;
-				if (idx === libraries.length) return;
+				if (idx === libraries.length){
+					setTimeout(bodyLoaded, 200);
+					return;
+				}
 				
 				var vendorNode = libraries[idx][0];
 				var libraryClass = libraries[idx][1];
@@ -619,15 +612,44 @@ function loadAllLibs(scriptsPassed) {
 	loader();
 }
 
-function versionNumber(str, deep) {
-	var num = str.replace(/[^\d\.]/g,"");
-	num = num.split(".");
-	var number = 0;
-	deep = deep || num.length -1;
-	for (var i = deep; i >= 0; i--) {
-		number += Math.pow(10, deep - i) * (isNaN(num[i]) ? 0 : num[i]);
+function compareVersions(A, B) {
+	var numA = A.replace(/[^\d\.]/g, "").replace(/\./g, ".");
+	var chunksA = numA.split(".")
+	var numB = B.replace(/[^\d\.]/g, "").replace(/\./g, ".");
+	var chunksB = numB.split(".");
+	var lesser = null;
+	//FIND LESSER THAN
+	for (var i = 0; i < chunksA.length && i < chunksB.length; i++) {
+		var b = chunksB[i];
+		var a = chunksA[i];
+		var sub = a.charAt(0) === "0"
+				|| b.charAt(0) === "0";
+		
+		if (sub && i !== 0) {
+			a = "0." + a;
+			b = "0." + b;
+		}
+		
+		if (+(a) < +(b)) {
+			lesser = true;
+			break;
+		} else if (+(a) > +(b)) {
+			lesser = false;
+			break;
+		}
 	}
-	return number;
+
+	if (chunksA.length !== chunksB.length && lesser === null) {
+		lesser = (chunksA.length < chunksB.length);
+	}
+
+	if (lesser === true) {
+		return 1;
+	}else if (lesser === null) {
+		return 0;
+	} else {
+		return -1;
+	}
 }
 
 function _loadSingle(url, index, callback, scriptsPassed, scripts) {
@@ -670,8 +692,6 @@ function _allScriptsFetched(scripts) {
 
 		qubit.opentag.Log.LEVEL = 3;
 		qubit.opentag.Log.COLLECT_LEVEL = 5;
-		//delay
-		setTimeout(bodyLoaded, 200);
 	}, 50);
 }
 
