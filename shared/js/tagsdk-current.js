@@ -8280,6 +8280,12 @@ var JSON = {};
     if (config) {
       for(var prop in config) {
         if (config.hasOwnProperty(prop)) {
+          if (prop === "customStarter" && !config[prop]) {
+            continue;
+          }
+          if (prop === "customScript" && !config[prop]) {
+            continue;
+          }
           defaultConfig[prop] = config[prop];
         }
       }
