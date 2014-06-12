@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("nextperformance.homepagetag.v1.Tag", {
 		name: "Home Page Tag",
 		async: true,
 		description: "Tag to be inserted on the home page.",
-		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${id}\"></script>",
+		html: "<script type=\"text/javascript\" src=\"//nxtck.com/act.php?zid=${id}\"></script><!--@SRC@-->",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
