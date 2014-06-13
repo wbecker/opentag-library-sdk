@@ -661,7 +661,7 @@ function compareVersionsByString(A, B){
 	}
 }
 
-function compareVersions(A, B) {debugger;
+function compareVersions(A, B) {
 	var numA = A.replace(/\./g, ".");
 	var chunksA = numA.split(".")
 	var numB = B.replace(/\./g, ".");
