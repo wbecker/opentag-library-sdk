@@ -523,16 +523,6 @@ function renderAllLibrariesToPage() {
 					versionStringB = bClass.prototype.PACKAGE_NAME
             .replace(bClass.versionClassPath + ".", "");
 				}
-								
-//				var strA = versionStringA.replace(/\._/g,".").replace(/[\d+\.]/g,"");
-//				var strB = versionStringB.replace(/\._/g,".").replace(/[\d+\.]/g,"");
-//				if (strA !== strB) {
-//					if (strA > strB ) {
-//						return 1;
-//					} else if (strA < strB) {
-//						return -1;
-//					}
-//				}
 				return  compareVersions(versionStringA, versionStringB);
 			} else {
 				if (aConf.name > bConf.name) {
@@ -622,43 +612,6 @@ function loadAllLibs(scriptsPassed) {
 		}, 0);//can be slown down
 	};
 	loader();
-}
-
-function compareVersionsByString(A, B){
-	var numA = A.replace(/\.+/g, ".").replace(/\._/g,".");
-	var chunksA = numA.split(".");
-	var numB = B.replace(/\.+/g, ".").replace(/\._/g,".");
-	var chunksB = numB.split(".");
-	var lesser = null;
-	for (var i = 0; i < chunksA.length || i < chunksB.length; i++) {
-		if (chunksA[i] === undefined && chunksB[i] !== undefined) {
-			lesser = true;
-			break;
-		}
-		if (chunksA[i] !== undefined && chunksB[i] === undefined) {
-			lesser = false;
-			break;
-		}
-    if (chunksA[i] > chunksB[i]) {
-			lesser = false;
-			break;
-		}
-		if (chunksA[i] < chunksB[i]) {
-			lesser = true;
-			break;
-		}
-	}
-	
-	if (chunksA.length !== chunksB.length && lesser === null) {
-		lesser = (chunksA.length < chunksB.length);
-	}
-	if (lesser === true) {
-		return 1;
-	}else if (lesser === null) {
-		return 0;
-	} else {
-		return -1;
-	}
 }
 
 function compareVersions(A, B) {
