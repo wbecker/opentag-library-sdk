@@ -2587,10 +2587,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
       var name = tag.prepareLocationObject(tag.config.locationObject);
       var locationDetail = tag.config.locationDetail;
       switch (name) {
-        case "head":
+        case "HEAD":
            el = document.getElementsByTagName("head")[0];
            break;
-         case "body":
+         case "BODY":
            el = document.body;
            break;
          default:
@@ -3389,8 +3389,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     var html = (altHtml !== undefined) ? altHtml : config.html;
 
     if (html) {
-      var append = (config.locationPlaceHolder === "end");
-
+      var append = (config.locationPlaceHolder === "END");
       var location = TagsUtils.getHTMLLocationForTag(tag);
 
       tag.log.FINE("injecting html into page:");
@@ -3785,20 +3784,27 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        */
       url: null,
       /**
+       * Optional, specify if script must be appended at specific location.
+       * See `url` property.
+       * @cfg urlLocation
+       * @type Element DOM element where script will be injected.
+       */
+      urlLocation: null,
+      /**
        * HTML location placeholder. It defaults to "end" string and indicates
        * that HTML injection operation will be "appendTo" the defined location
        * object (see `locationObect`). If there is different property assigned
        * HTML fragment will be "inserted before".
-       * @cfg {String} [locationPlaceHolder="end"]
+       * @cfg {String} [locationPlaceHolder="END"]
        */
-      locationPlaceHolder: "end",
+      locationPlaceHolder: "END",
       /**
-       * Location object name. It defaults to "body". It can have 
+       * Location object name. It defaults to "BODY". It can have 
        * following values:
        * 
-       * - "body" indication HTML will be injected to the document.body
+       * - "BODY" indication HTML will be injected to the document.body
        * 
-       * - "head" indicating HTML will be injected to HEAD element
+       * - "HEAD" indicating HTML will be injected to HEAD element
        * 
        * - unset property will default to document.body
        * 
@@ -3807,9 +3813,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        *  
        * Way the HTML passed with `html` config property is injected is 
        * controlled by `locationPlaceHolder` property.
-       * @cfg {String} [locationObject="body"]
+       * @cfg {String} [locationObject="BODY"]
        */
-      locationObject: "body",
+      locationObject: "BODY",
       /**
        * By default we do care for not loading scripts with same href value.
        * Set this property to false in order to load script any time its 
@@ -3982,7 +3988,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       if (this._securedWrites) {
         this.log.FINE("Script finished, injecting document.write contents - " +
           this._securedWrites.join("\n").length + " chars");//L
-        var append = (this.config.locationPlaceHolder === "end");
+        var append = (this.config.locationPlaceHolder === "END");
         return TagsUtils.flushRedirectsFromArrayAndReverseDocWrite(
             this._securedWrites,
             TagsUtils.getHTMLLocationForTag(this),
@@ -4272,7 +4278,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this._secureWriteAndCollectForExecution();
       } else if (GenericLoader.LOCK_DOC_WRITE !== this) {
         if (!this._lockedDocWriteInformed) {
-          this._lockedDocWriteInformed = true;
+          this._lockedDocWriteInformed = new Date().valueOf();
           this.log.WARN("Tag will wait till document.write be available.");
           this.log.FINE(GenericLoader.LOCK_DOC_WRITE, true);
         }
@@ -4604,7 +4610,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype.mustWaitForHTMLLocation = function () {
     //tag must wait for location if asynchronous, or instructed to protect
     //writes
-    return this.loadAsynchronously() || this.willSecureDocumentWrite();
+    return this.isLoadingAsynchronously() || this.willSecureDocumentWrite();
   };
   
   /**
@@ -4886,7 +4892,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       }.bind(this),
       url: passedUrl,
       node: this.config.urlLocation || document.body,
-      async: this.loadAsynchronously(),
+      async: this.isLoadingAsynchronously(),
       secure: true,
       noMultipleLoad: this.config.noMultipleLoad
     });
@@ -4932,7 +4938,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * on configuration).
    * @returns {Boolean}
    */
-  GenericLoader.prototype.loadAsynchronously = function () {
+  GenericLoader.prototype.isLoadingAsynchronously = function () {
 //    var becauseOfDocWriteOverrideAndMakeItAsync = 
 //            (this.config.url && this.config.url.length > 0);
 //    return becauseOfDocWriteOverrideAndMakeItAsync ||
@@ -5569,7 +5575,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   /**
    * @protected
    * Location object handling wrapper. When location object is passed (typically
-   *  DOM ID or "body" or "head") it may contain some string patterns like 
+   *  DOM ID or "BODY" or "HEAD") it may contain some string patterns like 
    *  token. This function ensures that the string passed will contain right 
    *  value before passing it to executrion context (typically HTML injection 
    *  or `document.write` operations) 
@@ -7151,8 +7157,10 @@ var JSON = {};
       /*no-send*/
       this.ping = new qubit.opentag.Ping(this.config);
       /*~no-send*/
-      /*session*///@TODO add maybe better session condition here(much better...)
-      this.session = Session.setupSession(this.config);
+      /*session*///@TODO add maybe better session condition here(much better...)  
+      if (this.config.trackSession) {
+        this.session = Session.setupSession(this.config);
+      }
       if (this.session) {
         this.log.INFO("Session attached:");
         this.log.INFO(this.session, true);
@@ -7382,7 +7390,7 @@ var JSON = {};
       try {
         var tag = this.tags[name];
         //ignore tag state or check if clean and unstarted
-        if (this._includedToRun(tag)) {
+        if (this.includedToRun(tag)) {
           this.log.FINE("triggering tag named: " + name);
           
           if (!containerIsSynchronous) {
@@ -7405,12 +7413,12 @@ var JSON = {};
   };
 
   /**
-   * @private
+   * @protected
    * If container can include the tag in running suite.
    * @param {qubit.opentag.BaseTag} tag tag to test if can be included
    * @returns {Boolean}
    */
-  Container.prototype._includedToRun = function(tag) {
+  Container.prototype.includedToRun = function(tag) {
     if (tag.config.inactive) {
       return false;
     }
@@ -7880,6 +7888,13 @@ var JSON = {};
    */
   LibraryTag.prototype.before = function () {
     LibraryTag.superclass.prototype.before.call(this);
+    
+    if (this.config.html || this.config.script) {
+      log.WARN("config.html or config.script is set while using pre." +
+              " Cancelling running pre.");//L
+      return;
+    }
+    
     this.log.INFO("Running PRE script execution...");
     try {
       var cfg = this.config;
@@ -7904,6 +7919,12 @@ var JSON = {};
    */
   LibraryTag.prototype.after = function (success) {
     LibraryTag.superclass.prototype.after.call(this, success);
+    if (this.config.html || this.config.script) {
+      log.WARN("config.html or config.script is set while using post." +
+              " Cancelling running post.");//L
+      return;
+    }
+    
     this.log.INFO("Running POST script execution...");
     try {
       var cfg = this.config;
@@ -8035,8 +8056,8 @@ var JSON = {};
     var defaults = {
       url: null,
       html: "",
-      location: "beggining",
-      locationObject: "body"
+      locationPlaceHolder: "NOT_END",
+      locationObject: "BODY"
     };
     
     Utils.setIfUnset(config, defaults);
@@ -8490,9 +8511,9 @@ var JSON = {};
         
         var location = "";
         if (loader.loactionId === 1) {
-          location = "head";
+          location = "HEAD";
         } else if (loader.loactionId === 2) {
-          location = "body";
+          location = "BODY";
         } else if (loader.loactionId === 3){
           location = loader.locationDetail;
         }
@@ -8504,7 +8525,7 @@ var JSON = {};
           ID: loader.id,
           url: loader.url,
           html: loader.html,
-          locationPlaceHolder: ((+loader.positionId) === 1) ? "end" : "notEnd",
+          locationPlaceHolder: ((+loader.positionId) === 1) ? "END" : "NOT_END",
           locationObject: location,
           async: loader.async,
           needsConsent: loader.needsConsent,
