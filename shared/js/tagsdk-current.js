@@ -1881,8 +1881,8 @@ q.html.fileLoader.tidyUrl = function (path) {
    * tags with filters associated with them.
    * 
    * Filter object has a `match` function that determines if filter can be used
-   * with the tag. Second important function is `getStatus` function that 
-   * describes filter's status:
+   * with the tag. Second important function is `getState` function that 
+   * describes filter's state:
    *  - DISABLED filter is disabled and ignored, same effect as filter is not 
    *  associated with the tag.
    *  - SESSION filter is in session
@@ -1890,8 +1890,8 @@ q.html.fileLoader.tidyUrl = function (path) {
    *  - FAIL filter failed to pass
    *  - `any value higher than 0` value higher than 0 indicates that filter
    *   must be tested again in time of the value of miliseconds. Tag will query 
-   *   filter for status again after the miliseconds amount indicated by the 
-   *   status value.
+   *   filter for state again after the miliseconds amount indicated by the 
+   *   state value.
    * 
    * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
@@ -1900,7 +1900,7 @@ q.html.fileLoader.tidyUrl = function (path) {
   function BaseFilter (config) {
     /*log*/
     this.log = new qubit.opentag.Log("", function () {
-      return this.CLASS_NAME + "[" + this.uniqueId + "]";
+      return this.CLASS_NAME + "[" + this.config.name + "]";
     }.bind(this), "collectLogs");
     /*~log*/
     
@@ -1923,9 +1923,9 @@ q.html.fileLoader.tidyUrl = function (path) {
        */
       name: "Filter-" + (counter++),
       /**
-       * If defined, it will be used as final status decision maker.
+       * If defined, it will be used as final state decision maker.
        * It takes 2 arguments: (`this`, `passed`). passed argument is
-       * the last status decision value taken.
+       * the last state decision value taken.
        * @cfg {Function} [script=undefined]
        */
       script: undefined,
@@ -1959,7 +1959,7 @@ q.html.fileLoader.tidyUrl = function (path) {
   
 
   /**
-   * Status value higher than 0 is used to distinqt delayed filters.
+   * State value higher than 0 is used to distinqt delayed filters.
    *
    *     {
    *        DISABLED: -3,
@@ -1969,9 +1969,9 @@ q.html.fileLoader.tidyUrl = function (path) {
    *     }; 
    * 
    * @static
-   * @property {Number} status
+   * @property {Number} state
    */
-  BaseFilter.status = {
+  BaseFilter.state = {
     DISABLED: -3,
     SESSION: -2,
     PASS: -1, //positive numbers are used for timeout
@@ -1987,7 +1987,7 @@ q.html.fileLoader.tidyUrl = function (path) {
   };
   
   /**
-   * Function will disable filter. Status returned will be turned to disabled.
+   * Function will disable filter. State returned will be turned to disabled.
    */
   BaseFilter.prototype.disable = function () {
     this.config.disabled = true;
@@ -2025,19 +2025,19 @@ q.html.fileLoader.tidyUrl = function (path) {
   };
   
   /**
-   * Filter function used to test filter for its status.
+   * Filter function used to test filter for its state.
    * Tag has 2 stages at using filters:
    * 1) Checks if filter matches(apply) for the page - if so, tag will 
    * use the filter.
-   * 2) If filter matches the page, it will run `getStatus()` to determine 
-   * status type and decide on execution and how it relates with other filters.
+   * 2) If filter matches the page, it will run `getState()` to determine 
+   * state type and decide on execution and how it relates with other filters.
    * @returns {Boolean}
    */
-  BaseFilter.prototype.getStatus = function () {
-    var passed = BaseFilter.status.PASS;
+  BaseFilter.prototype.getState = function () {
+    var passed = BaseFilter.state.PASS;
     
     if (this.config.disabled) {
-      return BaseFilter.status.DISABLED;
+      return BaseFilter.state.DISABLED;
     }
     
     if (this.config.script) {
@@ -2045,10 +2045,10 @@ q.html.fileLoader.tidyUrl = function (path) {
     }
     
     if (isNaN(+passed)) {
-      this.log.WARN("filters should use a numerical status as a return " +
-              "for getStatus():" +//L
-              " BaseFilter.status. Filter will fail. Returned: " + passed);//L
-      passed = BaseFilter.status.FAIL;
+      this.log.WARN("filters should use a numerical state as a return " +
+              "for getState():" +//L
+              " BaseFilter.state. Filter will fail. Returned: " + passed);//L
+      passed = BaseFilter.state.FAIL;
     }
     
     this.lastState = +passed;
@@ -2232,13 +2232,18 @@ q.html.HtmlInjector.getAttributes = function (node) {
     
     Utils.clazz("qubit.opentag.TagsUtils", TagsUtils);
     
+    var _docLoaded = false;
     /**
      * Function returns true when docuemnt is loaded(it checks if body tag
      * exists).
      * @returns {Boolean}
      */
     TagsUtils.documentIsLoaded = function () {
-      return !!document.getElementsByTagName("body")[0];
+      if (_docLoaded) {
+        return true;
+      }
+      _docLoaded = !!document.getElementsByTagName("body")[0];
+      return _docLoaded;
     };
     
     var loadedURLs = {};
@@ -2257,9 +2262,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
      *  - `url` url to use 
      *  
      *  - `noMultipleLoad` do not load URL if was previously loaded (optional)
-     *  
-     *  - `secure` if should securily check how script should be injected 
-     *    (`document.write`) (optional)
      *    
      *  - `onsuccess` event handler (optional) 
      *  
@@ -2302,21 +2304,18 @@ q.html.HtmlInjector.getAttributes = function (node) {
         };
       }
       
-      var write = !config.async;
+      var useWrite = !config.async;
       
-      if (config.secure) {
-        //if loader is asked to be secure, it means to not to write
-        //if document is LOADED (thats dangerous)
-        var loaded = TagsUtils.documentIsLoaded();
-        if (write && loaded) {
-          log.WARN("Script configured for synchronous injection while " +
-                  "document seems to be already loaded. Secure option " +//L
-                  "applies. Script will be appended in standard way.");//L
-        }
-        write = write && !loaded;
+      var loaded = TagsUtils.documentIsLoaded();
+      if (useWrite && loaded) {
+        log.WARN("Script configured for synchronous injection while " +
+                "document seems to be already loaded. Secure option " +//L
+                "applies. Script will be appended in standard way.");//L
       }
       
-      if (write) {
+      useWrite = useWrite && !loaded;
+      
+      if (useWrite) {
         log.WARN("Adding script element by using document.write. IE will" +
                 " error check fail broken url's.");//L
         TagsUtils.writeScriptURL(
@@ -2374,16 +2373,23 @@ q.html.HtmlInjector.getAttributes = function (node) {
      * @returns {Boolean} true if flushing location was ready and strings were
      *                    appended.
      */
-    TagsUtils.flushRedirectsFromArrayAndReverseDocWrite =
-            function (array, location, append, log) {
+    TagsUtils.flushDocWritesArray =
+            function (array, location, append, log, cb) {
       var el = location;
       if (el) {
-        HtmlInjector.inject(el, append, 
-          array.join("\n"), EMPTY_FUN);
+        try {
+          HtmlInjector.inject(el, append, array.join("\n"), cb || EMPTY_FUN);
+          return true;
+        } catch(ex) {
+          log.ERROR("Loading html caused exception:" + ex);
+        }
       } else {
         var message = "Flushing location not found!";
         log && log.ERROR(message);
         return false;
+      }
+      if (cb) {
+        cb();
       }
       return true;
     };
@@ -2409,8 +2415,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
      */
     TagsUtils.writeScriptURL = function (url, callback) {
       //@TODO review it.
-      var callName = "_" + wsCounter++;;
-      var accessorName = TagsUtils.PACKAGE_NAME +
+      var callName = "_" + wsCounter++;
+      var accessorName = TagsUtils.prototype.PACKAGE_NAME +
               ".TagsUtils.writeScriptURL.callbacks." + callName;
       
       TagsUtils.writeScriptURL.callbacks[callName] = callback;
@@ -2459,9 +2465,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
      * @param filters {Array} Array of filters to be analysed.
      * @param session {qubit.opentag.Session} tag that check is
      *  performed on
-     * @returns {BaseFilter.status} numerical status.
+     * @returns {BaseFilter.state} numerical state.
      */
-    TagsUtils.filtersStatus = function (filters, session, tag) {
+    TagsUtils.filtersState = function (filters, session, tag) {
       //tag.log.FINEST("Sorting filters...");
       //@todo maybe this should be done buch earlier
       filters = filters.sort(function (a, b) {
@@ -2472,7 +2478,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
         }
       });
       
-      var decision = BaseFilter.status.PASS;
+      var decision = BaseFilter.state.PASS;
       if (!filters || (filters.length === 0)) {
         return decision;
       }
@@ -2489,18 +2495,18 @@ q.html.HtmlInjector.getAttributes = function (node) {
         filter.setSession(session);
         
         if (filter.match()) {
-          var response = filter.getStatus();
+          var response = filter.getState();
           // positive response means that filter tells to WAIT for execution
           // and try in 'response' miliseconds
           if (response > 0) {
             if (waitingResponse === 0 || waitingResponse > response) {
               waitingResponse = response;
             }
-          } else if (response === BaseFilter.status.DISABLED) {
+          } else if (response === BaseFilter.state.DISABLED) {
             tag.log.WARN("filter with name " + filter.config.name +
                     " is disabled");//L
             disabledFiltersPresent = true;
-          } else if (response === BaseFilter.status.SESSION) {
+          } else if (response === BaseFilter.state.SESSION) {
             sessionFiltersPresent = true;
             lastFilterResponded = filter;
             //set them up, so they run the tag
@@ -2517,33 +2523,33 @@ q.html.HtmlInjector.getAttributes = function (node) {
         onlyAwaitingFiltersPresent = true;
         if (!disabledFiltersPresent) {
           //all filters failed
-          decision = BaseFilter.status.FAIL;
+          decision = BaseFilter.state.FAIL;
         } else {
           //none passed but one of filters was disabled
-          decision = BaseFilter.status.PASS;
+          decision = BaseFilter.state.PASS;
         }
       } else {
-        //some filters matched, review status of final matched filter
+        //some filters matched, review state of final matched filter
         if (lastFilterResponded.config.include) {
           //last response was to INCLUDE this tag
           decision = response;
         } else {
           //last response was to EXCLUDE this tag
-          decision = response === BaseFilter.status.PASS ?
-            BaseFilter.status.FAIL : BaseFilter.status.PASS;
+          decision = (response === BaseFilter.state.PASS) ?
+            BaseFilter.state.FAIL : BaseFilter.state.PASS;
         }
       }
       
       //if all passed, 
       //after standard checks, check if any filter called to wait
-      if (waitingResponse > 0 && (decision === BaseFilter.status.PASS ||
+      if (waitingResponse > 0 && (decision === BaseFilter.state.PASS ||
               onlyAwaitingFiltersPresent)) {
         decision = waitingResponse;
       }
       
-      if (decision === BaseFilter.status.SESSION ||
-              (decision === BaseFilter.status.PASS && sessionFiltersPresent)) {
-        decision = BaseFilter.status.SESSION;
+      if (decision === BaseFilter.state.SESSION ||
+              ((decision === BaseFilter.state.PASS) && sessionFiltersPresent)) {
+        decision = BaseFilter.state.SESSION;
         for (var c = 0; c < sessionFilters.length; c++) {
           var f = sessionFilters[c];
           if (f instanceof qubit.opentag.filter.SessionVariableFilter) {
@@ -3883,7 +3889,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.log.WARN("Name was not specified for tag. Assigning auto: " + n);
       }
       
-      this.setStatus("INITIAL");
+      this.addState("INITIAL");
       
       for (var prop in config) {
         this.config[prop] = config[prop];
@@ -3958,7 +3964,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       success = true;
       this.log.INFO("executed without errors.");
     } catch (ex) {
-      this.setStatus("EXECUTED_WITH_ERRORS");
+      this.addState("EXECUTED_WITH_ERRORS");
       this.log.ERROR("Error while executing: " + ex);
       this.log.ERROR("There was an error while executing instance of tag: "
               + this.CLASS_NAME + " from package: " + this.PACKAGE_NAME);//L
@@ -3979,25 +3985,35 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @private
    * Private function used to flush array of `document.write` operations.
    * See `config.usesDocumentWrite` property for more details.
+   * @param {Function} cb callback
    * @returns {Boolean}
    */
-  GenericLoader.prototype._flushDocWritesForOrAfterExecution = function () {
+  GenericLoader.prototype._flushDocWrites = function (cb) {
     // check if any stack from secured doc.write left before calling main
     // function
     try {
-      if (this._securedWrites) {
+      var loc = TagsUtils.getHTMLLocationForTag(this);
+      if (loc && this._securedWrites && this._securedWrites.length > 0) {
         this.log.FINE("Script finished, injecting document.write contents - " +
           this._securedWrites.join("\n").length + " chars");//L
         var append = (this.config.locationPlaceHolder === "END");
-        return TagsUtils.flushRedirectsFromArrayAndReverseDocWrite(
+        var ret = TagsUtils.flushDocWritesArray(
             this._securedWrites,
-            TagsUtils.getHTMLLocationForTag(this),
+            loc,
             append,
-            this.log);
+            this.log,
+            cb);
+        if (ret) {
+          this._securedWrites.splice(0, this._securedWrites.length);
+        }
       }
-      this._securedWrites = false;
+      return ret;
     } catch (ex) {
       this.log.ERROR("Unexpected exception during flushing." + ex);
+    }
+    
+    if (cb) {
+      cb();
     }
     return true;
   };
@@ -4117,12 +4133,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       return false;
     }
     
-    if (this.status !== 0) {
+    if (this.lastRun) {
       this.log.FINE("Running again. Run count: " + (this.runCounter + 1));
       this.reset();
     }
     
-    this.isRunning = new Date().valueOf();
+    this.lastRun = this.isRunning = new Date().valueOf();
     this.runCounter++;
     
     //make sure its loaded before execution
@@ -4150,10 +4166,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.execute();      
     } else if (this.loadingDependenciesFailed) {
       this.log.ERROR("script execution failed before running");
-      this.log.ERROR("dependencies failed to load! Tag in fail state.");
-      this.scriptExecuted = -(new Date().valueOf());
+      this.log.ERROR("dependencies failed to load.");
+      this._markFailure();
       this._markFinished();
-      this.setStatus("FAILED_TO_EXECUTE");
     } else {
       Timed.setTimeout(this.waitForDependenciesAndExecute.bind(this), 30);
     }
@@ -4180,12 +4195,24 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.execute = function () {
     this.log.FINE("entering execute...");
+    
+    var cancel = false;
+    
     try {
-        this.before();
+        cancel = this.before();
     } catch (ex) {
+      //decision changed: failured before callback must stop execution.
+      this.log.ERROR("before callback thrown exception");
       this.log.ERROR(ex, true);
-      //keep it going, dont block tag bof pre failure.
     }
+    
+    if (cancel) {
+      this.log.INFO("before calback cancelled execution.");
+      this._markFailure();
+      this._markFinished();
+      return;
+    }
+    
     this._triggerExecution();
   };
   
@@ -4215,20 +4242,17 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     if (!finished) {
       Timed.setTimeout(this._triggerExecution.bind(this), 30);
     } else {
-      this._markFinished();
-      this._flushDocWritesForOrAfterExecution();
+      this._flushDocWrites();
       //now check if failures occured
       if (this.scriptLoadingFailed ||
           this.injectHTMLFailed ||
           this.unexpectedFail) {
-        this.log.ERROR("script execution has failed! Tag in fail state.");
-        this.scriptExecuted = -(new Date().valueOf());
-        this.setStatus("FAILED_TO_EXECUTE");
+        this._markFailure();
       } else {
         //no failures, run!
         this.log.FINE("Executing...");
         this.scriptExecuted = new Date().valueOf();
-        this.setStatus("EXECUTED");
+        this.addState("EXECUTED");
         this._executeScript();
       }
       
@@ -4236,14 +4260,18 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.afterRun =  new Date().valueOf();
         this.after(this.scriptExecuted > 0);
       }
-      
-      //unlock possibly locked doc write
-      TagsUtils.unlockDocumentWrites();
-      GenericLoader.LOCK_DOC_WRITE = false;
+      this._flushDocWrites();
+      this._markFinished();
       this.log.INFO("* stopped [" +
               ((this.scriptExecuted > 0) ? "executed" : "not executed") +//L
               "] *");//L
     }
+  };
+  
+  GenericLoader.prototype._markFailure = function () {
+    this.log.ERROR("script execution has failed. Tag in fail state.");
+    this.scriptExecuted = -(new Date().valueOf());
+    this.addState("FAILED_TO_EXECUTE");
   };
   
   /**
@@ -4254,6 +4282,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype._markFinished = function () {
     this.runIsFinished = new Date().valueOf();
     this.isRunning = false;
+    //unlock possibly locked doc write
+    if (GenericLoader.LOCK_DOC_WRITE === this) {
+      TagsUtils.unlockDocumentWrites();
+      GenericLoader.LOCK_DOC_WRITE = false;
+    }
     this.onFinished(true);
   };
   
@@ -4322,15 +4355,18 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
     //check if url/urls are specified, delay if any
     this._triggerURLsLoading(callback);
-
+    ///this._flushDocWrites();
+    
     //check if 1) is finished.
     if (!this.loadURLsNotFinished) {
+      this._flushDocWrites();
       //once URL(s) are loaded/finished, try html injection
       //check if html injection is done, and start it if not started
       this._triggerHTMLInjection();
-
+      this._flushDocWrites();
       //if URL is finished, and after that HTML injection is done...
       if (!this.injectHTMLNotFinished) {
+        this._flushDocWrites();
         //check if 1) & 2) is finished.
         this.log.INFO("url and html awaiting has ended...");
         return true;
@@ -4370,13 +4406,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
-   * Status properties used as a loader's current state and passed history. 
-   * This is quite usefull metric ordered status indicator.
+   * State properties used as a loader's current state and passed history. 
+   * This is quite usefull metric ordered state indicator.
    * 
    * consider this example:
    * 
    * 
-   *    this.status > this.STATUS.FAILED_TO_LOAD_DEPENDENCIES
+   *    this.state > this.STATE.FAILED_TO_LOAD_DEPENDENCIES
    *    
    * It translates to script being fully loaded with dependenciess and passed 
    * filters, but unfortune to have url script loading problems or final script 
@@ -4386,7 +4422,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * 
    * Full defnition:
    * 
-          GenericLoader.prototype.STATUS = {
+          GenericLoader.prototype.STATE = {
             INITIAL: 0,
             STARTED: 1,
             LOADING_DEPENDENCIES: 2,
@@ -4403,9 +4439,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           };
   
    * 
-   * @property {Object} STATUS
+   * @property {Object} STATE
    */
-  GenericLoader.prototype.STATUS = {
+  GenericLoader.prototype.STATE = {
     INITIAL: 0,
     STARTED: 1,
     LOADING_DEPENDENCIES: 2,
@@ -4422,17 +4458,17 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
-   * Function used to set status by using status name (a string).
+   * Function used to set state by using state name (a string).
    * This function has no effect if name passed in does not equal to one
-   * of `this.STATUS` properties.
-   * @param {String} statusName
+   * of `this.STATE` properties.
+   * @param {String} stateName
    */
-  GenericLoader.prototype.setStatus = function (statusName) {
-    if (this.STATUS.hasOwnProperty(statusName)) {
-      //this.log.FINEST("Updating status.");
-      this.status = (this.status | this.STATUS[statusName]);
+  GenericLoader.prototype.addState = function (stateName) {
+    if (this.STATE.hasOwnProperty(stateName)) {
+      //this.log.FINEST("Updating state.");
+      this.state = (this.state | this.STATE[stateName]);
       try {
-        this.onStatusChange(statusName);
+        this.onStateChange(stateName);
       } catch (ex) {
         this.log.ERROR(ex);
       }
@@ -4441,21 +4477,21 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   
   /**
    * @event
-   * Status being set event. Triggered on EACH status change. Useful event 
-   * to monitor loader's status.
-   * @param {String} status name being set
+   * State being set event. Triggered on EACH state change. Useful event 
+   * to monitor loader's state.
+   * @param {String} state name being set
    */
-  GenericLoader.prototype.onStatusChange = EMPTY_FUN;
+  GenericLoader.prototype.onStateChange = EMPTY_FUN;
   
   /**
-   * Property representing binary table with this tag's status.
-   * `status` property is a number, in binary presentation it represents a set
+   * Property representing binary table with this tag's state.
+   * `state` property is a number, in binary presentation it represents a set
    * of `1` and `0`, each number field corresponds to one of `2^n` values.
-   * Each n-th value corresponds to one of `this.STATUS` property (they are
+   * Each n-th value corresponds to one of `this.STATE` property (they are
    * numbers of 2^n).
-   * @property {Number} status
+   * @property {Number} state
    */
-  GenericLoader.prototype.status = GenericLoader.prototype.STATUS.INITIAL;
+  GenericLoader.prototype.state = GenericLoader.prototype.STATE.INITIAL;
   
   /**
    * Private loader marker, it basically tells that loading of dependencies
@@ -4510,7 +4546,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           this._markLoadedSuccesfuly();
         } else {
           this.log.WARN("timed out while loading dependencies.");
-          this.setStatus("TIMED_OUT");
+          this.addState("TIMED_OUT");
           this.loadingDependenciesFailed = new Date().valueOf();
           this.onLoadTimeout();
         }
@@ -4536,7 +4572,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       }.bind(this), freq, this._lockObject);
       /*~log*/
     } else {
-      this.setStatus("LOADED_DEPENDENCIES");
+      this.addState("LOADED_DEPENDENCIES");
     }
   };
   
@@ -4725,7 +4761,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       }
     }
 
-    this.setStatus("LOADING_DEPENDENCIES");
+    this.addState("LOADING_DEPENDENCIES");
     this.log.INFO("Load started.");
     
     try {
@@ -4764,7 +4800,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.loadURLsNotFinished = false;
       if (success && this.urlsFailed === 0) {
         this.log.INFO("succesfully loaded " + this.urlsLoaded + " urls.");
-        this.setStatus("LOADED_URL");
+        this.addState("LOADED_URL");
         this.urlsLoaded = new Date().valueOf();
         try {
           if (callback) {
@@ -4778,7 +4814,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       } else {
         var message = "error loading urls. Failed " + this.urlsFailed;
         this.log.ERROR(message);
-        this.setStatus("FAILED_TO_LOAD_URL");
+        this.addState("FAILED_TO_LOAD_URL");
         this.urlsLoaded = -new Date().valueOf();
         try{
           this.scriptLoadingFailed = true;
@@ -4805,7 +4841,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype.loadURLs = function (urlz, callback) {
     var urls = urlz || this.config.url;    
     
-    this.setStatus("LOADING_URL");
+    this.addState("LOADING_URL");
     this.log.FINE("loading URL(s) ...");
     
     try {
@@ -4826,7 +4862,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     } catch (ex) {
       this.log.ERROR("loadURLs thrown unexpected exception! : " + ex);
       this.loadURLsNotFinished = false;
-      this.setStatus("UNEXPECTED_FAIL");
+      this.addState("UNEXPECTED_FAIL");
       this.unexpectedFail = new Date().valueOf();
     }
   };
@@ -4867,7 +4903,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.loadURL = function (url, callback) {
     var passedUrl = url;
-    this.setStatus("LOADING_URL");
+    this.addState("LOADING_URL");
     TagsUtils.loadScript({
       onsuccess: function () {
         this.log.FINE("succesfully loaded " + passedUrl);
@@ -4893,7 +4929,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       url: passedUrl,
       node: this.config.urlLocation || document.body,
       async: this.isLoadingAsynchronously(),
-      secure: true,
       noMultipleLoad: this.config.noMultipleLoad
     });
   };
@@ -4924,13 +4959,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.scriptLoadingFailed = u;
     this.secureWrite = u;
     this._securedWrites = u;
-    this.status = 0;
+    this.state = 0;
     this.unexpectedFail = u;
     this.urlsFailed = 0;
     this.urlsLoaded = 0;
     this.waitForDependenciesFinished = u;
     this.isRunning = u;
-    this.setStatus("INITIAL");
+    this._lastRun = u;
+    this.addState("INITIAL");
   };
   
   /**
@@ -5104,7 +5140,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
      * parameters use `this.getPageVariables()`
      * @property Array[qubit.opentag.filter.BaseFilter]
      */
-    this.namedVariables = {};  
+    this.namedVariables = {};
     
     /**
      * Parameters array. Parasmeters are a plain objects containing:
@@ -5139,7 +5175,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.session = null;
     
     if (config) {
-      this.setStatus("INITIAL");
+      this.addState("INITIAL");
 
       try {
         BaseTag.register(this);
@@ -5254,27 +5290,27 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
   /**
    * Function used to run a tag. It is a wrapper around run function, before
-   * running the tag, it does check on filters with `filtersStatus`.
+   * running the tag, it does check on filters with `filtersState`.
    * Note that run triggers entire process for loading dependencies and the
    * tag if url based.
-   * @returns {BaseFilter.status}
+   * @returns {BaseFilter.state}
    */
   BaseTag.prototype.runIfFiltersPass = function () {
     
-    var status = this.filtersStatus();
-    this.setStatus("FILTER_ACTIVE");
+    var state = this.filtersState();
+    this.addState("FILTER_ACTIVE");
     
     if (!this.filtersRunTriggered) {
       this.filtersRunTriggered = new Date().valueOf();
     }
     
-    //it is a number of BaseFilter.status type or time when to stop checking
-    if (status === BaseFilter.status.SESSION) {
-      this.setStatus("AWAITING_CALLBACK");
+    //it is a number of BaseFilter.state type or time when to stop checking
+    if (state === BaseFilter.state.SESSION) {
+      this.addState("AWAITING_CALLBACK");
       this.log.FINE("tag is in session and will be manually triggered " + 
               "by custom starter");//L
       this.awaitingCallback = new Date().valueOf();
-    } else if (status === BaseFilter.status.PASS) {
+    } else if (state === BaseFilter.state.PASS) {
       this.filtersPassed = new Date().valueOf();
       this.log.FINE("tag passed filters tests");
       try {
@@ -5283,16 +5319,16 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.log.ERROR("error running onFiltersDelayed:" + ex);
       }
       this.run();
-    } else if (status === BaseFilter.status.FAIL) {
+    } else if (state === BaseFilter.state.FAIL) {
       this.log.FINE("tag failed to pass filters");
       this._markFiltersFailed();
       this._markFinished();
-    } else if (status > 0) {
+    } else if (state > 0) {
       var tout = this.config.filterTimeout;
       if (tout < 0 || 
               ((new Date().valueOf() - this.filtersRunTriggered) > tout)) {
-        //try again in [status] ms in future
-        //if status is lesser than 0 its passing call and the end.
+        //try again in [state] ms in future
+        //if state is lesser than 0 its passing call and the end.
         if (!this._awaitingForFilterInformed) {
           this.log.INFO("filters found indicating for tag to wait " +
                   "for applicable conditions - waiting...");//L
@@ -5304,7 +5340,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
             this.log.ERROR("error running onFiltersDelayed:" + ex);
           }
         }
-        Timed.setTimeout(this.runIfFiltersPass.bind(this), status);
+        Timed.setTimeout(this.runIfFiltersPass.bind(this), state);
       } else {
         this._markFiltersFailed();
         this._markFinished();
@@ -5314,27 +5350,27 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     }
     
     try {
-      this.onFiltersCheck(status);
+      this.onFiltersCheck(state);
     } catch (e) {
       this.log.ERROR(e);
     }
     
-    return status;
+    return state;
   };
 
   BaseTag.prototype._markFiltersFailed = function () {
-    this.setStatus("FILTERS_FAILED");
+    this.addState("FILTERS_FAILED");
     this.filtersPassed = -(new Date().valueOf());
   };
 
   /**
-   * Status properties used as a tag's current state and passed history. 
-   * This is quite usefull metric ordered status indicator.
+   * State properties used as a tag's current state and passed history. 
+   * This is quite usefull metric ordered state indicator.
    * 
    * consider this example:
    * 
    * 
-   *    this.status > this.STATUS.FAILED_TO_LOAD_DEPENDENCIES
+   *    this.state > this.STATE.FAILED_TO_LOAD_DEPENDENCIES
    *    
    * It translates to script being fully loaded with dependenciess and passed 
    * filters, but unfortune to have url script loading problems or final script 
@@ -5344,7 +5380,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * 
    * Full defnition:
    * 
-          BaseTag.prototype.STATUS = {
+          BaseTag.prototype.STATE = {
             INITIAL: 0,
             FILTER_ACTIVE: 1,
             AWAITING_CALLBACK: 2,
@@ -5364,9 +5400,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           };
   
    * 
-   * @property {Object} STATUS
+   * @property {Object} STATE
    */
-  BaseTag.prototype.STATUS = {
+  BaseTag.prototype.STATE = {
     INITIAL: 0,
     FILTER_ACTIVE: 1,
     AWAITING_CALLBACK: 2,
@@ -5386,86 +5422,70 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
-   * Function used to set status by using status name (a string).
+   * Function used to set state by using state name (a string).
    * This function has no effect if name passed in does not equal to one
-   * of `this.STATUS` properties.
-   * @param {String} statusName
+   * of `this.STATE` properties.
+   * @param {String} stateName
    */
-  BaseTag.prototype.setStatus = function (statusName) {
-    BaseTag.superclass.prototype.setStatus.call(this, statusName);
+  BaseTag.prototype.addState = function (stateName) {
+    BaseTag.superclass.prototype.addState.call(this, stateName);
     
     try {
-      BaseTag.onStatusChange(this);
+      BaseTag.onStateChange(this);
     } catch (ex) {
       this.log.ERROR(ex);
     }
     
-    this.statusStack = [];
-    var s = this.STATUS;
+    this.stateStack = [];
+    var s = this.STATE;
     
-    if (this.status & s.INITIAL)
-        this.statusStack
-              .push("Initial state.");
+    if (this.state & s.INITIAL)
+        this.stateStack.push("Initial state.");
         
-    if (this.status & s.FILTER_ACTIVE)
-        this.statusStack
-              .push("Tag running with filters pass triggered.");
+    if (this.state & s.FILTER_ACTIVE)
+        this.stateStack.push("Tag running with filters pass triggered.");
 
-    if (this.status & s.FILTERS_FAILED)
-        this.statusStack.push(
-                "Filters failed to pass.");
+    if (this.state & s.FILTERS_FAILED)
+        this.stateStack.push("Filters failed to pass.");
 
-    if (this.status & s.AWAITING_CALLBACK)
-        this.statusStack.push(
-                "Awaiting callback to run this tag. Not pooling.");
+    if (this.state & s.AWAITING_CALLBACK)
+        this.stateStack.push("Awaiting callback to run this tag. Not pooling.");
         
-    if (this.status & s.STARTED)
-        this.statusStack.push(
-                "Tag is initialized and loading has been started.");
+    if (this.state & s.STARTED)
+        this.stateStack.push("Tag is initialized and loading has been started.");
 
-    if (this.status & s.LOADING_DEPENDENCIES)
-        this.statusStack.push(
-                "Dependencies are being loaded.");
+    if (this.state & s.LOADING_DEPENDENCIES)
+        this.stateStack.push("Dependencies are being loaded.");
 
-    if (this.status & s.LOADED_DEPENDENCIES)
-        this.statusStack.push(
-                "Dependencies loading process has been finished.");
+    if (this.state & s.LOADED_DEPENDENCIES)
+        this.stateStack.push("Dependencies loading process has been finished.");
 
-    if (this.status & s.LOADING_URL)
-        this.statusStack.push(
-                "External URL is being loaded.");
+    if (this.state & s.LOADING_URL)
+        this.stateStack.push("External URL is being loaded.");
 
-    if (this.status & s.LOADED_URL)
-        this.statusStack.push(
-                "External URL has been loaded.");
+    if (this.state & s.LOADED_URL)
+        this.stateStack.push("External URL has been loaded.");
 
-    if (this.status & s.EXECUTED)
-        this.statusStack.push(
-                "Main script has been executed.");
+    if (this.state & s.EXECUTED)
+        this.stateStack.push("Main script has been executed.");
 
-    if (this.status & s.EXECUTED_WITH_ERRORS)
-        this.statusStack.push(
-                "Main script has been executed but errors occured.");
+    if (this.state & s.EXECUTED_WITH_ERRORS)
+        this.stateStack.push("Main script has been executed but errors occured.");
 
-    if (this.status & s.FAILED_TO_LOAD_DEPENDENCIES)
-        this.statusStack.push(
-                "Dependencies has failed to load.");
+    if (this.state & s.FAILED_TO_LOAD_DEPENDENCIES)
+        this.stateStack.push("Dependencies has failed to load.");
 
-    if (this.status & s.FAILED_TO_LOAD_URL)
-        this.statusStack.push(
-                "URL location failed to load.");
+    if (this.state & s.FAILED_TO_LOAD_URL)
+        this.stateStack.push("URL location failed to load.");
 
-    if (this.status & s.FAILED_TO_EXECUTE)
-        this.statusStack.push(
-                "Script failed to execute.");
+    if (this.state & s.FAILED_TO_EXECUTE)
+        this.stateStack.push("Script failed to execute.");
 
-    if (this.status & s.TIMED_OUT)
-        this.statusStack.push(
-                "Script timed out awaiting for dependencies.");
+    if (this.state & s.TIMED_OUT)
+        this.stateStack.push("Script timed out awaiting for dependencies.");
 
-    if (this.status & s.UNEXPECTED_FAIL) {
-      this.statusStack.push(
-                "Script occured UNEXPECTED exception and is failed.");
+    if (this.state & s.UNEXPECTED_FAIL) {
+      this.stateStack.push("Script occured UNEXPECTED exception and is failed.");
     }
   };
   
@@ -5476,12 +5496,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   BaseTag.prototype.onTagInit = EMPTY_FUN;
   /**
-   * Status being set global event.
+   * State being set global event.
    * @static
    * @param {qubit.opentag.BaseTag} tag reference
-   * @event onStatusChange
+   * @event onStateChange
    */
-  BaseTag.onStatusChange = EMPTY_FUN;
+  BaseTag.onStateChange = EMPTY_FUN;
   /**
    * Event triggered if tag has run filter delaying request.
    * Filters delaying execution will trigger this event once only.
@@ -5499,32 +5519,32 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   /**
    * Event triggered if tag is checking filters.
    * Tag may periodically check filters staus, it happens if any of filters 
-   * return timed status value, see 
+   * return timed state value, see 
    * [BaseFilter](#!/api/qubit.opentag.filter.BaseFilter) for more information.
    * @event onFiltersCheck
-   * @param {qubit.opentag.BaseFilter.status} onFiltersCheck
+   * @param {qubit.opentag.BaseFilter.state} onFiltersCheck
    */
   BaseTag.prototype.onFiltersCheck = EMPTY_FUN;
   
   /**
-   * Property representing binary table with this tag's status.
-   * `this.status` property is a number that is a binary representation
+   * Property representing binary table with this tag's state.
+   * `this.state` property is a number that is a binary representation
    * of its state history, for example:
    *
-   *     this.status & s.FILTER_ACTIVE
+   *     this.state & s.FILTER_ACTIVE
    *
    *  resulting as true, means that `s.FILTER_ACTIVE` is set.
    *  Defasult value is set to:
    *
-   *     qubti.opentag.BaseTag.prototype.STATUS.INITIAL
+   *     qubti.opentag.BaseTag.prototype.STATE.INITIAL
    * 
-   * Notice that `GenericLoader` has different status values table.
-   * Status object is a very useful object to read current and historical
+   * Notice that `GenericLoader` has different state values table.
+   * State object is a very useful object to read current and historical
    * tags state.
    * 
-   * @property {Number} status
+   * @property {Number} state
    */
-  BaseTag.prototype.status = BaseTag.prototype.STATUS.INITIAL;
+  BaseTag.prototype.state = BaseTag.prototype.STATE.INITIAL;
     
   /**
    * Function returns true and only true if all variables have set the value.
@@ -5704,15 +5724,15 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * The location should indicate all filters used by this tag.
    * The **package* config property is a crucial tags property used to
    * configure antiore tags.
-   * Filter status is not just a boolean, in this case it will return one of
-   * [BaseFilter.status](
-     #!/api/qubit.opentag.filter.BaseFilter-static-property-status)
+   * Filter state is not just a boolean, in this case it will return one of
+   * [BaseFilter.state](
+     #!/api/qubit.opentag.filter.BaseFilter-static-property-state)
    * properties. In this very case, `SESSION `is never expected to be returned
    *  here.
-   * @returns {BaseFilter.status}
+   * @returns {BaseFilter.state}
    */
-  BaseTag.prototype.filtersStatus = function () {
-    return TagsUtils.filtersStatus(this.filters, this.session, this);
+  BaseTag.prototype.filtersState = function () {
+    return TagsUtils.filtersState(this.filters, this.session, this);
   };
   
   /**
@@ -6145,7 +6165,7 @@ q.html.PostData = function (url, data, type) {
   Ping.prototype.sendErrors = function (config, errors) {
     //@TODO add on-demand errors sending so client can easily invoke 
     //"qubut.opentag.Tags.sendAllErrors()
-    log.WARN("FIXME: ERRORS SENDING IS DISABLED.");
+    log.WARN("Errors sending is disabled.");
 //    var loaderId, err, msg, errMsgs = [];
 //    
 //    for (var i = 0; i < errors.length; i++) {
@@ -7385,7 +7405,7 @@ var JSON = {};
      */
     this.runningStarted = new Date().valueOf();
     this.log.FINE("triggering runningStarted at " + this.runningStarted);
-    
+    var tagsRunMap = {};
     for (var name in this.tags) {
       try {
         var tag = this.tags[name];
@@ -7402,7 +7422,22 @@ var JSON = {};
           }
             //attach session if necessary
           tag.session = tag.session || this.session;//:session
-          tag[command]();
+          //if dependencies are defind, and they are in the container, 
+          //try to run them immediately instead of waiting later!
+          if (tag.dependencies.length > 0) {
+            for (var i = 0; i < tag.dependencies.length; i++) {
+              var dependency = tag.dependencies[i];
+              var dname = dependency.config.name;
+              if(!tagsRunMap[dname] && this.tags) {
+                tagsRunMap[dname] = dependency;
+                dependency[command]();
+              }
+            }
+          }
+          if (!tagsRunMap[name]) {
+            tagsRunMap[name] = tag;
+            tag[command]();
+          }
         }
       } catch (ex) {
         this.log.ERROR("Error running tag with name '" + name +
@@ -7424,7 +7459,7 @@ var JSON = {};
     }
     var consentOk = Container.consentIsGiven ||
         (!tag.config.needsConsent) || this.hasConsent();
-    var atInitialState = (tag.status === BaseTag.prototype.STATUS.INITIAL);
+    var atInitialState = (tag.state === BaseTag.prototype.STATE.INITIAL);
     return this.ignoreTagsState || (consentOk && atInitialState);
   };
 
@@ -7663,7 +7698,7 @@ var JSON = {};
     var runScripts = null, other = null, filterReady = null, failed = null,
             consent = null;
     
-    var FILTERS_FAILED = BaseTag.prototype.STATUS.FILTERS_FAILED;
+    var FILTERS_FAILED = BaseTag.prototype.STATE.FILTERS_FAILED;
     for (var prop in tags) {
       var tag = tags[prop];
       if (tag instanceof BaseTag) {
@@ -7671,11 +7706,11 @@ var JSON = {};
         if (tag.scriptExecuted > 0) {
           runScripts = runScripts || {};
           attachRenamedIfExist(runScripts, tag, name);
-        } else if (tag.scriptExecuted < 0 || tag.status > FILTERS_FAILED) {
+        } else if (tag.scriptExecuted < 0 || tag.state > FILTERS_FAILED) {
             failed = failed || {};
             attachRenamedIfExist(failed, tag, name);
-        } else if (tag.filtersStatus() === BaseFilter.status.SESSION ||
-                tag.filtersStatus() > 0) {
+        } else if (tag.filtersState() === BaseFilter.state.SESSION ||
+                tag.filtersState() > 0) {
           filterReady = filterReady || {};
           attachRenamedIfExist(filterReady, tag, name);
         } else if (tag.config.needsConsent) {
@@ -7720,12 +7755,12 @@ var JSON = {};
       if (this.tags.hasOwnProperty(prop)) {
         var tag = this.tags[prop];
         if (tag instanceof qubit.opentag.BaseTag) {
-          //tag.filtersStatus() < 0 === filters are passed
+          //tag.filtersState() < 0 === filters are passed
           // === 0 FAILED
           // > 0 filter is awaiting
-          var status = tag.filtersStatus();
-          if (tag.filtersStatus() < 0 && !tag.finished()) {
-            if (status !== BaseFilter.status.SESSION) {
+          var state = tag.filtersState();
+          if (tag.filtersState() < 0 && !tag.finished()) {
+            if (state !== BaseFilter.state.SESSION) {
               return false;
             }
           }
@@ -7843,7 +7878,7 @@ var JSON = {};
      * Is library asynchoronous?
      * @cfg {String} [async=true]
      */
-    async: true,
+    async: false,
     /**
      * Is this a private library? Not published.
      * @cfg {Boolean} [isPrivate=false]
@@ -7892,7 +7927,7 @@ var JSON = {};
     if (this.config.html || this.config.script) {
       log.WARN("config.html or config.script is set while using pre." +
               " Cancelling running pre.");//L
-      return;
+      return false;//continue normally
     }
     
     this.log.INFO("Running PRE script execution...");
@@ -7909,7 +7944,9 @@ var JSON = {};
       this.pre();
     } catch (ex) {
       this.log.ERROR(this.config.name + " exception while running pre: " + ex);
+      return true;//cancell running 
     }
+    return false;
   };
   
   /**
@@ -8194,7 +8231,7 @@ var JSON = {};
     
     switch (this.config.patternType) {
       case PatternType.CONTAINS:
-        match = url.toLowerCase().match(pattern.toLowerCase());
+        match = (url.toLowerCase().indexOf(pattern.toLowerCase()) >= 0);
         break;
       case PatternType.MATCHES_EXACTLY:
         match = (url.toLowerCase() === this.config.pattern.toLowerCase());
@@ -8357,23 +8394,23 @@ var JSON = {};
   };
   
   /**
-   * Status function, this function adds to standard status function the SESSION
+   * State function, this function adds to standard state function the SESSION
    * state. Session state is used if `customStarter` is attached.
    * @param {qubit.opentag.Session} session optional session
    */
-  SessionVariableFilter.prototype.getStatus = function (session) {
+  SessionVariableFilter.prototype.getState = function (session) {
     if (session) {
       this.setSession(session);
     }
-    var pass = SessionVariableFilter.superclass.prototype.getStatus.call(this);
+    var pass = SessionVariableFilter.superclass.prototype.getState.call(this);
     
-    if (pass === BaseFilter.status.DISABLED) {
-      return BaseFilter.status.DISABLED;
+    if (pass === BaseFilter.state.DISABLED) {
+      return BaseFilter.state.DISABLED;
     }
     
-    if (pass === BaseFilter.status.PASS) {
+    if (pass === BaseFilter.state.PASS) {
       if (this.config.customStarter) {
-        pass = BaseFilter.status.SESSION;
+        pass = BaseFilter.state.SESSION;
       }
     }
     
