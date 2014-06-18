@@ -1003,10 +1003,10 @@ var UNDEF = undefined;
   
   /**
    * @static
-   * @property {Number} [MAX_LOG_LEN=-1]
+   * @property {Number} [MAX_LOG_LEN=10000]
    * Static property used to limit maximum amount of logs collected.
    */
-  Log.MAX_LOG_LEN = -1;
+  Log.MAX_LOG_LEN = 10000;
   
   /**
    * @property {Number} [MAX_LOG_LEN=-1]
@@ -1044,7 +1044,7 @@ var UNDEF = undefined;
   
    */
   Log.LEVEL = Log.LEVEL_NONE;
-  Log.LEVEL = Log.LEVEL_FINE;/*D*///line deleted during merge
+  Log.LEVEL = Log.LEVEL_INFO;/*D*///line deleted during merge
   Log.COLLECT_LEVEL = Log.LEVEL_FINE;
   Log.COLLECT = true;
   
@@ -1706,7 +1706,7 @@ var UNDEF = undefined;
     var Utils = qubit.opentag.Utils;
     
     Utils.namespace("qubit.opentag.Timed", new qubit.opentag.Timer({
-      rate: 14,
+      rate: 37,
       dynamic: true
     }));
     
@@ -2242,7 +2242,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
       if (_docLoaded) {
         return true;
       }
-      _docLoaded = !!document.getElementsByTagName("body")[0];
+      _docLoaded = !!document.body;
+      //_docLoaded = _docLoaded && (document.readyState !== "loading");
       return _docLoaded;
     };
     
@@ -2418,9 +2419,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       var callName = "_" + wsCounter++;
       var accessorName = TagsUtils.prototype.PACKAGE_NAME +
               ".TagsUtils.writeScriptURL.callbacks." + callName;
-      
-      TagsUtils.writeScriptURL.callbacks[callName] = callback;
-      
+          
       TagsUtils.writeScriptURL.callbacks[callName] = function (error) {
         if (error) {
           callback(false, "error while loading script " + url);
@@ -2591,7 +2590,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
     TagsUtils.getHTMLLocationForTag = function (tag) {
       var el;
       var name = tag.prepareLocationObject(tag.config.locationObject);
-      var locationDetail = tag.config.locationDetail;
       switch (name) {
         case "HEAD":
            el = document.getElementsByTagName("head")[0];
@@ -2600,13 +2598,11 @@ q.html.HtmlInjector.getAttributes = function (node) {
            el = document.body;
            break;
          default:
-           if (locationDetail) {
-             el = document.getElementById(locationDetail);
-           } else if (name) {
-             el = document.getElementById(name);
-           } else {
-             el = document.body;
-           }
+          if (name) {
+            el = document.getElementById(name);
+          } else {
+            el = document.body;
+          }
       }
       
       return el;
@@ -3040,15 +3036,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
   Tags.getContainers = function () {
     return qubit.opentag.Container.getContainers();
   };
-
-  
-  qubit.opentag.Log.LEVEL = qubit.opentag.Log.LEVEL_NONE;
-  qubit.opentag.Log.COLLECT_LEVEL = 3;
-  
-  /*debug*/
-  qubit.opentag.Log.LEVEL = 2;
-  qubit.opentag.Log.COLLECT_LEVEL = 5;
-  /*~debug*/
   
   log.INFO("*** Qubit TagSDK *** ", true,
            "font-size: 22px; color:#CCC;"+//L
@@ -3101,22 +3088,25 @@ q.html.HtmlInjector.getAttributes = function (node) {
     try {
       if (this.value.indexOf("[#]") === -1) {
         ret = Utils.gevalAndReturn(this.value);
+        this.failMessage = null;
       } else {
         ret = Expression.parseUVArray(this.value);
       }
     } catch (e) {
       var msg = "could not read value of expression: \n" + this.value +
               "\nexact cause: " + e;
-      if (this._failMsg !== msg) {
-        this._failMsg = msg;
-        this.log.WARN(this._failMsg);
+      if (this.failMessage !== msg) {
+        this.failMessage = msg;
       }
       ret = null;
     }
     /*log*/
     Timed.maxFrequent(function () {
+    	if (this.failMessage) {
+    		this.log.FINEST(this.failMessage);
+    	}
       this.log.FINEST("getting value from expression: " + ret);
-    }.bind(this), 3000, this._lockExprObject);
+    }.bind(this), 10000, this._lockExprObject);
     /*~log*/
     return ret;
   };
@@ -3755,7 +3745,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        * asynchronous mode.
        * @cfg {Boolean} [async=false]
        */
-      async: false,
+      async: true,
       /**
        * Property tells if this script's contents may use document.write 
        * method. Scripts with such a methods, if run with this property will be
@@ -3841,13 +3831,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
     
     /**
-     * If checked, tag will be instructed to secure document.write write's
-     * operations. This property will be set automatically by container or
-     * other processes and can be overriten at any time manually.
-     * At most of times it will be rarely used manually.
-     * @property {Boolean} [secureWrite=false]
+     * If checked and usesDocumentWrite is true, tag will be instructed to 
+     * delay execution till body is available.
+     * @property {Boolean} [delayDocWrite=false]
      */
-    this.secureWrite = false;
+    this.delayDocWrite = false;
     
     /**
      * Dependencies of this tag. Other tag INSTANCES (if any!).
@@ -3926,7 +3914,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    *  If the value is `-1` timeout is infinite.
    * @property {Number} LOADING_TIMEOUT
    */
-  GenericLoader.prototype.LOADING_TIMEOUT = 10 * 1000;
+  GenericLoader.prototype.LOADING_TIMEOUT = 5 * 1000;
   
   /**
    * Private method delegating script execution.
@@ -3972,6 +3960,44 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     } finally {
       this.onExecute(success);
     }
+  };
+  
+  /**
+   * Return this loader's timeout value.
+   * @returns {Number} timeout including dependencies layer maximum 
+   *        of timeouts
+   */
+  GenericLoader.prototype.getTimeout = function () {
+    return this._getTimeout();
+  };
+  
+  /**
+   * Strictly private timeout worker. Do not use.
+   * @private
+   */
+  GenericLoader.prototype._getTimeout = function (chain) {
+    var tout = +this.config.timeout;
+    if (tout !== -1 && this.dependencies.length > 0) {
+      var max = 0;
+      chain = chain || [];
+      var deps = this.dependencies;
+      var present = Utils.indexInArray(chain, this) !== -1;
+      if (!present) {
+        chain[chain.length] = this;
+        for (var i = 0; i < deps.length; i++) {
+          var val = deps[i].getTimeout(chain);
+          if (val > max) {
+            max = val;
+          }
+        }
+        if (max > 0) {
+          tout += max;
+        }
+      } else {
+        return 0;
+      }
+    }
+    return tout;
   };
   
   /**
@@ -4561,8 +4587,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       /*log*/ //make some nice counter logs count down...
       var diff = (new Date().valueOf() - this.loadStarted);
       var freq = 4000;
-      var curr = diff/this.config.timeout;
-      var steps = Math.ceil(this.config.timeout/freq);
+      var curr = diff / this.getTimeout();
+      var steps = Math.ceil(this.getTimeout() / freq);
       
       this._lockObject.curr = curr;
       
@@ -4646,7 +4672,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype.mustWaitForHTMLLocation = function () {
     //tag must wait for location if asynchronous, or instructed to protect
     //writes
-    return this.isLoadingAsynchronously() || this.willSecureDocumentWrite();
+    var wait = this.config.delayDocWrite && this.config.usesDocumentWrite;
+    return !!wait;
   };
   
   /**
@@ -4662,8 +4689,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     // ---> (!this.mustWaitForHTMLLocation()) <---
     // please note, if location is not present, document.write action will be
     // performed
-    var ready = (!this.mustWaitForHTMLLocation()) ||
-            !!TagsUtils.getHTMLLocationForTag(this);
+    
+    if (this.mustWaitForHTMLLocation() && !TagsUtils.documentIsLoaded()) {
+      return false;
+    }
+    
+    var ready = !!TagsUtils.getHTMLLocationForTag(this);
     return ready;
   };
   
@@ -4673,22 +4704,29 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {Boolean}
    */
   GenericLoader.prototype._loadingOutOfTimeFrames = function () {
-    if (this.config.timeout < 0) {
+    if (this.getTimeout() < 0) {
       return false;
     }
     return (new Date().valueOf() - this.loadStarted) > 
-      this.config.timeout;
+      this.getTimeout();
   };
+  
+  
   
   /**
    * Function used as a worker for processing loaders's other dependant tags.
    * It is a looping trigger to call "load" on dependencies.
    * `this.dependencies` array containes other dependant loaders.
    */
-  GenericLoader.prototype.loadDependencies = function () {
+  GenericLoader.prototype.loadDependencies = function (chain) {
+    chain = chain || [];
     var deps = this.dependencies;
-    for (var i = 0; i < deps.length; i++) {
-      deps[i].load();
+    var present = Utils.indexInArray(chain, this) !== -1;
+    if (!present) {
+      chain[chain.length] = this;
+      for (var i = 0; i < deps.length; i++) {
+          deps[i].load(chain);
+      }
     }
   };
   
@@ -4957,7 +4995,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.runIsFinished = u;
     this.scriptExecuted = u;
     this.scriptLoadingFailed = u;
-    this.secureWrite = u;
+    this.delayDocWrite = u;
     this._securedWrites = u;
     this.state = 0;
     this.unexpectedFail = u;
@@ -4992,7 +5030,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {Boolean}
    */
   GenericLoader.prototype.willSecureDocumentWrite = function () {
-    return (this.config.usesDocumentWrite || this.secureWrite);
+    return (this.config.usesDocumentWrite);
   };
   
   /**
@@ -5631,6 +5669,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {String} resulting string
    */
   BaseTag.prototype.replaceTokensWithValues = function (string) {
+    if (string && string.indexOf("${") === -1) {
+      //serious performance improvements.
+      //regex are heavy
+      return string;
+    }
     var params = this.parameters;
     
     if (params) for (var i = 0; i < params.length; i++) {
@@ -7418,7 +7461,7 @@ var JSON = {};
           }
           
           if (this.config.delayDocWrite) {
-            tag.secureWrite = true;
+            tag.delayDocWrite = true;
           }
             //attach session if necessary
           tag.session = tag.session || this.session;//:session
@@ -7428,7 +7471,7 @@ var JSON = {};
             for (var i = 0; i < tag.dependencies.length; i++) {
               var dependency = tag.dependencies[i];
               var dname = dependency.config.name;
-              if(!tagsRunMap[dname] && this.tags) {
+              if(!tagsRunMap[dname] && this.tags[dname]) {
                 tagsRunMap[dname] = dependency;
                 dependency[command]();
               }
@@ -7936,12 +7979,15 @@ var JSON = {};
       if (cfg && cfg.pre) {
         if (typeof(cfg.pre) === "function") {
           this.pre = cfg.pre;
+          this.pre();
         } else {
           var expr = this.replaceTokensWithValues(String(cfg.pre));
-          this.pre = Utils.expressionToFunction(expr).bind(this);
+//        this.pre = Utils.expressionToFunction(expr).bind(this);
+          Utils.geval(expr);
         }
+      } else {
+        this.pre();
       }
-      this.pre();
     } catch (ex) {
       this.log.ERROR(this.config.name + " exception while running pre: " + ex);
       return true;//cancell running 
@@ -7968,12 +8014,15 @@ var JSON = {};
       if (cfg && cfg.post) {
         if (typeof(cfg.post) === "function") {
           this.post = cfg.post;
+          this.post(success);
         } else {
           var expr = this.replaceTokensWithValues(String(cfg.post));
-          this.post = Utils.expressionToFunction(expr).bind(this);
+//        this.post = Utils.expressionToFunction(expr).bind(this);
+          Utils.geval(expr);
         }
+      } else {
+        this.post(success);
       }
-      this.post(success);
     } catch (ex) {
       this.log.ERROR(this.config.name + " exception while running pre: " + ex);
     }
