@@ -7981,8 +7981,8 @@ var JSON = {};
           this.pre = cfg.pre;
           this.pre();
         } else {
+          var expr = this.replaceTokensWithValues(String(cfg.pre));
           if (this.config.prePostWindowScope) {
-            var expr = this.replaceTokensWithValues(String(cfg.pre));
             Utils.geval(expr);
           } else {
             this.pre = Utils.expressionToFunction(expr).bind(this);
@@ -8020,8 +8020,8 @@ var JSON = {};
           this.post = cfg.post;
           this.post(success);
         } else {
+          var expr = this.replaceTokensWithValues(String(cfg.post));
           if (this.config.prePostWindowScope) {
-            var expr = this.replaceTokensWithValues(String(cfg.post));
             Utils.geval(expr);
           } else {
             this.post = Utils.expressionToFunction(expr).bind(this);
