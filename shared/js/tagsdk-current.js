@@ -7981,9 +7981,13 @@ var JSON = {};
           this.pre = cfg.pre;
           this.pre();
         } else {
-          var expr = this.replaceTokensWithValues(String(cfg.pre));
-//        this.pre = Utils.expressionToFunction(expr).bind(this);
-          Utils.geval(expr);
+          if (this.config.prePostWindowScope) {
+            var expr = this.replaceTokensWithValues(String(cfg.pre));
+            Utils.geval(expr);
+          } else {
+            this.pre = Utils.expressionToFunction(expr).bind(this);
+            this.pre();
+          }
         }
       } else {
         this.pre();
@@ -8016,9 +8020,13 @@ var JSON = {};
           this.post = cfg.post;
           this.post(success);
         } else {
-          var expr = this.replaceTokensWithValues(String(cfg.post));
-//        this.post = Utils.expressionToFunction(expr).bind(this);
-          Utils.geval(expr);
+          if (this.config.prePostWindowScope) {
+            var expr = this.replaceTokensWithValues(String(cfg.post));
+            Utils.geval(expr);
+          } else {
+            this.post = Utils.expressionToFunction(expr).bind(this);
+            this.post(success);
+          }
         }
       } else {
         this.post(success);
@@ -8143,7 +8151,8 @@ var JSON = {};
       url: null,
       html: "",
       locationPlaceHolder: "NOT_END",
-      locationObject: "BODY"
+      locationObject: "BODY",
+      prePostWindowScope: true
     };
     
     Utils.setIfUnset(config, defaults);
@@ -8491,12 +8500,14 @@ var JSON = {};
 
 
 
+
 (function() {
   var Utils = qubit.opentag.Utils;
   var PatternType = qubit.opentag.filter.pattern.PatternType;
   var URLFilter = qubit.opentag.filter.URLFilter;
   var SessionVariableFilter = qubit.opentag.filter.SessionVariableFilter;
   var LibraryTag = qubit.opentag.LibraryTag;
+  var CustomTag = qubit.opentag.CustomTag;
   var DOMText = qubit.opentag.pagevariable.DOMText;
   var URLQuery = qubit.opentag.pagevariable.URLQuery;
   var Cookie = qubit.opentag.pagevariable.Cookie;
@@ -8611,6 +8622,7 @@ var JSON = {};
           ID: loader.id,
           url: loader.url,
           html: loader.html,
+          template: !!loader.template,
           locationPlaceHolder: ((+loader.positionId) === 1) ? "END" : "NOT_END",
           locationObject: location,
           async: loader.async,
@@ -8627,7 +8639,13 @@ var JSON = {};
           cfg.post = loader.post;
         }
         
-        var tag = new LibraryTag(cfg);
+        var tag = null;
+        
+        if (cfg.template) {
+          tag = new LibraryTag(cfg);
+        } else {
+          tag = new CustomTag(cfg);
+        }
         
         //those mean there is real library definition p-assed
         if (loader.script) {
