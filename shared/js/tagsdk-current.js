@@ -3361,9 +3361,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   /**
    * @class qubit.opentag.TagHelper
    * #Helper class for BaseTag and GenericLoader
-   * 
-   * This class implements some of compatibility and utility methods specific 
-   * for tag execution and management.
+   * This is not an utility class but supporting class for 
+   * BaseTag/GenericLoader classes.
+   * This class implements some of compatibility and utility methods 
+   * specific for tag execution and management.
    * 
    * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    */
@@ -3406,14 +3407,15 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
               }
             }
           }.bind(tag));
-        } else if (tryWrite) {
+        } else if (tryWrite && document.readyState === "loading") {
             document.write(html);
             tag.injectHTMLNotFinished = false;
         } else {
           tag.injectHTMLFailed = new Date().valueOf();
-          tag.log.ERROR("location was not found and html is " + 
-                  "told to not to write at runtime. Please check tag's " +//L
-                  "configuration.");//L
+          tag.log.ERROR("location was not found or/and html is " + 
+                  "told to not to write at runtime or" + //L
+                  " document is already loaded. Please check tag's " +//L
+                  "configuration. Injection cancelled.");//L
         }
       } catch (ex) {
         tag.injectHTMLNotFinished = false;
@@ -3809,9 +3811,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        *  
        * Way the HTML passed with `html` config property is injected is 
        * controlled by `locationPlaceHolder` property.
+       * This property applies when html property is set.
        * @cfg {String} [locationObject="BODY"]
        */
       locationObject: "BODY",
+      /**
+       * Option will cause this script to wait for body object
+       */
+      waitForBody: false,
       /**
        * By default we do care for not loading scripts with same href value.
        * Set this property to false in order to load script any time its 
@@ -4154,6 +4161,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {Boolean} false if tag is currently loading, true otherwise.
    */
   GenericLoader.prototype.run = function (ignoreDependencies) {
+    if (this.cancelled) {
+      this._handleCancel();
+      return false;
+    }
+    
     if (this.isRunning) {
       this.log.FINE("loader is currently in progress, try again later.");
       return false;
@@ -4179,6 +4191,20 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
 
   /**
+   * @private
+   * Handling cancellation help[er. Strictly private.
+   */
+  GenericLoader.prototype._handleCancel = function () {
+    this.addState("CANCELLED");
+    this.log.INFO("loader is cancelled.");
+    try {
+      this.onCancel();
+    } catch (ex) {
+      this.log.ERROR("Exception at onCancel" + ex);
+    }
+  };
+
+  /**
    * @protected
    * Function will execute immmediatelly if dependencies are satisfied,
    *  will wait in timeout manner otherwise till fail or load state is gained.
@@ -4187,6 +4213,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * execution block.
    */
   GenericLoader.prototype.waitForDependenciesAndExecute = function () {
+    if (this.cancelled) {
+      this._handleCancel();
+      return;
+    }
     if (this.loadedDependencies) {
       //dependencies ready
       this.execute();      
@@ -4199,7 +4229,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       Timed.setTimeout(this.waitForDependenciesAndExecute.bind(this), 30);
     }
   };
-  
   
   /**
    * @protected
@@ -4250,12 +4279,17 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @private
    */
   GenericLoader.prototype._triggerExecution = function () {
+    if (this.cancelled) {
+      this._handleCancel();
+      return;
+    }
+    
     if (this.scriptExecuted) {
       return; //execution can be called only if script execution state is unset
     }
     
-    var finished = this
-            .loadExecutionURLsAndHTML(this._triggerExecution.bind(this));
+    var finished = this.loadExecutionURLsAndHTML(
+                                            this._triggerExecution.bind(this));
     
     if (this.scriptExecuted) {
       return; //execution could be called already! by last url sync load!
@@ -4324,6 +4358,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype.onFinished = EMPTY_FUN;
   
   /**
+   * @event
+   * Triggered if tag is loading and cancelled method is triggered.
+   */
+  GenericLoader.prototype.onFinished = EMPTY_FUN;
+  
+  /**
    * This function queries tag if document write execution should be
    * secured. Dependeing on config and tag's state it will return true or false.
    * @returns {Boolean}
@@ -4364,6 +4404,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {Boolean}
    */
   GenericLoader.prototype.loadExecutionURLsAndHTML = function (callback) {
+    if (this.cancelled) {
+      this._handleCancel();
+      return true;
+    }
     //if dependencies are okay, execute entire execution logic:
     // 1) load URLs
     // 2) after 1) inject HTML (can have some async stuff)
@@ -4374,7 +4418,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this._loadExecutionURLsAndHTMLInformed = true;
       this.log.INFO("tag is loaded, trying execution...");
     }
-
+    
     if(this.shouldWaitForDocWriteProtection()) {
       return false;
     }
@@ -4470,17 +4514,18 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype.STATE = {
     INITIAL: 0,
     STARTED: 1,
-    LOADING_DEPENDENCIES: 2,
-    LOADED_DEPENDENCIES: 4,
-    LOADING_URL: 8,
-    LOADED_URL: 16,
-    EXECUTED: 32,
-    EXECUTED_WITH_ERRORS: 64,
-    FAILED_TO_LOAD_DEPENDENCIES: 128,
-    FAILED_TO_LOAD_URL: 256,
-    FAILED_TO_EXECUTE: 512,
-    TIMED_OUT: 1024,
-    UNEXPECTED_FAIL: 2048
+    CANCELLED: 1*2,
+    LOADING_DEPENDENCIES: 2*2,
+    LOADED_DEPENDENCIES: 4*2,
+    LOADING_URL: 8*2,
+    LOADED_URL: 16*2,
+    EXECUTED: 32*2,
+    EXECUTED_WITH_ERRORS: 64*2,
+    FAILED_TO_LOAD_DEPENDENCIES: 128*2,
+    FAILED_TO_LOAD_URL: 256*2,
+    FAILED_TO_EXECUTE: 512*2,
+    TIMED_OUT: 1024*2,
+    UNEXPECTED_FAIL: 2048*2
   };
   
   /**
@@ -4508,6 +4553,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param {String} state name being set
    */
   GenericLoader.prototype.onStateChange = EMPTY_FUN;
+  
+  /**
+   * Method cancels the loader.
+   * @returns {undefined}
+   */
+  GenericLoader.prototype.cancel = function () {
+    this.cancelled = new Date().valueOf();
+  };
   
   /**
    * Property representing binary table with this tag's state.
@@ -4555,6 +4608,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @private
    */
   function _waitForDependencies() {
+    if (this.cancelled) {
+      this._handleCancel();
+      return;
+    }
     /**
      * It indicates ONLY if _waitForDependencies has finished it's job - NOT
      * if started.
@@ -4666,18 +4723,18 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
   /**
    * @protected
-   * Function indicates if loader must wait for HTML location to be present.
+   * Function indicates if loader must wait till body is loaded - document.write
+   * configuration case.
    * @returns {Boolean} 
    */
-  GenericLoader.prototype.mustWaitForHTMLLocation = function () {
+  GenericLoader.prototype.docWriteAsksToWaitForBody = function () {
     //tag must wait for location if asynchronous, or instructed to protect
     //writes
-    var wait = this.config.delayDocWrite && this.config.usesDocumentWrite;
-    return !!wait;
+    return !!(this.config.delayDocWrite && this.config.usesDocumentWrite);
   };
   
   /**
-   * This function, unlikely as `mustWaitForHTMLLocation` checks phisically if
+   * This function, unlikely as `injectionLocationReady` checks phisically if
    * loaction for injections is ready.
    * Injection location is necessary for:
    * - html injector
@@ -4686,16 +4743,20 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.injectionLocationReady = function () {
     // if this is synchronous script then mark location as any time ready
-    // ---> (!this.mustWaitForHTMLLocation()) <---
+    // ---> (!this.injectionLocationReady()) <---
     // please note, if location is not present, document.write action will be
     // performed
     
-    if (this.mustWaitForHTMLLocation() && !TagsUtils.documentIsLoaded()) {
+    if (this.docWriteAsksToWaitForBody() && !TagsUtils.documentIsLoaded()) {
       return false;
     }
     
-    var ready = !!TagsUtils.getHTMLLocationForTag(this);
-    return ready;
+    if (!this.config.html && !this.config.waitForBody) {
+      return true;
+    }
+    
+    //if (this.config.html && !this.config.locationObject) {return true;}
+    return !!TagsUtils.getHTMLLocationForTag(this);
   };
   
   /**
@@ -4711,14 +4772,21 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.getTimeout();
   };
   
-  
-  
   /**
    * Function used as a worker for processing loaders's other dependant tags.
    * It is a looping trigger to call "load" on dependencies.
    * `this.dependencies` array containes other dependant loaders.
    */
-  GenericLoader.prototype.loadDependencies = function (chain) {
+  GenericLoader.prototype.loadDependencies = function () {
+    this._loadDependencies();
+  };
+  
+  /**
+   * @private
+   * Strictly private - `loadDependencies` worker.
+   * @param {Array} chain
+   */
+  GenericLoader.prototype._loadDependencies = function (chain) {
     chain = chain || [];
     var deps = this.dependencies;
     var present = Utils.indexInArray(chain, this) !== -1;
@@ -4737,13 +4805,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * It is called each time an `log.ERROR` is called and not only.
    * @param {String} error Error string.
    */
-  GenericLoader.prototype.onError = function (error) {};
+  GenericLoader.prototype.onError = EMPTY_FUN;
   
   /**
    * It is called when tag loading is timed out
    * @event
    */
-  GenericLoader.prototype.onLoadTimeout = function () {};
+  GenericLoader.prototype.onLoadTimeout = EMPTY_FUN;
   
   /**
    * @event
@@ -4756,7 +4824,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * Triggered when script loading error has occured.
    * @param {String} message Error message.
    */
-  GenericLoader.prototype.onScriptLoadError = function (message) {};
+  GenericLoader.prototype.onScriptLoadError = EMPTY_FUN;
   
   /**
    * @event
@@ -4811,7 +4879,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.loadDependencies();
       }
     } catch (ex) {
-      this.log.ERROR("load(): unexpected exception occured: \n"
+      this.log.ERROR("loadDependencies: unexpected exception occured: \n"
               + ex + "\ntrying to finish... ");//L
       throw ex;
     }
@@ -5004,6 +5072,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.waitForDependenciesFinished = u;
     this.isRunning = u;
     this._lastRun = u;
+    this.cancelled = u;
     this.addState("INITIAL");
   };
   
@@ -5040,7 +5109,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.injectHTML = function (callback) {
      //on sync - try to dpc.write
-    var tryWriteIfNoLocation = !this.mustWaitForHTMLLocation();
+    var tryWriteIfNoLocation = !this.docWriteAsksToWaitForBody();
     // tryWriteIfNoLocation set to true will cause immediate document.write
     // call if location was not found!
     var html = this.prepareHTML(this.config.html);
@@ -5446,17 +5515,18 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     AWAITING_CALLBACK: 2,
     FILTERS_FAILED: 4,
     STARTED: 8,
-    LOADING_DEPENDENCIES: 16,
-    LOADED_DEPENDENCIES: 32,
-    LOADING_URL: 64,
-    LOADED_URL: 128,
-    EXECUTED: 256,
-    EXECUTED_WITH_ERRORS: 512,
-    FAILED_TO_LOAD_DEPENDENCIES: 1024,
-    FAILED_TO_LOAD_URL: 2048,
-    FAILED_TO_EXECUTE: 4096,
-    TIMED_OUT: 2 * 4096,
-    UNEXPECTED_FAIL: 4 * 4096
+    CANCELLED: 8*2,
+    LOADING_DEPENDENCIES: 16*2,
+    LOADED_DEPENDENCIES: 32*2,
+    LOADING_URL: 64*2,
+    LOADED_URL: 128*2,
+    EXECUTED: 256*2,
+    EXECUTED_WITH_ERRORS: 512*2,
+    FAILED_TO_LOAD_DEPENDENCIES: 1024*2,
+    FAILED_TO_LOAD_URL: 2048*2,
+    FAILED_TO_EXECUTE: 4096*2,
+    TIMED_OUT: 2 * 4096*2,
+    UNEXPECTED_FAIL: 4 * 4096*2
   };
   
   /**
@@ -5476,54 +5546,59 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     
     this.stateStack = [];
     var s = this.STATE;
+    var current = this.state;
+    var stack = this.stateStack;
     
-    if (this.state & s.INITIAL)
-        this.stateStack.push("Initial state.");
+    if (current & s.INITIAL)
+        stack.push("Initial state.");
         
-    if (this.state & s.FILTER_ACTIVE)
-        this.stateStack.push("Tag running with filters pass triggered.");
+    if (current & s.FILTER_ACTIVE)
+        stack.push("Tag running with filters pass triggered.");
 
-    if (this.state & s.FILTERS_FAILED)
-        this.stateStack.push("Filters failed to pass.");
+    if (current & s.FILTERS_FAILED)
+        stack.push("Filters failed to pass.");
 
-    if (this.state & s.AWAITING_CALLBACK)
-        this.stateStack.push("Awaiting callback to run this tag. Not pooling.");
+    if (current & s.AWAITING_CALLBACK)
+        stack.push("Awaiting callback to run this tag. Not pooling.");
         
-    if (this.state & s.STARTED)
-        this.stateStack.push("Tag is initialized and loading has been started.");
+    if (current & s.STARTED)
+        stack.push("Tag is initialized and loading has been started.");
 
-    if (this.state & s.LOADING_DEPENDENCIES)
-        this.stateStack.push("Dependencies are being loaded.");
+    if (current & s.CANCELLED)
+        stack.push("Tag has been cancelled.");
 
-    if (this.state & s.LOADED_DEPENDENCIES)
-        this.stateStack.push("Dependencies loading process has been finished.");
+    if (current & s.LOADING_DEPENDENCIES)
+        stack.push("Dependencies are being loaded.");
 
-    if (this.state & s.LOADING_URL)
-        this.stateStack.push("External URL is being loaded.");
+    if (current & s.LOADED_DEPENDENCIES)
+        stack.push("Dependencies loading process has been finished.");
 
-    if (this.state & s.LOADED_URL)
-        this.stateStack.push("External URL has been loaded.");
+    if (current & s.LOADING_URL)
+        stack.push("External URL is being loaded.");
 
-    if (this.state & s.EXECUTED)
-        this.stateStack.push("Main script has been executed.");
+    if (current & s.LOADED_URL)
+        stack.push("External URL has been loaded.");
 
-    if (this.state & s.EXECUTED_WITH_ERRORS)
-        this.stateStack.push("Main script has been executed but errors occured.");
+    if (current & s.EXECUTED)
+        stack.push("Main script has been executed.");
 
-    if (this.state & s.FAILED_TO_LOAD_DEPENDENCIES)
-        this.stateStack.push("Dependencies has failed to load.");
+    if (current & s.EXECUTED_WITH_ERRORS)
+        stack.push("Main script has been executed but errors occured.");
 
-    if (this.state & s.FAILED_TO_LOAD_URL)
-        this.stateStack.push("URL location failed to load.");
+    if (current & s.FAILED_TO_LOAD_DEPENDENCIES)
+        stack.push("Dependencies has failed to load.");
 
-    if (this.state & s.FAILED_TO_EXECUTE)
-        this.stateStack.push("Script failed to execute.");
+    if (current & s.FAILED_TO_LOAD_URL)
+        stack.push("URL location failed to load.");
 
-    if (this.state & s.TIMED_OUT)
-        this.stateStack.push("Script timed out awaiting for dependencies.");
+    if (current & s.FAILED_TO_EXECUTE)
+        stack.push("Script failed to execute.");
 
-    if (this.state & s.UNEXPECTED_FAIL) {
-      this.stateStack.push("Script occured UNEXPECTED exception and is failed.");
+    if (current & s.TIMED_OUT)
+        stack.push("Script timed out awaiting for dependencies.");
+
+    if (current & s.UNEXPECTED_FAIL) {
+      stack.push("Script occured UNEXPECTED exception and is failed.");
     }
   };
   
@@ -7516,6 +7591,7 @@ var JSON = {};
       return;
     }
     
+    var l = this.log;//L
     var finished = this.allTagsFinished();
     
     if (!this._showFinishedOnce && finished) {
@@ -7533,61 +7609,61 @@ var JSON = {};
       var awaitingLen = results.awaiting === null ?
                                   0 : Utils.keys(results.awaiting).length;
       var styling = " ;color: #0F7600;font-size: 12px;font-weight:bold; ";
-
-      this.log.INFO("********************************************************",
+      
+      l.INFO("********************************************************",
         0, styling);
-      this.log.INFO("Startup tags have ended their processing.", 0, styling);
+      l.INFO("Startup tags have ended their processing.", 0, styling);
 
-      this.log.INFO("Finished in " +
+      l.INFO("Finished in " +
           (this.runningFinished - this.runningStarted) + "ms.", 0, styling);
       
       if (results.run) {
         var len = Utils.keys(results.run).length;
-        this.log.INFO("Successfully run tags[" + len + "]:", 0, styling);
-        this.log.INFO(results.run, true);
+        l.INFO("Successfully run tags[" + len + "]:", 0, styling);
+        l.INFO(results.run, true);
       } else {
-        this.log.INFO("No successfully run tags.", 0, styling);
+        l.INFO("No successfully run tags.", 0, styling);
       }
       
       if (results.failed) {
         var len = Utils.keys(results.failed).length;
         var addRed = results.failed === null ? "" : "color: #DF5500;";
-        this.log.INFO("Failed to run[" + len + "]:", 0,  styling + addRed);
-        this.log.INFO(results.failed, true);
+        l.INFO("Failed to run[" + len + "]:", 0,  styling + addRed);
+        l.INFO(results.failed, true);
       } else {
-        this.log.INFO("No failed tags.", 0,  styling);
+        l.INFO("No failed tags.", 0,  styling);
       }
       
       if (results.awaiting) {
         var len = Utils.keys(results.awaiting).length;
-        this.log.INFO("There is still " + awaitingLen +
+        l.INFO("There is still " + awaitingLen +
                 " tag(s) ready to be fired by" +
                 " awaiting filters that can run.",
                 0, styling + "color: #DC9500;");
-        this.log.INFO("Filter ready tags[" + len + "]:", 0, styling +
+        l.INFO("Filter ready tags[" + len + "]:", 0, styling +
                 "color: #DC9500;");//L
-        this.log.INFO(results.awaiting, true);
+        l.INFO(results.awaiting, true);
       } else {
-        this.log.INFO("No filter ready tags.", 0, styling);
+        l.INFO("No filter ready tags.", 0, styling);
       }
 
       if (results.consent) {
         var len = Utils.keys(results.consent).length;
-        this.log.INFO("Consent awaiting tags[" + len + "]:", 0, styling);
-        this.log.INFO(results.consent, true);
+        l.INFO("Consent awaiting tags[" + len + "]:", 0, styling);
+        l.INFO(results.consent, true);
       } else {
-        this.log.INFO("No consent awaiting tags.", 0, styling);
+        l.INFO("No consent awaiting tags.", 0, styling);
       }
       
       if (results.other) {
         var len = Utils.keys(results.other).length;
-        this.log.INFO("Other unloaded tags[" + len + "]:", 0, styling);
-        this.log.INFO(results.other, true);
+        l.INFO("Other unloaded tags[" + len + "]:", 0, styling);
+        l.INFO(results.other, true);
       } else {
-        this.log.INFO("No unloaded tags.", 0, styling);
+        l.INFO("No unloaded tags.", 0, styling);
       }
       
-      this.log.INFO("********************************************************",
+      l.INFO("********************************************************",
                     0, styling);
       /*~log*/
       
@@ -7609,9 +7685,9 @@ var JSON = {};
         }.bind(this), 100);
         
     } else {
-      this.log.INFO("********************************************************");
-      this.log.WARN("All tags seem to finished current jobs.");
-      this.log.INFO("********************************************************");
+      l.INFO("********************************************************");
+      l.WARN("All tags seem to finished current jobs.");
+      l.INFO("********************************************************");
     }
   };
   
