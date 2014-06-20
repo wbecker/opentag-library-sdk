@@ -4690,11 +4690,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     }
     
     for(var i = 0; i < this.dependencies.length; i++) {
-      var state = this.dependencies[i].scriptExecuted;
-      if (!state || +state <= 0) {
-        var name = this.dependencies[i].config ?
-          this.dependencies[i].config.name : "anonymous";
-        failures.push("dependant Tag with name -> " + name);
+      if (this.dependencies[i] !== this) {
+        var state = this.dependencies[i].scriptExecuted;
+        if (!state || +state <= 0) {
+          var name = this.dependencies[i].config ?
+            this.dependencies[i].config.name : "anonymous";
+          failures.push("dependant Tag with name -> " + name);
+        }
       }
     }
     
