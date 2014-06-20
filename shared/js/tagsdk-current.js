@@ -3812,9 +3812,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        * Way the HTML passed with `html` config property is injected is 
        * controlled by `locationPlaceHolder` property.
        * This property applies when html property is set.
-       * @cfg {String} [locationObject="BODY"]
+       * @cfg {String} [locationObject=null]
        */
-      locationObject: "BODY",
+      locationObject: null,
       /**
        * Option will cause this script to wait for body object
        */
@@ -3988,11 +3988,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       var max = 0;
       chain = chain || [];
       var deps = this.dependencies;
-      var present = Utils.indexInArray(chain, this) !== -1;
+      var present = (Utils.indexInArray(chain, this) !== -1);
       if (!present) {
         chain[chain.length] = this;
         for (var i = 0; i < deps.length; i++) {
-          var val = deps[i].getTimeout(chain);
+          var val = deps[i]._getTimeout(chain);
           if (val > max) {
             max = val;
           }
@@ -4755,7 +4755,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       return true;
     }
     
-    //if (this.config.html && !this.config.locationObject) {return true;}
+//    if (!this.config.async) {
+//      if (this.config.html && !this.config.locationObject) {
+//        return true;
+//      }
+//      return true;
+//    }
+    
     return !!TagsUtils.getHTMLLocationForTag(this);
   };
   
@@ -5744,7 +5750,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {String} resulting string
    */
   BaseTag.prototype.replaceTokensWithValues = function (string) {
-    if (string && string.indexOf("${") === -1) {
+    if (!string || string.indexOf("${") === -1) {
       //serious performance improvements.
       //regex are heavy
       return string;
@@ -8222,13 +8228,13 @@ var JSON = {};
    * @param config {Object} config object used to build instance
    */
   function CustomTag(config) {
-    
     var defaults = {
       url: null,
       html: "",
       locationPlaceHolder: "NOT_END",
       locationObject: "BODY",
-      prePostWindowScope: true
+      prePostWindowScope: true,
+      async: true
     };
     
     Utils.setIfUnset(config, defaults);
