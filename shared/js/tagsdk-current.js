@@ -2454,6 +2454,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
     
     TagsUtils.writeScriptURL.callbacks = {};
     
+    var SESSION = BaseFilter.state.SESSION;
+    var PASS = BaseFilter.state.PASS;
+    var FAIL = BaseFilter.state.FAIL;
+    
     /**
      * Entry method used to check if all filters used by this tag are passed.
      * BaseTag searches for filters in this.config.**package**.filters location.
@@ -2471,13 +2475,13 @@ q.html.HtmlInjector.getAttributes = function (node) {
       //@todo maybe this should be done buch earlier
       filters = filters.sort(function (a, b) {
         try {
-          return a.config.order - b.config.order;
+          return b.config.order - a.config.order;
         } catch (nex) {
           return 0;
         }
       });
       
-      var decision = BaseFilter.state.PASS;
+      var decision = PASS;
       if (!filters || (filters.length === 0)) {
         return decision;
       }
@@ -2486,15 +2490,16 @@ q.html.HtmlInjector.getAttributes = function (node) {
       var lastFilterResponded = null;
       var disabledFiltersPresent = false;
       var sessionFiltersPresent = false;
-      var sessionFilters = [];
       var waitingResponse = 0;
+      var response;
+      var lastSessionFilter;
       
       for (var i = 0; i < filters.length; i++) {
         var filter = filters[i];
         filter.setSession(session);
         
         if (filter.match()) {
-          var response = filter.getState();
+          response = filter.getState();
           // positive response means that filter tells to WAIT for execution
           // and try in 'response' miliseconds
           if (response > 0) {
@@ -2505,12 +2510,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
             tag.log.WARN("filter with name " + filter.config.name +
                     " is disabled");//L
             disabledFiltersPresent = true;
-          } else if (response === BaseFilter.state.SESSION) {
+          } else if (response === SESSION) {
             sessionFiltersPresent = true;
             lastFilterResponded = filter;
-            //set them up, so they run the tag
-            sessionFilters.push(filter);
-            //tag.log.FINE("Session filter. Custom trigger passed. Skipping.");
+            lastSessionFilter = filter;
           } else {
             lastFilterResponded = filter;
           }
@@ -2522,10 +2525,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
         onlyAwaitingFiltersPresent = true;
         if (!disabledFiltersPresent) {
           //all filters failed
-          decision = BaseFilter.state.FAIL;
+          decision = FAIL;
         } else {
           //none passed but one of filters was disabled
-          decision = BaseFilter.state.PASS;
+          decision = PASS;
         }
       } else {
         //some filters matched, review state of final matched filter
@@ -2534,31 +2537,33 @@ q.html.HtmlInjector.getAttributes = function (node) {
           decision = response;
         } else {
           //last response was to EXCLUDE this tag
-          decision = (response === BaseFilter.state.PASS) ?
-            BaseFilter.state.FAIL : BaseFilter.state.PASS;
+          decision = (response === PASS) ? FAIL : PASS;
         }
       }
       
       //if all passed, 
       //after standard checks, check if any filter called to wait
-      if (waitingResponse > 0 && (decision === BaseFilter.state.PASS ||
-              onlyAwaitingFiltersPresent)) {
+      if (waitingResponse > 0 && 
+              (decision === PASS || onlyAwaitingFiltersPresent)) {
         decision = waitingResponse;
       }
       
-      if (decision === BaseFilter.state.SESSION ||
-              ((decision === BaseFilter.state.PASS) && sessionFiltersPresent)) {
-        decision = BaseFilter.state.SESSION;
-        for (var c = 0; c < sessionFilters.length; c++) {
-          var f = sessionFilters[c];
-          if (f instanceof qubit.opentag.filter.SessionVariableFilter) {
-            try {
-              f.runTag(tag);
-            } catch (ex) {
-              f.log.FINEST("trying custom starter failed:" + ex);
-            }
+      if (decision === SESSION ||
+              ((decision === PASS) && sessionFiltersPresent)) {
+        if (!lastSessionFilter.config.include) {
+          return FAIL;
+        }
+        
+        decision = SESSION;
+        if (lastSessionFilter instanceof 
+              qubit.opentag.filter.SessionVariableFilter) {
+          try {
+            lastSessionFilter.runTag(tag);
+          } catch (ex) {
+            lastSessionFilter.log.FINEST("trying custom starter failed:" + ex);
           }
         }
+
       }
       
       return decision;
@@ -3816,9 +3821,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        */
       locationObject: null,
       /**
-       * Option will cause this script to wait for body object
+       * Option will cause this script to inject location be immediately marked
+       * as ready.
        */
-      waitForBody: false,
+      dontWaitForBody: false,
       /**
        * By default we do care for not loading scripts with same href value.
        * Set this property to false in order to load script any time its 
@@ -4753,10 +4759,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       return false;
     }
     
-    if (!this.config.html && !this.config.waitForBody) {
+    if (this.config.dontWaitForBody) {
       return true;
     }
     
+//    if (!this.config.html && !this.config.waitForBody) {
+//      return true;
+//    }
+//    
 //    if (!this.config.async) {
 //      if (this.config.html && !this.config.locationObject) {
 //        return true;
@@ -8695,7 +8705,7 @@ var JSON = {};
           location = "HEAD";
         } else if (loader.loactionId === 2) {
           location = "BODY";
-        } else if (loader.loactionId === 3){
+        } else if (loader.loactionId === 3) {
           location = loader.locationDetail;
         }
         
