@@ -4227,8 +4227,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       //dependencies ready
       this.execute();      
     } else if (this.loadingDependenciesFailed) {
-      this.log.ERROR("script execution failed before running");
-      this.log.ERROR("dependencies failed to load.");
+      this.log.INFO("script execution failed before running: " +
+        "dependencies failed to load."); //L
       this._markFailure();
       this._markFinished();
     } else {
@@ -4335,7 +4335,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   GenericLoader.prototype._markFailure = function () {
-    this.log.ERROR("script execution has failed. Tag in fail state.");
+    this.log.INFO("script execution has failed. Tag set to fail state.");
     this.scriptExecuted = -(new Date().valueOf());
     this.addState("FAILED_TO_EXECUTE");
   };
