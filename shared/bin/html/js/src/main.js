@@ -621,60 +621,60 @@ function compareVersions(A, B) {
 	var chunksB = numB.split(".");
 	//deprecated
 	var lesser = null;
+	//first fragment
+	if (chunksA.length && chunksB.length) {
+		var firstA = chunksA[0].replace(/[^\d+]/g, ".").split(".");
+		firstA = firstA[firstA.length - 1];
+		var firstB = chunksB[0].replace(/[^\d+]/g, ".").split(".");
+		firstB = firstB[firstB.length - 1];
+		var prefixA = chunksA[0].substring(0, chunksA[0].lastIndexOf(firstA));
+		var prefixB = chunksB[0].substring(0, chunksB[0].lastIndexOf(firstB));
 
-		if (chunksA.length && chunksB.length) {
-			var firstA = chunksA[0].replace(/[^\d+]/g, ".").split(".");
-			firstA = firstA[firstA.length-1];
-			var firstB = chunksB[0].replace(/[^\d+]/g, ".").split(".");
-			firstB = firstB[firstB.length-1];
-			var prefixA = chunksA[0].substring(0, chunksA[0].lastIndexOf(firstA));
-			var prefixB = chunksB[0].substring(0, chunksB[0].lastIndexOf(firstB));
+		if (prefixA === prefixB && (!isNaN(+firstA) && !isNaN(+firstB))) {
+			if (+firstA < +firstB) {
+				lesser = true;
+			} else if (+firstA > +firstB) {
+				lesser = false;
+			}
+		} else {
+			if (chunksA[0] > chunksB[0]) {
+				lesser = true;
+			} else if (chunksA[0] < chunksB[0]) {
+				lesser = false;
+			}
+		}
+	}
 
-			if (prefixA === prefixB && (!isNaN(+firstA) && !isNaN(+firstB))) {
-				if (+firstA < +firstB) {
+	//FIND LESSER THAN
+	if (lesser === null) {
+		for (var i = 1; i < chunksA.length && i < chunksB.length; i++) {
+			var b = chunksB[i];
+			var a = chunksA[i];
+			var sub = a.charAt(0) === "0" || b.charAt(0) === "0";
+			if (sub && i !== 0) {
+				a = "0." + a;
+				b = "0." + b;
+			}
+
+			if (!isNaN(+a) && !isNaN(+b)) {
+				if (+(a) < +(b)) {
 					lesser = true;
-				} else if (+firstA > +firstB) {
+					break;
+				} else if (+(a) > +(b)) {
 					lesser = false;
+					break;
 				}
 			} else {
-				if (chunksA < chunksB) {
+				if (a < b) {
 					lesser = true;
-				} else if (chunksA > chunksB) {
-					lesser = false;
-				}
-			}
-		}
-
-		//FIND LESSER THAN
-		if (lesser === null) {
-			for (var i = 1; i < chunksA.length && i < chunksB.length; i++) {
-				var b = chunksB[i];
-				var a = chunksA[i];
-				var sub = a.charAt(0) === "0" || b.charAt(0) === "0";
-				if (sub && i !== 0) {
-					a = "0." + a;
-					b = "0." + b;
-				}
-
-				if (!isNaN(+a) && !isNaN(+b)) {
-					if (+(a) < +(b)) {
-						lesser = true;
 					break;
-					} else if (+(a) > +(b)) {
-						lesser = false;
-						break;
-					}
-				} else {
-					if (a < b) {
-						lesser = true;
-						break;
-					} else if (a > b) {
-						lesser = false;
-						break;
-					}
+				} else if (a > b) {
+					lesser = false;
+					break;
 				}
 			}
 		}
+	}
 
 	if (chunksA.length !== chunksB.length && lesser === null) {
 		lesser = (chunksA.length < chunksB.length);
@@ -682,7 +682,7 @@ function compareVersions(A, B) {
 
 	if (lesser === true) {
 		return 1;
-	}else if (lesser === null) {
+	} else if (lesser === null) {
 		return 0;
 	} else {
 		return -1;
