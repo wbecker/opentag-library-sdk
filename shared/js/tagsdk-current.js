@@ -2234,16 +2234,15 @@ q.html.HtmlInjector.getAttributes = function (node) {
     
     var _docLoaded = false;
     /**
-     * Function returns true when docuemnt is loaded(it checks if body tag
-     * exists).
+     * Function returns true when body is interactible(it checks if body tag
+     * exists and "loading" state is unset).
      * @returns {Boolean}
      */
-    TagsUtils.documentIsLoaded = function () {
+    TagsUtils.bodyIsReady = function () {
       if (_docLoaded) {
         return true;
       }
-      _docLoaded = !!document.body;
-      //_docLoaded = _docLoaded && (document.readyState !== "loading");
+      _docLoaded = !!(document.body && document.readyState !== "loading");
       return _docLoaded;
     };
     
@@ -2307,7 +2306,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       
       var useWrite = !config.async;
       
-      var loaded = TagsUtils.documentIsLoaded();
+      var loaded = TagsUtils.bodyIsReady();
       if (useWrite && loaded) {
         log.WARN("Script configured for synchronous injection while " +
                 "document seems to be already loaded. Secure option " +//L
@@ -2580,6 +2579,12 @@ q.html.HtmlInjector.getAttributes = function (node) {
      * @param {Function} callback Callback to be called when ready.
      */
     TagsUtils.injectHTML = function (location, append, html, callback) {
+//      if (!TagsUtils.bodyIsReady()) {
+//        document.write(html);
+//        callback();
+//        return;
+//      }
+      //@TODO: this is old code, and buggy, refactor it.
       return HtmlInjector.inject(
               location,
               (!append) ? 1 : 0,
@@ -4797,7 +4802,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     // please note, if location is not present, document.write action will be
     // performed
     
-    if (this.docWriteAsksToWaitForBody() && !TagsUtils.documentIsLoaded()) {
+    if (this.docWriteAsksToWaitForBody() && !TagsUtils.bodyIsReady()) {
       return false;
     }
     
@@ -8737,7 +8742,6 @@ var JSON = {};
 
     for (var prop in tagDefinitions) {
       if (tagDefinitions.hasOwnProperty(prop)) {
-        
         var loader = tagDefinitions[prop];
         //property is at same time tag's ID used elsewhere
         
@@ -8750,11 +8754,11 @@ var JSON = {};
         // create instance
         
         var location = "";
-        if (loader.loactionId === 1) {
+        if (loader.locationId === 1) {
           location = "HEAD";
-        } else if (loader.loactionId === 2) {
+        } else if (loader.locationId === 2) {
           location = "BODY";
-        } else if (loader.loactionId === 3) {
+        } else if (loader.locationId === 3) {
           location = loader.locationDetail;
         }
         
