@@ -2377,9 +2377,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
     TagsUtils.flushDocWritesArray =
             function (array, location, append, log, cb) {
       var el = location;
-      if (el) {
+      if (el && array) {
+        var flushed = array.splice(0, array.length);
         try {
-          HtmlInjector.inject(el, append, array.join("\n"), cb || EMPTY_FUN);
+          HtmlInjector.inject(el, append, flushed.join("\n"), cb || EMPTY_FUN);
           return true;
         } catch(ex) {
           log.ERROR("Loading html caused exception:" + ex);
@@ -2948,8 +2949,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
   };
   
   /**
+   * @static
    * Returns all page variables associated with all registered tags.
-   * @returns {Array}
    */
   Tags.getAllPageVariables = function () {
     var tags = Tags.getTags();
@@ -2958,6 +2959,28 @@ q.html.HtmlInjector.getAttributes = function (node) {
       vars = vars.concat(tags[i].getPageVariables());
     }
     return vars;
+  };
+
+  /**
+   * @static
+   * Cancell all tags.
+   */
+  Tags.cancelAll = function () {
+    var tags = Tags.getTags();
+    for(var i = 0; i < tags.length; i++) {
+      tags[i].cancel();
+    }
+  };
+  
+  /**
+   * @static
+   * Reset all tags.
+   */
+  Tags.resetAll = function () {
+    var tags = Tags.getTags();
+    for(var i = 0; i < tags.length; i++) {
+      tags[i].reset();
+    }
   };
 
   /**
@@ -4030,31 +4053,40 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   GenericLoader.prototype._flushDocWrites = function (cb) {
     // check if any stack from secured doc.write left before calling main
     // function
+    var ret = true;
+    this._docWriteNotFlushed = false;
     try {
       var loc = TagsUtils.getHTMLLocationForTag(this);
       if (loc && this._securedWrites && this._securedWrites.length > 0) {
-        this.log.FINE("Script finished, injecting document.write contents - " +
-          this._securedWrites.join("\n").length + " chars");//L
+        this.log.FINE("flushing document.write proxy array");
+        this.log.FINE("flushing: "+ this._securedWrites.join("\n"));
         var append = (this.config.locationPlaceHolder === "END");
-        var ret = TagsUtils.flushDocWritesArray(
+        ret = TagsUtils.flushDocWritesArray(
             this._securedWrites,
             loc,
             append,
             this.log,
             cb);
         if (ret) {
-          this._securedWrites.splice(0, this._securedWrites.length);
+          this._docWriteFlushed = new Date().valueOf();
+        } else {
+          this._docWriteNotFlushed = new Date().valueOf();
         }
       }
-      return ret;
     } catch (ex) {
-      this.log.ERROR("Unexpected exception during flushing." + ex);
+      this.log.ERROR("Unexpected exception during flushing! " + ex);
     }
     
     if (cb) {
       cb();
     }
-    return true;
+    
+    if (this._securedWrites && this._securedWrites.length > 0) {
+      ret = false;
+      this._docWriteNotFlushed = new Date().valueOf();
+    }
+    
+    return ret;
   };
   
   /**
@@ -4196,6 +4228,11 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     return true;
   };
 
+  GenericLoader.prototype._setTimeout = function (fun, time) {
+    this._wasTimed = new Date().valueOf();
+    return Timed.setTimeout(fun, time);
+  };
+
   /**
    * @private
    * Handling cancellation help[er. Strictly private.
@@ -4232,7 +4269,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this._markFailure();
       this._markFinished();
     } else {
-      Timed.setTimeout(this.waitForDependenciesAndExecute.bind(this), 30);
+      this._setTimeout(this.waitForDependenciesAndExecute.bind(this), 30);
     }
   };
   
@@ -4306,7 +4343,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     }
     
     if (!finished) {
-      Timed.setTimeout(this._triggerExecution.bind(this), 30);
+      this._setTimeout(this._triggerExecution.bind(this), 30);
     } else {
       this._flushDocWrites();
       //now check if failures occured
@@ -4335,7 +4372,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   GenericLoader.prototype._markFailure = function () {
-    this.log.INFO("script execution has failed. Tag set to fail state.");
+    this.log.INFO("Script execution failed.");
     this.scriptExecuted = -(new Date().valueOf());
     this.addState("FAILED_TO_EXECUTE");
   };
@@ -4445,7 +4482,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this._flushDocWrites();
         //check if 1) & 2) is finished.
         this.log.INFO("url and html awaiting has ended...");
-        return true;
+        if (!this._docWriteNotFlushed) {
+          if (this._docWriteFlushed) {
+            this.log.INFO("flushed document.write...");
+          }
+          return true;
+        }
       }
     }
 
@@ -4643,7 +4685,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         //wait for dependencies, no matter what.
         //@TODO let it be done by a nicer tool... single timeout processor
         this.waitForDependenciesFinished = false;
-        Timed.setTimeout(_waitForDependencies.bind(this), 75);
+        this._setTimeout(_waitForDependencies.bind(this), 75);
       }
     }
     if (!this.waitForDependenciesFinished) {
@@ -4692,7 +4734,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     var failures = arrayToAdd || [];
 
     if (!this.injectionLocationReady()) {
-      failures.push("html location");
+      failures.push("html injection location");
     }
     
     for(var i = 0; i < this.dependencies.length; i++) {
@@ -4709,7 +4751,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     for(var i = 0; i < this.genericDependencies.length; i++) {
       var ready = this.genericDependencies[i](this);
       if (!ready) {
-        failures.push("this.genericDependencies[" + i + "]");
+        failures.push("this.genericDependencies[" + i + "] (index: " + i + ")");
       }
     }
     
@@ -4767,12 +4809,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 //      return true;
 //    }
 //    
-//    if (!this.config.async) {
-//      if (this.config.html && !this.config.locationObject) {
-//        return true;
-//      }
-//      return true;
-//    }
+    if (!this.isLoadingAsynchronously()) {
+      return true;
+    }
     
     return !!TagsUtils.getHTMLLocationForTag(this);
   };
@@ -5109,6 +5148,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     // any html containing scripts with src also shouold cause delay
     // only CHROME has synchronous onload callbvacks, but chrome is not the only
     // browser.
+    if (this._wasTimed) {
+      //if timer was triggered, script is no longer synchronously loading!
+      return true;
+    }
     return !!(this.config.async || this.forceAsynchronous);
   };
   
@@ -5117,7 +5160,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {Boolean}
    */
   GenericLoader.prototype.willSecureDocumentWrite = function () {
-    return (this.config.usesDocumentWrite);
+    return (this.config.usesDocumentWrite && this.isLoadingAsynchronously());
   };
   
   /**
@@ -5465,7 +5508,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
             this.log.ERROR("error running onFiltersDelayed:" + ex);
           }
         }
-        Timed.setTimeout(this.runIfFiltersPass.bind(this), state);
+        this._setTimeout(this.runIfFiltersPass.bind(this), state);
       } else {
         this._markFiltersFailed();
         this._markFinished();
@@ -5543,8 +5586,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     FAILED_TO_LOAD_DEPENDENCIES: 1024*2,
     FAILED_TO_LOAD_URL: 2048*2,
     FAILED_TO_EXECUTE: 4096*2,
-    TIMED_OUT: 2 * 4096*2,
-    UNEXPECTED_FAIL: 4 * 4096*2
+    TIMED_OUT: 4096*2*2,
+    UNEXPECTED_FAIL: 4096*2*2*2
   };
   
   /**
@@ -5553,70 +5596,70 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * of `this.STATE` properties.
    * @param {String} stateName
    */
-  BaseTag.prototype.addState = function (stateName) {
+  BaseTag.prototype.addState = function(stateName) {
     BaseTag.superclass.prototype.addState.call(this, stateName);
-    
+
     try {
       BaseTag.onStateChange(this);
     } catch (ex) {
       this.log.ERROR(ex);
     }
-    
+
     this.stateStack = [];
     var s = this.STATE;
     var current = this.state;
     var stack = this.stateStack;
-    
-    if (current & s.INITIAL)
-        stack.push("Initial state.");
-        
-    if (current & s.FILTER_ACTIVE)
-        stack.push("Tag running with filters pass triggered.");
 
-    if (current & s.FILTERS_FAILED)
-        stack.push("Filters failed to pass.");
-
-    if (current & s.AWAITING_CALLBACK)
-        stack.push("Awaiting callback to run this tag. Not pooling.");
-        
-    if (current & s.STARTED)
-        stack.push("Tag is initialized and loading has been started.");
-
-    if (current & s.CANCELLED)
-        stack.push("Tag has been cancelled.");
-
-    if (current & s.LOADING_DEPENDENCIES)
-        stack.push("Dependencies are being loaded.");
-
-    if (current & s.LOADED_DEPENDENCIES)
-        stack.push("Dependencies loading process has been finished.");
-
-    if (current & s.LOADING_URL)
-        stack.push("External URL is being loaded.");
-
-    if (current & s.LOADED_URL)
-        stack.push("External URL has been loaded.");
-
-    if (current & s.EXECUTED)
-        stack.push("Main script has been executed.");
-
-    if (current & s.EXECUTED_WITH_ERRORS)
-        stack.push("Main script has been executed but errors occured.");
-
-    if (current & s.FAILED_TO_LOAD_DEPENDENCIES)
-        stack.push("Dependencies has failed to load.");
-
-    if (current & s.FAILED_TO_LOAD_URL)
-        stack.push("URL location failed to load.");
-
-    if (current & s.FAILED_TO_EXECUTE)
-        stack.push("Script failed to execute.");
-
-    if (current & s.TIMED_OUT)
-        stack.push("Script timed out awaiting for dependencies.");
-
+    if (current & s.INITIAL) {
+      stack.push("Initial state.");
+    }
+    if (current & s.FILTER_ACTIVE) {
+      stack.push("Tag running with filters pass triggered.");
+    }
+    if (current & s.FILTERS_FAILED) {
+      stack.push("Filters failed to pass.");
+    }
+    if (current & s.AWAITING_CALLBACK) {
+      stack.push("Awaiting callback to run this tag. Not pooling.");
+    }
+    if (current & s.STARTED) {
+      stack.push("Tag is initialized and loading has been started.");
+    }
+    if (current & s.LOADING_DEPENDENCIES) {
+      stack.push("Dependencies are being loaded.");
+    }
+    if (current & s.LOADED_DEPENDENCIES) {
+      stack.push("Dependencies loading process has been finished.");
+    }
+    if (current & s.LOADING_URL) {
+      stack.push("External URL is being loaded.");
+    }
+    if (current & s.LOADED_URL) {
+      stack.push("External URL has been loaded.");
+    }
+    if (current & s.EXECUTED) {
+      stack.push("Main script has been executed.");
+    }
+    if (current & s.EXECUTED_WITH_ERRORS) {
+      stack.push("Main script has been executed but errors occured.");
+    }
+    if (current & s.FAILED_TO_LOAD_DEPENDENCIES) {
+      stack.push("Dependencies has failed to load.");
+    }
+    if (current & s.FAILED_TO_LOAD_URL) {
+      stack.push("URL location failed to load.");
+    }
+    if (current & s.FAILED_TO_EXECUTE) {
+      stack.push("Script failed to execute.");
+    }
+    if (current & s.TIMED_OUT) {
+      stack.push("Script timed out awaiting for dependencies.");
+    }
     if (current & s.UNEXPECTED_FAIL) {
       stack.push("Script occured UNEXPECTED exception and is failed.");
+    }
+    if (current & s.CANCELLED) {
+      stack.push("Tag has been cancelled.");
     }
   };
   
