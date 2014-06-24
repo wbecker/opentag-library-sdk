@@ -3763,7 +3763,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       /**
        * Name of the tag. Note that Tag's name must be unique in container.
        * Default value will be always set if not passed in:
-       * "Tag-" + new Date().valueOf()
+       * "Tag-" + nameCounter++
        * Always remember to use name for your Tags.
        * @cfg name
        * @type {String}
@@ -7188,6 +7188,8 @@ var JSON = {};
   var SimpleCookie = q.html.simplecookie;
   var log = new qubit.opentag.Log("Container -> ");
 
+  var _counter = 1;
+
 /* Consent hack from old qtag - will be updated by requires renewing consent.
  * @TODO seriously, clean this up in opentag!
  * Compatibility layer.
@@ -7350,7 +7352,11 @@ var JSON = {};
        */
       this.isTellingLoadTimes =
           this.config.tellLoadTimesProbability > Math.random();
-
+      
+      if (!config.name) {
+        this.config.name = "Cont-" + _counter++;
+      }
+      
       Container.register(this);
       this.log.FINE("container registered.");
       /*no-send*/

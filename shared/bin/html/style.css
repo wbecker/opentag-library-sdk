@@ -533,7 +533,8 @@ a.plain:hover {background-color:#fcfafa;}
 }
 .qconsole .msg .msg-body {
   margin: 0px;
-  height: 18px;
+  min-height: 18px;
+  height: auto;
   background: transparent;
   padding: 2px;
   font-size: 10px;
