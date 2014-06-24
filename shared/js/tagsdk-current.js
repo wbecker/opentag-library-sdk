@@ -911,6 +911,59 @@ var UNDEF = undefined;
     }
   };
   
+  var _readyCalls = [];
+  var _loaded = false;
+  /**
+   * Function checks if body exists and document state is complete.
+   * It accepts also callback which is run immediately if body exists and is 
+   * loaded or will be called when body is loaded (window.onload time).
+   * 
+   * Use this method to run code when body is loaded.
+   * 
+   * @param {Function} callback
+   * @returns {Boolean} true and only true if body and state is complete is available.
+   */
+  Utils.bodyReady = function(callback) {
+    if (_loaded) {
+      if (callback) {
+        callback();
+      }
+      return true;
+    }
+
+    _loaded = !!(document.body && document.readyState === "complete");
+
+    if (_loaded) {
+      for (var i = 0; i < _readyCalls.length; i++) {
+        try {
+          _readyCalls[i]();
+        } catch (ex) {
+          if (global.console && global.console.trace) {//L
+            global.console.trace(ex);//L
+          }//L
+        }
+      }
+      if (callback) {
+        callback();
+      }
+    } else {
+      if (callback) {
+        _readyCalls.push(callback);
+      }
+    }
+
+    return _loaded;
+  };
+  
+  //@TODO maybe loop will be more "smooth" choice, review it.
+  var oldOnload = global.onload;
+  global.onload = function (e) {
+    Utils.bodyReady();
+    if (oldOnload) {
+      oldOnload(e);
+    }
+  };
+  
 }());
 /*NO LOG*/
 
@@ -5408,7 +5461,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * Note: if variable is defined dierctly for parameter - even if unset it 
    * will be used **only**.
    * 
-   * @param {String} token
+   * @param {String} token name
+   * @param {Boolean} defaults if default value should be checked
    * @returns 
    */
   BaseTag.prototype.valueForToken = function (token, defaults) {
@@ -5469,7 +5523,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {BaseFilter.state}
    */
   BaseTag.prototype.runIfFiltersPass = function () {
-    
     var state = this.filtersState();
     this.addState("FILTER_ACTIVE");
     
@@ -8664,6 +8717,7 @@ var JSON = {};
   var log = new qubit.opentag.Log("OldTagRunner -> ");
   
   /**
+   * @private
    * #Old tag configuratrion runner class.
    * 
    * This class is a translation layer between old qtag configuration and 
