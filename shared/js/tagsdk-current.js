@@ -648,7 +648,7 @@ var UNDEF = undefined;
   Utils.expressionToFunction = function (expr, argzString) {
     argzString = argzString || "";
     var funTemplate = "function (" + argzString + ") {" + expr + "}";
-    return Utils.gevalAndReturn(funTemplate);
+    return Utils.gevalAndReturn(funTemplate).result;
   };
   
   /**
@@ -679,7 +679,7 @@ var UNDEF = undefined;
       "  }" +
       "})";
     
-    clazz = Utils.gevalAndReturn(funTemplate);
+    clazz = Utils.gevalAndReturn(funTemplate).result;
 
 //or anonymous:
 //    var clazz = function () {
@@ -862,11 +862,18 @@ var UNDEF = undefined;
    */
   Utils.gevalAndReturn = function (expression) {
     Utils.gevalAndReturn.___var_test___ = undefined;
+    Utils.gevalAndReturn.___var_test___error = undefined;
     expression  =
-      ("qubit.opentag.Utils.gevalAndReturn.___var_test___ = (" +
-        expression + ")");
+            "try{qubit.opentag.Utils.gevalAndReturn.___var_test___=(" +
+            expression +
+            ");}catch(ex){" +
+            "qubit.opentag.Utils.gevalAndReturn.___var_test___error = ex;" +
+            "}";
     Utils.geval(expression);
-    return Utils.gevalAndReturn.___var_test___;
+    return {
+      result: Utils.gevalAndReturn.___var_test___,
+      error: Utils.gevalAndReturn.___var_test___error
+    };
   };
   
   /**
@@ -2285,18 +2292,18 @@ q.html.HtmlInjector.getAttributes = function (node) {
     
     Utils.clazz("qubit.opentag.TagsUtils", TagsUtils);
     
-    var _docLoaded = false;
+    var _bodyLoaded = false;
     /**
      * Function returns true when body is interactible(it checks if body tag
      * exists and "loading" state is unset).
      * @returns {Boolean}
      */
-    TagsUtils.bodyIsReady = function () {
-      if (_docLoaded) {
+    TagsUtils.bodyLoaded = function () {
+      if (_bodyLoaded) {
         return true;
       }
-      _docLoaded = !!(document.body && document.readyState !== "loading");
-      return _docLoaded;
+      _bodyLoaded = !!(document.body && document.readyState !== "loading");
+      return _bodyLoaded;
     };
     
     var loadedURLs = {};
@@ -2359,7 +2366,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       
       var useWrite = !config.async;
       
-      var loaded = TagsUtils.bodyIsReady();
+      var loaded = TagsUtils.bodyLoaded();
       if (useWrite && loaded) {
         log.WARN("Script configured for synchronous injection while " +
                 "document seems to be already loaded. Secure option " +//L
@@ -2423,6 +2430,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
      * @param {String} location
      * @param {Boolean} append
      * @param {qubit.opentag.Log} log
+     * @param {Function} cb callback
      * @returns {Boolean} true if flushing location was ready and strings were
      *                    appended.
      */
@@ -2432,7 +2440,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       if (el && array) {
         var flushed = array.splice(0, array.length);
         try {
-          HtmlInjector.inject(el, append, flushed.join("\n"), cb || EMPTY_FUN);
+          TagsUtils.injectHTML(el, append, flushed.join("\n"), cb || EMPTY_FUN);
           return true;
         } catch(ex) {
           log.ERROR("Loading html caused exception:" + ex);
@@ -2632,7 +2640,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
      * @param {Function} callback Callback to be called when ready.
      */
     TagsUtils.injectHTML = function (location, append, html, callback) {
-//      if (!TagsUtils.bodyIsReady()) {
+//      if (!TagsUtils.bodyLoaded()) {
 //        document.write(html);
 //        callback();
 //        return;
@@ -3171,16 +3179,22 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   Expression.prototype.getValue = function () {
     var ret;
+    var error;
     try {
       if (this.value.indexOf("[#]") === -1) {
-        ret = Utils.gevalAndReturn(this.value);
+        var tmp = Utils.gevalAndReturn(this.value);
+        ret = tmp.result;
         this.failMessage = null;
+        error = tmp.error;
       } else {
         ret = Expression.parseUVArray(this.value);
       }
     } catch (e) {
+      error = e;
+    }
+    if (error) {
       var msg = "could not read value of expression: \n" + this.value +
-              "\nexact cause: " + e;
+              "\nexact cause: " + error;
       if (this.failMessage !== msg) {
         this.failMessage = msg;
       }
@@ -3205,7 +3219,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   Expression.parseUVArray = function (uv) {
     var parts = uv.split("[#]");
-    var array = Utils.gevalAndReturn(parts[0]);
+    var array = Utils.gevalAndReturn(parts[0]).result;
     var collection = [];
     var pathOfElements = parts[1];
     
@@ -4855,7 +4869,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     // please note, if location is not present, document.write action will be
     // performed
     
-    if (this.docWriteAsksToWaitForBody() && !TagsUtils.bodyIsReady()) {
+    if (this.docWriteAsksToWaitForBody() && !Utils.bodyReady()) {
       return false;
     }
     
@@ -5349,7 +5363,22 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        * @cfg variables
        * @type Object
        */
-      variables: null
+      variables: null,
+      /**
+       * New API.
+       * Custom runner, if set, run will not fire tag running but
+       * runner will be invoked instead.
+       * It is duty of runner to remeber to call `this.run()` to start the 
+       * execution chain.
+       * 
+       * Default value is NULL.
+       * 
+       * This option will bemostly used by custom tags to replace 
+       * "session filters".
+       * @cfg runner
+       * @type Function
+       */
+      runner: null
     };
     
     Utils.setIfUnset(config, defaults);
@@ -5496,6 +5525,19 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @property {Number} FILTER_WAIT_TIMEOUT
    */
   BaseTag.prototype.FILTER_WAIT_TIMEOUT = -1;
+
+  BaseTag.prototype.run = function () {
+    if (this.config && this.config.runner) {
+      try {
+        this.log.INFO("Running custom runner...");
+        this.config.runner.call(this);
+      } catch (e) {
+        this.log.ERROR("Error while running custom runner: " + e);
+      }
+    } else {
+      BaseTag.superclass.prototype.run.apply(this, arguments);
+    }
+  };
 
   /**
    * It gets ALL filters related to this tag in theirs order of load.
@@ -5940,7 +5982,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         try {
           var value;
           if (defaults) {
-            value = Utils.gevalAndReturn(param.defaultValue);
+            value = Utils.gevalAndReturn(param.defaultValue).result;
           }
           value = variable.getRelativeValue(defaults, value);
           return value;
@@ -8824,7 +8866,7 @@ var JSON = {};
           url: loader.url,
           html: loader.html,
           template: !!loader.template,
-          locationPlaceHolder: ((+loader.positionId) === 1) ? "END" : "NOT_END",
+          locationPlaceHolder: ((+loader.positionId) === 1) ? "NOT_END" : "END",
           locationObject: location,
           async: loader.async,
           needsConsent: loader.needsConsent,
@@ -8832,12 +8874,16 @@ var JSON = {};
           genericDependencies: loader.genericDependencies
         };
         
-        //these strings could contain tokens and may not be valid strings
-        if (typeof(loader.pre) === "string") {
+        if (loader.pre) {
           cfg.pre = loader.pre;
         }
-        if (typeof(loader.post) === "string") {
+        
+        if (loader.post) {
           cfg.post = loader.post;
+        }
+        
+        if (loader.script) {
+          cfg.script = loader.script;
         }
         
         var tag = null;
@@ -8847,22 +8893,7 @@ var JSON = {};
         } else {
           tag = new CustomTag(cfg);
         }
-        
-        //those mean there is real library definition p-assed
-        if (loader.script) {
-          if (typeof(loader.script) === "function") {
-            tag.script = loader.script;
-          } else {
-            tag.script = Utils.expressionToFunction(loader.script);
-          }
-        }
-        if (typeof(loader.pre) === "function") {
-          tag.pre = loader.pre;
-        }
-        if (typeof(loader.post) === "function") {
-          tag.post = loader.post;
-        }
-        
+
         //attach to original "loader" array to pick it at dependencies check
         tagDefinitions[prop].instance = tag;
         
