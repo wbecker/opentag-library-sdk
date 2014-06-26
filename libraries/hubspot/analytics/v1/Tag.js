@@ -22,7 +22,7 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+		var _this = this;
 		(function(d, s, i, r) {
 			if (d.getElementById(i)) {
 				return;
@@ -31,7 +31,7 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 				e = d.getElementsByTagName(s)[0];
 			n.id = i;
 			n.src = '//js.hubspot.com/analytics/' + (Math.ceil(new Date() / r) * r) +
-				'/' + this.valueForToken("id") + '.js';
+				'/' + _this.valueForToken("id") + '.js';
 			e.parentNode.insertBefore(n, e);
 		})(document, "script", "hs-analytics", 300000);
 
