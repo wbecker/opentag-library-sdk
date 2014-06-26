@@ -8951,6 +8951,10 @@ var JSON = {};
           genericDependencies: loader.genericDependencies
         };
         
+        if (loader.prePostWindowScope !== undefined) {
+          cfg.prePostWindowScope = loader.prePostWindowScope;
+        }
+        
         if (dedupe) {
           cfg.dedupe = true;
         }
