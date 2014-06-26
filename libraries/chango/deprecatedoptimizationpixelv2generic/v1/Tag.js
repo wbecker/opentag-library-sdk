@@ -23,8 +23,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-
 			window.__cho__ = {
 				"data": {
 					"pt": "",
@@ -38,14 +36,13 @@ qubit.opentag.LibraryTag.define(
 				"pid": this.valueForToken("ID"),
 				"puid2": ""
 			};
-			(function() {
-				var c = document.createElement('script');
-				c.type = 'text/javascript';
-				c.async = true;
-				c.src = document.location.protocol + '//cc.chango.com/static/o.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(c, s);
-			})();
+			
+			var c = document.createElement('script');
+			c.type = 'text/javascript';
+			c.async = true;
+			c.src = document.location.protocol + '//cc.chango.com/static/o.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(c, s);
 			/*~SCRIPT*/
 		},
 		pre: function() {

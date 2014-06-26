@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("flixmedia.checkoutendpage.v1.Tag", {
 		name: "Checkout End Page",
 		async: true,
 		description: "To fire on the confirmation page. The page that loads right after the order has been placed.",
-		html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//media.flixcar.com/delivery/static/js/sio_ty.js\"></script>\n<script type=\"text/javascript\"> \n(function ()\n{\n    var products = [];\n     \n    for (var i=0; i< ${skus}.length; i++)\n    {\n        products.push({\n           \"mpn\" : ${skus}[i]+\"\",\n           \"price\" : ${prices}[i],\n           \"quantity\" : ${quantities}[i]\n        });\n    }\n  \n    FLIXSio.sioTy({\n       \"distributor_id\" : \"\",\n       \"language\" : \"\",\n       \"event\" : \"end\",\n       \"basket_id\" : \"${id}\",\n       \"basket\" : products \n    }); \n})();\n</script>",
+		html: "<script type=\"text/javascript\" src=\"//media.flixcar.com/delivery/static/js/sio_ty.js\"></script>",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -37,6 +37,23 @@ qubit.opentag.LibraryTag.define("flixmedia.checkoutendpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+		var products = [];
+    for (var i=0; i< this.valueForTokewn("skus").length; i++)
+    {
+        products.push({
+           "mpn" : this.valueForTokewn("skus")[i] + "",
+           "price" : this.valueForTokewn("prices")[i],
+           "quantity" : this.valueForTokewn("quantities")[i]
+        });
+    }
+  
+    FLIXSio.sioTy({
+       "distributor_id" : "",
+       "language" : "",
+       "event" : "end",
+       "basket_id" : this.valueForTokewn("id"),
+       "basket" : products 
+    }); 
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -104,7 +104,6 @@ qubit.opentag.LibraryTag.define("chango.deprecatedoptimizationpixelv2.v1.Tag", {
 		c.src = document.location.protocol + '//cc.chango.com/static/o.js';
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(c, s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

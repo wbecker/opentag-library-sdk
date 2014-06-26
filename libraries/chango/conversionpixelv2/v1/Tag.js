@@ -70,7 +70,7 @@ qubit.opentag.LibraryTag.define("chango.conversionpixelv2.v1.Tag", {
 			}
 			return total;
 		})();
-
+		window.totalQuantity = totalQuantity;
 		var skuList = (function() {
 			var str = "";
 			for (var i = 0; i < _this.valueForToken("SKUs").length; i++) {
@@ -81,7 +81,7 @@ qubit.opentag.LibraryTag.define("chango.conversionpixelv2.v1.Tag", {
 			}
 			return str;
 		})();
-
+		window.skuList = skuList;
 		window.__chconv__ = {
 			"conversion_id": this.valueForToken("ID"),
 			"quantity": totalQuantity,

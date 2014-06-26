@@ -7,7 +7,7 @@ qubit.opentag.LibraryTag.define(
 			name: "Checkout Start Page with extra EAN parameter",
 			async: true,
 			description: "This version also sends through the EAN or UPC of the product that is being checked out. Use this version only if the EAN product value is available.",
-			html: "<!--@SRC@--><script type=\"text/javascript\" src=\"//media.flixcar.com/delivery/static/js/sio_ty.js\"></script>\n<script type=\"text/javascript\"> \n(function ()\n{\n    var products = [];\n     \n    for (var i=0; i< ${skus}.length; i++)\n    {\n        products.push({\n           \"mpn\" : ${skus}[i]+\"\",\n           \"price\" : ${prices}[i],\n           \"quantity\" :${quants}[i],\n           \"ean\" : ${eans}[i]+\"\"\n        });\n    }\n  \n    FLIXSio.sioTy({\n       \"distributor_id\" : \"\",\n       \"language\" : \"\",\n       \"event\" : \"start\",\n       \"basket_id\" : \"${id}\",\n       \"basket\" : products \n    }); \n})();\n</script>",
+			html: "<script type=\"text/javascript\" src=\"//media.flixcar.com/delivery/static/js/sio_ty.js\"></script>",
 			locationDetail: "",
 			isPrivate: false,
 			url: "",
@@ -43,6 +43,24 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
+			var products = [];
+			for (var i = 0; i < this.valueForToken("skus").length; i++)
+			{
+				products.push({
+					"mpn": "" + this.valueForToken("skus")[i],
+					"price": this.valueForToken("prices")[i],
+					"quantity": this.valueForToken("quants")[i],
+					"ean": "" + this.valueForToken("eans")[i]
+				});
+			}
+
+			FLIXSio.sioTy({
+				"distributor_id": "",
+				"language": "",
+				"event": "start",
+				"basket_id": "" + this.valueForToken("id"),
+				"basket": products
+			}); 
 			/*~SCRIPT*/
 		},
 		pre: function() {

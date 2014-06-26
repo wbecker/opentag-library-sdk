@@ -47,7 +47,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2transaction.v1.Tag", 
 		//compile cart data
 		var cart = (function() {
 			var arr = [];
-			for (var i = 0; i < this.valueForToken("productNames").length; i++) {
+			for (var i = 0; i < _this.valueForToken("productNames").length; i++) {
 				arr.push({
 					na: _this.valueForToken("productNames")[i],
 					sku: _this.valueForToken("productSKU")[i]
@@ -55,7 +55,9 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2transaction.v1.Tag", 
 			}
 			return arr;
 		})();
-
+		
+		window.cart = cart;
+		
 		window.__cho__ = {
 			"data": {
 				"pt": "" + this.valueForToken("PT_VALUE"),

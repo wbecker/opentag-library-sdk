@@ -84,6 +84,8 @@ qubit.opentag.LibraryTag.define(
 					}
 					return tmp;
 				})();
+				window.items = items;
+				
 				var tracker = POWERREVIEWS.tracker.createTracker({
 					merchantGroupId: "" + _this.valueForToken("group_id")
 				});

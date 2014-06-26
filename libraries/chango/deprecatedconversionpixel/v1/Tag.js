@@ -44,7 +44,7 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixel.v1.Tag", {
 			"conversion_id": this.valueForToken("cid"),
 			"quantity": "" + getQty()
 		};
-		
+		window.__chconv__ = __chconv__;
 		var _this = this;
 		
 		function getQty() {
@@ -54,16 +54,16 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixel.v1.Tag", {
 			}
 			return tmp;
 		}
-		(function() {
-			if (typeof(__chconv__) == "undefined") return;
-			var e = encodeURIComponent;
-			var p = [];
-			for (var i in __chconv__) {
-				p.push(e(i) + "=" + e(__chconv__[i]))
-			}
-			(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
-				(new Date()).getTime() + '?' + p.join("&");
-		})();
+		
+		if (typeof(__chconv__) == "undefined") return;
+		
+		var e = encodeURIComponent;
+		var p = [];
+		for (var i in __chconv__) {
+			p.push(e(i) + "=" + e(__chconv__[i]))
+		}
+		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
+			(new Date()).getTime() + '?' + p.join("&");
 		/*~SCRIPT*/
 	},
 	pre: function() {

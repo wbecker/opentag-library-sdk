@@ -83,7 +83,8 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2.v1.Tag", {
 				return "";
 			}
 		})();
-
+		window.cart = cart;
+		
 		window.__cho__ = {
 			"data": {
 				"pt": "" + this.valueForToken("PT_VALUE"),
@@ -103,9 +104,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2.v1.Tag", {
 		c.async = true;
 		c.src = document.location.protocol + '//cc.chango.com/static/o.js';
 		var s = document.getElementsByTagName('script')[0];
-
 		s.parentNode.insertBefore(c, s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -89,7 +89,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag",
 				return Number(!_this.valueForToken("old_customer"));
 			}
 		})();
-
+		window.ret = ret;
 		window.criteo_q = window.criteo_q || [];
 		window.criteo_q.push({
 			event: "setAccount",

@@ -71,7 +71,7 @@ qubit.opentag.LibraryTag.define(
 					temp.push("" + _this.valueForToken("subcategory"));
 				return temp;
 			})();
-
+			window.fm_categories = fm_categories;
 			var fm_sizes = (function() {
 				var temp = [];
 				for (var i = 0; i < _this.valueForToken("sizeids").length; i++) {
@@ -83,12 +83,13 @@ qubit.opentag.LibraryTag.define(
 				}
 				return temp;
 			})();
-
+			window.fm_sizes = fm_sizes;
+			
 			var fmd = window.FitsMeData || {};
 			fmd.SKU = fmd.SKU || "" + _this.valueForToken("sku");
 			fmd.ProductTitle = fmd.ProductTitle || "" + _this.valueForToken("name");
-			fmd.ProductImageUrl = fmd.ProductImageUrl || "" + _this.valueForToken(
-				"prodimg");
+			fmd.ProductImageUrl = fmd.ProductImageUrl ||
+					"" + _this.valueForToken("prodimg");
 			if (!fmd.ProductCategories || fmd.ProductCategories.length === 0) {
 				fmd.ProductCategories = fm_categories;
 			}
@@ -98,10 +99,11 @@ qubit.opentag.LibraryTag.define(
 
 			window.FitsMeData = fmd;
 
-			var _gaq = _gaq || [];
+			var _gaq = window._gaq || [];
 			_gaq.push(['_setAllowLinker', true]);
 			_gaq.push(['_setAllowHash', false]);
-
+			
+			window._gaq = _gaq;
 			/*~PRE*/
 		},
 		post: function() {

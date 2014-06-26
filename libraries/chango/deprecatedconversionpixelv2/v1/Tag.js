@@ -70,7 +70,7 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 			}
 			return total;
 		})();
-
+		window.totalQuantity = totalQuantity;
 		var skuList = (function() {
 			var str = "";
 			for (var i = 0; i < _this.valueForToken("SKUs").length; i++) {
@@ -81,7 +81,8 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 			}
 			return str;
 		})();
-
+		window.skuList = skuList;
+		
 		var __chconv__ = window.__chconv__ = {
 			"conversion_id": this.valueForToken("ID"),
 			"quantity": totalQuantity,
@@ -93,16 +94,16 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 			"u4": "" + this.valueForToken("PAYMENT_TYPE"),
 			"u5": "" + this.valueForToken("CONVERSION_TYPE")
 		};
-		(function() {
-			if (typeof(__chconv__) == "undefined") return;
-			var e = encodeURIComponent;
-			var p = [];
-			for (var i in __chconv__) {
-				p.push(e(i) + "=" + e(__chconv__[i]))
-			}
-			(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
-				(new Date()).getTime() + '?' + p.join("&");
-		})();
+		window.__chconv__ = __chconv__;
+		
+		if (typeof(__chconv__) == "undefined") return;
+		var e = encodeURIComponent;
+		var p = [];
+		for (var i in __chconv__) {
+			p.push(e(i) + "=" + e(__chconv__[i]))
+		}
+		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
+			(new Date()).getTime() + '?' + p.join("&");
 		/*~SCRIPT*/
 	},
 	pre: function() {

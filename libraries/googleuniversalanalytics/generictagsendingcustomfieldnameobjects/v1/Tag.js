@@ -28,7 +28,7 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
+			var _this = this;
 
 			(function(i, s, o, g, r, a, m) {
 				i['GoogleAnalyticsObject'] = r;
@@ -43,12 +43,11 @@ qubit.opentag.LibraryTag.define(
 			})(window, document, 'script', '//www.google-analytics.com/analytics.js',
 				'ga');
 
-			ga('create', '' + this.valueForToken("web_property_id"));
+			ga('create', '' + _this.valueForToken("web_property_id"));
 
-			for (var i = 0; i < this.valueForToken("field_objects").length; i++) {
-				ga('send', this.valueForToken("field_objects")[i]);
+			for (var i = 0; i < _this.valueForToken("field_objects").length; i++) {
+				ga('send', _this.valueForToken("field_objects")[i]);
 			}
-
 
 			/*~SCRIPT*/
 		},

@@ -70,7 +70,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-
 		var products = [];
 
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
@@ -89,8 +88,8 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
 
 		var _this = this;
 		var ret = (function() {
-			if (typeof _this.valueForToken("old_customer") === "undefined" || _this.valueForToken(
-				"old_customer") === null) {
+			if (typeof _this.valueForToken("old_customer") === "undefined" ||
+					_this.valueForToken("old_customer") === null) {
 				return "";
 			} else {
 				return Number(!_this.valueForToken("old_customer"));
@@ -114,7 +113,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
 			deduplication: this.valueForToken("criteo_referral"),
 			product: products
 		});
-
 		/*~POST*/
 	}
 });
