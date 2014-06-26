@@ -485,9 +485,9 @@ qubit.opentag.LibraryTag.define("unidays.redemptiontracking.v1.Tag", {
 				"", "" + this.valueForToken("unidays_secret_hash_key"));
 		}
 
-		var customerID = CryptoJS.HmacSHA512("" + this.valueForToken(
-			"unidays_customer_id"), "" + this.valueForToken(
-			"unidays_secret_hash_key"));
+		var customerID = CryptoJS.HmacSHA512(
+				"" + this.valueForToken("unidays_customer_id"),
+				"" + this.valueForToken("unidays_secret_hash_key"));
 
 		var pms = "?CustomerId=" + customerID + "&";
 		pms += "TransactionId=" + this.valueForToken("order_id") + "&";

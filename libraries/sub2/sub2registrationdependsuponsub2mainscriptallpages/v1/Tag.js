@@ -33,24 +33,21 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-
+			var _this = this;
 			var waitFor_S2Tech_StoreRegistrationData = setInterval(function() {
 				if (typeof S2Tech_StoreRegistrationData === 'function') {
 					clearInterval(waitFor_S2Tech_StoreRegistrationData);
 
 					S2Tech_StoreRegistrationData(
-						"" + this.valueForToken("firstname"),
-						"" + this.valueForToken("lastname"),
-						"" + this.valueForToken("email"));
+						"" + _this.valueForToken("firstname"),
+						"" + _this.valueForToken("lastname"),
+						"" + _this.valueForToken("email"));
 				}
 			}, 100);
 
 			setTimeout(function() {
 				clearInterval(waitFor_S2Tech_StoreRegistrationData);
 			}, 5000);
-
-
 
 			/*~SCRIPT*/
 		},

@@ -48,7 +48,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 	script: function() {
 		/*SCRIPT*/
 
-
 		// Fire the confirmation tag
 		var url = "//ad.zanox.com/pps/?4711C081512345";
 		url += "&mode=[[" + this.valueForToken("mode") + "]]";
@@ -72,6 +71,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 		window._zx.push({
 			"id": "" + this.valueForToken("zanox_page_id")
 		});
+		
 		(function(d) {
 			var s = d.createElement("script");
 			s.async = true;
@@ -80,8 +80,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 			var a = d.getElementsByTagName("script")[0];
 			a.parentNode.insertBefore(s, a);
 		}(document));
-
-
 
 		/*~SCRIPT*/
 	},

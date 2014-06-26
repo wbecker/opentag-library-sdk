@@ -62,20 +62,20 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+		var _this = this;
 		var totalQuantity = (function() {
 			var total = 0;
-			for (var i = 0; i < this.valueForToken("QUANTITY").length; i++) {
-				total += this.valueForToken("QUANTITY")[i];
+			for (var i = 0; i < _this.valueForToken("QUANTITY").length; i++) {
+				total += _this.valueForToken("QUANTITY")[i];
 			}
 			return total;
 		})();
 
 		var skuList = (function() {
 			var str = "";
-			for (var i = 0; i < this.valueForToken("SKUs").length; i++) {
-				str += this.valueForToken("SKUs")[i];
-				if ((i + 1) < this.valueForToken("SKUs").length) {
+			for (var i = 0; i < _this.valueForToken("SKUs").length; i++) {
+				str += _this.valueForToken("SKUs")[i];
+				if ((i + 1) < _this.valueForToken("SKUs").length) {
 					str += ","
 				}
 			}

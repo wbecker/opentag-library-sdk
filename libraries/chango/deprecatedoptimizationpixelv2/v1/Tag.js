@@ -67,15 +67,15 @@ qubit.opentag.LibraryTag.define("chango.deprecatedoptimizationpixelv2.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+		var _this = this;
 		//compile cart data
 		window.cart = (function() {
 			if (window.universal_variable && window.universal_variable.line_items) {
 				var arr = [];
-				for (var i = 0; i < this.valueForToken("productNames").length; i++) {
+				for (var i = 0; i < _this.valueForToken("productNames").length; i++) {
 					arr.push({
-						na: this.valueForToken("productNames")[i],
-						sku: this.valueForToken("productSKU")[i]
+						na: _this.valueForToken("productNames")[i],
+						sku: _this.valueForToken("productSKU")[i]
 					});
 				}
 				return arr;

@@ -2116,6 +2116,172 @@ q.html.fileLoader.tidyUrl = function (path) {
     return passed;
   };
 }());
+
+
+
+
+(function () {
+  var Utils = qubit.opentag.Utils;
+  var BaseFilter = qubit.opentag.filter.BaseFilter;
+
+  /**
+   * #SessionVariable filter class.
+   *  
+   * This class is a compatibility layer part for TagSDK.
+   * Session filters are used to customise scripts execution and use custom
+   * scripts:
+   * - to determine match for the page
+   * - to trigger tag execution
+   * 
+   * If config object contains properties:
+   * - `customScript` a function that is used to determine if filter matches. 
+   *  It takes session object as a parameter.
+   * - `customStarter` a function that is responsible for running the tag.
+   *  By default it is an empty function, calling "ready" argument immediately.
+   *  The `ready` argument is a callback triggering tag loading. `customStarter`
+   *  takes 3 arguments in the order:
+   *  1) `session` the session object
+   *  2) `ready` the ready callback that runs the tag, note: it will run the tag
+   *  directly.
+   *  3) `tag` tag reference object.
+   * 
+   * When creating tags, consider using new API that serve typical use cases for
+   * the session filters.
+   * 
+   * Example:
+   * If tag depends on some property that will appear in window scope, like
+   *  `jQuery`, use `genericDependencies` array in tag object and push function
+   *  there that returns true when the `jQuery` object exists.
+   * 
+   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * 
+   * @class qubit.opentag.filter.SessionVariableFilter
+   * @extends qubit.opentag.filter.BaseFilter
+   * @param config {Object} config object used to build instance
+   */
+  function SessionVariableFilter(config) {
+    var defaultConfig = {
+      /**
+       * Custom starter function for session filter.
+       * Takes 3 arguments in the order:
+       *  1) `session` the session object
+       *  2) `ready` the ready callback that runs the tag, note: it will run the tag
+       *  directly.
+       *  3) `tag` tag reference object.
+       * @cfg {Function}
+       * @param {qubit.opentag.Session} session
+       * @param {Function} ready
+       * @param {qubit.opentag.BaseTag} tag
+       */
+      customStarter: function(session, ready, tag) {
+        ready(false);
+      },
+      /**
+       * Script deciding either script matches or not (top API level).
+       * @cfg {Function}
+       * @param {qubit.opentag.Session} session
+       * @returns {Boolean}
+       */
+      customScript: function (session) {
+        return true;
+      }
+    };
+    
+    if (config) {
+      for(var prop in config) {
+        if (config.hasOwnProperty(prop)) {
+          if (prop === "customStarter" && !config[prop]) {
+            continue;
+          }
+          if (prop === "customScript" && !config[prop]) {
+            continue;
+          }
+          defaultConfig[prop] = config[prop];
+        }
+      }
+    }
+    
+    SessionVariableFilter.superclass.call(this, defaultConfig);
+  }
+  
+  Utils.clazz(
+          "qubit.opentag.filter.SessionVariableFilter",
+          SessionVariableFilter,
+          BaseFilter);
+  
+  /**
+   * Match function for a filter.
+   * @returns {Boolean}
+   */
+  SessionVariableFilter.prototype.match = function () {
+    try {
+      return !!this.config.customScript(this.getSession());
+    } catch (ex) {
+      this.log.FINE("Filter match throws exception:" + ex);
+      return false;
+    }
+  };
+  
+  /**
+   * Function that will trigger running tag directly the callback privided in
+   * configuration object, the `customStarter`.
+   * @param {qubit.opentag.BaseTag} tag
+   */
+  SessionVariableFilter.prototype.runTag = function (tag) {
+    if (!this._runTag) {
+      if (this.config.customStarter) {
+        //trigger "customStarter", only once
+        this._runTag = true;
+        this.config.customStarter(this.getSession(), function (rerun) {
+          this.lastRun = new Date().valueOf();
+          if (rerun === true) {
+            tag.run();
+          } else {
+            tag.runOnce();
+          }
+          //done
+        }.bind(this), tag);
+      }
+    }
+  };
+  
+  /**
+   * State function, this function adds to standard state function the SESSION
+   * state. Session state is used if `customStarter` is attached.
+   * @param {qubit.opentag.Session} session optional session
+   */
+  SessionVariableFilter.prototype.getState = function (session) {
+    if (session) {
+      this.setSession(session);
+    }
+    var pass = SessionVariableFilter.superclass.prototype.getState.call(this);
+    
+    if (pass === BaseFilter.state.DISABLED) {
+      return BaseFilter.state.DISABLED;
+    }
+    
+    if (pass === BaseFilter.state.PASS) {
+      if (this.config.customStarter) {
+        pass = BaseFilter.state.SESSION;
+      }
+    }
+    
+    if (this.config.script) {
+      pass = this.config.script.call(this, pass, this.getSession());
+    }
+    
+    this.lastState = pass;
+    return pass;
+  };
+  
+  /**
+   * Reset function.
+   */
+  SessionVariableFilter.prototype.reset = function () {
+    SessionVariableFilter.superclass.prototype.reset.call(this);
+    this._runTag = undefined;
+  };
+}());
 /*jslint evil: true */
 
 
@@ -2275,12 +2441,14 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
 
 
+
 (function () {
     var Utils = qubit.opentag.Utils;
     var log = new qubit.opentag.Log("TagsUtils -> ");
     var BaseFilter = qubit.opentag.filter.BaseFilter;
     var HtmlInjector = q.html.HtmlInjector;
     var FileLoader = q.html.fileLoader;
+    var SessionVariableFilter = qubit.opentag.filter.SessionVariableFilter;
     
     /**
      * #Tag utility class
@@ -2555,8 +2723,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
       var response;
       var lastSessionFilter;
       
+      var filter;
+      var lastUnmatched;
       for (var i = 0; i < filters.length; i++) {
-        var filter = filters[i];
+        filter = filters[i];
         filter.setSession(session);
         
         if (filter.match()) {
@@ -2578,6 +2748,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
           } else {
             lastFilterResponded = filter;
           }
+        } else {
+          lastUnmatched = filter;
         }
       }
       
@@ -2616,15 +2788,20 @@ q.html.HtmlInjector.getAttributes = function (node) {
         }
         
         decision = SESSION;
-        if (lastSessionFilter instanceof 
-              qubit.opentag.filter.SessionVariableFilter) {
+        if (lastSessionFilter instanceof SessionVariableFilter) {
           try {
             lastSessionFilter.runTag(tag);
           } catch (ex) {
             lastSessionFilter.log.FINEST("trying custom starter failed:" + ex);
           }
         }
-
+      }
+      
+      if (tag.config.dedupe && decision === PASS) {
+        if (lastUnmatched && lastUnmatched instanceof SessionVariableFilter) {
+          tag.sendDedupePing = true;
+          decision = FAIL;
+        }
       }
       
       return decision;
@@ -3080,7 +3257,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    *  not check if tag is loaded successfuly but if it was run)
    */
   Tags.getLoadTime = function (tag) {
-    var start = tag.loadStarted;
+    var start = tag.beforeRun;
     var end = tag.runIsFinished;
     if (isNaN(end)) {
       return {tag: tag, loadTime: null};
@@ -3101,7 +3278,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       return ret;
     }
     
-    tags = tags || qubit.opentag.Tags.getTags();
+    tags = tags || Tags.getTags();
     
     var array = tags instanceof Array;
     
@@ -4243,12 +4420,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   /**
    * By using this function one can be sure that script will be executed only
    * once until script is reset.
-   * Use this function if you must be ensured that execution occurs only once. 
+   * Use this function if you must be ensured that execution occurs only once.
+   * @param {Boolean} ignoreDeps if ignore dependencies and run immediately. 
    */
-  GenericLoader.prototype.runOnce = function () {
+  GenericLoader.prototype.runOnce = function (ignoreDeps) {
     if (!this._runOnceTriggered && !this.scriptExecuted) {
       this._runOnceTriggered = new Date().valueOf();
-      this.run();
+      this.run(ignoreDeps);
     } else {
       this.log.FINEST("runOnce has been already executed.");
     }
@@ -4365,24 +4543,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.execute = function () {
     this.log.FINE("entering execute...");
-    
-    var cancel = false;
-    
-    try {
-        cancel = this.before();
-    } catch (ex) {
-      //decision changed: failured before callback must stop execution.
-      this.log.ERROR("before callback thrown exception");
-      this.log.ERROR(ex, true);
-    }
-    
-    if (cancel) {
-      this.log.INFO("before calback cancelled execution.");
-      this._markFailure();
-      this._markFinished();
-      return;
-    }
-    
     this._triggerExecution();
   };
   
@@ -4403,8 +4563,33 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       return; //execution can be called only if script execution state is unset
     }
     
-    var finished = this.loadExecutionURLsAndHTML(
-                                            this._triggerExecution.bind(this));
+    var finished = true;
+    
+    if(this.shouldWaitForDocWriteProtection()) {
+      finished = false;
+    } else {
+      if (!this._beforeEntered) {
+        this._beforeEntered = new Date().valueOf();
+        var cancel = false;
+
+        try {
+            cancel = this.before();
+        } catch (ex) {
+          //decision changed: failured before callback must stop execution.
+          this.log.ERROR("`before` thrown an exception");
+          this.log.ERROR(ex, true);
+        }
+
+        if (cancel) {
+          this.log.INFO("before calback cancelled execution.");
+          this._markFailure();
+          this._markFinished();
+          return;
+        }
+      }
+      finished = 
+              this.loadExecutionURLsAndHTML(this._triggerExecution.bind(this));
+    }
     
     if (this.scriptExecuted) {
       return; //execution could be called already! by last url sync load!
@@ -4459,6 +4644,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.isRunning = false;
     //unlock possibly locked doc write
     if (GenericLoader.LOCK_DOC_WRITE === this) {
+      this._flushDocWrites();
       TagsUtils.unlockDocumentWrites();
       GenericLoader.LOCK_DOC_WRITE = false;
     }
@@ -4532,10 +4718,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       //show this message once
       this._loadExecutionURLsAndHTMLInformed = true;
       this.log.INFO("tag is loaded, trying execution...");
-    }
-    
-    if(this.shouldWaitForDocWriteProtection()) {
-      return false;
     }
 
     //check if url/urls are specified, delay if any
@@ -5174,7 +5356,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   GenericLoader.prototype.reset = function () {
     this.log.FINE("resetting.");
-    var u = undefined;
+    var u;
     this._injectHTMLTriggered = u;
     this._loadExecutionURLsAndHTMLInformed = u;
     this._lockedDocWriteInformed = u;
@@ -5202,6 +5384,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.isRunning = u;
     this._lastRun = u;
     this.cancelled = u;
+    this._beforeEntered = u;
     this.addState("INITIAL");
   };
   
@@ -5525,18 +5708,44 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @property {Number} FILTER_WAIT_TIMEOUT
    */
   BaseTag.prototype.FILTER_WAIT_TIMEOUT = -1;
-
-  BaseTag.prototype.run = function () {
+  
+  BaseTag.prototype.run = function (ignoreDeps) {
     if (this.config && this.config.runner) {
+      var ret = false;
       try {
         this.log.INFO("Running custom runner...");
+        this.addState("AWAITING_CALLBACK");
+        ret = this._runner = new Date().valueOf();
         this.config.runner.call(this);
       } catch (e) {
         this.log.ERROR("Error while running custom runner: " + e);
       }
+      return ret;
     } else {
-      BaseTag.superclass.prototype.run.apply(this, arguments);
+      this._runner = false;
+      return this.start(ignoreDeps);
     }
+  };
+  
+  /**
+   * Starter used to run tag. It wraps run function only and is ment to be used
+   * in runner function body. See `config.runner` property for more details.
+   * @param {Boolean} ignoreDeps same as oin `run()` method
+   * @returns {undefined}
+   */
+  BaseTag.prototype.start = function (ignoreDeps) {
+    return BaseTag.superclass.prototype.run.call(this, ignoreDeps);
+  };
+
+  /**
+   * Starter used to run tag only once. It wraps run function only and is ment
+   * to be used in runner function body. See `config.runner` property 
+   * for more details.
+   * @param {Boolean} ignoreDeps same as oin `run()` method
+   * @returns {undefined}
+   */
+  BaseTag.prototype.startOnce = function (ignoreDeps) {
+    return BaseTag.superclass.prototype.runOnce.call(this, ignoreDeps);
   };
 
   /**
@@ -6033,11 +6242,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   BaseTag.prototype.reset = function () {
     BaseTag.superclass.prototype.reset.call(this);
     this.resetFilters();
-    this.filtersPassed = undefined;
-    this.dedupePingSent = undefined;
-    this.pingSent = undefined;
-    this._runOnceIfFiltersPassTriggered = undefined;
-    this.filtersRunTriggered = undefined;
+    var u;
+    this.filtersPassed = u;
+    this.dedupePingSent = u;
+    this.pingSent = u;
+    this._runOnceIfFiltersPassTriggered = u;
+    this.filtersRunTriggered = u;
+    this._runner = u;
   };
   
   /**
@@ -6472,9 +6683,9 @@ q.html.PostData = function (url, data, type) {
   /**
    * Function send deduplicated information ping to servers.
    * @param {Object} config
-   * @param {Object} loadTimes
+   * @param {Object} tags
    */
-  Ping.prototype.sendDedupe = function (config, loadTimes) {
+  Ping.prototype.sendDedupe = function (config, tags) {
     var pingString = "c=" + config.clientId + "&" +
       "p=" + config.containerId + "&" +
       "l=" + (config.tellLoadTimesProbability) + "&" +
@@ -6483,8 +6694,8 @@ q.html.PostData = function (url, data, type) {
 
     var pingStrings = [];
 
-    for (var i = 0; i < loadTimes.length; i++) {
-      var tag = loadTimes[i].tag;
+    for (var i = 0; i < tags.length; i++) {
+      var tag = tags[i];
       var loaderId = tag.config.ID;
 
       if (loaderId === undefined) {
@@ -7911,32 +8122,63 @@ var JSON = {};
     if (this.isTellingLoadTimes) {
       var results = this.getAllTagsByState();
       var _this = this;
+      var loadTimes;
       
       if (results.run) {
         //send "just run" load times
-        var loadTimes = Tags.getLoadTimes(results.run);
+        loadTimes = Tags.getLoadTimes(results.run);
         this.log.INFO("sending standard load pings");
         this.lastPingsSentTime = new Date().valueOf();
         this.ping.send(this.config, loadTimes);
       }
-    
-      //unfinished. said to be unused
-      this.ping.sendErrors(this.config, results.failed);
       
       /*session*/
-      if (results.awaiting) {
-        var loadTimes = Tags.getLoadTimes(results.awaiting);
-        var deduplicatedTagsToBeSent = [];
+      //dedupe
+      loadTimes = Tags.getLoadTimes();
+      var deduplicatedTagsToBeSent = [];
+      for (var i = 0; i < loadTimes.length; i++) {
+        (function(j) {
+          var tag = loadTimes[j].tag;
+          if (tag.config.dedupe && tag.sendDedupePing) {
+            deduplicatedTagsToBeSent.push(tag);
+          }
+        }(i));
+      }
+      if (deduplicatedTagsToBeSent.length > 0) {
+        this.log.INFO("sending deduplication pings");
+        this.lastDedupePingsSentTime = new Date().valueOf();
+        this.ping.sendDedupe(this.config, deduplicatedTagsToBeSent);
+      }
+
+      if (results.other) {
+        loadTimes = Tags.getLoadTimes(results.other);
+        var awaitingTagsToBeSent = [];
         for (var i = 0; i < loadTimes.length; i++) {
-          (function (j) {
+          (function(j) {
             var tag = loadTimes[j].tag;
+            awaitingTagsToBeSent.push(loadTimes[j]);
             var after = tag.onAfter;
+            tag.onAfter = function(success) {
+              after.call(tag, success);
+              _this.sendPingsNotTooOften();
+              if (success) {
+                tag.log.INFO("SENDING LOAD STATS");
+              }
+            };
+          }(i));
+        }
+      }
 
-            if (tag.config.dedupe) {
-              deduplicatedTagsToBeSent.push(loadTimes[j]);
-            }
+      if (results.awaiting) {
+        loadTimes = Tags.getLoadTimes(results.awaiting);
+        var awaitingTagsToBeSent = [];
+        for (var i = 0; i < loadTimes.length; i++) {
+          (function(j) {
+            var tag = loadTimes[j].tag;
+            awaitingTagsToBeSent.push(loadTimes[j]);
 
-            tag.onAfter = function (success) {
+            var after = tag.onAfter;
+            tag.onAfter = function(success) {
               after.call(tag, success);
               _this.sendPingsNotTooOften();
               if (success) {
@@ -7946,10 +8188,8 @@ var JSON = {};
           }(i));
         }
 
-        if (deduplicatedTagsToBeSent.length > 0) {
-          this.log.INFO("sending deduplication pings");
-          this.lastDedupePingsSentTime = new Date().valueOf();
-          this.ping.sendDedupe(this.config, deduplicatedTagsToBeSent);
+        if (awaitingTagsToBeSent.length > 0) {
+          this.ping.send(this.config, awaitingTagsToBeSent);
         }
       }
       /*~session*/
@@ -7992,7 +8232,7 @@ var JSON = {};
         if (tag.scriptExecuted > 0) {
           runScripts = runScripts || {};
           attachRenamedIfExist(runScripts, tag, name);
-        } else if (tag.scriptExecuted < 0 || tag.state > FILTERS_FAILED) {
+        } else if (tag.scriptExecuted < 0 || (tag.state > FILTERS_FAILED)) {
             failed = failed || {};
             attachRenamedIfExist(failed, tag, name);
         } else if (tag.filtersState() === BaseFilter.state.SESSION ||
@@ -8045,7 +8285,8 @@ var JSON = {};
           // === 0 FAILED
           // > 0 filter is awaiting
           var state = tag.filtersState();
-          if (tag.filtersState() < 0 && !tag.finished()) {
+          if (tag.filtersState() < 0 &&
+                  !(tag.finished() || (tag.config.runner && !tag.isRunning))) {
             if (state !== BaseFilter.state.SESSION) {
               return false;
             }
@@ -8569,172 +8810,6 @@ var JSON = {};
 
 
 
-(function () {
-  var Utils = qubit.opentag.Utils;
-  var BaseFilter = qubit.opentag.filter.BaseFilter;
-
-  /**
-   * #SessionVariable filter class.
-   *  
-   * This class is a compatibility layer part for TagSDK.
-   * Session filters are used to customise scripts execution and use custom
-   * scripts:
-   * - to determine match for the page
-   * - to trigger tag execution
-   * 
-   * If config object contains properties:
-   * - `customScript` a function that is used to determine if filter matches. 
-   *  It takes session object as a parameter.
-   * - `customStarter` a function that is responsible for running the tag.
-   *  By default it is an empty function, calling "ready" argument immediately.
-   *  The `ready` argument is a callback triggering tag loading. `customStarter`
-   *  takes 3 arguments in the order:
-   *  1) `session` the session object
-   *  2) `ready` the ready callback that runs the tag, note: it will run the tag
-   *  directly.
-   *  3) `tag` tag reference object.
-   * 
-   * When creating tags, consider using new API that serve typical use cases for
-   * the session filters.
-   * 
-   * Example:
-   * If tag depends on some property that will appear in window scope, like
-   *  `jQuery`, use `genericDependencies` array in tag object and push function
-   *  there that returns true when the `jQuery` object exists.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
-   * @class qubit.opentag.filter.SessionVariableFilter
-   * @extends qubit.opentag.filter.BaseFilter
-   * @param config {Object} config object used to build instance
-   */
-  function SessionVariableFilter(config) {
-    var defaultConfig = {
-      /**
-       * Custom starter function for session filter.
-       * Takes 3 arguments in the order:
-       *  1) `session` the session object
-       *  2) `ready` the ready callback that runs the tag, note: it will run the tag
-       *  directly.
-       *  3) `tag` tag reference object.
-       * @cfg {Function}
-       * @param {qubit.opentag.Session} session
-       * @param {Function} ready
-       * @param {qubit.opentag.BaseTag} tag
-       */
-      customStarter: function(session, ready, tag) {
-        ready(false);
-      },
-      /**
-       * Script deciding either script matches or not (top API level).
-       * @cfg {Function}
-       * @param {qubit.opentag.Session} session
-       * @returns {Boolean}
-       */
-      customScript: function (session) {
-        return true;
-      }
-    };
-    
-    if (config) {
-      for(var prop in config) {
-        if (config.hasOwnProperty(prop)) {
-          if (prop === "customStarter" && !config[prop]) {
-            continue;
-          }
-          if (prop === "customScript" && !config[prop]) {
-            continue;
-          }
-          defaultConfig[prop] = config[prop];
-        }
-      }
-    }
-    
-    SessionVariableFilter.superclass.call(this, defaultConfig);
-  }
-  
-  Utils.clazz(
-          "qubit.opentag.filter.SessionVariableFilter",
-          SessionVariableFilter,
-          BaseFilter);
-  
-  /**
-   * Match function for a filter.
-   * @returns {Boolean}
-   */
-  SessionVariableFilter.prototype.match = function () {
-    try {
-      return !!this.config.customScript(this.getSession());
-    } catch (ex) {
-      this.log.FINE("Filter match throws exception:" + ex);
-      return false;
-    }
-  };
-  
-  /**
-   * Function that will trigger running tag directly the callback privided in
-   * configuration object, the `customStarter`.
-   * @param {qubit.opentag.BaseTag} tag
-   */
-  SessionVariableFilter.prototype.runTag = function (tag) {
-    if (!this._runTag) {
-      if (this.config.customStarter) {
-        //trigger "customStarter", only once
-        this._runTag = true;
-        this.config.customStarter(this.getSession(), function (rerun) {
-          this.lastRun = new Date().valueOf();
-          if (rerun === true) {
-            tag.run();
-          } else {
-            tag.runOnce();
-          }
-          //done
-        }.bind(this), tag);
-      }
-    }
-  };
-  
-  /**
-   * State function, this function adds to standard state function the SESSION
-   * state. Session state is used if `customStarter` is attached.
-   * @param {qubit.opentag.Session} session optional session
-   */
-  SessionVariableFilter.prototype.getState = function (session) {
-    if (session) {
-      this.setSession(session);
-    }
-    var pass = SessionVariableFilter.superclass.prototype.getState.call(this);
-    
-    if (pass === BaseFilter.state.DISABLED) {
-      return BaseFilter.state.DISABLED;
-    }
-    
-    if (pass === BaseFilter.state.PASS) {
-      if (this.config.customStarter) {
-        pass = BaseFilter.state.SESSION;
-      }
-    }
-    
-    if (this.config.script) {
-      pass = this.config.script.call(this, pass, this.getSession());
-    }
-    
-    this.lastState = pass;
-    return pass;
-  };
-  
-  /**
-   * Reset function.
-   */
-  SessionVariableFilter.prototype.reset = function () {
-    SessionVariableFilter.superclass.prototype.reset.call(this);
-    this._runTag = undefined;
-  };
-}());
-
-
-
-
 
 
 
@@ -8858,6 +8933,8 @@ var JSON = {};
           location = loader.locationDetail;
         }
         
+        var dedupe = loader.dedupe;
+        
         var cfg = {
           name: loader.name,
           filters: filterDefinitions,
@@ -8873,6 +8950,14 @@ var JSON = {};
           usesDocumentWrite: loader.usesDocWrite,
           genericDependencies: loader.genericDependencies
         };
+        
+        if (dedupe) {
+          cfg.dedupe = true;
+        }
+        
+        if (loader.runner) {
+          cfg.runner = loader.runner;
+        }
         
         if (loader.pre) {
           cfg.pre = loader.pre;
@@ -9085,23 +9170,18 @@ var JSON = {};
       case DEDUPE_FN:
         return null;
         //session execution it was...
-        break;
       case EXACT_MATCH:
       case "1" + EXACT_MATCH:
         return PatternType.MATCHES_EXACTLY;
-        break;
       case SUBSTRING:
       case "1" + SUBSTRING:
         return PatternType.CONTAINS;
-        break;
       case REGEX:
       case "1" + REGEX:
         return PatternType.REGULAR_EXPRESSION;
-        break;
       case ALL:
       case "1" + ALL:
         return PatternType.ALL_URLS;
-        break;
       default:
         return null;
     }

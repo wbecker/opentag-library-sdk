@@ -37,19 +37,19 @@ qubit.opentag.LibraryTag.define("insparq.trendingproductsmodule.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+		var _this = this;
 		(function() {
 			eval(
-				this.valueForToken("jQuery") + '(\'<div id="iecw"></div>\').' +
-				this.valueForToken("selector")
+				_this.valueForToken("jQuery") + '(\'<div id="iecw"></div>\').' +
+				_this.valueForToken("selector")
 			);
 
 			var e = document.createElement('script');
 			e.type = 'text/javascript';
 			e.async = true;
 			e.src = '//pinboard.insparq.com/assets/endcaps/insparq_endcaps.js';
-			e.module = '' + this.valueForToken("module") + '';
-			e.apikey = '' + this.valueForToken("key") + '';
+			e.module = '' + _this.valueForToken("module") + '';
+			e.apikey = '' + _this.valueForToken("key") + '';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(e, s);
 		})();

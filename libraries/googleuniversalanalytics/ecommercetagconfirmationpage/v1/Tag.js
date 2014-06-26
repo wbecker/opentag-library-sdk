@@ -83,7 +83,7 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
+			var _this = this;
 			(function(i, s, o, g, r, a, m) {
 				i['GoogleAnalyticsObject'] = r;
 				i[r] = i[r] || function() {
@@ -98,30 +98,30 @@ qubit.opentag.LibraryTag.define(
 				'ga');
 
 			ga('create',
-				"" + this.valueForToken("web_property_id"),
-				"" + this.valueForToken("url"));
+				"" + _this.valueForToken("web_property_id"),
+				"" + _this.valueForToken("url"));
 			ga('require', 'displayfeatures');
 			ga('send', 'pageview');
 			ga('require', 'ecommerce', 'ecommerce.js');
 
 			ga('ecommerce:addTransaction', {
-				'id': "" + this.valueForToken("order_id"), //Required
-				'affiliation': "" + this.valueForToken("store_name"),
-				'revenue': "" + this.valueForToken("revenue"),
-				'shipping': "" + this.valueForToken("shipping"),
-				'tax': "" + this.valueForToken("tax"),
-				'currencyCode': "" + this.valueForToken("currency")
+				'id': "" + _this.valueForToken("order_id"), //Required
+				'affiliation': "" + _this.valueForToken("store_name"),
+				'revenue': "" + _this.valueForToken("revenue"),
+				'shipping': "" + _this.valueForToken("shipping"),
+				'tax': "" + _this.valueForToken("tax"),
+				'currencyCode': "" + _this.valueForToken("currency")
 			});
 
 			//Loop through transaction items. Don't pollute the globe!
-			for (var i = 0; i < this.valueForToken("item_names").length; i++) {
+			for (var i = 0; i < _this.valueForToken("item_names").length; i++) {
 				ga('ecommerce:addItem', {
-					'id': "" + this.valueForToken("order_id"), //Required
-					'name': String(this.valueForToken("item_names")[i]), //Required
-					'sku': String(this.valueForToken("item_skus")[i]),
-					'category': String(this.valueForToken("item_cats")[i]),
-					'price': String(this.valueForToken("item_prices")[i]),
-					'quantity': String(this.valueForToken("item_quantities")[i])
+					'id': "" + _this.valueForToken("order_id"), //Required
+					'name': String(_this.valueForToken("item_names")[i]), //Required
+					'sku': String(_this.valueForToken("item_skus")[i]),
+					'category': String(_this.valueForToken("item_cats")[i]),
+					'price': String(_this.valueForToken("item_prices")[i]),
+					'quantity': String(_this.valueForToken("item_quantities")[i])
 				});
 			}
 

@@ -44,11 +44,13 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixel.v1.Tag", {
 			"conversion_id": this.valueForToken("cid"),
 			"quantity": "" + getQty()
 		};
-
+		
+		var _this = this;
+		
 		function getQty() {
 			var tmp = 0;
-			for (var i = 0; i < this.valueForToken("qtys").length; i++) {
-				tmp += this.valueForToken("qtys")[i];
+			for (var i = 0; i < _this.valueForToken("qtys").length; i++) {
+				tmp += _this.valueForToken("qtys")[i];
 			}
 			return tmp;
 		}

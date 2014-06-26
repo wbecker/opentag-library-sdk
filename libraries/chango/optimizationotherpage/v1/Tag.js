@@ -72,90 +72,87 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+		var name = "" + this.valueForToken("name") + "";
+		if (name.indexOf('^') !== -1) {
+			name = name.split('^');
+		}
 
-		(function() {
-			var name = "" + this.valueForToken("name") + "";
-			if (name.indexOf('^') !== -1) {
-				name = name.split('^');
+		var price = "" + this.valueForToken("price") + "";
+		if (price.indexOf('^') !== -1) {
+			price = price.split('^');
+			for (var i = 0; i < price.length; i++) {
+				price[i] = Number(price[i]);
 			}
+		} else {
+			price = Number(price);
+		}
 
-			var price = "" + this.valueForToken("price") + "";
-			if (price.indexOf('^') !== -1) {
-				price = price.split('^');
-				for (var i = 0; i < price.length; i++) {
-					price[i] = Number(price[i]);
-				}
-			} else {
-				price = Number(price);
+		var salePrice = "" + this.valueForToken("sale_price") + "";
+		if (salePrice.indexOf('^') !== -1) {
+			salePrice = salePrice.split('^');
+			for (var i = 0; i < salePrice.length; i++) {
+				salePrice[i] = Number(salePrice[i]);
 			}
+		} else {
+			salePrice = Number(salePrice);
+		}
 
-			var salePrice = "" + this.valueForToken("sale_price") + "";
-			if (salePrice.indexOf('^') !== -1) {
-				salePrice = salePrice.split('^');
-				for (var i = 0; i < salePrice.length; i++) {
-					salePrice[i] = Number(salePrice[i]);
-				}
-			} else {
-				salePrice = Number(salePrice);
-			}
+		var sku = "" + this.valueForToken("sku") + "";
+		if (sku.indexOf('^') !== -1) {
+			sku = sku.split('^');
+		}
 
-			var sku = "" + this.valueForToken("sku") + "";
-			if (sku.indexOf('^') !== -1) {
-				sku = sku.split('^');
-			}
+		var cat = "" + this.valueForToken("cat") + "";
+		if (cat.indexOf('^') !== -1) {
+			cat = cat.split('^');
+		}
 
-			var cat = "" + this.valueForToken("cat") + "";
-			if (cat.indexOf('^') !== -1) {
-				cat = cat.split('^');
-			}
+		window.__cho__ = {
+			"data": {
+				"pt": "" + this.valueForToken("page") + "",
+				"na": name,
+				"op": price,
+				"sp": salePrice,
+				"sku": sku,
+				"pc": cat
+			},
+			"pid": "" + this.valueForToken("chango_id") + "",
+			"puid2": "" + this.valueForToken("visitor_id") + ""
+		};
 
-			window.__cho__ = {
-				"data": {
-					"pt": "" + this.valueForToken("page") + "",
-					"na": name,
-					"op": price,
-					"sp": salePrice,
-					"sku": sku,
-					"pc": cat
-				},
-				"pid": "" + this.valueForToken("chango_id") + "",
-				"puid2": "" + this.valueForToken("visitor_id") + ""
-			};
-
-			if (this.valueForToken("track_basket")) {
-				var stringifiedArrayOfObjects = function(data) {
-					var string = "";
-					for (var obj in data) {
-						if (data.hasOwnProperty(obj)) {
-							for (var prop in data[obj]) {
-								if (data[obj].hasOwnProperty(prop)) {
-									string += "," + prop + ':' + data[obj][prop];
-								}
+		if (this.valueForToken("track_basket")) {
+			var stringifiedArrayOfObjects = function(data) {
+				var string = "";
+				for (var obj in data) {
+					if (data.hasOwnProperty(obj)) {
+						for (var prop in data[obj]) {
+							if (data[obj].hasOwnProperty(prop)) {
+								string += "," + prop + ':' + data[obj][prop];
 							}
 						}
 					}
-					string = string.replace(/^,/, '');
-					return encodeURI(string);
-				};
-
-				var basketItems = [];
-
-				for (var i = 0; i < this.valueForToken("skus").length; i++) {
-					basketItems.push({
-						na: this.valueForToken("names")[i] + "",
-						sku: this.valueForToken("skus")[i] + ""
-					});
 				}
+				string = string.replace(/^,/, '');
+				return encodeURI(string);
+			};
 
-				__cho__.data["crt"] = stringifiedArrayOfObjects(basketItems);
+			var basketItems = [];
+
+			for (var i = 0; i < this.valueForToken("skus").length; i++) {
+				basketItems.push({
+					na: this.valueForToken("names")[i] + "",
+					sku: this.valueForToken("skus")[i] + ""
+				});
 			}
 
-			var script = document.createElement('script');
-			script.type = 'text/javascript';
-			script.async = true;
-			script.src = document.location.protocol + '//cc.chango.com/static/o.js';
-			document.head.appendChild(script);
-		})();
+			__cho__.data["crt"] = stringifiedArrayOfObjects(basketItems);
+		}
+
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.async = true;
+		script.src = document.location.protocol + '//cc.chango.com/static/o.js';
+		document.head.appendChild(script);
 		/*~SCRIPT*/
 	},
 	pre: function() {

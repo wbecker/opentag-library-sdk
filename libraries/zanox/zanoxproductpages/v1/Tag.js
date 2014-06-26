@@ -73,8 +73,9 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 		window._zx.push({
 			"id": "" + this.valueForToken("zanoxPageId")
 		});
+		var _this = this;
 		window.waitForZanoxDiv = function() {
-			if (document.querySelector(".zx_" + this.valueForToken("zanoxPageId") +
+			if (document.querySelector(".zx_" + _this.valueForToken("zanoxPageId") +
 				".zx_mediaslot")) {
 				(function(d) {
 					var s = d.createElement("script");
