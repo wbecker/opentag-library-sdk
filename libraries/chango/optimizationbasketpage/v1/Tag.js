@@ -67,8 +67,8 @@ qubit.opentag.LibraryTag.define("chango.optimizationbasketpage.v1.Tag", {
 			names.push("" + this.valueForToken("names")[i]);
 			prices.push(this.valueForToken("prices")[i]);
 			salePrices.push(this.valueForToken("sale_prices")[i]);
-			skus.push(this.valueForToken("skus")[i] + "");
-			cats.push(this.valueForToken("cats")[i] + "");
+			skus.push("" + this.valueForToken("skus")[i]);
+			cats.push("" + this.valueForToken("cats")[i]);
 		}
 
 		var stringifiedArrayOfObjects = function(data) {

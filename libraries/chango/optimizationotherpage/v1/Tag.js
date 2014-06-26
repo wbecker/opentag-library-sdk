@@ -140,8 +140,8 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 
 			for (var i = 0; i < this.valueForToken("skus").length; i++) {
 				basketItems.push({
-					na: this.valueForToken("names")[i] + "",
-					sku: this.valueForToken("skus")[i] + ""
+					na: "" + this.valueForToken("names")[i],
+					sku: "" + this.valueForToken("skus")[i]
 				});
 			}
 

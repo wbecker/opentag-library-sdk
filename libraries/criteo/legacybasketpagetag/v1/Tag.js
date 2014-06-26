@@ -53,7 +53,7 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 		];
 		var params = [
 			"v=2",
-			"&wi=", "" + this.valueForToken("wi") + "",
+			"&wi=", "" + this.valueForToken("wi"),
 			"&s=0"
 		];
 
