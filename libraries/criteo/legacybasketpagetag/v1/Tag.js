@@ -46,7 +46,7 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 			"https://",
 			"sslwidget.criteo.com",
 			"/",
-			this.valueForToken("call_parameter") + "",
+			"" + this.valueForToken("call_parameter"),
 			"/",
 			"display.js?",
 			"p1="

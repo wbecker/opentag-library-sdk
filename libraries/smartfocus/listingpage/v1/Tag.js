@@ -50,7 +50,7 @@ qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 
 		var skus = [];
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
-			skus.push(this.valueForToken("skus")[i] + "");
+			skus.push("" + this.valueForToken("skus")[i]);
 		}
 
 		window._advisorq.push({

@@ -61,10 +61,10 @@ qubit.opentag.LibraryTag.define("chango.optimizationbasketpage.v1.Tag", {
 
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
 			namesAndSkus.push({
-				na: this.valueForToken("names")[i] + "",
-				sku: this.valueForToken("skus")[i] + ""
+				na: "" + this.valueForToken("names")[i],
+				sku: "" + this.valueForToken("skus")[i]
 			});
-			names.push(this.valueForToken("names")[i] + "");
+			names.push("" + this.valueForToken("names")[i]);
 			prices.push(this.valueForToken("prices")[i]);
 			salePrices.push(this.valueForToken("sale_prices")[i]);
 			skus.push(this.valueForToken("skus")[i] + "");
@@ -96,8 +96,8 @@ qubit.opentag.LibraryTag.define("chango.optimizationbasketpage.v1.Tag", {
 				"sku": skus,
 				"pc": cats
 			},
-			"pid": "" + this.valueForToken("chango_id") + "",
-			"puid2": "" + this.valueForToken("visitor_id") + ""
+			"pid": "" + this.valueForToken("chango_id"),
+			"puid2": "" + this.valueForToken("visitor_id")
 		};
 
 		var script = document.createElement('script');

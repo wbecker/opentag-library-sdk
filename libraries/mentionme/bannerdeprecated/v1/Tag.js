@@ -58,7 +58,7 @@ qubit.opentag.LibraryTag.define("mentionme.bannerdeprecated.v1.Tag", {
 		var mmScript = document.createElement("script");
 		var paramArr = [];
 		var paramObj = {
-			situation: "" + this.valueForToken("situation") + ""
+			situation: "" + this.valueForToken("situation")
 		}
 		if (("" + this.valueForToken("user_email")).length) paramObj["email"] =
 			"" + this.valueForToken("user_email");

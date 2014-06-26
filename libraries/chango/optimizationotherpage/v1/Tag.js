@@ -72,12 +72,12 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-		var name = "" + this.valueForToken("name") + "";
+		var name = "" + this.valueForToken("name");
 		if (name.indexOf('^') !== -1) {
 			name = name.split('^');
 		}
 
-		var price = "" + this.valueForToken("price") + "";
+		var price = "" + this.valueForToken("price");
 		if (price.indexOf('^') !== -1) {
 			price = price.split('^');
 			for (var i = 0; i < price.length; i++) {
@@ -87,7 +87,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 			price = Number(price);
 		}
 
-		var salePrice = "" + this.valueForToken("sale_price") + "";
+		var salePrice = "" + this.valueForToken("sale_price");
 		if (salePrice.indexOf('^') !== -1) {
 			salePrice = salePrice.split('^');
 			for (var i = 0; i < salePrice.length; i++) {
@@ -97,27 +97,27 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 			salePrice = Number(salePrice);
 		}
 
-		var sku = "" + this.valueForToken("sku") + "";
+		var sku = "" + this.valueForToken("sku");
 		if (sku.indexOf('^') !== -1) {
 			sku = sku.split('^');
 		}
 
-		var cat = "" + this.valueForToken("cat") + "";
+		var cat = "" + this.valueForToken("cat");
 		if (cat.indexOf('^') !== -1) {
 			cat = cat.split('^');
 		}
 
 		window.__cho__ = {
 			"data": {
-				"pt": "" + this.valueForToken("page") + "",
+				"pt": "" + this.valueForToken("page"),
 				"na": name,
 				"op": price,
 				"sp": salePrice,
 				"sku": sku,
 				"pc": cat
 			},
-			"pid": "" + this.valueForToken("chango_id") + "",
-			"puid2": "" + this.valueForToken("visitor_id") + ""
+			"pid": "" + this.valueForToken("chango_id"),
+			"puid2": "" + this.valueForToken("visitor_id")
 		};
 
 		if (this.valueForToken("track_basket")) {

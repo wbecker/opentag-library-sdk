@@ -144,7 +144,7 @@ qubit.opentag.LibraryTag.define(
 			src += "rit=" + this.valueForToken("voucher") + "&";
 			src += "racris=" + this.valueForToken("acriss") + "&";
 			src += "rrate=" + this.valueForToken("base") + "&";
-			src += "rpnow=" + this.valueForToken("method") + "";
+			src += "rpnow=" + this.valueForToken("method");
 			(new Image()).src = src;
 			/*~SCRIPT*/
 		},

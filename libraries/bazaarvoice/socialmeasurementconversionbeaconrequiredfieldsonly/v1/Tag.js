@@ -66,6 +66,7 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
+			var _this = this;
 			try {
 				var item_count = 0;
 				var _this = this;
@@ -84,7 +85,7 @@ qubit.opentag.LibraryTag.define(
 					return tmp;
 				})();
 				var tracker = POWERREVIEWS.tracker.createTracker({
-					merchantGroupId: "" + this.valueForToken("group_id") + ""
+					merchantGroupId: "" + _this.valueForToken("group_id")
 				});
 				tracker.trackPageview("c", {
 					merchantId: "" + this.valueForToken("merchant_id"),

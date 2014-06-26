@@ -38,8 +38,8 @@ qubit.opentag.LibraryTag.define(
 			};
 
 			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label = "" + this.valueForToken(
-				"google_conversion_label") + "";
+			window.google_conversion_label =
+					"" + this.valueForToken("google_conversion_label");
 			window.google_custom_params = window.google_tag_params;
 			window.google_remarketing_only = true;
 

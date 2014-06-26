@@ -97,7 +97,7 @@ qubit.opentag.LibraryTag.define(
 			src += "n=" + this.valueForToken("first_name") + "&";
 			src += "fl=" + this.valueForToken("frequent_flyer_hash") + "&";
 			src += "ffl=" + this.valueForToken("frequent_flyer_level") + "&";
-			src += "ffc=" + this.valueForToken("fare_code") + "";
+			src += "ffc=" + this.valueForToken("fare_code");
 			(new Image()).src = src;
 			/*~SCRIPT*/
 		},

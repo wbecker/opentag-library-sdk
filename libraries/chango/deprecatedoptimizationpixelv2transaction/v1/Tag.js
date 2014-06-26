@@ -59,7 +59,7 @@ qubit.opentag.LibraryTag.define(
 
 			window.__cho__ = {
 				"data": {
-					"pt": "" + this.valueForToken("PT_VALUE") + "",
+					"pt": "" + this.valueForToken("PT_VALUE"),
 					"crt": cart,
 					"na": "",
 					"op": "",
@@ -67,8 +67,8 @@ qubit.opentag.LibraryTag.define(
 					"sku": "",
 					"pc": ""
 				},
-				"pid": "" + this.valueForToken("ID") + "",
-				"puid2": "" + this.valueForToken("PUID") + ""
+				"pid": "" + this.valueForToken("ID"),
+				"puid2": "" + this.valueForToken("PUID")
 			};
 			(function() {
 				var c = document.createElement('script');

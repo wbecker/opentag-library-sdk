@@ -158,7 +158,7 @@ qubit.opentag.LibraryTag.define(
 			src += "rd2=" + this.valueForToken("dropoff_date") + "&";
 			src += "rc=" + this.valueForToken("car_class") + "&";
 			src += "rl=" + this.valueForToken("customer_loyalty_hash") + "&";
-			src += "rp=" + this.valueForToken("car_purchase_price") + "";
+			src += "rp=" + this.valueForToken("car_purchase_price");
 			(new Image()).src = src;
 
 			/*~SCRIPT*/

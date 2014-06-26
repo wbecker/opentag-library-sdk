@@ -65,7 +65,7 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagcruisesearch.v1.Tag", {
 		src += "cf1=" + this.valueForToken("destination") + "&";
 		src += "s=" + this.valueForToken("residence") + "&";
 		src += "t=" + this.valueForToken("travellers") + "&";
-		src += "cr=" + this.valueForToken("rooms") + "";
+		src += "cr=" + this.valueForToken("rooms");
 		(new Image()).src = src;
 		/*~SCRIPT*/
 	},

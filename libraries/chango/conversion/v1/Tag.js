@@ -65,7 +65,7 @@ qubit.opentag.LibraryTag.define("chango.conversion.v1.Tag", {
 		var skus = [];
 		if (this.valueForToken("skus").length) {
 			for (var i = 0; i < this.valueForToken("skus").length; i++) {
-				skus.push(this.valueForToken("skus")[i] + "");
+				"" + skus.push(this.valueForToken("skus")[i]);
 			}
 		} else {
 			skus = "";

@@ -72,10 +72,10 @@ qubit.opentag.LibraryTag.define("chango.optimizationlistingcategorypage.v1.Tag",
 		var sale_prices = [];
 		var skus = [];
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
-			names.push(this.valueForToken("names")[i] + "");
-			prices.push(this.valueForToken("prices")[i] + "");
-			sale_prices.push(this.valueForToken("sale_prices")[i] + "");
-			skus.push(this.valueForToken("skus")[i] + "");
+			names.push("" + this.valueForToken("names")[i]);
+			prices.push("" + this.valueForToken("prices")[i]);
+			sale_prices.push("" + this.valueForToken("sale_prices")[i]);
+			skus.push("" + this.valueForToken("skus")[i]);
 		}
 		window.__cho__ = {
 			"data": {
@@ -84,10 +84,10 @@ qubit.opentag.LibraryTag.define("chango.optimizationlistingcategorypage.v1.Tag",
 				"op": prices.join(','),
 				"sp": sale_prices.join(','),
 				"sku": skus.join(','),
-				"pc": "" + this.valueForToken("cat") + ""
+				"pc": "" + this.valueForToken("cat")
 			},
-			"pid": "" + this.valueForToken("chango_id") + "",
-			"puid2": "" + this.valueForToken("visitor_id") + ""
+			"pid": "" + this.valueForToken("chango_id"),
+			"puid2": "" + this.valueForToken("visitor_id")
 		};
 
 		if (this.valueForToken("track_basket")) {

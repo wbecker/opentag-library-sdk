@@ -162,7 +162,7 @@ qubit.opentag.LibraryTag.define(
 			src += "hz1=" + this.valueForToken("hotel_postcode") + "&";
 			src += "hp=" + this.valueForToken("hotel_purchase_price") + "&";
 			src += "hl=" + this.valueForToken("customer_loyalty_hash") + "&";
-			src += "hc=" + this.valueForToken("room_type") + "";
+			src += "hc=" + this.valueForToken("room_type");
 			(new Image()).src = src;
 			/*~SCRIPT*/
 		},

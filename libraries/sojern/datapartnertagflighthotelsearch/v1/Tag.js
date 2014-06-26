@@ -66,7 +66,7 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflighthotelsearch.v1.Tag",
 		src += "fd2=" + this.valueForToken("return_date") + "&";
 		src += "t=" + this.valueForToken("number_of_travellers") + "&";
 		src += "fc=" + this.valueForToken("service_class") + "&";
-		src += "hr=" + this.valueForToken("number_of_rooms") + "";
+		src += "hr=" + this.valueForToken("number_of_rooms");
 		(new Image()).src = src;
 		/*~SCRIPT*/
 	},

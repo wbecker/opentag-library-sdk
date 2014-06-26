@@ -63,10 +63,10 @@ qubit.opentag.LibraryTag.define(
 			/*POST*/
 			window.google_trackConversion({
 				google_conversion_id: this.valueForToken("conversion_id"),
-				google_conversion_label: "" + this.valueForToken("label") + "",
-				google_conversion_language: "" + this.valueForToken("lang") + "",
-				google_conversion_format: "" + this.valueForToken("format") + "",
-				google_conversion_color: "" + this.valueForToken("color") + "",
+				google_conversion_label: "" + this.valueForToken("label"),
+				google_conversion_language: "" + this.valueForToken("lang"),
+				google_conversion_format: "" + this.valueForToken("format"),
+				google_conversion_color: "" + this.valueForToken("color"),
 				google_conversion_value: this.valueForToken("value"),
 				google_custom_params: this.valueForToken("custom")
 			});

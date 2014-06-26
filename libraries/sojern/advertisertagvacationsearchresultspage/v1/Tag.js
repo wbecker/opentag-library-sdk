@@ -60,7 +60,7 @@ qubit.opentag.LibraryTag.define(
 			src += "vd1=" + this.valueForToken("departure") + "&";
 			src += "vd2=" + this.valueForToken("return") + "&";
 			src += "t=" + this.valueForToken("travellers") + "&";
-			src += "vc=" + this.valueForToken("class") + "";
+			src += "vc=" + this.valueForToken("class");
 			(new Image()).src = src;
 			/*~SCRIPT*/
 		},

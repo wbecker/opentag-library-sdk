@@ -84,7 +84,7 @@ qubit.opentag.LibraryTag.define(
 			src += "cr=" + this.valueForToken("rooms") + "&";
 			src += "cp=" + this.valueForToken("price") + "&";
 			src += "g=" + this.valueForToken("gender") + "&";
-			src += "n=" + this.valueForToken("name") + "";
+			src += "n=" + this.valueForToken("name");
 			(new Image()).src = src;
 			/*~SCRIPT*/
 		},

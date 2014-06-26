@@ -85,13 +85,13 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 		var __chconv__ = window.__chconv__ = {
 			"conversion_id": this.valueForToken("ID"),
 			"quantity": totalQuantity,
-			"order_id": "" + this.valueForToken("ORDER_ID") + "",
-			"cost": "" + this.valueForToken("COST") + "",
-			"u1": "" + this.valueForToken("CUSTOMER_ID") + "",
+			"order_id": "" + this.valueForToken("ORDER_ID"),
+			"cost": "" + this.valueForToken("COST"),
+			"u1": "" + this.valueForToken("CUSTOMER_ID"),
 			"u2": skuList,
-			"u3": "" + this.valueForToken("PAGE_TYPE") + "",
-			"u4": "" + this.valueForToken("PAYMENT_TYPE") + "",
-			"u5": "" + this.valueForToken("CONVERSION_TYPE") + ""
+			"u3": "" + this.valueForToken("PAGE_TYPE"),
+			"u4": "" + this.valueForToken("PAYMENT_TYPE"),
+			"u5": "" + this.valueForToken("CONVERSION_TYPE")
 		};
 		(function() {
 			if (typeof(__chconv__) == "undefined") return;

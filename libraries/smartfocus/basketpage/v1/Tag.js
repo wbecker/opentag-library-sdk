@@ -39,7 +39,7 @@ qubit.opentag.LibraryTag.define("smartfocus.basketpage.v1.Tag", {
 		window._advisorq = window._advisorq || [];
 		var skus = [];
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
-			skus.push(this.valueForToken("skus")[i] + "");
+			skus.push("" + this.valueForToken("skus")[i]);
 		}
 
 

@@ -24,7 +24,7 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 			(new Image()).src = "https://beacon.sojern.com/p/1?rpid=" +
-				this.valueForToken("id") + "";
+				this.valueForToken("id");
 			/*~SCRIPT*/
 		},
 		pre: function() {
