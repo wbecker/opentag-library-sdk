@@ -39,15 +39,11 @@ qubit.opentag.LibraryTag.define(
 				a.async = 1;
 				a.src = g;
 				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', '//www.google-analytics.com/analytics.js',
-				'ga');
-
-			ga('create', '' + this.valueForToken("web_property_id"), '' + this.valueForToken(
-				"url"));
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js','ga');
+			ga('create', '' + this.valueForToken("web_property_id"),
+				'' + this.valueForToken("url"));
 			ga('require', 'displayfeatures');
 			ga('send', 'pageview');
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

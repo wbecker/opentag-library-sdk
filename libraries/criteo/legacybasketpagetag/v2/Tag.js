@@ -61,14 +61,15 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v2.Tag", {
 				i]);
 			params.push("&q" + index + "=" + this.valueForToken("quantities")[i]);
 		}
+		
 		src.push(escape(params.join("")));
 		src.push("&t1=transaction&resptype=gif");
+		
 		var img = document.createElement("img");
 		img.setAttribute("src", src.join(""));
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "1");
 		document.body.appendChild(img);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

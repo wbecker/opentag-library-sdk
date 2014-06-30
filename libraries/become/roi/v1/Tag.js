@@ -47,17 +47,22 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.become_merchant_id = '' + this.valueForToken("become_merchant_id");
 		window.become_order_num = '' + this.valueForToken("order_number");
 		window.become_purchased_items = [];
-
-		for (var i = 0; i < this.valueForToken("product_quantity_list").length; i++) {
+		
+		var product_quantity_list = this.valueForToken("product_quantity_list");
+		var product_id_list = this.valueForToken("product_id_list");
+		var product_category_list = this.valueForToken("product_category_list");
+		var product_price_list = this.valueForToken("product_price_list");
+		var product_quantity_list = this.valueForToken("product_quantity_list");
+		
+		for (var i = 0; i < product_quantity_list.length; i++) {
 			var become_item = {
-				productid: this.valueForToken("product_id_list")[i],
-				category: this.valueForToken("product_category_list")[i],
-				price: this.valueForToken("product_price_list")[i],
-				quantity: this.valueForToken("product_quantity_list")[i]
+				productid: product_id_list[i],
+				category: product_category_list[i],
+				price: product_price_list[i],
+				quantity: product_quantity_list[i]
 			};
 			become_purchased_items.push(become_item);
 		}
@@ -65,7 +70,6 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 		var script = document.createElement("script");
 		script.src = "https://partner.become.com/roi-tracker2/conversion.js";
 		document.body.appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -45,7 +45,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtrackaddingnewevents.v1.Tag", {
 				}
 			}
 		};
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

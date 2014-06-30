@@ -61,8 +61,9 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 		ins.setAttribute("data-ad-client", "ca-pub-" +
 			this.valueForToken("ad_client"));
 		ins.setAttribute("data-ad-slot", "" + this.valueForToken("ad_slot"));
-		document.getElementById("" + this.valueForToken("parent_id")).appendChild(
-			ins);
+		
+		document.getElementById("" + this.valueForToken("parent_id"))
+				.appendChild(ins);
 
 		window.adsbygoogle.push({});
 		/*~POST*/

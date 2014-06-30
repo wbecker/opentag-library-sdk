@@ -45,7 +45,6 @@ qubit.opentag.LibraryTag.define("intelligentreach.basketpagetag.v1.Tag", {
 		window.istUserDefinedFieldOne = "";
 		window.istUserDefinedFieldTwo = "";
 		window.istUserDefinedFieldThree = "";
-
 		/*~PRE*/
 	},
 	post: function() {

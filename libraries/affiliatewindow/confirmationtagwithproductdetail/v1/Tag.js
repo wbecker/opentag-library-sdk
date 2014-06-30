@@ -120,7 +120,7 @@ qubit.opentag.LibraryTag.define(
 					this.valueForToken("productUnitPrice")[i], "|",
 					this.valueForToken("quantity")[i], "|",
 					this.valueForToken("productSku")[i], "|",
-					"" + this.valueForToken("commission_group") + "|",
+					this.valueForToken("commission_group") + "|",
 					this.valueForToken("productCategory")[i], "|"
 				].join(""));
 			}
@@ -129,20 +129,19 @@ qubit.opentag.LibraryTag.define(
 			form.appendChild(textarea);
 			document.body.appendChild(form);
 
-			var AWIN = {
+			window.AWIN = {
 				Tracking: {
 					Sale: {
 						amount: this.valueForToken("orderTotal"),
 						currency: "" + this.valueForToken("orderCurrency"),
 						orderRef: "" + this.valueForToken("orderId"),
-						parts: "" + this.valueForToken("commission_group") + ":" +
+						parts: this.valueForToken("commission_group") + ":" +
 							this.valueForToken("orderTotal"),
 						voucher: "" + this.valueForToken("voucher"),
 						test: "" + this.valueForToken("testmode")
 					}
 				}
 			};
-
 			/*~PRE*/
 		},
 		post: function() {

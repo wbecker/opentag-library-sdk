@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("kneon.trackingpixel.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.img = new Image();
 		window.productsArr = [];
 		window.howManyProducts = this.valueForToken("product_sku_list").length;
@@ -63,7 +62,6 @@ qubit.opentag.LibraryTag.define("kneon.trackingpixel.v1.Tag", {
 			this.valueForToken("total") + "&rid=" +
 			this.valueForToken("client_id") + "&oid=" +
 			this.valueForToken("order_id") + "&" + productsArr.join("&");
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

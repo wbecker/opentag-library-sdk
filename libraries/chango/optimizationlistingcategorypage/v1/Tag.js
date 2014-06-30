@@ -103,8 +103,6 @@ qubit.opentag.LibraryTag.define("chango.optimizationlistingcategorypage.v1.Tag",
 			__cho__.data["crt"] = stringifiedArrayOfObjects(basketItems);
 		}
 
-
-
 		var script = document.createElement('script');
 		script.type = 'text/javascript';
 		script.async = true;

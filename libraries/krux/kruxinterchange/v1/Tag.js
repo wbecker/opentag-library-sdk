@@ -48,7 +48,6 @@ qubit.opentag.LibraryTag.define("krux.kruxinterchange.v1.Tag", {
 			subSection: "" + this.valueForToken("subsection"),
 			async: true
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

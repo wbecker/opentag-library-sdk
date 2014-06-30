@@ -20,7 +20,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window.uv_listener.push(["on", "event",
 				function(event) {
 
@@ -43,7 +42,6 @@ qubit.opentag.LibraryTag.define(
 
 				}
 			]);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

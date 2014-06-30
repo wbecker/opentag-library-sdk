@@ -53,15 +53,14 @@ qubit.opentag.LibraryTag.define(
 			var fl_if = document.createElement("iframe");
 			fl_if.src = '//' + this.valueForToken("subdomain") +
 				'.doubleclick.net/activity' + this.valueForToken("activity_letter") +
-				';src=' + this.valueForToken("doubleclick_id") + ';type=' + this.valueForToken(
-					"type") + ';cat=' + this.valueForToken("cat") + ';' + this.valueForToken(
-					"custom_params") + ';ord=' + a + '?';
+				';src=' + this.valueForToken("doubleclick_id") + ';type=' + 
+				this.valueForToken("type") + ';cat=' + this.valueForToken("cat") + ';' +
+				this.valueForToken("custom_params") + ';ord=' + a + '?';
 			fl_if.width = "1";
 			fl_if.height = "1";
 			fl_if.frameborder = "0";
 			fl_if.style.display = "none";
 			document.body.appendChild(fl_if);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

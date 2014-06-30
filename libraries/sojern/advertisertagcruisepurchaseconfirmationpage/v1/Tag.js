@@ -78,7 +78,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var src = "https://beacon.sojern.com/p/11?";
 			src += "et=" + this.valueForToken("event") + "&";
 			src += "cco=" + this.valueForToken("line") + "&";
@@ -93,7 +92,6 @@ qubit.opentag.LibraryTag.define(
 			src += "n=" + this.valueForToken("name") + "&";
 			src += "cconfno=" + this.valueForToken("id");
 			(new Image()).src = src;
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

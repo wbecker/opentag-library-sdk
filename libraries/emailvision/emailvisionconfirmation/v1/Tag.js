@@ -52,7 +52,6 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var src = "//" + this.valueForToken("pct_server") +
 			".emv2.com/P?emv_client_id=" + this.valueForToken("client_id") +
 			"&emv_value=";
@@ -72,7 +71,6 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.v1.Tag", {
 		pixel.setAttribute("width", "1");
 		pixel.setAttribute("height", "1");
 		document.body.appendChild(pixel);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

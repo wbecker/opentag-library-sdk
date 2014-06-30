@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv114.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
 			productArr.push(this.valueForToken("products")[i]);
@@ -58,7 +57,6 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv114.v1.Tag", {
 			'http://') +
 			'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
 		document.getElementsByTagName('head')[0].appendChild(struq);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

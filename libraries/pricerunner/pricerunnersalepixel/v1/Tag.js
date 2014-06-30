@@ -73,7 +73,6 @@ qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.v1.Tag", {
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "20");
 		document.body.appendChild(img);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

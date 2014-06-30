@@ -32,14 +32,12 @@ qubit.opentag.LibraryTag.define("rocketfuel.homepage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var img = new Image();
 		img.src = "//" +
 			this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" +
 			this.valueForToken("merchant_id") + "&ca=" +
 			this.valueForToken("campaign_id") + "&ra=" +
 			this.valueForToken("random")
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

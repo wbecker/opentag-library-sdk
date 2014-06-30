@@ -32,7 +32,6 @@ qubit.opentag.LibraryTag.define("connextra.datacapturetag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.cxt_conf = cxt_conf || {};
 		cxt_conf.clientId = cxt_conf.clientId || '' + this.valueForToken("client_id");
 		cxt_conf.pageType = cxt_conf.pageType || '' + this.valueForToken("page_type");
@@ -47,7 +46,6 @@ qubit.opentag.LibraryTag.define("connextra.datacapturetag.v1.Tag", {
 		};
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(ca, s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

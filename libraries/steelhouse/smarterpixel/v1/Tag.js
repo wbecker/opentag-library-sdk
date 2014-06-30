@@ -68,7 +68,6 @@ qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 		c.src = ("https:" === document.location.protocol ? "https://" : "http://") +
 			h;
 		v.parentNode.insertBefore(c, v)
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

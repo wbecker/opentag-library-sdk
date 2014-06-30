@@ -132,7 +132,7 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 				} catch (e) {}
 			}
 			return a;
-		}
+		};
 
 		_qtd.push = function(data) {
 			if (data && data.data && data.data.qb_etc_data) {
@@ -149,7 +149,6 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 			_qtd.orig_push.apply(this, arguments);
 		};
 
-
 		withTransaction(function() {
 			if (readCookie("_qb_se")) {
 				window.universal_variable.transaction.shown_creatives =
@@ -159,7 +158,6 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 				});
 			}
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

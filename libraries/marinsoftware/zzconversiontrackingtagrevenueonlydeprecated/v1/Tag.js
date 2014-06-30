@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._mf = document.createElement("form");
 			_mf.style.display = "none";
 			_mf.name = "utmform";
@@ -86,7 +85,6 @@ qubit.opentag.LibraryTag.define(
 				}
 			};
 			document.body.appendChild(_ml);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var revenue = parseFloat(this.valueForToken("order_total")) * 100;
 		var script = document.createElement('script');
 
@@ -36,7 +35,6 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 			this.valueForToken("account_id") + '&value=' + revenue;
 
 		document.getElementsByTagName('head')[0].appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

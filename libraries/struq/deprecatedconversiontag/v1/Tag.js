@@ -59,7 +59,6 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 		ifrm.height = '1px';
 		ifrm.style.display = 'none';
 		document.body.appendChild(ifrm);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -37,7 +37,6 @@ qubit.opentag.LibraryTag.define("adgenie.conversiontracking.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var img = new Image(),
 			arr = [];
 
@@ -51,7 +50,6 @@ qubit.opentag.LibraryTag.define("adgenie.conversiontracking.v1.Tag", {
 			"&orderId=" + this.valueForToken("trans_id");
 
 		document.body.appendChild(img);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -22,13 +22,11 @@ qubit.opentag.LibraryTag.define("fandist.digitalanimal.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var uv = window.universal_variable || {};
 		var src = "//a.fandi.st/pixel.gif?acc=" + this.valueForToken("client_id") +
 			"&camp=1&d=" + window.encodeURIComponent(JSON.stringify(uv));
 		var fandImage = new Image();
 		fandImage.src = src;
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

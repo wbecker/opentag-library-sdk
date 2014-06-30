@@ -32,7 +32,6 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.v1.Tag", {
 	pre: function() {
 		/*PRE*/
 		window._kiq = window._kiq || [];
-
 		/*~PRE*/
 	},
 	post: function() {

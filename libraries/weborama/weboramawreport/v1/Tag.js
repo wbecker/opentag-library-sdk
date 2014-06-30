@@ -45,10 +45,8 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.v1.Tag", {
 		window.WRP_SECTION = '' + this.valueForToken("SECTION");
 		window.WRP_SUBSECTION = '' + this.valueForToken("SUBSECTION");
 		window.wreport_ok = 0;
-
 		/* Profondeur Frame */
 		window.WRP_ACC;
-
 		/*~PRE*/
 	},
 	post: function() {
@@ -58,7 +56,6 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.v1.Tag", {
 				WRP_ACC);
 			w_counter.count();
 		}
-
 		/*~POST*/
 	}
 });

@@ -75,7 +75,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag",
 	},
 	post: function() {
 		/*POST*/
-
 		// Top level settings	
 		cmSetClientID(
 			"" + this.valueForToken("client_id"),
@@ -102,8 +101,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag",
 			attributeString,
 			extraFieldString
 		);
-
-
 		/*~POST*/
 	}
 });

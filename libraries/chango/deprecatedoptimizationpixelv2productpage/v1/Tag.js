@@ -58,8 +58,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-
 			window.__cho__ = {
 				"data": {
 					"pt": "" + this.valueForToken("PT_VALUE"),

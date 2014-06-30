@@ -67,7 +67,6 @@ qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.v1.Tag", 
 			items.push(item.join("&"));
 		}
 
-
 		var params = [
 			"CID=" + this.valueForToken("CID"),
 			"OID=" + this.valueForToken("order_id"),
@@ -82,9 +81,6 @@ qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.v1.Tag", 
 <img src="https://www.emjcd.com/u?CID=<ENTERPRISEID>&OID=<OID>&TYPE=<ACTIONID>&ITEM1=
 <ITEMID>&AMT1=<AMT>&QTY1=<QTY>&CURRENCY=<CURRENCY>&METHOD=IMG" height="1" 
 width="20">*/
-
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

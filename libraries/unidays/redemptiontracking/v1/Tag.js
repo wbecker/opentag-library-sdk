@@ -500,7 +500,6 @@ qubit.opentag.LibraryTag.define("unidays.redemptiontracking.v1.Tag", {
 
 		(new Image()).src = document.location.protocol +
 			"//tracking.myunidays.com/perks/redemption/v1.0.gif" + pms;
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

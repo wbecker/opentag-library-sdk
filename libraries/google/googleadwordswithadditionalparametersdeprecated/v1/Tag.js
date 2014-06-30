@@ -64,7 +64,6 @@ qubit.opentag.LibraryTag.define(
 				google_conversion_language: "" + this.valueForToken("conversion_language"),
 				google_conversion_value: this.valueForToken("conversion_value")
 			});
-
 			/*~POST*/
 		}
 	});

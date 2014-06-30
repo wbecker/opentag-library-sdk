@@ -23,7 +23,7 @@ qubit.opentag.LibraryTag.define("clotheshorse.productpage.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 
-		window.ch212 = ch212 || [];
+		window.ch212 = window.ch212 || [];
 		ch212['token'] = '' + this.valueForToken("client_token");
 		ch212['ts'] = new Date().getTime();
 

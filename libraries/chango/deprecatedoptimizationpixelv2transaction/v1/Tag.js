@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var _this = this;
 			//compile cart data
 			var cart = (function() {

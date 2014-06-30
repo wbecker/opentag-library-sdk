@@ -44,7 +44,6 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 			var _this = this;
-
 			function shaddslashes(e) {
 				"use strict";
 				if (e != undefined) {
@@ -171,7 +170,6 @@ qubit.opentag.LibraryTag.define(
 				};
 				e.load()
 			})()
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

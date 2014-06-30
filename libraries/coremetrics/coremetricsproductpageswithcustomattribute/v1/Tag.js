@@ -71,7 +71,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-
 			// Client Setup
 			window.cmSetClientID(
 				"" + this.valueForToken("client_id"),
@@ -93,8 +92,6 @@ qubit.opentag.LibraryTag.define(
 				"" + this.valueForToken("category_id"),
 				"" + this.valueForToken("custom_attribute")
 			);
-
-
 			/*~POST*/
 		}
 	});

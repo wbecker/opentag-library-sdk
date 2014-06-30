@@ -59,7 +59,6 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 			window._mTrack = window._mTrack || [];
-
 			_mTrack.push(['activateAnonymizeIp']);
 
 			var items = [];
@@ -89,8 +88,6 @@ qubit.opentag.LibraryTag.define(
 			mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 			var fscr = document.getElementsByTagName('script')[0];
 			fscr.parentNode.insertBefore(mt, fscr);
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

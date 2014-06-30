@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
 		s.src = "//bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&ActivityID=" +
 			this.valueForToken("id") + "&rnd=" + r;
 		document.body.appendChild(s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

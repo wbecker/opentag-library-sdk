@@ -28,7 +28,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._mTrack = window._mTrack || [];
 
 			if (/^\s*yes\s*$/i.test("" + this.valueForToken("anonymize_ip"))) {
@@ -38,8 +37,8 @@ qubit.opentag.LibraryTag.define(
 			_mTrack.push(['trackPage']);
 
 			var mClientId = "" + this.valueForToken("marin_tracking_id");
-			var mProto = ('https:' == document.location.protocol ? 'https://' :
-				'http://');
+			var mProto = ('https:' == document.location.protocol ? 
+			'https://' : 'http://');
 			var mHost = 'tracker.marinsm.com';
 			var mt = document.createElement('script');
 			mt.type = 'text/javascript';

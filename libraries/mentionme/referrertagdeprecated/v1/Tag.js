@@ -112,7 +112,6 @@ qubit.opentag.LibraryTag.define("mentionme.referrertagdeprecated.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var baseUrl = "https://" + this.valueForToken("domain") +
 			"/api/v2/referreroffer/" + this.valueForToken("partner_code") + "?";
 		var paramArr = [];

@@ -61,7 +61,6 @@ qubit.opentag.LibraryTag.define("visualdna.basketadditionreport.v1.Tag", {
 				"currency": "" + this.valueForToken("currency")
 			}]
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

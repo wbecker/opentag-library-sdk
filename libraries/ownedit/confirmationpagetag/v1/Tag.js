@@ -126,7 +126,6 @@ qubit.opentag.LibraryTag.define("ownedit.confirmationpagetag.v1.Tag", {
 			post_it(details);
 		}
 		onLoadCallBack(post_to_owned_it);
-
 		/*~POST*/
 	}
 });

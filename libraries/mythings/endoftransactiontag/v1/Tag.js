@@ -75,13 +75,12 @@ qubit.opentag.LibraryTag.define("mythings.endoftransactiontag.v1.Tag", {
 					TransactionAmount: "" + _this.valueForToken("total")
 				});
 			}
-		}
+		};
 
 		window.mtHost = (("https:" == document.location.protocol) ? "https://" +
 			this.valueForToken("subdomain") : "http://" +
 			this.valueForToken("subdomain")) + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("token");
-
 		/*~PRE*/
 	},
 	post: function() {

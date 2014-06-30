@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._qevents = window._qevents || [];
 
 		var e = document.createElement("script");
@@ -39,8 +38,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 			qacct: "" + this.valueForToken("account_no"),
 			labels: "_fp.event." + this.valueForToken("custom_page")
 		});
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

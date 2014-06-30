@@ -178,11 +178,7 @@ qubit.opentag.LibraryTag.define(
 					setTimeout(waitForConfirmationScripts, 100);
 				}
 			};
-
 			waitForConfirmationScripts();
-
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

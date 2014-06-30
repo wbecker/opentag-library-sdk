@@ -48,7 +48,6 @@ qubit.opentag.LibraryTag.define(
 				var customer = window.customer || {};
 				customer.identifier = uid;
 			}
-
 			/*~PRE*/
 		},
 		post: function() {

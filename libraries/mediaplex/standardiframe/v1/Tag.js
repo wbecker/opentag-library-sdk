@@ -46,8 +46,6 @@ qubit.opentag.LibraryTag.define("mediaplex.standardiframe.v1.Tag", {
 		frame.width = 1;
 		frame.frameborder = 0;
 		document.body.appendChild(frame);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

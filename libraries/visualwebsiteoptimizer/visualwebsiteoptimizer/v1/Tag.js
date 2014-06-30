@@ -91,8 +91,7 @@ qubit.opentag.LibraryTag.define(
 					}
 				};
 			}());
-			_vwo_settings_timer = _vwo_code.init();
-
+			window._vwo_settings_timer = _vwo_code.init();
 			/*~SCRIPT*/
 		},
 		pre: function() {

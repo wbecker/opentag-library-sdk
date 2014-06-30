@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("struq.productpagetagv15.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._struqPI = window._struqPI || [];
 		_struqPI.push(['injectTrackingPixel', {
 			trackingPixelId: '' + this.valueForToken("id"),
@@ -45,7 +44,6 @@ qubit.opentag.LibraryTag.define("struq.productpagetagv15.v1.Tag", {
 		script.src =
 			"//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
 		document.body.appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

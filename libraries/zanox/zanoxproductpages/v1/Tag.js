@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		// Populate product fields
 		window.zx_identifier = "" + this.valueForToken("product_id");
 		window.zx_fn = "" + this.valueForToken("name");
@@ -89,8 +88,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 			}
 		};
 		waitForZanoxDiv();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

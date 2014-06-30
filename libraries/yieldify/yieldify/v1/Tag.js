@@ -31,7 +31,6 @@ qubit.opentag.LibraryTag.define("yieldify.yieldify.v1.Tag", {
 			e.async = true;
 			d.getElementsByTagName("head")[0].appendChild(e);
 		}(document));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

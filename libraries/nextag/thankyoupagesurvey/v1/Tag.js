@@ -47,39 +47,32 @@ qubit.opentag.LibraryTag.define("nextag.thankyoupagesurvey.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
-
 		window.seller_id = this.valueForToken("nextag_seller_id");
 
-		if ("" + this.valueForToken("pop_left") !== "") {
+		if (this.valueForToken("pop_left") !== "") {
 			window.popup_left = Number("" + this.valueForToken("pop_left"));
 		}
 
-		if ("" + this.valueForToken("popup_top") !== "") {
+		if (this.valueForToken("popup_top") !== "") {
 			window.popup_top = Number("" + this.valueForToken("popup_top"));
 		}
 
-		if ("" + this.valueForToken("popup_width") !== "") {
+		if (this.valueForToken("popup_width") !== "") {
 			window.popup_width = Number("" + this.valueForToken("popup_width"));
 		}
 
-		if ("" + this.valueForToken("popup_height") !== "") {
+		if (this.valueForToken("popup_height") !== "") {
 			window.popup_height = Number("" + this.valueForToken("popup_height"));
 		}
 
-		if ("" + this.valueForToken("popup_resize") !== "") {
+		if (this.valueForToken("popup_resize") !== "") {
 			window.popup_resize = Number("" + this.valueForToken("popup_resize"));
 		}
 
-
-
 		document.write('<' +
-			'script type="text/javascript" src="https://merchants.nextag.com/seller/review/popup_include.js"><\/script>'
+			'script type="text/javascript" src="https://merchants.nextag.com/seller/review/popup_include.js"><\/sc' + 'ript>'
 		);
-
 		// <script  src="https://merchants.nextag.com/seller/review/popup_include.js"
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

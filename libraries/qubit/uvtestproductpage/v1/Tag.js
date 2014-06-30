@@ -82,7 +82,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		console.log("" + this.valueForToken("a"));
 		console.log("" + this.valueForToken("b"));
 		console.log("" + this.valueForToken("c"));
@@ -96,7 +95,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 		console.log("" + this.valueForToken("k"));
 		console.log("" + this.valueForToken("l"));
 		console.log("" + this.valueForToken("m"));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

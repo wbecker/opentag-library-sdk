@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("evidon.eusitenotice.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var hn = document.createElement('script');
 		hn.type = 'text/javascript';
 		hn.async = true;
@@ -37,7 +36,6 @@ qubit.opentag.LibraryTag.define("evidon.eusitenotice.v1.Tag", {
 			'c.betrad.com/geo/h1.js';
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(hn, s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

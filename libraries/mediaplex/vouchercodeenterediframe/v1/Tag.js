@@ -50,7 +50,6 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.v1.Tag", {
 		frame.width = 1;
 		frame.frameborder = 0;
 		document.body.appendChild(frame);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

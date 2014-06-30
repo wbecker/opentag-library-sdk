@@ -37,7 +37,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._qevents = _qevents || [];
 
 		var elem = document.createElement('script');
@@ -53,7 +52,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.v1.Tag", {
 			orderid: "" + this.valueForToken("order_id"),
 			revenue: "" + this.valueForToken("revenue")
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

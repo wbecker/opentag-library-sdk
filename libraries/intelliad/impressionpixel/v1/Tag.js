@@ -75,7 +75,6 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.v1.Tag", {
 
 		var img = new Image();
 		img.src = src.slice(0, -1);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

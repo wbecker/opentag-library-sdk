@@ -23,7 +23,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._gaq = window._gaq || [];
 			var pluginUrl = "//www.google-analytics.com/plugins/ga/inpage_linkid.js";
 			_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
@@ -36,7 +35,6 @@ qubit.opentag.LibraryTag.define(
 				'stats.g.doubleclick.net/dc.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

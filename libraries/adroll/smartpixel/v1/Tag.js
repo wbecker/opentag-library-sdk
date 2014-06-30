@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("adroll.smartpixel.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.adroll_adv_id = "" + this.valueForToken("adroll_adv_id");
 		window.adroll_pix_id = "" + this.valueForToken("adroll_pix_id");
 		window.__adroll_loaded = true;
@@ -40,7 +39,6 @@ qubit.opentag.LibraryTag.define("adroll.smartpixel.v1.Tag", {
 		((document.getElementsByTagName('head') || [null])[0] ||
 			document.getElementsByTagName('script')[0].parentNode)
 			.appendChild(scr);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -60,7 +60,6 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.v1.Tag", {
 		}
 
 		window.basket = basket;
-
 		/*~PRE*/
 	},
 	post: function() {

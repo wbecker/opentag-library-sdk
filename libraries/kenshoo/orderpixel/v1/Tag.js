@@ -13,7 +13,6 @@ qubit.opentag.LibraryTag.define("kenshoo.orderpixel.v1.Tag", {
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [
-
 		]
 		/*~DATA*/
 	},

@@ -52,7 +52,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		pre: function() {
 			/*PRE*/
-
 			var cats = [],
 				prods = [],
 				units = [];
@@ -69,7 +68,6 @@ qubit.opentag.LibraryTag.define(
 			window.cats = cats.join("|");
 			window.prods = prods.join("|");
 			window.units = units.join("|");
-
 
 			/*~PRE*/
 		},

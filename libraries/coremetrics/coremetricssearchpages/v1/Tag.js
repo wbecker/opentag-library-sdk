@@ -65,7 +65,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-
 		// Client Setup
 		window.cmSetClientID(
 			"" + this.valueForToken("client_id"),
@@ -81,9 +80,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.v1.Tag", {
 			"" + this.valueForToken("search_query"),
 			"" + this.valueForToken("number_results")
 		);
-
-
-
 		/*~POST*/
 	}
 });

@@ -85,7 +85,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.v1.Tag", {
 
 
 		dcsMultiTrack({
-
 			// Identify this event as a purchase
 			"WT.tx_e": "p",
 
@@ -108,8 +107,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.v1.Tag", {
 			"WT.dl": 1
 
 		});
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -67,7 +67,6 @@ qubit.opentag.LibraryTag.define("mentionme.dashboard.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var baseUrl = "https://" + this.valueForToken("script_domain") +
 			".mention-me.com/api/v2/dashboard/" + this.valueForToken("partner_code") +
 			"/" + this.valueForToken("user_email") + "?";
@@ -94,7 +93,6 @@ qubit.opentag.LibraryTag.define("mentionme.dashboard.v1.Tag", {
 
 		mmScript.src = baseUrl + paramArr.join("&");
 		document.body.appendChild(mmScript);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

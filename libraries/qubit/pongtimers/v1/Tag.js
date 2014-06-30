@@ -50,7 +50,6 @@ qubit.opentag.LibraryTag.define("qubit.pongtimers.v1.Tag", {
 				data: times
 			});
 		}
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

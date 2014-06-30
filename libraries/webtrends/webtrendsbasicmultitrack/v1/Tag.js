@@ -22,11 +22,9 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		Webtrends.multiTrack({
 			args: this.valueForToken("data")
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -36,7 +36,6 @@ qubit.opentag.LibraryTag.define("jquery.noconflictjquery.v1.Tag", {
 	post: function() {
 		/*POST*/
 		window[this.valueForToken("jquery_name")] = $.noConflict(true);
-
 		/*~POST*/
 	}
 });

@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._qevents = window._qevents || [];
 
 		var e = document.createElement("script");
@@ -33,7 +32,6 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.v1.Tag", {
 		_qevents.push({
 			qacct: "" + this.valueForToken("id")
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

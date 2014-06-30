@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define("google.googleremarketingonlyaynsc.v1.Tag", {
 			}
 		};
 		poll();
-
 		/*~POST*/
 	}
 });

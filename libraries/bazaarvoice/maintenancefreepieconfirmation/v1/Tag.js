@@ -82,7 +82,6 @@ qubit.opentag.LibraryTag.define(
 			}
 
 			window.$BV.SI.trackTransactionPageView(data);
-
 			/*~POST*/
 		}
 	});

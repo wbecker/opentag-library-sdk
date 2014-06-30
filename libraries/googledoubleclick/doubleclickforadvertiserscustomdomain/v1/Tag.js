@@ -38,7 +38,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var axel = Math.random() + "";
 			var a = axel * 1000000000000;
 			var fl_if = document.createElement("iframe");
@@ -51,7 +50,6 @@ qubit.opentag.LibraryTag.define(
 			fl_if.frameborder = "0";
 			fl_if.style.display = "none";
 			document.body.appendChild(fl_if);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

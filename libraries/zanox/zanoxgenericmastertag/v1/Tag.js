@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._zx = window._zx || [];
 		window._zx.push({
 			"id": "" + this.valueForToken("zanoxPageId")
@@ -44,8 +43,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 			}
 		};
 		waitForZanoxDiv();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

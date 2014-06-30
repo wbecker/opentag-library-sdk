@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv19us.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._struqPI = window._struqPI || [];
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
@@ -56,7 +55,6 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv19us.v1.Tag", {
 		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
 			'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
 		document.getElementsByTagName('head')[0].appendChild(struq);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

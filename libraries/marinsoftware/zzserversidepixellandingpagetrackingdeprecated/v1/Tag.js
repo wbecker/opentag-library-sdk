@@ -23,7 +23,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._ml = document.createElement("script");
 			_ml.src = "//tracker.marinsm.com/tracker/" + this.valueForToken("clientId") +
 				".js";
@@ -49,7 +48,6 @@ qubit.opentag.LibraryTag.define(
 				}
 			};
 			document.body.appendChild(_ml);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -83,7 +83,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/fc?";
 			src += "fa1=" + this.valueForToken("origin_airport_code") + "&";

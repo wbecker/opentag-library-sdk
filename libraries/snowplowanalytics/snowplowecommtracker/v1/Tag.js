@@ -19,7 +19,6 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag",
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.sp_t = window.universal_variable.transaction;
 
 		if (sp_t) {
@@ -50,7 +49,6 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag",
 			// Finally fire the 'trackTrans' event to commit the transaction
 			_snaq.push(['trackTrans']);
 		}
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -35,7 +35,7 @@ qubit.opentag.LibraryTag.define("peerius.brandpagedeprecated.v1.Tag", {
 			type: "brand",
 			lang: "" + this.valueForToken("lang"),
 			brand: "" + this.valueForToken("brand")
-		}
+		};
 
 		/*~PRE*/
 	},

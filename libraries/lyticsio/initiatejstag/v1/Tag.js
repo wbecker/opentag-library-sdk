@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("lyticsio.initiatejstag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.jstag = function() {
 			var t = {
 				_q: [],
@@ -69,7 +68,6 @@ qubit.opentag.LibraryTag.define("lyticsio.initiatejstag.v1.Tag", {
 			cid: "" + this.valueForToken("client_id"),
 			url: "//c.lytics.io"
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

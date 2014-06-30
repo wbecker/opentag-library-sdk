@@ -41,8 +41,6 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedcategorypagetag.v1.Tag", 
 				'' + this.valueForToken("SUBCATEGORY")
 			]
 		};
-		window.product = product;
-
 		/*~PRE*/
 	},
 	post: function() {

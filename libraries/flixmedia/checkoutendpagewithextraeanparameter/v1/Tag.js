@@ -45,23 +45,23 @@ qubit.opentag.LibraryTag.define(
 			/*SCRIPT*/
 			var products = [];
      
-    for (var i=0; i< this.valueForToken("skus").length; i++)
-    {
-        products.push({
-           "mpn" : "" + this.valueForToken("skus")[i],
-           "price" : this.valueForToken("prices")[i],
-           "quantity" : this.valueForToken("quants")[i],
-           "ean" : "" + this.valueForToken("eans")[i]
-        });
-    }
-  
-    FLIXSio.sioTy({
-       "distributor_id" : "",
-       "language" : "",
-       "event" : "end",
-       "basket_id" : "" + this.valueForToken("id"),
-       "basket" : products 
-    }); 
+			for (var i=0; i< this.valueForToken("skus").length; i++)
+			{
+					products.push({
+						 "mpn" : "" + this.valueForToken("skus")[i],
+						 "price" : this.valueForToken("prices")[i],
+						 "quantity" : this.valueForToken("quants")[i],
+						 "ean" : "" + this.valueForToken("eans")[i]
+					});
+			}
+
+			FLIXSio.sioTy({
+				 "distributor_id" : "",
+				 "language" : "",
+				 "event" : "end",
+				 "basket_id" : "" + this.valueForToken("id"),
+				 "basket" : products 
+			});
 			/*~SCRIPT*/
 		},
 		pre: function() {

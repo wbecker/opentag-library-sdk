@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv19us.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._struqPI = window._struqPI || [];
 		_struqPI.push(['injectTrackingPixel', {
 			trackingPixelId: '' + this.valueForToken("pixelid"),
@@ -42,7 +41,6 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv19us.v1.Tag", {
 		struq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
 			'media.struq.com/content/scripts/Struq_Us_Pixel_Injector_min_v1-9.js';
 		document.getElementsByTagName('head')[0].appendChild(struq);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

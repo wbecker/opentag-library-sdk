@@ -38,7 +38,6 @@ qubit.opentag.LibraryTag.define("gosquared.gosquaredallpages.v1.Tag", {
 			w.addEventListener ? w.addEventListener("load", gs, false) : w.attachEvent(
 				"onload", gs);
 		})(window);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

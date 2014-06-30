@@ -36,7 +36,6 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowploweventtracker.v1.Tag",
 				}
 			}
 		]);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -66,7 +66,6 @@ qubit.opentag.LibraryTag.define("freespee.callbackwidget.v1.Tag", {
 			'cbw_caller_id': '' + this.valueForToken("cbw_caller_id"),
 			'cbw_visible_number': '' + this.valueForToken("cbw_visible_number")
 		}]);
-
 		/*~PRE*/
 	},
 	post: function() {

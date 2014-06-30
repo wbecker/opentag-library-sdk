@@ -39,7 +39,6 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictagdeprecated.v1.Tag", {
 		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' +
 			this.valueForToken("storm_id") + '.js';
 		window.__ch = '' + this.valueForToken("channel");
-
 		/*~PRE*/
 	},
 	post: function() {

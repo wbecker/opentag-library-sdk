@@ -68,7 +68,6 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.v1.Tag", {
 		params[4] = 'promoCode=' + this.valueForToken("voucher");
 		params[5] = 'valueCurrency=' + this.valueForToken("currency");
 		window.k_trackevent(params, '' + this.valueForToken("ks_num"));
-
 		/*~POST*/
 	}
 });

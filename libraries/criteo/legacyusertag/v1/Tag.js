@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("criteo.legacyusertag.v1.Tag", {
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "1");
 		document.body.appendChild(img);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

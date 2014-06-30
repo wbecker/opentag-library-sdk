@@ -504,7 +504,6 @@ qubit.opentag.LibraryTag.define("qubit.json2.v1.Tag", {
 				};
 			}
 		}());
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

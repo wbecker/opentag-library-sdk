@@ -53,7 +53,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var src = "//" + this.valueForToken("server_name") + "/P?";
 			src += "emv_client_id=" + this.valueForToken("client_id");
 			src += "&emv_value=" + this.valueForToken("order_total");
@@ -72,7 +71,6 @@ qubit.opentag.LibraryTag.define(
 			pixel.setAttribute("width", "1");
 			pixel.setAttribute("height", "1");
 			document.body.appendChild(pixel);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.adiInit = "" + this.valueForToken("ACCOUNT_ID");
 		window.adiRVO = true;
 		window.adiFunc = null;
@@ -34,7 +33,6 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 			".responsetap.com/static/scripts/rTapTrack.min.js";
 		var s = document.getElementsByTagName("script")[0];
 		s.parentNode.insertBefore(adiSrc, s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

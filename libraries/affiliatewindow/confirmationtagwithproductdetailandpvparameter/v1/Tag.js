@@ -120,7 +120,7 @@ qubit.opentag.LibraryTag.define(
 					this.valueForToken("product_prices")[i], "|",
 					this.valueForToken("product_quantities")[i], "|",
 					this.valueForToken("product_skus")[i], "|",
-					"" + this.valueForToken("commission_group") + "|",
+					this.valueForToken("commission_group") + "|",
 					this.valueForToken("product_categories")[i], "|"
 				].join(""));
 			}
@@ -135,15 +135,14 @@ qubit.opentag.LibraryTag.define(
 						amount: this.valueForToken("order_total"),
 						currency: "" + this.valueForToken("currency"),
 						orderRef: "" + this.valueForToken("order_id"),
-						parts: "" + this.valueForToken("commission_group") + ":" + this.valueForToken(
-							"order_total"),
+						parts: "" + this.valueForToken("commission_group") + ":" +
+								this.valueForToken("order_total"),
 						voucher: "" + this.valueForToken("voucher"),
 						test: "" + this.valueForToken("test_mode"),
 						pvOnly: '1'
 					}
 				}
 			};
-
 			/*~PRE*/
 		},
 		post: function() {

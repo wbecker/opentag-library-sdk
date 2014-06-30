@@ -42,13 +42,11 @@ qubit.opentag.LibraryTag.define("qubit.uvtestpageinformation.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		console.log("" + this.valueForToken("a"));
 		console.log("" + this.valueForToken("b"));
 		console.log("" + this.valueForToken("c"));
 		console.log("" + this.valueForToken("d"));
 		console.log("" + this.valueForToken("e"));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

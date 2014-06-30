@@ -60,6 +60,7 @@ qubit.opentag.LibraryTag.define(
 			for (var i = 0; i < this.valueForToken("product_values").length; i++) {
 				productValuesArray.push(this.valueForToken("product_values")[i]);
 			}
+			
 			window.google_tag_params = {
 				ecomm_prodid: productIdsArray,
 				ecomm_pagetype: '' + this.valueForToken("page_category"),
@@ -68,8 +69,7 @@ qubit.opentag.LibraryTag.define(
 			};
 
 			window.google_conversion_id = this.valueForToken("google_conversion_id");
-			window.google_conversion_label =
-					"" + this.valueForToken("google_conversion_label");
+			window.google_conversion_label = "" + this.valueForToken("google_conversion_label");
 			window.google_custom_params = window.google_tag_params;
 			window.google_remarketing_only = true;
 

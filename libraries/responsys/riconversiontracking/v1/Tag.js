@@ -79,8 +79,6 @@ qubit.opentag.LibraryTag.define("responsys.riconversiontracking.v1.Tag", {
 		image.height = 1;
 
 		document.head.appendChild(image);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

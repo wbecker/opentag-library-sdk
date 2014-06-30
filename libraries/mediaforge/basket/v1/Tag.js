@@ -32,7 +32,6 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var script = document.createElement("script");
 		var productArr = [];
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {

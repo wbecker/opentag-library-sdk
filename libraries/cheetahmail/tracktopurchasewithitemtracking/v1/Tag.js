@@ -68,9 +68,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-
-
 			var items = [];
 
 			for (var i = 0; i < this.valueForToken("product_names").length; i++) {
@@ -88,9 +85,6 @@ qubit.opentag.LibraryTag.define(
 				"&c=" + items.join("|") + "&d=" + this.valueForToken("cust1") +
 				"&e=" + this.valueForToken("cust2");
 			document.getElementsByTagName("head")[0].appendChild(script);
-
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

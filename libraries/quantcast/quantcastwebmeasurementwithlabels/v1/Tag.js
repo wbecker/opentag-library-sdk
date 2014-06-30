@@ -28,7 +28,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._qevents = window._qevents || [];
 
 			var e = document.createElement("script");
@@ -40,7 +39,6 @@ qubit.opentag.LibraryTag.define(
 				qacct: "" + this.valueForToken("account_no"),
 				labels: "" + this.valueForToken("labels")
 			});
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -148,8 +148,6 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 		setTimeout(function() {
 			clearInterval(waitFor_S2Tech_2Prompt);
 		}, 5000);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

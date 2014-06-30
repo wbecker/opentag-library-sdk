@@ -14,7 +14,6 @@ qubit.opentag.LibraryTag.define(
 			usesDocWrite: false,
 			upgradeable: true,
 			parameters: [
-
 			]
 			/*~DATA*/
 		},

@@ -24,7 +24,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		pre: function() {
 			/*PRE*/
-
 			var i, cg, cg_groups = {}, parts;
 			for (i = 0; i < this.valueForToken("productId").length; i++) {
 				cg = this.valueForToken("commission_groups")[i];
@@ -100,8 +99,6 @@ qubit.opentag.LibraryTag.define(
 					}
 				}
 			};
-
-
 			/*~PRE*/
 		},
 		post: function() {

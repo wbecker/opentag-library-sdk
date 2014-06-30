@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		console.log("" + this.valueForToken("a"));
 		console.log("" + this.valueForToken("b"));
 		console.log("" + this.valueForToken("c"));
@@ -66,7 +65,6 @@ qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.v1.Tag", {
 		console.log("" + this.valueForToken("f"));
 		console.log("" + this.valueForToken("g"));
 		console.log("" + this.valueForToken("h"));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

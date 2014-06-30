@@ -62,17 +62,20 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var url = "https://www.emjcd.com/tags/c?containerTagId=" + this.valueForToken(
 			"containerid") + "&";
 		for (var i = 0, ii = this.valueForToken("item_ids").length; i < ii; i++) {
-			url = url + "ITEM" + (i + 1) + "=" + this.valueForToken("item_skus")[i] +
-				"&AMT" + (i + 1) + "=" + this.valueForToken("item_prices")[i] + "&QTY" +
-				(i + 1) + "=" + this.valueForToken("item_quantites")[i] + "&";
+			url = url + "ITEM" + (i + 1) + "=" + 
+				this.valueForToken("item_skus")[i] + "&AMT" + (i + 1) + "=" + 
+				this.valueForToken("item_prices")[i] + "&QTY" + (i + 1) + "=" + 
+				this.valueForToken("item_quantites")[i] + "&";
 		}
-		url = url + "CID=" + this.valueForToken("cid") + "&OID=" + this.valueForToken(
-			"orderid") + "&TYPE=" + this.valueForToken("actionid") + "&CURRENCY=" +
+		url = url + "CID=" + 
+			this.valueForToken("cid") + "&OID=" + 
+			this.valueForToken("orderid") + "&TYPE=" + 
+			this.valueForToken("actionid") + "&CURRENCY=" +
 			this.valueForToken("currency");
+	
 		var iframe = document.createElement("iframe");
 		iframe.height = 1;
 		iframe.width = 1;
@@ -80,7 +83,6 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 		iframe.scrolling = 0;
 		iframe.src = url;
 		document.body.appendChild(iframe);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

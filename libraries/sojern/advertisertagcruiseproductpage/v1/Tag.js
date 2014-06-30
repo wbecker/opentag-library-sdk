@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagcruiseproductpage.v1.Tag", 
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		(new Image()).src = "https://beacon.sojern.com/p/1?cpid=" +
 			this.valueForToken("id");
 		/*~SCRIPT*/

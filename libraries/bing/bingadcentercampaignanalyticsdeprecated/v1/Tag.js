@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define(
 					time: (new Date()).getTime()
 				};
 			}
-
 			/*~PRE*/
 		},
 		post: function() {
@@ -54,7 +53,6 @@ qubit.opentag.LibraryTag.define(
 				type: "1",
 				actionid: "" + this.valueForToken("action_id")
 			});
-
 			/*~POST*/
 		}
 	});

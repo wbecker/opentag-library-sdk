@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define("peerius.searchpage.v1.Tag", {
 				refCode: this.valueForToken("listing_ids")[i]
 			});
 		}
-
 		/*~PRE*/
 	},
 	post: function() {

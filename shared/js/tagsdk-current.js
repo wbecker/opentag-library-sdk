@@ -1814,7 +1814,7 @@ var UNDEF = undefined;
 var q = {};
 
 
-q.html = {};
+q.html = q.html || {};
 
 
 q.html.fileLoader = {};
@@ -2552,7 +2552,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
             loadingCheck(url, error, !allOk);
           });
       } else {
-        q.html.fileLoader.load(
+        FileLoader.load(
           url,
           false,
           loadingCheck,
@@ -4615,8 +4615,10 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.addState("EXECUTED");
         this._executeScript();
       }
-      
-      if (!this.afterRun) {
+      if (this.cancelled) {
+        this._handleCancel();
+        return false;
+      } else if (!this.afterRun) {
         this.afterRun =  new Date().valueOf();
         this.after(this.scriptExecuted > 0);
       }

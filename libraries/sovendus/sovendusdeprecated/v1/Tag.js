@@ -72,11 +72,10 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var sovendusNewDate = new Date();
 		var sovendusTimestamp = sovendusNewDate.getTime();
-
 		var _gconData = _gconData || [];
+		
 		_gconData.length = 0;
 		_gconData.push(['_shopId', '' + this.valueForToken("shop_id")]);
 		_gconData.push(['_bannerId', '1']);
@@ -88,12 +87,8 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 		_gconData.push(['_customerEmail', '' + this.valueForToken("email")]);
 		_gconData.push(['_orderId', '' + this.valueForToken("order_id")]);
 		_gconData.push(['_orderValue', '' + this.valueForToken("order_value")]);
-		_gconData.push(['_orderCurrency', '' + this.valueForToken("order_currency") +
-			''
-		]);
-		_gconData.push(['_usedCouponCode', '' + this.valueForToken("coupon_code") +
-			''
-		]);
+		_gconData.push(['_orderCurrency', '' + this.valueForToken("order_currency")]);
+		_gconData.push(['_usedCouponCode', '' + this.valueForToken("coupon_code")]);
 		_gconData.push(['_checksum', '' + this.valueForToken("checksum")]);
 		_gconData.push(['_htmlElementId', 'gutscheinconnection-container']);
 

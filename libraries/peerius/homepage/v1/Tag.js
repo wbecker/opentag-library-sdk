@@ -56,8 +56,7 @@ qubit.opentag.LibraryTag.define("peerius.homepage.v1.Tag", {
 					email: "" + this.valueForToken("user_email")
 				}
 			}
-		}
-
+		};
 		/*~PRE*/
 	},
 	post: function() {

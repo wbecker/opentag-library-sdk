@@ -35,8 +35,7 @@ qubit.opentag.LibraryTag.define("peerius.otherpage.v1.Tag", {
 		window.PeeriusCallbacks.track = {
 			type: "other",
 			lang: "" + this.valueForToken("lang")
-		}
-
+		};
 		/*~PRE*/
 	},
 	post: function() {

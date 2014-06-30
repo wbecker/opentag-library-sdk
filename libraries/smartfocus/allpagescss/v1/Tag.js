@@ -19,7 +19,6 @@ qubit.opentag.LibraryTag.define("smartfocus.allpagescss.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var styleContent = "";
 		styleContent += ".advisor_suggestion_container .item {";
 		styleContent += "    margin: 5px;";
@@ -46,7 +45,6 @@ qubit.opentag.LibraryTag.define("smartfocus.allpagescss.v1.Tag", {
 		styleContent += "    background-color: #FFFFFF;";
 		styleContent += "    margin-bottom: 10px;";
 		styleContent += "}";
-
 		var style = document.createElement('style');
 		style.innerHTML = styleContent;
 		document.head.appendChild(style);

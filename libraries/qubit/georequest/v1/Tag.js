@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		function createCookie(name, value) {
 			document.cookie = name + "=" + escape(value) + expires + "; path=/";
 		}
@@ -50,9 +49,8 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 			window.qb_geo = JSON.parse(geo);
 			return;
 		} else {
-
-			var clientId = window.clientId = "" + this.valueForToken("client_id"); // this is the client's tracking id
-			var copokieId = window.cookieId = document.cookie.match(
+			window.clientId = "" + this.valueForToken("client_id"); // this is the client's tracking id
+			window.cookieId = document.cookie.match(
 				/_qubitTracker=([0-9.]+);/);
 			if (cookieId && !! cookieId[1]) {
 				cookieId = cookieId[1];
@@ -60,7 +58,7 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 				return;
 			}
 
-			var req = new XMLHttpRequest();
+			var request = new XMLHttpRequest();
 			request.open("GET", "url here", true);
 			request.send();
 			request.onreadystatechange = function() {
@@ -76,9 +74,7 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 					};
 				}
 			};
-
 		}
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

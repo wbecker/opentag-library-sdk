@@ -28,7 +28,6 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
 
 		script.src = scriptURL;
 		document.getElementsByTagName("head")[0].appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

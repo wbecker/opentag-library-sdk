@@ -106,7 +106,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag",
 			new_customer: ret,
 			product: products
 		});
-
 		/*~POST*/
 	}
 });

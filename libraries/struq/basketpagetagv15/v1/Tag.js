@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._struqPI = window_struqPI || [];
 
 		var productArr = [];

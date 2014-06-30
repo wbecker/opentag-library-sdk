@@ -119,8 +119,6 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 		var img = document.createElement("img");
 		img.src = src;
 		document.body.appendChild(img);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

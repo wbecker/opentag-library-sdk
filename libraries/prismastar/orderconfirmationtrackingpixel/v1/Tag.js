@@ -71,7 +71,6 @@ qubit.opentag.LibraryTag.define(
 			}
 
 			pixel.src = source;
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

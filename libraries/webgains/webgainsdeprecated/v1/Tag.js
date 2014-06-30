@@ -92,7 +92,6 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var _this = this;
 		window.wgItems = function() {
 			var wgItemsString = "";
@@ -151,12 +150,9 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
 			"");
 		wgUri += "&wgCurrency=" + escape("" + _this.valueForToken("currency"));
 
-
 		// Load the image pixel
 		var img = new Image();
 		img.src = wgUri;
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

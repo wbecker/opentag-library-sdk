@@ -43,8 +43,7 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 		var _this = this;
-
-		var $ = window["" + _this.valueForToken("jquery_name")];
+		var $ = window["" + this.valueForToken("jquery_name")];
 
 		$(document).ready(function() {
 			$("" + _this.valueForToken("selector")).click(function() {
@@ -58,8 +57,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 				});
 			});
 		});
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

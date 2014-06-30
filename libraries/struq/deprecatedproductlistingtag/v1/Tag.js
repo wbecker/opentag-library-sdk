@@ -45,7 +45,6 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 				timeoutMs: 2000
 			}
 		}]);
-
 		/*~PRE*/
 	},
 	post: function() {

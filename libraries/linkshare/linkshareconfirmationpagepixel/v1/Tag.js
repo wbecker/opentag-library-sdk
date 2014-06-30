@@ -58,7 +58,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var formatPrice = function(value) {
 				return Math.round(value * 100);
 			};
@@ -93,7 +92,6 @@ qubit.opentag.LibraryTag.define(
 				"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
 				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

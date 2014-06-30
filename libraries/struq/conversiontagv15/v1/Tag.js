@@ -42,7 +42,6 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv15.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._struqPI = window._struqPI || [];
 
 		var productArr = [];
@@ -76,7 +75,6 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv15.v1.Tag", {
 		script.src =
 			"//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
 		document.body.appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

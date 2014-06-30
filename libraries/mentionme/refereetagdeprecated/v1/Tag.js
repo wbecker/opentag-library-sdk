@@ -52,14 +52,13 @@ qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var baseUrl = "https://" + this.valueForToken("script_domain") +
 			"/api/v2/refereefind/" + this.valueForToken("partner_code") + "?";
 		var mmScript = document.createElement("script");
 		var paramArr = [];
 		var paramObj = {
 			situation: "" + this.valueForToken("situation")
-		}
+		};
 		if (("" + this.valueForToken("email")).length) paramObj["email"] = "" +
 			this.valueForToken("email");
 		if (("" + this.valueForToken("surname")).length) paramObj["surname"] = "" +
@@ -76,7 +75,6 @@ qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.v1.Tag", {
 
 		mmScript.src = baseUrl + paramArr.join("&");
 		document.body.appendChild(mmScript);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

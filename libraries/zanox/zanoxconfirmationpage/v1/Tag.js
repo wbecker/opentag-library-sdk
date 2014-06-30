@@ -52,8 +52,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
 		// Fire the confirmation tag
 		var url = "//ad.zanox.com/pps/?" + this.valueForToken("program_id");
 		url += "&mode=[[" + this.valueForToken("mode") + "]]";
@@ -94,8 +92,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.v1.Tag", {
 			}
 		};
 		waitForZanoxDiv();
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

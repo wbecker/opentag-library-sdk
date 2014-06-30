@@ -42,7 +42,6 @@ qubit.opentag.LibraryTag.define("polyvore.conversiontrackingpixel.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var skus = "";
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
 			if (i > 0) {
@@ -56,7 +55,6 @@ qubit.opentag.LibraryTag.define("polyvore.conversiontrackingpixel.v1.Tag", {
 			this.valueForToken("subtotal") + "&oid=" +
 			this.valueForToken("id") + "&skus=" + skus + "&cur=" +
 			this.valueForToken("currency");
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

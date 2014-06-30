@@ -91,16 +91,13 @@ qubit.opentag.LibraryTag.define("criteo.legacylistingpage.v1.Tag", {
 
 		var _cr_i = document.createElement("img");
 		_cr_i.src = domain + "/" +
-			this.valueForToken("call_parameter") +
-			"/display.js?p1=" + escape("v=2&wi=" +
-				this.valueForToken("wi") +
-				"&pt1=3" + product_ids) + "&t1=sendEvent&resptype=gif&cb=" +
+			this.valueForToken("call_parameter") + "/display.js?p1=" +
+			escape("v=2&wi=" + this.valueForToken("wi") + "&pt1=3" + product_ids) +
+			"&t1=sendEvent&resptype=gif&cb=" +
 			Math.floor(Math.random() * 99999999999);
 		_cr_i.onload = pcto_dis;
 		_cr_d2.appendChild(_cr_i);
 		document.body.appendChild(_cr_d2);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

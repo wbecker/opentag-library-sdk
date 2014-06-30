@@ -57,8 +57,6 @@ qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.v1.Tag", {
 			product_ids;
 
 		document.body.appendChild(img);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

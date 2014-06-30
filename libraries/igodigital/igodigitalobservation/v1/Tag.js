@@ -112,8 +112,6 @@ qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.v1.Tag", {
 		addLoadEvent(function() {
 			callRTA();
 		});
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

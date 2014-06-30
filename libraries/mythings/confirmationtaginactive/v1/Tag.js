@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var i = 0,
 			productIDArray = this.valueForToken("product_ids"),
 			productPriceArray = this.valueForToken("product_prices"),
@@ -74,7 +73,7 @@ qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.v1.Tag", {
 					TransactionAmount: "" + this.valueForToken("order_amount")
 				});
 			}
-		}
+		};
 
 		window.mtHost = (("https:" == document.location.protocol) ?
 			"https://rainbowx" :

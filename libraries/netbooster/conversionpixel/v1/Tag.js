@@ -37,13 +37,12 @@ qubit.opentag.LibraryTag.define("netbooster.conversionpixel.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.img = new Image();
-		img.src = "//conversion-pixel.invitemedia.com/pixel?pixelID=" + this.valueForToken(
-			"pixel_id") + "&clientID=" + this.valueForToken("client_id") +
-			"&partnerID=" + this.valueForToken("partner_id") + "&key=conv&orderID=" +
-			this.valueForToken("order_id") + "&returnType=js";
-
+		img.src = "//conversion-pixel.invitemedia.com/pixel?pixelID=" + 
+				this.valueForToken("pixel_id") + "&clientID=" +
+				this.valueForToken("client_id") + "&partnerID=" +
+				this.valueForToken("partner_id") + "&key=conv&orderID=" +
+				this.valueForToken("order_id") + "&returnType=js";
 		/*~SCRIPT*/
 	},
 	pre: function() {

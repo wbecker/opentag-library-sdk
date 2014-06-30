@@ -27,11 +27,9 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.v1.Tag",
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		cmCreateElementTag(
 			"" + this.valueForToken("element_id"),
 			"" + this.valueForToken("element_category"));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

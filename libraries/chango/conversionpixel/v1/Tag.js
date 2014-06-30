@@ -60,7 +60,6 @@ qubit.opentag.LibraryTag.define("chango.conversionpixel.v1.Tag", {
 		}
 		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
 			(new Date()).getTime() + '?' + p.join("&");
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

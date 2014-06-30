@@ -66,7 +66,6 @@ qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.v1.Tag", {
 
 		source += items;
 		pixel.src = source;
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

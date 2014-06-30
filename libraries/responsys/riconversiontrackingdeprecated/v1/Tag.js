@@ -80,8 +80,6 @@ qubit.opentag.LibraryTag.define(
 			image.height = 1;
 
 			document.head.appendChild(image);
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

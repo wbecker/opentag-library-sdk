@@ -37,7 +37,6 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var img = new Image();
 		img.src = "//" +
 			this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" +
@@ -45,7 +44,6 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 			this.valueForToken("campaign_id") + "&ra=" +
 			this.valueForToken("random") + "&basket=" +
 			this.valueForToken("order_total");
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

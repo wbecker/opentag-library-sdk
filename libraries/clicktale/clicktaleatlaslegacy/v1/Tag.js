@@ -32,7 +32,7 @@ qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
+		var _this = this;
 		window.WRInitTime = (new Date()).getTime();
 
 		var ctd = document.createElement("div");
@@ -48,11 +48,11 @@ qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.v1.Tag", {
 		var done = function() {
 			window.ClickTaleSSL = 1;
 			if (typeof ClickTale == 'function') {
-				ClickTale(this.valueForToken("ClickTaleId"),
-					this.valueForToken("RecordingRatio"),
-					"" + this.valueForToken("Partition"));
+				ClickTale(_this.valueForToken("ClickTaleId"),
+					_this.valueForToken("RecordingRatio"),
+					"" + _this.valueForToken("Partition"));
 			}
-		}
+		};
 
 		ct.onload = done;
 		ct.onreadystatechange = function() {
@@ -62,7 +62,6 @@ qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.v1.Tag", {
 		}
 
 		document.body.appendChild(ct);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

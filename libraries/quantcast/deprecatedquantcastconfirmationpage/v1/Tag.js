@@ -33,7 +33,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._qevents = _qevents || [];
 
 			var elem = document.createElement('script');
@@ -49,8 +48,6 @@ qubit.opentag.LibraryTag.define(
 				orderid: "" + this.valueForToken("order_id"),
 				revenue: "" + this.valueForToken("revenue")
 			});
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {
