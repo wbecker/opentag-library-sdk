@@ -1,5 +1,5 @@
 /**
- * @author Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+ * @author Peter Fronc <peter.fronc@qubitdigital.com>
  */
 (function () {
   /**
@@ -42,6 +42,7 @@ var UNDEF = undefined;
  * Opentag, a tag deployment platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function () {
@@ -56,7 +57,6 @@ var UNDEF = undefined;
    * and manipulating CSS class names, managing arrays, creating classes and
    * many more useful utilities. Please see the API.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    */
   function Utils() {}
 
@@ -976,6 +976,13 @@ var UNDEF = undefined;
 
 /* jshint white: false */
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   
   var Utils = qubit.opentag.Utils;
@@ -989,7 +996,6 @@ var UNDEF = undefined;
    * ALWAYS USE LOGGER IN A SEPARATE LINES. Lines containing logger 
    * may be deleted by compression process.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * @param prefix {String} typical prefix to be used for each logger instance
    * @param clazz {Object} class object or function returning special
    * prefixed logging contents.
@@ -1502,6 +1508,13 @@ var UNDEF = undefined;
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function(){
     var Utils = qubit.opentag.Utils;
     var log = new qubit.opentag.Log("Timer -> ");
@@ -1526,7 +1539,6 @@ var UNDEF = undefined;
      * 
      * See the PAI for more details and other functions.
      * 
-     * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
      * 
      * @class qubit.opentag.Timer
      * @param {Object} config
@@ -1762,6 +1774,13 @@ var UNDEF = undefined;
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function(){
     var Utils = qubit.opentag.Utils;
     
@@ -1781,7 +1800,6 @@ var UNDEF = undefined;
      * 
      * See [qubit.opentag.Timer](#!/api/qubit.opentag.Timer) for more details.
      * 
-     * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
      * @class qubit.opentag.Timed
      * @singleton
      * @static
@@ -1926,6 +1944,13 @@ q.html.fileLoader.tidyUrl = function (path) {
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   var counter = 0;
@@ -1953,7 +1978,6 @@ q.html.fileLoader.tidyUrl = function (path) {
    *   filter for state again after the miliseconds amount indicated by the 
    *   state value.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @param config {Object} config object used to build instance
    */
@@ -2120,6 +2144,13 @@ q.html.fileLoader.tidyUrl = function (path) {
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   var BaseFilter = qubit.opentag.filter.BaseFilter;
@@ -2153,7 +2184,6 @@ q.html.fileLoader.tidyUrl = function (path) {
    *  `jQuery`, use `genericDependencies` array in tag object and push function
    *  there that returns true when the `jQuery` object exists.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.filter.SessionVariableFilter
    * @extends qubit.opentag.filter.BaseFilter
@@ -2860,6 +2890,13 @@ q.html.HtmlInjector.getAttributes = function (node) {
 })();
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   
@@ -2887,7 +2924,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * 
    * **Please note: variables with same configurations return old instance.**
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.pagevariable.BaseVariable
    * @param config {Object} config object used to build instance
@@ -3316,6 +3352,13 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   var Timed = qubit.opentag.Timed;
@@ -3331,7 +3374,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * return the value via `getValue`.
    * 
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
+   * Author: Peter Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.pagevariable.Expression
    * @extends qubit.opentag.pagevariable.BaseVariable
@@ -3437,13 +3480,19 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   
   /**
    * #DOM text content variable class.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.pagevariable.DOMText
    * @extends qubit.opentag.pagevariable.BaseVariable
@@ -3528,6 +3577,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var SimpleCookie = q.html.simplecookie;
   var Utils = qubit.opentag.Utils;
@@ -3540,7 +3596,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * This object is used to controll logic behind cookie object manipulation
    * and values retrieval for Cookie type page variables.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.pagevariable.Cookie
    * @extends qubit.opentag.pagevariable.BaseVariable
@@ -3573,6 +3628,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   
@@ -3582,7 +3644,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * This class controls variable value by resolving the value to
    * URL parameters values.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.pagevariable.URLQuery
    * @extends qubit.opentag.pagevariable.BaseVariable
@@ -3643,7 +3704,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * This class implements some of compatibility and utility methods 
    * specific for tag execution and management.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    */
   function TagHelper () {};
 
@@ -3894,6 +3954,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
  * Opentag, a tag deployment platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function () {
@@ -3985,7 +4046,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * This class handles only generic javascript and html specific processing
    * for code loading and html.
    *  
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @param {Object} config Please see properties for configuration options.
    *  Each property can be set at initialization time via config object.
@@ -4433,6 +4493,13 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
+   * This properety will cause ALL loaders/tags/libraries to cancel running on
+   * `run()` time. It is convinient property to controll that any tag will not
+   * be run after setting to `true`.
+   */
+  GenericLoader.CANCELL_ALL = false;
+  
+  /**
    * It tells how many times loader was run.
    * This property is not reset with `reset()` function.
    */
@@ -4449,7 +4516,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {Boolean} false if tag is currently loading, true otherwise.
    */
   GenericLoader.prototype.run = function (ignoreDependencies) {
-    if (this.cancelled) {
+    if (this.cancelled || GenericLoader.CANCELL_ALL) {
       this._handleCancel();
       return false;
     }
@@ -5459,6 +5526,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
  * Opentag, a tag deployment platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function () {
@@ -5485,8 +5553,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * dependencies management, configuration and many more. In practice, at most
    * of times [CustomTag](#!/api/qubit.opentag.CustomTag) or 
    * [LibraryTag](#!/api/qubit.opentag.LibraryTag) will be used.
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @param {Object} config Please see properties for configuration options.
    *  Each property can be set at initialization time via config object.
@@ -7488,6 +7554,7 @@ var JSON = {};
  * Opentag, a tag deployment platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function(){
@@ -7555,7 +7622,6 @@ var JSON = {};
    * 
    * See config object properties for configuration details.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.Container
    * @param config {Object} config object used to build instance
@@ -7890,6 +7956,14 @@ var JSON = {};
    * @param config
    */
   Container.prototype.runTags = function (config) {
+    if (Container.OFF || global.QUBIT_CONTAINERS_OFF) {
+      this.log.INFO("Container are DISABLED.");
+      this.log.INFO("To enable, set Container.OFF to " +
+              "true and set QUBIT_CONTAINERS_OFF to false.");//L
+      this.log.WARN("Container disabled -will stop here.");
+      return;
+    }
+    
     var containerIsSynchronous = this.containerScriptLoadedSynchronously();
     
     var command = "runIfFiltersPass";
@@ -8341,6 +8415,13 @@ var JSON = {};
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   
@@ -8353,9 +8434,7 @@ var JSON = {};
    * and [Creating Library (Advanced)](#!/guide/creating_library)
    *
    * Please see 
-   * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
-   * 
+   *  
    * @class qubit.opentag.LibraryTag
    * @extends qubit.opentag.BaseTag
    * @param config {Object} config object used to build instance
@@ -8600,6 +8679,13 @@ var JSON = {};
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   
@@ -8625,7 +8711,6 @@ var JSON = {};
    *  
    * See config properties for more details on configuration.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.CustomTag
    * @extends qubit.opentag.BaseTag
@@ -8650,6 +8735,13 @@ var JSON = {};
 }());
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   
@@ -8658,7 +8750,6 @@ var JSON = {};
    * 
    * This is a map for URL pattern types with descriptive names.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.filter.pattern.PatternType
    * @singleton
@@ -8701,6 +8792,13 @@ var JSON = {};
 
 
 
+/*
+ * Opentag, a tag deployment platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function () {
   var Utils = qubit.opentag.Utils;
   var BaseFilter = qubit.opentag.filter.BaseFilter;
@@ -8714,7 +8812,6 @@ var JSON = {};
    * [PatternType](#!/api/qubit.opentag.filter.pattern.PatternType) class
    * for more details.
    * 
-   * Author: Inz. Piotr (Peter) Fronc <peter.fronc@qubitdigital.com>
    * 
    * @class qubit.opentag.filter.URLFilter
    * @extends qubit.opentag.filter.BaseFilter
