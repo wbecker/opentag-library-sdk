@@ -61,14 +61,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 
 		// Set globals for usage by the master tag
 		window.zx_products = [];
-		window.zx_transaction = "" + this.valueForToken("order_id") + "";
-		window.zx_total_amount = "" + this.valueForToken("subtotal") + "";
-		window.zx_total_currency = "" + this.valueForToken("currency") + "";
+		window.zx_transaction = "" + this.valueForToken("order_id");
+		window.zx_total_amount = "" + this.valueForToken("subtotal");
+		window.zx_total_currency = "" + this.valueForToken("currency");
 
 		// The standard mastertag
 		window._zx = window._zx || [];
 		window._zx.push({
-			"id": "" + this.valueForToken("zanoxPageId") + ""
+			"id": "" + this.valueForToken("zanoxPageId")
 		});
 		
 		(function(d) {
