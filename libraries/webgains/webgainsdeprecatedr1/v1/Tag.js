@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecatedr1.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/webgains_logo.jpg",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",
