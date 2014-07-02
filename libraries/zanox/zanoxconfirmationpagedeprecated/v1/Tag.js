@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 		name: "Zanox - Confirmation page DEPRECATED",
 		async: true,
 		description: "The Zanox confirmation page tag.",
-		html: "<div class=\"zx_${zanox_page_id} zx_mediaslot\">\n  \n</div>",
+		html: "<div class=\"zx_${zanoxPageId} zx_mediaslot\">\n  \n</div>",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",
@@ -39,8 +39,8 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 			uv: "universal_variable.transaction.subtotal"
 		}, {
 			name: "Zanox Page ID",
-			description: "",
-			token: "zanox_page_id",
+			description: "Unique identifier for the page",
+			token: "zanoxPageId",
 			uv: ""
 		}]
 		/*~DATA*/
@@ -61,14 +61,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 
 		// Set globals for usage by the master tag
 		window.zx_products = [];
-		window.zx_transaction = "" + this.valueForToken("order_id");
-		window.zx_total_amount = "" + this.valueForToken("subtotal");
-		window.zx_total_currency = "" + this.valueForToken("currency");
+		window.zx_transaction = "" + this.valueForToken("order_id") + "";
+		window.zx_total_amount = "" + this.valueForToken("subtotal") + "";
+		window.zx_total_currency = "" + this.valueForToken("currency") + "";
 
 		// The standard mastertag
 		window._zx = window._zx || [];
 		window._zx.push({
-			"id": "" + this.valueForToken("zanox_page_id")
+			"id": "" + this.valueForToken("zanoxPageId") + ""
 		});
 		
 		(function(d) {
