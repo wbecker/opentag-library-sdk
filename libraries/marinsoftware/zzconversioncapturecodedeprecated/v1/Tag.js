@@ -8,44 +8,85 @@ qubit.opentag.LibraryTag.define(
 			async: true,
 			description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together.",
 			html: "",
+			imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/Marin.png",
 			locationDetail: "",
 			isPrivate: true,
 			url: "",
 			usesDocWrite: false,
 			upgradeable: true,
 			parameters: [{
-				name: "Product IDs",
-				description: "Product IDs",
-				token: "product_ids",
+				name: "Marin Conversion Type",
+				description: "",
+				token: "conversion_type",
+				uv: ""
+			}, {
+				name: "Product ID List",
+				description: "",
+				token: "ids",
 				uv: "universal_variable.transaction.line_items[#].product.id"
 			}, {
-				name: "Product Categories",
-				description: "Product Categories",
-				token: "product_categories",
+				name: "Product SKU List",
+				description: "",
+				token: "skus",
+				uv: "universal_variable.transaction.line_items[#].product.sku_code"
+			}, {
+				name: "Product Unit Sale Price List",
+				description: "",
+				token: "prices",
+				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
+			}, {
+				name: "Product Category List",
+				description: "",
+				token: "categories",
 				uv: "universal_variable.transaction.line_items[#].product.category"
 			}, {
-				name: "Product Quantities",
-				description: "Product Quantities",
-				token: "product_quantities",
+				name: "Product Quantity List",
+				description: "",
+				token: "quantities",
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}, {
 				name: "Order ID",
-				description: "Order ID",
+				description: "",
 				token: "order_id",
 				uv: "universal_variable.transaction.order_id"
 			}, {
 				name: "Order Total",
-				description: "Order Total",
-				token: "order_total",
+				description: "",
+				token: "total",
 				uv: "universal_variable.transaction.total"
 			}, {
+				name: "Order Tax",
+				description: "",
+				token: "tax",
+				uv: "universal_variable.transaction.tax"
+			}, {
+				name: "Order Shipping Cost",
+				description: "",
+				token: "shipping",
+				uv: "universal_variable.transaction.shipping_cost"
+			}, {
+				name: "Order Shipping City",
+				description: "",
+				token: "city",
+				uv: "universal_variable.transaction.delivery.city"
+			}, {
+				name: "Order Shipping State",
+				description: "",
+				token: "state",
+				uv: "universal_variable.transaction.delivery.state"
+			}, {
+				name: "Order Shipping Country",
+				description: "",
+				token: "country",
+				uv: "universal_variable.transaction.delivery.country"
+			}, {
 				name: "Currency",
-				description: "Currency",
+				description: "",
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
 			}, {
-				name: "Marin Tracking ID",
-				description: "Marin Tracking ID",
+				name: "Marin Tracking Id",
+				description: "Your unique tracking id",
 				token: "tracking_id",
 				uv: ""
 			}]
@@ -54,34 +95,26 @@ qubit.opentag.LibraryTag.define(
 		script: function() {
 			/*SCRIPT*/
 			window._mTrack = window._mTrack || [];
-
-			var productIDs = "";
-			var productCategories = "";
-			var productQuantities = "";
-
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				if (i > 0) {
-					productIDs += "^";
-					productCategories += "^";
-					productQuantities += "^";
-				}
-
-				productIDs += this.valueForToken("product_ids")[i];
-				productCategories += this.valueForToken("product_categories")[i];
-				productQuantities += this.valueForToken("product_quantities")[i];
+			var items = [];
+			for (var i = 0; i < this.valueForToken("ids").length; i++) {
+				items.push({
+					orderId: this.valueForToken("ids")[i],
+					convType: "" + this.valueForToken("conversion_type"),
+					product: this.valueForToken("skus")[i],
+					price: this.valueForToken("prices")[i],
+					category: this.valueForToken("categories")[i],
+					quantity: this.valueForToken("quantities")[i]
+				});
 			}
 
-			var items = [{
-				convType: "orders",
-				price: this.valueForToken("order_total"),
-				orderId: "" + this.valueForToken("order_id"),
-				product: productIDs,
-				category: productCategories,
-				quantity: productQuantities
-			}];
-
-
 			window._mTrack.push(['addTrans', {
+				orderId: "" + this.valueForToken("order_id"),
+				total: this.valueForToken("total"),
+				tax: this.valueForToken("tax"),
+				shipping: this.valueForToken("shipping"),
+				city: "" + this.valueForToken("city"),
+				state: "" + this.valueForToken("state"),
+				country: "" + this.valueForToken("country"),
 				currency: "" + this.valueForToken("currency"),
 				items: items
 			}]);
