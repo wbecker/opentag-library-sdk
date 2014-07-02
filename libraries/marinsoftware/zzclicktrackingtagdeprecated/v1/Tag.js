@@ -26,7 +26,7 @@ qubit.opentag.LibraryTag.define(
 			window._mTrack = window._mTrack || [];
 			_mTrack.push(['trackPage']);
 
-			var mClientId = "" + this.valueForToken("id") + "";
+			var mClientId = "" + this.valueForToken("id");
 			var mProto = ('https:' == document.location.protocol ? 'https://' :
 				'http://');
 			var mHost = 'tracker.marinsm.com';
