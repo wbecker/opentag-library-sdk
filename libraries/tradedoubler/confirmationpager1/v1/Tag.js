@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpager1.v1.Tag", {
 		async: true,
 		description: "Product Level Tracking (PLT) Version",
 		html: "<!--@SRC@-->",
-		imageUrl: ".",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
