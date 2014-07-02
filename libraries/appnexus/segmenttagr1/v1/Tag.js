@@ -7,7 +7,6 @@ qubit.opentag.LibraryTag.define("appnexus.segmenttagr1.v1.Tag", {
 		async: true,
 		description: "",
 		html: "",
-		imageUrl: "https://s3-eu-west-1.amazonaws.com/opentag-images/AppNexus.png",
 		locationDetail: "",
 		isPrivate: false,
 		url: "ib.adnxs.com/seg?add=${segment}&t=2",
