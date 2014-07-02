@@ -53,6 +53,21 @@ qubit.opentag.LibraryTag.define(
 				description: "Product category",
 				token: "PC_VALUE",
 				uv: "universal_variable.product.category"
+			}, {
+				name: "CART",
+				description: "",
+				token: "CART",
+				uv: ""
+			}, {
+				name: "Transaction Product SKUs",
+				description: "",
+				token: "",
+				uv: ""
+			}, {
+				name: "Transaction Product Names",
+				description: "",
+				token: "",
+				uv: ""
 			}]
 			/*~DATA*/
 		},
@@ -60,17 +75,18 @@ qubit.opentag.LibraryTag.define(
 			/*SCRIPT*/
 			window.__cho__ = {
 				"data": {
-					"pt": "" + this.valueForToken("PT_VALUE"),
+					"pt": "" + this.valueForToken("PT_VALUE") + "",
 					"crt": "",
-					"na": "" + this.valueForToken("NA_VALUE"),
-					"op": "" + this.valueForToken("OP_VALUE"),
-					"sp": "" + this.valueForToken("SP_VALUE"),
-					"sku": "" + this.valueForToken("SKU_VALUE"),
-					"pc": "" + this.valueForToken("PC_VALUE")
+					"na": "" + this.valueForToken("NA_VALUE") + "",
+					"op": "" + this.valueForToken("OP_VALUE") + "",
+					"sp": "" + this.valueForToken("SP_VALUE") + "",
+					"sku": "" + this.valueForToken("SKU_VALUE") + "",
+					"pc": "" + this.valueForToken("PC_VALUE") + ""
 				},
 				"pid": this.valueForToken("ID"),
-				"puid2": "" + this.valueForToken("PUID")
+				"puid2": "" + this.valueForToken("PUID") + ""
 			};
+			
 			var c = document.createElement('script');
 			c.type = 'text/javascript';
 			c.async = true;
