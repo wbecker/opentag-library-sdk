@@ -84,7 +84,7 @@ qubit.opentag.LibraryTag.define(
 					"pc": "" + this.valueForToken("PC_VALUE")
 				},
 				"pid": this.valueForToken("ID"),
-				"puid2": "" + this.valueForToken("PUID") + ""
+				"puid2": "" + this.valueForToken("PUID")
 			};
 			
 			var c = document.createElement('script');
