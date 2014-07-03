@@ -8,8 +8,8 @@ This repository contains these tags in an easy to add and edit format.
 
 ## Full Documentation
 
-- [Guides](https://opentag.qubitproducts.com/tagsdk/docs/#!/guide/getting_started)
-- [Opentag API](https://opentag.qubitproducts.com/tagsdk/docs/#!/api)
+- [Guides](https://opentag2.qubitproducts.com/tagsdk/docs/#!/guide/getting_started)
+- [Opentag API](https://opentag2.qubitproducts.com/tagsdk/docs/#!/api)
 
 ## Quickstart guide
 
