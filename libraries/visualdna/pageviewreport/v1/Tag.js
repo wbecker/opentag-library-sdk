@@ -45,7 +45,6 @@ qubit.opentag.LibraryTag.define("visualdna.pageviewreport.v1.Tag", {
 			object.args = this.valueForToken("window_history");
 		}
 		window.VDNA.queue.push(object);
-
 		/*~POST*/
 	}
 });

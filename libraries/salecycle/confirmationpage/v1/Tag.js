@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define("salecycle.confirmationpage.v1.Tag", {
 		img.height = '1';
 		img.style.display = 'none';
 		document.body.appendChild(img);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

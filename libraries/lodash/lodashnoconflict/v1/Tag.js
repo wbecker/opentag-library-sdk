@@ -36,7 +36,6 @@ qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.v1.Tag", {
 	post: function() {
 		/*POST*/
 		window[this.valueForToken("key")] = window._.noConflict();
-
 		/*~POST*/
 	}
 });

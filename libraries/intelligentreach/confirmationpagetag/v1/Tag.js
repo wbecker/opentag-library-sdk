@@ -91,7 +91,6 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetag.v1.Tag", {
 		window.istUserDefinedFieldThree = "";
 		window.istVoucherCode = "" + this.valueForToken("voucher");
 		window.istLastAffiliateCode = "";
-
 		/*~PRE*/
 	},
 	post: function() {

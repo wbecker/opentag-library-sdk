@@ -32,7 +32,7 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.v1.Tag", {
 	pre: function() {
 		/*PRE*/
 		window._mt_ready = function() {
-			if (typeof(MyThings) != "undefined") {
+			if (typeof(MyThings) !== "undefined") {
 				MyThings.Track({
 					EventType: MyThings.Event.Visit,
 					Action: "300"
@@ -44,7 +44,6 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.v1.Tag", {
 			this.valueForToken("subdomain") : "http://" +
 			this.valueForToken("subdomain")) + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("token");
-
 		/*~PRE*/
 	},
 	post: function() {

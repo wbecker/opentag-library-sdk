@@ -22,8 +22,7 @@ qubit.opentag.LibraryTag.define("uservoice.uservoicechat.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-		var uvOptions = {};
-		window.uvOptions = uvOptions;
+		window.uvOptions = {};
 		var ID = this.valueForToken("ID");
     var uv = document.createElement('script');
 		uv.type = 'text/javascript';

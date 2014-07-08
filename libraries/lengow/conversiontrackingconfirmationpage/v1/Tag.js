@@ -46,7 +46,6 @@ qubit.opentag.LibraryTag.define(
 				this.valueForToken("lengow_order_value") + "&idCommande=" +
 				this.valueForToken("lengow_order_id");
 			lengowTrackPixel.alt = "";
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -97,7 +97,6 @@ qubit.opentag.LibraryTag.define(
 				"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
 				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

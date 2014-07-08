@@ -118,13 +118,10 @@ qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.v1.Tag", {
 			name: "olark",
 			methods: ["configure", "extend", "declare", "identify"]
 		});
-
 		/* custom configuration goes here (www.olark.com/documentation) */
 		olark.identify("" + this.valueForToken("SITE_ID"));
-		olark.configure("GoogleAnalytics.custom_tracking_id", "" + this.valueForToken(
-			"ga_id"));
-
-
+		olark.configure("GoogleAnalytics.custom_tracking_id", 
+		"" + this.valueForToken("ga_id"));
 		/*~SCRIPT*/
 	},
 	pre: function() {

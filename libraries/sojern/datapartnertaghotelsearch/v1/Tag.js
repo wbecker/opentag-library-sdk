@@ -62,8 +62,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
 		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 			this.valueForToken("sojern_partner_key") + "/hs?";
 		src += "t=" + this.valueForToken("number_of_travellers") + "&";
@@ -75,7 +73,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 		src += "hn1=" + this.valueForToken("country") + "&";
 		src += "ha1=" + this.valueForToken("airport_to_hotel");
 		(new Image()).src = src;
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -73,9 +73,10 @@ qubit.opentag.LibraryTag.define(
 					"container_tag_id") + "&";
 
 			for (var i = 0; i < this.valueForToken("skus").length; i++) {
-				url += "ITEM" + (i + 1) + "=" + this.valueForToken("skus")[i] +
-					"&AMT" + (i + 1) + "=" + this.valueForToken("prices")[i] +
-					"&QTY" + (i + 1) + "=" + this.valueForToken("quantities")[i] + "&";
+				url += "ITEM" + (i + 1) + "=" + 
+					this.valueForToken("skus")[i] + "&AMT" + (i + 1) + "=" + 
+					this.valueForToken("prices")[i] + "&QTY" + (i + 1) + "=" + 
+					this.valueForToken("quantities")[i] + "&";
 
 				if (this.valueForToken("discounts").length ===
 					this.valueForToken("skus").length) {
@@ -100,7 +101,6 @@ qubit.opentag.LibraryTag.define(
 			iframe.scrolling = 0;
 			iframe.src = url;
 			document.body.appendChild(iframe);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

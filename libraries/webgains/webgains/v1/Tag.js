@@ -147,8 +147,6 @@ qubit.opentag.LibraryTag.define("webgains.webgains.v1.Tag", {
 		// Load the image pixel
 		var img = new Image();
 		img.src = wgUri;
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

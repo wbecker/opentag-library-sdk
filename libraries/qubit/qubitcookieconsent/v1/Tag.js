@@ -32,7 +32,11 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 	pre: function() {
 		/*PRE*/
 		window.mainText =
-			"For this website to run at its best, we ask the browser (like Google Chrome and Internet Explorer) for a little personal information. Nothing drastic, just enough to remember your preferences, login ID, and what you like to look at (on our site). Having this information to hand helps us understand your needs and improve our service to you.";
+			"For this website to run at its best, we ask the browser (like Google " +
+			"Chrome and Internet Explorer) for a little personal information. " +
+			"Nothing drastic, just enough to remember your preferences, login ID, " +
+			"and what you like to look at (on our site). Having this information to "+
+			"hand helps us understand your needs and improve our service to you.";
 
 		window.cookiesAndPrivacyStatementUrl = "" + this.valueForToken("linkHref");
 
@@ -132,7 +136,6 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 				window._q_ping("consentDismiss", reason);
 			}
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

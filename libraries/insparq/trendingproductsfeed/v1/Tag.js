@@ -37,7 +37,6 @@ qubit.opentag.LibraryTag.define("insparq.trendingproductsfeed.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var _this = this;
 		// CSS
 		var link = document.createElement('link');

@@ -80,7 +80,6 @@ qubit.opentag.LibraryTag.define(
 			setTimeout(function() {
 				clearInterval(waitFor_S2Tech_MatchData_NA);
 			}, 5000);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

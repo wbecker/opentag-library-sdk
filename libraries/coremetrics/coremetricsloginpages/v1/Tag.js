@@ -84,8 +84,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsloginpages.v1.Tag", {
 			"" + this.valueForToken("registration_id"),
 			"" + this.valueForToken("email")
 		);
-
-
 		/*~POST*/
 	}
 });

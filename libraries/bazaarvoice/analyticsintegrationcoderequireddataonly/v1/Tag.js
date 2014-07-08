@@ -72,14 +72,17 @@ qubit.opentag.LibraryTag.define(
 				"currency": "" + this.valueForToken("currency"),
 				"items": []
 			};
-			for (var i = 0; i < this.valueForToken("productIds").length; i++) {
+			var productIds = this.valueForToken("productIds");
+			var productSkus = this.valueForToken("productSkus");
+			var quantities = this.valueForToken("quantities");
+			
+			for (var i = 0; i < productIds.length; i++) {
 				data.items.push({
-					"sku": this.valueForToken("productSkus")[i],
-					"quantity": this.valueForToken("quantities")[i]
+					"sku": productSkus[i],
+					"quantity": quantities[i]
 				});
 			}
 			window.$BV.SI.trackTransactionPageView(data);
-
 			/*~POST*/
 		}
 	});

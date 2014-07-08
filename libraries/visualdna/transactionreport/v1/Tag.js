@@ -79,7 +79,6 @@ qubit.opentag.LibraryTag.define("visualdna.transactionreport.v1.Tag", {
 		/*SCRIPT*/
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
-
 		window.VDNA.queue.push({
 			apiKey: "" + this.valueForToken("api_key"),
 			method: "reportConversion",
@@ -109,7 +108,6 @@ qubit.opentag.LibraryTag.define("visualdna.transactionreport.v1.Tag", {
 				}]
 			});
 		}
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

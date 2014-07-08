@@ -32,7 +32,6 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.v1.Tag", {
 	pre: function() {
 		/*PRE*/
 		window.CT_C_OrderTotal = '' + this.valueForToken("order_total");
-
 		/*~PRE*/
 	},
 	post: function() {

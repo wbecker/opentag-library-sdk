@@ -48,7 +48,6 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.v1.Tag", {
 			google_is_call: true,
 			google_custom_params: {}
 		});
-
 		/*~POST*/
 	}
 });

@@ -98,7 +98,6 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpageasync.v1.Tag", {
 				price: this.valueForToken("unit_sale_price_list")[i]
 			});
 		}
-
 		/*~PRE*/
 	},
 	post: function() {

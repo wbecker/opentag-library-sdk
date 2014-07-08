@@ -36,7 +36,6 @@ qubit.opentag.LibraryTag.define(
 			var img = document.createElement('img');
 			img.setAttribute('src', src);
 			document.body.append(img);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -23,7 +23,6 @@ qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtag.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 		window._mTrack = window._mTrack || [];
-
 		_mTrack.push(['trackPage']);
 
 		var mClientId = "" + this.valueForToken("marin_tracking_id");
@@ -36,8 +35,6 @@ qubit.opentag.LibraryTag.define("marinsoftware.clicktrackingtag.v1.Tag", {
 		mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 		var fscr = document.getElementsByTagName('script')[0];
 		fscr.parentNode.insertBefore(mt, fscr);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

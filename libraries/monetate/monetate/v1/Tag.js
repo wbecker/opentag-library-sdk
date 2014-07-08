@@ -39,7 +39,6 @@ qubit.opentag.LibraryTag.define("monetate.monetate.v1.Tag", {
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(m, s);
 		}
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -88,7 +88,6 @@ qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 		}
 
 		_roi.push(['_trackTrans']);
-
 		/*~POST*/
 	}
 });

@@ -81,9 +81,9 @@ qubit.opentag.LibraryTag.define(
 			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 				var index = i + 1;
 				params.push("&i" + index + "=" + this.valueForToken("product_ids")[i]);
-				params.push("&p" + index + "=" + this.valueForToken("product_unit_prices")[
-					i]);
-				params.push("&q" + index + "=" + this.valueForToken("quantities")[i])
+				params.push("&p" + index + "=" +
+					this.valueForToken("product_unit_prices")[i]);
+				params.push("&q" + index + "=" + this.valueForToken("quantities")[i]);
 			}
 			src.push(escape(params.join("")));
 			src.push("&t1=transaction&resptype=gif");
@@ -92,7 +92,6 @@ qubit.opentag.LibraryTag.define(
 			img.setAttribute("height", "1");
 			img.setAttribute("width", "1");
 			document.body.appendChild(img);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

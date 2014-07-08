@@ -42,7 +42,6 @@ qubit.opentag.LibraryTag.define("criteo.legacyproductpagetag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var _this = this;
 
 		function pcto_dis() {
@@ -87,8 +86,6 @@ qubit.opentag.LibraryTag.define("criteo.legacyproductpagetag.v1.Tag", {
 		_cr_i.onload = pcto_dis;
 		_cr_d2.appendChild(_cr_i);
 		document.body.appendChild(_cr_d2);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

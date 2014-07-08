@@ -87,10 +87,9 @@ qubit.opentag.LibraryTag.define(
 		},
 		pre: function() {
 			/*PRE*/
-			window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken(
-				"storm_id") + '.js';
+			window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + 
+					this.valueForToken("storm_id") + '.js';
 			window.__ch = '' + this.valueForToken("channel");
-
 			/*~PRE*/
 		},
 		post: function() {
@@ -108,19 +107,18 @@ qubit.opentag.LibraryTag.define(
 					m4: this.valueForToken("custom_1")[i],
 					m5: this.valueForToken("custom_2")[i],
 					m6: this.valueForToken("custom_3")[i]
-				})
+				});
 			}
 
 			saleTrack.addSaleItem({
 				itemcount: 1,
 				itemvalue: this.valueForToken("shipping"),
 				m1: "Shipping cost"
-			})
+			});
 
 			saleTrack.curcode = '' + this.valueForToken("currency");
 			saleTrack.orderid = "" + this.valueForToken("order_id");
 			saleTrack.logSale(1);
-
 			/*~POST*/
 		}
 	});

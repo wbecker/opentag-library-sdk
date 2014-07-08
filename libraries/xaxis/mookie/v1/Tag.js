@@ -72,7 +72,6 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var img = new Image(0, 0),
 			arr = [],
 			obj = {
@@ -92,7 +91,6 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 			arr.push(key + "=" + obj[key]);
 		}
 		img.src = "//t.mookie1.com/t/v1/event?" + arr.join("&");
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

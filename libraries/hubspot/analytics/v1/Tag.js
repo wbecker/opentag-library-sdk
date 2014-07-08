@@ -34,7 +34,6 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 				'/' + _this.valueForToken("id") + '.js';
 			e.parentNode.insertBefore(n, e);
 		})(document, "script", "hs-analytics", 300000);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

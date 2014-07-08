@@ -37,14 +37,12 @@ qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var x = document.createElement("script");
 		x.src = (document.location.protocol === "https:") ?
 			"" + this.valueForToken("secure_domain") :
 			"" + this.valueForToken("non_secure_domain");
 		x.type = "text/javascript";
 		document.getElementsByTagName("head")[0].appendChild(x);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

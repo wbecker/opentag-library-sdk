@@ -42,7 +42,6 @@ qubit.opentag.LibraryTag.define("adform.globaltrackingpointpageviewonly.v1.Tag",
 			pagename: encodeURIComponent(adfname),
 			divider: encodeURIComponent('' + this.valueForToken("divider"))
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

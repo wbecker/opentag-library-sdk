@@ -77,8 +77,6 @@ qubit.opentag.LibraryTag.define(
 			basket.transaction = '' + this.valueForToken("trans_id");
 			basket.amount = '' + this.valueForToken("trans_total");
 			basket.currency = '' + this.valueForToken("trans_currency");
-			window.basket = basket;
-
 			/*~PRE*/
 		},
 		post: function() {

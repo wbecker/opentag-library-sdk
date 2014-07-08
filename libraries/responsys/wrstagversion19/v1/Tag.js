@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
 		name: "WRS Tag - version 1.9",
 		async: true,
 		description: "",
-		html: "<!--@SRC@--><script type=\"text/javascript\">\n\nvar _riTrack;\n\nfunction _riInit() \n{ \n  _riTrack = riTrack.init(\"${account_id}\");\n  \n  var customerID = \"${customer_id}\";\n  if (customerID.length) _riTrack.setCustomer(customerID);\n  \n  if (${track_page_view}) \n  {\n    var pageID = \"${page_id}\";\n    if (pageID.length) _riTrack.trackPageView(pageID); \n    else _riTrack.trackPageView(); \n  }\n\n  var productCategory = \"${category_page_id}\";\n  if (productCategory.length) _riTrack.trackViewProductCategory(productCategory);\n\n  var productViewedID = \"${product_viewed_id}\";\n  if (productViewedID.length) _riTrack.trackViewProduct(productViewedID); \n\n  var productAddedID = \"${product_added}\";\n  if (productAddedID.length) _riTrack.trackAddProductToCart(productAddedID);\n  \n  for (var i=0; i<${product_removed}.length; i++)\n  {\n    _riTrack.trackRemoveProductFromCart(${product_removed}[i]+\"\");\n  }\n\n  var cartID = \"${basket_id}\";\n  if (cartID.length) _riTrack.setCartID(cartID);\n\n  if (${track_checkout_start})\n  {\n    var cartID = \"${checkout_id}\";\n    if (cartID.length) _riTrack.trackCartCheckout(cartID); \n    else _riTrack.trackCartCheckout(); \n  }\n\n  var confirmationID = \"${confirmation_id}\";\n  if (confirmationID.length) _riTrack.trackCartPurchased(confirmationID);\n};\n</script><script type=\"text/javascript\" src=\"//custom-wrs.api.responsys.net/ts-wrs/js/ri.min.js\"></script>\n",
+		html: "",
 		locationDetail: "",
 		isPrivate: false,
 		url: "",
@@ -77,6 +77,54 @@ qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
+		var _this = this;
+		var _riTrack;
+		function _riInit() {
+			_riTrack = riTrack.init("" + _this.valueForToken("account_id"));
+			var customerID = "" + _this.valueForToken("customer_id");
+			if (customerID.length)
+				_riTrack.setCustomer(customerID);
+			if (_this.valueForToken("track_page_view")) {
+				var pageID = "" + _this.valueForToken("page_id");
+				if (pageID.length)
+					_riTrack.trackPageView(pageID);
+				else
+					_riTrack.trackPageView();
+			}
+
+			var productCategory = "" + _this.valueForToken("category_page_id");
+			if (productCategory.length)
+				_riTrack.trackViewProductCategory(productCategory);
+			var productViewedID = "" + _this.valueForToken("product_viewed_id");
+			if (productViewedID.length)
+				_riTrack.trackViewProduct(productViewedID);
+			var productAddedID = "" + _this.valueForToken("product_added");
+			if (productAddedID.length)
+				_riTrack.trackAddProductToCart(productAddedID);
+			for (var i = 0; i < _this.valueForToken("product_removed").length; i++) {
+				_riTrack.trackRemoveProductFromCart(_this.valueForToken("product_removed")[i] + "");
+			}
+
+			var cartID = "" + _this.valueForToken("basket_id");
+			if (cartID.length)
+				_riTrack.setCartID(cartID);
+			if (_this.valueForToken("track_checkout_start")) {
+				var cartID = "" + _this.valueForToken("checkout_id");
+				if (cartID.length)
+					_riTrack.trackCartCheckout(cartID);
+				else
+					_riTrack.trackCartCheckout();
+			}
+
+			var confirmationID = "" + _this.valueForToken("confirmation_id");
+			if (confirmationID.length)
+				_riTrack.trackCartPurchased(confirmationID);
+		}
+		;
+		window._riTrack = _riTrack;
+		this.loadURL(window.location.protocol +
+			"//custom-wrs.api.responsys.net/ts-wrs/js/ri.min.js");
+		//</scr ipt><script type="text/javascript" src=""></sc ript>
 		/*~SCRIPT*/
 	},
 	pre: function() {

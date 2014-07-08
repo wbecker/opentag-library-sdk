@@ -69,7 +69,6 @@ qubit.opentag.LibraryTag.define("peerius.basketpage.v1.Tag", {
 				qty: this.valueForToken("item_quantities")[i]
 			});
 		}
-
 		/*~PRE*/
 	},
 	post: function() {

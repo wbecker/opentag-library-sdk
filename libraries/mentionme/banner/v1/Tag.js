@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define("mentionme.banner.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var baseUrl = "https://" + this.valueForToken("script_domain") +
 			".mention-me.com/api/v2/banner/" + this.valueForToken("partner_code") + "?";
 		var mmScript = document.createElement("script");
@@ -81,7 +80,6 @@ qubit.opentag.LibraryTag.define("mentionme.banner.v1.Tag", {
 
 		mmScript.src = baseUrl + paramArr.join("&");
 		document.body.appendChild(mmScript);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

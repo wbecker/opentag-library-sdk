@@ -43,13 +43,11 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._gaq = window._gaq || [];
 			window._gaq.push(['_trackEvent', '' + this.valueForToken("category"),
 				'' + this.valueForToken("action"), '' + this.valueForToken("label"),
 				this.valueForToken("value"), this.valueForToken("non_interaction")
 			]);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

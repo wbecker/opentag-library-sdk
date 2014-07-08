@@ -121,7 +121,6 @@ qubit.opentag.LibraryTag.define("adform.adformecommercetracking.v1.Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-
 		// The basic tracker
 		window._adftrack = {
 			pm: '' + this.valueForToken("campaignid"),
@@ -170,8 +169,6 @@ qubit.opentag.LibraryTag.define("adform.adformecommercetracking.v1.Tag", {
 			zip: '' + this.valueForToken("postcode"),
 			itms: items
 		};
-
-
 		/*~PRE*/
 	},
 	post: function() {

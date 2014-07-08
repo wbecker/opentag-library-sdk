@@ -83,8 +83,7 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-
+			var _this = this;
 			//Define a function to ensure all product details are HTML encoded.
 			window.htmlEncode = function(value) {
 
@@ -98,13 +97,13 @@ qubit.opentag.LibraryTag.define(
 
 			//Populate the XML String
 			var xml_string = "<z><o>";
-			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
-				var tempcat = htmlEncode(this.valueForToken("product_cats")[i]);
-				var tempname = htmlEncode(this.valueForToken("product_names")[i]);
-				var tempnum = htmlEncode(this.valueForToken("product_ids")[i]);
-				var tempprice = htmlEncode(this.valueForToken("product_prices")[i]);
-				var tempqty = htmlEncode(this.valueForToken("product_qtys")[i]);
-				var tempulp = htmlEncode(this.valueForToken("product_urls")[i]); //Tracking will work if these are blank strings.
+			for (var i = 0; i < _this.valueForToken("product_ids").length; i++) {
+				var tempcat = htmlEncode(_this.valueForToken("product_cats")[i]);
+				var tempname = htmlEncode(_this.valueForToken("product_names")[i]);
+				var tempnum = htmlEncode(_this.valueForToken("product_ids")[i]);
+				var tempprice = htmlEncode(_this.valueForToken("product_prices")[i]);
+				var tempqty = htmlEncode(_this.valueForToken("product_qtys")[i]);
+				var tempulp = htmlEncode(_this.valueForToken("product_urls")[i]); //Tracking will work if these are blank strings.
 				xml_string += '<so cid="' + tempcat + '" pn="' + tempname + '" pnr="' +
 					tempnum + '" up="' + tempprice + '" qty="' + tempqty + '" ulp="' + tempulp +
 					'"/>';
@@ -115,14 +114,14 @@ qubit.opentag.LibraryTag.define(
 			xml_string = encodeURIComponent(xml_string);
 
 			// Fire the confirmation tag
-			var url = "//ad.zanox.com/pps/?" + this.valueForToken("program_id");
+			var url = "//ad.zanox.com/pps/?" + _this.valueForToken("program_id");
 			url += "&mode=[[1]]"; //Always '1' for JS
 			url += "&CID=[[Basket]]";
-			url += "&CustomerID=[[" + this.valueForToken("user_id") + "]]";
-			url += "&OrderID=[[" + this.valueForToken("order_id") + "]]";
-			url += "&CurrencySymbol=[[" + this.valueForToken("order_currency") + "]]";
-			url += "&TotalPrice=[[" + this.valueForToken("subtotal") + "]]";
-			url += "&PartnerID=[[" + this.valueForToken("partner_id") + "]]"; //Leave blank unless supporting Advanced Session Tracking
+			url += "&CustomerID=[[" + _this.valueForToken("user_id") + "]]";
+			url += "&OrderID=[[" + _this.valueForToken("order_id") + "]]";
+			url += "&CurrencySymbol=[[" + _this.valueForToken("order_currency") + "]]";
+			url += "&TotalPrice=[[" + _this.valueForToken("subtotal") + "]]";
+			url += "&PartnerID=[[" + _this.valueForToken("partner_id") + "]]"; //Leave blank unless supporting Advanced Session Tracking
 			url += "&XML=[[" + xml_string + "]]";
 			var script = document.createElement('script');
 			script.src = url;
@@ -131,17 +130,17 @@ qubit.opentag.LibraryTag.define(
 
 			// Set globals for usage by the master tag
 			window.zx_products = [];
-			window.zx_transaction = "" + this.valueForToken("order_id");
-			window.zx_total_amount = "" + this.valueForToken("subtotal");
-			window.zx_total_currency = "" + this.valueForToken("order_currency");
+			window.zx_transaction = "" + _this.valueForToken("order_id");
+			window.zx_total_amount = "" + _this.valueForToken("subtotal");
+			window.zx_total_currency = "" + _this.valueForToken("order_currency");
 
 			// The standard mastertag
 			window._zx = window._zx || [];
 			window._zx.push({
-				"id": "" + this.valueForToken("page_id")
+				"id": "" + _this.valueForToken("page_id")
 			});
 			window.waitForZanoxDiv = function() {
-				if (document.querySelector(".zx_" + this.valueForToken("page_id") +
+				if (document.querySelector(".zx_" + _this.valueForToken("page_id") +
 					".zx_mediaslot")) {
 					(function(d) {
 						var s = d.createElement("script");
@@ -156,9 +155,6 @@ qubit.opentag.LibraryTag.define(
 				}
 			};
 			waitForZanoxDiv();
-
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var iFrame = document.createElement('iframe');
 		iFrame.style.display = 'none';
 		iFrame.style.width = "1px";
@@ -95,7 +94,6 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 		textarea.name = "basket";
 		iFrameDom.getElementById("affilinetTrackingForm").appendChild(textarea);
 
-
 		var basketItemsData = "";
 
 		for (var i = 0; i < this.valueForToken("basket_items_skus").length; i++) {
@@ -117,9 +115,7 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 		}
 
 		iFrameDom.getElementById("basket").innerHTML = basketItemsData;
-
 		iFrameDom.getElementById('affilinetTrackingForm').submit();
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

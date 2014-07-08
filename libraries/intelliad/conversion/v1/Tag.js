@@ -101,7 +101,6 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.v1.Tag", {
 		var script = document.createElement("script");
 		script.src = ia_link;
 		document.getElementsByTagName("head")[0].appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

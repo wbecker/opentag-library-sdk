@@ -44,7 +44,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.v1.Tag", {
 		};
 
 		waitForElement();
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

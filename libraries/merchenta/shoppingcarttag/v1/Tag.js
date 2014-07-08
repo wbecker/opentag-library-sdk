@@ -32,7 +32,6 @@ qubit.opentag.LibraryTag.define("merchenta.shoppingcarttag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var i, ii, d, p = document.getElementById("mc_data");
 		d = document.createElement("div");
 		d.className = "mc_order_ref";
@@ -56,7 +55,6 @@ qubit.opentag.LibraryTag.define("merchenta.shoppingcarttag.v1.Tag", {
 			script.src = "http://cdn.merchenta.com/track/t.js";
 		}
 		document.getElementsByTagName('head')[0].appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

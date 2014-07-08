@@ -37,7 +37,6 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv114.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
 			productArr.push(this.valueForToken("products")[i]);

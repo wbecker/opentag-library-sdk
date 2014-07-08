@@ -39,7 +39,6 @@ qubit.opentag.LibraryTag.define("nextag.confirmationtag.v1.Tag", {
 		window.id = '' + this.valueForToken("nextag_id");
 		window.rev = '' + this.valueForToken("order_total");
 		window.order = '' + this.valueForToken("order_id");
-
 		/*~PRE*/
 	},
 	post: function() {

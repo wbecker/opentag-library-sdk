@@ -38,7 +38,6 @@ qubit.opentag.LibraryTag.define("intelliad.seotracking.v1.Tag", {
 		/*PRE*/
 		window.ia_tc = "" + this.valueForToken("campaign_id");
 		window.ia_sc = "" + this.valueForToken("ad_id");
-
 		/*~PRE*/
 	},
 	post: function() {

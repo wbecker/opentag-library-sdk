@@ -12,12 +12,8 @@ qubit.opentag.LibraryTag.define("appnexus.segmenttag.v1.Tag", {
 		url: "ib.adnxs.com/seg?add=${segment}&t=2",
 		usesDocWrite: false,
 		upgradeable: true,
-		parameters: [{
-			name: "AppNexus Segment",
-			description: "Segment for AppNexus",
-			token: "segment",
-			uv: ""
-		}]
+		parameters: [
+		]
 		/*~DATA*/
 	},
 	script: function() {

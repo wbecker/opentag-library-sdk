@@ -57,32 +57,44 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
+		var _this = this;
 		var ii = 0;
 		var waitForConfirmationScripts = function() {
-			if ((typeof S2Tech_addOrder === 'function') && (typeof S2Tech_addItem ===
-				'function') && (typeof S2Tech_MatchData_NA === 'function')) {
-				S2Tech_addOrder("" + this.valueForToken("orderId"), "" + this.valueForToken(
-					"affiliation"), "" + this.valueForToken("total"), "" + this.valueForToken(
-					"tax"), "" + this.valueForToken("shipping"), "" + this.valueForToken(
-					"city"), "" + this.valueForToken("county"), "" + this.valueForToken(
-					"country"));
+			if ((typeof window.S2Tech_addOrder === 'function') &&
+					(typeof window.S2Tech_addItem === 'function') &&
+					(typeof window.S2Tech_MatchData_NA === 'function')) {
+				S2Tech_addOrder("" + _this.valueForToken("orderId"),
+				"" + _this.valueForToken("affiliation"),
+				"" + _this.valueForToken("total"),
+				"" + _this.valueForToken("tax"),
+				"" + _this.valueForToken("shipping"),
+				"" + _this.valueForToken("city"),
+				"" + _this.valueForToken("county"),
+				"" + _this.valueForToken("country"));
 
-				for (var i = 0; i < this.valueForToken("product_id").length; i++) {
-					S2Tech_addItem("" + this.valueForToken("orderId"), this.valueForToken(
-						"sku")[i], this.valueForToken("product_name")[i], this.valueForToken(
-						"category_unit")[i], this.valueForToken("unit_price")[i], this.valueForToken(
-						"quantity")[i]);
+				for (var i = 0; i < _this.valueForToken("product_id").length; i++) {
+					S2Tech_addItem(
+							"" + _this.valueForToken("orderId"),
+							_this.valueForToken("sku")[i],
+							_this.valueForToken("product_name")[i],
+							_this.valueForToken("category_unit")[i],
+							_this.valueForToken("unit_price")[i],
+							_this.valueForToken("quantity")[i]);
 				}
 
-				S2Tech_MatchData_NA("" + this.valueForToken("title"), "" + this.valueForToken(
-					"forename"), "" + this.valueForToken("lastname"), "" + this.valueForToken(
-					"address1"), "" + this.valueForToken("address2"), "" + this.valueForToken(
-					"address3"), "" + this.valueForToken("address4"), "" + this.valueForToken(
-					"postcode"), "" + this.valueForToken("email"), "" + this.valueForToken(
-					"landline"),  "" + this.valueForToken("mobile"),  "" + this.valueForToken(
-					"optins"));
+				S2Tech_MatchData_NA(
+						"" + _this.valueForToken("title"),
+						"" + _this.valueForToken("forename"),
+						"" + _this.valueForToken("lastname"),
+						"" + _this.valueForToken("address1"),
+						"" + _this.valueForToken("address2"),
+						"" + _this.valueForToken("address3"),
+						"" + _this.valueForToken("address4"),
+						"" + _this.valueForToken("postcode"),
+						"" + _this.valueForToken("email"),
+						"" + _this.valueForToken("landline"),
+					  "" + _this.valueForToken("mobile"),
+					  "" + _this.valueForToken("optins"));
 			} else if (ii < 50) {
 				ii++;
 				setTimeout(waitForConfirmationScripts, 100);
@@ -90,9 +102,6 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 		};
 
 		waitForConfirmationScripts();
-
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

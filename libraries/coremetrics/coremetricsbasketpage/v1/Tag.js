@@ -109,7 +109,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsbasketpage.v1.Tag", {
 		};
 
 		window.cmDisplayShops();
-
 		/*~POST*/
 	}
 });

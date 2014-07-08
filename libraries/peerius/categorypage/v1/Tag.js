@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define("peerius.categorypage.v1.Tag", {
 				category: ("" + this.valueForToken("subcategory")).replace(/\s-\s/g, ">")
 			}
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

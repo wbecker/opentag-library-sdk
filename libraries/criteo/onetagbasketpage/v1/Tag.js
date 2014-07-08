@@ -55,7 +55,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagbasketpage.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-
 		var products = [];
 
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
@@ -86,8 +85,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagbasketpage.v1.Tag", {
 			event: "viewBasket",
 			product: products
 		});
-
-
 		/*~POST*/
 	}
 });

@@ -158,7 +158,6 @@ qubit.opentag.LibraryTag.define(
 			s.prop4 = "" + this.valueForToken("prop4");
 			s.prop5 = "" + this.valueForToken("prop5");
 
-
 			var i = 0,
 				ii = this.valueForToken("product_ids").length,
 				productList = [];

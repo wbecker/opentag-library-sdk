@@ -152,7 +152,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestconfirmationpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		console.log("" + this.valueForToken("a"));
 		console.log("" + this.valueForToken("b"));
 		console.log("" + this.valueForToken("c"));
@@ -180,7 +179,6 @@ qubit.opentag.LibraryTag.define("qubit.uvtestconfirmationpage.v1.Tag", {
 		console.log("" + this.valueForToken("y"));
 		console.log("" + this.valueForToken("z"));
 		console.log("" + this.valueForToken("aa"));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

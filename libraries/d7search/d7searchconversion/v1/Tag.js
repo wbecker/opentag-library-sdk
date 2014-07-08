@@ -40,7 +40,6 @@ qubit.opentag.LibraryTag.define("d7search.d7searchconversion.v1.Tag", {
 		window._7search_conversion_urlid = this.valueForToken("7search_urlid");
 		window._7search_conversion_type = "purchase";
 		window._7search_conversion_value = this.valueForToken("transaction_total");
-
 		/*~PRE*/
 	},
 	post: function() {

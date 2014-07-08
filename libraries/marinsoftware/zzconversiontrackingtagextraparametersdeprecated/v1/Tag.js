@@ -93,7 +93,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window._mTrack = window._mTrack || [];
 			var items = [];
 			for (var i = 0; i < this.valueForToken("product_skus").length; i++) {
@@ -130,7 +129,6 @@ qubit.opentag.LibraryTag.define(
 			mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 			var fscr = document.getElementsByTagName('script')[0];
 			fscr.parentNode.insertBefore(mt, fscr);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

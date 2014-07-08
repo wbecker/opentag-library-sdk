@@ -59,7 +59,6 @@ qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.v1.Tag",
 			};
 			waitForAdgear();
 		}
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

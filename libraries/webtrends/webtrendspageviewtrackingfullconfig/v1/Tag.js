@@ -89,7 +89,6 @@ qubit.opentag.LibraryTag.define(
 			/*PRE*/
 			var _this = this;
 			window.webtrendsAsyncInit = function() {
-
 				var options = {
 					// Top level settings
 					dcsid: "" + _this.valueForToken("id"),
@@ -119,9 +118,7 @@ qubit.opentag.LibraryTag.define(
 				var dcs = new Webtrends.dcs(options);
 				dcs.init(options);
 				dcs.track();
-
 			};
-
 			/*~PRE*/
 		},
 		post: function() {

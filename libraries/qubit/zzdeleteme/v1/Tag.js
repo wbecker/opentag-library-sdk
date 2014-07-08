@@ -28,7 +28,6 @@ qubit.opentag.LibraryTag.define("qubit.zzdeleteme.v1.Tag", {
 	script: function() {
 		/*SCRIPT*/
 		console.log("" + this.valueForToken("param"))
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

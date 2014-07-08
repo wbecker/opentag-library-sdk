@@ -72,7 +72,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationbasketpage.v1.Tag", {
 		}
 
 		var stringifiedArrayOfObjects = function(data) {
-			var string = ""
+			var string = "";
 			for (var obj in data) {
 				if (data.hasOwnProperty(obj)) {
 					for (var prop in data[obj]) {

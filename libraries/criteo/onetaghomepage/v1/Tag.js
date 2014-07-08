@@ -40,7 +40,6 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-
 		var user_id = "" + this.valueForToken("customer_id");
 		//Remove email if present.
 		if (user_id.indexOf("@") > -1) {
@@ -60,8 +59,6 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v1.Tag", {
 		}, {
 			event: "viewHome"
 		});
-
-
 		/*~POST*/
 	}
 });

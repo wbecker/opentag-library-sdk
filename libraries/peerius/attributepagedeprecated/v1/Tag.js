@@ -46,7 +46,6 @@ qubit.opentag.LibraryTag.define("peerius.attributepagedeprecated.v1.Tag", {
 				}
 			}
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

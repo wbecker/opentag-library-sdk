@@ -69,8 +69,6 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
 
 		var image = new Image();
 		image.src = src;
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

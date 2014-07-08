@@ -23,7 +23,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			window.WebFontConfig = {
 				google: {
 					families: ['' + this.valueForToken("font_family")]
@@ -36,7 +35,6 @@ qubit.opentag.LibraryTag.define(
 			wf.async = 'true';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(wf, s);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

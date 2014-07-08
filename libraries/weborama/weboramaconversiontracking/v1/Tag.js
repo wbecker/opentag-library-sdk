@@ -99,7 +99,6 @@ qubit.opentag.LibraryTag.define("weborama.weboramaconversiontracking.v1.Tag", {
 		try {
 			adperfTracker.track(adperftrackobj);
 		} catch (err) {}
-
 		/*~POST*/
 	}
 });

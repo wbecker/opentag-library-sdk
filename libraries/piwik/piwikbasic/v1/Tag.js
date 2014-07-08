@@ -37,11 +37,10 @@ qubit.opentag.LibraryTag.define("piwik.piwikbasic.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-		window.piwikTracker = Piwik.getTracker('' + this.valueForToken("piwik_url") +
-			'' + "piwik.php", 1);
+		window.piwikTracker = Piwik.getTracker(this.valueForToken("piwik_url") +
+				"piwik.php", 1);
 		piwikTracker.trackPageView();
 		piwikTracker.enableLinkTracking();
-
 		/*~POST*/
 	}
 });

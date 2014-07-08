@@ -60,7 +60,7 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixel.v1.Tag", {
 		var e = encodeURIComponent;
 		var p = [];
 		for (var i in __chconv__) {
-			p.push(e(i) + "=" + e(__chconv__[i]))
+			p.push(e(i) + "=" + e(__chconv__[i]));
 		}
 		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
 			(new Date()).getTime() + '?' + p.join("&");

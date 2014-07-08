@@ -32,7 +32,7 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.v1.Tag", 
 	},
 	script: function() {
 		/*SCRIPT*/
-		var _snaq = _snaq || [];
+		window._snaq = window._snaq || [];
 
 		_snaq.push(['setCollectorCf', '' + this.valueForToken("cloudfront")]);
 		_snaq.push(['setAppId', '' + this.valueForToken("siteid")]);
@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.v1.Tag", 
 			'://d1fc8wv8zag5ca.cloudfront.net/0.12.0/sp.js';
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(sp, s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

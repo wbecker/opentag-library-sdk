@@ -32,7 +32,6 @@ qubit.opentag.LibraryTag.define("mythings.productpagetag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window._mt_ready = function() {
 			if (typeof(MyThings) != "undefined") {
 				MyThings.Track({
@@ -47,7 +46,6 @@ qubit.opentag.LibraryTag.define("mythings.productpagetag.v1.Tag", {
 		window.mtAdvertiserToken = "" + this.valueForToken("token");
 		document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok=" +
 			mtAdvertiserToken + "' type='text/javascript'%3E%3C/script%3E"));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

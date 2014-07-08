@@ -92,6 +92,7 @@ qubit.opentag.LibraryTag.define(
 				}
 				return null;
 			}
+			
 			var tduidCookie = readCookie("" + this.valueForToken("tduid_cookie_name"));
 			tduidCookie = tduidCookie ? tduidCookie : "";
 
@@ -119,8 +120,6 @@ qubit.opentag.LibraryTag.define(
 			var img = document.createElement("img");
 			img.src = src;
 			document.body.appendChild(img);
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

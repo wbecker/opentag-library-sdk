@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflighthotelsearch.v1.Tag",
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 			this.valueForToken("sojern_partner_key") + "/fs?";
 		src += "fa1=" + this.valueForToken("origin_airport_code") + "&";

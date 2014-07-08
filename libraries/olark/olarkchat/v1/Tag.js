@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("olark.olarkchat.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-		/*{literal}<![CDATA[*/
 		(window.olark && Object.prototype.toString.call(window.olark) ===
 			"[object Function]") || (function(c) {
 			var f = window,
@@ -115,8 +114,6 @@ qubit.opentag.LibraryTag.define("olark.olarkchat.v1.Tag", {
 		});
 		/* custom configuration goes here (www.olark.com/documentation) */
 		olark.identify('' + this.valueForToken("SITE_ID"));
-		/*]]>{/literal}*
-
 	/*~SCRIPT*/
 	},
 	pre: function() {

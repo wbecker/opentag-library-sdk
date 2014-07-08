@@ -89,7 +89,6 @@ qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.v1.Tag", {
 		mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 		var fscr = document.getElementsByTagName('script')[0];
 		fscr.parentNode.insertBefore(mt, fscr);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

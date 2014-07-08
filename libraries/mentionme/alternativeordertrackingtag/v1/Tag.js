@@ -92,7 +92,6 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", 
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var baseUrl = "https://" + this.valueForToken("domain") + "/api/v2/order/" +
 			this.valueForToken("partner_code") + "?";
 		var paramArr = [];
@@ -147,7 +146,6 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", 
 		function beginningZero(digit) {
 			return (digit < 10) ? "0" + digit : "" + digit;
 		}
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

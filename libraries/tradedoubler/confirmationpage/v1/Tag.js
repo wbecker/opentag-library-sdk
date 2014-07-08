@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 		/*DATA*/
 		name: "Confirmation Page",
 		async: true,
-		description: "Product Level Tracking (PLT) Version",
+		description: "Standard Version",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
@@ -13,30 +13,10 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "TD Unique Identifier",
-			description: "Your TradeDoubler unique identifier",
-			token: "tduid_cookie_name",
+			name: "Tracking Type",
+			description: "Enter hard coded value s as sales tracking, or l for lead tracking",
+			token: "tracking_type",
 			uv: ""
-		}, {
-			name: "Product IDs",
-			description: "List of all product IDs in basket",
-			token: "productIDs",
-			uv: "universal_variable.transaction.line_items[#].product.id"
-		}, {
-			name: "Product Names",
-			description: "List of all product names in basket",
-			token: "productNames",
-			uv: "universal_variable.transaction.line_items[#].product.name"
-		}, {
-			name: "Product Prices",
-			description: "List of each product unit sale price in basket",
-			token: "productPrices",
-			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-		}, {
-			name: "Product Quantities",
-			description: "List of all product quantities",
-			token: "productQuantities",
-			uv: "universal_variable.transaction.line_items[#].quantity"
 		}, {
 			name: "Organization",
 			description: "Your TradeDoubler organization ID, provided by TradeDoubler.",
@@ -48,30 +28,45 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 			token: "event",
 			uv: ""
 		}, {
-			name: "Currency",
-			description: "Transaction currency",
-			token: "currency",
-			uv: "universal_variable.transaction.currency"
+			name: "TDUID Cookie Name",
+			description: "Your TradeDoubler unique identifier. Your store the TDUID value in a permanent cookie called TradeDoubler and also in a session variable.",
+			token: "tduid_cookie_name",
+			uv: ""
 		}, {
-			name: "Order Number",
-			description: "Transaction Order ID",
+			name: "Order ID",
+			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
 		}, {
-			name: "Encoding",
-			description: "set to 3 unless encoding is not  UTF-8 - see TD manual for more info",
-			token: "encoding",
-			uv: ""
+			name: "Order Total",
+			description: "",
+			token: "order_total",
+			uv: "universal_variable.transaction.total"
 		}, {
-			name: "Tracking type",
-			description: "Enter   s    for sales tracking or   l    for lead tracking",
-			token: "tracking_type",
-			uv: ""
+			name: "Currency",
+			description: "",
+			token: "currency",
+			uv: "universal_variable.transaction.currency"
 		}, {
-			name: "Product Group ID",
-			description: "Product group ID, supplied by TradeDoubler. Used  to distinguish different product categories.",
-			token: "productGroupId",
-			uv: ""
+			name: "Product ID List",
+			description: "",
+			token: "ids",
+			uv: "universal_variable.transaction.line_items[#].product.id"
+		}, {
+			name: "Product Name List",
+			description: "",
+			token: "names",
+			uv: "universal_variable.transaction.line_items[#].product.name"
+		}, {
+			name: "Product Unit Price List",
+			description: "",
+			token: "unit_prices",
+			uv: "universal_variable.transaction.line_items[#].product.unit_price"
+		}, {
+			name: "Product Quantity List",
+			description: "",
+			token: "quantities",
+			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
 		/*~DATA*/
 	},
@@ -82,45 +77,43 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 			var ca = document.cookie.split(';');
 			for (var i = 0; i < ca.length; i++) {
 				var c = ca[i];
-				while (c.charAt(0) === ' ') {
-					c = c.substring(1, c.length);
-				}
-				if (c.indexOf(nameEQ) === 0) {
-					return c.substring(nameEQ.length, c.length);
-				}
+				while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
 			}
 			return null;
-		};
-
-		var tduidCookie = readCookie("" + this.valueForToken("tduid_cookie_name"));
-		tduidCookie = tduidCookie ? tduidCookie : "";
-
-		var basket = "";
-
-		for (var i = 0; i < this.valueForToken("productNames").length; i++) {
-			basket = basket + "pr(gr(" +
-				this.valueForToken("productGroupId") + ")i(" +
-				this.valueForToken("productIDs")[i] + ")n(" +
-				this.valueForToken("productNames")[i] + ")v(" +
-				this.valueForToken("productPrices")[i] + ")q(" +
-				this.valueForToken("productQuantities")[i] + "))";
 		}
 
-		var src = "https://tb" + this.valueForToken("tracking_type") +
-			".tradedoubler.com/report?";
-		src += "o(" + this.valueForToken("organization") + ")";
-		src += "event(" + this.valueForToken("event") + ")";
-		src += "ordnum(" + this.valueForToken("order_id") + ")";
-		src += "curr(" + this.valueForToken("currency") + ")";
-		src += "tduid(" + tduidCookie + ")";
-		src += "enc(" + this.valueForToken("encoding") + ")";
-		src += "basket(" + basket + ")";
+		var src = ["https://tb" + this.valueForToken("tracking_type") +
+			".tradedoubler.com/report?"
+		];
+		src.push("organization=" + this.valueForToken("organization"));
+		src.push("&event=" + this.valueForToken("event"));
+
+		src.push("&orderNumber=" + this.valueForToken("order_id"));
+		src.push("&orderValue=" + this.valueForToken("order_total"));
+		src.push("&currency=" + this.valueForToken("currency"));
+
+		var reportQuery = [];
+		for (var i = 0; i < this.valueForToken("ids").length; i++) {
+			if (i > 0) {
+				reportQuery.push("|");
+			}
+			reportQuery.push("f1=" + this.valueForToken("ids")[i]);
+			reportQuery.push("&f2=" + this.valueForToken("names")[i]);
+			reportQuery.push("&f3=" + this.valueForToken("unit_prices")[i]);
+			reportQuery.push("&f4=" + this.valueForToken("quantities")[i]);
+		}
+
+		src.push("&reportInfo=" + escape(reportQuery.join("")));
+
+		var tduidCookie = readCookie("" + this.valueForToken("tduid_cookie_name") +
+			"");
+		tduidCookie = tduidCookie ? tduidCookie : "";
+		src.push("&tduid=" + tduidCookie);
 
 		var img = document.createElement("img");
-		img.src = src;
+		img.setAttribute("src", src.join(""));
 		document.body.appendChild(img);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define("zopim.zopimlivechat.v1.Tag", {
 			type = 'text/javascript';
 			e.parentNode.insertBefore($, e)
 		})(document, 'script');
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

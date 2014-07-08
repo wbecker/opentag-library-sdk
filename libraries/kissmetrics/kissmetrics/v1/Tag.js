@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.v1.Tag", {
 				w.attachEvent("onload", kmg);
 			}
 		}(window, document))
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

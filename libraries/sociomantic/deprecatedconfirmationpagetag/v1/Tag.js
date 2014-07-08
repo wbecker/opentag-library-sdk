@@ -74,7 +74,6 @@ qubit.opentag.LibraryTag.define(
 			basket.amount = '' + this.valueForToken("checkout_total");
 			basket.currency = '' + this.valueForToken("currency");
 			window.basket = basket;
-
 			/*~PRE*/
 		},
 		post: function() {

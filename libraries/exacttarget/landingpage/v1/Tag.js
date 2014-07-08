@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("exacttarget.landingpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var ExpireDays = this.valueForToken("expire");
 		qstr = document.location.search;
 		qstr = qstr.substring(1, qstr.length);

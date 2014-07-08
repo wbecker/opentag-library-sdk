@@ -45,7 +45,6 @@ qubit.opentag.LibraryTag.define("peerius.productpage.v1.Tag", {
 				}
 			}
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

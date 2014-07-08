@@ -55,9 +55,7 @@ qubit.opentag.LibraryTag.define(
 				var dcs = new Webtrends.dcs(options);
 				dcs.init(options);
 				dcs.track();
-
 			};
-
 			/*~PRE*/
 		},
 		post: function() {

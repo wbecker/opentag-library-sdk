@@ -37,7 +37,6 @@ qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
 				"partner_user_id_type": "postcode"
 			}]
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

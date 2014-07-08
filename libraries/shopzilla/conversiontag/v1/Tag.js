@@ -42,7 +42,6 @@ qubit.opentag.LibraryTag.define("shopzilla.conversiontag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		var i = 0,
 			ii = this.valueForToken("quantities").length,
 			totalQuantity = 0,
@@ -60,8 +59,6 @@ qubit.opentag.LibraryTag.define("shopzilla.conversiontag.v1.Tag", {
 		var script = document.createElement("script");
 		script.src = "https://www.shopzilla.com/css/roi_tracker.js";
 		document.getElementsByTagName('head')[0].appendChild(script);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

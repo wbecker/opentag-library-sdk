@@ -75,7 +75,6 @@ qubit.opentag.LibraryTag.define(
 			window.__stormJs = 't1.stormiq.com/dcv4/jslib/' + this.valueForToken(
 				"storm_id") + '.js';
 			window.__ch = '' + this.valueForToken("channel");
-
 			/*~PRE*/
 		},
 		post: function() {
@@ -90,19 +89,18 @@ qubit.opentag.LibraryTag.define(
 					m1: this.valueForToken("ids")[i],
 					m2: this.valueForToken("names")[i],
 					m3: this.valueForToken("colors")[i]
-				})
+				});
 			}
 
 			saleTrack.addSaleItem({
 				itemcount: 1,
 				itemvalue: this.valueForToken("shipping"),
 				m1: "Shipping cost"
-			})
+			});
 
 			saleTrack.curcode = '' + this.valueForToken("currency");
 			saleTrack.orderid = "" + this.valueForToken("order_id");
 			saleTrack.logSale(1);
-
 			/*~POST*/
 		}
 	});

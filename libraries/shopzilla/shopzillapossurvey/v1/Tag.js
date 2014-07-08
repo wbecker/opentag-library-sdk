@@ -92,7 +92,6 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillapossurvey.v1.Tag", {
 		};
 
 		window.productsPurchased = productsPurchasedArr.join("|");
-
 		/*~PRE*/
 	},
 	post: function() {

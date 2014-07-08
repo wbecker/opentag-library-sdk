@@ -63,7 +63,6 @@ qubit.opentag.LibraryTag.define("peerius.searchpagewithsmartrecs.v1.Tag", {
 				refCode: this.valueForToken("search_listing_ids")[i]
 			});
 		}
-
 		/*~PRE*/
 	},
 	post: function() {

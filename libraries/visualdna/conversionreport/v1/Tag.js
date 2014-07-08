@@ -35,7 +35,7 @@ qubit.opentag.LibraryTag.define("visualdna.conversionreport.v1.Tag", {
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 
-		var args = ["" + this.valueForToken("conversion_id")];
+		var args = ["" +  ("conversion_id")];
 
 		var extraData = "" + this.valueForToken("extra_data");
 		if (extraData.length) {
@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("visualdna.conversionreport.v1.Tag", {
 			method: "reportConversion",
 			args: args
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

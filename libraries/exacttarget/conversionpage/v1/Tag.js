@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("exacttarget.conversionpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		function getCookie(cookiename) {
 			if (document.cookie.length > 0) {
 				startC = document.cookie.indexOf(cookiename + "=");
@@ -89,7 +88,6 @@ qubit.opentag.LibraryTag.define("exacttarget.conversionpage.v1.Tag", {
 		imgSrc += "</system>";
 
 		new Image().src = imgSrc;
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

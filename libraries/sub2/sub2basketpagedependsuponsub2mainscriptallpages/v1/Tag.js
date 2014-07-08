@@ -73,9 +73,6 @@ qubit.opentag.LibraryTag.define(
 			setTimeout(function() {
 				clearInterval(waitFor_S2Tech_SendBasket);
 			}, 5000);
-
-
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

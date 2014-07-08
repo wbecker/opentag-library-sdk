@@ -57,7 +57,6 @@ qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.v1.Tag", {
 		frame.width = 1;
 		frame.frameborder = 0;
 		document.body.appendChild(frame);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

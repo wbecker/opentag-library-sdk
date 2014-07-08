@@ -126,7 +126,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		post: function() {
 			/*POST*/
-
 			var i = 0,
 				ii = this.valueForToken("product_ids").length;
 
@@ -143,8 +142,6 @@ qubit.opentag.LibraryTag.define(
 				"" + this.valueForToken("page_id"),
 				"" + this.valueForToken("category_id")
 			);
-
-
 
 			// Track each product purchased
 			for (; i < ii; i++) {
@@ -183,8 +180,6 @@ qubit.opentag.LibraryTag.define(
 				"" + this.valueForToken("post_code"),
 				"" + this.valueForToken("country")
 			);
-
-
 			/*~POST*/
 		}
 	});

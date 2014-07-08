@@ -66,7 +66,7 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 	},
 	pre: function() {
 		/*PRE*/
-		var _roi = _roi || [];
+		window._roi = window._roi || [];
 
 		_roi.push(['_setMerchantId', this.valueForToken("client_id")]);
 		_roi.push(['_setOrderId', this.valueForToken("order_id")]);
@@ -85,7 +85,6 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 		}
 
 		_roi.push(['_trackTrans']);
-
 		/*~PRE*/
 	},
 	post: function() {

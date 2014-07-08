@@ -42,7 +42,6 @@ qubit.opentag.LibraryTag.define("peerius.otherpagewithsmartrecs.v1.Tag", {
 				}
 			}
 		};
-
 		/*~PRE*/
 	},
 	post: function() {

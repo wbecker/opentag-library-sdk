@@ -73,7 +73,6 @@ qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.v1.Tag", {
 				price: window.universal_variable.basket.line_items[i].product.unit_sale_price
 			});
 		}
-
 		/*~PRE*/
 	},
 	post: function() {

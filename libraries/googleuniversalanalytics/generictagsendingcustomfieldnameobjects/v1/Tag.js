@@ -48,7 +48,6 @@ qubit.opentag.LibraryTag.define(
 			for (var i = 0; i < _this.valueForToken("field_objects").length; i++) {
 				ga('send', _this.valueForToken("field_objects")[i]);
 			}
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

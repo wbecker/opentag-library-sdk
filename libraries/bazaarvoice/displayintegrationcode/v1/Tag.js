@@ -43,7 +43,6 @@ qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.v1.Tag", {
 		windopw.$BV.ui("rr", "show_reviews", {
 			productId: "" + this.valueForToken("product_id")
 		});
-
 		/*~POST*/
 	}
 });

@@ -46,7 +46,6 @@ qubit.opentag.LibraryTag.define(
 				google_conversion_label: "" + this.valueForToken("label"),
 				google_custom_params: {}
 			});
-
 			/*~POST*/
 		}
 	});

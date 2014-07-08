@@ -49,7 +49,7 @@ qubit.opentag.LibraryTag.define("peerius.productpagewithsmartrecs.v1.Tag", {
 					window.renderRecsProduct(jsonData);
 				}
 			}
-		}
+		};
 
 		/*~PRE*/
 	},

@@ -38,14 +38,12 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			cmCreateConversionEventTag(
 				"" + this.valueForToken("event_id"),
 				"" + this.valueForToken("action_type"),
 				"" + this.valueForToken("event_category_id"),
 				"" + this.valueForToken("points")
 			);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

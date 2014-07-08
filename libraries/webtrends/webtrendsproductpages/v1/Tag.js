@@ -49,7 +49,6 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsproductpages.v1.Tag", {
 			"WT.pn_ma": "" + this.valueForToken("manufacturer"),
 			"WT.pn_sc": "" + this.valueForToken("subcategory")
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

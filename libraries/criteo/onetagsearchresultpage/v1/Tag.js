@@ -50,7 +50,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-
 		//Criteo suggests that this list should only be 3 products long.
 		var products = [];
 
@@ -82,8 +81,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v1.Tag", {
 			product: products,
 			keywords: "" + this.valueForToken("search_query")
 		});
-
-
 		/*~POST*/
 	}
 });

@@ -22,8 +22,7 @@ qubit.opentag.LibraryTag.define("clotheshorse.conversiontracking.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-		window.ch212 = ch212 || [];
+		window.ch212 = window.ch212 || [];
 		ch212['token'] = '' + this.valueForToken("client_token");
 		ch212['ts'] = new Date().getTime();
 
@@ -34,7 +33,6 @@ qubit.opentag.LibraryTag.define("clotheshorse.conversiontracking.v1.Tag", {
 			ch212['token'] + '&ts=' + ch212['ts'];
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(ch, s);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

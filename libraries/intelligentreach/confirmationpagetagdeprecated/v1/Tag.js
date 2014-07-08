@@ -82,7 +82,6 @@ qubit.opentag.LibraryTag.define(
 			window.istUserDefinedFieldThree = "";
 			window.istVoucherCode = this.valueForToken("voucher");
 			window.istLastAffiliateCode = "";
-
 			/*~PRE*/
 		},
 		post: function() {

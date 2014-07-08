@@ -35,7 +35,6 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.v1.Tag", {
 			identifier: '' + this.valueForToken("PRODUCT_ID")
 		};
 		window.product = product;
-
 		/*~PRE*/
 	},
 	post: function() {

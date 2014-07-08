@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductpagetag.v1.Tag", {
 	pre: function() {
 		/*PRE*/
 		window._struqPI = window._struqPI || [];
-
 		_struqPI.push(['injectTrackingPixel', {
 			trackingPixelId: 'PixelID',
 			route: '/s/s/',
@@ -40,7 +39,6 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductpagetag.v1.Tag", {
 				timeoutMs: 2000
 			}
 		}]);
-
 		/*~PRE*/
 	},
 	post: function() {

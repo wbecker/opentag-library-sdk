@@ -125,7 +125,6 @@ qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystpagetag.v1.Tag", 
 		s.eVar5 = "" + this.valueForToken("evar5");
 
 		window.s_code = s.t();
-
 		/*~POST*/
 	}
 });

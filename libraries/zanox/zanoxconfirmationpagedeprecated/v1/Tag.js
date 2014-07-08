@@ -6,7 +6,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 		name: "Zanox - Confirmation page DEPRECATED",
 		async: true,
 		description: "The Zanox confirmation page tag.",
-		html: "<div class=\"zx_${zanox_page_id} zx_mediaslot\">\n  \n</div>",
+		html: "<div class=\"zx_${zanoxPageId} zx_mediaslot\">\n  \n</div>",
 		locationDetail: "",
 		isPrivate: true,
 		url: "",
@@ -39,15 +39,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 			uv: "universal_variable.transaction.subtotal"
 		}, {
 			name: "Zanox Page ID",
-			description: "",
-			token: "zanox_page_id",
+			description: "Unique identifier for the page",
+			token: "zanoxPageId",
 			uv: ""
 		}]
 		/*~DATA*/
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		// Fire the confirmation tag
 		var url = "//ad.zanox.com/pps/?4711C081512345";
 		url += "&mode=[[" + this.valueForToken("mode") + "]]";
@@ -69,7 +68,7 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 		// The standard mastertag
 		window._zx = window._zx || [];
 		window._zx.push({
-			"id": "" + this.valueForToken("zanox_page_id")
+			"id": "" + this.valueForToken("zanoxPageId")
 		});
 		
 		(function(d) {
@@ -80,7 +79,6 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 			var a = d.getElementsByTagName("script")[0];
 			a.parentNode.insertBefore(s, a);
 		}(document));
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

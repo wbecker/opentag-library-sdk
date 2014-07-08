@@ -62,8 +62,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagrentalcarsearch.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
-
 		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 			this.valueForToken("sojern_partner_key") + "/rs?";
 		src += "ra1=" + this.valueForToken("airport_to_pickup") + "&";
@@ -75,7 +73,6 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagrentalcarsearch.v1.Tag", {
 		src += "rc=" + this.valueForToken("car_class") + "&";
 		src += "t=" + this.valueForToken("number_of_travellers");
 		(new Image()).src = src;
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

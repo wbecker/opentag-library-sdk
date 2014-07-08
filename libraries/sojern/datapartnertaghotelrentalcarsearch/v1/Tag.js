@@ -98,8 +98,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
-
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/hs?";
 			src += "t=" + this.valueForToken("number_of_travellers") + "&";
@@ -118,7 +116,6 @@ qubit.opentag.LibraryTag.define(
 			src += "rd2=" + this.valueForToken("dropoff_date") + "&";
 			src += "rc=" + this.valueForToken("car_class");
 			(new Image()).src = src;
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

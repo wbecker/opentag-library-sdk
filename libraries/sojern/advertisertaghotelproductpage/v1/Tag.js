@@ -22,7 +22,6 @@ qubit.opentag.LibraryTag.define("sojern.advertisertaghotelproductpage.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		(new Image()).src = "https://beacon.sojern.com/p/1?hpid=" +
 			this.valueForToken("id");
 		/*~SCRIPT*/

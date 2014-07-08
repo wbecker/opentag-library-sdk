@@ -38,7 +38,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
 				this.valueForToken("client_id");
 			src += "&oVal=" + this.valueForToken("total");
@@ -61,7 +60,6 @@ qubit.opentag.LibraryTag.define(
 			img.height = 1;
 			img.style.display = 'none';
 			document.body.appendChild(img);
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

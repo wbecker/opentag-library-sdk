@@ -37,7 +37,6 @@ qubit.opentag.LibraryTag.define("visualdna.emailsync.v1.Tag", {
 				"partner_user_id_type": "e"
 			}]
 		});
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

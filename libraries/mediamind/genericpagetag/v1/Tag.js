@@ -27,7 +27,6 @@ qubit.opentag.LibraryTag.define("mediamind.genericpagetag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.ebRand = Math.random() * 1000000;
 		window.ebSession = "" + this.valueForToken("session_id");
 
@@ -37,7 +36,6 @@ qubit.opentag.LibraryTag.define("mediamind.genericpagetag.v1.Tag", {
 			this.valueForToken("activity_id") + "&rnd=" + ebRand + "&Session=" +
 			ebSession;
 		document.getElementsByTagName("head")[0].appendChild(script);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

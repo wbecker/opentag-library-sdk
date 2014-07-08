@@ -51,7 +51,6 @@ qubit.opentag.LibraryTag.define("pricegrabber.thankyoupagesurvey.v1.Tag", {
 
 		window.popup_order_number = "" + this.valueForToken("order_id");
 		window.popup_email = "" + this.valueForToken("email");
-
 		/*~PRE*/
 	},
 	post: function() {

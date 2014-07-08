@@ -77,7 +77,6 @@ qubit.opentag.LibraryTag.define("criteo.legacyhomepagetag.v1.Tag", {
 		_cr_i.onload = pcto_dis;
 		_cr_d2.appendChild(_cr_i);
 		document.body.appendChild(_cr_d2);
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

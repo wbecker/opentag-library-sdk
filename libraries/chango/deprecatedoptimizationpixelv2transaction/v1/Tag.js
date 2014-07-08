@@ -19,6 +19,11 @@ qubit.opentag.LibraryTag.define(
 				token: "PT_VALUE",
 				uv: "universal_variable.page.type"
 			}, {
+				name: "Cart",
+				description: "",
+				token: "CART",
+				uv: ""
+			}, {
 				name: "ID",
 				description: "",
 				token: "ID",
@@ -28,49 +33,25 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "PUID",
 				uv: ""
-			}, {
-				name: "Transaction Product SKUs",
-				description: "",
-				token: "productSKU",
-				uv: "universal_variable.transaction.line_items[#].product.sku_code"
-			}, {
-				name: "Transaction Product Names",
-				description: "",
-				token: "productNames",
-				uv: "universal_variable.transaction.line_items[#].product.name"
 			}]
 			/*~DATA*/
 		},
 		script: function() {
 			/*SCRIPT*/
-
-			var _this = this;
-			//compile cart data
-			var cart = (function() {
-				var arr = [];
-				for (var i = 0; i < _this.valueForToken("productNames").length; i++) {
-					arr.push({
-						na: _this.valueForToken("productNames")[i],
-						sku: _this.valueForToken("productSKU")[i]
-					});
-				}
-				return arr;
-			})();
-			wiondow.cart = cart;
 			window.__cho__ = {
 				"data": {
-					"pt": "" + this.valueForToken("PT_VALUE"),
-					"crt": cart,
+					"pt": "" + this.valueForToken("PT_VALUE") + "",
+					"crt": "" + this.valueForToken("CART") + "",
 					"na": "",
 					"op": "",
 					"sp": "",
 					"sku": "",
 					"pc": ""
 				},
-				"pid": "" + this.valueForToken("ID"),
-				"puid2": "" + this.valueForToken("PUID")
+				"pid": "" + this.valueForToken("ID") + "",
+				"puid2": "" + this.valueForToken("PUID") + ""
 			};
-			
+
 			var c = document.createElement('script');
 			c.type = 'text/javascript';
 			c.async = true;

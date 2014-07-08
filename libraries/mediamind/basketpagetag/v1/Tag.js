@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-
 		window.ebRev = "" + this.valueForToken("order_total");
 		window.ebOrderID = "" + this.valueForToken("order_id");
 		window.ebProductID = "";
@@ -77,8 +76,6 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
 			ebRev + "&OrderID=" + ebOrderID + "&ProductID=" + ebProductID +
 			"&ProductInfo=" + ebProductInfo + "&Quantity=" + ebQuantity;
 		document.getElementsByTagName("head")[0].appendChild(script);
-
-
 		/*~SCRIPT*/
 	},
 	pre: function() {

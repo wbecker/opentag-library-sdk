@@ -48,7 +48,6 @@ qubit.opentag.LibraryTag.define(
 		},
 		script: function() {
 			/*SCRIPT*/
-
 			var lengowProductNamesString = "";
 
 			for (var i = 0; i < this.valueForToken("lengow_product_name_list").length; i++) {
@@ -70,7 +69,6 @@ qubit.opentag.LibraryTag.define(
 				this.valueForToken("lengow_order_id") + "&modePaiement=" +
 				this.valueForToken("lengow_payment_method") + "&listingProduit=" +
 				lengowProductNamesString;
-
 			/*~SCRIPT*/
 		},
 		pre: function() {

@@ -41,8 +41,7 @@ qubit.opentag.LibraryTag.define("smartfocus.basketpage.v1.Tag", {
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
 			skus.push("" + this.valueForToken("skus")[i]);
 		}
-
-
+		
 		window._advisorq.push({
 			_setConfig: {
 				sku: 'CAT:CART',
