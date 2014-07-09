@@ -88,6 +88,7 @@ function getParametersAndConfigForTagNode(referencingNode, ignoreRed, paramsOnly
       if (inputs[i].value) {
         try {
           var variable = qubit.opentag.Utils.gevalAndReturn(inputs[i].value);
+					variable = variable ? variable.result : variable;
           config.parameters[idx].variable = {
             value: variable
           };

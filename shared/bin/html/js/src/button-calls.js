@@ -95,7 +95,8 @@ function saveConfig(refNode) {
                             ".Config = " + serial + ";");
   
   POST("/saveConfig", data, function(msg, httpr) {
-    if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
+		var obj = qubit.opentag.Utils.gevalAndReturn(msg);
+    if (!obj || !obj.result.ok) {
       logError(msg);
     } else {
       info("Saved");
@@ -136,7 +137,8 @@ function saveNewVersion(refNode, e) {
 				tagRef.PACKAGE_NAME + "&version=" + cp + "." + versionName;
   
   POST("/saveNewVersion", data, function(msg, httpr) {
-    if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
+		var obj = qubit.opentag.Utils.gevalAndReturn(msg);
+    if (!obj || !obj.result.ok) {
       logError("Error while creating new version: " + msg);
     } else {
       info("Created new version.");
@@ -150,7 +152,8 @@ function rebuildAndReload() {
   if (window.buildLocationString) {
     var data = "path=" +  encodeURIComponent(window.buildLocationString);
     GET("/rebuild?" + data, function(msg, httpr) {
-      if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
+			var obj = qubit.opentag.Utils.gevalAndReturn(msg);
+      if (!obj || !obj.result.ok) {
         logError("Rebuild failed! " + msg);
       } else {
         info("System has been rebuilt for " + window.buildLocationString, 10000);
@@ -186,13 +189,14 @@ function openInEditorHandler(refNode) {
   openInEditorAndCreate("libraries." + tagRef.PACKAGE_NAME, "Tag.js", false);
 }
 
-function openInEditorAndCreate(package, file, create, data) {
-  var data = "classPath=" + package
+function openInEditorAndCreate(pckg, file, create, data) {
+  var data = "classPath=" + pckg
     + "&file=" + file
           + "&create=" + !!create
           + "&data=" +  encodeURIComponent(data);
   POST("/openInEditor", data, function(msg, httpr) {
-    if (!qubit.opentag.Utils.gevalAndReturn(msg).ok) {
+    var obj = qubit.opentag.Utils.gevalAndReturn(msg);
+    if (!obj || !obj.result.ok) {
       logError(msg);
       logError("Make sure that CLASSPATH of your library matches its location!");
     }
