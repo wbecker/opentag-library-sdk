@@ -872,9 +872,11 @@ var UNDEF = undefined;
             "qubit.opentag.Utils.gevalAndReturn.___var_test___error = ex;" +
             "}";
     Utils.geval(expression);
+    var res = Utils.gevalAndReturn.___var_test___;
+    var err = Utils.gevalAndReturn.___var_test___error;
     return {
-      result: Utils.gevalAndReturn.___var_test___,
-      error: Utils.gevalAndReturn.___var_test___error
+      result: res,
+      error: err
     };
   };
   
