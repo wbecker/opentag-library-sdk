@@ -189,8 +189,8 @@ function openInEditorHandler(refNode) {
   openInEditorAndCreate("libraries." + tagRef.PACKAGE_NAME, "Tag.js", false);
 }
 
-function openInEditorAndCreate(package, file, create, data) {
-  var data = "classPath=" + package
+function openInEditorAndCreate(pckg, file, create, data) {
+  var data = "classPath=" + pckg
     + "&file=" + file
           + "&create=" + !!create
           + "&data=" +  encodeURIComponent(data);
