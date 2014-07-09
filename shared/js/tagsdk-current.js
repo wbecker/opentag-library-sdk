@@ -29,9 +29,7 @@ try {
 
 global.NAMESPACE = global;
 
-global.qubit = {
-  VERSION: "0.9.2"
-};
+global.qubit = global.qubit || {};
 
 //shortcuts
 var EMPTY_FUN = function () {};
@@ -101,6 +99,10 @@ var UNDEF = undefined;
     
     last = current;
     lastName = files[files.length - 1];
+    
+    if (global.TAGSDK_NS_OVERRIDE) {
+       noOverride = false;
+    }
     
     if (instance !== undefined) {
       if (last[lastName] === undefined || !noOverride) {
