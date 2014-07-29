@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("mediamind.genericpagetag.v1.Tag", {
+qubit.opentag.LibraryTag.define("sizmek.genericpagetag.v1.Tag", {
 	config: {
 		/*DATA*/
 		name: "Generic Page Tag",
@@ -8,12 +8,12 @@ qubit.opentag.LibraryTag.define("mediamind.genericpagetag.v1.Tag", {
 		description: "Tag to be placed on any unique page with an activity ID associated",
 		html: "",
 		locationDetail: "",
-		isPrivate: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "MediaMind Page Activity ID",
+			name: "Sizmek Page Activity ID",
 			description: "The ID unique to the page the tag is running on",
 			token: "activity_id",
 			uv: ""

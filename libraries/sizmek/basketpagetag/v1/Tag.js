@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
+qubit.opentag.LibraryTag.define("sizmek.basketpagetag.v1.Tag", {
 	config: {
 		/*DATA*/
 		name: "Basket Page Tag",
@@ -8,12 +8,12 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
 		description: "To be placed only on the basket",
 		html: "",
 		locationDetail: "",
-		isPrivate: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "MediaMind Basket Activity ID",
+			name: "Sizmek Basket Activity ID",
 			description: "",
 			token: "activity_id",
 			uv: ""

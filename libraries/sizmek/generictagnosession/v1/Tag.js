@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
+qubit.opentag.LibraryTag.define("sizmek.generictagnosession.v1.Tag", {
 	config: {
 		/*DATA*/
 		name: "Generic Tag (no session)",
@@ -8,13 +8,13 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
 		description: "",
 		html: "",
 		locationDetail: "",
-		isPrivate: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "MediaMind ID",
-			description: "The ID that relates this pixel to MediaMind",
+			name: "Sizmek ID",
+			description: "The ID that relates this pixel to Sizmek",
 			token: "id",
 			uv: ""
 		}]

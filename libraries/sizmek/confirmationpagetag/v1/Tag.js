@@ -1,47 +1,47 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
+qubit.opentag.LibraryTag.define("sizmek.confirmationpagetag.v1.Tag", {
 	config: {
 		/*DATA*/
-		name: "Basket Page Tag",
+		name: "Confirmation Page Tag",
 		async: true,
-		description: "To be placed only on the basket",
+		description: "To be placed on the confirmation page only",
 		html: "",
 		locationDetail: "",
-		isPrivate: true,
+		isPrivate: false,
 		url: "",
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "MediaMind Basket Activity ID",
+			name: "Sizmek Confirmation Page Activity ID",
 			description: "",
 			token: "activity_id",
 			uv: ""
 		}, {
-			name: "Basket Sub Total",
+			name: "Order Total",
 			description: "",
 			token: "order_total",
-			uv: "universal_variable.basket.subtotal"
+			uv: "universal_variable.transaction.total"
 		}, {
 			name: "Order ID",
 			description: "",
 			token: "order_id",
-			uv: "universal_variable.basket.id"
+			uv: "universal_variable.transaction.order_id"
 		}, {
-			name: "Basket ID List",
+			name: "Product ID List",
 			description: "",
 			token: "ids",
-			uv: "universal_variable.basket.line_items[#].product.id"
+			uv: "universal_variable.transaction.line_items[#].product.id"
 		}, {
-			name: "Basket SKU List",
+			name: "Product SKU List",
 			description: "",
 			token: "skus",
-			uv: "universal_variable.basket.line_items[#].product.sku_code"
+			uv: "universal_variable.transaction.line_items[#].product.sku_code"
 		}, {
-			name: "Basket Quantity List",
+			name: "Product Quantity List",
 			description: "",
 			token: "quants",
-			uv: "universal_variable.basket.line_items[#].quantity"
+			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
 		/*~DATA*/
 	},
@@ -53,7 +53,6 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
 		window.ebProductInfo = "";
 		window.ebQuantity = 0;
 		window.ebRand = Math.random() * 1000000;
-
 
 		var i = 0,
 			ii = this.valueForToken("ids").length,
