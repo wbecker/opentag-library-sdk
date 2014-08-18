@@ -24,7 +24,7 @@
 
 var global = this;
 try {
-  global = (false || eval)("this") || (function () {return this; }()) || window;
+  global = (false || eval)("this") || (function (){return this;}()) || window;
 } catch (e) {}
 
 global.NAMESPACE = global;
@@ -33,7 +33,7 @@ global.qubit = global.qubit || {};
 
 //shortcuts
 var EMPTY_FUN = function () {};
-var UNDEF;
+var UNDEF = undefined;
 
 
 /*
@@ -3570,27 +3570,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     return ret;
   }
   
-  /**
-   * 
-   * @param {qubit.opentag.BaseTag} tag
-   * @returns {Array} Array of [parameter,variable] pairs
-   */
-  TagHelper.getAllVariablesWithParameters = function(tag) {
-    var vars = tag.getPageVariables();
-    var results = [];
-    for (var i = 0; i < vars.length; i++) {
-      var pageVar = vars[i];
-      var parameters = findParamatersForVariable(tag, pageVar);
-      for (var j = 0; j < parameters.length; j++) {
-        results.push({
-          parameter: parameters[j],
-          variable: pageVar
-        });
-      }
-    }
-    return results;
-  };
-  
   var _lock_obj = {};
   /**
    * Indicates if all parameters have variables assigned for the tag.
@@ -4807,7 +4786,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           this.log.WARN("timed out while loading dependencies.");
           this.addState("TIMED_OUT");
           this.loadingDependenciesFailed = new Date().valueOf();
-          this._triggerOnLoadTimeout();
+          this.onLoadTimeout();
         }
       } else {
         //wait for dependencies, no matter what.
@@ -4991,14 +4970,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @param {String} error Error string.
    */
   GenericLoader.prototype.onError = EMPTY_FUN;
-  
-  /**
-   * Triggers onLoadTimeout event.
-   * @protected
-   */
-  GenericLoader.prototype._triggerOnLoadTimeout = function () {
-    this.onLoadTimeout();
-  };
   
   /**
    * It is called when tag loading is timed out
@@ -6339,68 +6310,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     return variable;
   };
 
-  /**
-   * Logs this tag variables debugable information.
-   * @returns {Array} Array of objects with properties:
-   * 
-   *  name - name of variable
-   *  
-   *  exists - if variable value exists by tag meaning
-   *  
-   *  token - parameters token associated with variable, if exists,
-   *    null otherwise.
-   *  
-   *  value - current variable value
-   *  
-   *  variable - direct variable reference
-   */
-  BaseTag.prototype.checkVariablesState = function () {
-    var res = [];
-    this.log.FINE("Tag has been timed out, showing variables:");
-    var pairs = TagHelper.getAllVariablesWithParameters(this);
-    
-    for (var i = 0; i < pairs.length; i++) {
-      var param = pairs[i].parameter;
-      var variable = pairs[i].variable;
-      var val;
-      
-      if (param && param.token) {
-        val = this.valueForToken(param.token);
-      } else {
-        val = variable.getRelativeValue(true);
-      };
-      
-      var tmp = {
-        name: variable.config.name,
-        exists: variable.exists(),
-        token: param ? param.token : null,
-        value: val,
-        variable: variable
-      };
-      res.push(tmp);
-      
-      /*log*/
-      this.log.FINE(
-              " Variable Name: " + tmp.name +
-              ", Exists: " + tmp.exists +
-              ", Token: " + (param ? param.token : "<param is not assigned>") +
-              ", Value:" + val
-              );
-      /*~log*/
-    }
-    
-    return res;
-  };
-
-  /**
-   * @protected
-   * Triggers onLoadTimeout event.
-   */
-  BaseTag.prototype._triggerOnLoadTimeout = function () {
-    this.checkVariablesState();//L
-    this.onLoadTimeout();
-  };
-
   function _getSetNamedVariable(tag, token) {
     var variable = TagHelper.initPageVariable(tag.namedVariables[token]);
     tag.namedVariables[token] = variable;
@@ -6649,8 +6558,8 @@ q.html.PostData = function (url, data, type) {
   var _post, agent, isIe, isIe9, isOldIe, fullUrl, loaded, 
     retry, retryDelay, retryCount;
 
-  retryCount = 3;
-  retryDelay = 5000;
+  retryCount = 5;
+  retryDelay = 2000;
   loaded = false;
 
   retry = function () {
@@ -9007,7 +8916,6 @@ var JSON = {};
 
 
 
-
 (function() {
   var Utils = qubit.opentag.Utils;
   var PatternType = qubit.opentag.filter.pattern.PatternType;
@@ -9016,7 +8924,6 @@ var JSON = {};
   var LibraryTag = qubit.opentag.LibraryTag;
   var CustomTag = qubit.opentag.CustomTag;
   var DOMText = qubit.opentag.pagevariable.DOMText;
-  var BaseVariable = qubit.opentag.pagevariable.BaseVariable;
   var URLQuery = qubit.opentag.pagevariable.URLQuery;
   var Cookie = qubit.opentag.pagevariable.Cookie;
   var Expression = qubit.opentag.pagevariable.Expression;
@@ -9227,7 +9134,7 @@ var JSON = {};
             name: variableDefinition.name,
             value: variableDefinition.value
           };
-          
+          //hard coded value????
           switch (variableDefinition.type) {
             case V_JS_VALUE: //covers also UV
               variable = new Expression(varCfg);
@@ -9242,7 +9149,7 @@ var JSON = {};
               variable = new DOMText(varCfg);
               break;
             default:
-              variable = new BaseVariable(varCfg);
+              //hard coded val???
           }
           
           var parameter = {
