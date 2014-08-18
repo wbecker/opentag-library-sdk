@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<!-- ****** faviconit.com favicons ****** -->
+	<!-- Basic favicons -->
+	<link rel="shortcut icon"  type="image/x-icon" sizes="16x16 32x32 48x48 64x64" href="/shared/bin/html/favicon/favicon.ico?v1">
+	<link rel="shortcut icon" type="image/x-icon" href="/shared/bin/html/favicon/favicon.ico?v1">
+	<!--[if IE]><link rel="shortcut icon" href="/shared/bin/html/favicon/favicon.ico"><![endif]-->
+	<!-- For Opera Speed Dial -->
+	<link rel="icon" type="image/png" sizes="195x195" href="/shared/bin/html/favicon/favicon-195.png?v1">
+	<!-- For iPad with high-resolution Retina Display running iOS ≥ 7 -->
+	<link rel="apple-touch-icon" sizes="152x152" href="/shared/bin/html/favicon/favicon-152.png?v1">
+	<!-- For iPad with high-resolution Retina Display running iOS ≤ 6 -->
+	<link rel="apple-touch-icon" sizes="144x144" href="/shared/bin/html/favicon/favicon-144.png?v1">
+	<!-- For iPhone with high-resolution Retina Display running iOS ≥ 7 -->
+	<link rel="apple-touch-icon" sizes="120x120" href="/shared/bin/html/favicon/favicon-120.png?v1">
+	<!-- For iPhone with high-resolution Retina Display running iOS ≤ 6 -->
+	<link rel="apple-touch-icon" sizes="114x114" href="/shared/bin/html/favicon/favicon-114.png?v1">
+	<!-- For Google TV devices -->
+	<link rel="icon" type="image/png" sizes="96x96" href="/shared/bin/html/favicon/favicon-96.png?v1">
+	<!-- For iPad Mini -->
+	<link rel="apple-touch-icon" sizes="76x76" href="/shared/bin/html/favicon/favicon-76.png?v1">
+	<!-- For first- and second-generation iPad -->
+	<link rel="apple-touch-icon" sizes="72x72" href="/shared/bin/html/favicon/favicon-72.png?v1">
+	<!-- For non-Retina iPhone, iPod Touch and Android 2.1+ devices -->
+	<link rel="apple-touch-icon" href="/shared/bin/html/favicon/favicon-57.png?v1">
+	<!-- Windows 8 Tiles -->
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="/shared/bin/html/favicon/favicon-144.png?v1">
+	<!-- ****** faviconit.com favicons ****** -->    <title>Tag Library Testing Page</title>
+    
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!--Style-->
+    <link rel="stylesheet" href="font-awesome.min.css">  
+	<link media="all" type="text/css" rel="stylesheet" href="style.css">
+    <!--Javascript-->
+    <script src="js/json.js?v1"></script>
+    <script src="js/utils.js?v1"></script>
+    <script src="js/codemirror-4.1/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="js/codemirror-4.1/lib/codemirror.css?v1">
+    <link rel="stylesheet" href="js/codemirror-4.1/theme/ambiance.css?v1">
+    <link rel="stylesheet" href="js/codemirror-4.1/fold/foldgutter.css?v1" />
+    
+    <script src="js/codemirror-4.1/fold/foldcode.js"></script>
+    <script src="js/codemirror-4.1/fold/foldgutter.js"></script>
+    <script src="js/codemirror-4.1/fold/brace-fold.js"></script>
+    <script src="js/codemirror-4.1/fold/xml-fold.js"></script>
+    <script src="js/codemirror-4.1/fold/markdown-fold.js"></script>
+    <script src="js/codemirror-4.1/fold/comment-fold.js"></script>
+    <script src="js/codemirror-4.1/mode/xml/xml.js"></script>
+    <script src="js/codemirror-4.1/mode/markdown/markdown.js"></script>
+    <script src="js/codemirror-4.1/mode/javascript/javascript.js"></script>
+    <script src="js/codemirror-4.1/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="js/codemirror-4.1/mode/javascript/javascript.js"></script>
+  </head>
+  <body onload="main()">
+<font link='../../../shared/js/tagsdk-current.js'></font>
+<font link='../../../libraries/adform/adformbasic/v1/Tag.js'></font>
+<font link='../../../libraries/adform/adformecommercetracking/v1/Tag.js'></font>
+<font link='../../../libraries/adform/globaltrackingpointpageviewonly/v1/Tag.js'></font>
+<font link='../../../libraries/adgear/confirmationpageconversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/adgenie/conversiontracking/v1/Tag.js'></font>
+<font link='../../../libraries/adgenie/productpage/v1/Tag.js'></font>
+<font link='../../../libraries/adinsight/adinsightclicktocalldeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/adobesitecatalyst/sitecatalystconversiontag/v1/Tag.js'></font>
+<font link='../../../libraries/adobesitecatalyst/sitecatalystcustomtag/v1/Tag.js'></font>
+<font link='../../../libraries/adobesitecatalyst/sitecatalystpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/adroll/confirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/adroll/smartpixel/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/affiliatewindowwithpostimpressionparameterdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/confirmationtagwithcustomparameters/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/confirmationtagwithoutproductdetails/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/confirmationtagwithproductandcommissiongroupdetail/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/confirmationtagwithproductdetail/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/confirmationtagwithproductdetail/v1/local/Config.js'></font>
+<font link='../../../libraries/affiliatewindow/confirmationtagwithproductdetailandpvparameter/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/confirmationtagwithproductdetailchannel/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/depricatedconfirmationtagwithcustomparameterswithchannel/v1/Tag.js'></font>
+<font link='../../../libraries/affiliatewindow/mastertag/v1/Tag.js'></font>
+<font link='../../../libraries/affilinet/baskettrackingpixel/v1/Tag.js'></font>
+<font link='../../../libraries/affilinet/normaltrackingpixel/v1/Tag.js'></font>
+<font link='../../../libraries/appnexus/appnexusthankyoupagewithcustomdomain/v1/Tag.js'></font>
+<font link='../../../libraries/appnexus/conversiontag/v1/Tag.js'></font>
+<font link='../../../libraries/appnexus/conversiontagsecure/v1/Tag.js'></font>
+<font link='../../../libraries/appnexus/segmenttag/v1/Tag.js'></font>
+<font link='../../../libraries/appnexus/segmenttagr1/v1/Tag.js'></font>
+<font link='../../../libraries/audiencescience/gatewaytag/v1/Tag.js'></font>
+<font link='../../../libraries/backbone/backbonejs051/v1/Tag.js'></font>
+<font link='../../../libraries/bazaarvoice/analyticsintegrationcoderequireddataonly/v1/Tag.js'></font>
+<font link='../../../libraries/bazaarvoice/displayintegrationcode/v1/Tag.js'></font>
+<font link='../../../libraries/bazaarvoice/maintenancefreepieconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/bazaarvoice/socialmeasurementconversionbeaconrequiredfieldsonly/v1/Tag.js'></font>
+<font link='../../../libraries/become/roi/v1/Tag.js'></font>
+<font link='../../../libraries/become/salestracking/v1/Tag.js'></font>
+<font link='../../../libraries/bing/bingadcentercampaignanalyticsdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/bing/bingadcentercampaignanalyticsfullycustomizable/v1/Tag.js'></font>
+<font link='../../../libraries/bizrate/bizratenonbuyersurvey/v1/Tag.js'></font>
+<font link='../../../libraries/bluetriangle/bluetrianglepagetag/v1/Tag.js'></font>
+<font link='../../../libraries/buyat/conversiontagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/calltrackingmetrics/trackingcode/v1/Tag.js'></font>
+<font link='../../../libraries/caman/camanjs22/v1/Tag.js'></font>
+<font link='../../../libraries/chango/conversion/v1/Tag.js'></font>
+<font link='../../../libraries/chango/conversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/chango/conversionpixelv2/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedconversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedconversionpixelv2/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedoptimizationpixel/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedoptimizationpixelv2/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedoptimizationpixelv2generic/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedoptimizationpixelv2productpage/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedoptimizationpixelv2productpager2/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedoptimizationpixelv2transaction/v1/Tag.js'></font>
+<font link='../../../libraries/chango/deprecatedoptimizationpixelv2transactionr1/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationbasketpage/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationlistingcategorypage/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationotherpage/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationpixel/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationpixelv2/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationpixelv2generic/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationpixelv2productpage/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationpixelv2transaction/v1/Tag.js'></font>
+<font link='../../../libraries/chango/optimizationproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/channeladvisor/channeladvisorconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/channeladvisor/confirmationordertracking/v1/Tag.js'></font>
+<font link='../../../libraries/cheetahmail/tracktopurchaseconversion/v1/Tag.js'></font>
+<font link='../../../libraries/cheetahmail/tracktopurchasewithitemtracking/v1/Tag.js'></font>
+<font link='../../../libraries/clicktale/clicktaleatlaslegacy/v1/Tag.js'></font>
+<font link='../../../libraries/clicktale/clicktalebalkan/v1/Tag.js'></font>
+<font link='../../../libraries/clotheshorse/conversiontracking/v1/Tag.js'></font>
+<font link='../../../libraries/clotheshorse/productpage/v1/Tag.js'></font>
+<font link='../../../libraries/commissionjunction/cjconversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/commissionjunction/cjconversionpixelincldiscount/v1/Tag.js'></font>
+<font link='../../../libraries/commissionjunction/commissionjunction/v1/Tag.js'></font>
+<font link='../../../libraries/conexance/basketpage/v1/Tag.js'></font>
+<font link='../../../libraries/conexance/basketpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/conexance/categorypagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/conexance/confirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/conexance/confirmationpagewithuseremail/v1/Tag.js'></font>
+<font link='../../../libraries/conexance/nonbasketconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/connextra/datacapturetag/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsbasketpage/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsconversionevents/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsconversionpages/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricselementtracking/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsgenericpages/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsloginpages/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsproductpages/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricsproductpageswithcustomattribute/v1/Tag.js'></font>
+<font link='../../../libraries/coremetrics/coremetricssearchpages/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/legacybasketpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/legacybasketpagetag/v2/Tag.js'></font>
+<font link='../../../libraries/criteo/legacyconfirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/legacyconfirmationpagetagextradetails/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/legacyhomepagetag/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/legacylistingpage/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/legacyproductpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/legacyusertag/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetagbasketpage/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetagcategorypage/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetagconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetagconfirmationwithoutdedupe/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetaghomepage/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetagproduct/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetagsearchresultpage/v1/Tag.js'></font>
+<font link='../../../libraries/criteo/onetagtravelsearchpage/v1/Tag.js'></font>
+<font link='../../../libraries/cryptojs/md5hashingv312/v1/Tag.js'></font>
+<font link='../../../libraries/cryptojs/sha1/v1/Tag.js'></font>
+<font link='../../../libraries/cryptojs/sha1hashingv312/v1/Tag.js'></font>
+<font link='../../../libraries/cryptojs/sha256hashingv312/v1/Tag.js'></font>
+<font link='../../../libraries/cufon/cufon109i/v1/Tag.js'></font>
+<font link='../../../libraries/d7search/d7searchconversion/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/deprecatedstormiqconfirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/stormiqconfirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/stormiqconfirmationpagetagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/stormiqconfirmationpagetagnoshipping/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/stormiqconfirmationpagetagwithcustommetrics/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/stormiqcustomtrackingscript/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/stormiqgenerictag/v1/Tag.js'></font>
+<font link='../../../libraries/dcstorm/stormiqgenerictagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/decibelinsight/allpagestag/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/clicktalebalkandonotuse/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/deprecatedgoogleremarketingconversiontagsynchronous/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/googledynamicremarketingtagbasketpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/googledynamicremarketingtaghomeandcategorypagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/googledynamicremarketingtagproductpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/googleremarketingconversionasyncold/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/googleremarketingwithcustomparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/segmenttagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/deprecatedtags/testingdeprecatedtagsfolder/v1/Tag.js'></font>
+<font link='../../../libraries/dojo/dojo160/v1/Tag.js'></font>
+<font link='../../../libraries/drawbridge/crossdevicepixel/v1/Tag.js'></font>
+<font link='../../../libraries/drawbridge/drawbridge/v1/Tag.js'></font>
+<font link='../../../libraries/ebay/ebayroitracker/v1/Tag.js'></font>
+<font link='../../../libraries/emailvision/basketpagetaginactive/v1/Tag.js'></font>
+<font link='../../../libraries/emailvision/emailvisionconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/emailvision/emailvisionconfirmationpagewithcustomserver/v1/Tag.js'></font>
+<font link='../../../libraries/emailvision/notused/v1/Tag.js'></font>
+<font link='../../../libraries/everesttech/efficientfrontierconversiontag/v1/Tag.js'></font>
+<font link='../../../libraries/evidon/eusitenotice/v1/Tag.js'></font>
+<font link='../../../libraries/evidon/ussitenoticeinpage/v1/Tag.js'></font>
+<font link='../../../libraries/evidon/ussitenoticewithimpliedconsentinpage/v1/Tag.js'></font>
+<font link='../../../libraries/exacttarget/conversionpage/v1/Tag.js'></font>
+<font link='../../../libraries/exacttarget/landingpage/v1/Tag.js'></font>
+<font link='../../../libraries/extcore/extcore310/v1/Tag.js'></font>
+<font link='../../../libraries/facebook/facebookconversiontrackingdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/facebook/facebookpixel/v1/Tag.js'></font>
+<font link='../../../libraries/facebook/facebookpixeldeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/facebook/facebookpixelwithcurrency/v1/Tag.js'></font>
+<font link='../../../libraries/fandist/digitalanimal/v1/Tag.js'></font>
+<font link='../../../libraries/firefly/generictag/v1/Tag.js'></font>
+<font link='../../../libraries/fitsme/virtualfittingroom/v1/Tag.js'></font>
+<font link='../../../libraries/fitsme/virtualfittingroomtagwithdatapopulation/v1/Tag.js'></font>
+<font link='../../../libraries/flixmedia/checkoutendpage/v1/Tag.js'></font>
+<font link='../../../libraries/flixmedia/checkoutendpagewithextraeanparameter/v1/Tag.js'></font>
+<font link='../../../libraries/flixmedia/checkoutstartpage/v1/Tag.js'></font>
+<font link='../../../libraries/flixmedia/checkoutstartpagewithextraeanparameter/v1/Tag.js'></font>
+<font link='../../../libraries/flxone/platform/v1/Tag.js'></font>
+<font link='../../../libraries/freespee/aesptag/v1/Tag.js'></font>
+<font link='../../../libraries/freespee/callbackwidget/v1/Tag.js'></font>
+<font link='../../../libraries/freespee/freespeedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/freespee/googleremarketingwithcustomparameters/v1/Tag.js'></font>
+<font link='../../../libraries/freespee/mobiletag/v1/Tag.js'></font>
+<font link='../../../libraries/freespee/yetanotheroopsiforgottochangethedefaultstag/v1/Tag.js'></font>
+<font link='../../../libraries/freespee/yieldify/v1/Tag.js'></font>
+<font link='../../../libraries/galleria/galleria123/v1/Tag.js'></font>
+<font link='../../../libraries/getsatisfaction/feedbacktab/v1/Tag.js'></font>
+<font link='../../../libraries/google/dynamicadsforeducationallpages/v1/Tag.js'></font>
+<font link='../../../libraries/google/dynamicadsforflightsallpages/v1/Tag.js'></font>
+<font link='../../../libraries/google/dynamichoteladsremarketingallpages/v1/Tag.js'></font>
+<font link='../../../libraries/google/dynamicxdisplayadscustomparametersolutionallpages/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleadwordsconversionasync/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleadwordsconversionsynchronousdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleadwordswithadditionalparameters/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleadwordswithadditionalparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleadwordswithlessadditionalparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleaffiliatenetworkconversion/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtagbasketpage/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtagbasketpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtagconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtagconfirmationpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtaghomeandcategorypage/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtaghomeandcategorypagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtagproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/google/googledynamicremarketingtagproductpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingconversionasync/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingconversionasyncdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingconversionasyncwithadditionalandcustomparameters/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingconversionasyncwithadditionalandcustomparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingconversionasyncwithadditionalparameters/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingconversionasyncwithadditionalparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingonlyaynsc/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingonlyaynscdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingwithcustomparameters/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleremarketingwithcustomparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleretargetingconversionasyncwithcustomparameters/v1/Tag.js'></font>
+<font link='../../../libraries/google/googleretargetingconversionasyncwithcustomparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/googleadsense/googleadsense/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/deprecatedgoogleanalyticsecommercetrackingwithcustomdomains/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/ecommercetrackingcustomdomains/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/ecommercetrackingcustomdomainsanddomainlinker/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/ecommercetrackingrequiredfieldsonly/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/ecommercetrackingrequiredfieldsonlydeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/ecommercetrackingwithdomainlinker/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/fullycustomizeabletag/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticscrossdomain/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticscustomdomains/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticsecommercecustomdomainsonlyrequiredparameters/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticsecommercesupportsdisplayadvertising/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticseventtracking/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticseventtrackingdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticsremarketing/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticssingledomain/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticswithallowlinker/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticswithdisplayadvertisingsupport/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticswithdisplaysupportandenhancedlinkattribution/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/googleanalyticswithenhancedlinkattribution/v1/Tag.js'></font>
+<font link='../../../libraries/googleanalytics/localcurrencysettingdependency/v1/Tag.js'></font>
+<font link='../../../libraries/googledoubleclick/doubleclickforadvertiserscustom/v1/Tag.js'></font>
+<font link='../../../libraries/googledoubleclick/doubleclickforadvertiserscustomdomain/v1/Tag.js'></font>
+<font link='../../../libraries/googledoubleclick/doubleclickforadvertiserscustomdomainandord/v1/Tag.js'></font>
+<font link='../../../libraries/googledoubleclick/doubleclickforadvertiserssimple/v1/Tag.js'></font>
+<font link='../../../libraries/googledoubleclick/doubleclickforadvertiserswithcustomsubdomainandcustomparameters/v1/Tag.js'></font>
+<font link='../../../libraries/googledoubleclick/doubleclickforadvertiserswithcustomsubdomaincustomparameterscustomord/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/ecgeneric/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/ecgeneric/v1/local/Config.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/ecommercetagconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/ecommercetagconfirmationpageallowlinker/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/ecommercetagconfirmationpageallowlinker/v1/local/Config.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/ecommercetagconfirmationpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/ectransaction/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/genericpageview/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/generictagsendingcustomfieldnameobjects/v1/Tag.js'></font>
+<font link='../../../libraries/googleuniversalanalytics/googleuniversalanalyticsautosenduvevents/v1/Tag.js'></font>
+<font link='../../../libraries/googlewebfontloader/googlewebfontloader/v1/Tag.js'></font>
+<font link='../../../libraries/googlewebfontloader/googlewebfontloader1019deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/gosquared/gosquaredallpages/v1/Tag.js'></font>
+<font link='../../../libraries/graphael/graphael041/v1/Tag.js'></font>
+<font link='../../../libraries/hellobar/hellobar/v1/Tag.js'></font>
+<font link='../../../libraries/hubspot/analytics/v1/Tag.js'></font>
+<font link='../../../libraries/igodigital/igodigitalobservation/v1/Tag.js'></font>
+<font link='../../../libraries/insparq/confirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/insparq/sharingwidgetbuttons/v1/Tag.js'></font>
+<font link='../../../libraries/insparq/sharingwidgetbuttons/v1/local/Config.js'></font>
+<font link='../../../libraries/insparq/sharingwidgetcss/v1/Tag.js'></font>
+<font link='../../../libraries/insparq/sharingwidgetrecipientpopoutcoupon/v1/Tag.js'></font>
+<font link='../../../libraries/insparq/sharingwidgetrecipientpopoutcoupon/v1/local/Config.js'></font>
+<font link='../../../libraries/insparq/trendingproductsfeed/v1/Tag.js'></font>
+<font link='../../../libraries/insparq/trendingproductsfeed/v1/local/Config.js'></font>
+<font link='../../../libraries/insparq/trendingproductsmodule/v1/Tag.js'></font>
+<font link='../../../libraries/insparq/trendingproductsmodule/v1/local/Config.js'></font>
+<font link='../../../libraries/intelliad/conversion/v1/Tag.js'></font>
+<font link='../../../libraries/intelliad/impressionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/intelliad/seotracking/v1/Tag.js'></font>
+<font link='../../../libraries/intelligentfutures/default/v1/Tag.js'></font>
+<font link='../../../libraries/intelligentreach/basketpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/intelligentreach/confirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/intelligentreach/confirmationpagetagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/intelligentreach/domtrackingentrycode/v1/Tag.js'></font>
+<font link='../../../libraries/intelligentreach/generictag/v1/Tag.js'></font>
+<font link='../../../libraries/intelligentreach/productpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/jquery/asynchronous/v1/Tag.js'></font>
+<font link='../../../libraries/jquery/d152deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/jquery/d164deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/jquery/d172deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/jquery/jquery211/v1/Tag.js'></font>
+<font link='../../../libraries/jquery/noconflictjquery/v1/Tag.js'></font>
+<font link='../../../libraries/jquery/synchronous/v1/Tag.js'></font>
+<font link='../../../libraries/jssignals/jssignals061/v1/Tag.js'></font>
+<font link='../../../libraries/kenshoo/kenshoonontransactionconversionpage/v1/Tag.js'></font>
+<font link='../../../libraries/kenshoo/kenshoothankyoupagetracking/v1/Tag.js'></font>
+<font link='../../../libraries/kenshoo/orderpixel/v1/Tag.js'></font>
+<font link='../../../libraries/kissmetrics/kissinsightssurvey/v1/Tag.js'></font>
+<font link='../../../libraries/kissmetrics/kissmetrics/v1/Tag.js'></font>
+<font link='../../../libraries/kneon/trackingpixel/v1/Tag.js'></font>
+<font link='../../../libraries/krux/kruxinterchange/v1/Tag.js'></font>
+<font link='../../../libraries/lengow/conversiontrackingconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/lengow/conversiontrackingpaymentmethodpage/v1/Tag.js'></font>
+<font link='../../../libraries/lessjs/lessjs113/v1/Tag.js'></font>
+<font link='../../../libraries/linkshare/linkshareconfirmationpagepixel/v1/Tag.js'></font>
+<font link='../../../libraries/linkshare/linkshareconfirmationpagepixeldeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/linkshare/linkshareconfirmationpagepixeldeprecated2/v1/Tag.js'></font>
+<font link='../../../libraries/liveclicker/conversiontagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/liveclicker/liveclickerconfirmationtagwithallparameters/v1/Tag.js'></font>
+<font link='../../../libraries/lodash/lodashnoconflict/v1/Tag.js'></font>
+<font link='../../../libraries/lyris/clicktracksconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/lyris/clicktracksgenerictag/v1/Tag.js'></font>
+<font link='../../../libraries/lyticsio/initiatejstag/v1/Tag.js'></font>
+<font link='../../../libraries/lyticsio/sendjstagevent/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/basicconversion/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/basicconversionanonymizeip/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/clicktrackingtag/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/clicktrackingtaganonymizeip/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/productlevelconversion/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/productlevelconversionanonymizeip/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzbasicconversiondeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzclicktrackingtagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzclicktrackingtagdeprecatedr3/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzconversioncapturecodedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzconversioncapturecodedeprecatedr1/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzconversioncapturecodedeprecatedr2/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzconversiontrackingtagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzconversiontrackingtagextraparametersdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzconversiontrackingtagrevenueonlydeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzproductlevelconversiondeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/marinsoftware/zzserversidepixellandingpagetrackingdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/matiro/matirotag/v1/Tag.js'></font>
+<font link='../../../libraries/mediaforge/basic/v1/Tag.js'></font>
+<font link='../../../libraries/mediaforge/basket/v1/Tag.js'></font>
+<font link='../../../libraries/mediaforge/category/v1/Tag.js'></font>
+<font link='../../../libraries/mediaforge/confirmation/v1/Tag.js'></font>
+<font link='../../../libraries/mediaforge/product/v1/Tag.js'></font>
+<font link='../../../libraries/mediamind/basketpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/mediamind/confirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/mediamind/genericpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/mediamind/generictagnosession/v1/Tag.js'></font>
+<font link='../../../libraries/mediaplex/categoryiframe/v1/Tag.js'></font>
+<font link='../../../libraries/mediaplex/conversioniframe/v1/Tag.js'></font>
+<font link='../../../libraries/mediaplex/productiframe/v1/Tag.js'></font>
+<font link='../../../libraries/mediaplex/standardiframe/v1/Tag.js'></font>
+<font link='../../../libraries/mediaplex/vouchercodeenterediframe/v1/Tag.js'></font>
+<font link='../../../libraries/mediaplex/znotneeded/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/alternativeordertrackingtag/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/banner/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/bannerdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/dashboard/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/dashboarddeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/refereetag/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/refereetagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/referrertag/v1/Tag.js'></font>
+<font link='../../../libraries/mentionme/referrertagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/merchantadvantage/chanalyticsconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/merchantadvantage/chanalyticsproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/merchenta/conversiontag/v1/Tag.js'></font>
+<font link='../../../libraries/merchenta/productlistingtag/v1/Tag.js'></font>
+<font link='../../../libraries/merchenta/producttag/v1/Tag.js'></font>
+<font link='../../../libraries/merchenta/shoppingcarttag/v1/Tag.js'></font>
+<font link='../../../libraries/merchenta/visittag/v1/Tag.js'></font>
+<font link='../../../libraries/modernizr/modernizr206/v1/Tag.js'></font>
+<font link='../../../libraries/monetate/monetate/v1/Tag.js'></font>
+<font link='../../../libraries/mootools/mootools/v1/Tag.js'></font>
+<font link='../../../libraries/mythings/confirmationtaginactive/v1/Tag.js'></font>
+<font link='../../../libraries/mythings/customtag/v1/Tag.js'></font>
+<font link='../../../libraries/mythings/endoftransactiontag/v1/Tag.js'></font>
+<font link='../../../libraries/mythings/productpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/mythings/visitortag/v1/Tag.js'></font>
+<font link='../../../libraries/netbooster/conversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/netbooster/deprecatedconversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/netbooster/remarketingpixel/v1/Tag.js'></font>
+<font link='../../../libraries/nextag/confirmationtag/v1/Tag.js'></font>
+<font link='../../../libraries/nextag/confirmationtagwithproductdetails/v1/Tag.js'></font>
+<font link='../../../libraries/nextag/thankyoupagesurvey/v1/Tag.js'></font>
+<font link='../../../libraries/nextperformance/baskettag/v1/Tag.js'></font>
+<font link='../../../libraries/nextperformance/homepagetag/v1/Tag.js'></font>
+<font link='../../../libraries/nextperformance/producttag/v1/Tag.js'></font>
+<font link='../../../libraries/nextperformance/transactiontag/v1/Tag.js'></font>
+<font link='../../../libraries/olapic/carouselwidget/v1/Tag.js'></font>
+<font link='../../../libraries/olapic/carouselwidget/v1/local/BDDSuite.js'></font>
+<font link='../../../libraries/olapic/carouselwidget/v1/local/Config.js'></font>
+<font link='../../../libraries/olapic/checkoutpixel/v1/Tag.js'></font>
+<font link='../../../libraries/olapic/checkoutpixel/v1/local/Config.js'></font>
+<font link='../../../libraries/olark/olarkchat/v1/Tag.js'></font>
+<font link='../../../libraries/olark/olarkchatwithgoogleanalytics/v1/Tag.js'></font>
+<font link='../../../libraries/opentag/blanktag/v1/Tag.js'></font>
+<font link='../../../libraries/optimizely/optimizely/v1/Tag.js'></font>
+<font link='../../../libraries/ownedit/confirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/attributepagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/basketpage/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/basketpagewithsmartrecs/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/brandpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/categorypage/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/checkoutpages/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/confirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/confirmationpageasync/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/confirmationpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/homepage/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/homepagewithsmartrecs/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/orderpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/otherpage/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/otherpagewithsmartrecs/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/productpage/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/productpagewithsmartrecs/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/searchpage/v1/Tag.js'></font>
+<font link='../../../libraries/peerius/searchpagewithsmartrecs/v1/Tag.js'></font>
+<font link='../../../libraries/perfectstormmedia/conversiontag/v1/Tag.js'></font>
+<font link='../../../libraries/piwik/piwikbasic/v1/Tag.js'></font>
+<font link='../../../libraries/polyvore/conversiontrackingpixel/v1/Tag.js'></font>
+<font link='../../../libraries/pricegrabber/roitrackingctscode/v1/Tag.js'></font>
+<font link='../../../libraries/pricegrabber/thankyoupagesurvey/v1/Tag.js'></font>
+<font link='../../../libraries/pricerunner/pricerunnersalepixel/v1/Tag.js'></font>
+<font link='../../../libraries/prismastar/orderconfirmationtrackingpixel/v1/Tag.js'></font>
+<font link='../../../libraries/prismastar/productpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/prototype/prototypejs17/v1/Tag.js'></font>
+<font link='../../../libraries/pubnub/pubnub312/v1/Tag.js'></font>
+<font link='../../../libraries/quantcast/deprecatedquantcastconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/quantcast/quantcastconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/quantcast/quantcastwebmeasurement/v1/Tag.js'></font>
+<font link='../../../libraries/quantcast/quantcastwebmeasurementwithlabels/v1/Tag.js'></font>
+<font link='../../../libraries/quantcast/quantcastwitheventtracking/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/combineduvlistener/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/georequest/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/googletagmanagerconverterdatalayeruv/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/json2/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/pongtimers/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/qubitcookieconsent/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/qubitqtrackerresenduniversalvariable/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/realtimeping/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/supertag/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvapichangelistener/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvbreadcrumbconverter/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvlistproductlistingpage/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvlistuserinformation/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvtestbasketpage/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvtestconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvtestpageinformation/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvtestproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/uvtrackaddingnewevents/v1/Tag.js'></font>
+<font link='../../../libraries/qubit/zzdeleteme/v1/Tag.js'></font>
+<font link='../../../libraries/qype/qype/v1/Tag.js'></font>
+<font link='../../../libraries/radiumone/radiumonebasketpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/radiumone/radiumoneconfirmationpagesdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/radiumone/radiumonegenericimagetag/v1/Tag.js'></font>
+<font link='../../../libraries/radiumone/radiumonegenericpagesdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/radiumone/radiumonegenerictag/v1/Tag.js'></font>
+<font link='../../../libraries/requirejs/requirejs/v1/Tag.js'></font>
+<font link='../../../libraries/requirejs/requirejs0240/v1/Tag.js'></font>
+<font link='../../../libraries/responsetap/responsetapclicktocall/v1/Tag.js'></font>
+<font link='../../../libraries/responsys/riconversiontracking/v1/Tag.js'></font>
+<font link='../../../libraries/responsys/riconversiontrackingdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/responsys/wrstagversion19/v1/Tag.js'></font>
+<font link='../../../libraries/rocketfuel/conversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/rocketfuel/homepage/v1/Tag.js'></font>
+<font link='../../../libraries/rocketfuel/universaltrackingpixel/v1/Tag.js'></font>
+<font link='../../../libraries/salecycle/confirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/salecycle/deprecatedsalecycleconfirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/salecycle/generic/v1/Tag.js'></font>
+<font link='../../../libraries/salecycle/genericmobile/v1/Tag.js'></font>
+<font link='../../../libraries/sammy/sammyjs063/v1/Tag.js'></font>
+<font link='../../../libraries/sessioncam/imamorondeleteme/v1/Tag.js'></font>
+<font link='../../../libraries/sessioncam/sessioncamv53deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/sessioncam/sessioncamv55/v1/Tag.js'></font>
+<font link='../../../libraries/sessioncam/sessioncamv55deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/sessioncam/sessioncamv6/v1/Tag.js'></font>
+<font link='../../../libraries/shoppingcom/popuppossurvey/v1/Tag.js'></font>
+<font link='../../../libraries/shoppingcom/roitracker/v1/Tag.js'></font>
+<font link='../../../libraries/shopzilla/conversiontag/v1/Tag.js'></font>
+<font link='../../../libraries/shopzilla/shopzillapossurvey/v1/Tag.js'></font>
+<font link='../../../libraries/shopzilla/shopzillasurveyform/v1/Tag.js'></font>
+<font link='../../../libraries/silverpop/webtracking/v1/Tag.js'></font>
+<font link='../../../libraries/silverpop/webtrackingengageconversioneot/v1/Tag.js'></font>
+<font link='../../../libraries/sizzle/sizzle144/v1/Tag.js'></font>
+<font link='../../../libraries/skimlinks/skimlinks/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/allpages/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/allpagescss/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/basketpage/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/confirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/d404page/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/homepage/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/listingpage/v1/Tag.js'></font>
+<font link='../../../libraries/smartfocus/productpage/v1/Tag.js'></font>
+<font link='../../../libraries/snowplowanalytics/snowplowecommtracker/v1/Tag.js'></font>
+<font link='../../../libraries/snowplowanalytics/snowploweventtracker/v1/Tag.js'></font>
+<font link='../../../libraries/snowplowanalytics/snowplowpagetracker/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/baskettag/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/categorytag/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/confirmationtag/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/confirmationtagwithlastclicktracking/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/defaultinclhomepagetags/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/deprecatedbasketpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/deprecatedcategorypagetag/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/deprecatedconfirmationpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/deprecatedconfirmationpagewithlastclicktracking/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/deprecateddefaulttagincludinghomepage/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/deprecatedproductpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/sociomantic/producttag/v1/Tag.js'></font>
+<font link='../../../libraries/socketio/socketio070/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagcruiseproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagcruisepurchaseconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagcruisesearchresultspage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagflightproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagflightpurchaseconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagflightsearchresultspage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertaghomepageothertrackingpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertaghotelproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertaghotelpurchaseconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertaghotelsearchresultspage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagotherproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagotherpurchaseconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagothersearchresultspage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagrentalcarproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagrentalcarpurchaseconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagrentalcarsearchresultspage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagvacationproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagvacationpurchaseconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/advertisertagvacationsearchresultspage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagcruisepurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagcruisesearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflighthotelpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflighthotelrentalcarpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflighthotelrentalcarsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflighthotelsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflightpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflightrentalcarpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflightrentalcarsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagflightsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertaghomepage/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertaghotelpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertaghotelrentalcarpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertaghotelrentalcarsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertaghotelsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagrentalcarpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagrentalcarsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagvacationpurchaseconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/sojern/datapartnertagvacationsearch/v1/Tag.js'></font>
+<font link='../../../libraries/sovendus/sovendusallfields/v1/Tag.js'></font>
+<font link='../../../libraries/sovendus/sovendusdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/sovendus/sovendusrequiredfieldsonly/v1/Tag.js'></font>
+<font link='../../../libraries/spinejs/spinejs004/v1/Tag.js'></font>
+<font link='../../../libraries/steelhouse/conversionpixel/v1/Tag.js'></font>
+<font link='../../../libraries/steelhouse/smarterpixel/v1/Tag.js'></font>
+<font link='../../../libraries/steelhouse/trackingpixelallpagesexceptproductandconfirmation/v1/Tag.js'></font>
+<font link='../../../libraries/steelhouse/trackingpixelproductpage/v1/Tag.js'></font>
+<font link='../../../libraries/struq/basketpagetagv114/v1/Tag.js'></font>
+<font link='../../../libraries/struq/basketpagetagv15/v1/Tag.js'></font>
+<font link='../../../libraries/struq/basketpagetagv19us/v1/Tag.js'></font>
+<font link='../../../libraries/struq/conversiontagv114/v1/Tag.js'></font>
+<font link='../../../libraries/struq/conversiontagv15/v1/Tag.js'></font>
+<font link='../../../libraries/struq/conversiontagv19us/v1/Tag.js'></font>
+<font link='../../../libraries/struq/deprecatedbasketpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/struq/deprecatedconversiontag/v1/Tag.js'></font>
+<font link='../../../libraries/struq/deprecatedhomepagetag/v1/Tag.js'></font>
+<font link='../../../libraries/struq/deprecatedproductlistingtag/v1/Tag.js'></font>
+<font link='../../../libraries/struq/deprecatedproductpagetag/v1/Tag.js'></font>
+<font link='../../../libraries/struq/homepagetagv114/v1/Tag.js'></font>
+<font link='../../../libraries/struq/homepagetagv15/v1/Tag.js'></font>
+<font link='../../../libraries/struq/homepagetagv19us/v1/Tag.js'></font>
+<font link='../../../libraries/struq/listingpagetagv114/v1/Tag.js'></font>
+<font link='../../../libraries/struq/listingpagetagv15/v1/Tag.js'></font>
+<font link='../../../libraries/struq/listingpagetagv19us/v1/Tag.js'></font>
+<font link='../../../libraries/struq/productpagetagv114/v1/Tag.js'></font>
+<font link='../../../libraries/struq/productpagetagv15/v1/Tag.js'></font>
+<font link='../../../libraries/struq/productpagetagv19us/v1/Tag.js'></font>
+<font link='../../../libraries/stylefruits/confirmationpixel/v1/Tag.js'></font>
+<font link='../../../libraries/sub2/deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/sub2/sub2basketpagedependsuponsub2mainscriptallpages/v1/Tag.js'></font>
+<font link='../../../libraries/sub2/sub2confirmationpagedependsuponsub2mainscriptallpages/v1/Tag.js'></font>
+<font link='../../../libraries/sub2/sub2contactdetailsdependsuponsub2mainscriptallpages/v1/Tag.js'></font>
+<font link='../../../libraries/sub2/sub2mainscriptallpages/v1/Tag.js'></font>
+<font link='../../../libraries/sub2/sub2registrationdependsuponsub2mainscriptallpages/v1/Tag.js'></font>
+<font link='../../../libraries/tenderapp/tenderapp/v1/Tag.js'></font>
+<font link='../../../libraries/tradedoubler/confirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/tradedoubler/confirmationpagenoproductdetails/v1/Tag.js'></font>
+<font link='../../../libraries/tradedoubler/confirmationpager1/v1/Tag.js'></font>
+<font link='../../../libraries/tradedoubler/confirmationpagetagdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/ui/yui330/v1/Tag.js'></font>
+<font link='../../../libraries/underscore/underscore117/v1/Tag.js'></font>
+<font link='../../../libraries/underscore/underscore144/v1/Tag.js'></font>
+<font link='../../../libraries/unidays/redemptiontracking/v1/Tag.js'></font>
+<font link='../../../libraries/uservoice/uservoicechat/v1/Tag.js'></font>
+<font link='../../../libraries/veinteractive/confirmationpixel/v1/Tag.js'></font>
+<font link='../../../libraries/veinteractive/containertag/v1/Tag.js'></font>
+<font link='../../../libraries/visualdna/basketadditionreport/v1/Tag.js'></font>
+<font link='../../../libraries/visualdna/basketremovalreport/v1/Tag.js'></font>
+<font link='../../../libraries/visualdna/conversionreport/v1/Tag.js'></font>
+<font link='../../../libraries/visualdna/emailsync/v1/Tag.js'></font>
+<font link='../../../libraries/visualdna/pageviewreport/v1/Tag.js'></font>
+<font link='../../../libraries/visualdna/postcodesync/v1/Tag.js'></font>
+<font link='../../../libraries/visualdna/transactionreport/v1/Tag.js'></font>
+<font link='../../../libraries/visualwebsiteoptimizer/visualwebsiteoptimizer/v1/Tag.js'></font>
+<font link='../../../libraries/webgains/webgains/v1/Tag.js'></font>
+<font link='../../../libraries/webgains/webgainsdeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/webgains/webgainsdeprecatedr1/v1/Tag.js'></font>
+<font link='../../../libraries/webgains/webgainsdeprecatedr2/v1/Tag.js'></font>
+<font link='../../../libraries/weborama/weboramaconversiontracking/v1/Tag.js'></font>
+<font link='../../../libraries/weborama/weboramafunneltag/v1/Tag.js'></font>
+<font link='../../../libraries/weborama/weboramawreport/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/deprecated/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/webtrendsbasicmultitrack/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/webtrendsecommercetracking/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/webtrendslinktagging/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/webtrendspageviewtrackingfullconfig/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/webtrendspageviewtrackingsimpleconfig/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/webtrendsproductpages/v1/Tag.js'></font>
+<font link='../../../libraries/webtrends/webtrendsscenarioanalysis/v1/Tag.js'></font>
+<font link='../../../libraries/xaxis/mookie/v1/Tag.js'></font>
+<font link='../../../libraries/xuijs/xuijs200/v1/Tag.js'></font>
+<font link='../../../libraries/yepnope/yepnope101/v1/Tag.js'></font>
+<font link='../../../libraries/yieldify/yieldify/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxbasketpage/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxconfirmationpage/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxconfirmationpagedeprecated/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxconfirmationpagedeprecatedr1/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxconfirmationpagewithcid/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxconfirmationpagewithorderdetails/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxgenericmastertag/v1/Tag.js'></font>
+<font link='../../../libraries/zanox/zanoxproductpages/v1/Tag.js'></font>
+<font link='../../../libraries/zopim/zopimlivechat/v1/Tag.js'></font>
+<div id="header">
+	<h1>Open tag</h1>
+</div>
+<div id="mocha" style="display:none"></div>
+<div id="content">
+	<h2>Tag Library Testing Page</h2>
+	<div class="global-buttons">
+		<a href="#-1" onclick="info('Running build in background...');rebuildAndReload();">
+			<i class="fa"></i><span>Rebuild Everything</span></a>
+		<a href="#-1" onclick="toggleUVSelector(this.children[1])">
+			<i class="fa"></i><span>Browse UV</span></a>
+		<a href="#-1" onclick="runAllTests()">
+			<i class="fa fa-rocket"></i> Run all tests</a>
+	</div>
+	
+	<div id="uv-selector-holder"></div>
+	
+	<p>Use this page to test your tag library settings.</p>
+
+	<script>
+		function showButtonHandler(node, e) {
+      var event = e || window.event;
+      if(event.ignoreEvent) {
+        return false;
+      }
+			var shown = node.className.indexOf("show") !== -1;
+			qubit.opentag.Utils.removeClass(node, shown ? "show" : "hide");
+			qubit.opentag.Utils.addClass(node, shown ? "hide" : "show");
+		}
+		function onFocusInput(node) {
+			if (!node.entered && node.value === '') {
+				node.entered = true;
+				node.className = '';
+				node.value = '';
+			}
+		}
+		function onBlurInput(node) {
+			if (!node.value) {
+				node.value = '';
+				node.entered = false;
+				node.className = 'red';
+			}
+		}
+	</script>
+
+	<div id="trash" style="display:none">
+		<!--
+		
+		
+					TEMPLATES AREA, ALWAYS DISPLAY NONE
+		
+		
+		-->
+		
+		<div id="vendor-template"></div>
+
+		<div id="library-template">
+			<div class="library-title"  onclick="showButtonHandler(this.parentNode, arguments[0])">
+				<div class="status"></div>
+				<div class="title"></div>
+			</div>
+      <span marker="true"></span>
+			<button class="test-library" onclick="runTagHandler(this.parentNode)" alt="Run script"><i class="fa fa-play-circle"></i> Run </button>
+			<button class="reload" onclick="reloadTagHandler(this.parentNode)" alt="Refresh script"><i class="fa fa-refresh"></i> Reload </button>
+			<button class="edit-uv" onclick="editUVURLHandler(this.parentNode)" alt="UV"><i class="fa fa-code"></i> UV</button>
+			<button class="run-tests" onclick="runTestsHandler(this.parentNode)" alt="run tests"><i class="fa fa-rocket"></i> Run test </button>
+			<button class="open-editor" onclick="openInEditorHandler(this.parentNode)" alt="Edit source"><i class="fa fa-code"></i> Edit </button>
+			<div class="contents">
+				<div class="head"><div class="desc"></div></div>
+				<div class="content-body"></div>
+			</div>
+		</div>
+
+		<div id="parameters-template">
+      <a href="#-2"  class="parameter-header" onclick="toggleShowSibling(this);"><span plus="true">-</span> Parameters</a>
+      <div class="contents">
+        <div></div>
+        <button href="#-3" class="save-pramaters" onclick="saveConfig(this, arguments[0])">Save Parameters</button>
+      </div>
+		</div>
+		
+		<div id="parameter-template">
+			<div class="parameter">
+				<label></label>
+				<input type="text" onfocus=" onFocusInput(this)" onblur="onBlurInput(this)"></input>
+				<div class="uv-label"> UV: </div>
+				<input class="uv" type="text" readonly></input>
+			</div>
+		</div>
+
+		<div id="config-template">
+			<div class="parameter">
+				<label></label>
+				<input type="text"></input>
+			</div>
+		</div>
+
+		<div id="toggled-config-template">
+			<div class="hidden-parameters">
+				<a href="#-3" onclick="toggleShowSibling(this);"></a>
+				<div class="hidden-config"></div>
+			</div>
+		</div>
+
+		<div id="pre-post-script-template">
+			<div class="pre">
+        <a href="#-2" onclick="toggleShowSibling(this);"><span plus="true">+</span> Pre function contents</a>
+				<textarea onkeydown="fitTextarea(this)"></textarea>
+			</div>
+			<div class="post">
+				<a href="#-2" onclick="toggleShowSibling(this);"><span plus="true">+</span> Post function contents</a>
+				<textarea onkeydown="fitTextarea(this)"></textarea>
+			</div>
+			<div class="script">
+				<a href="#-2" onclick="toggleShowSibling(this);"><span plus="true">+</span> Script function contents</a>
+				<textarea onkeydown="fitTextarea(this)"></textarea>
+			</div>
+		</div>
+
+					<!--div class="expression-before"> //was before unit-tersts, IE complains
+				Before
+				<textarea readonly>before tests...</textarea>
+			</div>
+			<div class="expression-after">
+				After
+				<textarea readonly>after tests...</textarea>
+			</div-->
+		
+		<div id="unit-tests-suite-template">
+			<div class="unit-tests-head">
+				<span class="bdd-head">Unit tests</span> <br/> <br/> Edit <a href="#-5" class="removed" onclick="addEditTests(this)">simple tests</a>
+				<span class="removed">or</span> <a href="#-5" onclick="addEditDescribeTests(this)">BDD Tests</a>
+			</div>
+			<div class="unit-tests"></div>
+		</div>
+		
+		<div id="unit-test-template">
+			<div class="status"></div>
+			<div class="name"></div>
+		</div>
+		
+		<div id="progress-bar-template">
+			<div class="wrapper">
+				<div class="bar">
+					<div class="title"></div>
+					<div class="progress"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="console-template">
+			<div class="console-head"><a href="#-1" onclick="toggleConsole()"><i class="fa fa-terminal"></i> Toggle console</a></div>
+			<div class="console-body"></div>
+		</div>
+		<div id="console-msg-template">
+			<div class="msg-head"></div>
+			<pre class="msg-body"></pre>
+		</div>
+		
+		<div id="uv-popup-template">
+			<div class="uv-popup">
+				<div class="head"> 
+					Browse Universal Variable standard properties 
+					<div class="sub">
+						These variables are the most common types available for web. 
+						<a href="http://docs.qubitproducts.com/uv"	target="_blank">See more UV documentation.</a>
+					</div>
+				</div>
+				<div class="body">
+					<div class="body-wrapper">
+						<div class="column"></div>
+					</div>
+				</div>
+				<input class="result initial"
+							 value="select one of variables to see its expression value here..." 
+							 readonly></input>
+			</div>
+		</div>
+		
+		<div id="uv-popup-item-template">
+			<div class="column-item">
+				<div class="name"></div>
+				<div class="description"></div>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		function main() {
+			if(Main){
+				Main();
+			} else {
+				setTimeout(main, 50);
+			}
+		}
+	</script>
+
+	<div id="tester">
+		<div id="libraries"></div>
+		<div id="page-variables"></div>
+	</div>
+	
+	<div id="unit-tests">
+		
+	</div>
+	<script src='js/src/utils.js?v1'></script>
+	<script src='js/src/button-calls.js?v1'></script>
+	<script src='js/src/testing.js?v1'></script>
+	<script src='js/src/main.js?v1'></script>
+	<script src='js/src/uv-chooser.js?v1'></script>
+	
+	<script src='../../../shared/js/qtest.js?v1'></script>
+	<script src="../../../shared/js/jquery-2.1.0.min.js?v1"></script>
+	
+	<script type="text/javascript" src="js/jasmine-2.0.0/jasmine.js"></script>
+	<script type="text/javascript" src="js/jasmine-2.0.0/jasmine-html.js"></script>
+	<script type="text/javascript" src="js/jasmine-2.0.0/boot.js"></script>
+	
+	<script src="js/mocha/should.js"></script>
+	<script src="js/mocha/expect.js"></script>
+	<script src="js/mocha/chaj.js"></script>
+	<!--script src="js/mocha/mocha.js"></script>
+
+	<script>mocha.setup('bdd');</script>
+	<script>
+		mocha.checkLeaks();
+		mocha.globals(['jQuery']);
+	</script-->
+	
+	<link rel="stylesheet" href="js/src/notifier/Notification.css?v1"> 
+	<script src='js/src/notifier/Notification.js?v1'></script>
+	<script src='js/src/notifier/NotificationManager.js?v1'></script>
+	
+	
+	<!--SOURCES-->
+	<div id="sources-content">
+		<h3 onclick="toggleShowSibling(this);">Source files</h3>
+		<div id="sources"></div>
+	</div>
+	<font link='build-location.js'></font>
+  </body>
+</html>

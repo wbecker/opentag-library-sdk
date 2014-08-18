@@ -22,9 +22,6 @@ Thumbs.db
 .git
 dist
 build
-shared/bin/html/index.html
-shared/bin/html/indexplain.html
 shared/bin/html/scripts.htmlf
-/libraries/nbproject/private/
-nbproject
+nbproject/private/
 shared/bin/html/build-location.js
