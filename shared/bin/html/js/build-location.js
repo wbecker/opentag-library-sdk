@@ -1,1 +1,1 @@
-window.buildLocationString='libraries/google';
+window.buildLocationString='libraries/adform/';
