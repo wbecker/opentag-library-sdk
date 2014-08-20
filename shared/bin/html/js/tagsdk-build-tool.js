@@ -915,8 +915,8 @@ function nextNode(from) {
   return from;
 }
 
-function toggleShowSibling(start) {
-  var next = start.nextSibling;
+function toggleShowSibling(start, nxt) {
+  var next = nxt || start.nextSibling;
   while (next && !next.style) {
     next = next.nextSibling;
   }
@@ -3083,7 +3083,7 @@ var libraryTemplate = document.getElementById("library-template").innerHTML;
     }
 
     theProgressBar.title += ", rendering... ";
-    listScripts();
+    listScripts(scripts);
 
     setTimeout(function() {
       counted++;
@@ -3120,10 +3120,10 @@ var libraryTemplate = document.getElementById("library-template").innerHTML;
 
 
   function listScripts(scripts) {
-		return; 
+		return;
     var html = "<div>";
     for (var i = 0; i < scripts.length; i++) {
-      var src = scripts[i]
+      var src = scripts[i].url;
       if (src) {
         html += "<a href='" + src + "' target='frame" + i + "' >" + src + "</a>";
       }
