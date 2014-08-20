@@ -1512,6 +1512,7 @@ function getParametersAndConfigForTagNode(referencingNode, ignoreRed, paramsOnly
     if (inputs[i].pindex !== undefined) {
       var idx = inputs[i].pindex;
       config.parameters[idx].inputVariable = inputs[i].value;
+			config.parameters[idx].variable = undefined;
       if (inputs[i].value) {
         try {
           var variable = qubit.opentag.Utils.gevalAndReturn(inputs[i].value);
@@ -1805,8 +1806,23 @@ function runTag(referencingNode, configWithParams) {
     var clazz = referencingNode.classReference;
     var tagRef = referencingNode.reference;
     
-    
     applyParametersAndConfigToTag(config, configWithParams);
+
+		try {
+			var params = config.parameters;
+			for (var i = 0; i < params.length; i++) {
+				var param = params[i];
+				for (var j = 0; j < tagRef.config.parameters.length; j++) {
+					var oldParam = tagRef.config.parameters[j];
+					if (oldParam.token === param.token) {
+						param.uv = oldParam.uv;
+						break;
+					}
+				}
+			}
+		} catch (ex) {
+			
+		}
 
     var preVal = tagRef.preNode.value;
     if (String(preVal) !== tagRef.config.pre &&
