@@ -41,10 +41,12 @@
     <!--Javascript-->
     <script src="lib/json.js?v1"></script>
     <script src="lib/codemirror-4.1/lib/codemirror.js"></script>
-    <link rel="stylesheet" href="lib/codemirror-4.1/lib/codemirror.css?v1">
-    <link rel="stylesheet" href="lib/codemirror-4.1/theme/ambiance.css?v1">
-    <link rel="stylesheet" href="lib/codemirror-4.1/fold/foldgutter.css?v1" />
+    <link rel="stylesheet" href="lib/codemirror-4.1/lib/codemirror.css?v1"/>
+    <link rel="stylesheet" href="lib/codemirror-4.1/theme/ambiance.css?v1"/>
+    <link rel="stylesheet" href="lib/codemirror-4.1/fold/foldgutter.css?v1"/>
     
+		<link rel="stylesheet" href="lib/notifier/Notification.css"/>
+		
     <script src="lib/codemirror-4.1/fold/foldcode.js"></script>
     <script src="lib/codemirror-4.1/fold/foldgutter.js"></script>
     <script src="lib/codemirror-4.1/fold/brace-fold.js"></script>
@@ -289,7 +291,7 @@
 	</div>
 
 	<!--SOURCES-->
-	<div id="sources-content">
+	<div id="sources-content" style="display: none">
 		<h3 onclick="toggleShowSibling(this);">Source files</h3>
 		<div id="sources"></div>
 	</div>
