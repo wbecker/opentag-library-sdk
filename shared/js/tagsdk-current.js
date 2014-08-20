@@ -3681,7 +3681,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       if (param.variable) {
         return param.variable = TagHelper.initPageVariable(param.variable);
       }
-    } else if (param.uv) {//empty strings are also excluded
+    }
+    
+    if (param.uv) {//empty strings are also excluded
       return param.variable = new Expression({
         name: param.uv,
         value: param.uv
