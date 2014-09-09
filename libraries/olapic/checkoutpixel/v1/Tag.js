@@ -60,6 +60,7 @@ qubit.opentag.LibraryTag.define("olapic.checkoutpixel.v1.Tag", {
     /*~DATA*/
   },
   script: function () {
+    /*SCRIPT*/
     var olapicProducts = [];
     var productIds = this.valueForToken("productids");
     var productPrices = this.valueForToken("productprices");
@@ -81,6 +82,7 @@ qubit.opentag.LibraryTag.define("olapic.checkoutpixel.v1.Tag", {
     olapicCheckout.setAttribute("olapicName", encodeURIComponent("" + this.valueForToken("username")));
     olapicCheckout.src = "//www.photorank.me/static/js/olapic.checkout.js";
     document.body.appendChild(olapicCheckout);
+    /*~SCRIPT*/
   },
   pre: function () {
     /*PRE*/
