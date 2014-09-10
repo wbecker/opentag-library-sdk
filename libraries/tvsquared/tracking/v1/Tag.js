@@ -26,6 +26,7 @@ qubit.opentag.LibraryTag.define("tvsquared.tracking.v1.Tag", {
 		/*~DATA*/
 	},
 	script: function() {
+	/*SCRIPT*/
 		var _paq = _paq || [];
 		var that = this;
     	(function () {
@@ -36,6 +37,7 @@ qubit.opentag.LibraryTag.define("tvsquared.tracking.v1.Tag", {
         	var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0]; g.type = 'text/javascript'; g.defer = true; g.async = true; g.src = u + 'piwik.js';
     	    s.parentNode.insertBefore(g, s);
 	    })();
+	/*SCRIPT*/
 	},
 	pre: function() {
 	/*PRE*/
