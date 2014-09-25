@@ -37,12 +37,33 @@ qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-		var x = document.createElement("script");
-		x.src = (document.location.protocol === "https:") ?
-			"" + this.valueForToken("secure_domain") :
-			"" + this.valueForToken("non_secure_domain");
-		x.type = "text/javascript";
-		document.getElementsByTagName("head")[0].appendChild(x);
+		function downloadJSAtOnload1() {
+
+			var x = document.createElement("script");
+			x.src = (document.location.protocol === "https:") ?
+				"" + this.valueForToken("secure_domain") :
+				"" + this.valueForToken("non_secure_domain");
+			x.type = "text/javascript";
+			document.getElementsByTagName("head")[0].appendChild(x);
+
+			var intervalId = setInterval(poll, 10);
+
+			function poll() {
+			  	if (typeof ewt !== "undefined") {
+			  		clearInteval(intervalId);
+			  		ewt.init();
+			  	}
+			}
+		}
+
+		if (window.addEventListener) {
+			window.addEventListener("load", downloadJSAtOnload1, false);
+		}
+		else if (window.attachEvent) {
+			window.attachEvent("onload", downloadJSAtOnload1);
+		}
+		else window.onload = downloadJSAtOnload1;
+
 		/*~SCRIPT*/
 	},
 	pre: function() {
