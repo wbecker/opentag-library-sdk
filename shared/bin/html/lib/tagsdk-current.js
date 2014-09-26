@@ -1,3 +1,5 @@
+(function () {
+
 /**
  * @author Peter Fronc <peter.fronc@qubitdigital.com>
  */
@@ -22,18 +24,29 @@
   };
 }());
 
-var global = this;
+
+//PKG_ROOT is the default packaging root.
+var PKG_ROOT = {__anonymous__: true};
+var GLOBAL = null;
+//remove this block to hide implementation
 try {
-  global = (false || eval)("this") || (function (){return this;}()) || window;
+  GLOBAL = (false || eval)("this") || (function () { return this; }());
 } catch (e) {}
 
-global.NAMESPACE = global;
+//direct reference, is referred everywhere
+//GLOBAL will ALWAYS refer to shared global scope, either in node or browser
+//however, entire classpath can be hidden, if necessary
+PKG_ROOT = GLOBAL; //$anonymous or not
+var qubit = {VERSION: "1.0.1"};
+PKG_ROOT.qubit = qubit;
 
-global.qubit = global.qubit || {};
+try {
+  module.exports = PKG_ROOT;
+} catch (e){}
 
 //shortcuts
 var EMPTY_FUN = function () {};
-var UNDEF = undefined;
+var UNDEF;
 
 
 /*
@@ -46,7 +59,7 @@ var UNDEF = undefined;
 (function () {
   
   /**
-   * @class qubit.opentag.Utils
+   * @class qubit.Define
    * @singleton
    * 
    * #Generic Utility
@@ -56,23 +69,32 @@ var UNDEF = undefined;
    * many more useful utilities. Please see the API.
    * 
    */
-  function Utils() {}
-
-  var global = null;
-  try {
-    global = (false || eval)("this") || (function () { return this; }());
-  } catch (e) {}
+  function Define() {}
   
   /**
    * Global scope accessor.
    * @returns {Object}
    */
-  Utils.global = function () {
-    return global;
+  Define.global = function () {
+    return GLOBAL;
   };
 
   /**
-   * Function builds desired name space.
+   * Function builds desired name space in global scope.
+   * It will not override existing elements.
+   * Global option does not apply if pckg is specified.
+   * @param {String} path
+   * @param {Object} instance
+   * @param {Object} pckg
+   * @param {Boolean} noOverride
+   * @returns {Object}
+   */
+  Define.globalNamespace = function (path, instance, pckg, noOverride) {
+    return _namespace(path, instance, pckg, noOverride, true);
+  };
+  
+  /**
+   * Function builds desired name space in defalt PKG_ROOT scope.
    * It will not override existing elements.
    * @param {String} path
    * @param {Object} instance
@@ -80,13 +102,21 @@ var UNDEF = undefined;
    * @param {Boolean} noOverride
    * @returns {Object}
    */
-  Utils.namespace = function (path, instance, pckg, noOverride) {
+  Define.namespace = function (path, instance, pckg, noOverride) {
+    return _namespace(path, instance, pckg, noOverride, false);
+  };
+  
+  function _namespace(path, instance, pckg, noOverride, isGlobal) {
     var files = path.split("."),
       //access eval INDIRECT so it is called globally
-      current = Utils.NAMESPACE_BASE || (function () {return eval("this"); }()),
+      current = Define.NAMESPACE_BASE || PKG_ROOT,
       last = null,
       lastName = null,
       i;
+    
+    if (isGlobal) {
+      current = GLOBAL;
+    }
     
     current = pckg || current;
     
@@ -100,7 +130,7 @@ var UNDEF = undefined;
     last = current;
     lastName = files[files.length - 1];
     
-    if (global.TAGSDK_NS_OVERRIDE) {
+    if (GLOBAL.TAGSDK_NS_OVERRIDE) {
        noOverride = false;
     }
     
@@ -128,8 +158,8 @@ var UNDEF = undefined;
    * @param {Object} config
    * @returns {Object} the class instance
    */
-  Utils.clazz = function (path, instance, extendingClass, pckg, config) {
-    Utils.namespace(path, instance, pckg, true);
+  Define.clazz = function (path, instance, extendingClass, pckg, config) {
+    Define.namespace(path, instance, pckg, true);
     if (typeof(extendingClass) === "function") {
       instance.superclass = extendingClass;
       instance.prototype = new instance.superclass(config);
@@ -143,7 +173,76 @@ var UNDEF = undefined;
     return instance;
   };
 
-  Utils.clazz("qubit.opentag.Utils", Utils);
+  Define.clazz("qubit.Define", Define);
+  
+}());
+
+
+/*
+ * TagSDK, a tag development platform
+ * Copyright 2013-2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
+(function () {
+  
+  var Define = qubit.Define;
+  
+  /**
+   * @class qubit.opentag.Utils
+   * @singleton
+   * 
+   * #Generic Utility
+   * 
+   * It delivers utility tools for copying or traversing objects, acessing
+   * and manipulating CSS class names, managing arrays, creating classes and
+   * many more useful utilities. Please see the API.
+   * 
+   */
+  function Utils() {}
+  
+  var global = Define.global();
+  
+  Define.clazz("qubit.opentag.Utils", Utils);
+  
+  /**
+   * @deprecated see Define class.
+   * 
+   * Global scope accessor.
+   * @returns {Object}
+   */
+  Utils.global = Define.global;
+  
+  /**
+   * @deprecated see Define class.
+   * 
+   * Function builds desired name space.
+   * It will not override existing elements.
+   * @param {String} path
+   * @param {Object} instance
+   * @param {Object} pckg
+   * @param {Boolean} noOverride
+   * @returns {Object}
+   */
+  Utils.namespace = Define.namespace;
+  
+  /**
+   * @deprecated see Define class.
+   * 
+   * Utility for simple class declaration (not definition).
+   * It does similiar job as namespace with addition of adding CLASS_NAME
+   * and PACKAGE_NAME on prototype. It also sets superclass to extending class
+   * instance.
+   * 
+   * @param {String} path
+   * @param {Object} instance
+   * @param {Function} extendingClass
+   * @param {Object} pckg
+   * @param {Object} config
+   * @returns {Object} the class instance
+   */
+  Utils.clazz = Define.clazz;
   
   /**
    * Function resolving string with classpath to object addressed.
@@ -169,7 +268,7 @@ var UNDEF = undefined;
    * @returns {Boolean}
    */
   Utils.variableExists = function (value) {
-    return (value !== undefined) && (value !== null) && (value !== "");
+    return (value !== undefined) && (value !== null);
   };
 
 
@@ -253,6 +352,9 @@ var UNDEF = undefined;
   };
 
   // GENERIC
+  function escapeRegExp(string) {
+    return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+  }
   
   /**
    * Function replacing all matching instances of regex "patterns" in "string" 
@@ -266,7 +368,7 @@ var UNDEF = undefined;
    * @returns {String} results
    */
   Utils.replaceAll = function (string, pattern, replace) {
-    return string.replace(new RegExp(pattern, 'g'), replace);
+    return string.replace(new RegExp(escapeRegExp(pattern), 'g'), replace);
   };
   
   /**
@@ -280,8 +382,8 @@ var UNDEF = undefined;
     if (typeof (string) !== "string") {
       string += "";
     }
-    string = Utils.replaceAll(string, "<", "&lt;");
-    string = Utils.replaceAll(string, ">", "&gt;");
+    string = string.replace(/</g, "&lt;");
+    string = string.replace(/>/g, "&gt;");
     return string;
   };
 
@@ -442,7 +544,7 @@ var UNDEF = undefined;
     }
     
     if (!win) {
-      if (obj === window || obj === global) {
+      if (obj === global) {
         return obj;
       }
     }
@@ -581,7 +683,7 @@ var UNDEF = undefined;
         }
       }
     }
-    if (obj === window || obj === global) {
+    if (obj === global) {
       //dont follow those objects
       return;
     }
@@ -661,44 +763,49 @@ var UNDEF = undefined;
    *     will be used to create constructor - optional. 
    * @param {String} classPath classpath to be used and set at
    * @param {Function} extendingClass class to inherit from
+   * @param {Object} pckg namespace package to be put at
    * @returns {Object} defined class reference
    */
-  Utils.defineClass = function (classPath, extendingClass, config) {
+  Utils.defineClass = function (classPath, extendingClass, config, pckg) {
     
     var names = classPath.split(".");
     var className = names[names.length - 1];
     
     //create class
-    //@TODO create eval fix and do proper wrap.
     var clazz;
-    var funTemplate = "(function " + className + "() {" +
-      "  if (" + classPath + "._CONSTRUCTOR) {" +
-      "    return " + classPath + "._CONSTRUCTOR.apply(this, arguments);" +
-      "  } else {" +
-      "    if (" + classPath + ".superclass) {" +
-      "      return " + classPath + ".superclass.apply(this, arguments);" +
-      "    }" + 
-      "  }" +
-      "})";
     
-    clazz = Utils.gevalAndReturn(funTemplate).result;
-
-//or anonymous:
-//    var clazz = function () {
-//      if (CONSTR) {
-//         CONSTR.apply(this, arguments);
+    //@todo arguably, anonymous looks better, but still, its good to have 
+    //the name present
+    var funTemplate = ["clazz = ",
+            "(function ", className, "() {",
+      "  if (", classPath, "._CONSTRUCTOR) {",
+      "    return ", classPath, "._CONSTRUCTOR.apply(this, arguments);",
+      "  } else {",
+      "    if (", classPath, ".superclass) {",
+      "      return ", classPath, ".superclass.apply(this, arguments);",
+      "    }",
+      "  }",
+      "})"
+      ].join("");
+    //evaluate locally (qubit )!
+    eval(funTemplate);
+    
+    var CONSTRUCTOR = config.CONSTRUCTOR;
+    
+//    //or anonymous:
+//    clazz = function () {
+//      if (clazz._CONSTRUCTOR) {
+//        return clazz._CONSTRUCTOR.apply(this, arguments);
 //      } else if (clazz.superclass) {
-//        clazz.superclass.apply(this, arguments);
+//        return clazz.superclass.apply(this, arguments);
 //      }
 //    };
-
-    var CONSTRUCTOR = config.CONSTRUCTOR;
     
     clazz._CONSTRUCTOR = CONSTRUCTOR;
     clazz.superclass = extendingClass;
     
     //publish class
-    Utils.clazz(classPath, clazz, extendingClass);
+    Define.clazz(classPath, clazz, extendingClass, pckg);
     
     //pass prototype objects
     for (var prop in config) {
@@ -857,23 +964,34 @@ var UNDEF = undefined;
     }
   };
   
+  var prefix = "try{this.qubitopentagutilsgevalandreturn__var_test__=(";
+  var suffix = ");}catch(ex){" +
+      "this.qubitopentagutilsgevalandreturn__var_test__error = ex;}";
   /**
    * Evaluates expression and returns value of wrapped by "(" expression ")".
    * @param {String} expression
    * @returns {Object}
    */
   Utils.gevalAndReturn = function (expression) {
-    Utils.gevalAndReturn.___var_test___ = undefined;
-    Utils.gevalAndReturn.___var_test___error = undefined;
-    expression  =
-            "try{qubit.opentag.Utils.gevalAndReturn.___var_test___=(" +
-            expression +
-            ");}catch(ex){" +
-            "qubit.opentag.Utils.gevalAndReturn.___var_test___error = ex;" +
-            "}";
+    var G = GLOBAL;
+    G.qubitopentagutilsgevalandreturn__var_test__ = undefined;
+    G.qubitopentagutilsgevalandreturn__var_test__error = undefined;
+    
+    expression  = prefix + expression + suffix;
+
+    //must be geval
     Utils.geval(expression);
-    var res = Utils.gevalAndReturn.___var_test___;
-    var err = Utils.gevalAndReturn.___var_test___error;
+
+    var res = G.qubitopentagutilsgevalandreturn__var_test__;
+    var err = G.qubitopentagutilsgevalandreturn__var_test__error;
+    
+    try {
+      G.qubitopentagutilsgevalandreturn__var_test__ = UNDEF;
+      G.qubitopentagutilsgevalandreturn__var_test__error = UNDEF;
+      delete G.qubitopentagutilsgevalandreturn__var_test__;
+      delete G.qubitopentagutilsgevalandreturn__var_test__error;
+    } catch (ex){/*IE magic*/}
+    
     return {
       result: res,
       error: err
@@ -916,9 +1034,9 @@ var UNDEF = undefined;
    */
   Utils.geval = function (expression) {
     if (window && window.execScript) {
-      window.execScript(expression);
+      return window.execScript(expression);
     } else {
-      (function () {return global["eval"].call(global, expression); }());
+      return (function () {return global["eval"].call(global, expression); }());
     }
   };
   
@@ -981,7 +1099,7 @@ var UNDEF = undefined;
 /* jshint white: false */
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -989,7 +1107,7 @@ var UNDEF = undefined;
 
 (function () {
   
-  var Utils = qubit.opentag.Utils;
+  var Define = qubit.Define;
   var c = null;
   
   /**
@@ -1037,7 +1155,7 @@ var UNDEF = undefined;
     };
   }
 
-  Utils.clazz("qubit.opentag.Log", Log);
+  Define.clazz("qubit.opentag.Log", Log);
 
   /**
    * Static property used to define finest level.
@@ -1188,7 +1306,7 @@ var UNDEF = undefined;
     }
   };
   
-  var _ssupported = !!Utils.global().webkitURL;
+  var _ssupported = !!Define.global().webkitURL;
   /**
    * Use styling by default.
    * @returns {Boolean}
@@ -1506,21 +1624,19 @@ var UNDEF = undefined;
         Log.LEVEL_ERROR);
     };
     
-  Log.setConsole(Utils.global().console);
+  Log.setConsole(Define.global().console);
 }());
 
 
 
-
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function(){
-    var Utils = qubit.opentag.Utils;
     var log = new qubit.opentag.Log("Timer -> ");
     
     /**
@@ -1569,7 +1685,7 @@ var UNDEF = undefined;
       this._binded_pool = this._pool.bind(this);
     }
     
-    Utils.clazz("qubit.opentag.Timer", Timer); 
+    qubit.Define.clazz("qubit.opentag.Timer", Timer); 
     
     /**
      * @property [Array] timers
@@ -1779,16 +1895,15 @@ var UNDEF = undefined;
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function(){
-    var Utils = qubit.opentag.Utils;
     
-    Utils.namespace("qubit.opentag.Timed", new qubit.opentag.Timer({
+    qubit.Define.namespace("qubit.opentag.Timed", new qubit.opentag.Timer({
       rate: 37,
       dynamic: true
     }));
@@ -1949,14 +2064,13 @@ q.html.fileLoader.tidyUrl = function (path) {
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function () {
-  var Utils = qubit.opentag.Utils;
   var counter = 0;
   
   /**
@@ -2043,7 +2157,7 @@ q.html.fileLoader.tidyUrl = function (path) {
     }
   }
   
-  Utils.clazz("qubit.opentag.filter.BaseFilter", BaseFilter);
+  qubit.Define.clazz("qubit.opentag.filter.BaseFilter", BaseFilter);
   
 
   /**
@@ -2149,14 +2263,13 @@ q.html.fileLoader.tidyUrl = function (path) {
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function () {
-  var Utils = qubit.opentag.Utils;
   var BaseFilter = qubit.opentag.filter.BaseFilter;
 
   /**
@@ -2238,7 +2351,7 @@ q.html.fileLoader.tidyUrl = function (path) {
     SessionVariableFilter.superclass.call(this, defaultConfig);
   }
   
-  Utils.clazz(
+  qubit.Define.clazz(
           "qubit.opentag.filter.SessionVariableFilter",
           SessionVariableFilter,
           BaseFilter);
@@ -2477,7 +2590,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
 
 (function () {
-    var Utils = qubit.opentag.Utils;
     var log = new qubit.opentag.Log("TagsUtils -> ");
     var BaseFilter = qubit.opentag.filter.BaseFilter;
     var HtmlInjector = q.html.HtmlInjector;
@@ -2492,7 +2604,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
      */
     var TagsUtils = function () {};
     
-    Utils.clazz("qubit.opentag.TagsUtils", TagsUtils);
+    qubit.Define.clazz("qubit.opentag.TagsUtils", TagsUtils);
     
     var _bodyLoaded = false;
     /**
@@ -2894,8 +3006,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
 })();
 
 
+
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -2971,7 +3084,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     }
   }
   
-  Utils.clazz("qubit.opentag.pagevariable.BaseVariable", BaseVariable);
+  qubit.Define.clazz("qubit.opentag.pagevariable.BaseVariable", BaseVariable);
   
   BaseVariable.ALL_VARIABLES = {};
 
@@ -3079,8 +3192,12 @@ q.html.HtmlInjector.getAttributes = function (node) {
     if (!Utils.variableExists(pageValue)) {
       pageValue = defaultValue;
     }
+    var defLoc;
     if (useDefaults && !Utils.variableExists(pageValue)) {
-      pageValue = this.getDefaultValue();
+      defLoc = this.getDefaultValue();
+      if (Utils.variableExists(defLoc)) {
+        pageValue = defLoc;
+      }
     }
     return pageValue;
   };
@@ -3141,7 +3258,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -3173,7 +3290,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     Expression.superclass.apply(this, arguments);
   }
   
-  Utils.clazz(
+  qubit.Define.clazz(
           "qubit.opentag.pagevariable.Expression",
           Expression,
           qubit.opentag.pagevariable.BaseVariable);
@@ -3268,8 +3385,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
 
 
+
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -3290,7 +3408,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     DOMText.superclass.apply(this, arguments);
   }
   
-  Utils.clazz(
+  qubit.Define.clazz(
           "qubit.opentag.pagevariable.DOMText",
           DOMText,
           qubit.opentag.pagevariable.BaseVariable);
@@ -3306,75 +3424,181 @@ q.html.HtmlInjector.getAttributes = function (node) {
 }());
 
 
-/*global escape, unescape*/
+/*
+ * TagSDK, a tag development platform
+ * Copyright 2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
 
+(function() {
+  var cookieAlphabet = 
+          "abcdefghijklmnopqrstuvwxyz" + "0123456789" +
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "*!-#$&+()@" +
+          "'%./:<>?[" + "\"]^_`{|}~" +
+          "\\" +
+          ";=";
+  
+  var cookieAlphabetMap = {};
+  for (var i = 0; i < cookieAlphabet.length; i++) {
+    cookieAlphabetMap[cookieAlphabet.charAt(i)] = i;
+  }
+  
+  /**
+   * @class qubit.Cookie
+   * 
+   * Cookie class with static methods to use for setting and getting and
+   * removing cookie.
+   * 
+   * @param {Object} config
+   */
+  function Cookie(config) {
+  }
 
-q.html.simplecookie = {};
-
-q.html.simplecookie.readCookie = function (name) {
-  var r, cookie, value, cookies, nameSearchString, i, ii;
-  nameSearchString = name + "=";
-  cookies = document.cookie.split(';');
-  r = /^\s+|\s+$/g;
-  for (i = 0, ii = cookies.length; i < ii; i += 1) {
-    cookie = cookies[i].replace(r, '');
-    if (cookie.indexOf(nameSearchString) === 0) {
-      value = unescape(cookie.substring(nameSearchString.length));
-      if (value.length === 0) {
-        return null;
-      }
-      return value;
+  qubit.Define.clazz("qubit.Cookie", Cookie);
+  
+  Cookie.cookieAlphabet = cookieAlphabet;
+  Cookie.cookieAlphabetMap = cookieAlphabetMap;
+  
+  /**
+   * @static
+   * Default decoding method for cookie. Defaulting to `decodeURIComponent`.
+   * 
+   * @param {String} string string to decode
+   * @returns {String} decoded string
+   */
+  Cookie.decode = function (string) {
+    return decodeURIComponent(string);
+  };
+  
+  /**
+   * @static
+   * Default encoding method for cookie. Defaulting to `encodeURIComponent`.
+   * 
+   * @param {String} string string to encode
+   * @returns {String} encoded string
+   */
+  Cookie.encode = function (string) {
+    return encodeURIComponent(string);
+  };
+  
+  /**
+   * @static
+   * Cookie setter function.
+   * 
+   * @param {String} name cookie name
+   * @param {String} value cookie string to be set
+   * @param {Number} days days to expire
+   * @param {String} domain cookie domain
+   * @param {Boolean} encoded if should encode value and name with default
+   *    method.
+   */
+  Cookie.set = function(name, value, days, domain, encoded) {
+    var expires;
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toGMTString();
+    } else {
+      expires = "";
     }
-  }
-  return null;
-};
-q.html.simplecookie.readAllCookies = function (name) {
-  var r, cookie, value, cookies, nameSearchString, i, ii, values;
-  nameSearchString = name + "=";
-  cookies = document.cookie.split(';');
-  r = /^\s+|\s+$/g;
-  values = [];
-  for (i = 0, ii = cookies.length; i < ii; i += 1) {
-    cookie = cookies[i].replace(r, '');
-    if (cookie.indexOf(nameSearchString) === 0) {
-      value = unescape(cookie.substring(nameSearchString.length));
-      if (value.length > 0) {
-        values.push(value);
+    
+    if (encoded) {
+      name = Cookie.encode(name);
+      value = Cookie.encode(value);
+    }
+    
+    var cookie = name + "=" + value + expires + "; path=/;";
+
+    if (domain) {
+      cookie += " domain=" + domain;
+    }
+
+    document.cookie = cookie;
+  };
+
+  /**
+   * @static
+   * Get cookie function.
+   * 
+   * @param {String} name cookie name
+   * @param {Boolean} decoded should cookie be decoded using default method.
+   * 
+   * @returns {String} cookie string or `null` if not found.
+   */
+  Cookie.get = function(name, decoded) {
+    var part = name + "=";
+    var chunks = document.cookie.split(';');
+    for (var i = 0; i < chunks.length; i++) {
+      var chunk = chunks[i];
+      while (chunk.charAt(0) === ' ') {
+        chunk = chunk.substring(1, chunk.length);
+      }
+      if (chunk.indexOf(part) === 0) {
+        var tmp = chunk.substring(part.length, chunk.length);
+        if (decoded) {
+          tmp = Cookie.decode(tmp);
+        }
+        return tmp;
       }
     }
-  }
-  return values;
-};
-q.html.simplecookie.writeCookie = function (name, value, days, domain) {
-  var date, expires, cookie;
-  if (days) {
-    date = new Date();
-    date.setTime(date.getTime() + (days * 86400000));
-    expires = "; expires=" + date.toGMTString();
-  } else {
-    expires = "";
-  }
-  cookie = escape(name) + "=" + escape(value) + expires + "; path=/;";
-  if (domain) {
-    cookie += " domain=" + domain;
-  }
-  document.cookie = cookie;
-};
+    return null;
+  };
+
+  /**
+   * @static
+   * Gets all of cookies for given name.
+   * 
+   * @param {String} name cookie(s) name
+   * @param {Boolean} decoded should cookies be decoded using default method.
+   * 
+   * @returns {Array} cookies strings array, if there is no cookies, 
+   *    empty array is returned.
+   */
+  Cookie.getAll = function(name, decoded) {
+    var part = name + "=";
+    var chunks = document.cookie.split(';');
+    var cookies = [];
+    for (var i = 0; i < chunks.length; i++) {
+      var chunk = chunks[i];
+      while (chunk.charAt(0) === ' ') {
+        chunk = chunk.substring(1, chunk.length);
+      }
+      if (chunk.indexOf(part) === 0) {
+        var tmp = chunk.substring(part.length, chunk.length);
+        if (decoded) {
+          tmp = Cookie.decode(tmp);
+        }
+        cookies.push(tmp);
+      }
+    }
+    return cookies;
+  };
+
+  /**
+   * @static
+   * Clearing cookie function.
+   * 
+   * @param {String} name cookie name
+   */
+  Cookie.rm = function(name, domain) {
+    Cookie.set(name, "", -1, domain);
+  };
+
+})();
 
 
 
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function () {
-  var SimpleCookie = q.html.simplecookie;
-  var Utils = qubit.opentag.Utils;
   var Timed = qubit.opentag.Timed;
 
   
@@ -3394,7 +3618,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this._lockObject = {};
   }
   
-  Utils.clazz(
+  qubit.Define.clazz(
           "qubit.opentag.pagevariable.Cookie",
           Cookie,
           qubit.opentag.pagevariable.BaseVariable);
@@ -3405,7 +3629,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {String} cookie value
    */
   Cookie.prototype.getValue = function () {
-    var val = SimpleCookie.readCookie(this.value);
+    var val = qubit.Cookie.get(this.value, true);
     Timed.maxFrequent(function () {
       this.log.FINEST("reading cookie value: " + val);
     }.bind(this), 2000, this._lockObject);
@@ -3416,8 +3640,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
 
 
+
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -3441,7 +3666,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     URLQuery.superclass.apply(this, arguments);
   }
   
-  Utils.clazz(
+  qubit.Define.clazz(
     "qubit.opentag.pagevariable.URLQuery",
     URLQuery,
     qubit.opentag.pagevariable.BaseVariable);
@@ -3455,11 +3680,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
 }());
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * @author Piotr (Peter) Fronc <peter.fronc@qubitproducts.com>
  */
+
 
 
 
@@ -3493,7 +3719,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   function TagHelper () {};
 
-  Utils.clazz("qubit.opentag.TagHelper", TagHelper);
+  qubit.Define.clazz("qubit.opentag.TagHelper", TagHelper);
 
   /**
    * Injects HTML fragments for a tag.
@@ -3570,6 +3796,27 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     return ret;
   }
   
+  /**
+   * 
+   * @param {qubit.opentag.BaseTag} tag
+   * @returns {Array} Array of [parameter,variable] pairs
+   */
+  TagHelper.getAllVariablesWithParameters = function(tag) {
+    var vars = tag.getPageVariables();
+    var results = [];
+    for (var i = 0; i < vars.length; i++) {
+      var pageVar = vars[i];
+      var parameters = findParamatersForVariable(tag, pageVar);
+      for (var j = 0; j < parameters.length; j++) {
+        results.push({
+          parameter: parameters[j],
+          variable: pageVar
+        });
+      }
+    }
+    return results;
+  };
+  
   var _lock_obj = {};
   /**
    * Indicates if all parameters have variables assigned for the tag.
@@ -3592,7 +3839,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         var exist = pageVar.exists();
         if (!exist && useDefaults) {
           if (parameters.length > 0) {
-            exist = Utils.variableExists(parameters[0].defaultValue);
+            exist = !!parameters[0].defaultValue;
           }
           exist = exist || pageVar.exists(true);
         }
@@ -3660,7 +3907,9 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       if (param.variable) {
         return param.variable = TagHelper.initPageVariable(param.variable);
       }
-    } else if (param.uv) {//empty strings are also excluded
+    }
+    
+    if (param.uv) {//empty strings are also excluded
       return param.variable = new Expression({
         name: param.uv,
         value: param.uv
@@ -3735,7 +3984,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -3839,16 +4088,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     this.log = new Log("", function () {
       return this.CLASS_NAME + "[" + this.config.name + "]";
     }.bind(this), "collectLogs");
-    /*~log*/
-    var _this = this;
-    this.log
-      .ERROR = function (msg) {
-        Log.prototype.ERROR.apply(this, arguments);
-        try {
-          _this.onError(msg);
-        } catch (e) {}
-      };
     
+    /*~log*/
     this.urlsLoaded = 0;
     this.urlsFailed = 0;
     
@@ -4029,7 +4270,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     }
   }
   
-  Utils.clazz("qubit.opentag.GenericLoader", GenericLoader);
+  qubit.Define.clazz("qubit.opentag.GenericLoader", GenericLoader);
   
   /**
    * @event Empty on init event.
@@ -4056,23 +4297,12 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * 
    * This is a direct method used to execute `script` function on the loader.
    * It does check if config containe `script` property and will replace current
-   * `this.script` function with passed configuration. If the `config.script` 
-   * is a string, it will be used to construct function to be run (not eval 
-   * will be run), the functi0on is always executed with tag scope applied.
+   * `this.script` function with passed configuration.
    * This function is not intended to be use outside class and therefore is
-   * strictly private.
-   * @private
+   * strictly protected.
+   * @protected
    */
   GenericLoader.prototype._executeScript = function () {
-    if (this.config && this.config.script) {
-      if (typeof (this.config.script) === "function") {
-        this.script = this.config.script;
-      } else {
-        var expr = this.replaceTokensWithValues(String(this.config.script));
-        this.script = Utils.expressionToFunction(expr).bind(this);
-      }
-    }
-    
     this.log.INFO("executing main script...");
     var success = false;
     
@@ -4086,6 +4316,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.log.ERROR("There was an error while executing instance of tag: "
               + this.CLASS_NAME + " from package: " + this.PACKAGE_NAME);//L
       this.log.ERROR(ex, true);
+      this._onError(ex);
     } finally {
       this.onExecute(success);
     }
@@ -4168,6 +4399,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       }
     } catch (ex) {
       this.log.ERROR("Unexpected exception during flushing! " + ex);
+      this._onError(ex);
     }
     
     if (cb) {
@@ -4222,6 +4454,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.onBefore();
     } catch (ex) {
       this.log.ERROR("onBefore error: " + ex);
+      this._onError(ex);
     }
   };
   
@@ -4250,6 +4483,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.onAfter(success);
     } catch (ex) {
       this.log.ERROR("onAfter error: " + ex);
+      this._onError(ex);
     }
   };
   
@@ -4345,6 +4579,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.onCancel();
     } catch (ex) {
       this.log.ERROR("Exception at onCancel" + ex);
+      this._onError(ex);
     }
   };
 
@@ -4429,6 +4664,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           //decision changed: failured before callback must stop execution.
           this.log.ERROR("`before` thrown an exception");
           this.log.ERROR(ex, true);
+          this._onError(ex);
         }
 
         if (cancel) {
@@ -4697,6 +4933,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.onStateChange(stateName);
       } catch (ex) {
         this.log.ERROR(ex);
+        this._onError(ex);
       }
     }
   };
@@ -4786,7 +5023,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           this.log.WARN("timed out while loading dependencies.");
           this.addState("TIMED_OUT");
           this.loadingDependenciesFailed = new Date().valueOf();
-          this.onLoadTimeout();
+          this._triggerOnLoadTimeout();
         }
       } else {
         //wait for dependencies, no matter what.
@@ -4966,10 +5203,31 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @event
    * If there is any loading error, Tag SDK will call this function with the
    * error message as a parameter. Override wherever necessary.
-   * It is called each time an `log.ERROR` is called and not only.
+   * It is called each time an `log._onError` is called.
    * @param {String} error Error string.
    */
   GenericLoader.prototype.onError = EMPTY_FUN;
+  
+  /**
+   * @private
+   * Strictly private.
+   * @param {Object} msg
+   */
+  GenericLoader.prototype._onError = function (msg) {
+    try {
+      this.onError(msg);
+    } catch (ex) {
+      
+    }
+  };
+  
+  /**
+   * Triggers onLoadTimeout event.
+   * @protected
+   */
+  GenericLoader.prototype._triggerOnLoadTimeout = function () {
+    this.onLoadTimeout();
+  };
   
   /**
    * It is called when tag loading is timed out
@@ -5028,6 +5286,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         this.onBeforeLoad();
       } catch (ex) {
         this.log.ERROR("onBeforeLoad error: " + ex);
+        this._onError(ex);
       }
     }
 
@@ -5078,12 +5337,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           }
         } catch (ex) {
           this.log.ERROR("Callback error:" + ex);
+          this._onError(ex);
         } finally {
           this.onScriptsLoadSuccess();
         }
       } else {
         var message = "error loading urls. Failed " + this.urlsFailed;
         this.log.ERROR(message);
+        this._onError(message);
         this.addState("FAILED_TO_LOAD_URL");
         this.urlsLoaded = -new Date().valueOf();
         try{
@@ -5093,6 +5354,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
           }
         } catch (ex) {
           this.log.ERROR("Callback error:" + ex);
+          this._onError(ex);
         } finally {
           this.onScriptLoadError(message);
         }
@@ -5134,6 +5396,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
       this.loadURLsNotFinished = false;
       this.addState("UNEXPECTED_FAIL");
       this.unexpectedFail = new Date().valueOf();
+      this._onError(ex);
     }
   };
 
@@ -5307,7 +5570,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -5413,7 +5676,15 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
        * @cfg runner
        * @type Function
        */
-      runner: null
+      runner: null,
+      /**
+       * New API.
+       * Indicates this tag will be locked untill `unlock` method will be 
+       * called. By default no tag is locked.
+       * @cfg locked
+       * @type Boolean
+       */
+      locked: false
     };
     
     Utils.setIfUnset(config, defaults);
@@ -5503,14 +5774,24 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
         }
       }
       
+      if (config.locked) {
+        this.lock();
+      }
+      
       this.log.FINEST("Initializing variables.");
       this.initPageVariablesForParameters();
+      
+      /**
+       * @property {String} uniqueRefString This property is 
+       * null by default. Typically, it is set by a container instance if any.
+       */
+      this.uniqueRefString = null;
       
       this.onTagInit();
     }
   }
   
-  Utils.clazz("qubit.opentag.BaseTag", BaseTag, GenericLoader);
+  qubit.Define.clazz("qubit.opentag.BaseTag", BaseTag, GenericLoader);
   
   /**
    * Returns value for a token name.
@@ -5562,7 +5843,7 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   BaseTag.prototype.FILTER_WAIT_TIMEOUT = -1;
   
   BaseTag.prototype.run = function (ignoreDeps) {
-    if (this.config && this.config.runner) {
+    if (this.config.runner) {
       var ret = false;
       try {
         this.log.INFO("Running custom runner...");
@@ -5580,13 +5861,47 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
+   * If tag has been not yet executed, it may be locked for execution.
+   * Locking execution is kind of middle lock between actually triggering 
+   * final stage of tag and it's filters pass. Tag that filters haven't 
+   * passed will not execute no matter if lock is applied or not.
+   * @returns {undefined}
+   */
+  BaseTag.prototype.lock = function () {
+    this.locked = true;
+    this._unlock = null;
+  };
+  
+  /**
+   * New API.
+   * Function used to unlock the tag. When tag has a property `locked` set to 
+   * true and is not fired yet, running a tag will not has effect untill unlock
+   * method is called on it. It can be called after tag tried to execute.
+   * @returns {undefined}
+   */
+  BaseTag.prototype.unlock = function () {
+    this.locked = false;
+    if (this._unlock) {
+      this._unlock();
+      this._unlock = false;
+    }
+  };
+  
+  /**
    * Starter used to run tag. It wraps run function only and is ment to be used
    * in runner function body. See `config.runner` property for more details.
    * @param {Boolean} ignoreDeps same as oin `run()` method
    * @returns {undefined}
    */
   BaseTag.prototype.start = function (ignoreDeps) {
-    return BaseTag.superclass.prototype.run.call(this, ignoreDeps);
+    if (!this.locked) {
+      return BaseTag.superclass.prototype.run.call(this, ignoreDeps);
+    } else {
+      this._unlock = function () {
+        return BaseTag.superclass.prototype.run.call(this, ignoreDeps);
+      }.bind(this);
+      return false;
+    }
   };
 
   /**
@@ -5597,7 +5912,14 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    * @returns {undefined}
    */
   BaseTag.prototype.startOnce = function (ignoreDeps) {
-    return BaseTag.superclass.prototype.runOnce.call(this, ignoreDeps);
+    if (!this.locked) {
+      return BaseTag.superclass.prototype.runOnce.call(this, ignoreDeps);
+    } else {
+      this._unlock = function () {
+        return BaseTag.superclass.prototype.runOnce.call(this, ignoreDeps);
+      }.bind(this);
+      return false;
+    }
   };
 
   /**
@@ -5957,6 +6279,37 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   };
   
   /**
+   * Private method delegating script execution.
+   * When running process executes _scriptExecute, in order:
+   * 
+   * - All dependencies have been met
+   * - onBefore event has been fired
+   * - Script URL has been loaded
+   * - HTML has been injected
+   * 
+   * This is a direct method used to execute `script` function on the loader.
+   * It does check if config containe `script` property and will replace current
+   * `this.script` function with passed configuration. If the `config.script` 
+   * is a string, it will be used to construct function to be run (not eval 
+   * will be run), the functi0on is always executed with tag scope applied.
+   * This function is not intended to be use outside class and therefore is
+   * strictly protected.
+   * @protected
+   */
+  BaseTag.prototype._executeScript = function () {
+    if (this.config && this.config.script) {
+      if (typeof (this.config.script) === "function") {
+        this.script = this.config.script;
+      } else {
+        var expr = this.replaceTokensWithValues(String(this.config.script));
+        this.script = Utils.expressionToFunction(expr).bind(this);
+      }
+    }
+    
+    BaseTag.superclass.prototype._executeScript.call(this);
+  };
+  
+  /**
    * This function is used to replace any string with tokens in it with its 
    * corresponding values. It delegates some of replacement process to 
    * [BaseVariable.prototype.replaceToken](
@@ -6146,6 +6499,8 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
   var _counter_tag_map = 0;
   var tags = [];
   var tagAccessorsMap = {};
+  var UNIQUE_REF = {};
+  
   /**
    * Method used to register a qubit.opentag.BaseTag in a global array.
    * It is quite useful to hav reference to all Tag instances. Each BaseTag
@@ -6167,7 +6522,29 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     } else {
       tag._tagIndex = index;
     }
+    if (tag.config.id) {
+      var str = "Q" + tag.config.id;
+      UNIQUE_REF[str] = tag;
+      tag.uniqueId = str;
+    }
   };
+  
+  /**
+   * @static
+   * Get tag by its unique ID.
+   * @param {String} id unique Id, it is the 'uniqueId` property - if set.
+   * @returns {qubit.opentag.BaseTag} tag instance
+   */
+  BaseTag.getById = function (id) {
+    return UNIQUE_REF[String(id)];
+  };
+  
+  /**
+   * Get tag by its unique ID.
+   * @param {String} id unique Id, it is the 'uniqueId` property - if set.
+   * @returns {qubit.opentag.BaseTag} tag instance
+   */
+  BaseTag.prototype.getById = BaseTag.getById;
   
   /**
    * Use this function to unregister this tag from the registry.
@@ -6310,6 +6687,68 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
     return variable;
   };
 
+  /**
+   * Logs this tag variables debugable information.
+   * @returns {Array} Array of objects with properties:
+   * 
+   *  name - name of variable
+   *  
+   *  exists - if variable value exists by tag meaning
+   *  
+   *  token - parameters token associated with variable, if exists,
+   *    null otherwise.
+   *  
+   *  value - current variable value
+   *  
+   *  variable - direct variable reference
+   */
+  BaseTag.prototype.checkVariablesState = function () {
+    var res = [];
+    this.log.FINE("Tag has been timed out, showing variables:");
+    var pairs = TagHelper.getAllVariablesWithParameters(this);
+    
+    for (var i = 0; i < pairs.length; i++) {
+      var param = pairs[i].parameter;
+      var variable = pairs[i].variable;
+      var val;
+      
+      if (param && param.token) {
+        val = this.valueForToken(param.token);
+      } else {
+        val = variable.getRelativeValue(true);
+      };
+      
+      var tmp = {
+        name: variable.config.name,
+        exists: variable.exists(),
+        token: param ? param.token : null,
+        value: val,
+        variable: variable
+      };
+      res.push(tmp);
+      
+      /*log*/
+      this.log.FINE(
+              " Variable Name: " + tmp.name +
+              ", Exists: " + tmp.exists +
+              ", Token: " + (param ? param.token : "<param is not assigned>") +
+              ", Value:" + val
+              );
+      /*~log*/
+    }
+    
+    return res;
+  };
+
+  /**
+   * @protected
+   * Triggers onLoadTimeout event.
+   */
+  BaseTag.prototype._triggerOnLoadTimeout = function () {
+    this.checkVariablesState();//L
+    this.onLoadTimeout();
+  };
+
   function _getSetNamedVariable(tag, token) {
     var variable = TagHelper.initPageVariable(tag.namedVariables[token]);
     tag.namedVariables[token] = variable;
@@ -6321,7 +6760,6 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
 
 
 (function(){
-  var Utils = qubit.opentag.Utils;
   var log = new qubit.opentag.Log("Tags -> ");
   
   /**
@@ -6332,7 +6770,17 @@ q.html.simplecookie.writeCookie = function (name, value, days, domain) {
    */
   var Tags = function () {};
 
-  Utils.clazz("qubit.opentag.Tags", Tags);
+  qubit.Define.clazz("qubit.opentag.Tags", Tags);
+  
+  /**
+   * @static
+   * Get tag by its unique ID.
+   * @param {String} id unique Id, on  tag it is 'uniqueId` property - if set.
+   * @returns {qubit.opentag.BaseTag} tag instance
+   */
+  Tags.getById = function (id) {
+    return qubit.opentag.BaseTag.getById(String(id));
+  };
 
   /**
    * Returns all tags grouped by logical state, it collects ALL tags from ALL
@@ -6558,8 +7006,8 @@ q.html.PostData = function (url, data, type) {
   var _post, agent, isIe, isIe9, isOldIe, fullUrl, loaded, 
     retry, retryDelay, retryCount;
 
-  retryCount = 5;
-  retryDelay = 2000;
+  retryCount = 2;
+  retryDelay = 5000;
   loaded = false;
 
   retry = function () {
@@ -6649,7 +7097,6 @@ q.html.PostData = function (url, data, type) {
 
 (function () {
   
-  var Utils = qubit.opentag.Utils;
   var log = new qubit.opentag.Log("Ping -> ");
   
   /**
@@ -6660,7 +7107,7 @@ q.html.PostData = function (url, data, type) {
    */
   function Ping() {}
 
-  Utils.clazz("qubit.opentag.Ping", Ping);
+  qubit.Define.clazz("qubit.opentag.Ping", Ping);
   
   /**
    * Function sends ping information to the servers.
@@ -6795,18 +7242,15 @@ q.html.PostData = function (url, data, type) {
 /*EXCLUDE: SESSION*/
 
 
+
 q.cookie.SimpleSessionCounter = {};
 //Qubit Session Tracker
 q.cookie.SimpleSessionCounter._cookieName = "_qst_s";
 q.cookie.SimpleSessionCounter._sessionCookie = "_qsst_s";
 q.cookie.SimpleSessionCounter.update = function (domain) {
   var c, s, ga, mins = 30;
-  c = q.html.simplecookie.readCookie(
-    q.cookie.SimpleSessionCounter._cookieName
-  );
-  s = q.html.simplecookie.readCookie(
-    q.cookie.SimpleSessionCounter._sessionCookie
-  );
+  c = qubit.Cookie.get(q.cookie.SimpleSessionCounter._cookieName, true);
+  s = qubit.Cookie.get(q.cookie.SimpleSessionCounter._sessionCookie, true);
   if (!c) {
     c = 1;
   } else {
@@ -6815,10 +7259,10 @@ q.cookie.SimpleSessionCounter.update = function (domain) {
       c += 1;
     }
   }
-  q.html.simplecookie.writeCookie(q.cookie.SimpleSessionCounter._cookieName, 
-      c, 365, domain);
-  q.html.simplecookie.writeCookie(q.cookie.SimpleSessionCounter._sessionCookie, 
-    new Date().getTime().toString(), null, domain);
+  qubit.Cookie.set(q.cookie.SimpleSessionCounter._cookieName, 
+    c, 365, domain, true);
+  qubit.Cookie.set(q.cookie.SimpleSessionCounter._sessionCookie, 
+    new Date().getTime().toString(), null, domain, true);
   return c;
 };
 /*EXCLUDE: JSON*/
@@ -7328,7 +7772,884 @@ var JSON = {};
         };
     }
 }());
+
+
+////Author Peter Fronc
+// UTF supported.
+
+
+(function() {
+
+  var defaultAlphabet = [];
+  //"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~_.-*()'!%"
+  //.split("");//[];
+
+  var len = Math.pow(2, 8);//256
+  for (var c = 0; c < len; c++) {
+    defaultAlphabet.push(String.fromCharCode(c));
+  }
+
+//dictionary
+  var xdict = {};
+  for (var i = 0; i < defaultAlphabet.length; i++) {
+    xdict[defaultAlphabet[i]] = i;
+  }
+
+  var Define = qubit.Define;
+  
+  /**
+   * @class qubit.compression.LZW
+   * 
+   * LZW algorithm implementation.
+   * Each instance must receive config object, ehich accepts optional options:
+   * 
+   * alphabet: property, if set will override default alphabet array. alphabet
+   *  must be char array used to code strings. Note, if strings contain 
+   *  characters that are not in alphabet - LZW will throw exception.
+   * 
+   * @param {Object} config
+   */
+  function LZW (config) {
+    if (config) {
+      if (config.alphabet) {
+        this.alphabet = config.alphabet;
+        this.dict = {};
+        for (var i = 0; i < this.alphabet.length; i++) {
+          this.dict[this.alphabet[i]] = i;
+        }
+      } else {
+        this.alphabet = defaultAlphabet;
+        this.dict = xdict;
+      }
+    }
+  }
+
+  Define.clazz("qubit.compression.LZW", LZW);
+
+  /**
+   * Function encoding string to LZW numbers array.
+   * @param {String} string
+   * @returns {Array} array of numbers.
+   */
+  LZW.prototype.encode = function(string) {
+    var dictsize = this.alphabet.length;
+    var extDict = {};
+    var results = [];
+    var index = 0;
+    var curr = string.charAt(index++);
+    var next;
+    var dict = this.dict;
+
+    while (next = string.charAt(index++)) {
+      var newWord = curr + next;
+      if (dict.hasOwnProperty(newWord) || extDict.hasOwnProperty(newWord)) {
+        curr = newWord;
+      } else {
+        var val = dict.hasOwnProperty(curr) ? dict[curr] : extDict[curr];
+        if (val === undefined) {
+          throw "Dictionary base is to small for those contents: " + curr;
+        }
+        results.push(val);
+        extDict[newWord] = dictsize++;
+        curr = next;
+      }
+    }
+
+    if (curr !== "") {
+      results.push(extDict.hasOwnProperty(curr) ? extDict[curr] : dict[curr]);
+    }
+
+    return results;
+  };
+
+  /**
+   * Function decodes the LZW array to a astring.
+   * @param {Array} codes array of LZW numbers to decode
+   * @returns {String} decoded string
+   */
+  LZW.prototype.decode = function(codes) {
+    var dict = this.dict;
+    var dictSize = this.alphabet.length;
+    var chunk;
+    var locdict = {};
+    var prevChar = getFromDict(codes[0], dict);
+    var prevChunk = prevChar;
+    var results = [prevChar];
+
+    for (var i = 1; i < codes.length; i++) {
+      //recovering encoding, we must get chunk and add dictionary word
+      var currentCode = codes[i];
+      chunk = getFromDict(currentCode, dict);
+
+      if (chunk === null) {
+        //well, check if in recovered dictionary
+        if (locdict.hasOwnProperty(currentCode)) {
+          chunk = locdict[currentCode];
+        }
+        if (chunk === null) {
+          //if not in both, but we know it had to be there, means
+          //was added in "last step" - so it is last word + the character
+          //
+          chunk = prevChunk + prevChar;
+        }
+      }
+      //add chunk
+      results.push(chunk);
+
+      //add dictionary asssigned
+      //previous char now is known, its current chunk first char (previous
+      //chunk when added, added dictionary word, we add it now, step later)
+      prevChar = chunk.charAt(0);
+      //recreate dict
+      locdict[dictSize++] = prevChunk + prevChar;
+      prevChunk = chunk;
+    }
+    return results.join("");
+  };
+
+  function getFromDict(code, dict) {
+    for (var p in dict) {
+      if (code === dict[p])
+        return p;
+    }
+    return null;
+  }
+
+}());
+
+
+
+(function () {
+  //mex is manual "hex"
+  
+  var mex = "abcdefghijklmnopqrstuvwxyz" + "0123456789" + "'%./:<>?[";
+  var Umex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "*!-+()@{|}" + "\"]^_`~$&#";
+  var mexMap = {};
+  
+  for (var i = 0; i < mex.length; i++) {
+    mexMap[mex.charAt(i)] = i;
+  }
+  
+  var UmexMap = {};
+  for (var i = 0; i < mex.length; i++) {
+    UmexMap[Umex.charAt(i)] = i;
+  }
+  
+  var UmexToMexMap = {};
+  for (var i = 0; i < mex.length; i++) {
+    UmexToMexMap[mex.charAt(i)] = Umex.charAt(i);
+  }
+  
+  var mnums = mex.split("");
+  var maxMnum = mnums.length;
+  
+  function converToMex(number) {
+    var rest = 0;
+    var minus = number < 0;
+    
+    if (minus) {
+      number = -number;
+    }
+    
+    var newNum = "";
+    var first = true;
+    
+    do {
+      rest = number % maxMnum;
+      if (first) {
+        newNum = UmexToMexMap[mnums[rest]];
+        first = false;
+      } else {
+        newNum = mnums[rest] + newNum;
+      }
+      number = (number - rest) / maxMnum;
+    } while (number > 0);
+    if (minus) {
+      return "-" + newNum;
+    }
+    return newNum;
+  };
+  
+  function convertFromMex(mexNum) {
+    var newNum = 0;
+    var pow = 0;
+    var first = true;
+    for (var i = 0; i < mexNum.length; i++) {
+      var cur = mexNum.charAt(mexNum.length - 1 - i);
+      if (first) {
+        first = false;
+        cur = mex.charAt(UmexMap[cur]);
+      }
+      newNum += mexMap[cur] * Math.pow(maxMnum, pow++);
+    }
+    return newNum;
+  };
+  
+  var lzw = new qubit.compression.LZW({});
+  
+  var Define = qubit.Define;
+  
+  /**
+   * @class qubit.compression.Compressor
+   * Compressor class.
+   * @param {Object} config - unused.
+   */
+  function Compressor (config) {
+  }
+
+  Define.clazz("qubit.compression.Compressor", Compressor);
+
+  /**
+   * Compression function used to compress string with binary output in UTF
+   * form.
+   * @param {String} string
+   * @param {qubit.compression.LZW} lz optional LZW instance. Use it to pass 
+   *    custom LZW instance.
+   * @returns {String} compressed string in binary UTF coded form.
+   */
+  Compressor.prototype.compress = function(string, lz) {
+    var array = (lz || lzw).encode(string);
+    var result = [];
+
+    for (var i = 0; i < array.length; i++) {
+      result.push(String.fromCharCode(array[i]));
+    }
+    return result.join("");
+  };
+  
+  /**
+   * Function used to compress content and with custom encoding output coded
+   * with characters set from 45 locang character array. All characters are 
+   * plain ANSI C types. This compression has worse performance than binary 
+   * and for short string will be as goog as 2x larger than binary output.
+   * For very short strings it can be even longer than source.
+   * Advantage of this compressor is that its output is ANSI C coded.
+   * 
+   * @param {String} string string to be compressed
+   * @param {qubit.compression.LZW} lz optional LZW instance to be used.
+   * @returns {String}
+   */
+  Compressor.prototype.compressAnsi = function(string, lz) {
+    var array = (lz || lzw).encode(string);
+    var result = [];
+
+    for (var i = 0; i < array.length; i++) {
+      var num = converToMex(array[i]);
+      result.push(num);
+    }
+    return result.join("");
+  };
+  
+  /**
+   * Function used to decompress `compressAnsi()` function output strings.
+   * @param {String} code compressed string
+   * @param {qubit.compression.LZW} lz optional LZW instance to be used.
+   * @returns {String} decompressed string
+   */
+  Compressor.prototype.decompressAnsi = function(code, lz) {
+    var array = [];
+    var curr = "";
+    for (var i = 0; i < code.length; i++) {
+      var ch = code.charAt(i);
+      if (UmexMap.hasOwnProperty(ch)) {
+        var num = curr + ch;
+        curr = "";
+        num = convertFromMex(num);
+        array.push(num);
+      } else {
+        curr += ch;
+      }
+    }
+    return (lz || lzw).decode(array);
+  };
+  /**
+   * Function will decopmress compressed string by `compress()` function.
+   * 
+   * @param {String} code compressed string
+   * @param {qubit.compression.LZW} lz optional LZW instance to be used.
+   * @returns {String} decompressed string
+   */
+  Compressor.prototype.decompress = function(code, lz) {
+    var array = [];
+    for (var i = 0; i < code.length; i++) {
+      array.push(code.charCodeAt(i));
+    }
+    return (lz || lzw).decode(array);
+  };
+  
+}());
+
+
+
+
+(function(){
+  var Define = qubit.Define;
+  var Cookie = qubit.Cookie;
+  
+  //order matters!
+  //make sure that replacement char does not equal to first character of
+  //any coded words!
+  //exclude also: \_, \N, \+, \*, \T, \Q staring from - or number
+  //number dash codes are SPECIAL.
+  var definitions = [
+    ['","referrer":[{"url":"http://', "1-"],
+    ['","referrer":[{"url":"https://', "2-"],
+    [',"referrer":[{"url":"http://', "3-"],
+    [',"referrer":[{"url":"https://', "4-"],
+    [',"sessionStartTime":', "5-"],
+    ["www.google.co.uk",   "6-"],
+    ["www.google.",   "7-"],
+    ["\"sessionStartTime\":",  "8-"],
+    ["\"landing\":\"",   "9-"],
+    ["http%3A%2F%2Fwww",  "10-"],
+    ["\"landing\":",   "L"],
+    ["\"time\":",   "A"],
+    ["\"pageViews\":",  "P"],
+    ["\"sessionCount\":",  "B"],
+    ["\"referrer\":",  "R"],
+    ["\"url\":\"http://www.",  "J"],
+    ["\"url\":\"https://www.",  "M"],
+    ["\"url\":\"",   "I"],
+    ["\"url\":",   "U"],
+    ["http://www.",   "W"],
+    ["https://www.",   "V"],
+    ["%2Fen%2Ftsuk%2F",  "K"],
+    ["\"sessionLandingPage\":",  "F"],
+    ["http%3A%2F%2F",  "D"],
+    ["http://",   "H"],
+    ["https://",   "X"],
+    ["\"\"",  "O"],
+    ["\",",  "Y"],
+    ['":{}}', "z"],
+    ["<", "S"],
+    [">", "G"],
+    ["\[", "Z"],
+    ["\]", "E"],
+    ["\{", "a"],
+    ["\}", "b"],
+    ["(", "c"],
+    [")", "d"],
+    ["!", "e"],
+    ["#", "f"],
+    ["$", "g"],
+    ["!", "q"],
+    ["'", "i"],
+    [":", "j"],
+    ["?", "k"],
+    ["^", "x"],
+    ["`", "m"],
+    ["|", "n"],
+    ["~", "o"],
+    ["%", "v"],
+    [",", "C"]
+  ];
+  
+  function prepareDefinitions(array) {
+    var definitions = [];
+    for (var i = 0; i < array.length; i++) {
+      var preparedString = escapeRegExp(array[i][0]);
+      definitions.push([new RegExp(preparedString, "g"), "*" + array[i][1]]);
+    }
+    return definitions;
+  };
+  
+  function getDefinitionByChar(ch, definitions) {
+    for (var i = 0; i < definitions.length; i++) {
+      if (definitions[i][1] === ch) {
+        return definitions[i][0];
+      }
+    }
+    return null;
+  }
+  
+  var regexDefinitions = prepareDefinitions(definitions);
+  
+  /**
+   * @class qubit.opentag.compression.Encoder
+   * 
+   * Opentag session cookie encoding class. It is used instead of 
+   * encodeURIComponent/escape functions.
+   * It has much shorter output than standard encoders.
+   * It also encodes common names found in session JSON object.
+   * 
+   * @param {Object} config standard config object to construct instance.
+   *        Empty.
+   */
+  function Encoder (config) {
+    /**
+     * @cfg {Array} definitions Array of definition arrays. Eachy element
+     * is an array containing RegExp instance and replacement string.
+     * This array is used as addition to decode strings.
+     * By default it is opentag session object optimized.
+     * Definitions rules: 
+     * 
+     *    1) replacement string starts with \
+     *    2) Next character is a single value
+     *    3) The character cannot be first char of any words from definitions
+     *    4) No numbers can be used or a dot (reserved for UTF)
+     * 
+     */
+    this._regexDefs = regexDefinitions;
+    this._defs = definitions;
+    
+    if (config) {
+      if (config.definitions) {
+        this._regexDefs = prepareDefinitions(config.definitions);
+        this._defs = config.definitions;
+      }
+    }
+  }
+  
+  Define.clazz("qubit.opentag.compression.Encoder", Encoder);
+  
+  /**
+   * Function is a custom encoding function with specific support for 
+   * opentag session object.
+   * @param {String} string to encode
+   * @param {Boolean} limitUTFRange if true, utf range will be limited to value
+   *                  specified.
+   * @returns {String} encoded string. 
+   */
+  Encoder.prototype.encode = function encode(string, limitUTFRange) {
+    // one rule: 
+    // replacement char cannot be first char of any words and
+    // no numbers or dot!!!
+    var ret = string.replace(/\*/g, "**");
+    var ininitalDdict = dynamicDictionary(ret);
+    
+    for (var i = 0; i < this._regexDefs.length; i++) {
+      var pair = this._regexDefs[i];
+      ret = ret.replace(pair[0], pair[1]);
+    }
+    
+    //a must section, normally first, but ist safer to do it fater dictionary as
+    //can be changed by developer.
+    ret = ret.replace(/;/g, "*-");
+    ret = ret.replace(/&/g, "*.");
+    ret = ret.replace(/\\/g, "*/");
+    ret = ret.replace(/=/g, "*+");
+    ret = ret.replace(/\n/g, "*N");
+    ret = ret.replace(/ /g, "*_");
+    ret = ret.replace(/\t/g, "*T");
+    ret = ret.replace(/"/g, "*Q");
+    
+    //test server with
+    // document.cookie=
+    // 'x="abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 
+    // '*!-#$+()@\'%./:<>?[]^_`{|}~"'
+    
+        //start searching for interesting keywords now
+    var ddict = dynamicDictionary(ret);
+    ddict.concat(ininitalDdict);
+    // actually space is fine, just trimming occurs
+    // run dictionary before possible UTF, there ius not conflict as UTF method
+    // will ignore standard characters used by dictionaries
+    var result = replaceWithDynamicDictionary(ddict, ret);
+    var actualDict = result[1];
+    var replacementsOccured = actualDict.length > 0;
+    
+    if (replacementsOccured) {
+      ret = result[0];
+    }
+    
+    //utf section
+    if (!limitUTFRange) {
+      ret = replaceWithUTFEncoding(ret);
+    } else {
+      ret = replaceWithUTFEncoding(ret, limitUTFRange);
+    }
+    
+    if (replacementsOccured) {
+      return "Y" + actualDict.join("*") + "@" + ret;
+    } else {
+      return "N" + ret;
+    }
+  };
+  
+  function replaceWithUTFEncoding(string, range) {
+    var rewrite = [];
+      for (var i = 0; i < string.length; i++) {
+        var inRange = true;
+        if (range) {
+          inRange = string.charCodeAt(i) <= range;
+        }
+        var inCookieAlphabet = Cookie.cookieAlphabetMap
+                .hasOwnProperty(string.charAt(i));
+        if (inRange && !inCookieAlphabet) {
+          rewrite.push("*" + string.charCodeAt(i) + ".");
+        } else {
+          rewrite.push(string.charAt(i));
+        }
+      }
+      return rewrite.join("");
+  }
+  
+  /*
+   * Private wrapper over Dynamic words replaced.
+   */
+  function replaceWithDynamicDictionary(ddict, string) {
+    string = string.replace(/@/g,"@@");
+    var dict = [];
+    for (var i = 0, j = 0; i < ddict.length; i++) {
+      //new regex is expensive operation
+      var pattern = ddict[i][0];
+      var rx = new RegExp(escapeRegExp(pattern), 'g');
+      var out = string.replace(rx, "@" + j + "-");
+      if (out !== string) {
+        dict.push(ddict[i][0]);
+        j++;
+        string = out;
+      }
+    }
+    return [string, dict];
+  }
+  
+  function escapeRegExp(string) {
+    return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+  }
+  
+  //"abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ*-+@./_"
+  var dynamicDictChars = 
+    "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ+_.";
+  var dynamicDictCharsMap = {};
+  for (var i = 0; i < dynamicDictChars.length; i++) {
+    dynamicDictCharsMap[dynamicDictChars.charAt(i)] = true;
+  }
+  
+  var MIN_WORD_LEN = 4;
+  var MIN_OCCURENCE_LEN = 2;
+  function dynamicDictionary(str) {
+    var parts = {};
+    var word = "";
+    for (var i = 0; i < str.length; i++) {
+      var ch = str.charAt(i);
+      if (!dynamicDictCharsMap[ch]) {
+        if (isNaN(parts[word])) {
+          parts[word] = str.split(word).length - 1;
+        }
+        word = "";
+      } else {
+        word += ch;
+      }
+    }
+    var dict = [];
+    for (var prop in parts) {
+      if (parts.hasOwnProperty(prop)) {
+        var occurringNum = parts[prop];
+        if (occurringNum >= MIN_OCCURENCE_LEN && prop.length >= MIN_WORD_LEN) {
+          dict.push([prop, occurringNum]);
+        }
+      }
+    }
+    //@todo, make this function more sophisticated, use multiple + one word len
+    //instead of just len
+    dict = dict.sort(function(a, b) {
+      if (a[0].length === b[0].length) {
+        return 0;
+      }
+      if (b[0].length > a[0].length) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
+    return dict;
+  }
+  
+  /**
+   * Decoding function of this encoder.
+   * 
+   * @param {String} string to decode
+   * @returns {String} decoded string
+   */
+  Encoder.prototype.decode = function(string) {
+    var ddict = null;
+    if (string.charAt(0) === "N") {
+      string = string.substring(1);
+    } else if (string.charAt(0) === "Y") {
+      var qMkIdx = string.indexOf("@");
+      if (qMkIdx >= 0) {
+        ddict = string.substring(1, qMkIdx);
+        ddict = ddict.split("*");
+        string = string.substring(qMkIdx + 1);
+        //decode only if there was dynamic encoding
+        string = decodeDynamicDictionary(string, ddict);
+      }
+    }
+    
+    var ret = "";
+    var codeWord = false;
+    var collectingNum = false;
+    var utfNum = "";
+    for (var i = 0; i < string.length; i++) {
+      var ch = string.charAt(i);
+      if (ch === "*" || codeWord || collectingNum) {
+        if (codeWord || collectingNum) {
+          codeWord = false;
+          
+          if (!isNaN(+("-"+ch))) {
+            // utf code or ext dict, collect number
+            utfNum = utfNum + ch;
+            collectingNum = true;
+          } else if (collectingNum) {
+            //was collecting number  till now
+            if (ch === ".") {
+              //utf case
+              ret += String.fromCharCode(+utfNum);
+            } else if (ch === "-" &&
+                    getDefinitionByChar(utfNum + "-", this._defs)) {
+              //ext dict case
+              ret += getDefinitionByChar(utfNum + "-", this._defs);
+            } else {
+              //unrecognised, dump as was
+              ret += "*" + utfNum + ch;
+            }
+            utfNum = "";
+            collectingNum = false;
+          } else if (ch === "*") {
+            ret += "*";
+          } else if (ch === "-") {
+            ret += ";";
+          } else if (ch === "/") {
+            ret += "\\";
+          } else if (ch === ".") {
+            ret += "&";
+          } else if (ch === "+") {
+            ret += "=";
+          } else if (ch === "N") {
+            ret += "\n";
+          } else if (ch === "_") {
+            ret += " ";
+          } else if (ch === "T") {
+            ret += "\t";
+          } else if (ch === "Q") {
+            ret += "\"";
+          } else if (getDefinitionByChar(ch, this._defs) !== null) {
+            //any other chars are in the dictionary
+            var def = getDefinitionByChar(ch, this._defs);
+            ret += def;
+          } else {
+            //unrecognised! dump as was
+            ret += "*" + ch;
+          }
+        } else {
+          codeWord = true;
+        }
+      } else {
+        ret += ch;
+      }
+    }
+    if (utfNum) {
+      //last utfNum collection was uncleared! bring it back
+      ret += "*" + utfNum;
+    }
+    if (codeWord) {
+      //flush empty fflash
+      ret += "*";
+    }
+    return ret;
+  };
+  
+  //some cleanups needed.
+  function decodeDynamicDictionary(string, ddict) {
+    if (!ddict || ddict.length === 0 || !string) {
+      return string;
+    }
+    var ret = "";
+    var codeWord = false;
+    var collectingNum = false;
+    var codeNum = "";
+    for (var i = 0; i < string.length; i++) {
+      var ch = string.charAt(i);
+      
+      if (ch === "@" || codeWord || collectingNum) {
+        if (codeWord || collectingNum) {
+          codeWord = false;
+          
+          if (ch === "@") {
+            ret += "@";
+          } else  if (!isNaN(+("-" + ch))) {
+            // dynamic dictionary code
+            collectingNum = true;
+            codeNum = codeNum + ch;
+          } else {
+            if (collectingNum) {
+              if (ddict && ch === "-" && ddict[+codeNum]) {
+                //dictionary code case
+                ret += ddict[+codeNum];
+              } else {
+                //unrecognised, dump as is
+                ret += "@" + codeNum + ch;
+              }
+              codeNum = "";
+              collectingNum = false;
+            } else {
+              //not a code! dump as was
+              ret += "@" + ch;
+            }
+          }
+        } else {
+          codeWord = true;
+        }
+      } else {
+        ret += ch;
+      }
+    }
+    if (codeNum) {
+      //last codeNum collection was uncleared! bring it back
+      ret += "@" + codeNum;
+    }
+    if (codeWord) {
+      //flush empty fflash
+      ret += "@";
+    }
+    return ret;
+  };
+  
+})();
+
+
+
+
+
+
+(function() {
+  var Define = qubit.Define;
+  var Cookie = qubit.Cookie;
+  var log = new qubit.opentag.Log("CookieCompressor -> ");
+  
+  //var global = Define.global();
+  var binSupported = false;
+  //some servers are very bad. must be manually permitted.
+  //!!global.chrome || (global.mozIndexedDB !== undefined);
+  /**
+   * @class qubit.opentag.compression.Cookiecompressor
+   * 
+   * Cookie compressor class. 
+   * This class is used to compress opentag session cookie.
+   * 
+   * @param {Object} config standard config object to construct instance.
+   *        Empty.
+   */
+  function CookieCompressor(config) {
+    this.testBinary = false;
+    this.binSupported = binSupported;
+    
+    if (config) {
+      log.FINEST("Created compressor instance.");
+      /**
+       * @property {qubit.compression.Compressor} compressor 
+       * instance used for compression and decompression.
+       */
+      this.compressor = new qubit.compression.Compressor();
+      /**
+       * @property {qubit.opentag.compression.Encoder} encoder instance used
+       * for encodeing and decoding strings.
+       */
+      this.encoder = new qubit.opentag.compression.Encoder({});
+    }
+  }
+
+  Define.clazz("qubit.opentag.compression.CookieCompressor", CookieCompressor);
+  
+  /**
+   * Function will compress a string that can be saved as cookie.
+   * It also encodes string and makes sure that can be saved as cookie.
+   * 
+   * It will return string that is a binary content whenever full utf writing 
+   * content is successful in the environment (it will be tested for even 
+   * those that are not).
+   * 
+   * It is VERY inneficient to use encodeURIComponent together with this 
+   * function. This function already provides encoded string and extra encoding
+   * will cause waste of text space.
+   * 
+   * @param {String} string
+   * @param {Boolean} forceCompression if true, C type compression will be 
+   * enforced. C type compression occures when two conditions occure:
+   * 
+   *    1) it pays off - output is smaller than encoded input)
+   * 
+   *    2) binary save is not possible
+   * 
+   * @returns {String} compressed string
+   */
+  CookieCompressor.prototype.compress = function(string, forceCompression) {
+    if (typeof(string) !== "string" || string === "") {
+      return string;
+    }
+    log.FINEST("Compressing...");
+    var encoded = this.encoder.encode(string);
+    
+    var binOut;
+    if (this.binSupported || this.testBinary) {
+      var bin = this.compressor.compress(encoded);
+      binOut =  "\"B" + this.encoder.encode(bin, 128) + "\"";
+      
+      Cookie.set("__qtag_test_bin__", binOut);
+      var o = Cookie.get("__qtag_test_bin__");
+      Cookie.rm("__qtag_test_bin__");
+      
+      if (o && o !== binOut) {
+        binOut = null;
+        log.FINEST("Binary cookie saving trial failed.");
+      }
+    }
+    
+    var ansiOut;
+    var compressed = this.encoder.encode(this.compressor.compressAnsi(encoded));
+    if ((!forceCompression) && encoded.length <= compressed.length) {
+      ansiOut = "E" + encoded;
+    } else {
+      ansiOut = "C" + compressed;
+    }
+    
+    if (binOut && binOut.length < ansiOut.length) {
+      log.FINEST("Binary compression ratio: " + (binOut.length/string.length));
+      return binOut;
+    } else {
+      log.FINEST("Compression ratio: " + (ansiOut.length/string.length));
+      return ansiOut;
+    }
+  };
+
+  /**
+   * Decompresses any string that is compressed with this class 
+   * compress function.
+   * 
+   * @param {String} string compressed string
+   * @returns {String} resulting string
+   */
+  CookieCompressor.prototype.decompress = function(string) {
+    if (typeof(string) !== "string" || string === "") {
+      return string;
+    }
+    if (string.charAt(0) === "\"") {
+      string = string.substring(1, string.length -1);
+    }
+    log.FINEST("Decompressing...");
+    var code = string.charAt(0);
+    string = string.substring(1);
+    
+    switch (code) {
+      case "E":
+        return this.encoder.decode(string);
+      case "C":
+        var tmp = this.compressor.decompressAnsi(this.encoder.decode(string));
+        return this.encoder.decode(tmp);
+      case "B":
+        var tmp = this.compressor.decompress(this.encoder.decode(string));
+        return this.encoder.decode(tmp);
+      default:
+        throw "This code is not supported! Code: " + code;
+    }
+  };
+})();
 /*EXCLUDE: SESSION*/
+
+
+
 
 
 
@@ -7336,9 +8657,11 @@ var JSON = {};
 
 (function () {
 
-  var SimpleCookie = q.html.simplecookie,
-    Utils = qubit.opentag.Utils;
-
+  var Cookie = qubit.Cookie;
+  var Utils = qubit.opentag.Utils;
+    
+  var log = new qubit.opentag.Log("Session -> ");
+  
   /**
    * #Session utilities class.
    * 
@@ -7349,15 +8672,45 @@ var JSON = {};
    */
   var Session = function () {};
   
-  Utils.clazz("qubit.opentag.Session", Session);
+  qubit.Define.clazz("qubit.opentag.Session", Session);
 
+  var compressor = new qubit.opentag.compression.CookieCompressor({});
+
+  /**
+   * Utility function to read compressed cookie.
+   * 
+   * @param {String} name cookie name
+   * @returns {String} decompressed cookie
+   */
+  Session.readCompressedCookie = function (name) {
+    var cookie = Cookie.get(name);
+    return compressor.decompress(cookie);
+  };
+  
+  /**
+   * Function used to setup the session object.
+   * 
+   * @param {Object} config session configuration object
+   * @returns {Object} session object.
+   */
   Session.setupSession = function (config) {
     var session, i, cookie, cookieText, cookieName, now;
     session = {};
     session.sessionCount = q.cookie.SimpleSessionCounter
             .update(config.cookieDomain);
+    
     cookieName = "qtag_" + config.containerId;
-    cookie = SimpleCookie.readCookie(cookieName);
+    var xCookieName = "x_qtag_" + config.containerId;
+    
+    // compat for non compressed cookie, historical compability, remove this
+    // code after 15th of Sep 2015
+    cookie = Cookie.get(cookieName, true);
+    var nonCompressedCookie = !!cookie;
+    
+    if (cookie === null) {
+      cookie = Cookie.get(xCookieName);
+      cookie = compressor.decompress(cookie);
+    }
 
     if (cookie) {
       try {
@@ -7384,7 +8737,9 @@ var JSON = {};
         __v: {}
       };
     }
+    
     now = new Date().getTime();
+    
     //At this point session.sessionCount is from SimpleSessionCounter
     //cookie.sc is the last simpleSessionCounter result we have
     //we do this to see if there is a change in it
@@ -7429,7 +8784,8 @@ var JSON = {};
 
     i = 0;
 
-    while ((cookieText.length > config.maxCookieLength) && (i < 5)) {
+    while ((compressor.compress(cookieText).length > config.maxCookieLength)
+            && (i < 5)) {
       if (cookie.referrer.length >= 3) {
         cookie.referrer.splice(2, 1);
       } else if (cookie.referrer.length === 2) {
@@ -7442,17 +8798,40 @@ var JSON = {};
     }
 
     session.referrer = cookie.referrer;
-
-    SimpleCookie.writeCookie(cookieName, cookieText, -100, "");
-    SimpleCookie.writeCookie(cookieName, cookieText, 365, config.cookieDomain);
+    
+    if (nonCompressedCookie) {
+      //remove old cookie if exists
+      Cookie.rm(cookieName);
+    }
+    
+    var xCookieText = compressor.compress(cookieText);
+    Cookie.rm(xCookieName);
+    Cookie.set(xCookieName, xCookieText, 365, config.cookieDomain);
 
     session.setVariable = function (key, value, time) {
       var t = (!!time) ? time : 0;
       cookie.__v[key] = [value, t];
-      SimpleCookie.writeCookie(cookieName, JSON.stringify(cookie), 365, 
-          config.cookieDomain);
+      var xCookieText = compressor.compress(JSON.stringify(cookie));
+      Cookie.set(xCookieName, xCookieText, 365, config.cookieDomain);
     };
-    session.getCookie = SimpleCookie.readCookie;
+    
+    session.getCookie = function (name, compressed) {
+      var res = Cookie.get(name); //get encoded
+      if (res && (compressed || name.indexOf("x_") === 0)) {
+        log.FINE("getCookie() : Comressed cookie accessed:\n" +
+                name + "=" + res);//L
+        try {
+          res = compressor.decompress(res);
+        } catch (ex) {
+          log.ERROR("Cookie failed to decompress: " + ex);
+        }
+      } else {
+        //apply decoding
+        res = Cookie.decode(res);
+      }
+      return res;
+    };
+    
     session.getVariable = function (key) {
       var v, t, now;
       v = cookie.__v[key];
@@ -7464,6 +8843,7 @@ var JSON = {};
       }
       return null;
     };
+    
     session.on = function (event, el, fn) {
       if (el.attachEvent) {
         el.attachEvent("on" + event, fn);
@@ -7471,13 +8851,21 @@ var JSON = {};
         el.addEventListener(event, fn, false);
       }
     };
+    
+    session.getTagCookie = function () {
+      return Session.readCompressedCookie(xCookieName);
+    };
+    
+    Session.lastSession = session;
+    
     return session;
   };
   
   /**
+   * Function check current refferer is same as last one.
    * 
    * @param {Array} referrers
-   * @param {Boolean} now
+   * @param {Date} now
    * @param {Number} overlapDuration
    * @returns {Boolean}
    */
@@ -7497,6 +8885,7 @@ var JSON = {};
   
   /**
    * Checks if page referrer is different from this domain.
+   * 
    * @returns {Boolean}
    */
   Session.isReferrerDifferent = function () {
@@ -7550,7 +8939,7 @@ var JSON = {};
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -7563,13 +8952,13 @@ var JSON = {};
   var Timed = qubit.opentag.Timed;
   var Tags = qubit.opentag.Tags;
   var Session = qubit.opentag.Session;//:session
-  var SimpleCookie = q.html.simplecookie;
+  var Cookie = qubit.Cookie;
   var log = new qubit.opentag.Log("Container -> ");
 
   var _counter = 1;
 
 /* Consent hack from old qtag - will be updated by requires renewing consent.
- * @TODO seriously, clean this up in opentag!
+ * @TODO seriously, clean this up in opentag! use global not window
  * Compatibility layer.
  */
   window.opentag_consentGiven = function () {
@@ -7652,7 +9041,7 @@ var JSON = {};
        * Maximum cookie length to be used by this tag. Set it to lower value
        * if serving pages use very long cookies.
        */
-      maxCookieLength: 3000,
+      maxCookieLength: 1000,
       /**
        * @cfg {Boolean} [gzip=true]
        * True by default, indicates if tags should be zipped with gzip standard.
@@ -7739,7 +9128,8 @@ var JSON = {};
       /*no-send*/
       this.ping = new qubit.opentag.Ping(this.config);
       /*~no-send*/
-      /*session*///@TODO add maybe better session condition here(much better...)  
+      /*session*/
+      //@TODO add maybe better session condition here(much better...)  
       if (this.config.trackSession) {
         this.session = Session.setupSession(this.config);
       }
@@ -7753,7 +9143,7 @@ var JSON = {};
     return this;
   }
 
-  Utils.clazz("qubit.opentag.Container", Container);
+  qubit.Define.clazz("qubit.opentag.Container", Container);
 
   var containers = [];
   /**
@@ -7799,7 +9189,7 @@ var JSON = {};
    * @returns {Boolean}
    */
   Container.prototype.hasConsent = function () {
-    return SimpleCookie.readCookie("qubitconsent") === "Accepted";
+    return Cookie.get("qubitconsent", true) === "Accepted";
   };
 
   /**
@@ -7954,7 +9344,7 @@ var JSON = {};
    * @param config
    */
   Container.prototype.runTags = function (config) {
-    if (Container.OFF || global.QUBIT_CONTAINERS_OFF) {
+    if (Container.OFF || Utils.global().QUBIT_CONTAINERS_OFF) {
       this.log.INFO("Container are DISABLED.");
       this.log.INFO("To enable, set Container.OFF to " +
               "true and set QUBIT_CONTAINERS_OFF to false.");//L
@@ -8014,6 +9404,11 @@ var JSON = {};
                 "'.\n Error: " + ex);//L
       }
     }
+    //try to send pings sooner than later
+    Timed.setTimeout(function () {
+      this.sendPingsNotTooOften();
+    }.bind(this), 1100);
+    
     this.waitForAllTagsToFinish();
   };
 
@@ -8107,6 +9502,14 @@ var JSON = {};
         l.INFO("No consent awaiting tags.", 0, styling);
       }
       
+      if (results.locked) {
+        var len = Utils.keys(results.locked).length;
+        l.INFO("Locked [" + len + "]:", 0,  styling);
+        l.INFO(results.locked, true);
+      } else {
+        l.INFO("No locked tags.", 0,  styling);
+      }
+      
       if (results.other) {
         var len = Utils.keys(results.other).length;
         l.INFO("Other unloaded tags[" + len + "]:", 0, styling);
@@ -8156,7 +9559,7 @@ var JSON = {};
    * be re-run. Logs are never resetted.
    */
   Container.prototype.resetAllTags = function () {
-    log.WARN("reseting all tags!");
+    this.log.WARN("reseting all tags!");
     for (var prop in this.tags) {
       if (this.tags.hasOwnProperty(prop)) {
         this.tags[prop].reset();
@@ -8168,7 +9571,7 @@ var JSON = {};
    * Function reset this container (including it's registered tags).
    */
   Container.prototype.reset = function () {
-    log.WARN("reseting container!");
+    this.log.WARN("reseting container!");
     this.runningFinished = undefined;
     this._waitForAllTagsToFinishWaiting = undefined;
     this.runningStarted = undefined;
@@ -8201,7 +9604,7 @@ var JSON = {};
       if (results.run) {
         //send "just run" load times
         loadTimes = Tags.getLoadTimes(results.run);
-        this.log.INFO("sending standard load pings");
+        this.log.INFO("Sending standard load pings");
         this.lastPingsSentTime = new Date().valueOf();
         this.ping.send(this.config, loadTimes);
       }
@@ -8219,7 +9622,7 @@ var JSON = {};
         }(i));
       }
       if (deduplicatedTagsToBeSent.length > 0) {
-        this.log.INFO("sending deduplication pings");
+        this.log.INFO("Sending deduplication pings");
         this.lastDedupePingsSentTime = new Date().valueOf();
         this.ping.sendDedupe(this.config, deduplicatedTagsToBeSent);
       }
@@ -8236,7 +9639,7 @@ var JSON = {};
               after.call(tag, success);
               _this.sendPingsNotTooOften();
               if (success) {
-                tag.log.INFO("SENDING LOAD STATS");
+                tag.log.INFO("[Other]SENDING LOAD STATS");
               }
             };
           }(i));
@@ -8256,7 +9659,7 @@ var JSON = {};
               after.call(tag, success);
               _this.sendPingsNotTooOften();
               if (success) {
-                tag.log.INFO("SENDING LOAD STATS");
+                tag.log.INFO("[Awaiting]SENDING LOAD STATS");
               }
             };
           }(i));
@@ -8296,7 +9699,7 @@ var JSON = {};
    */
   Container.getAllTagsByState = function (tags) {
     var runScripts = null, other = null, filterReady = null, failed = null,
-            consent = null;
+            consent = null, locked = null;
     
     var FILTERS_FAILED = BaseTag.prototype.STATE.FILTERS_FAILED;
     for (var prop in tags) {
@@ -8306,6 +9709,9 @@ var JSON = {};
         if (tag.scriptExecuted > 0) {
           runScripts = runScripts || {};
           attachRenamedIfExist(runScripts, tag, name);
+        } else if (tag.locked) {
+          locked = locked || {};
+          attachRenamedIfExist(locked, tag, name);
         } else if (tag.scriptExecuted < 0 || (tag.state > FILTERS_FAILED)) {
             failed = failed || {};
             attachRenamedIfExist(failed, tag, name);
@@ -8329,6 +9735,7 @@ var JSON = {};
       failed: failed,
       awaiting: filterReady,
       consent: consent,
+      locked: locked,
       other: other
     };
   };
@@ -8356,10 +9763,11 @@ var JSON = {};
         var tag = this.tags[prop];
         if (tag instanceof qubit.opentag.BaseTag) {
           //tag.filtersState() < 0 === filters are passed
+          //tag.locked is not locked
           // === 0 FAILED
           // > 0 filter is awaiting
           var state = tag.filtersState();
-          if (tag.filtersState() < 0 &&
+          if ((tag.filtersState() < 0 && !tag.locked) &&
                   !(tag.finished() || (tag.config.runner && !tag.isRunning))) {
             if (state !== BaseFilter.state.SESSION) {
               return false;
@@ -8413,8 +9821,10 @@ var JSON = {};
 
 
 
+
+
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -8443,8 +9853,7 @@ var JSON = {};
     
     if (this.singleton) {
       var path = this.PACKAGE_NAME  + "." + this.CLASS_NAME;
-      var zuper = 
-              qubit.opentag.Utils.getObjectUsingPath(path);
+      var zuper = qubit.opentag.Utils.getObjectUsingPath(path, PKG_ROOT);
       if (zuper.__instance) {
         zuper.__instance.log.FINEST("Returning singleton instance.");
         return zuper.__instance;
@@ -8455,7 +9864,10 @@ var JSON = {};
     LibraryTag.superclass.call(this, config); 
   }
   
-  Utils.clazz("qubit.opentag.LibraryTag", LibraryTag, qubit.opentag.BaseTag);
+  qubit.Define.clazz(
+          "qubit.opentag.LibraryTag",
+          LibraryTag,
+          qubit.opentag.BaseTag);
   
   /**
    * @static
@@ -8531,7 +9943,7 @@ var JSON = {};
     LibraryTag.superclass.prototype.before.call(this);
     
     if (this.config.html || this.config.script) {
-      log.WARN("config.html or config.script is set while using pre." +
+      this.log.WARN("config.html or config.script is set while using pre." +
               " Cancelling running pre.");//L
       return false;//continue normally
     }
@@ -8570,7 +9982,7 @@ var JSON = {};
   LibraryTag.prototype.after = function (success) {
     LibraryTag.superclass.prototype.after.call(this, success);
     if (this.config.html || this.config.script) {
-      log.WARN("config.html or config.script is set while using post." +
+      this.log.WARN("config.html or config.script is set while using post." +
               " Cancelling running post.");//L
       return;
     }
@@ -8667,7 +10079,7 @@ var JSON = {};
     };
     
     var ret = qubit.opentag.Utils
-            .defineClass(namespace, LibraryTag, prototypeTemplate);
+            .defineClass(namespace, LibraryTag, prototypeTemplate, GLOBAL);
     
     //register them also in qubit scope.
     Utils.namespace("qubit.opentag.libraries." + namespace, ret);
@@ -8677,8 +10089,9 @@ var JSON = {};
 
 
 
+
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -8729,19 +10142,22 @@ var JSON = {};
     CustomTag.superclass.call(this, config);
   }
   
-  Utils.clazz("qubit.opentag.CustomTag", CustomTag, qubit.opentag.LibraryTag);
+  qubit.Define.clazz(
+          "qubit.opentag.CustomTag",
+          CustomTag,
+          qubit.opentag.LibraryTag);
 }());
 
 
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
 
 (function () {
-  var Utils = qubit.opentag.Utils;
+  var Define = qubit.Define;
   
   /**
    * #PatternType static class.
@@ -8780,7 +10196,7 @@ var JSON = {};
     ALL_URLS: "All URLs"
   };
   
-  Utils.namespace("qubit.opentag.filter.pattern.PatternType", PatternType);
+  Define.namespace("qubit.opentag.filter.pattern.PatternType", PatternType);
 }());
 
 
@@ -8790,8 +10206,9 @@ var JSON = {};
 
 
 
+
 /*
- * Opentag, a tag deployment platform
+ * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
@@ -8842,7 +10259,7 @@ var JSON = {};
     URLFilter.superclass.call(this, defaultConfig);
   }
   
-  Utils.clazz("qubit.opentag.filter.URLFilter", URLFilter, BaseFilter);
+  qubit.Define.clazz("qubit.opentag.filter.URLFilter", URLFilter, BaseFilter);
   
   /**
    * URL getting wrapper.
@@ -8916,6 +10333,14 @@ var JSON = {};
 
 
 
+
+/*
+ * TagSDK, a tag development platform
+ * Copyright 2014, Qubit Group
+ * http://opentag.qubitproducts.com
+ * Author: Peter Fronc <peter.fronc@qubitdigital.com>
+ */
+
 (function() {
   var Utils = qubit.opentag.Utils;
   var PatternType = qubit.opentag.filter.pattern.PatternType;
@@ -8924,6 +10349,7 @@ var JSON = {};
   var LibraryTag = qubit.opentag.LibraryTag;
   var CustomTag = qubit.opentag.CustomTag;
   var DOMText = qubit.opentag.pagevariable.DOMText;
+  var BaseVariable = qubit.opentag.pagevariable.BaseVariable;
   var URLQuery = qubit.opentag.pagevariable.URLQuery;
   var Cookie = qubit.opentag.pagevariable.Cookie;
   var Expression = qubit.opentag.pagevariable.Expression;
@@ -8969,7 +10395,7 @@ var JSON = {};
     }
   }
   
-  Utils.clazz("qubit.opentag.OldTagRunner", OldTagRunner);
+  qubit.Define.clazz("qubit.opentag.OldTagRunner", OldTagRunner);
   
   /**
    * Old configuration runner function.
@@ -9036,7 +10462,8 @@ var JSON = {};
           name: loader.name,
           filters: filterDefinitions,
           parameters: parameterDefinitions,
-          ID: loader.id,
+          id: loader.id,
+          locked: !!loader.locked,
           url: loader.url,
           html: loader.html,
           template: !!loader.template,
@@ -9134,7 +10561,7 @@ var JSON = {};
             name: variableDefinition.name,
             value: variableDefinition.value
           };
-          //hard coded value????
+          
           switch (variableDefinition.type) {
             case V_JS_VALUE: //covers also UV
               variable = new Expression(varCfg);
@@ -9149,7 +10576,7 @@ var JSON = {};
               variable = new DOMText(varCfg);
               break;
             default:
-              //hard coded val???
+              variable = new BaseVariable(varCfg);
           }
           
           var parameter = {
@@ -9288,3 +10715,233 @@ var JSON = {};
     }
   }
 })();
+
+
+(function () {
+  var category = {
+    id: 4,
+    name: "AB & Multi-Variate Testing"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.ABMultiVariateTesting",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 10,
+    name: "Advertising Network"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.AdvertisingNetwork",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 5,
+    name: "Affiliate Networks"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.AffiliateNetworks",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 9,
+    name: "Audience Management"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.AudienceManagement",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 13,
+    name: "DSP"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.DSP",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 14,
+    name: "DSP (Ad Server)"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.DSPAdServer",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 12,
+    name: "Digital Media Agencies"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.DigitalMediaAgencies",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 15,
+    name: "Email Service Provider (ESP)"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.EmailServiceProviderESP",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 16,
+    name: "Feed Management (Shopping Comparison)"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.FeedManagementShoppingComparison",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 17,
+    name: "Live Chat & Customer Service Engine"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.LiveChatCustomerServiceEngine",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 18,
+    name: "Merchandising & Rich Media"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.MerchandisingRichMedia",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 19,
+    name: "Personalisation Platform"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.PersonalisationPlatform",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 6,
+    name: "Ratings & Review Engine"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.RatingsReviewEngine",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 8,
+    name: "Re-Targeting"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.ReTargeting",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 7,
+    name: "Search Engine"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.SearchEngine",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 3,
+    name: "Social"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.Social",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 11,
+    name: "Tag Management"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.TagManagement",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 2,
+    name: "Web Analytics"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.WebAnalytics",
+          category);
+}());
+
+
+(function () {
+  var category = {
+    id: 1,
+    name: "Web Utilities / JavaScript Tools"
+  };
+  
+  qubit.Define.namespace(
+          "qubit.opentag.data.category.ABMultiVariateTesting",
+          category);
+}());
+
+}());
