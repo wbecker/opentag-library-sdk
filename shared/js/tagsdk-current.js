@@ -3468,9 +3468,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {String} decoded string
    */
   Cookie.decode = function (string) {
-    return decodeURIComponent(string);
+    return unescape(string); //old version compatibility
   };
-  
   /**
    * @static
    * Default encoding method for cookie. Defaulting to `encodeURIComponent`.
@@ -3479,7 +3478,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {String} encoded string
    */
   Cookie.encode = function (string) {
-    return encodeURIComponent(string);
+    return escape(string);
   };
   
   /**
@@ -3490,10 +3489,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @param {String} value cookie string to be set
    * @param {Number} days days to expire
    * @param {String} domain cookie domain
-   * @param {Boolean} encoded if should encode value and name with default
+   * @param {Boolean} notEncoded if should NOT encode value and name with default
    *    method.
    */
-  Cookie.set = function(name, value, days, domain, encoded) {
+  Cookie.set = function(name, value, days, domain, notEncoded) {
     var expires;
     if (days) {
       var date = new Date();
@@ -3503,7 +3502,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       expires = "";
     }
     
-    if (encoded) {
+    if (!notEncoded) {
       name = Cookie.encode(name);
       value = Cookie.encode(value);
     }
@@ -3522,11 +3521,12 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * Get cookie function.
    * 
    * @param {String} name cookie name
-   * @param {Boolean} decoded should cookie be decoded using default method.
+   * @param {Boolean} notDecoded should NOT cookie be decoded using default
+   *  method. If true, cookie will not be decoded.
    * 
    * @returns {String} cookie string or `null` if not found.
    */
-  Cookie.get = function(name, decoded) {
+  Cookie.get = function(name, notDecoded) {
     var part = name + "=";
     var chunks = document.cookie.split(';');
     for (var i = 0; i < chunks.length; i++) {
@@ -3536,7 +3536,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       }
       if (chunk.indexOf(part) === 0) {
         var tmp = chunk.substring(part.length, chunk.length);
-        if (decoded) {
+        if (!notDecoded) {
           tmp = Cookie.decode(tmp);
         }
         return tmp;
@@ -3580,6 +3580,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * Clearing cookie function.
    * 
    * @param {String} name cookie name
+   * @param {String} domain cookie domain
    */
   Cookie.rm = function(name, domain) {
     Cookie.set(name, "", -1, domain);
@@ -3629,7 +3630,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {String} cookie value
    */
   Cookie.prototype.getValue = function () {
-    var val = qubit.Cookie.get(this.value, true);
+    var val = qubit.Cookie.get(this.value);
     Timed.maxFrequent(function () {
       this.log.FINEST("reading cookie value: " + val);
     }.bind(this), 2000, this._lockObject);
@@ -4511,9 +4512,14 @@ q.html.HtmlInjector.getAttributes = function (node) {
   };
   
   /**
-   * This properety will cause ALL loaders/tags/libraries to cancel running on
-   * `run()` time. It is convinient property to controll that any tag will not
-   * be run after setting to `true`.
+   * 
+   * GenericLoader.CANCELL_ALL properety will cause ALL loaders/tags/libraries
+   * to cancel running on `run()` time. It is convinient property to controll 
+   * that any tag will not be run after setting to `true`.
+   * 
+   * @property {Boolean} CANCELL_ALL If set to true, all tags, if not run yet,
+   * will be cancelled - no tag will run.
+   * @static
    */
   GenericLoader.CANCELL_ALL = false;
   
@@ -5897,6 +5903,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     if (!this.locked) {
       return BaseTag.superclass.prototype.run.call(this, ignoreDeps);
     } else {
+      this.log.WARN("Tag is locked. Running delegated.");
       this._unlock = function () {
         return BaseTag.superclass.prototype.run.call(this, ignoreDeps);
       }.bind(this);
@@ -7127,7 +7134,7 @@ q.html.PostData = function (url, data, type) {
     for (var i = 0; i < loadTimes.length; i++) {
       var tag = loadTimes[i].tag;
       var loadTime = loadTimes[i].loadTime;
-      var loaderId = tag.config.ID;
+      var loaderId = tag.config.id;
       
       if (!tag.pingSent && loaderId && loadTime !== null) {
         if (loaderId !== undefined) {
@@ -7211,7 +7218,7 @@ q.html.PostData = function (url, data, type) {
 
     for (var i = 0; i < tags.length; i++) {
       var tag = tags[i];
-      var loaderId = tag.config.ID;
+      var loaderId = tag.config.id;
 
       if (loaderId === undefined) {
         log.WARN("sendDedupe: tag `" + tag.config.name +
@@ -7249,8 +7256,8 @@ q.cookie.SimpleSessionCounter._cookieName = "_qst_s";
 q.cookie.SimpleSessionCounter._sessionCookie = "_qsst_s";
 q.cookie.SimpleSessionCounter.update = function (domain) {
   var c, s, ga, mins = 30;
-  c = qubit.Cookie.get(q.cookie.SimpleSessionCounter._cookieName, true);
-  s = qubit.Cookie.get(q.cookie.SimpleSessionCounter._sessionCookie, true);
+  c = qubit.Cookie.get(q.cookie.SimpleSessionCounter._cookieName);
+  s = qubit.Cookie.get(q.cookie.SimpleSessionCounter._sessionCookie);
   if (!c) {
     c = 1;
   } else {
@@ -7259,10 +7266,9 @@ q.cookie.SimpleSessionCounter.update = function (domain) {
       c += 1;
     }
   }
-  qubit.Cookie.set(q.cookie.SimpleSessionCounter._cookieName, 
-    c, 365, domain, true);
+  qubit.Cookie.set(q.cookie.SimpleSessionCounter._cookieName, c, 365, domain);
   qubit.Cookie.set(q.cookie.SimpleSessionCounter._sessionCookie, 
-    new Date().getTime().toString(), null, domain, true);
+    new Date().getTime().toString(), null, domain);
   return c;
 };
 /*EXCLUDE: JSON*/
@@ -8587,8 +8593,8 @@ var JSON = {};
       var bin = this.compressor.compress(encoded);
       binOut =  "\"B" + this.encoder.encode(bin, 128) + "\"";
       
-      Cookie.set("__qtag_test_bin__", binOut);
-      var o = Cookie.get("__qtag_test_bin__");
+      Cookie.set("__qtag_test_bin__", binOut, undefined, undefined, true);
+      var o = Cookie.get("__qtag_test_bin__", true);
       Cookie.rm("__qtag_test_bin__");
       
       if (o && o !== binOut) {
@@ -8683,7 +8689,7 @@ var JSON = {};
    * @returns {String} decompressed cookie
    */
   Session.readCompressedCookie = function (name) {
-    var cookie = Cookie.get(name);
+    var cookie = Cookie.get(name, true);
     return compressor.decompress(cookie);
   };
   
@@ -8704,11 +8710,12 @@ var JSON = {};
     
     // compat for non compressed cookie, historical compability, remove this
     // code after 15th of Sep 2015
-    cookie = Cookie.get(cookieName, true);
+    cookie = Cookie.get(cookieName);
     var nonCompressedCookie = !!cookie;
     
     if (cookie === null) {
-      cookie = Cookie.get(xCookieName);
+      //try compressed new cookie in use
+      cookie = Cookie.get(xCookieName, true);
       cookie = compressor.decompress(cookie);
     }
 
@@ -8806,17 +8813,23 @@ var JSON = {};
     
     var xCookieText = compressor.compress(cookieText);
     Cookie.rm(xCookieName);
-    Cookie.set(xCookieName, xCookieText, 365, config.cookieDomain);
+    if (config.maxCookieLength > 0) {
+      Cookie.set(xCookieName, xCookieText, 365, config.cookieDomain, true);
+    }
 
     session.setVariable = function (key, value, time) {
       var t = (!!time) ? time : 0;
       cookie.__v[key] = [value, t];
       var xCookieText = compressor.compress(JSON.stringify(cookie));
-      Cookie.set(xCookieName, xCookieText, 365, config.cookieDomain);
+      if (config.maxCookieLength > 0) {
+        Cookie.set(xCookieName, xCookieText, 365, config.cookieDomain, true);
+      } else {
+        Cookie.rm(xCookieName);
+      }
     };
     
     session.getCookie = function (name, compressed) {
-      var res = Cookie.get(name); //get encoded
+      var res = Cookie.get(name, true); //get encoded
       if (res && (compressed || name.indexOf("x_") === 0)) {
         log.FINE("getCookie() : Comressed cookie accessed:\n" +
                 name + "=" + res);//L
@@ -8986,9 +8999,11 @@ var JSON = {};
    * applies) for opentag.
    * 
    * Example of usage:
-   *
-   *       var aContainer =  new qubit.opentag.Container({
-        maxCookieLength: 2500,
+   *       
+
+
+      var aContainer =  new qubit.opentag.Container({
+        maxCookieLength: 1000,
         delayDocWrite: true,
         name: "Container A",
         tellLoadTimesProbability: true,
@@ -9037,7 +9052,7 @@ var JSON = {};
        */
       cookieDomain: "",
       /**
-       * @cfg {Number} [maxCookieLength=3000]
+       * @cfg {Number} [maxCookieLength=1000]
        * Maximum cookie length to be used by this tag. Set it to lower value
        * if serving pages use very long cookies.
        */
@@ -9189,7 +9204,7 @@ var JSON = {};
    * @returns {Boolean}
    */
   Container.prototype.hasConsent = function () {
-    return Cookie.get("qubitconsent", true) === "Accepted";
+    return Cookie.get("qubitconsent") === "Accepted";
   };
 
   /**
@@ -10380,7 +10395,7 @@ var JSON = {};
       pingServerUrl: "",
       qtag_domain: "",
       delayDocWrite: false,
-      maxCookieLength: 3000,
+      maxCookieLength: 1000,
       containerName: ""
     };
 
