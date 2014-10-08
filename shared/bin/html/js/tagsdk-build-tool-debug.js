@@ -13249,7 +13249,7 @@ function runBDDSuite(bddSuite, callback) {
           try {
             callback();
           } catch (ex) {
-            alert(ex);
+						window.log("Error while running test:" + ex);
           }
         }
       };
@@ -13333,7 +13333,7 @@ function loadUVVariables(callback) {
   GET(LIBRARIES_REPO_LOC + "shared/bin/html/data/uv.data",
 		function(msg, httpr) {
     if (httpr.status !== 200) {
-      alert("Error loading UV data: " + msg);
+      log("Error loading UV data: " + msg);
     }
     try {
       var lines = msg.split("\n");
