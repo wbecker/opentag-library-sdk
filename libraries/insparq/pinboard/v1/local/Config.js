@@ -1,7 +1,7 @@
 /**ignore at merge**/
 //:include tagsdk-current.js
-qubit.opentag.Utils.namespace('insparq.trendingproductsfeed.v1.local');
-insparq.trendingproductsfeed.v1.local.Config = {
+qubit.opentag.Utils.namespace('insparq.pinboard.v1.local');
+insparq.pinboard.v1.local.Config = {
   "parameters": [
      {
       "name": "jQuery",
@@ -18,25 +18,18 @@ insparq.trendingproductsfeed.v1.local.Config = {
       "inputVariable": "\"#content\""
     },
      {
-      "name": "Client API Key",
-      "description": "Client API Key",
-      "token": "client",
+      "name": "inSparq API Key",
+      "description": "inSparq API Key",
+      "token": "insparq_api_key",
       "uv": "",
       "inputVariable": "\"test\""
     },
      {
-      "name": "URL",
-      "description": "url",
-      "token": "url",
+      "name": "Pinboard Stylesheet URL",
+      "description": "URL for pinboard's CSS",
+      "token": "stylesheeturl",
       "uv": "",
       "inputVariable": "\"test\""
-    },
-     {
-      "name": "Pinboard Domain",
-      "description": "The Pinboard domain to use.",
-      "token": "pinboard_domain",
-      "uv": "",
-      "inputVariable": "\"pin\""
     }
   ]
 };

@@ -1,6 +1,6 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("insparq.confirmationpage.v1.Tag", {
+qubit.opentag.LibraryTag.define("insparq.purchasetrackingpixel.v1.Tag", {
   config: {
     /*DATA*/
     name: "Purchase Tracking Pixel",
@@ -48,8 +48,8 @@ qubit.opentag.LibraryTag.define("insparq.confirmationpage.v1.Tag", {
       token: "names",
       uv: "universal_variable.transaction.line_items[#].product.name"
     }, {
-      name: "inSparq API key",
-      description: "inSparq API key",
+      name: "inSparq API Key",
+      description: "inSparq API Key",
       token: "insparq_api_key",
       uv: ""
     }, {
