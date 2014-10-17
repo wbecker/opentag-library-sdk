@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
+qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
   config: {
     /*DATA*/
-    name: "Carousel Widget",
+    name: "Widget Instance",
     async: false,
     description: "",
     html: "",
@@ -17,8 +17,8 @@ qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
       description: "This is the AlphaNumeric Identifier key for the customers account to allow communication to the Olapic servers for their account.",
       token: "apikey"
     }, {
-      name: "Olapic Widget Reference",
-      description: "This is the AlphaNumeric Identifier key used to reference to a specific widget on the Olapic Servers.",
+      name: "Olapic Widget Instance Reference",
+      description: "This is the AlphaNumeric Identifier key used to reference to a specific widget instance on the Olapic Servers.",
       token: "widgetref"
     }, {
       name: "Element Reference",
