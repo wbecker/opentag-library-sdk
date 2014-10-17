@@ -30,6 +30,11 @@ qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
       defaultValue: "-",
       token: "refkey"
     }, {
+      name: "Widget Mode",
+      description: "This is an optional paramater used to set widget mode. Accepted values are \"live\" and \"development\". Set the value to \"development\" for development purposes (warning: bypasses cache layer, and should not be used for production use).",
+      defaultValue: "live",
+      token: "widgetmode"
+    }, {
       name: "Append DIV after Selector",
       description: "The location for where the <div/> created by the script will be inserted into the DOM",
       defaultValue: "body",
@@ -50,8 +55,9 @@ qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
       olapicJs.setAttribute("data-olapic", this.valueForToken("elementref"));
       olapicJs.setAttribute("data-instance", this.valueForToken("widgetref"));
       olapicJs.setAttribute("data-apikey", this.valueForToken("apikey"));
+      olapicJs.setAttribute("data-mode", this.valueForToken("widgetmode"));
       if (this.valueForToken("refkey") !== "-") {
-        olapicJs.setAttribute("data-olapic", this.valueForToken("refkey"));
+        olapicJs.setAttribute("data-tags", this.valueForToken("refkey"));
       }
       olapicEl.parentNode.insertBefore(olapicJs, olapicEl.nextSibling);
     }
