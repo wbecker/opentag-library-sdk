@@ -36,7 +36,7 @@ qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
       token: "widgetmode"
     }, {
       name: "Append DIV after Selector",
-      description: "The location for where the <div/> created by the script will be inserted into the DOM",
+      description: "The location for where the <div/> created by the script will be inserted into the DOM. Example: .pdp-content or #side-content",
       defaultValue: "body",
       token: "appendat"
     }]
