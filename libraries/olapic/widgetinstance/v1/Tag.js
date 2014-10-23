@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
+qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
   config: {
     /*DATA*/
-    name: "Carousel Widget",
+    name: "Widget Instance",
     async: false,
     description: "",
     html: "",
@@ -17,8 +17,8 @@ qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
       description: "This is the AlphaNumeric Identifier key for the customers account to allow communication to the Olapic servers for their account.",
       token: "apikey"
     }, {
-      name: "Olapic Widget Reference",
-      description: "This is the AlphaNumeric Identifier key used to reference to a specific widget on the Olapic Servers.",
+      name: "Olapic Widget Instance Reference",
+      description: "This is the AlphaNumeric Identifier key used to reference to a specific widget instance on the Olapic Servers.",
       token: "widgetref"
     }, {
       name: "Element Reference",
@@ -30,8 +30,13 @@ qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
       defaultValue: "-",
       token: "refkey"
     }, {
+      name: "Widget Mode",
+      description: "This is an optional paramater used to set widget mode. Accepted values are \"live\" and \"development\". Set the value to \"development\" for development purposes (warning: bypasses cache layer, and should not be used for production use).",
+      defaultValue: "live",
+      token: "widgetmode"
+    }, {
       name: "Append DIV after Selector",
-      description: "The location for where the <div/> created by the script will be inserted into the DOM",
+      description: "The location for where the <div/> created by the script will be inserted into the DOM. Example: .pdp-content or #side-content",
       defaultValue: "body",
       token: "appendat"
     }]
@@ -50,8 +55,9 @@ qubit.opentag.LibraryTag.define("olapic.carouselwidget.v1.Tag", {
       olapicJs.setAttribute("data-olapic", this.valueForToken("elementref"));
       olapicJs.setAttribute("data-instance", this.valueForToken("widgetref"));
       olapicJs.setAttribute("data-apikey", this.valueForToken("apikey"));
+      olapicJs.setAttribute("data-mode", this.valueForToken("widgetmode"));
       if (this.valueForToken("refkey") !== "-") {
-        olapicJs.setAttribute("data-olapic", this.valueForToken("refkey"));
+        olapicJs.setAttribute("data-tags", this.valueForToken("refkey"));
       }
       olapicEl.parentNode.insertBefore(olapicJs, olapicEl.nextSibling);
     }
