@@ -1,7 +1,7 @@
 /**ignore at merge**/
 //:include tagsdk-current.js
-qubit.opentag.Utils.namespace('insparq.sharingwidgetbuttons.v1.local');
-insparq.sharingwidgetbuttons.v1.local.Config = {
+qubit.opentag.Utils.namespace('insparq.sharingwidgetreferralpopout.v1.local');
+insparq.sharingwidgetreferralpopout.v1.local.Config = {
   "parameters": [
     {
       "name": "inSparq API Key",
@@ -23,30 +23,6 @@ insparq.sharingwidgetbuttons.v1.local.Config = {
       "token": "isswpublishername",
       "uv": "",
       "inputVariable": "\"123\""
-    },
-    {
-      "name": "Product Name",
-      "description": "Product name",
-      "token": "isswproductname",
-      "uv": "universal_variable.product.name"
-    },
-    {
-      "name": "Product ID",
-      "description": "Product ID",
-      "token": "isswproductid",
-      "uv": "universal_variable.product.id"
-    },
-    {
-      "name": "Product URL",
-      "description": "Product URL",
-      "token": "isswproducturl",
-      "uv": "universal_variable.product.url"
-    },
-    {
-      "name": "Product Price",
-      "description": "Product Price",
-      "token": "isswproductprice",
-      "uv": "universal_variable.product.unit_price"
     },
     {
       "name": "jQuery Element Selector",

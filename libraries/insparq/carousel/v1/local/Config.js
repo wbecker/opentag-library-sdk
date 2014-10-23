@@ -1,26 +1,19 @@
 /**ignore at merge**/
 //:include tagsdk-current.js
-qubit.opentag.Utils.namespace('insparq.trendingproductsmodule.v1.local');
-insparq.trendingproductsmodule.v1.local.Config = {
+qubit.opentag.Utils.namespace('insparq.carousel.v1.local');
+insparq.carousel.v1.local.Config = {
   "parameters": [
      {
-      "name": "Pinboard Domain",
-      "description": "The Pinboard domain to use for calls to inSparq.",
-      "token": "pinboarddomain",
-      "uv": "",
-      "inputVariable": "\"test\""
-    },
-     {
       "name": "Module Name",
-      "description": "module",
+      "description": "inSparq-provided name for carousel instance.",
       "token": "module",
       "uv": "",
       "inputVariable": "\"test\""
     },
      {
-      "name": "Client API Key",
-      "description": "Client API Key",
-      "token": "key",
+      "name": "inSparq API Key",
+      "description": "inSparq API Key",
+      "token": "insparq_api_key",
       "uv": "",
       "inputVariable": "\"test\""
     },

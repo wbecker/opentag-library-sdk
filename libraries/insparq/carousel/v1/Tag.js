@@ -1,9 +1,9 @@
 //:include tagsdk-current.js
 
-qubit.opentag.LibraryTag.define("insparq.trendingproductsmodule.v1.Tag", {
+qubit.opentag.LibraryTag.define("insparq.carousel.v1.Tag", {
   config: {
     /*DATA*/
-    name: "Trending Products Module",
+    name: "Trending Products Carousel",
     async: true,
     description: "A carousel module that showcases your e-commerce site’s trending products. You can implement anywhere on your site.",
     html: "",
@@ -13,19 +13,14 @@ qubit.opentag.LibraryTag.define("insparq.trendingproductsmodule.v1.Tag", {
     usesDocWrite: false,
     upgradeable: true,
     parameters: [{
-      name: "Pinboard Domain",
-      description: "The Pinboard domain to use for calls to inSparq.",
-      token: "pinboarddomain",
-      uv: ""
-    }, {
       name: "Module Name",
-      description: "module",
+      description: "inSparq-provided name for carousel instance.",
       token: "module",
       uv: ""
     }, {
-      name: "Client API Key",
-      description: "Client API Key",
-      token: "key",
+      name: "inSparq API Key",
+      description: "inSparq API Key",
+      token: "insparq_api_key",
       uv: ""
     }, {
       name: "jQuery",
@@ -50,9 +45,9 @@ qubit.opentag.LibraryTag.define("insparq.trendingproductsmodule.v1.Tag", {
       var e = document.createElement('script');
       e.type = 'text/javascript';
       e.async = true;
-      e.src = '//' + _this.valueForToken('pinboarddomain') + '.insparq.com/assets/endcaps/insparq_endcaps.js';
+      e.src = '//pinboard.insparq.com/assets/endcaps/insparq_endcaps.js';
       e.module = '' + _this.valueForToken("module") + '';
-      e.apikey = '' + _this.valueForToken("key") + '';
+      e.apikey = '' + _this.valueForToken("insparq_api_key") + '';
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(e, s);
     })();
