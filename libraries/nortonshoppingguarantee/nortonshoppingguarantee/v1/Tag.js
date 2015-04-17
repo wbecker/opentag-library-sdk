@@ -9,9 +9,7 @@ qubit.opentag.LibraryTag.define("nortonshoppingguarantee.nortonshoppingguarantee
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
-		url: [
-      "//nsg.symantec.com/private/rollover/rollover.js"
-    ],
+		url: "//nsg.symantec.com/private/rollover/rollover.js",
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [
