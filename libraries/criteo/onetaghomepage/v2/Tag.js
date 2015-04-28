@@ -37,7 +37,7 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v2.Tag", {
 			name: "E-mail",
 			description: "Pass plain text e-mail to this parameter for X-Device. We will hash it.",
 			token: "email",
-			uv: ""
+			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
 	},

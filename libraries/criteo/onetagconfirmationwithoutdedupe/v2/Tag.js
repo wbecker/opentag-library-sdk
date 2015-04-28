@@ -56,7 +56,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v2.Tag",
 			name: "Hashed E-mail",
 			description: "Pass hashed e-mail to this parameter for X-Device",
 			token: "hashed_email",
-			uv: ""
+			uv: "universal_variable.user.email"
 		},
           {
 			name: "E-mail",
