@@ -1,1 +1,0 @@
-window.buildLocationString='libraries/nortonshoppingguarantee/';
