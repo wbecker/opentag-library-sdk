@@ -1,1 +1,1 @@
-window.buildLocationString='libraries/insparq';
+window.buildLocationString='libraries/nortonshoppingguarantee/';
