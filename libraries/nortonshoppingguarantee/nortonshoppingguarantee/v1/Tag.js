@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("nortonshoppingguarantee.nortonshoppingguarantee
 		/*DATA*/
 		name: "Norton Shopping Guarantee",
 		async: false,
-		description: 'This Tag creates the Norton Shopping Guarantee itself, and should be placed ONLY on your order complete / receipt page.',
+		description: "This Tag creates the Norton Shopping Guarantee itself, and should be placed ONLY on your order complete / receipt page.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
