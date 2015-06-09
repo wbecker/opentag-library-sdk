@@ -80,18 +80,21 @@ qubit.opentag.LibraryTag.define("insparq.confirmationpage.v1.Tag", {
     var ids = "";
     var names = "";
     var prices = "";
-    var quantity = 0;
+    var quantities = "";
+    var cartItemCount = 0;
 
     for (var i = 0; i < this.valueForToken("ids").length; i++) {
       if (i > 0) {
         ids += "|";
         prices += "|";
         names += "|";
+        quantities += "|";
       }
       ids += this.valueForToken("ids")[i];
       names += this.valueForToken("names")[i];
       prices += this.valueForToken("prices")[i];
-      quantity += this.valueForToken("quantities")[i];
+      quantities += this.valueForToken("quantities")[i];
+      cartItemCount += this.valueForToken("quantities")[i];
     }
 
     var src = document.location.protocol +
@@ -100,10 +103,11 @@ qubit.opentag.LibraryTag.define("insparq.confirmationpage.v1.Tag", {
       "/user?pageType=purcon";
     src += "&orderID=" + this.valueForToken("id");
     src += "&cartValue=" + this.valueForToken("subtotal");
-    src += "&cartItemCount=" + quantity;
+    src += "&cartItemCount=" + cartItemCount;
     src += "&productIDs=" + ids;
     src += "&productNames=" + names;
     src += "&productPrices=" + prices;
+    src += "&productQty=" + quantities;
     src += "&couponsUsed=" + this.valueForToken("vouchers");
     src += "&buyerID=" + this.valueForToken("user_id");
     src += "&buyerName=" + this.valueForToken("user_name");
