@@ -1,5 +1,6 @@
 qubit.opentag.LibraryTag.define("intentmedia.sca.v1.Tag", {
     config: {
+	/*DATA*/
         name: "Intent Media - Search Compare Ads",
         description: "Collects user travel search data in order to serve and measure comparison travel ads across Flight, Hotel, and Car booking paths",
         html: "",
@@ -370,17 +371,21 @@ qubit.opentag.LibraryTag.define("intentmedia.sca.v1.Tag", {
             token: "custom_10",
             uv: ""
         }]
+	/*~DATA*/
     },
 
     script: function () {
+	/*SCRIPT*/
             var script = document.createElement("script");
             var url = window.IntentMediaProperties.tag_path; 
             script.src = url;
             script.async = true;
             document.getElementsByTagName("head")[0].appendChild(script);
+    	/*~SCRIPT*/
     },
 
     pre: function () {
+	/*PRE*/
         window.IntentMediaProperties = {
             site_name: '' + this.valueForToken("site_name"), 
             page_id: '' + this.valueForToken("page_id"), 
@@ -465,9 +470,11 @@ qubit.opentag.LibraryTag.define("intentmedia.sca.v1.Tag", {
             custom_09: '' + this.valueForToken("custom_09"),
             custom_10: '' + this.valueForToken("custom_10")
         };
+    	/*~PRE*/
     },
 
     post: function() {
-
+	/*POST*/
+	/*~POST*/
     }
 });
