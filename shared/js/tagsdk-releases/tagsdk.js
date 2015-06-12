@@ -502,58 +502,58 @@ var UNDEF;
     return (value !== undefined) && (value !== null);
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*TRASH*/
+//  /**
+//   * @delete
+//   * @param {opentag.qubit.BaseTag} tag
+//   * @returns {Boolean}
+//   */
+//  Utils.determineIfSync = function (tag) {
+//    var i, ii, script, scripts, src;
+//    scripts = document.getElementsByTagName("script");
+//    for (i = 0, ii = scripts.length; i < ii; i += 1) {
+//      script = scripts[i];
+//      src = script.getAttribute("src");
+//      //removed "opentag", white labelling!!!
+//      if (!!src && (src.indexOf("" + 
+//          tag.config.opentagClientId + "-" + tag.config.profileName +
+//          ".js") > 0)) {
+//        return (script.getAttribute("async") === null && 
+//            //handle ie7
+//            (script.getAttribute("defer") === false ||
+//            //handle ie8
+//            script.getAttribute("defer") === "" ||
+//            //handle chrome/firefox
+//            script.getAttribute("defer") === null));
+//      } 
+//    }
+//    return true;
+//  };
+//  
+//  /**
+//   * @delete
+//   * COPY FROM OLD.
+//   * This function replaces following patterns ONLY:
+//   * a.b.c[#] + "ZZZ ${T}[i] YYY" -> "ZZZ a.b.c[i] YYY"
+//   * a.b.c[#] + "ZZZ ${T}.length YYY" -> "ZZZ a.b.c.length YYY"
+//   * 
+//   * It is a VERY private function.
+//   * 
+//   * @param {qubit.opentag.pagevariable.BaseVariable} pageVar
+//   * @param {String} token
+//   * @param {String} str
+//   * @returns {String}
+//   */
+//  Utils.substituteArray = function (pageVar, token, str) {
+//    var start, end, index, tok;
+//    index = pageVar.value.indexOf("[#]");
+//    start = pageVar.value.substring(0, index);
+//    end = pageVar.value.substring(index + 3);
+//    str = str.replace(new RegExp(token + "\\.length", "g"), start + ".length"); 
+//    str = str.replace(new RegExp(token + "(\\[.*?\\])", "g"), start + "$1" + end);
+//    return str;
+//  };
+/*~TRASH*/
 
   Utils.ANON_VARS = [];
   /**
@@ -888,7 +888,7 @@ var UNDEF;
    *    
    * - `nodes` if DOM nodes should be included in traverse (default false)
    */
-  Utils.traverse = function (obj, cfg, exe) {
+  Utils.traverse = function (obj, exe, cfg) {
     var u;
     _traverse(obj, exe, cfg, u, u, u, u, cfg.maxDeep);
   };
@@ -8273,7 +8273,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       cfg.track = true; //L
       var start = new Date().valueOf(); //L
       
-      Utils.traverse(package, cfg, function (obj, parent, propName, trackPath) {
+      var fun = function (obj, parent, propName, trackPath) {
         if (check(obj)) {
           for (var i = 0; i < excludes.length; i++) {
             if (excludes[i] === obj) {
@@ -8286,7 +8286,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
           return true;//dont search in instances objects
         }
         return false;//get deeper
-      }.bind(this));
+      }.bind(this);
+      
+      Utils.traverse(package, fun, cfg);
       
       log.FINE("Found in " + (new Date().valueOf() - start));
     }
@@ -10508,7 +10510,11 @@ var JSON = {};
        * Indicates if container should scan its class path for all tags.
        * Default is true.
        */
-      scanTags: false
+      scanTags: false,
+      /**
+       * @cfg {Boolean} [noPings=false] blocks pings.
+       */
+      noPings: false
     };/*~CFG*/
     
     /**
@@ -10543,23 +10549,33 @@ var JSON = {};
       Container.register(this);
       this.log.FINE("container registered.");
       /*no-send*/
-      this.ping = new qubit.opentag.Ping(this.config);
       
+      if (Container.NO_PINGS) {
+        this.config.noPings = true;
+      }
+    
+      this.ping = new qubit.opentag.Ping(this.config);
+
       var callback = this.sendPings.bind(this);
       this._pingAsyncCallback = function () {
         Timed.setTimeout(callback, 5);
       };
-      
       /*~no-send*/
       /*session*/
       // @TODO add maybe better session condition here(much better...)  
+      if (Container.TRACK_SESSION) {
+        this.config.trackSession = true;
+      }
+      
       if (this.config.trackSession) {
         this.session = Session.setupSession(this.config);
       }
+      
       if (this.session) {
         this.log.INFO("Session attached:");
         this.log.INFO(this.session, true);
       }
+      
       /*~session*/
       if (config.init) {
         try {
@@ -11214,6 +11230,11 @@ var JSON = {};
    * ready to be submitted and select them for submission.
    */
   Container.prototype.sendPings = function () {
+    if (this.config.noPings) {
+      this.log.WARN("Pings are cancelled due to configuration.");
+      return;
+    }
+    
     var i;
     if (this.isTellingLoadTimes) {
 //    Those are available in results:
@@ -11891,6 +11912,8 @@ var JSON = {};
 
 
 
+
+/**OLD_BUILD**/
 
 /*
  * TagSDK, a tag development platform
