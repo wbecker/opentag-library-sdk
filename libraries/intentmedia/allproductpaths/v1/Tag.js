@@ -438,7 +438,7 @@ qubit.opentag.LibraryTag.define("intentmedia.sca.v1.Tag", {
             car_dropoff_country: '' + this.valueForToken("car_dropoff_country"),
             car_dropoff_time: '' + this.valueForToken("car_dropoff_time"),
 
-            package_type: '' + this.valueForToken("package_type");
+            package_type: '' + this.valueForToken("package_type"),
 
             total_conversion_value: '' + this.valueForToken("total_conversion_value"), 
             order_id: '' + this.valueForToken("order_id"), 
