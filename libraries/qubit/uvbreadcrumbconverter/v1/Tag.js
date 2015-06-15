@@ -13,17 +13,17 @@ qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "UV - Ignore Last Breadcrumb",
-			description: "Ignore the last breadcrumb",
-			token: "skip_last",
-			uv: ""
-		}, {
-			name: "UV - Ignore First Breadcrumb",
-			description: "Ignore the first breadcrumb in the UV",
-			token: "skip_first",
-			uv: ""
-		}]
-		/*~DATA*/
+				name: "UV - Ignore Last Breadcrumb",
+				description: "Ignore the last breadcrumb",
+				token: "skip_last",
+				uv: ""
+			}, {
+				name: "UV - Ignore First Breadcrumb",
+				description: "Ignore the first breadcrumb in the UV",
+				token: "skip_first",
+				uv: ""
+			}]
+			/*~DATA*/
 	},
 	script: function() {
 		/*SCRIPT*/
@@ -34,9 +34,10 @@ qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 		}
 
 		function BreadCrumb(uv) {
-
-			uv.page.type = uv.page.type.toLowerCase();
-			uv.page.category = uv.page.type;
+			if (uv.page && uv.page.type) {
+				uv.page.type = uv.page.type.toLowerCase();
+				uv.page.category = uv.page.type;
+			}
 
 			var breadcrumb = {
 				init: function(config) {
