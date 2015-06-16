@@ -3,7 +3,7 @@ qubit.opentag.LibraryTag.define("intentmedia.events.v1.Tag", {
     /*DATA*/
     name: "Intent Media - Events",
     description: "To be used in conjunction with the Search Compare Ads Tag to handle Intent Media events",
-    upgradeable: true,
+    upgradeable: true;
     html: "",
     async: true,
     parameters: [{
