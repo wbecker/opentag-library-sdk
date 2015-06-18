@@ -77,7 +77,7 @@ qubit.opentag.LibraryTag.define("intentmedia.allproductpaths.v1.Tag", {
         description: "Mandatory value for the tag path - default value is '//a.cdn.intentmedia.net/javascripts/v1/intent_media_core.js",
         token: "tag_path",
         uv: "",
-        defaultValue: "//a.cdn.intentmedia.net/javascripts/v1/intent_media_core.js",
+        defaultValue: "//a.cdn.intentmedia.net/javascripts/v1/intent_media_core.js"
     }, {
         name: "Show on-page ads",
         description: "Controls whether the existing on-page ads (intercard and rail) are shown or not - Y/N",
