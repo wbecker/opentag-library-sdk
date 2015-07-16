@@ -48,6 +48,11 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}, {
+			name: "Voucher",
+			description: "",
+			token: "voucher",
+			uv: "voucher"
+		}, {
 			name: "Product ID List",
 			description: "",
 			token: "ids",
@@ -92,6 +97,7 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 		src.push("&orderNumber=" + this.valueForToken("order_id"));
 		src.push("&orderValue=" + this.valueForToken("order_total"));
 		src.push("&currency=" + this.valueForToken("currency"));
+		src.push("&voucher=" + this.valueForToken("voucher"));
 
 		var reportQuery = [];
 		for (var i = 0; i < this.valueForToken("ids").length; i++) {

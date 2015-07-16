@@ -43,6 +43,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The currency in which this order was paid",
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
+			}, {
+				name: "Voucher",
+				description: "Voucher code, if used",
+				token: "voucher",
+				uv: "voucher"
 			}]
 			/*~DATA*/
 		},
