@@ -179,7 +179,7 @@ var UNDEF;
     }
     
     if (instance) {
-      instance.CLASSPATH = instance.PACKAGE_NAME;
+      instance.CLASSPATH = files.join(".");
       files.splice(files.length - 1, 1);
       instance.PACKAGE_NAME = files.join(".");
     }
@@ -7619,7 +7619,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
           throw "Not a filter!";
         }
         
-        this.addFilter(filter);
+        if (filter) {
+          this.addFilter(filter);
+        }
       } catch (ex) {
         this.log.FINE("Failed adding filter: " + filters[i]);
         this.failedFilters = this.failedFilters || [];
