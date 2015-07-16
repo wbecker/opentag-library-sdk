@@ -4,16 +4,23 @@
  * @author Peter Fronc <peter.fronc@qubitdigital.com>
  */
 (function () {
-  /**
+  /** 
+   * @class qubit.compat.Function
+   * @static
+   * @private
+   * 
+   * #Function compatibility check class.
+   * This object is UNSET and exists only for compatibility check of browser.
+   * It checks status of bind method and applies Mozilla recommended fix.
+   * It applies only for very old browsers where `Function.prototype.bind` is
+   * not present.
+   * 
    * Recommended by:
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
    * /Global_Objects/Function/bind
-   * Template, but for now it will stay simple.
-   * It is recommended that you pass specific arguments using closures.
    * 
-   * @param {Object} ctx
-   * @returns {Function} scoped function
    */
+  //bind check:
   if (!Function.prototype.bind) {
     Function.prototype.bind = function (oThis) {
       if (typeof this !== 'function') {
@@ -99,6 +106,8 @@ var UNDEF;
     return GLOBAL;
   };
 
+  Define.CLIENT_SPACE = "qubit.cs";
+
   /**
    * Function builds desired name space in global scope.
    * It will not override existing elements.
@@ -129,7 +138,8 @@ var UNDEF;
   Define.namespace = function (path, instance, pckg, noOverride) {
     return _namespace(path, instance, pckg, noOverride, false);
   };
-  
+
+
   function _namespace(path, instance, pckg, noOverride, isGlobal) {
     var files = path.split("."),
       //access eval INDIRECT so it is called globally
@@ -169,6 +179,7 @@ var UNDEF;
     }
     
     if (instance) {
+      instance.CLASSPATH = instance.PACKAGE_NAME;
       files.splice(files.length - 1, 1);
       instance.PACKAGE_NAME = files.join(".");
     }
@@ -178,6 +189,29 @@ var UNDEF;
       object: last
     };
   }
+
+  
+  /**
+   * Function behaves exactly the same as `Define.namespace`, with the 
+   * difference that path will be prefixed with client space namespace 
+   * ("qubit.cs").
+   * 
+   * Function builds desired name space in defalt PKG_ROOT scope.
+   * It will not override existing elements.
+   * @param {String} path dot notation based objects path.
+   * @param {Object} instance reference to be put as last `object` node. 
+   *                  If `undefined` empty object will be used.
+   * @param {Object} pckg object to start namespace at
+   * @param {Boolean} noOverride if set, "instance" parameter will not override
+   *    if object already exists in namespace. Can be ignored if 
+   *    `GLOBAL.TAGSDK_NS_OVERRIDE` is set to true (no overriding mode)
+   * @returns {Object} `{root, object}` pair where namespace starts at "root" 
+   *        and ends at "object". "object" is the top element namespace created.
+   */
+  Define.clientNamespace = function (path, instance, pckg, noOverride) {
+    return Define.namespace(
+            Define.CLIENT_SPACE + "." + path, instance, pckg, noOverride);
+  };
 
   /**
    * Utility for simple class declaration (not definition).
@@ -200,10 +234,12 @@ var UNDEF;
     }
     var names = path.split(".");
     if (instance.prototype) {
+      instance.prototype.CLASSPATH = names.join(".");
       instance.prototype.CLASS_NAME = names[names.length - 1];
       names.splice(names.length - 1, 1);
       instance.prototype.PACKAGE_NAME = names.join(".");
     } else {
+      instance.CLASSPATH = names.join(".");
       instance.STATIC_NAME = names[names.length - 1];
       names.splice(names.length - 1, 1);
       instance.PACKAGE_NAME = names.join(".");
@@ -212,7 +248,31 @@ var UNDEF;
   };
 
   Define.clazz("qubit.Define", Define);
-  
+
+  /**
+   * Function behaves exactly the same as `Define.clazz`, with the 
+   * difference that path will be prefixed with client space namespace 
+   * ("qubit.cs").
+   * Utility for simple class declaration (not definition).
+   * It does similiar job as namespace with addition of adding CLASS_NAME
+   * and PACKAGE_NAME on prototype. It also sets superclass to extending class
+   * instance.
+   * 
+   * @param {String} path
+   * @param {Object} instance
+   * @param {Function} extendingClass
+   * @param {Object} pckg
+   * @param {Object} config
+   * @returns {Object} the class instance
+   */
+  Define.clientClazz = function (path, instance, extendingClass, pckg, config) {
+    return Define.clazz(
+      Define.CLIENT_SPACE + "." + path,
+      instance,
+      extendingClass,
+      pckg,
+      config);
+  };
 }());
 
 
@@ -502,58 +562,58 @@ var UNDEF;
     return (value !== undefined) && (value !== null);
   };
 
-/*TRASH*/
-//  /**
-//   * @delete
-//   * @param {opentag.qubit.BaseTag} tag
-//   * @returns {Boolean}
-//   */
-//  Utils.determineIfSync = function (tag) {
-//    var i, ii, script, scripts, src;
-//    scripts = document.getElementsByTagName("script");
-//    for (i = 0, ii = scripts.length; i < ii; i += 1) {
-//      script = scripts[i];
-//      src = script.getAttribute("src");
-//      //removed "opentag", white labelling!!!
-//      if (!!src && (src.indexOf("" + 
-//          tag.config.opentagClientId + "-" + tag.config.profileName +
-//          ".js") > 0)) {
-//        return (script.getAttribute("async") === null && 
-//            //handle ie7
-//            (script.getAttribute("defer") === false ||
-//            //handle ie8
-//            script.getAttribute("defer") === "" ||
-//            //handle chrome/firefox
-//            script.getAttribute("defer") === null));
-//      } 
-//    }
-//    return true;
-//  };
-//  
-//  /**
-//   * @delete
-//   * COPY FROM OLD.
-//   * This function replaces following patterns ONLY:
-//   * a.b.c[#] + "ZZZ ${T}[i] YYY" -> "ZZZ a.b.c[i] YYY"
-//   * a.b.c[#] + "ZZZ ${T}.length YYY" -> "ZZZ a.b.c.length YYY"
-//   * 
-//   * It is a VERY private function.
-//   * 
-//   * @param {qubit.opentag.pagevariable.BaseVariable} pageVar
-//   * @param {String} token
-//   * @param {String} str
-//   * @returns {String}
-//   */
-//  Utils.substituteArray = function (pageVar, token, str) {
-//    var start, end, index, tok;
-//    index = pageVar.value.indexOf("[#]");
-//    start = pageVar.value.substring(0, index);
-//    end = pageVar.value.substring(index + 3);
-//    str = str.replace(new RegExp(token + "\\.length", "g"), start + ".length"); 
-//    str = str.replace(new RegExp(token + "(\\[.*?\\])", "g"), start + "$1" + end);
-//    return str;
-//  };
-/*~TRASH*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   Utils.ANON_VARS = [];
   /**
@@ -2851,6 +2911,9 @@ q.html.fileLoader.tidyUrl = function (path) {
   var PatternType = qubit.opentag.filter.pattern.PatternType;
     
   /**
+   * @class qubit.opentag.filter.URLFilter
+   * @extends qubit.opentag.filter.BaseFilter
+   * @param config {Object} config object used to build instance
    * #URLFilter filter class.
    * 
    * This filter class implements various URL matching patterns, see
@@ -2858,9 +2921,6 @@ q.html.fileLoader.tidyUrl = function (path) {
    * for more details.
    * 
    * 
-   * @class qubit.opentag.filter.URLFilter
-   * @extends qubit.opentag.filter.BaseFilter
-   * @param config {Object} config object used to build instance
    */
   function URLFilter(config) {
     this._lockObject = {};
@@ -2892,7 +2952,9 @@ q.html.fileLoader.tidyUrl = function (path) {
   qubit.Define.clazz("qubit.opentag.filter.URLFilter", URLFilter, BaseFilter);
   
   /**
+   * @property PATTERNS
    * PATTERNS shortcut for PatternType
+   * 
    */
   URLFilter.prototype.PATTERNS = PatternType;
   
@@ -4594,12 +4656,21 @@ q.html.HtmlInjector.getAttributes = function (node) {
    *  
    *  The `cfg` config is passed to paga variable constructor as object config.
    * 
+   *  `cfg` can be also a string specifying classpath to variable instance.
    * @returns {qubit.opentag.pagevariable.BaseVariable}
    */
   TagHelper.initPageVariable = function (cfg) {
     if (!cfg || cfg instanceof BaseVariable) {
       return cfg;
     }
+    
+    if (typeof(cfg) === "string") {
+      var tmp = Utils.getObjectUsingPath(cfg);
+      if (tmp && tmp instanceof BaseVariable) {
+        return tmp;
+      }
+    }
+    
     switch (cfg.type) {
     case JS_VALUE:
       return new Expression(cfg);
@@ -6607,7 +6678,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
        * It is optional.
        * This property does not affect this tag itself, it is only configuration
        * property.
-       * @cfg package
+       * @cfg PACKAGE
        * @type Object 
        */
       PACKAGE: (config && config.PACKAGE),
@@ -7245,11 +7316,21 @@ q.html.HtmlInjector.getAttributes = function (node) {
   };
   
   /**
-   * 
+   * Function works exactly as addVariablesMap with that difference that prefix
+   * is set to `qubit.Define.CLIENT_SPACE`
    * @param {type} map
    * @returns {undefined}
    */
-  BaseTag.prototype.addVariablesMap = function (map) {
+  BaseTag.prototype.addClientVariablesMap = function (map) {
+    return this.addVariablesMap(map, qubit.Define.CLIENT_SPACE);
+  };
+  
+  /**
+   * Function adding variables map
+   * @param {type} map
+   * @returns {undefined}
+   */
+  BaseTag.prototype.addVariablesMap = function (map, ns) {
     if (!map) {
       return;
     }
@@ -7263,6 +7344,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
         if (item instanceof BaseVariable) {
           namedVariables[prop] = item;
         } else if (typeof(item) === "string") {
+          if (ns) {
+            item = ns + "." + item;
+          }
           var obj = Utils.getObjectUsingPath(item);
           if (obj) {
             namedVariables[prop] = item;
@@ -7494,23 +7578,48 @@ q.html.HtmlInjector.getAttributes = function (node) {
     }
   };
   
-  BaseTag.prototype.addFiltersList = function (filters) {
+  /**
+   * 
+   * @param {type} filters
+   * @returns {undefined}
+   */
+  BaseTag.prototype.addClientFiltersList = function (filters) {
+    return this.addFiltersList(filters, qubit.Define.CLIENT_SPACE);
+  };
+  
+  /**
+   * 
+   * @param {type} filters
+   * @param {type} ns
+   * @returns {undefined}
+   */
+  BaseTag.prototype.addFiltersList = function (filters, ns) {
     for (var i = 0; i < filters.length; i++) {
       try {
-        var Filter;
         var filter = filters[i];
-        if (filter instanceof BaseFilter) {
-          this.addFilter(filter);
-        } else {
-          if (typeof (filter) === "function") {
-            Filter = filter;
-          } else {
-            var ref = Utils.getObjectUsingPath(String(filter));
-            Filter = ref;
+        var tmp = filter;
+        
+        if (typeof (filter) === "string") {
+          if (ns) {
+            filter = ns + "." + filter;
           }
-          filter = new Filter({});
-          this.addFilter(filter);
+          filter = Utils.getObjectUsingPath(filter);
         }
+
+        if (typeof (filter) === "function") {
+          var FilterClass = filter;//linter
+          filter = new FilterClass();
+        }
+        
+        if (!filter) {
+          this.log.FINE("Filter " + tmp + " does NOT exists.");
+        }
+        
+        if (!filter instanceof BaseFilter) {
+          throw "Not a filter!";
+        }
+        
+        this.addFilter(filter);
       } catch (ex) {
         this.log.FINE("Failed adding filter: " + filters[i]);
         this.failedFilters = this.failedFilters || [];
@@ -8219,15 +8328,15 @@ q.html.HtmlInjector.getAttributes = function (node) {
   
   /**
    * @static
-   * Function will result all tags found in `package` passed as argument. 
-   * `package` can be a string with package name or direct reference to 
+   * Function will result all tags found in `pckg` passed as argument. 
+   * `pckg` can be a string with package name or direct reference to 
    * an object.
-   * @param {type} package Package name or its reference.
+   * @param {type} pckg Package name or its reference.
    * @param {type} maxDeep Maximum deep level of package tree search, 
    *                starts from 1.
    * @returns {Array} Results array (never null).
    */
-  Tags.findAllTags = function (package, maxDeep) {
+  Tags.findAllTags = function (pckg, maxDeep) {
     var BaseTag = qubit.opentag.BaseTag;
     var ret, excludes = [];
     var start = new Date().valueOf();
@@ -8238,7 +8347,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       //not a package dependency
       log.FINEST("Warning: Missing known libraries: CustomTag, LibraryTag");
     }
-    ret = Tags.findAllInstances(package, BaseTag, excludes, maxDeep);
+    ret = Tags.findAllInstances(pckg, BaseTag, excludes, maxDeep);
     log.FINE("findAllTags(): found in " + (new Date().valueOf() - start));
     return ret;
   };
@@ -8248,20 +8357,20 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @private
    * Might be moved to Utils.
    * Local function - worker for the recursive search.
-   * @param {type} package where to search
+   * @param {type} pckg where to search
    * @param {type} check include deciding function
    * @param {type} excludes excludes array wher === will be checked.
    * @param {type} maxDeep how deep to search (no limits if unset)
    * @returns {Array}
    */
-  var findAllIn = function (package, check, excludes, maxDeep) {
+  var findAllIn = function (pckg, check, excludes, maxDeep) {
     var instances = [];
     
-    if (typeof(package) === "string") {
-      package = Utils.getObjectUsingPath(package);
+    if (typeof(pckg) === "string") {
+      pckg = Utils.getObjectUsingPath(pckg);
     }
     
-    if (package) {
+    if (pckg) {
       var cfg = {
         objectsOnly: true
       };
@@ -8288,7 +8397,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
         return false;//get deeper
       }.bind(this);
       
-      Utils.traverse(package, fun, cfg);
+      Utils.traverse(pckg, fun, cfg);
       
       log.FINE("Found in " + (new Date().valueOf() - start));
     }
@@ -8297,32 +8406,32 @@ q.html.HtmlInjector.getAttributes = function (node) {
   
   /**
    * 
-   * @param {type} package
+   * @param {type} pckg
    * @param {type} clazz
    * @param {type} excludes
    * @param {type} maxDeep
    * @returns {Array}
    */
-  Tags.findAllInstances = function (package, clazz, excludes, maxDeep) {
+  Tags.findAllInstances = function (pckg, clazz, excludes, maxDeep) {
     var check = function (obj) {
       return obj instanceof clazz;
     };
-    return findAllIn(package, check, excludes, maxDeep);
+    return findAllIn(pckg, check, excludes, maxDeep);
   };
   
   /**
    * 
-   * @param {type} package
+   * @param {type} pckg
    * @param {type} clazz
    * @param {type} excludes
    * @param {type} maxDeep
    * @returns {Array}
    */
-  Tags.findAllInheriting = function (package, clazz, excludes, maxDeep) {
+  Tags.findAllInheriting = function (pckg, clazz, excludes, maxDeep) {
     var check = function (obj) {
       return obj.prototype instanceof clazz;
     };
-    return findAllIn(package, check, excludes, maxDeep);
+    return findAllIn(pckg, check, excludes, maxDeep);
   };
   
     
@@ -8331,11 +8440,11 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * Finds all filters in specified package (name or reference).
    * It will find all references that are instances of 
    *    qubit.opentag.filter.BaseFilter 
-   * @param {type} package
+   * @param {type} pckg
    * @param {type} maxDeep
    * @returns {Array}
    */
-  Tags.findAllFilters = function (package, maxDeep) {
+  Tags.findAllFilters = function (pckg, maxDeep) {
     var excludes = [];
     try {
       excludes.push(qubit.opentag.filter.SessionVariableFilter);
@@ -8345,7 +8454,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       //not a package dependency
       log.FINE("Warning: Missing known libraries: CustomTag, LibraryTag");
     }
-    return Tags.findAllInheriting(package, BaseFilter, excludes, maxDeep);
+    return Tags.findAllInheriting(pckg, BaseFilter, excludes, maxDeep);
   };
   
   log.INFO("*** Qubit TagSDK *** ", true,
@@ -11016,16 +11125,16 @@ var JSON = {};
   
   /**
    * Function will result all tags found in default containers package or 
-   * alternatively in `package` passed as argument. `package` can be a string
+   * alternatively in `pckg` passed as argument. `pckg` can be a string
    * with package name or direct reference to an object.
-   * @param {type} package Package name or its reference.
+   * @param {type} pckg Package name or its reference.
    * @param {type} maxDeep Maximum deep level of package tree search, 
    *                starts from 1.
    * @returns {Array} Results array (never null).
    */
-  Container.prototype.findAllTags = function (package, maxDeep) {
-    package = package || this.tagsPackageName || this.PACKAGE_NAME;
-    return Tags.findAllTags(package, maxDeep);
+  Container.prototype.findAllTags = function (pckg, maxDeep) {
+    pckg = pckg || this.tagsPackageName || this.PACKAGE_NAME;
+    return Tags.findAllTags(pckg, maxDeep);
   };
   
   /**
@@ -11041,14 +11150,14 @@ var JSON = {};
   /**
    * Function to find all filter instances in container package tree.
    * Use as utility - all tree searches are expensive.
-   * @param {type} package alternatively where to look for filters, object or
+   * @param {type} pckg alternatively where to look for filters, object or
    *                name
    * @param {type} maxDeep how deep to look for it (tree depth)
    * @returns {Array} Array with results.
    */
-  Container.prototype.findAllFilters = function (package, maxDeep) {
-    package = package || this.tagsPackageName || this.PACKAGE_NAME;
-    return Tags.findAllFilters(package, maxDeep);
+  Container.prototype.findAllFilters = function (pckg, maxDeep) {
+    pckg = pckg || this.tagsPackageName || this.PACKAGE_NAME;
+    return Tags.findAllFilters(pckg, maxDeep);
   };
   
   /**
