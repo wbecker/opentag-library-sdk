@@ -33,9 +33,9 @@ qubit.opentag.LibraryTag.define("merchenta.producttag.v1.Tag", {
 		script.async = true;
 		var secure = (window.parent.document.location.protocol == "https:");
 		if (secure) {
-			script.src = "https://api.merchenta.com/track/t.js";
+			script.src = "https://cdn3.merchenta.com/track/t.js";
 		} else {
-			script.src = "http://cdn.merchenta.com/track/t.js";
+			script.src = "http://cdn3.merchenta.com/track/t.js";
 		}
 		document.getElementsByTagName('head')[0].appendChild(script);
 		/*~SCRIPT*/
