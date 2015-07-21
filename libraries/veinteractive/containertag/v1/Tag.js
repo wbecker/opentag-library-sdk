@@ -13,7 +13,7 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "VE Interactive ID",
+			name: "VE Interactive tag",
 			description: "The ID for the tag in this format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX with dashes included",
 			token: "id",
 			uv: ""
@@ -22,8 +22,7 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
 	},
 	script: function() {
 		/*SCRIPT*/
-		var scriptPath = this.valueForToken("id").split("-").join("/");
-		var scriptURL = "//config1.veinteractive.com/tags/" + scriptPath + "/tag.js";
+		var scriptURL = this.valueForToken("id");
 		var script = document.createElement("script");
 
 		script.src = scriptURL;
