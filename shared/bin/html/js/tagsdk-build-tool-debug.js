@@ -6,7 +6,6 @@
     };
   };
 }());
-
 var global = this;
 try {
   global = (false || eval)("this") || (function() {
@@ -10971,7 +10970,6 @@ var JSON = {};
 }());
 
 }());
-
 //
 ///*
 // * Opentag, a tag deployment platform
@@ -11844,7 +11842,6 @@ var JSON = {};
 //  
 //}());
 /*NO LOG*/
-
 /* jshint white: false */
 
 (function () {
@@ -12728,7 +12725,6 @@ function qconsole() {
   this.init();
 }
 
-
 var Utils = qubit.opentag.Utils;
 
 function runTagHandler(referencingNode) {
@@ -12965,7 +12961,11 @@ function reloadTagHandler(refNode) {
     }
     try {
       var cfg = getParametersAndConfigForTagNode(refNode, true, true);
-      Utils.getObjectUsingPath(tagRef.PACKAGE_NAME).Tag = undefined;
+      try {
+				Utils.getObjectUsingPath(tagRef.PACKAGE_NAME).Tag = undefined;
+			} catch (ex) {
+				//may be cleaned already
+			}
       qubit.opentag.Utils.geval(msg);
       var libraryClass = Utils.getObjectUsingPath(tagRef.PACKAGE_NAME + ".Tag");
 			libraryClass.versionClassPath = versionCP;
@@ -13850,8 +13850,6 @@ function loadUVVariables(callback) {
 
 
 
-
-
 	var Utils = qubit.opentag.Utils;
 
 	var parameterTemplate = document.getElementById("parameter-template").innerHTML;
@@ -14192,19 +14190,6 @@ function loadUVVariables(callback) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 (function(){
 	
 	/**
@@ -14369,19 +14354,6 @@ function loadUVVariables(callback) {
 
 	
 })();;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

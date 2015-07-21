@@ -6,7 +6,6 @@
     };
   };
 }());
-
 var global = this;
 try {
   global = (false || eval)("this") || (function() {
@@ -24,7 +23,6 @@ var UNDEF = undefined;
 
 global.APP_PATH = global.APP_PATH || "/";
 global.LIBRARIES_REPO_LOC = global.LIBRARIES_REPO_LOC || "/";
-
 //
 ///*
 // * Opentag, a tag deployment platform
@@ -897,7 +895,6 @@ global.LIBRARIES_REPO_LOC = global.LIBRARIES_REPO_LOC || "/";
 //  
 //}());
 /*NO LOG*/
-
 /* jshint white: false */
 
 (function () {
@@ -1424,9 +1421,6 @@ global.LIBRARIES_REPO_LOC = global.LIBRARIES_REPO_LOC || "/";
     
   Log.setConsole(Utils.global().console);
 }());
-
-
-
 var Utils = qubit.opentag.Utils;
 /**
  * Comment
