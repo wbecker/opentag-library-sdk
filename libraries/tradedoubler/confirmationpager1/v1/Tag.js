@@ -53,6 +53,11 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpager1.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}, {
+			name: "Voucher",
+			description: "Voucher code, if used",
+			token: "voucher",
+			uv: "voucher"
+		}, {
 			name: "Order Number",
 			description: "Transaction Order ID",
 			token: "order_id",
@@ -115,6 +120,7 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpager1.v1.Tag", {
 		src += "tduid(" + tduidCookie + ")";
 		src += "enc(" + this.valueForToken("encoding") + ")";
 		src += "basket(" + basket + ")";
+		src += "voucher(" + voucher + ")";
 
 		var img = document.createElement("img");
 		img.src = src;
