@@ -14378,7 +14378,14 @@ var log = new Log("Main");
     librariesNode.innerHTML = "";
 
     var libraries = [];
-    var vendors = qubit.opentag.libraries;
+    var vendors = qubit.vs;
+		
+		if (!vendors) {
+			try{
+				//backwards compatibility.
+				vendors = qubit.opentag.libraries;
+			} catch (ex) {}
+		}
 
     for (var vprop in vendors) {
       var vendor = vendors[vprop];
