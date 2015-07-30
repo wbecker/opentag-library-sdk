@@ -11848,6 +11848,10 @@ var JSON = {};
     }
   };
   
+  LibraryTag.getVendorSpace = function () {
+    var cp = qubit.VENDOR_SPACE_CP;
+    return (cp === undefined || cp === null) ? "qubit.vs." : cp;
+  };
   
   /**
    * Utils.defineClass wrapper for LibraryTag.
@@ -11879,7 +11883,7 @@ var JSON = {};
       .replace(/[\.]+$/g, "")
       .replace(/\.+/g, ".");
     
-    namespace = "qubit.vs." + namespace;
+    namespace = LibraryTag.getVendorSpace() + namespace;
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = libConfig.config;
@@ -11919,6 +11923,10 @@ var JSON = {};
     
     var ret = qubit.opentag.Utils
             .defineClass(namespace, LibraryTag, prototypeTemplate, GLOBAL);
+    
+    if (namespace.indexOf("qubit.vs.") !== 0) {
+      Utils.namespace("qubit.vs." + namespace, ret);
+    }
     
     return ret;
   };
