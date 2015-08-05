@@ -4439,7 +4439,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   TagHelper.injectHTMLForLoader = 
           function (tag, callback, tryWrite, altHtml) {
-    var html = (altHtml !== undefined) ? altHtml : tag.html;
+    var html = (altHtml !== undefined) ? altHtml : tag.getHtml();
 
     if (html) {
       var append = (tag.config.locationPlaceHolder === "END");
@@ -5082,10 +5082,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
         this._package = config.PACKAGE;
       }
       
-      if (config.html) {
-        this.html = config.html;
-      }
-      
       this.onInit();
     }
   }
@@ -5105,6 +5101,16 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @property {Number} LOADING_TIMEOUT
    */
   GenericLoader.prototype.LOADING_TIMEOUT = 5 * 1000;
+  
+  GenericLoader.prototype.getHtml = function () {
+    if (this.config.html) {
+      return this.config.html;
+    }
+    if (this.htmlContent) {
+      return Utils.trim(this.htmlContent);
+    }
+    return null;
+  };
   
   /**
    * Private method delegating script execution.
@@ -5780,9 +5786,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * It means that after one call, it will have no effect.
    */
   GenericLoader.prototype._triggerHTMLInjection = function () {
-    if (!this._injectHTMLTriggered && this.html) {
+    if (!this._injectHTMLTriggered && this.getHtml()) {
       this._injectHTMLTriggered = true;
-      this.log.FINE("tag has html option set to: " + this.html);//L
+      this.log.FINE("tag has html option set to: " + this.getHtml());//L
       this.log.INFO("injecting html and delaying execution till is ready");
       this.injectHTML();
     }
@@ -6595,7 +6601,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     var tryWriteIfNoLocation = !this.docWriteAsksToWaitForBody();
     // tryWriteIfNoLocation set to true will cause immediate document.write
     // call if location was not found!
-    var html = this.prepareHTML(this.html);
+    var html = this.prepareHTML(this.getHtml());
     if (html) {
       TagHelper.injectHTMLForLoader(this, callback, tryWriteIfNoLocation, html);
     }
@@ -11773,8 +11779,8 @@ var JSON = {};
   LibraryTag.prototype.before = function () {
     LibraryTag.superclass.prototype.before.call(this);
     
-    if (this.config.html || this.config.script) {
-      this.log.FINE("config.html or config.script is set while using pre." +
+    if (this.getHtml() || this.config.script) {
+      this.log.FINE("html or config.script is set while using pre." +
               " Cancelling running pre.");//L
       return false;//continue normally
     }
@@ -11812,8 +11818,8 @@ var JSON = {};
    */
   LibraryTag.prototype.after = function (success) {
     LibraryTag.superclass.prototype.after.call(this, success);
-    if (this.config.html || this.config.script) {
-      this.log.WARN("config.html or config.script is set while using post." +
+    if (this.getHtml() || this.config.script) {
+      this.log.WARN("html or config.script is set while using post." +
               " Cancelling running post.");//L
       return;
     }
@@ -11842,6 +11848,10 @@ var JSON = {};
     }
   };
   
+  LibraryTag.getVendorSpace = function () {
+    var cp = qubit.VENDOR_SPACE_CP;
+    return (cp === undefined || cp === null) ? "qubit.vs." : cp;
+  };
   
   /**
    * Utils.defineClass wrapper for LibraryTag.
@@ -11872,6 +11882,8 @@ var JSON = {};
     namespace = namespace.replace(/^[\.]+/g, "")
       .replace(/[\.]+$/g, "")
       .replace(/\.+/g, ".");
+    
+    namespace = LibraryTag.getVendorSpace() + namespace;
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = libConfig.config;
@@ -11912,8 +11924,10 @@ var JSON = {};
     var ret = qubit.opentag.Utils
             .defineClass(namespace, LibraryTag, prototypeTemplate, GLOBAL);
     
-    //register them also in qubit scope.
-    Utils.namespace("qubit.opentag.libraries." + namespace, ret);
+    if (namespace.indexOf("qubit.vs.") !== 0) {
+      Utils.namespace("qubit.vs." + namespace, ret);
+    }
+    
     return ret;
   };
 }());
