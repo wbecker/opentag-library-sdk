@@ -65,7 +65,7 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-qubit.VERSION = "2.0.0";
+qubit.VERSION = "3.0.0";
 
 try {
   module.exports = PKG_ROOT;
@@ -106,7 +106,12 @@ var UNDEF;
     return GLOBAL;
   };
 
-  Define.CLIENT_SPACE = "qubit.cs";
+  Define.clientSpace = function () {
+    if (window.qubit.CLIENT_CONFIG) {
+      return "qubit.cs.d" + window.qubit.CLIENT_CONFIG.id;
+    }
+    return "qubit.cs";
+  };
 
   /**
    * Function builds desired name space in global scope.
@@ -210,7 +215,7 @@ var UNDEF;
    */
   Define.clientNamespace = function (path, instance, pckg, noOverride) {
     return Define.namespace(
-            Define.CLIENT_SPACE + "." + path, instance, pckg, noOverride);
+            Define.clientSpace() + "." + path, instance, pckg, noOverride);
   };
 
   /**
@@ -267,7 +272,7 @@ var UNDEF;
    */
   Define.clientClazz = function (path, instance, extendingClass, pckg, config) {
     return Define.clazz(
-      Define.CLIENT_SPACE + "." + path,
+      Define.clientSpace() + "." + path,
       instance,
       extendingClass,
       pckg,
@@ -3022,6 +3027,7 @@ q.html.fileLoader.tidyUrl = function (path) {
 
 
 
+
 /*
  * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
@@ -3032,6 +3038,7 @@ q.html.fileLoader.tidyUrl = function (path) {
 (function () {
   var BaseFilter = qubit.opentag.filter.BaseFilter;
   var URLFilter = qubit.opentag.filter.URLFilter;
+  var Utils = qubit.opentag.Utils;
 
   /**
    * #SessionVariable filter class.
@@ -3067,6 +3074,7 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @extends qubit.opentag.filter.URLFilter
    * @param config {Object} config object used to build instance
    */
+  var sessionVariableFilterCount = 0;
   function SessionVariableFilter(config) {
     var defaultConfig = {
       /**
@@ -3103,8 +3111,9 @@ q.html.fileLoader.tidyUrl = function (path) {
           defaultConfig[prop] = config[prop];
         }
       }
+      this.uid = "f" + (sessionVariableFilterCount++);
     }
-    
+    this.tagsToRun = [];
     SessionVariableFilter.superclass.call(this, defaultConfig);
   }
   
@@ -3169,19 +3178,43 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @param {qubit.opentag.BaseTag} tag
    */
   SessionVariableFilter.prototype.runTag = function (tag) {
+    Utils.addToArrayIfNotExist(this.tagsToRun, tag);
     if (!this._runTag) {
       if (this.customStarter) {
+        var callback = function (rerun) {
+          this.lastRun = new Date().valueOf();
+          this._processQueuedTagsToRun(rerun);
+          this._rerun = rerun;
+          //done
+        }.bind(this);
+        
         //trigger "customStarter", only once
         this._runTag = true;
-        this.customStarter(this.getSession(), function (rerun) {
-          this.lastRun = new Date().valueOf();
-          if (rerun === true) {
-            tag.run();
-          } else {
-            tag.runOnce();
-          }
-          //done
-        }.bind(this), tag);
+        this.customStarter(this.getSession(), callback, tag);
+      }
+    } else {
+      if (this.lastRun) {//if the callback was already run. Note: if callback
+        //hasnt be called, tags are queued to execute.
+        if (this._rerun === true) {
+          tag.run();
+        } else {
+          tag.runOnce();
+        }
+      }
+    }
+  };
+  
+  /**
+   * @private
+   * Strictly private.
+   */
+  SessionVariableFilter.prototype._processQueuedTagsToRun = function (rerun) {
+    for (var i = 0; i < this.tagsToRun.length; i++) {
+      var tag = this.tagsToRun[i];
+      if (rerun === true) {
+        tag.run();
+      } else {
+        tag.runOnce();
       }
     }
   };
@@ -3222,6 +3255,8 @@ q.html.fileLoader.tidyUrl = function (path) {
     this._matchState = undefined;
     SessionVariableFilter.superclass.prototype.reset.call(this);
     this._runTag = undefined;
+    this.lastRun = undefined;
+    this.tagsToRun = [];
   };
 }());
 /*jslint evil: true */
@@ -6925,6 +6960,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
   BaseTag.prototype.FILTER_WAIT_TIMEOUT = -1;
   
   BaseTag.prototype.run = function () {
+    this.resolvePageVariables();
     if (this.config.runner) {
       var ret = false;
       try {
@@ -7032,6 +7068,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {BaseFilter.state}
    */
   BaseTag.prototype.runIfFiltersPass = function () {
+    this.resolveFilters();
     var state = this.filtersState(true);
     this.addState("FILTER_ACTIVE");
     
@@ -7323,12 +7360,27 @@ q.html.HtmlInjector.getAttributes = function (node) {
   
   /**
    * Function works exactly as addVariablesMap with that difference that prefix
-   * is set to `qubit.Define.CLIENT_SPACE`
+   * is set to `qubit.Define.clientSpace()`
    * @param {type} map
    * @returns {undefined}
    */
   BaseTag.prototype.addClientVariablesMap = function (map) {
-    return this.addVariablesMap(map, qubit.Define.CLIENT_SPACE);
+    this.unresolvedClientVariablesMap = this.addVariablesMap(
+            map, qubit.Define.clientSpace());
+    return this.unresolvedClientVariablesMap;
+  };
+  
+  /**
+   * 
+   * @returns {Array} Array of page variables currently used by this tag.
+   */
+  BaseTag.prototype.resolvePageVariables = function () {
+    var map = this.unresolvedClientVariablesMap;
+    if (map) {
+      this.unresolvedClientVariablesMap = null;
+      this.addClientVariablesMap(this.unresolvedClientVariablesMap);
+    }
+    return this.getPageVariables();
   };
   
   /**
@@ -7340,9 +7392,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     if (!map) {
       return;
     }
-    if (!this.failedVariablesToParse) {
-      this.failedVariablesToParse = [];
-    }
+    var unresolvedVariablesMap = {};
     var namedVariables = this.namedVariables;
     for (var prop in map) {
       if (map.hasOwnProperty(prop)) {
@@ -7357,13 +7407,15 @@ q.html.HtmlInjector.getAttributes = function (node) {
           if (obj) {
             namedVariables[prop] = item;
           } else {
-            this.failedVariablesToParse.push([item, "absent"]);
+            unresolvedVariablesMap[prop] = item;
           }
         } else {
-          this.failedVariablesToParse.push([item, "unsupported"]);
+          this.log.ERROR("Added variable is of wrong type!");
+          this.log.ERROR(item);
         }
       }
     }
+    return unresolvedVariablesMap;
   };
   
   /**
@@ -7563,14 +7615,12 @@ q.html.HtmlInjector.getAttributes = function (node) {
   };
   
   /**
-   * Adding filter function.
+   * Adding filter function. It adds filter if it already does not exists in 
+   * filters set.
    * @param filter {qubit.opentag.filter.BaseFilter}
    */
   BaseTag.prototype.addFilter = function (filter) {
-    if (this.session) {
-      filter.setSession(this.session);
-    }
-    this.filters.push(filter);
+    Utils.addToArrayIfNotExist(this.filters, filter);
   };
   
   /**
@@ -7590,7 +7640,22 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {undefined}
    */
   BaseTag.prototype.addClientFiltersList = function (filters) {
-    return this.addFiltersList(filters, qubit.Define.CLIENT_SPACE);
+    this.unresolvedClientFilterClasspaths = 
+            this.addFiltersList(filters, qubit.Define.clientSpace());
+    return this.unresolvedClientFilterClasspaths;
+  };
+  
+  /**
+   * Use this method to resolve and get all tag's filters.
+   * @returns {Array}
+   */
+  BaseTag.prototype.resolveFilters = function () {
+    var list = this.unresolvedClientFilterClasspaths;
+    if (list) {
+      this.unresolvedClientFilterClasspaths = null;
+      this.addClientFiltersList(list);
+    }
+    return this.filters;
   };
   
   /**
@@ -7600,15 +7665,18 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {undefined}
    */
   BaseTag.prototype.addFiltersList = function (filters, ns) {
+    var unresolved = [];
     for (var i = 0; i < filters.length; i++) {
       try {
         var filter = filters[i];
         var tmp = filter;
+        var cp = null;
         
         if (typeof (filter) === "string") {
           if (ns) {
             filter = ns + "." + filter;
           }
+          cp = filter;
           filter = Utils.getObjectUsingPath(filter);
         }
 
@@ -7622,11 +7690,16 @@ q.html.HtmlInjector.getAttributes = function (node) {
         }
         
         if (!filter instanceof BaseFilter) {
-          throw "Not a filter!";
+          this.log.ERROR("Not a filter! ", filter);
+          filter = null;
         }
         
         if (filter) {
           this.addFilter(filter);
+        } else {
+          if (cp) {
+            Utils.addToArrayIfNotExist(unresolved, cp);
+          }
         }
       } catch (ex) {
         this.log.FINE("Failed adding filter: " + filters[i]);
@@ -7634,6 +7707,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
         this.failedFilters.push(filters[i]);
       }
     }
+    return unresolved;
   };
   
   
@@ -11848,9 +11922,17 @@ var JSON = {};
     }
   };
   
-  LibraryTag.getVendorSpace = function () {
+  LibraryTag.vendorsSpacePrefix = function () {
     var cp = qubit.VENDOR_SPACE_CP;
     return (cp === undefined || cp === null) ? "qubit.vs." : cp;
+  };
+  
+  if (!qubit.vs) {
+    qubit.vs = {};
+  }
+  
+  LibraryTag.getVendorSpace = function () {
+    return qubit.vs;
   };
   
   /**
@@ -11883,7 +11965,7 @@ var JSON = {};
       .replace(/[\.]+$/g, "")
       .replace(/\.+/g, ".");
     
-    namespace = LibraryTag.getVendorSpace() + namespace;
+    namespace = LibraryTag.vendorsSpacePrefix() + namespace;
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = libConfig.config;
@@ -11930,6 +12012,11 @@ var JSON = {};
     
     return ret;
   };
+  
+  LibraryTag.getLibraryByClasspath = function (namespace) {
+    return Utils.getObjectUsingPath(LibraryTag.vendorsSpacePrefix() + namespace);
+  };
+  
 }());
 
 
