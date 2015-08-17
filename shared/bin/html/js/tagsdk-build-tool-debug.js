@@ -8263,6 +8263,25 @@ q.html.HtmlInjector.getAttributes = function (node) {
     return results;
   };
   /**
+   * Utility used to find all containers storing tag reference.
+   * @param {type} tag
+   * @returns {Array} array of containers mapping the tag.
+   */
+  Tags.findTagContainers = function (tag) {
+    var containers = Tags.getContainers();
+    var containing = [];
+    for (var i = 0; i < containers.length; i++) {
+      var tagsMap = containers[i].tags;
+      for (var prop in tagsMap) {
+        if (tagsMap[prop] === tag) {
+          containing.push(containers[i]);
+          break;
+        }
+      }
+    }
+    return containing;
+  };
+  /**
    * Get all opentag instances map.
    * 
    * @returns Object
@@ -8736,13 +8755,14 @@ q.html.PostData = function (url, data, type) {
   
   /**
    * Function sends ping information to the servers.
-   * @param {Object} config Container config
+   * @param {Object} container Container reference
    * @param loadTimes {Array} Array of load time elements [time, BaseTag]
    */
-  Ping.prototype.send = function (config, loadTimes) { 
+  Ping.prototype.send = function (container, loadTimes) {
+    var config = container.config;
     var pingString = 
             "c=" + config.clientId + "&" +
-            "p=" + config.containerId + "&" +
+            "p=" + container.getContainerId() + "&" +
             "l=" + config.tellLoadTimesProbability + "&" +
             "pv=" + q.cookie.PageView.update() + "&" +
             "d=";
@@ -8796,12 +8816,14 @@ q.html.PostData = function (url, data, type) {
   /**
    * Disabled. Function sends error information to servers.
    * @private
-   * @param {Object} config
+   * @param {Object} container
+   * @param {Object} errors
    */
-  Ping.prototype.sendErrors = function (config, errors) {
+  Ping.prototype.sendErrors = function (container, errors) {
     // @TODO add on-demand errors sending so client can easily invoke 
     //"qubut.opentag.Tags.sendAllErrors()
     log.WARN("Errors sending is disabled.");/*L*/
+//    var config = container.config;
 //    var loaderId, err, msg, errMsgs = [];
 //    
 //    for (var i = 0; i < errors.length; i++) {
@@ -8814,7 +8836,7 @@ q.html.PostData = function (url, data, type) {
 //      log.INFO("about to send errors: " + errMsgs.join(","));/*L*/
 //
 //      msg = "c=" + config.opentagClientId + "&" + 
-//        "p=" + config.containerId + "&" +
+//        "p=" + container.getContainerId() + "&" +
 //        "pv=" + q.cookie.PageView.update() + "&" +
 //        "e=" + ("[" + errMsgs.join(",") + "]");
 //      if (config.pingServerUrl) {
@@ -8828,12 +8850,13 @@ q.html.PostData = function (url, data, type) {
 
   /**
    * Function send deduplicated information ping to servers.
-   * @param {Object} config
+   * @param {Object} container
    * @param {Object} tags
    */
-  Ping.prototype.sendDedupe = function (config, tags) {
+  Ping.prototype.sendDedupe = function (container, tags) {
+    var config = container.config;
     var pingString = "c=" + config.clientId + "&" +
-      "p=" + config.containerId + "&" +
+      "p=" + container.getContainerId() + "&" +
       "l=" + (config.tellLoadTimesProbability) + "&" +
       "pv=" + q.cookie.PageView.update() + "&" +
       "dd=";
@@ -10339,14 +10362,15 @@ var JSON = {};
    * @param {Object} config session configuration object
    * @returns {Object} session object.
    */
-  Session.setupSession = function (config) {
+  Session.setupSession = function (container) {
+    var config = container.config;
     var session, i, cookie, cookieText, cookieName, now;
     session = {};
     session.sessionCount = q.cookie.SimpleSessionCounter
             .update(config.cookieDomain);
     
-    cookieName = "qtag_" + config.containerId;
-    var xCookieName = "x_qtag_" + config.containerId;
+    cookieName = "qtag_" + container.getContainerId();
+    var xCookieName = "x_qtag_" + container.getContainerId();
     
     // compat for non compressed cookie, historical compability, remove this
     // code after 15th of Sep 2015
@@ -11158,7 +11182,7 @@ var JSON = {};
       }
       
       if (this.config.trackSession) {
-        this.session = Session.setupSession(this.config);
+        this.session = Session.setupSession(this);
       }
       
       if (this.session) {
@@ -11222,7 +11246,7 @@ var JSON = {};
   Container.getById = function (id) {
     var items = this.getContainers();
     for (var i = 0; i < items.length; i++) {
-      if (items[i].config.containerId === id) {
+      if (items[i].getContainerId() === id) {
         return items[i];
       }
     }
@@ -11394,7 +11418,7 @@ var JSON = {};
       src = script.getAttribute("src");
       //removed "opentag", white labelling!!!
       if (!!src && (src.indexOf("" + 
-          this.config.clientId + "-" + this.config.containerId +
+          this.config.clientId + "-" + this.getContainerId() +
           ".js") > 0)) {
         return (script.getAttribute("async") === null && 
             //handle ie7
@@ -11525,7 +11549,13 @@ var JSON = {};
     }
     return tagsOrdered;
   };
-
+  /**
+   * @private Strictly private.
+   * @param {type} tag
+   * @param {type} command
+   * @param {type} forceAsync
+   * @returns {undefined}
+   */
   Container.prototype._tagRunner = function (tag, command, forceAsync) {
     try {
       if (this.includedToRun(tag)) {
@@ -11544,6 +11574,26 @@ var JSON = {};
       this.log.ERROR(" -> tagRunner: Error running tag with name '" + /*L*/
               tag.config.name + /*L*/
               "'.\n Error: " + ex);/*L*/
+    }
+  };
+
+  /**
+   * Function resolves container id; first priority has config.containerId 
+   * property, if its unset, container's top package location is used as it's 
+   * unique.
+   * @returns {Object} container ID.
+   */
+  Container.prototype.getContainerId = function () {
+    if (this.config.containerId) {
+      return this.config.containerId;
+    } else {
+      if (this._pkgName) {
+        return this._pkgName;
+      }
+      var idx = this.PACKAGE_NAME.split(".");
+      idx = idx[idx.length - 1];
+      this._pkgName = idx;
+      return idx;
     }
   };
 
@@ -11843,7 +11893,7 @@ var JSON = {};
         loadTimes = Tags.getLoadTimes(results.run);
         this.log.INFO("Sending standard load pings");/*L*/
         this.lastPingsSentTime = new Date().valueOf();
-        this.ping.send(this.config, loadTimes);
+        this.ping.send(this, loadTimes);
       }
       
       /*session*/
@@ -11861,7 +11911,7 @@ var JSON = {};
       if (deduplicatedTagsToBeSent.length > 0) {
         this.log.INFO("Sending deduplication pings");/*L*/
         this.lastDedupePingsSentTime = new Date().valueOf();
-        this.ping.sendDedupe(this.config, deduplicatedTagsToBeSent);
+        this.ping.sendDedupe(this, deduplicatedTagsToBeSent);
       }
       
       // set callbacks for "other"
@@ -11885,7 +11935,7 @@ var JSON = {};
         
         //in case tags are fired and method used separately
         if (otherTagsToBeSent.length > 0) {
-          this.ping.send(this.config, otherTagsToBeSent);
+          this.ping.send(this, otherTagsToBeSent);
         }
       }
       
@@ -11911,7 +11961,7 @@ var JSON = {};
         
         //in case tags are fired and method used separately
         if (awaitingTagsToBeSent.length > 0) {
-          this.ping.send(this.config, awaitingTagsToBeSent);
+          this.ping.send(this, awaitingTagsToBeSent);
         }
       }
       /*~session*/
@@ -12078,7 +12128,7 @@ var JSON = {};
    * @returns {String}
    */
   Container.prototype._getCookieNameForDisabling = function () {
-    return disableCookiePrefix + this.config.containerId + this.config.name;
+    return disableCookiePrefix + this.getContainerId() + this.config.name;
   };
   
   /**
@@ -12495,52 +12545,54 @@ var JSON = {};
 
 
 
+(function () {
+  var log = new qubit.opentag.Log("Main -> ");
 
-qubit.opentag.Log.setLevel(0);
-qubit.opentag.Log.setCollectLevel(3);
+  function Main() {
+  }
 
-var log = new qubit.opentag.Log("Main -> ");
+  Main.run = function () {
+    qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_NONE);
+    qubit.opentag.Log.setCollectLevel(3);
 
-function Main() {
-}
+    /*debug*/
+    qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_INFO);
+    qubit.opentag.Log.setCollectLevel(4);
+    /*~debug*/
 
-Main.run = function () {
-  qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_NONE);
-  qubit.opentag.Log.setCollectLevel(3);
-
-  /*debug*/
-  qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_INFO);
-  qubit.opentag.Log.setCollectLevel(4);
-  /*~debug*/
-
-  try {
-    var containers = qubit.opentag.Container.getContainers();
-    for (var i = 0; i < containers.length; i++) {
-      var container = containers[i];
-      if (!container.runningStarted) {
-        container.config.scanTags = true;
-        if (!GLOBAL.QUBIT_OPENTAG_STOP_MAIN_EXECUTION) {
-          container.run();
-        } else {
-          var runner = qubit.opentag.RUN_STOPPED_EXECUTON;
-          qubit.opentag.RUN_STOPPED_EXECUTON = function () {
-            try {
-              if (runner) {
-                runner();
+    try {
+      var containers = qubit.opentag.Container.getContainers();
+      for (var i = 0; i < containers.length; i++) {
+        var container = containers[i];
+        if (!container.runningStarted) {
+          container.config.scanTags = true;
+          if (GLOBAL.qubit.CLIENT_CONFIG) {
+            container.config.clientId = GLOBAL.qubit.CLIENT_CONFIG.id;
+          }
+          if (!GLOBAL.QUBIT_OPENTAG_STOP_MAIN_EXECUTION) {
+            log.INFO("Running container " + container.CLASSPATH);/*L*/
+            container.run();
+          } else {
+            var runner = qubit.opentag.RUN_STOPPED_EXECUTON;
+            qubit.opentag.RUN_STOPPED_EXECUTON = function () {
+              try {
+                if (runner) {
+                  runner();
+                }
+              } finally {
+                container.run();
               }
-            } finally {
-              container.run();
-            }
-          };
+            };
+          }
         }
       }
+    } catch (ex) {
+      //silent & reports
     }
-  } catch (ex) {
-    //silent & reports
-  }
-};
+  };
 
-qubit.Define.namespace("qubit.opentag.Main", Main);
+  qubit.Define.namespace("qubit.opentag.Main", Main);
+}());
 
 
 (function () {
