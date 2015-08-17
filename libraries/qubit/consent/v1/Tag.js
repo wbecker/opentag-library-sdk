@@ -420,7 +420,7 @@ qubit.Quick.library("qubit.consent.v1.Tag", {
         ].join("\n"),
         footerHtml: ''
       }
-    }
+    };
   },
   consentModes: {
     notification: "Notification Only",
