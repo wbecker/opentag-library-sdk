@@ -426,5 +426,5 @@ qubit.Quick.library("qubit.consent.v1.Tag", {
     notification: "Notification Only",
     implicit: "Implicit consent",
     explicit: "Explicit Consent"
-  },
+  }
 });
