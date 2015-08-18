@@ -106,7 +106,7 @@ var UNDEF;
     return GLOBAL;
   };
 
-  Define.clientSpace = function () {
+  Define.clientSpaceClasspath = function () {
     if (window.qubit.CLIENT_CONFIG) {
       return "qubit.cs.d" + window.qubit.CLIENT_CONFIG.id;
     }
@@ -215,43 +215,44 @@ var UNDEF;
    */
   Define.clientNamespace = function (path, instance, pckg, noOverride) {
     return Define.namespace(
-            Define.clientSpace() + "." + path, instance, pckg, noOverride);
+      Define.clientSpaceClasspath() + "." + path, instance, pckg, noOverride);
   };
 
   /**
    * Utility for simple class declaration (not definition).
    * It does similiar job as namespace with addition of adding CLASS_NAME
    * and PACKAGE_NAME on prototype. It also sets SUPER to extending class
-   * instance.
+   * Class.
    * 
    * @param {String} path
-   * @param {Object} instance
-   * @param {Function} extendingClass
+   * @param {Object} Class
+   * @param {Function} SuperClass
    * @param {Object} pckg
    * @param {Object} config
-   * @returns {Object} the class instance
+   * @returns {Object} the class Class
    */
-  Define.clazz = function (path, instance, extendingClass, pckg, config) {
-    Define.namespace(path, instance, pckg, true);
-    if (typeof(extendingClass) === "function") {
-      instance.SUPER = extendingClass;
-      instance.superclass = extendingClass; //deprecated use SUPER
-      instance.prototype = new instance.SUPER(config);
-      instance.prototype.SUPER = extendingClass;
+  Define.clazz = function (path, Class, SuperClass, pckg, config) {
+    Define.namespace(path, Class, pckg, true);
+    if (typeof(SuperClass) === "function") {
+      Class.SUPER = SuperClass;//also used by Utils.defineWrappedClass
+      Class.superclass = SuperClass; //deprecated use SUPER
+      Class.prototype = new SuperClass(config);
+      Class.prototype.SUPER = SuperClass;
+      Class.prototype.CLASS = Class;
     }
     var names = path.split(".");
-    if (instance.prototype) {
-      instance.prototype.CLASSPATH = names.join(".");
-      instance.prototype.CLASS_NAME = names[names.length - 1];
+    if (Class.prototype) {
+      Class.prototype.CLASSPATH = names.join(".");
+      Class.prototype.CLASS_NAME = names[names.length - 1];
       names.splice(names.length - 1, 1);
-      instance.prototype.PACKAGE_NAME = names.join(".");
+      Class.prototype.PACKAGE_NAME = names.join(".");
     } else {
-      instance.CLASSPATH = names.join(".");
-      instance.STATIC_NAME = names[names.length - 1];
+      Class.CLASSPATH = names.join(".");
+      Class.STATIC_NAME = names[names.length - 1];
       names.splice(names.length - 1, 1);
-      instance.PACKAGE_NAME = names.join(".");
+      Class.PACKAGE_NAME = names.join(".");
     }
-    return instance;
+    return Class;
   };
 
   Define.clazz("qubit.Define", Define);
@@ -263,20 +264,40 @@ var UNDEF;
    * Utility for simple class declaration (not definition).
    * It does similiar job as namespace with addition of adding CLASS_NAME
    * and PACKAGE_NAME on prototype. It also sets SUPER to extending class
-   * instance.
+   * Class.
    * 
    * @param {String} path
-   * @param {Object} instance
-   * @param {Function} extendingClass
+   * @param {Object} Class
+   * @param {Function} SuperClass
    * @param {Object} pckg
    * @param {Object} config
-   * @returns {Object} the class instance
+   * @returns {Object} the class Class
    */
-  Define.clientClazz = function (path, instance, extendingClass, pckg, config) {
+  Define.clientClazz = function (path, Class, SuperClass, pckg, config) {
     return Define.clazz(
-      Define.clientSpace() + "." + path,
-      instance,
-      extendingClass,
+      Define.clientSpaceClasspath() + "." + path,
+      Class,
+      SuperClass,
+      pckg,
+      config);
+  };
+  
+  Define.vendorsSpacePrefix = function () {
+    var cp = qubit.VENDOR_SPACE_CP;
+    return (cp === undefined || cp === null) ? "qubit.vs." : cp;
+  };
+  
+  Define.namespace("qubit.vs", {}, null, true);
+  
+  Define.getVendorSpace = function () {
+    return qubit.vs;
+  };
+  
+  Define.vendorClazz = function (path, Class, SuperClass, pckg, config) {
+    return Define.clazz(
+      Define.vendorsSpacePrefix() + path,
+      Class,
+      SuperClass,
       pckg,
       config);
   };
@@ -1078,11 +1099,11 @@ var UNDEF;
    *    CONSTRUCTOR property (function) is a special property on such object and
    *     will be used to create constructor - optional. 
    * @param {String} classPath classpath to be used and set at
-   * @param {Function} extendingClass class to inherit from
+   * @param {Function} extClass class to inherit from
    * @param {Object} pckg namespace package to be put at
    * @returns {Object} defined class reference
    */
-  Utils.defineClass = function (classPath, extendingClass, config, pckg) {
+  Utils.defineWrappedClass = function (classPath, extClass, config, pckg) {
     
     var names = classPath.split(".");
     var className = names[names.length - 1];
@@ -1092,8 +1113,9 @@ var UNDEF;
     
     // @todo arguably, anonymous looks better, but still, its good to have 
     //the name present
-    var funTemplate = ["clazz = ",
-            "(function ", className, "() {",
+    var funTemplate = [
+      "clazz = ",
+      "(function ", className, "() {",
       "  if (", classPath, "._CONSTRUCTOR) {",
       "    return ", classPath, "._CONSTRUCTOR.apply(this, arguments);",
       "  } else {",
@@ -1102,7 +1124,7 @@ var UNDEF;
       "    }",
       "  }",
       "})"
-      ].join("");
+    ].join("");
     //evaluate locally (qubit )!
     eval(funTemplate);
     
@@ -1118,10 +1140,9 @@ var UNDEF;
 //    };
     
     clazz._CONSTRUCTOR = CONSTRUCTOR;
-    clazz.SUPER = extendingClass;
     
     //publish class
-    Define.clazz(classPath, clazz, extendingClass, pckg);
+    Define.clazz(classPath, clazz, extClass, pckg);
     
     //pass prototype objects
     for (var prop in config) {
@@ -7397,13 +7418,13 @@ q.html.HtmlInjector.getAttributes = function (node) {
   
   /**
    * Function works exactly as addVariablesMap with that difference that prefix
-   * is set to `qubit.Define.clientSpace()`
+   * is set to `qubit.Define.clientSpaceClasspath()`
    * @param {type} map
    * @returns {undefined}
    */
   BaseTag.prototype.addClientVariablesMap = function (map) {
     this.unresolvedClientVariablesMap = 
-      this.addVariablesMap(map, qubit.Define.clientSpace());
+      this.addVariablesMap(map, qubit.Define.clientSpaceClasspath());
     return this.unresolvedClientVariablesMap;
   };
   
@@ -7678,7 +7699,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   BaseTag.prototype.addClientFiltersList = function (filters) {
     this.unresolvedClientFilterClasspaths = 
-      this.addFiltersList(filters, qubit.Define.clientSpace());
+      this.addFiltersList(filters, qubit.Define.clientSpaceClasspath());
     return this.unresolvedClientFilterClasspaths;
   };
   
@@ -10777,21 +10798,8 @@ var JSON = {};
     }
   };
   
-  LibraryTag.vendorsSpacePrefix = function () {
-    var cp = qubit.VENDOR_SPACE_CP;
-    return (cp === undefined || cp === null) ? "qubit.vs." : cp;
-  };
-  
-  if (!qubit.vs) {
-    qubit.vs = {};
-  }
-  
-  LibraryTag.getVendorSpace = function () {
-    return qubit.vs;
-  };
-  
   /**
-   * Utils.defineClass wrapper for LibraryTag.
+   * Utils.defineWrapperClass wrapper for LibraryTag.
    * 
    * This method is used to easy define a tag library class. Tag Library class 
    * is any class that extends qubit.opentag.LibraryTag class.
@@ -10820,7 +10828,7 @@ var JSON = {};
       .replace(/[\.]+$/g, "")
       .replace(/\.+/g, ".");
     
-    namespace = LibraryTag.vendorsSpacePrefix() + namespace;
+    namespace = Define.vendorsSpacePrefix() + namespace;
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = libConfig.config;
@@ -10858,8 +10866,8 @@ var JSON = {};
       }
     };
     
-    var ret = qubit.opentag.Utils
-            .defineClass(namespace, LibraryTag, prototypeTemplate, GLOBAL);
+    var ret = qubit.opentag.Utils.defineWrappedClass(
+      namespace, LibraryTag, prototypeTemplate, GLOBAL);
     
     if (namespace.indexOf("qubit.vs.") !== 0) {
       Utils.namespace("qubit.vs." + namespace, ret);
@@ -10869,7 +10877,7 @@ var JSON = {};
   };
   
   LibraryTag.getLibraryByClasspath = function (namespace) {
-    return Utils.getObjectUsingPath(LibraryTag.vendorsSpacePrefix() + namespace);
+    return Utils.getObjectUsingPath(Define.vendorsSpacePrefix() + namespace);
   };
   
 }());
