@@ -59,7 +59,8 @@ qubit.Quick.library("qubit.consent.v1.Tag", {
 
     //=Q=
 
-    var qcw = library.getDefaultConfiguration();
+    var qcw = this.getDefaultConfiguration();
+    window.qcw = qcw;
 
     //=E=
 
