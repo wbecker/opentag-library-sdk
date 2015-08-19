@@ -7881,6 +7881,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
       var str = "Q" + tag.config.id;
       UNIQUE_REF[str] = tag;
       tag.uniqueId = str;
+    } else {
+      UNIQUE_REF[tag.CLASSPATH] = tag;
     }
   };
   
@@ -10853,7 +10855,7 @@ var JSON = {};
       .replace(/[\.]+$/g, "")
       .replace(/\.+/g, ".");
     
-    namespace = Define.vendorsSpacePrefix() + namespace;
+    namespace = qubit.Define.vendorsSpacePrefix() + namespace;
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = libConfig.config;
