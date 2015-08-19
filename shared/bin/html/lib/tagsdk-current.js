@@ -6268,6 +6268,17 @@ q.html.HtmlInjector.getAttributes = function (node) {
   };
   
   /**
+   * Client dependencies lazy loader.
+   * @param {type} array
+   * @param {type} ns
+   * @returns {undefined|Array}
+   */
+  GenericLoader.prototype.addClientDependenciesList = function (array, ns) {
+    return this.addDependenciesList(array, qubit.Define.clientSpaceClasspath());
+  };
+
+  
+  /**
    * Dependencies p[arser. It accepts an array of dependencies.
    * Dependency can be refeered by classpath string or direct reference.
    * @param {type} array Array of tag references or
@@ -7415,7 +7426,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     var map = this.failedDependenciesToParse;
     if (map) {
       this.failedDependenciesToParse = null;
-      this.addDependenciesList(map,  qubit.Define.clientSpaceClasspath());
+      this.addDependenciesList(map, qubit.Define.clientSpaceClasspath());
     }
     return this.dependencies;
   };
