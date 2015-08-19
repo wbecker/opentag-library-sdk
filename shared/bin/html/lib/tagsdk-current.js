@@ -10895,7 +10895,8 @@ var JSON = {};
   };
   
   LibraryTag.getLibraryByClasspath = function (namespace) {
-    return Utils.getObjectUsingPath(Define.vendorsSpacePrefix() + namespace);
+    return Utils.getObjectUsingPath(
+      qubit.Define.vendorsSpacePrefix() + namespace);
   };
   
 }());
