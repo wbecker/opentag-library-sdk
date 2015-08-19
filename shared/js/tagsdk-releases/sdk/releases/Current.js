@@ -6275,7 +6275,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    *                  is dependant on. The array can be used to add more
    *                  dependencies.
    */
-  GenericLoader.prototype.addDependenciesList = function (array) {
+  GenericLoader.prototype.addDependenciesList = function (array, ns) {
     if (!array || array.length === 0) {
       return;
     }
@@ -6289,6 +6289,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
       if (item instanceof GenericLoader) {
         dependencies.push(item);
       } else if (typeof(item) === "string") {
+        var original = item;
+        if (ns) {
+          item = ns + "." + item;
+        }
         var obj = Utils.getObjectUsingPath(item);
         if (obj) {
           if (obj instanceof GenericLoader) {
@@ -6297,7 +6301,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
             bad = true;
           }
         } else {
-          this.failedDependenciesToParse.push(item);
+          this.failedDependenciesToParse.push(original);
         }
       } else {
         bad = true;
@@ -7411,7 +7415,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     var map = this.failedDependenciesToParse;
     if (map) {
       this.failedDependenciesToParse = null;
-      this.addDependenciesList(map);
+      this.addDependenciesList(map,  qubit.Define.clientSpaceClasspath());
     }
     return this.dependencies;
   };
@@ -7458,6 +7462,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
         if (item instanceof BaseVariable) {
           namedVariables[prop] = item;
         } else if (typeof(item) === "string") {
+          var original = item;
           if (ns) {
             item = ns + "." + item;
           }
@@ -7465,7 +7470,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
           if (obj) {
             namedVariables[prop] = item;
           } else {
-            unresolvedVariablesMap[prop] = item;
+            unresolvedVariablesMap[prop] = original;
           }
         } else {
           this.log.ERROR("Added variable is of wrong type!");/*L*/
