@@ -1114,57 +1114,56 @@ var UNDEF;
    *     will be used to create constructor - optional. 
    * @param {String} classPath classpath to be used and set at
    * @param {Function} extClass class to inherit from
+   * @param {Object} prototypeTemplate prototype template to use
    * @param {Object} pckg namespace package to be put at
+   * @param {Function} constr optional constructor to use
    * @returns {Object} defined class reference
    */
-  Utils.defineWrappedClass = function (classPath, extClass, config, pckg) {
-    
-    var names = classPath.split(".");
-    var className = names[names.length - 1];
-    
-    //create class
-    var clazz;
-    
-    // @todo arguably, anonymous looks better, but still, its good to have 
-    //the name present
-    var funTemplate = [
-      "clazz = ",
-      "(function ", className, "() {",
-      "  if (", classPath, "._CONSTRUCTOR) {",
-      "    return ", classPath, "._CONSTRUCTOR.apply(this, arguments);",
-      "  } else {",
-      "    if (", classPath, ".SUPER) {",
-      "      return ", classPath, ".SUPER.apply(this, arguments);",
-      "    }",
-      "  }",
-      "})"
-    ].join("");
-    //evaluate locally (qubit )!
-    eval(funTemplate);
-    
-    var CONSTRUCTOR = config.CONSTRUCTOR;
-    
-//    //or anonymous:
-//    clazz = function () {
-//      if (clazz._CONSTRUCTOR) {
-//        return clazz._CONSTRUCTOR.apply(this, arguments);
-//      } else if (clazz.SUPER) {
-//        return clazz.SUPER.apply(this, arguments);
-//      }
-//    };
-    
-    clazz._CONSTRUCTOR = CONSTRUCTOR;
-    
+  Utils.defineWrappedClass = function (
+          classPath,
+          extClass,
+          prototypeTemplate,
+          pckg,
+          constr) {
+    //or anonymous:
+    var clazz = function () {
+      if (constr) {
+        return constr.apply(this, arguments);
+      } else {
+        return extClass.apply(this, arguments);
+      }
+    };
+        
     //publish class
     Define.clazz(classPath, clazz, extClass, pckg);
     
     //pass prototype objects
-    for (var prop in config) {
-      if (config.hasOwnProperty(prop) && prop !== "CONSTRUCTOR") {
-        clazz.prototype[prop] = config[prop];
+    for (var prop in prototypeTemplate) {
+      if (prototypeTemplate.hasOwnProperty(prop) && prop !== "CONSTRUCTOR") {
+        clazz.prototype[prop] = prototypeTemplate[prop];
       }
     }
     return clazz;
+  };
+  
+  /**
+   * Useful method for copying objects and attaching new references
+   * from other object.
+   * @param {Object} A object to copy
+   * @param {Object} B object's props to assign on A after copying.
+   * @param {Number} maxDeep how deep to copy, default is 8 (javascript is slow
+   *      and extra limitation is a good thing).
+   * @returns {Object} Objects copy.
+   */
+  Utils.copyAandAddFromB = function (A, B, maxDeep) {
+    maxDeep = maxDeep || 8;
+    var copy = this.objectCopy(A, {maxDeep: maxDeep});
+      for (var prop in B) {
+        if (B.hasOwnProperty(prop)) {
+          copy[prop] = B[prop];
+        }
+      }
+    return copy;
   };
   
   /**
@@ -1378,6 +1377,23 @@ var UNDEF;
         }
       }
     }
+  };
+  
+  /**
+   * Shortcut to opverride object props. Commonly used.
+   * @param {type} A
+   * @param {type} B
+   * @returns {Object} returns A
+   */
+  Utils.overrideFromBtoA = function (A, B) {
+    if (A && B) {
+      for (var prop in B) {
+        if (B.hasOwnProperty(prop)) {
+          A[prop] = B[prop];
+        }
+      }
+    }
+    return A;
   };
   
   /**
@@ -10863,7 +10879,12 @@ var JSON = {};
     namespace = qubit.Define.vendorsSpacePrefix() + namespace;
     
     //config must be set in runtime - for each instance
-    var libraryDefaultConfig = libConfig.config;
+    var libraryDefaultConfig = {};
+    
+    if (libConfig.getDefaultConfig) {
+      libraryDefaultConfig = libConfig.getDefaultConfig();
+    }
+    
     var constr = libConfig.CONSTRUCTOR;
     
     //prepare new config that does not override .config object in Library class
@@ -10876,19 +10897,15 @@ var JSON = {};
     }
     
     //add new constructor
-    prototypeTemplate.CONSTRUCTOR = function (cfg) {
+    var constructor = function (cfg) {
       //update instance properties for new defaults
       cfg = cfg || {};
-      // @todo repair this
-      var defaultsCopy = Utils.objectCopy(libraryDefaultConfig, {maxDeep: 8});
-      for (var prop in defaultsCopy) {
-        if (!cfg.hasOwnProperty(prop)) {
-          cfg[prop] = defaultsCopy[prop];
-        }
-      }
+      cfg = Utils.overrideFromBtoA(libraryDefaultConfig, cfg)
+      
       // --- standard ---
       //run library standard constructor
       var ret = qubit.opentag.LibraryTag.call(this, cfg);
+      
       //any additional constructor? run it.
       if (constr) {
         constr.call(this, cfg);
@@ -10899,7 +10916,7 @@ var JSON = {};
     };
     
     var ret = qubit.opentag.Utils.defineWrappedClass(
-      namespace, LibraryTag, prototypeTemplate, GLOBAL);
+      namespace, LibraryTag, prototypeTemplate, GLOBAL, constructor);
     
     if (namespace.indexOf("qubit.vs.") !== 0) {
       Utils.namespace("qubit.vs." + namespace, ret);
