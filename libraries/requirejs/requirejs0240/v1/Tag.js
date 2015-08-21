@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("requirejs.requirejs0240.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "require.js 0.24.0",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("requirejs.requirejs0240.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

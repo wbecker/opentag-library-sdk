@@ -1,5 +1,6 @@
 qubit.opentag.LibraryTag.define("intentmedia.events.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Intent Media - Events",
     description: "To be used in conjunction with the Search Compare Ads Tag to handle Intent Media events",
@@ -14,6 +15,7 @@ qubit.opentag.LibraryTag.define("intentmedia.events.v1.Tag", {
         defaultValue: ""
     }]
 	/*~DATA*/
+		};
   },
 
   script: function () {

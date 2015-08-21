@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"marinsoftware.clicktrackingtaganonymizeip.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Click Tracking Tag - Anonymize IP",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

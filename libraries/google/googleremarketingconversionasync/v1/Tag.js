@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"google.googleremarketingconversionasync.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Remarketing Conversion Async",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

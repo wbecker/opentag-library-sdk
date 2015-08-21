@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleanalytics.googleanalyticswithenhancedlinkattribution.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Analytics with Enhanced Link Attribution",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

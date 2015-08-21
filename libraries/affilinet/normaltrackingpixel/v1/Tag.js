@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Normal Tracking Pixel",
 		async: true,
@@ -54,6 +55,7 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("prototype.prototypejs17.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Prototype JS 1.7",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("prototype.prototypejs17.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

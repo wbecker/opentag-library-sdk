@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"marinsoftware.zzconversioncapturecodedeprecatedr1.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "zz-Conversion Capture Code [DEPRECATED] R1",
 			async: true,
@@ -85,6 +86,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

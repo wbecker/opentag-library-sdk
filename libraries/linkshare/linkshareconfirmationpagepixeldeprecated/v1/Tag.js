@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"linkshare.linkshareconfirmationpagepixeldeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "LinkShare Confirmation Page Pixel - DEPRECATED",
 			async: true,
@@ -50,6 +51,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.name"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

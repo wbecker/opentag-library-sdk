@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithparameters.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Impression Desk Pixel With Parameters",
 		async: true,
@@ -109,6 +110,7 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithparameters.v1
 			uv: "universal_variable.transaction.line_items[#].product.manufacturer"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

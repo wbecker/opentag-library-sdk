@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "OneTag - Confirmation without Dedupe",
 		async: true,
@@ -54,6 +55,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

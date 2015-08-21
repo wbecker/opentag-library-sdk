@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"affiliatewindow.confirmationtagwithproductdetail.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Confirmation Tag with Product Detail",
 			async: true,
@@ -80,6 +81,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.category"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

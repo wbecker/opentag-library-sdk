@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Conversion iframe",
 		async: true,
@@ -49,6 +50,7 @@ qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.v1.Tag", {
 			uv: "universal_variable.transaction.order_id"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

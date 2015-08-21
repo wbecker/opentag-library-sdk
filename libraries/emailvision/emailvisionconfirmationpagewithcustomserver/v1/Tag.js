@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"emailvision.emailvisionconfirmationpagewithcustomserver.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Emailvision - Confirmation page with custom server",
 			async: true,
@@ -50,6 +51,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

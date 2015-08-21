@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"merchantadvantage.chanalyticsproductpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Chanalytics - Product Page",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

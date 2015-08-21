@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleanalytics.googleanalyticsecommercecustomdomainsonlyrequiredparameters.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Analytics Ecommerce - Custom Domains, only required parameters",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.total"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

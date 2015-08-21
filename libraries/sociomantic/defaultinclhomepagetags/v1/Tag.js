@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sociomantic.defaultinclhomepagetags.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Default (incl homepage tags)",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("sociomantic.defaultinclhomepagetags.v1.Tag", {
 			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

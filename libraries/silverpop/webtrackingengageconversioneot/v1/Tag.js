@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"silverpop.webtrackingengageconversioneot.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Web Tracking (Engage Conversion EOT)",
 			async: true,
@@ -40,6 +41,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

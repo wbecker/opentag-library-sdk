@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Click Tracks Confirmation Page",
 		async: true,
@@ -24,6 +25,7 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.v1.Tag", {
 			uv: "universal_variable.transaction.total"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

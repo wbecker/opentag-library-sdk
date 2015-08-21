@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("caman.camanjs22.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "camanjs 2.2",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("caman.camanjs22.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

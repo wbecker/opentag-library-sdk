@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleanalytics.googleanalyticsecommercesupportsdisplayadvertising.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Analytics Ecommerce - supports display advertising",
 			async: true,
@@ -80,6 +81,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

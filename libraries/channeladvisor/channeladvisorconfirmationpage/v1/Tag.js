@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"channeladvisor.channeladvisorconfirmationpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Channel Advisor - Confirmation Page",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.id"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

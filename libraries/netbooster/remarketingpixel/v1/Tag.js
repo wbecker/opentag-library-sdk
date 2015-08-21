@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("netbooster.remarketingpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Re-Marketing Pixel",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("netbooster.remarketingpixel.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

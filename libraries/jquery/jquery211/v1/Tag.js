@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("jquery.jquery211.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "2.1.1",
 		async: false,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("jquery.jquery211.v1.Tag", {
 
 	]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 	/*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Sales Tracking",
 		async: true,
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
 			uv: "universal_variable.transaction.currency"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

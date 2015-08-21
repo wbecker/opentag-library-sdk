@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("cufon.cufon109i.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "cufon 1.09i",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("cufon.cufon109i.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

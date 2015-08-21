@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mythings.endoftransactiontag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "End of Transaction Tag",
 		async: true,
@@ -49,6 +50,7 @@ qubit.opentag.LibraryTag.define("mythings.endoftransactiontag.v1.Tag", {
 			uv: "universal_variable.transaction.subtotal"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

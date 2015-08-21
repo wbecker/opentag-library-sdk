@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"coremetrics.coremetricsconversionevents.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "CoreMetrics - Conversion Events",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

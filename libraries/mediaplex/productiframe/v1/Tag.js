@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mediaplex.productiframe.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Product iframe",
 		async: true,
@@ -44,6 +45,7 @@ qubit.opentag.LibraryTag.define("mediaplex.productiframe.v1.Tag", {
 			uv: "universal_variable.product.sku_code"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

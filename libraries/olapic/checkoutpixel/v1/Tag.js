@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("olapic.checkoutpixel.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Checkout Pixel",
     async: false,
@@ -58,6 +59,7 @@ qubit.opentag.LibraryTag.define("olapic.checkoutpixel.v1.Tag", {
       uv: "universal_variable.transaction.line_items[#].product.unit_price"
     }]
     /*~DATA*/
+		};
   },
   script: function () {
     /*SCRIPT*/

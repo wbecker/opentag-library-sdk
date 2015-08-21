@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleuniversalanalytics.ecommercetagconfirmationpageallowlinker.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Ecommerce Tag - Confirmation Page - Allow Linker",
 			async: true,
@@ -80,6 +81,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"bazaarvoice.maintenancefreepieconfirmation.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Maintenance Free PIE - Confirmation",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

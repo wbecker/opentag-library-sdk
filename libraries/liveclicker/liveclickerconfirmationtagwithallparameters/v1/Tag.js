@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"liveclicker.liveclickerconfirmationtagwithallparameters.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Liveclicker - Confirmation tag with all parameters",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.currency"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

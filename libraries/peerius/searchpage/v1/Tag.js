@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("peerius.searchpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Search Page",
 		async: true,
@@ -34,6 +35,7 @@ qubit.opentag.LibraryTag.define("peerius.searchpage.v1.Tag", {
 			uv: "universal_variable.listing.items[#].id"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

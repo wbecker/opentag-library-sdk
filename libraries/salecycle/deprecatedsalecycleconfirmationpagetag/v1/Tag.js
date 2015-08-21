@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"salecycle.deprecatedsalecycleconfirmationpagetag.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "DEPRECATED SaleCycle Confirmation Page Tag",
 			async: true,
@@ -25,6 +26,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.user.email"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

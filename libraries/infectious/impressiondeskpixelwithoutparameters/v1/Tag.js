@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithoutparameters.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Impression Desk Pixel Without Parameters",
 		async: true,
@@ -25,6 +26,7 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithoutparameters
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

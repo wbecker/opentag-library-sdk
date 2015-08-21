@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"cheetahmail.tracktopurchasewithitemtracking.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Track-to-Purchase with Item Tracking",
 			async: true,
@@ -65,6 +66,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

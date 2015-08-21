@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("microsoft.trackevent.v1.Tag", {
-    config: {
+    getDefaultConfig: function () {
+      return {
       /*DATA*/
       name: "Track Event",
       async: false,
@@ -30,6 +31,7 @@ qubit.opentag.LibraryTag.define("microsoft.trackevent.v1.Tag", {
         token: "ev"
       }]
       /*~DATA*/
+		};
     },
     script: function() {
       /*SCRIPT*/

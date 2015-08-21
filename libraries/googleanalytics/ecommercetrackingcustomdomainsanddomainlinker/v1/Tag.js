@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleanalytics.ecommercetrackingcustomdomainsanddomainlinker.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "E-Commerce Tracking (Custom domains and Domain Linker)",
 			async: true,
@@ -90,6 +91,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

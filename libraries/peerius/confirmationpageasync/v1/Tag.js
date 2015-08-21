@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("peerius.confirmationpageasync.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Confirmation Page (Async)",
 		async: true,
@@ -69,6 +70,7 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpageasync.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

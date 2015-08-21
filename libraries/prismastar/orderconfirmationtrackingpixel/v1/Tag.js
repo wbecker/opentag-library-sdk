@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"prismastar.orderconfirmationtrackingpixel.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Order Confirmation Tracking Pixel",
 			async: true,
@@ -50,6 +51,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.category"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

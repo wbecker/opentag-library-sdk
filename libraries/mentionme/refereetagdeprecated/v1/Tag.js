@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Referee Tag [Deprecated]",
 		async: true,
@@ -49,6 +50,7 @@ qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

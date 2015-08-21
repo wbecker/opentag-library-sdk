@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("jquery.noconflictjquery.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Noconflict jQuery",
 		async: true,
@@ -24,6 +25,7 @@ qubit.opentag.LibraryTag.define("jquery.noconflictjquery.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

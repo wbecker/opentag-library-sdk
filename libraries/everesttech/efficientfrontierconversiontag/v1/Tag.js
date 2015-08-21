@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"everesttech.efficientfrontierconversiontag.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Efficient Frontier Conversion Tag",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.order_id"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

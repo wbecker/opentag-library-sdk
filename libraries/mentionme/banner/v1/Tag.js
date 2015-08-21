@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mentionme.banner.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Banner",
 		async: true,
@@ -54,6 +55,7 @@ qubit.opentag.LibraryTag.define("mentionme.banner.v1.Tag", {
 			uv: "universal_variable.user.username"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

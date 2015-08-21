@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("d7search.d7searchconversion.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "7Search Conversion",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("d7search.d7searchconversion.v1.Tag", {
 			uv: "universal_variable.transaction.total"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

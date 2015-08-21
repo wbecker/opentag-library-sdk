@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mentionme.dashboard.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Dashboard",
 		async: true,
@@ -64,6 +65,7 @@ qubit.opentag.LibraryTag.define("mentionme.dashboard.v1.Tag", {
 			uv: "universal_variable.user.username"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"qubit.googletagmanagerconverterdatalayeruv.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Tag Manager Converter: dataLayer > UV",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

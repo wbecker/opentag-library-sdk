@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"conexance.confirmationpagewithuseremail.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Confirmation page - with user email",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.user.email"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

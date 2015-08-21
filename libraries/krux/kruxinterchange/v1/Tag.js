@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("krux.kruxinterchange.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Krux Interchange",
 		async: true,
@@ -34,6 +35,7 @@ qubit.opentag.LibraryTag.define("krux.kruxinterchange.v1.Tag", {
 			uv: "universal_variable.page.subcategory"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

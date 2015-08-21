@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"google.googleadwordswithadditionalparametersdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google AdWords with additional parameters DEPRECATED",
 			async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.subtotal"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

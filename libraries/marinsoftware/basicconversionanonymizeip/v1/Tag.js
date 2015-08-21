@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"marinsoftware.basicconversionanonymizeip.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Basic Conversion - Anonymize IP",
 			async: true,
@@ -40,6 +41,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

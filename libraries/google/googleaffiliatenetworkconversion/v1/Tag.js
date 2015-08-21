@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"google.googleaffiliatenetworkconversion.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Affiliate Network Conversion",
 			async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

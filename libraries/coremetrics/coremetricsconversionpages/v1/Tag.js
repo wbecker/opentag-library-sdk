@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "CoreMetrics - Conversion Pages",
 		async: true,
@@ -64,6 +65,7 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag",
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

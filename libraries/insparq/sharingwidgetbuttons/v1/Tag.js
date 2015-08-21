@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("insparq.sharingwidgetbuttons.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Sharing Widget for PDP",
     async: true,
@@ -60,6 +61,7 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetbuttons.v1.Tag", {
       uv: ""
     }]
     /*~DATA*/
+		};
   },
   script: function () {
     /*SCRIPT*/

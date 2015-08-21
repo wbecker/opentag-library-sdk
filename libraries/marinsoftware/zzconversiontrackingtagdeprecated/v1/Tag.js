@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"marinsoftware.zzconversiontrackingtagdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "zz-Conversion Tracking Tag [DEPRECATED]",
 			async: true,
@@ -75,6 +76,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.sku_code"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

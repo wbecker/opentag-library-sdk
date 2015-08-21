@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("netbooster.deprecatedconversionpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "[DEPRECATED] Conversion Pixel",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("netbooster.deprecatedconversionpixel.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

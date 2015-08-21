@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleanalytics.localcurrencysettingdependency.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Local Currency Setting (Dependency)",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.currency"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

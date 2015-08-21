@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"bing.bingadcentercampaignanalyticsfullycustomizable.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Bing AdCenter Campaign Analytics - Fully Customizable",
 			async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

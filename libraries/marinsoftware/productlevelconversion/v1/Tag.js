@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Product Level Conversion",
 		async: true,
@@ -54,6 +55,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

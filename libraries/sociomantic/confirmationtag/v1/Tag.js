@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sociomantic.confirmationtag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Confirmation Tag",
 		async: true,
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define("sociomantic.confirmationtag.v1.Tag", {
 			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sociomantic.deprecatedconfirmationpagetag.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "{DEPRECATED} Confirmation Page Tag",
 			async: true,
@@ -50,6 +51,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.subtotal"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

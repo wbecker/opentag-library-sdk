@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mentionme.dashboarddeprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Dashboard [DEPRECATED]",
 		async: true,
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define("mentionme.dashboarddeprecated.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

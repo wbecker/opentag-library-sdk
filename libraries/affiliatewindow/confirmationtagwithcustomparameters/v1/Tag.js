@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"affiliatewindow.confirmationtagwithcustomparameters.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Confirmation Tag with Custom Parameters",
 			async: true,
@@ -90,6 +91,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

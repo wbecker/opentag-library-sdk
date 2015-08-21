@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"google.googleadwordswithadditionalparameters.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google AdWords with additional parameters",
 			async: true,
@@ -50,6 +51,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

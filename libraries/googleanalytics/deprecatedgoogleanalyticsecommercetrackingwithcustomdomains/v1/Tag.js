@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleanalytics.deprecatedgoogleanalyticsecommercetrackingwithcustomdomains.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "[DEPRECATED] Google Analytics E-Commerce Tracking with Custom Domains",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

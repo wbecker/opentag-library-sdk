@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"dcstorm.stormiqconfirmationpagetagwithcustommetrics.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "StormIQ Confirmation Page Tag with custom metrics",
 			async: true,
@@ -80,6 +81,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

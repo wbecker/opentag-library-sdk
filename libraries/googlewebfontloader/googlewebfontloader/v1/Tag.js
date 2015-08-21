@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googlewebfontloader.googlewebfontloader.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google WebFont Loader",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

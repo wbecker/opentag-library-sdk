@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"deprecatedtags.testingdeprecatedtagsfolder.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Testing Deprecated Tags Folder",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

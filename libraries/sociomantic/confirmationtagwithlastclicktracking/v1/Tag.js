@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sociomantic.confirmationtagwithlastclicktracking.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Confirmation Tag (with last click tracking)",
 			async: true,
@@ -60,6 +61,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.user.email"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

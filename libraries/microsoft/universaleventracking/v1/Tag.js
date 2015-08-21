@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("microsoft.universaleventracking.v1.Tag", {
-    config: {
+    getDefaultConfig: function () {
+      return {
       /*DATA*/
       name: "Universal Event Tracking",
       async: false,
@@ -18,6 +19,7 @@ qubit.opentag.LibraryTag.define("microsoft.universaleventracking.v1.Tag", {
         token: "tagID"
       }]
       /*~DATA*/
+		};
     },
     script: function() {
       /*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v2.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "OneTag - Home Page",
 		async: true,
@@ -40,6 +41,7 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v2.Tag", {
 			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

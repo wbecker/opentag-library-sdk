@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"coremetrics.coremetricsproductpageswithcustomattribute.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "CoreMetrics - Product pages (with Custom Attribute)",
 			async: true,
@@ -60,6 +61,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

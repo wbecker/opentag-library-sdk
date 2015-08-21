@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Basic Conversion",
 		async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
 			uv: "universal_variable.transaction.currency"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"quantcast.deprecatedquantcastconfirmationpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "DEPRECATED QuantCast - Confirmation page",
 			async: true,
@@ -30,6 +31,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.subtotal"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

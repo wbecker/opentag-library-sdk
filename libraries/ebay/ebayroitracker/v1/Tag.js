@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "eBay ROI Tracker",
 		async: true,
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

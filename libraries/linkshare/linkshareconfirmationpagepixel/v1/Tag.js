@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"linkshare.linkshareconfirmationpagepixel.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "LinkShare Confirmation Page Pixel",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

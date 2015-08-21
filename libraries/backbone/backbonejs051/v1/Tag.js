@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("backbone.backbonejs051.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "backbone.js 0.5.1",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("backbone.backbonejs051.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

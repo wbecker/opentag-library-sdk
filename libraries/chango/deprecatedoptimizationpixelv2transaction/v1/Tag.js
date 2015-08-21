@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"chango.deprecatedoptimizationpixelv2transaction.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "[DEPRECATED] Optimization Pixel [v2] -  Transaction",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

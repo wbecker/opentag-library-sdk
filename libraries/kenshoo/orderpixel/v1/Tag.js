@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("kenshoo.orderpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Order Pixel",
 		async: true,
@@ -15,6 +16,7 @@ qubit.opentag.LibraryTag.define("kenshoo.orderpixel.v1.Tag", {
 		parameters: [
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

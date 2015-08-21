@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("facebook.facebookpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Facebook Pixel",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixel.v1.Tag", {
 			uv: "universal_variable.transaction.total"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"appnexus.appnexusthankyoupagewithcustomdomain.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "AppNexus - Thank you page with custom domain",
 			async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

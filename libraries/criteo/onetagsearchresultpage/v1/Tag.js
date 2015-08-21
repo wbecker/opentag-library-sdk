@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "OneTag - Search Result Page",
 		async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v1.Tag", {
 			uv: "universal_variable.listing.items[#].id"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

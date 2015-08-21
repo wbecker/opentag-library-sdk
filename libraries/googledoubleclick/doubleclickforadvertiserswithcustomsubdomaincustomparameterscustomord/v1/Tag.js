@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googledoubleclick.doubleclickforadvertiserswithcustomsubdomaincustomparameterscustomord.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Doubleclick for Advertisers, with custom subdomain, custom parameters, custom ord",
 			async: true,
@@ -50,6 +51,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

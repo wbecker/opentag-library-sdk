@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("peerius.checkoutpages.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Checkout Pages",
 		async: true,
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define("peerius.checkoutpages.v1.Tag", {
 			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Optimization - Other Page",
 		async: true,
@@ -69,6 +70,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 			uv: "universal_variable.basket.line_items[#].product.name"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

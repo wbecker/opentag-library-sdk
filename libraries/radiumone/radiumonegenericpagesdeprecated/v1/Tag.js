@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"radiumone.radiumonegenericpagesdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "RadiumOne - Generic Pages DEPRECATED",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

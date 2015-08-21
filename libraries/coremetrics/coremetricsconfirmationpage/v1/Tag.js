@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"coremetrics.coremetricsconfirmationpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "CoreMetrics - Confirmation page",
 			async: true,
@@ -115,6 +116,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.category"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

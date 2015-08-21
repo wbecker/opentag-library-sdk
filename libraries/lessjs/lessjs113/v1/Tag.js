@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("lessjs.lessjs113.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "less.js 1.1.3",
 		async: true,
@@ -15,6 +16,7 @@ qubit.opentag.LibraryTag.define("lessjs.lessjs113.v1.Tag", {
 		parameters: [
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

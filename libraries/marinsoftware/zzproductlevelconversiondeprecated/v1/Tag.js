@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"marinsoftware.zzproductlevelconversiondeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "zz-Product Level Conversion [DEPRECATED]",
 			async: true,
@@ -60,6 +61,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

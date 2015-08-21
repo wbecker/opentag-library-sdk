@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("chango.optimizationpixelv2productpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Optimization Pixel	[v2] - Product Page",
 		async: true,
@@ -54,6 +55,7 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2productpage.v1.Tag", 
 			uv: "universal_variable.product.category"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

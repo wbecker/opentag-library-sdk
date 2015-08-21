@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("criteo.onetagproduct.v2.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "OneTag - Product",
 		async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagproduct.v2.Tag", {
 			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

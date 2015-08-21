@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("jquery.d164deprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "1.6.4 Deprecated",
 		async: false,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("jquery.d164deprecated.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

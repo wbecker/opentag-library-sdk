@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("nextperformance.producttag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Product Tag",
 		async: true,
@@ -24,6 +25,7 @@ qubit.opentag.LibraryTag.define("nextperformance.producttag.v1.Tag", {
 			uv: "universal_variable.product.id"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

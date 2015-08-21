@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("nortonshoppingguarantee.nortonshoppingguaranteeseal.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Norton Shopping Guarantee Seal",
 		async: false,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define("nortonshoppingguarantee.nortonshoppingguarantee
       }
     ]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 	/*SCRIPT*/

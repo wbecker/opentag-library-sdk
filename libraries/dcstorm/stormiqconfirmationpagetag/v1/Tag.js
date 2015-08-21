@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("dcstorm.stormiqconfirmationpagetag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "StormIQ Confirmation Page Tag",
 		async: true,
@@ -64,6 +65,7 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqconfirmationpagetag.v1.Tag", {
 			uv: "universal_variable.transaction.shipping_cost"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sociomantic.baskettag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Basket Tag",
 		async: true,
@@ -49,6 +50,7 @@ qubit.opentag.LibraryTag.define("sociomantic.baskettag.v1.Tag", {
 			uv: "universal_variable.user.user_id"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

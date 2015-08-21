@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("salecycle.confirmationpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Confirmation Page",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("salecycle.confirmationpage.v1.Tag", {
 			uv: "universal_variable.transaction.order_id"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

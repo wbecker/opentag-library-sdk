@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("adform.adformecommercetracking.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "AdForm - Ecommerce Tracking",
 		async: true,
@@ -114,6 +115,7 @@ qubit.opentag.LibraryTag.define("adform.adformecommercetracking.v1.Tag", {
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

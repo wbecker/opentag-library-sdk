@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "ROI",
 		async: true,
@@ -44,6 +45,7 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

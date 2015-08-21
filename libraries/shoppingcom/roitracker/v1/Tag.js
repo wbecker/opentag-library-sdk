@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "ROI Tracker",
 		async: true,
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

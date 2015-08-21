@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("googleuniversalanalytics.ectransaction.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Enhanced Ecommerce - Pageview - Transaction",
     async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.ectransaction.v1.Tag",
       }
     ]
     /*~DATA*/
+		};
   },
   script: function() {
   /*SCRIPT*/

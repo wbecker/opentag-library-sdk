@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("merchenta.productlistingtag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Product Listing Tag",
 		async: true,
@@ -24,6 +25,7 @@ qubit.opentag.LibraryTag.define("merchenta.productlistingtag.v1.Tag", {
 			uv: "universal_variable.listing.items[#].sku_code"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

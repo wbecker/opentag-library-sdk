@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googlewebfontloader.googlewebfontloader1019deprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google WebFont Loader 1.0.19 DEPRECATED",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

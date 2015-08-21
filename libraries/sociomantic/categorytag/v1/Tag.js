@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sociomantic.categorytag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Category Tag",
 		async: true,
@@ -34,6 +35,7 @@ qubit.opentag.LibraryTag.define("sociomantic.categorytag.v1.Tag", {
 			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

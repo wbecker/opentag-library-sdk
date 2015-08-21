@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "WRS Tag - version 1.9",
 		async: true,
@@ -74,6 +75,7 @@ qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

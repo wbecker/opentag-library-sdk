@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"freespee.googleremarketingwithcustomparameters.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Remarketing with custom parameters",
 			async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define(
 			parameters: [
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

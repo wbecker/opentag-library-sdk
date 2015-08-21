@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"intelligentreach.confirmationpagetagdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Confirmation Page Tag - Deprecated",
 			async: true,
@@ -50,6 +51,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.voucher"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

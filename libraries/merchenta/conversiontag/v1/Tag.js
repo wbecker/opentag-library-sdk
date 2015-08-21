@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("merchenta.conversiontag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Conversion Tag",
 		async: true,
@@ -34,6 +35,7 @@ qubit.opentag.LibraryTag.define("merchenta.conversiontag.v1.Tag", {
 			uv: "universal_variable.transaction.line_items[#].product.sku_code"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

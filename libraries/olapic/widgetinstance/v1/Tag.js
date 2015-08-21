@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Widget Instance",
     async: false,
@@ -41,6 +42,7 @@ qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
       token: "appendat"
     }]
     /*~DATA*/
+		};
   },
   script: function () {
     /*SCRIPT*/

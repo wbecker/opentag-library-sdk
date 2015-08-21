@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleuniversalanalytics.googleuniversalanalyticsautosenduvevents.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Universal Analytics - auto send UV events",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

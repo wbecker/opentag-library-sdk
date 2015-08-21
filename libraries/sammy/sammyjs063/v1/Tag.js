@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sammy.sammyjs063.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "sammy.js 0.6.3",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("sammy.sammyjs063.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

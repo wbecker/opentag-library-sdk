@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"commissionjunction.cjconversionpixelincldiscount.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "CJ Conversion Pixel incl. Discount",
 			async: true,
@@ -65,6 +66,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

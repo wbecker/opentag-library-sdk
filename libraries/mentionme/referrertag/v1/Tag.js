@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mentionme.referrertag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Referrer Tag",
 		async: true,
@@ -114,6 +115,7 @@ qubit.opentag.LibraryTag.define("mentionme.referrertag.v1.Tag", {
 			uv: "universal_variable.user.username"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

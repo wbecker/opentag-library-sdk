@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sociomantic.deprecateddefaulttagincludinghomepage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "{DEPRECATED} Default Tag (including Home Page)",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"adobesitecatalyst.sitecatalystconversiontag.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "SiteCatalyst Conversion Tag",
 			async: true,
@@ -135,6 +136,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

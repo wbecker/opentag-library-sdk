@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"google.dynamicxdisplayadscustomparametersolutionallpages.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Dynamic X Display Ads (Custom Parameter Solution) - All Pages",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

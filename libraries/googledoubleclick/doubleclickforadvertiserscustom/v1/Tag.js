@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googledoubleclick.doubleclickforadvertiserscustom.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "DoubleClick for Advertisers - Custom",
 			async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

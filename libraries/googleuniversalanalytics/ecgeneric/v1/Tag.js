@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecgeneric.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Enhanced Ecommerce - Pageview - Generic",
 		async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecgeneric.v1.Tag", {
 			}
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 	/*SCRIPT*/

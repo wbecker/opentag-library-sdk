@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("shopzilla.shopzillasurveyform.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Shopzilla Survey Form",
 		async: true,
@@ -19,6 +20,7 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillasurveyform.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"affiliatewindow.depricatedconfirmationtagwithcustomparameterswithchannel.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "[depricated]Confirmation Tag with Custom Parameters (with channel)",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

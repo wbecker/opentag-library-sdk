@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"deprecatedtags.googleremarketingwithcustomparametersdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Remarketing with custom parameters DEPRECATED",
 			async: true,
@@ -30,6 +31,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

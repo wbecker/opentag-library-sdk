@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Confirmation Page Tag",
 		async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.v1.Tag", {
 			uv: "universal_variable.user.user_id"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

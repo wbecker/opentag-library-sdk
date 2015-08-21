@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("insparq.sharingwidgetreferralpopout.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Sharing Widget Referral Popout for Non-PDPs",
     async: true,
@@ -34,6 +35,7 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetreferralpopout.v1.Tag", {
       uv: ""
     }]
     /*~DATA*/
+		};
   },
   script: function () {
       /*SCRIPT*/

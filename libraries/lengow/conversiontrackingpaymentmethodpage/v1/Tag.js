@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"lengow.conversiontrackingpaymentmethodpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Conversion Tracking - Payment Method Page",
 			async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.name"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

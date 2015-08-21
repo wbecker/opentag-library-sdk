@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sizmek.basketpagetag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Basket Page Tag",
 		async: true,
@@ -44,6 +45,7 @@ qubit.opentag.LibraryTag.define("sizmek.basketpagetag.v1.Tag", {
 			uv: "universal_variable.basket.line_items[#].quantity"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

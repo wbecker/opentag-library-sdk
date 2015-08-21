@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"adinsight.adinsightclicktocalldeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "AdInsight Click to Call DEPRECATED",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

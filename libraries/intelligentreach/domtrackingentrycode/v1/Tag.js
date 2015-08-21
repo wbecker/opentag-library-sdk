@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("intelligentreach.domtrackingentrycode.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "DOM Tracking Entry Code",
 		async: true,
@@ -19,6 +20,7 @@ qubit.opentag.LibraryTag.define("intelligentreach.domtrackingentrycode.v1.Tag", 
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

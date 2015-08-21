@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("cryptojs.md5hashingv312.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "MD5 Hashing - v3.1.2.",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("cryptojs.md5hashingv312.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Basket Page",
 		async: true,
@@ -54,6 +55,7 @@ qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
 			uv: "universal_variable.basket.voucher"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"radiumone.radiumonebasketpagedeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "RadiumOne - Basket Page DEPRECATED",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.basket.line_items[#].product.id"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

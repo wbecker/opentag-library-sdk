@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"radiumone.radiumoneconfirmationpagesdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "RadiumOne - Confirmation Pages DEPRECATED",
 			async: true,
@@ -20,6 +21,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

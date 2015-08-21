@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"freespee.yetanotheroopsiforgottochangethedefaultstag.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Yet another \"oops I forgot to change the defaults\" tag",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

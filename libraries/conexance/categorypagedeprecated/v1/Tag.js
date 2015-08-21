@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("conexance.categorypagedeprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Category Page DEPRECATED",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("conexance.categorypagedeprecated.v1.Tag", {
 			uv: "universal_variable.page.category"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

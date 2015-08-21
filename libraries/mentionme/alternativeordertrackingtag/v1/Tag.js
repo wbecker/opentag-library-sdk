@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Alternative Order Tracking Tag",
 		async: true,
@@ -89,6 +90,7 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", 
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

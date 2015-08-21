@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("appnexus.segmenttagr1.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Segment Tag R1",
 		async: true,
@@ -19,6 +20,7 @@ qubit.opentag.LibraryTag.define("appnexus.segmenttagr1.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

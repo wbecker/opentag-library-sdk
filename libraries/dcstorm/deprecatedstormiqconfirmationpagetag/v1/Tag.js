@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"dcstorm.deprecatedstormiqconfirmationpagetag.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "DEPRECATED StormIQ Confirmation Page Tag",
 			async: true,
@@ -60,6 +61,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.shipping_cost"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

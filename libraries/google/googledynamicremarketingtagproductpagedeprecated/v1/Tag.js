@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"google.googledynamicremarketingtagproductpagedeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Dynamic Remarketing Tag - Product Page [DEPRECATED]",
 			async: true,
@@ -40,6 +41,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

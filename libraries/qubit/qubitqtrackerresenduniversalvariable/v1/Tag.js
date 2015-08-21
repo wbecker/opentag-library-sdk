@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"qubit.qubitqtrackerresenduniversalvariable.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "QuBit QTracker - resend Universal Variable",
 			async: true,
@@ -17,6 +18,7 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

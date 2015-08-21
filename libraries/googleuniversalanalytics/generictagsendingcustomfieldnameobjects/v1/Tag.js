@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"googleuniversalanalytics.generictagsendingcustomfieldnameobjects.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Generic Tag sending custom Field Name Objects",
 			async: true,
@@ -25,6 +26,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

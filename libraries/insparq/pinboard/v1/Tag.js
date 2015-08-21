@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("insparq.pinboard.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Trending Products Feed",
     async: true,
@@ -34,6 +35,7 @@ qubit.opentag.LibraryTag.define("insparq.pinboard.v1.Tag", {
       uv: ""
     }]
     /*~DATA*/
+		};
   },
   script: function () {
     /*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"evidon.ussitenoticewithimpliedconsentinpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "US Site Notice with Implied Consent (In-Page)",
 			async: true,
@@ -40,6 +41,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

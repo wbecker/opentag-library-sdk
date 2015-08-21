@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "OneTag - Confirmation",
 		async: true,
@@ -59,6 +60,7 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

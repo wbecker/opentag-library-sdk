@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"chango.deprecatedoptimizationpixelv2productpager2.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "[DEPRECATED] Optimization Pixel  [v2] - Product Page R2",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.product.category"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

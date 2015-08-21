@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v2.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Virtual Fitting Room",
 		async: true,
@@ -44,6 +45,7 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v2.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

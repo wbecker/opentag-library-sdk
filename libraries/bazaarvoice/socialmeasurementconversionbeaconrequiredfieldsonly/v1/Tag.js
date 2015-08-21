@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Social Measurement Conversion Beacon (Required fields only)",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"dcstorm.stormiqconfirmationpagetagnoshipping.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "StormIQ Confirmation Page Tag - NO SHIPPING",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

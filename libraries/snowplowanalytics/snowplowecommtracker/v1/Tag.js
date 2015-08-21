@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Snowplow EcommTracker",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag",
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

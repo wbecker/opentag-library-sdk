@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.Quick.library("qubit.consent.v1.Tag", {
-  config: {
+  getDefaultConfig: function () { 
+    return {
     /*DATA*/
     name: "Qubit Consent Library",
     async: true,
@@ -16,6 +17,7 @@ qubit.Quick.library("qubit.consent.v1.Tag", {
     consentConfig: null,
     parameters: []
     /*~DATA*/
+		};
   },
   script: function () {
     /*SCRIPT*/

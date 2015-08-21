@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"quantcast.quantcastwebmeasurementwithlabels.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "QuantCast Web Measurement - with labels",
 			async: true,
@@ -25,6 +26,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

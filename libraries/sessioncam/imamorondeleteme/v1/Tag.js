@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sessioncam.imamorondeleteme.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "i'm a moron, delete me",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("sessioncam.imamorondeleteme.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

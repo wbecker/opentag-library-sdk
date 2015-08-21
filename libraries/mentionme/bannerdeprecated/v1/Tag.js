@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mentionme.bannerdeprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Banner [DEPRECATED]",
 		async: true,
@@ -49,6 +50,7 @@ qubit.opentag.LibraryTag.define("mentionme.bannerdeprecated.v1.Tag", {
 			uv: "universal_variable.user.language"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

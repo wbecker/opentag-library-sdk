@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"flixmedia.checkoutendpagewithextraeanparameter.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Checkout End Page with extra EAN parameter",
 			async: true,
@@ -40,6 +41,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

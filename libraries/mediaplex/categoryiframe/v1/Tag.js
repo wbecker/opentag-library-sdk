@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Category iframe",
 		async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.v1.Tag", {
 			uv: "universal_variable.page.subcategory"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

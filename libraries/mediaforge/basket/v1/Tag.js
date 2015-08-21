@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Basket",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
 			uv: "universal_variable.basket.subtotal"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

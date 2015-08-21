@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Universal Tracking Pixel",
 		async: true,
@@ -24,6 +25,7 @@ qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

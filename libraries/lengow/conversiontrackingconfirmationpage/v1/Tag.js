@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"lengow.conversiontrackingconfirmationpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Conversion Tracking - Confirmation Page",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.order_id"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

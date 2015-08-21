@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("extcore.extcore310.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "ext-core 3.1.0",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("extcore.extcore310.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

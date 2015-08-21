@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "UV Test - Product Page",
 		async: true,
@@ -79,6 +80,7 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 			uv: "universal_variable.product.color"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

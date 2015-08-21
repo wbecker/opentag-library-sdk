@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"google.googledynamicremarketingtaghomeandcategorypage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Google Dynamic Remarketing Tag - Home and Category Page",
 			async: true,
@@ -25,6 +26,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.page.category"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("socketio.socketio070.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "socket.io 0.7.0",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("socketio.socketio070.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"bazaarvoice.analyticsintegrationcoderequireddataonly.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Analytics Integration Code (Required Data Only)",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

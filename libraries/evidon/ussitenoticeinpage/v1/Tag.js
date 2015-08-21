@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "US Site Notice (In-Page)",
 		async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

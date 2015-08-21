@@ -1,5 +1,6 @@
 qubit.opentag.LibraryTag.define("intentmedia.allproductpaths.v1.Tag", {
-  config: {
+  getDefaultConfig: function () {
+      return {
     /*DATA*/
     name: "Intent Media - Search Compare Ads",
     description: "Collects user travel search data in order to serve and measure comparison travel ads across Flight, Hotel, and Car booking paths",
@@ -464,6 +465,7 @@ qubit.opentag.LibraryTag.define("intentmedia.allproductpaths.v1.Tag", {
         defaultValue: ""
     }]
 	/*~DATA*/
+		};
   },
 
   script: function () {

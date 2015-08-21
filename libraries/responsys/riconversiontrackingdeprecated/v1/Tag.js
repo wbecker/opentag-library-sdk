@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"responsys.riconversiontrackingdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "RI Conversion Tracking [DEPRECATED]",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

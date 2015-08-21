@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("peerius.homepagewithsmartrecs.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Home Page (with SmartRecs)",
 		async: true,
@@ -39,6 +40,7 @@ qubit.opentag.LibraryTag.define("peerius.homepagewithsmartrecs.v1.Tag", {
 			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

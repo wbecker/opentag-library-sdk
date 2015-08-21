@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("facebook.facebookpixeldeprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Facebook Pixel [DEPRECATED]",
 		async: true,
@@ -16,6 +17,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixeldeprecated.v1.Tag", {
 
 		]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

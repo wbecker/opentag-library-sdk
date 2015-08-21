@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"criteo.legacyconfirmationpagetagextradetails.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Legacy - Confirmation Page Tag - Extra details",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

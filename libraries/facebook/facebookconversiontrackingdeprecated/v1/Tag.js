@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"facebook.facebookconversiontrackingdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Facebook Conversion Tracking DEPRECATED",
 			async: true,
@@ -25,6 +26,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.transaction.subtotal"
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/

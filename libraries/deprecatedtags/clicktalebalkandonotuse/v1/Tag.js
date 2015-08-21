@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "ClickTale - balkan - donotuse",
 		async: true,
@@ -29,6 +30,7 @@ qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.v1.Tag",
 			uv: ""
 		}]
 		/*~DATA*/
+		};
 	},
 	script: function() {
 		/*SCRIPT*/

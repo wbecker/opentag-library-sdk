@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"fitsme.virtualfittingroomtagwithdatapopulation.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Virtual Fitting Room Tag - With Data Population",
 			async: true,
@@ -55,6 +56,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+		};
 		},
 		script: function() {
 			/*SCRIPT*/
