@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sojern.advertisertagothersearchresultspage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Advertiser Tag - Other Search Results Page",
 			async: true,
@@ -17,7 +18,8 @@ qubit.opentag.LibraryTag.define(
 
 			]
 			/*~DATA*/
-		},
+      };
+  },
 		script: function() {
 			/*SCRIPT*/
 			(new Image()).src = "https://beacon.sojern.com/p/10";

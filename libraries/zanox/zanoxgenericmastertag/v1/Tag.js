@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "zanox Generic MasterTag",
 		async: true,
@@ -19,7 +20,8 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window._zx = window._zx || [];

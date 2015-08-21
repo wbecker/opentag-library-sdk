@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("visualdna.basketremovalreport.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Basket Removal Report",
 		async: true,
@@ -44,7 +45,8 @@ qubit.opentag.LibraryTag.define("visualdna.basketremovalreport.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window.VDNA = window.VDNA || {};

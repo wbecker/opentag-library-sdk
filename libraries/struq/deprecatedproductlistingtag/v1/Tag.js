@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "[Deprecated] Product Listing Tag",
 		async: true,
@@ -19,7 +20,8 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 			uv: "universal_variable.listing.items[#].id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

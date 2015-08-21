@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("weborama.weboramaconversiontracking.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Weborama - Conversion Tracking",
 		async: true,
@@ -69,7 +70,8 @@ qubit.opentag.LibraryTag.define("weborama.weboramaconversiontracking.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

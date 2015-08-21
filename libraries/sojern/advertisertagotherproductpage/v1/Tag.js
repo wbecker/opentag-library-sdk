@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sojern.advertisertagotherproductpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Advertiser Tag - Other Product Page",
 		async: true,
@@ -29,7 +30,8 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagotherproductpage.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		(new Image()).src = "https://beacon.sojern.com/p/1?opid=" + this.valueForToken(

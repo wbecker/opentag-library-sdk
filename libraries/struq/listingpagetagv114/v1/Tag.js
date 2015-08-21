@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.listingpagetagv114.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Listing Page Tag v1.14",
 		async: true,
@@ -24,7 +25,8 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv114.v1.Tag", {
 			uv: "universal_variable.listing.items[#].id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var productArr = [];

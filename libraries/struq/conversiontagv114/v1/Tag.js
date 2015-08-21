@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.conversiontagv114.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Conversion Tag v1.14",
 		async: true,
@@ -34,7 +35,8 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv114.v1.Tag", {
 			uv: "universal_variable.transaction.line_items[#].product.id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var productArr = [];

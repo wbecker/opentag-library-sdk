@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sojern.datapartnertaghomepage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Data Partner Tag - Homepage",
 		async: true,
@@ -24,7 +25,8 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghomepage.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

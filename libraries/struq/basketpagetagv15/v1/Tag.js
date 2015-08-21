@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Basket Page Tag v1.5",
 		async: true,
@@ -24,7 +25,8 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
 			uv: "universal_variable.basket.line_items[#].product.id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window._struqPI = window_struqPI || [];

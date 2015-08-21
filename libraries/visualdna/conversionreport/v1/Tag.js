@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("visualdna.conversionreport.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Conversion Report",
 		async: true,
@@ -29,7 +30,8 @@ qubit.opentag.LibraryTag.define("visualdna.conversionreport.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window.VDNA = window.VDNA || {};

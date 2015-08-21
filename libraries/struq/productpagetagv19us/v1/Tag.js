@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.productpagetagv19us.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Product Page Tag v1.9 (US)",
 		async: true,
@@ -24,7 +25,8 @@ qubit.opentag.LibraryTag.define("struq.productpagetagv19us.v1.Tag", {
 			uv: "universal_variable.product.id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window._struqPI = window._struqPI || [];

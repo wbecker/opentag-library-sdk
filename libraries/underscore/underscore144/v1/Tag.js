@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("underscore.underscore144.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "underscore 1.4.4",
 		async: true,
@@ -16,7 +17,8 @@ qubit.opentag.LibraryTag.define("underscore.underscore144.v1.Tag", {
 
 		]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

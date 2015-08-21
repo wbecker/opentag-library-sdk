@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Postcode Sync",
 		async: true,
@@ -24,7 +25,8 @@ qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window.VDNA = window.VDNA || {};

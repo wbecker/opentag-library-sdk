@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sub2.sub2basketpagedependsuponsub2mainscriptallpages.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Sub2 - Basket Page (depends upon \"Sub2 - Main Script - All Pages\")",
 			async: true,
@@ -40,6 +41,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.basket.line_items[#].quantity"
 			}]
 			/*~DATA*/
+      };
 		},
 		script: function() {
 			/*SCRIPT*/

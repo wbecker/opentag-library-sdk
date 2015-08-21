@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("yepnope.yepnope101.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "yepnope 1.0.1",
 		async: true,
@@ -16,7 +17,8 @@ qubit.opentag.LibraryTag.define("yepnope.yepnope101.v1.Tag", {
 
 		]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

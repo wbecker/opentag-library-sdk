@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sub2.sub2confirmationpagedependsuponsub2mainscriptallpages.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Sub2 - Confirmation Page (depends upon \"Sub2 - Main Script - All pages\")",
 			async: true,
@@ -145,6 +146,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+      };
 		},
 		script: function() {
 			/*SCRIPT*/

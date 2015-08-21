@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "WebGains [DEPRECATED]",
 		async: true,
@@ -16,7 +17,8 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
 
 		]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var _this = this;

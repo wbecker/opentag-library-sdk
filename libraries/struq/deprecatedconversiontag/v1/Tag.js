@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "[Deprecated] Conversion Tag",
 		async: true,
@@ -39,7 +40,8 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 			uv: "universal_variable.transaction.order_id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var rnd, ifrm = document.createElement("IFRAME"),

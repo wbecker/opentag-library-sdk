@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("webtrends.webtrendsproductpages.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Webtrends - Product pages",
 		async: true,
@@ -39,7 +40,8 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsproductpages.v1.Tag", {
 			uv: "universal_variable.product.subcategory"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window.dcsMultiTrack({

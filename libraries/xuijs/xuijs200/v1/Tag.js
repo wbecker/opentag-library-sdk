@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("xuijs.xuijs200.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "xuijs 2.0.0",
 		async: true,
@@ -16,7 +17,8 @@ qubit.opentag.LibraryTag.define("xuijs.xuijs200.v1.Tag", {
 
 		]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

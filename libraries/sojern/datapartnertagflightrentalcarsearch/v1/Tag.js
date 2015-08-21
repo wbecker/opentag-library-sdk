@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sojern.datapartnertagflightrentalcarsearch.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Data Partner Tag - Flight + Rental Car Search",
 			async: true,
@@ -85,7 +86,8 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
-		},
+      };
+  },
 		script: function() {
 			/*SCRIPT*/
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Sub2 - Main Script - All Pages",
 		async: true,
@@ -29,7 +30,8 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window._SUB2metadata = {

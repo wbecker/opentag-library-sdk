@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"zanox.zanoxconfirmationpagewithorderdetails.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Zanox - Confirmation Page with Order Details",
 			async: true,
@@ -80,6 +81,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+      };
 		},
 		script: function() {
 			/*SCRIPT*/

@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"webtrends.webtrendspageviewtrackingsimpleconfig.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Webtrends pageview tracking - simple config",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: "universal_variable.user.user_id"
 			}]
 			/*~DATA*/
+      };
 		},
 		script: function() {
 			/*SCRIPT*/

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.homepagetagv114.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Homepage Tag v1.14",
 		async: true,
@@ -19,7 +20,8 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv114.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		window._struqPI = window._struqPI || [];

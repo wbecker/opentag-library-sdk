@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sojern.datapartnertagflightrentalcarpurchaseconfirmation.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Data Partner Tag - Flight + Rental Car Purchase Confirmation",
 			async: true,
@@ -115,7 +116,8 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
-		},
+      };
+  },
 		script: function() {
 			/*SCRIPT*/
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +

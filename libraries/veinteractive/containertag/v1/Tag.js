@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Container Tag",
 		async: true,
@@ -19,7 +20,8 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var scriptURL = this.valueForToken("id");

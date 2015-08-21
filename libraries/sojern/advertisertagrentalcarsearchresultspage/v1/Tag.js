@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sojern.advertisertagrentalcarsearchresultspage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Advertiser Tag - Rental Car Search Results Page",
 			async: true,
@@ -120,7 +121,8 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
-		},
+      };
+  },
 		script: function() {
 			/*SCRIPT*/
 			var src = "https://beacon.sojern.com/p/6?";

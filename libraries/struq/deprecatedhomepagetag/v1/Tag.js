@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "[Deprecated] Home Page Tag",
 		async: true,
@@ -16,7 +17,8 @@ qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
 
 		]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

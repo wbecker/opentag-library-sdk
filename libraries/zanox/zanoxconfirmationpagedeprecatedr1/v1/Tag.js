@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"zanox.zanoxconfirmationpagedeprecatedr1.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Zanox - Confirmation page DEPRECATED R1",
 			async: true,
@@ -45,6 +46,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+      };
 		},
 		script: function() {
 			/*SCRIPT*/

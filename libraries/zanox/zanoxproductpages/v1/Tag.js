@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Zanox - Product Pages",
 		async: true,
@@ -54,7 +55,8 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 			uv: "universal_variable.product.url"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		// Populate product fields

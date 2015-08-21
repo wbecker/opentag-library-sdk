@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Smarter Pixel",
 		async: true,
@@ -19,7 +20,8 @@ qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		"use strict";

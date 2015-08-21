@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"sojern.advertisertagvacationpurchaseconfirmationpage.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Advertiser Tag - Vacation Purchase Confirmation Page",
 			async: true,
@@ -70,7 +71,8 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
-		},
+      };
+  },
 		script: function() {
 			/*SCRIPT*/
 			var src = "https://beacon.sojern.com/p/9?";

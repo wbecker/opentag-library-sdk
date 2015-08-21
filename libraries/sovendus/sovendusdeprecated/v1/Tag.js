@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Sovendus [DEPRECATED]",
 		async: true,
@@ -69,7 +70,8 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var sovendusNewDate = new Date();

@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Webtrends link tagging",
 		async: true,
@@ -39,7 +40,8 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var _this = this;

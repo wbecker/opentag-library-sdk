@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Zanox - Confirmation page",
 		async: true,
@@ -49,7 +50,8 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpage.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		// Fire the confirmation tag

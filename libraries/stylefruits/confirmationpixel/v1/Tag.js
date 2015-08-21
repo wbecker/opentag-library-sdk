@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Confirmation Pixel",
 		async: true,
@@ -29,7 +30,8 @@ qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.v1.Tag", {
 			uv: "universal_variable.transaction.order_id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		/*~SCRIPT*/

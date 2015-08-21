@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sojern.datapartnertagflightsearch.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Data Partner Tag - Flight Search",
 		async: true,
@@ -49,7 +50,8 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflightsearch.v1.Tag", {
 			uv: ""
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var src = document.location.protocol + "//pixel.sojern.com/partner/" +

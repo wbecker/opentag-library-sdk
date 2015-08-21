@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"tradedoubler.confirmationpagetagdeprecated.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Confirmation Page Tag [DEPRECATED]",
 			async: true,
@@ -75,6 +76,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+      };
 		},
 		script: function() {
 			/*SCRIPT*/

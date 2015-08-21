@@ -2,7 +2,8 @@
 
 qubit.opentag.LibraryTag.define(
 	"visualwebsiteoptimizer.visualwebsiteoptimizer.v1.Tag", {
-		config: {
+		getDefaultConfig: function () {
+      return {
 			/*DATA*/
 			name: "Visual Website Optimizer",
 			async: true,
@@ -35,6 +36,7 @@ qubit.opentag.LibraryTag.define(
 				uv: ""
 			}]
 			/*~DATA*/
+      };
 		},
 		script: function() {
 			/*SCRIPT*/

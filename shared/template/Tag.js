@@ -1,7 +1,7 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("PACKAGE_NAME.Tag", {
-	config: {
+	getDefaultConfig: function () {
 		/*DATA*/
 		description: "DESCRIPTION.",
 		name: "TAG_NAME",

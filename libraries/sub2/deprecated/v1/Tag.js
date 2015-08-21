@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "DEPRECATED",
 		async: true,
@@ -54,7 +55,8 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 			uv: "universal_variable.transaction.line_items[#].product.id"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var _this = this;

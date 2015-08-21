@@ -1,7 +1,8 @@
 //:include tagsdk-current.js
 
 qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
-	config: {
+	getDefaultConfig: function () {
+      return {
 		/*DATA*/
 		name: "Sovendus [All Fields]",
 		async: true,
@@ -69,7 +70,8 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
 			uv: "universal_variable.user.email"
 		}]
 		/*~DATA*/
-	},
+      };
+  },
 	script: function() {
 		/*SCRIPT*/
 		var _this = this;
