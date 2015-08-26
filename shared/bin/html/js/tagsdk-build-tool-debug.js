@@ -1183,11 +1183,11 @@ var UNDEF;
   Utils.copyAandAddFromB = function (A, B, maxDeep) {
     maxDeep = maxDeep || 8;
     var copy = this.objectCopy(A, {maxDeep: maxDeep});
-      for (var prop in B) {
-        if (B.hasOwnProperty(prop)) {
-          copy[prop] = B[prop];
-        }
+    for (var prop in B) {
+      if (B.hasOwnProperty(prop)) {
+        copy[prop] = B[prop];
       }
+    }
     return copy;
   };
   
@@ -4086,8 +4086,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     if (variable instanceof BaseVariable) {
       for (var i = 0; i < BaseVariable.pageVariables.length; i++) {
         var regVar = BaseVariable.pageVariables[i];
-        if ((variable.constructor === regVar.constructor) &&
-                (propertiesMatch(regVar.config, variable.config))) {
+        if (variable === regVar) {
           return regVar;//exit
         }
       }
@@ -10925,7 +10924,7 @@ var JSON = {};
     var constructor = function (cfg) {
       //update instance properties for new defaults
       cfg = cfg || {};
-      cfg = Utils.overrideFromBtoA(libraryDefaultConfig, cfg)
+      cfg = Utils.overrideFromBtoA(libraryDefaultConfig, cfg);
       
       // --- standard ---
       //run library standard constructor

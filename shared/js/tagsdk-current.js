@@ -4061,8 +4061,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     if (variable instanceof BaseVariable) {
       for (var i = 0; i < BaseVariable.pageVariables.length; i++) {
         var regVar = BaseVariable.pageVariables[i];
-        if ((variable.constructor === regVar.constructor) &&
-                (propertiesMatch(regVar.config, variable.config))) {
+        if (variable === regVar) {
           return regVar;//exit
         }
       }
