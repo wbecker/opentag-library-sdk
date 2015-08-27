@@ -10811,7 +10811,11 @@ var JSON = {};
       if (cfg && cfg.pre) {
         if (typeof(cfg.pre) === "function") {
           this.pre = cfg.pre;
-          this.pre();
+          if (this.config.prePostWindowScope) {
+            this.pre.call(GLOBAL);
+          } else {
+            this.pre();
+          }
         } else {
           var expr = this.replaceTokensWithValues(String(cfg.pre));
           if (this.config.prePostWindowScope) {
@@ -12290,7 +12294,6 @@ var JSON = {};
       html: "",
       locationPlaceHolder: "NOT_END",
       locationObject: "BODY",
-      prePostWindowScope: true,
       async: true
     };
     
