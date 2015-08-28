@@ -3194,6 +3194,17 @@ q.html.fileLoader.tidyUrl = function (path) {
                                                           tag) {
     ready(false);
   };
+  
+  SessionVariableFilter.prototype.isAllStartersDefaults = function () {
+    if (this.customStarter !== SessionVariableFilter.prototype.customStarter) {
+      return false;
+    }
+    if (this.customScript !== SessionVariableFilter.prototype.customScript) {
+      return false;
+    }
+    return true;
+  };
+  
   /**
    * Script deciding either script matches or not (top API level).
    * This function can be overrided by `config.customScript` function.
@@ -6555,9 +6566,9 @@ q.html.HtmlInjector.getAttributes = function (node) {
       
       for (var i = 0; i < urls.length; i++) {
         this.loadURLsNotFinished = true;
-        this.log.FINE("loading URL: " + urls[i] + " ...");/*L*/
         var url = urls[i];
         url = this.prepareURL(url);
+        this.log.FINE("loading URL: " + url + " ...");/*L*/
         this.loadURL(url, function (success) {
           this._singleUrlLoadHandler(success, urls, callback);
         }.bind(this));
@@ -10786,11 +10797,6 @@ var JSON = {};
       if (cfg && cfg.pre) {
         if (typeof(cfg.pre) === "function") {
           this.pre = cfg.pre;
-          if (this.config.prePostWindowScope) {
-            this.pre.call(GLOBAL);
-          } else {
-            this.pre();
-          }
         } else {
           var expr = this.replaceTokensWithValues(String(cfg.pre));
           if (this.config.prePostWindowScope) {
@@ -10989,6 +10995,7 @@ var JSON = {};
 
 
 
+
 /*
  * TagSDK, a tag development platform
  * Copyright 2013-2014, Qubit Group
@@ -10999,6 +11006,7 @@ var JSON = {};
 (function () {
   var Utils = qubit.opentag.Utils;
   var BaseFilter = qubit.opentag.filter.BaseFilter;
+  var SessionVariableFilter = qubit.opentag.filter.SessionVariableFilter;
   var BaseTag = qubit.opentag.BaseTag;
   var Timed = qubit.opentag.Timed;
   var Tags = qubit.opentag.Tags;
@@ -11137,11 +11145,11 @@ var JSON = {};
        */
       pingServerUrl: null,
       /**
-       * @cfg {Boolean} [trackSession=false]
+       * @cfg {Boolean} [trackSession=null]
        * Indicates if container should track session.
        * Old opentag_track_session.
        */
-      trackSession: false,
+      trackSession: null,
       /**
        * @cfg {Boolean} [disabled=false]
        * Indicates if container is disabled. Disabled container will not
@@ -11210,23 +11218,8 @@ var JSON = {};
       this._pingAsyncCallback = function () {
         Timed.setTimeout(callback, 5);
       };
+      
       /*~no-send*/
-      /*session*/
-      // @TODO add maybe better session condition here(much better...)  
-      if (Container.TRACK_SESSION) {
-        this.config.trackSession = true;
-      }
-      
-      if (this.config.trackSession) {
-        this.session = Session.setupSession(this);
-      }
-      
-      if (this.session) {
-        this.log.INFO("Session attached:");/*L*/
-        this.log.INFO(this.session, true);/*L*/
-      }
-      
-      /*~session*/
       if (config.init) {
         try {
           config.init.call(this, config);
@@ -11468,6 +11461,47 @@ var JSON = {};
     return true;
   };
   
+  Container.prototype.prepareSessionIfNeeded = function () {
+    /*session*/
+      // @TODO add maybe better session condition here(much better...)  
+      var trackSession = this.config.trackSession;
+      if (trackSession !== true && trackSession !== false) {
+        var tags = this.tags;
+        for (var name in tags) {
+          if (tags.hasOwnProperty(name)) {
+            var filters = tags[name].getFilters();
+            for (var i = 0; i < filters.length; i++) {
+              var filter = filters[i];
+              if (filter instanceof SessionVariableFilter &&
+                      !filter.isAllStartersDefaults()) {
+                this.trackSession = true;
+                break;
+              }
+            }
+            if (this.trackSession) {
+              break;
+            }
+          }
+        }
+      } else {
+        this.trackSession = trackSession;
+      }
+      
+      if (Container.TRACK_SESSION) {
+        this.trackSession = true;
+      }
+      
+      if (this.trackSession) {
+        this.session = Session.setupSession(this);
+      }
+      
+      if (this.session) {
+        this.log.INFO("Session attached:");/*L*/
+        this.log.INFO(this.session, true);/*L*/
+      }
+      /*~session*/
+  };
+  
   /**
    * Function calling tags to start execution.
    * If Container.LOCKED is set to true or QUBIT_CONTAINERS_LOCKED is set to 
@@ -11518,6 +11552,9 @@ var JSON = {};
         this._scanned = new Date().valueOf();
       }
     }
+    
+    //important to run it after tags scanning for this container.
+    this.prepareSessionIfNeeded();
     
     //lets add priority option for tags
     //@todo review if ordering does make any sense
