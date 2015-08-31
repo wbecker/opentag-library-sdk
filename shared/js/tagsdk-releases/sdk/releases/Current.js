@@ -10778,6 +10778,33 @@ var JSON = {};
     this.log.FINEST("emtpy post called");/*L*/
   };
   
+  function extractAndEvalFunctionBody(fun, tag) {
+    var expr = fun.toString();
+    expr = expr.replace(/\s*function\s*\([\w\s,_\d\$]*\)\s*\{/, "");
+    expr = expr.substring(0, expr.lastIndexOf("}"));
+    
+    expr = expr.replace(
+      /(["']\s*\+\s*)\s*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
+      "$1\"${$2}\"");
+    expr = expr.replace(
+      /\s*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)(\s*\+\s*["'])/g,
+      "\"${$1}\"$2");
+    
+    expr = expr.replace(
+      /(["']\s*\+\s*)\s*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
+      "$1\"${$2}\"");
+    expr = expr.replace(
+      /\s*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)(\s*\+\s*["'])/g,
+      "\"${$1}\"$2");
+            
+    expr = expr.replace(/\s*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
+      "${$1}");
+    expr = expr.replace(/\s*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
+      "${$1}");
+    expr = tag.replaceTokensWithValues(expr);
+    Utils.geval(expr);
+  }
+  
   /**
    * Callback triggered always before loading tag.
    * Can be called only once, any repeated calls will have no effect.
@@ -10799,13 +10826,13 @@ var JSON = {};
           this.pre = cfg.pre;
         } else {
           var expr = this.replaceTokensWithValues(String(cfg.pre));
-          if (this.config.prePostWindowScope) {
-            Utils.geval(expr);
-          } else {
-            this.pre = Utils.expressionToFunction(expr).bind(this);
-            this.pre();
-          }
+          this.pre = Utils.expressionToFunction(expr).bind(this);
         }
+      }
+      if (this.config.prePostWindowScope && 
+              this.pre !== LibraryTag.prototype.pre &&
+              this.pre.toString) {
+        extractAndEvalFunctionBody(this.pre, this);
       } else {
         this.pre();
       }
@@ -10836,16 +10863,15 @@ var JSON = {};
       if (cfg && cfg.post) {
         if (typeof(cfg.post) === "function") {
           this.post = cfg.post;
-          this.post(success);
         } else {
           var expr = this.replaceTokensWithValues(String(cfg.post));
-          if (this.config.prePostWindowScope) {
-            Utils.geval(expr);
-          } else {
-            this.post = Utils.expressionToFunction(expr).bind(this);
-            this.post(success);
-          }
+          this.post = Utils.expressionToFunction(expr).bind(this);
         }
+      }
+      if (this.config.prePostWindowScope && 
+                this.post !== LibraryTag.prototype.post &&
+                  this.post.toString) {
+        extractAndEvalFunctionBody(this.post, this);
       } else {
         this.post(success);
       }
@@ -11463,43 +11489,43 @@ var JSON = {};
   
   Container.prototype.prepareSessionIfNeeded = function () {
     /*session*/
-      // @TODO add maybe better session condition here(much better...)  
-      var trackSession = this.config.trackSession;
-      if (trackSession !== true && trackSession !== false) {
-        var tags = this.tags;
-        for (var name in tags) {
-          if (tags.hasOwnProperty(name)) {
-            var filters = tags[name].getFilters();
-            for (var i = 0; i < filters.length; i++) {
-              var filter = filters[i];
-              if (filter instanceof SessionVariableFilter &&
-                      !filter.isAllStartersDefaults()) {
-                this.trackSession = true;
-                break;
-              }
-            }
-            if (this.trackSession) {
+    // @TODO add maybe better session condition here(much better...)  
+    var trackSession = this.config.trackSession;
+    if (trackSession !== true && trackSession !== false) {
+      var tags = this.tags;
+      for (var name in tags) {
+        if (tags.hasOwnProperty(name)) {
+          var filters = tags[name].getFilters();
+          for (var i = 0; i < filters.length; i++) {
+            var filter = filters[i];
+            if (filter instanceof SessionVariableFilter &&
+                    !filter.isAllStartersDefaults()) {
+              this.trackSession = true;
               break;
             }
           }
+          if (this.trackSession) {
+            break;
+          }
         }
-      } else {
-        this.trackSession = trackSession;
       }
-      
-      if (Container.TRACK_SESSION) {
-        this.trackSession = true;
-      }
-      
-      if (this.trackSession) {
-        this.session = Session.setupSession(this);
-      }
-      
-      if (this.session) {
-        this.log.INFO("Session attached:");/*L*/
-        this.log.INFO(this.session, true);/*L*/
-      }
-      /*~session*/
+    } else {
+      this.trackSession = trackSession;
+    }
+
+    if (Container.TRACK_SESSION) {
+      this.trackSession = true;
+    }
+
+    if (this.trackSession) {
+      this.session = Session.setupSession(this);
+    }
+
+    if (this.session) {
+      this.log.INFO("Session attached:");/*L*/
+      this.log.INFO(this.session, true);/*L*/
+    }
+    /*~session*/
   };
   
   /**
