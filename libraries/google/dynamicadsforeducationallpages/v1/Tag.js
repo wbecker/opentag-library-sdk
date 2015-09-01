@@ -1,5 +1,5 @@
 //:import sdk.releases.Current
-debugger;
+
 qubit.opentag.LibraryTag.define("google.dynamicadsforeducationallpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
