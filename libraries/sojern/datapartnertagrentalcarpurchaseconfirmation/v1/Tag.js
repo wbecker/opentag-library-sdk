@@ -1,4 +1,4 @@
-//:include tagsdk-current.js
+//:import sdk.releases.Current
 
 qubit.opentag.LibraryTag.define(
 	"sojern.datapartnertagrentalcarpurchaseconfirmation.v1.Tag", {

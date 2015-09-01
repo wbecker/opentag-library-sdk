@@ -1,4 +1,4 @@
-//:include tagsdk-current.js
+//:import sdk.releases.Current
 
 qubit.opentag.LibraryTag.define(
 	"marinsoftware.zzserversidepixellandingpagetrackingdeprecated.v1.Tag", {

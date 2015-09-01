@@ -1,4 +1,4 @@
-//:include tagsdk-current.js
+//:import sdk.releases.Current
 
 qubit.opentag.LibraryTag.define("struq.listingpagetagv15.v1.Tag", {
 	getDefaultConfig: function () {

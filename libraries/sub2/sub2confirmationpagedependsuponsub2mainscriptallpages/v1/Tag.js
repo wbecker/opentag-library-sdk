@@ -1,4 +1,4 @@
-//:include tagsdk-current.js
+//:import sdk.releases.Current
 
 qubit.opentag.LibraryTag.define(
 	"sub2.sub2confirmationpagedependsuponsub2mainscriptallpages.v1.Tag", {

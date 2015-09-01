@@ -1,4 +1,4 @@
-//:include tagsdk-current.js
+//:import sdk.releases.Current
 
 qubit.opentag.LibraryTag.define("opentag.blanktag.v1.Tag", {
 	getDefaultConfig: function () {

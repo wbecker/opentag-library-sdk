@@ -1,4 +1,4 @@
-//:include tagsdk-current.js
+//:import sdk.releases.Current
 
 qubit.Quick.library("qubit.consent.v1.Tag", {
   getDefaultConfig: function () { 
