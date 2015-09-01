@@ -29,6 +29,7 @@ shared/bin/html/js/build-location.js
 
 # SPECFIC to REPO #
 ######################
+_dist/
 _trash/
 _build/
 _releases/
