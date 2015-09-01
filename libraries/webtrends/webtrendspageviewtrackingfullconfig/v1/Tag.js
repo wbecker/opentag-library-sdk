@@ -110,7 +110,7 @@ qubit.opentag.LibraryTag.define(
 
 					// Misc
 					enabled: _this.valueForToken("data_collection_on"), // bool
-					i18n: _this.valueForToken("internationalization"), // bool
+					i18n: _this.valueForToken("internationalization") // bool
 				};
 
 				// User id

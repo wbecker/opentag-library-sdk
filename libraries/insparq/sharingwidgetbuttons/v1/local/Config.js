@@ -61,6 +61,6 @@ insparq.sharingwidgetbuttons.v1.local.Config = {
       "token": "jQuery",
       "uv": "",
       "inputVariable": "\"jQuery\""
-    },
+    }
   ]
 };
