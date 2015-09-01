@@ -10809,22 +10809,22 @@ var JSON = {};
     expr = expr.substring(0, expr.lastIndexOf("}"));
     
     expr = expr.replace(
-      /(["']\s*\+\s*)\s*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
+      /(["']\s*\+\s*)\s*_*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
       "$1\"${$2}\"");
     expr = expr.replace(
-      /\s*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)(\s*\+\s*["'])/g,
+      /\s*_*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)(\s*\+\s*["'])/g,
       "\"${$1}\"$2");
     
     expr = expr.replace(
-      /(["']\s*\+\s*)\s*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
+      /(["']\s*\+\s*)\s*_*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
       "$1\"${$2}\"");
     expr = expr.replace(
-      /\s*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)(\s*\+\s*["'])/g,
+      /\s*_*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)(\s*\+\s*["'])/g,
       "\"${$1}\"$2");
-            
-    expr = expr.replace(/\s*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
+    
+    expr = expr.replace(/\s*_*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
       "${$1}");
-    expr = expr.replace(/\s*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
+    expr = expr.replace(/\s*_*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
       "${$1}");
     expr = tag.replaceTokensWithValues(expr);
     Utils.geval(expr);
