@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "KissInsights Survey",
 		async: true,
 		description: "KISSInsights customer survey slider",
@@ -24,20 +24,20 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.v1.Tag", {
 			token: "website_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._kiq = window._kiq || [];
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

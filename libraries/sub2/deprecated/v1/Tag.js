@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "DEPRECATED",
 		async: true,
 		description: "The script should be added to the Order Confirmation page on the website. The purpose of this script is to capture the relevant details relating to the user's order.",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 			token: "product_id",
 			uv: "universal_variable.transaction.line_items[#].product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var ii = 0;
 		var waitForConfirmationScripts = function() {
@@ -104,14 +104,14 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 		};
 
 		waitForConfirmationScripts();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

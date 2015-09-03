@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("intelligentreach.domtrackingentrycode.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "DOM Tracking Entry Code",
 		async: true,
 		description: "Placed on all pages and entry points to the site, but not on any of the checkout / final confirmation pages. Async-compatible version of the code.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("intelligentreach.domtrackingentrycode.v1.Tag", 
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

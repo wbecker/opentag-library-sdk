@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithoutparameters.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Impression Desk Pixel Without Parameters",
 		async: true,
 		description: "",
@@ -25,11 +25,11 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithoutparameters
 			token: "type",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		var x = document.createElement("script");
 		x.src = (document.location.protocol === "https:") ?
@@ -56,14 +56,14 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithoutparameters
 	    img.setAttribute("src", src);
 	    document.body.appendChild(img);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

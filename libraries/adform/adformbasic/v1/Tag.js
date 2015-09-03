@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("adform.adformbasic.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "AdForm - Basic",
 		async: true,
 		description: "To be placed on any page except order confirmation pages.",
@@ -24,23 +24,23 @@ qubit.opentag.LibraryTag.define("adform.adformbasic.v1.Tag", {
 			token: "pointid",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._adftrack = {
 			pm: this.valueForToken("campaignid"),
 			id: this.valueForToken("pointid")
 		};
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

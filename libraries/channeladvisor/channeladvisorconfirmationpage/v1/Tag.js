@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"channeladvisor.channeladvisorconfirmationpage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Channel Advisor - Confirmation Page",
 			async: true,
 			description: "Use this tag to track confirmation pages with ChannelAdvisor.",
@@ -35,11 +35,11 @@ qubit.opentag.LibraryTag.define(
 				token: "product_id_list",
 				uv: "universal_variable.transaction.line_items[#].product.id"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
 				this.valueForToken("client_id");
 			src += "&oVal=" + this.valueForToken("total");
@@ -62,14 +62,14 @@ qubit.opentag.LibraryTag.define(
 			img.height = 1;
 			img.style.display = 'none';
 			document.body.appendChild(img);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("requirejs.requirejs0240.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "require.js 0.24.0",
 		async: true,
 		description: "RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node. Using a modular script loader like RequireJS will improve the speed and quality of your code.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("requirejs.requirejs0240.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

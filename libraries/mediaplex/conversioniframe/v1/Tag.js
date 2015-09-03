@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion iframe",
 		async: true,
 		description: "The conversion iframe sends order details such as total, id, item count, and currency.",
@@ -49,11 +49,11 @@ qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.v1.Tag", {
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var item_count = 0;
 		for (var i = 0; i < this.valueForToken("item_qtys").length; i++) {
 			item_count += this.valueForToken("item_qtys")[i];
@@ -72,14 +72,14 @@ qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.v1.Tag", {
 		frame.width = 1;
 		frame.frameborder = 0;
 		document.body.appendChild(frame);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

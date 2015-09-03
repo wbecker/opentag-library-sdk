@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Realtime Ping",
 		async: true,
 		description: "Used for realtime stats in Deliver. Must have QTracker as a dependency.",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		if (!window.JSON) {
 			return;
 		}
@@ -160,14 +160,14 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 				});
 			}
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

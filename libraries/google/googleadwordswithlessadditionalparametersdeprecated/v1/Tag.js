@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googleadwordswithlessadditionalparametersdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google AdWords with less additional parameters DEPRECATED",
 			async: true,
 			description: "Tracks users that have converted who previously clicked through on an ad.",
@@ -40,19 +40,19 @@ qubit.opentag.LibraryTag.define(
 				token: "conversion_color",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			window.google_trackConversion({
 				google_conversion_id: this.valueForToken("conversion_id"),
 				google_conversion_label: "" + this.valueForToken("conversion_label"),
@@ -60,6 +60,6 @@ qubit.opentag.LibraryTag.define(
 				google_conversion_format: "" + this.valueForToken("conversion_format"),
 				google_conversion_color: "" + this.valueForToken("conversion_color")
 			});
-			/*~POST*/
+			/*~post*/
 		}
 	});

@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"freespee.googleremarketingwithcustomparameters.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Remarketing with custom parameters",
 			async: true,
 			description: "The standard GA re-marketing tag, but allows for custom parameter as per the guide: http://bit.ly/14iZMqu. Return an object within an anonymous function to populate the parameters.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define(
 			upgradeable: true,
 			parameters: [
 			]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			var _this = this;
 			var poll = function() {
 				if (window.google_trackConversion) {
@@ -47,6 +47,6 @@ qubit.opentag.LibraryTag.define(
 			};
 
 			poll();
-			/*~POST*/
+			/*~post*/
 		}
 	});

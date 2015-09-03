@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Virtual Fitting Room",
 		async: true,
 		description: "This product page tag adds the code needed to populate the \"fitsme_launcher\" div and makes sure GA is properly prepared (if present). It requires the FitsMeData object to be populated, either server-side or in a custom script which this depends on.",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		window._gaq = window._gaq || [];
 		_gaq.push(['_setAllowLinker', true]);
@@ -32,14 +32,14 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v1.Tag", {
 		fmScript.src = unescape(fmJsHost + "://www.fits.me/vfr.js");
 		document.head.appendChild(fmScript);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

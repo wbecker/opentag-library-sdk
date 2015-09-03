@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Zanox - Product Pages",
 		async: true,
 		description: "To be placed on product pages. Passes back product details as well as running the standard mastertag.",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 			token: "url",
 			uv: "universal_variable.product.url"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		// Populate product fields
 		window.zx_identifier = "" + this.valueForToken("product_id");
 		window.zx_fn = "" + this.valueForToken("name");
@@ -90,14 +90,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 			}
 		};
 		waitForZanoxDiv();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

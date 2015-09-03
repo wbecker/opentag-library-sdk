@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("googleanalytics.fullycustomizeabletag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Fully Customizeable Tag",
 		async: true,
 		description: "This GA tag only sets the account according to the supplied parameters - it then accepts an array of command arrays to be pushed into analytics, allowing it to be used for any custom application.",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("googleanalytics.fullycustomizeabletag.v1.Tag", 
 			token: "commands",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._gaq = window._gaq || [];
 		_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
 
@@ -43,14 +43,14 @@ qubit.opentag.LibraryTag.define("googleanalytics.fullycustomizeabletag.v1.Tag", 
 			'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(ga, s);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

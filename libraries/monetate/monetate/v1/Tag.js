@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("monetate.monetate.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Monetate",
 		async: true,
 		description: "Generic Monetate tag to be added on all pages.",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("monetate.monetate.v1.Tag", {
 			token: "domain",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.monetateT = new Date().getTime();
 		var p = document.location.protocol;
 		if (p == "http:" || p == "https:") {
@@ -41,14 +41,14 @@ qubit.opentag.LibraryTag.define("monetate.monetate.v1.Tag", {
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(m, s);
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

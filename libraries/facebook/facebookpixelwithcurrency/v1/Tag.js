@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("facebook.facebookpixelwithcurrency.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Facebook Pixel with Currency",
 		async: true,
 		description: "",
@@ -34,23 +34,23 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixelwithcurrency.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.fb_param = {};
 		fb_param.pixel_id = '' + this.valueForToken("pixel_id");
 		fb_param.value = '' + this.valueForToken("order_value");
 		fb_param.currency = '' + this.valueForToken("currency");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

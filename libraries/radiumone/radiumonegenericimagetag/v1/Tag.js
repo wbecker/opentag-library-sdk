@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("radiumone.radiumonegenericimagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "RadiumOne - Generic image tag",
 		async: true,
 		description: "A generic RadiumOne image tag.",
@@ -19,22 +19,22 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenericimagetag.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var img = new Image();
 		img.src = "http://rs.gwallet.com/r1/pixel/x" + this.valueForToken("id") +
 			"r" + Math.round(Math.random() * 10000000);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

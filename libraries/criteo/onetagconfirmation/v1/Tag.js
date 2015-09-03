@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Confirmation",
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user makes a payment.",
@@ -59,19 +59,19 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
 			token: "product_quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var products = [];
 
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
@@ -115,6 +115,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v1.Tag", {
 			deduplication: this.valueForToken("criteo_referral"),
 			product: products
 		});
-		/*~POST*/
+		/*~post*/
 	}
 });

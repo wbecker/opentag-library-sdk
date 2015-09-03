@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"affiliatewindow.affiliatewindowwithpostimpressionparameterdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Affiliate Window with Post Impression Parameter deprecated",
 			async: true,
 			description: "Affiliate window confirmation tag with a parameter to report post impression vs. post click",
@@ -95,15 +95,15 @@ qubit.opentag.LibraryTag.define(
 				token: "isPostImpression",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			var i, cg, cg_groups = {}, parts;
 			for (i = 0; i < this.valueForToken("productId").length; i++) {
 				cg = this.valueForToken("commission_groups")[i];
@@ -181,10 +181,10 @@ qubit.opentag.LibraryTag.define(
 					}
 				}
 			};
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

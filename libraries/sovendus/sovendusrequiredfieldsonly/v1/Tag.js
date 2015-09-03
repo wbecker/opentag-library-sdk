@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Sovendus [Required Fields Only]",
 		async: true,
 		description: "<div id=\"gutscheinconnection-container\"></div> should first be placed on the confirmation page, and positioned (using css) exactly where you'd like the banner to appear, before activating this tag (this version of the script is leaving out all optional parameters for faster implementation)",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.v1.Tag", {
 			token: "coupon_code",
 			uv: "universal_variable.transaction.voucher"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var waitForSovendusDiv = function() {
 			if (document.getElementById('gutscheinconnection-container')) {
@@ -95,14 +95,14 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.v1.Tag", {
 		};
 
 		waitForSovendusDiv();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

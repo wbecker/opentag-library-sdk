@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("olark.olarkchat.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Olark Chat",
 		async: true,
 		description: "In-page chat widget",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("olark.olarkchat.v1.Tag", {
 			token: "SITE_ID",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		(window.olark && Object.prototype.toString.call(window.olark) ===
 			"[object Function]") || (function(c) {
 			var f = window,
@@ -116,14 +116,14 @@ qubit.opentag.LibraryTag.define("olark.olarkchat.v1.Tag", {
 		});
 		/* custom configuration goes here (www.olark.com/documentation) */
 		olark.identify('' + this.valueForToken("SITE_ID"));
-	/*~SCRIPT*/
+	/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

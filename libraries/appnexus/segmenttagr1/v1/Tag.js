@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("appnexus.segmenttagr1.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Segment Tag R1",
 		async: true,
 		description: "",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("appnexus.segmenttagr1.v1.Tag", {
 			token: "segment",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

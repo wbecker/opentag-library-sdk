@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("intelliad.conversion.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion",
 		async: true,
 		description: "The intelliAd Conversion Tracking is specifically tailored for our system and provides you and our bid management tool extensive data on individual conversions.",
@@ -64,11 +64,11 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.v1.Tag", {
 			token: "client_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.ia_v = "" + this.valueForToken("order_total");
 		window.ia_vz = "" + this.valueForToken("order_type"); // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
 		window.ia_vv = (("" + this.valueForToken("order_currency")).length) ?
@@ -103,14 +103,14 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.v1.Tag", {
 		var script = document.createElement("script");
 		script.src = ia_link;
 		document.getElementsByTagName("head")[0].appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

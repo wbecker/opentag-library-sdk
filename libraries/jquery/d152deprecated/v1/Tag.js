@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("jquery.d152deprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "1.5.2 Deprecated",
 		async: true,
 		description: "Released March 31st, 2011",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("jquery.d152deprecated.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

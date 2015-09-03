@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Pixel",
 		async: true,
 		description: "The Steelhouse conversion pixel, for placing on confirmation pages. Bundled with the tracking pixel.",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.v1.Tag", {
 			token: "custom",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 
 		function shaddslashes(e) {
@@ -265,14 +265,14 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.v1.Tag", {
 			e.load()
 		})();
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

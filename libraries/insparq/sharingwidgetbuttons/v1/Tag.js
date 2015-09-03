@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("insparq.sharingwidgetbuttons.v1.Tag", {
   getDefaultConfig: function () {
       return {
-    /*DATA*/
+    /*config*/
     name: "Sharing Widget for PDP",
     async: true,
     description: "Reward your e-commerce site’s shoppers for sharing on social! Place this tag on your PDP page to enable Sharing Widget buttons and recipient popout coupon.",
@@ -60,15 +60,15 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetbuttons.v1.Tag", {
       token: "jQuery",
       uv: ""
     }]
-    /*~DATA*/
+    /*~config*/
 		};
   },
   script: function () {
-    /*SCRIPT*/
-    /*~SCRIPT*/
+    /*script*/
+    /*~script*/
   },
   pre: function () {
-    /*PRE*/
+    /*pre*/
     var _tmp_html = '<div id="issw" data-issw-publisher-id = "' + _this.valueForToken("insparq_api_key") + '" data-issw-publisher-name = "' + _this.valueForToken("isswpublishername") + '" data-issw-name = "' + _this.valueForToken("isswproductname") + '" data-issw-product-id = "' + _this.valueForToken("isswproductid") + '" data-issw-product-url = "' + _this.valueForToken("isswproducturl") + '" data-issw-price-value = "' + _this.valueForToken("isswproductprice") + '" data-issw-load-config = "1" ></div>';
     
     window['' + _this.valueForToken("jQuery")](_tmp_html).insertAfter('' + _this.valueForToken("selector"));
@@ -85,10 +85,10 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetbuttons.v1.Tag", {
       }
       head.appendChild(styleElement);
 
-    /*~PRE*/
+    /*~pre*/
   },
   post: function () {
-    /*POST*/
-    /*~POST*/
+    /*post*/
+    /*~post*/
   }
 });

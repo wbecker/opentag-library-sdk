@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.attributepagedeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Attribute Page DEPRECATED",
 		async: true,
 		description: "DO NOT USE. Peerius tag for the attribute page",
@@ -29,15 +29,15 @@ qubit.opentag.LibraryTag.define("peerius.attributepagedeprecated.v1.Tag", {
 			token: "value",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks = {
 			track: {
 				type: "attribute",
@@ -48,10 +48,10 @@ qubit.opentag.LibraryTag.define("peerius.attributepagedeprecated.v1.Tag", {
 				}
 			}
 		};
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

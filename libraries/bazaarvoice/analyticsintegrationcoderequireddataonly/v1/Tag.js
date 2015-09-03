@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"bazaarvoice.analyticsintegrationcoderequireddataonly.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Analytics Integration Code (Required Data Only)",
 			async: true,
 			description: "Uses required data only. Add JavaScript code to your transaction and conversion pages to send information to Bazaaarvoice analytics.",
@@ -55,19 +55,19 @@ qubit.opentag.LibraryTag.define(
 				token: "quantities",
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			var data = {
 				"orderId": "" + this.valueForToken("orderId"),
 				"total": "" + this.valueForToken("total"),
@@ -85,6 +85,6 @@ qubit.opentag.LibraryTag.define(
 				});
 			}
 			window.$BV.SI.trackTransactionPageView(data);
-			/*~POST*/
+			/*~post*/
 		}
 	});

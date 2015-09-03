@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.legacyproductpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Legacy - Product Page Tag",
 		async: true,
 		description: "This is a mandatory tag and must be placed on all the advertiser product pages.",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("criteo.legacyproductpagetag.v1.Tag", {
 			token: "product_id",
 			uv: "universal_variable.product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 
 		function pcto_dis() {
@@ -88,14 +88,14 @@ qubit.opentag.LibraryTag.define("criteo.legacyproductpagetag.v1.Tag", {
 		_cr_i.onload = pcto_dis;
 		_cr_d2.appendChild(_cr_i);
 		document.body.appendChild(_cr_d2);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

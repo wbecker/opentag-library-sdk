@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Send JSTag event",
 		async: true,
 		description: "Requires the Initiate JSTag script to be on the page first.\nIt sends an event to JSTag in the form of valid JSON.",
@@ -19,25 +19,25 @@ qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.v1.Tag", {
 			token: "event_json",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		if (window.jstag && jstag.send && window.JSON) {
 			try {
 				var data = this.valueForToken("event_json");
 				jstag.send(data);
 			} catch (e) {}
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Sub2 - Main Script - All Pages",
 		async: true,
 		description: "This script should fire on all pages and all other Sub2 scripts should be dependent upon this script",
@@ -29,11 +29,11 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 			token: "cookie_domain",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._SUB2metadata = {
 			clientid: "" + this.valueForToken("client_id"),
 			clientname: "" + this.valueForToken("client_name"),
@@ -150,14 +150,14 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 		setTimeout(function() {
 			clearInterval(waitFor_S2Tech_2Prompt);
 		}, 5000);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("intelliad.seotracking.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "SEO Tracking",
 		async: true,
 		description: "The intelliAd SEO tracking allows you to track organic Google traffic as well as other search engine traffic, direct traffic, type-in traffic and referrer traffic from backlinks.",
@@ -29,21 +29,21 @@ qubit.opentag.LibraryTag.define("intelliad.seotracking.v1.Tag", {
 			token: "ad_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.ia_tc = "" + this.valueForToken("campaign_id");
 		window.ia_sc = "" + this.valueForToken("ad_id");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

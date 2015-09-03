@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Legacy - Basket Page Tag",
 		async: true,
 		description: "The basket tag has to be integrated on the basket or checkout page.",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 			token: "quantities",
 			uv: "universal_variable.basket.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var src = [
 			"https://",
 			"sslwidget.criteo.com",
@@ -73,14 +73,14 @@ qubit.opentag.LibraryTag.define("criteo.legacybasketpagetag.v1.Tag", {
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "1");
 		document.body.appendChild(img);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

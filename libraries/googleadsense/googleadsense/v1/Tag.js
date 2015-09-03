@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Google Adsense",
 		async: true,
 		description: "Deploy Google adsense asynchronously to a specific html element (by id).",
@@ -39,19 +39,19 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 			token: "parent_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		window.adsbygoogle = window.adsbygoogle || [];
 
 		var ins = document.createElement("ins");
@@ -68,6 +68,6 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 				.appendChild(ins);
 
 		window.adsbygoogle.push({});
-		/*~POST*/
+		/*~post*/
 	}
 });

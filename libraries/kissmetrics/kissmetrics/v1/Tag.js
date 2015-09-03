@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Kiss Metrics",
 		async: true,
 		description: "KISSMetrics tracking tag - ASync",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.v1.Tag", {
 			token: "API_KEY",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		window._kmq = window._kmq || [];
 		(function(w, d) {
@@ -49,14 +49,14 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.v1.Tag", {
 				w.attachEvent("onload", kmg);
 			}
 		}(window, document))
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"tradedoubler.confirmationpagenoproductdetails.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Confirmation Page - No Product Details",
 			async: true,
 			description: "Lightweight version of the confirmation page with no product details at all.",
@@ -50,19 +50,19 @@ qubit.opentag.LibraryTag.define(
 				token: "voucher",
 				uv: "voucher"
 			}]
-			/*~DATA*/
+			/*~config*/
       };
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

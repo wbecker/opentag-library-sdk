@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("merchenta.shoppingcarttag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Shopping Cart Tag",
 		async: true,
 		description: "Place this tag on the shopping cart or basket page (Optional).",
@@ -29,11 +29,11 @@ qubit.opentag.LibraryTag.define("merchenta.shoppingcarttag.v1.Tag", {
 			token: "order_id",
 			uv: "universal_variable.basket.id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var i, ii, d, p = document.getElementById("mc_data");
 		d = document.createElement("div");
 		d.className = "mc_order_ref";
@@ -57,14 +57,14 @@ qubit.opentag.LibraryTag.define("merchenta.shoppingcarttag.v1.Tag", {
 			script.src = "http://cdn.merchenta.com/track/t.js";
 		}
 		document.getElementsByTagName('head')[0].appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

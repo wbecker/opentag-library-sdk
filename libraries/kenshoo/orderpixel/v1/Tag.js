@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("kenshoo.orderpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Order Pixel",
 		async: true,
 		description: ".",
@@ -15,19 +15,19 @@ qubit.opentag.LibraryTag.define("kenshoo.orderpixel.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

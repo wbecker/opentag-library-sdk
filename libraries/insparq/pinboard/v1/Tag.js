@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("insparq.pinboard.v1.Tag", {
   getDefaultConfig: function () {
       return {
-    /*DATA*/
+    /*config*/
     name: "Trending Products Feed",
     async: true,
     description: "A pinboard-style feed that showcases your e-commerce site’s trending products. Best implemented in a standalone page.",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("insparq.pinboard.v1.Tag", {
       token: "stylesheeturl",
       uv: ""
     }]
-    /*~DATA*/
+    /*~config*/
 		};
   },
   script: function () {
-    /*SCRIPT*/
+    /*script*/
     var _this = this;
     // CSS
     var link = document.createElement('link');
@@ -68,14 +68,14 @@ qubit.opentag.LibraryTag.define("insparq.pinboard.v1.Tag", {
       g.apikey = '' + _this.valueForToken("insparq_api_key");
       s.parentNode.insertBefore(g, s);
     })(document, 'script');
-    /*~SCRIPT*/
+    /*~script*/
   },
   pre: function () {
-    /*PRE*/
-    /*~PRE*/
+    /*pre*/
+    /*~pre*/
   },
   post: function () {
-    /*POST*/
-    /*~POST*/
+    /*post*/
+    /*~post*/
   }
 });

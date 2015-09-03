@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "CoreMetrics - Conversion Pages",
 		async: true,
 		description: "To be placed on non-ecommerce conversion pages (e.g. user signups)",
@@ -64,19 +64,19 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag",
 			token: "points",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		// Top level settings	
 		cmSetClientID(
 			"" + this.valueForToken("client_id"),
@@ -103,6 +103,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag",
 			attributeString,
 			extraFieldString
 		);
-		/*~POST*/
+		/*~post*/
 	}
 });

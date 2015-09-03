@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sojern.datapartnertagflightsearch.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Data Partner Tag - Flight Search",
 		async: true,
 		description: "",
@@ -49,11 +49,11 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflightsearch.v1.Tag", {
 			token: "service_class",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 			this.valueForToken("sojern_partner_key") + "/fs?";
 		src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
@@ -63,14 +63,14 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflightsearch.v1.Tag", {
 		src += "t=" + this.valueForToken("number_of_travellers") + "&";
 		src += "fc=" + this.valueForToken("service_class");
 		(new Image()).src = src;
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

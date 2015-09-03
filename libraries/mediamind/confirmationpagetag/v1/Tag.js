@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediamind.confirmationpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Page Tag",
 		async: true,
 		description: "To be placed on the confirmation page only",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("mediamind.confirmationpagetag.v1.Tag", {
 			token: "quants",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.ebRev = "" + this.valueForToken("order_total");
 		window.ebOrderID = "" + this.valueForToken("order_id");
 		window.ebProductID = "";
@@ -77,14 +77,14 @@ qubit.opentag.LibraryTag.define("mediamind.confirmationpagetag.v1.Tag", {
 			ebRev + "&OrderID=" + ebOrderID + "&ProductID=" + ebProductID +
 			"&ProductInfo=" + ebProductInfo + "&Quantity=" + ebQuantity;
 		document.getElementsByTagName("head")[0].appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

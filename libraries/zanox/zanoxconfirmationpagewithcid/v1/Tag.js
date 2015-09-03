@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Zanox - Confirmation page with CID",
 		async: true,
 		description: "The Zanox confirmation page tag with CID parameter",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.v1.Tag", {
 			token: "zanox_page_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		// Fire the confirmation tag
 		var url = "//ad.zanox.com/pps/?" + this.valueForToken("program_id");
 		url += "&mode=[[" + this.valueForToken("mode") + "]]";
@@ -100,14 +100,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.v1.Tag", {
 			}
 		};
 		waitForZanoxDiv();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

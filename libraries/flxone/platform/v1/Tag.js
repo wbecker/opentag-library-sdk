@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("flxone.platform.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Platform",
 		async: true,
 		description: "Use iatDev=1 in your URL parameters, or cookies to enable debug mode.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("flxone.platform.v1.Tag", {
 			token: "client_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		(function(a) {
 			var d = document,
@@ -35,14 +35,14 @@ qubit.opentag.LibraryTag.define("flxone.platform.v1.Tag", {
 				iatDev ? "h" : "") + "j.flxpxl.com/" + _this.valueForToken("client_id") +
 			".js?r=" + Math.random() * 1e16 + (iatDev ? "&d=1" : "")))
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

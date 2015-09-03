@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googledoubleclick.doubleclickforadvertiserswithcustomsubdomainandcustomparameters.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Doubleclick for Advertisers, with custom subdomain and custom parameters",
 			async: true,
 			description: "The non-conversion version of the DoubleClick tag with custom domain and id values, and support for arbitrary custom parameters. This tag supports subdomains both with and without a .fls portion.",
@@ -45,11 +45,11 @@ qubit.opentag.LibraryTag.define(
 				token: "custom_params",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var axel = Math.random() + "";
 			var a = axel * 1000000000000;
 			var fl_if = document.createElement("iframe");
@@ -63,14 +63,14 @@ qubit.opentag.LibraryTag.define(
 			fl_if.frameborder = "0";
 			fl_if.style.display = "none";
 			document.body.appendChild(fl_if);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

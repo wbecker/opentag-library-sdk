@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "{DEPRECATED} Product Page Tag",
 		async: true,
 		description: "This tracking code needs to go on all product pages in order to know which\nproducts user was interested in",
@@ -24,23 +24,23 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.v1.Tag", {
 			token: "PRODUCT_ID",
 			uv: "universal_variable.product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.product = {
 			identifier: '' + this.valueForToken("PRODUCT_ID")
 		};
 		window.product = product;
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

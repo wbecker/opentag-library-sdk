@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Web Tracking",
 		async: true,
 		description: "Engage Web Tracking is a tool that tracks visits to your Web sites. You can link this data to individual contacts \nand then target communications to contacts based on their Web behaviors.",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 			token: "page_name",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		function downloadJSAtOnload1() {
 
 			var x = document.createElement("script");
@@ -66,14 +66,14 @@ qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 		}
 		else window.onload = downloadJSAtOnload1;
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

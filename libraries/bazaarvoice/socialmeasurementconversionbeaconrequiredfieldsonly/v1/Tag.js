@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"bazaarvoice.socialmeasurementconversionbeaconrequiredfieldsonly.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Social Measurement Conversion Beacon (Required fields only)",
 			async: true,
 			description: "To be placed on the conversion page in order to integrate Social Measurement with Bazaarvoice's other solutions.",
@@ -55,19 +55,19 @@ qubit.opentag.LibraryTag.define(
 				token: "prices",
 				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			var _this = this;
 			try {
 				var item_count = 0;
@@ -103,6 +103,6 @@ qubit.opentag.LibraryTag.define(
 			} catch (e) {
 				window.console && window.console.log(e)
 			}
-			/*~POST*/
+			/*~post*/
 		}
 	});

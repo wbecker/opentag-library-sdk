@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket Page Tag v1.5",
 		async: true,
 		description: "To be placed on the basket page only",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
 			token: "product_id_list",
 			uv: "universal_variable.basket.line_items[#].product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._struqPI = window_struqPI || [];
 
 		var productArr = [];
@@ -55,14 +55,14 @@ qubit.opentag.LibraryTag.define("struq.basketpagetagv15.v1.Tag", {
 			"//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
 		document.body.appendChild(script);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Webtrends - Ecommerce tracking",
 		async: true,
 		description: "To be placed on pages where you wish to pass back transactional data. Should be dependent on the main Webtrends tracking tag.",
@@ -49,11 +49,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.v1.Tag", {
 			token: "quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var now = new Date();
 		var day = now.getUTCDate() + "";
 		if (day.length === 1) day = "0" + day;
@@ -109,14 +109,14 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.v1.Tag", {
 			"WT.dl": 1
 
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

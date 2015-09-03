@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("cufon.cufon109i.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "cufon 1.09i",
 		async: true,
 		description: "Fast text replacement with canvas and VML - no Flash or images required.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("cufon.cufon109i.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

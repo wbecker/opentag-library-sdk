@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("jquery.asynchronous.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Asynchronous",
 		async: true,
 		description: "Load any specific version of jQuery asynchronously",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("jquery.asynchronous.v1.Tag", {
 			token: "version",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Non basket/confirmation",
 		async: true,
 		description: "Conexance tag for non basket/confirmation pages. Requires tag ID (specifies which page).",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.v1.Tag", {
 			token: "web1by1_functions_script",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var require = function(url, cb) {
 			var script = document.createElement("script");
@@ -66,14 +66,14 @@ qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.v1.Tag", {
 		});
 
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

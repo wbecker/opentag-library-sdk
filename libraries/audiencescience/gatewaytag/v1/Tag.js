@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("audiencescience.gatewaytag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Gateway Tag",
 		async: true,
 		description: "",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("audiencescience.gatewaytag.v1.Tag", {
 			token: "clientID",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

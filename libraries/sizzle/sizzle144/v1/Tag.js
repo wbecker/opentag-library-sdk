@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sizzle.sizzle144.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "sizzle 1.4.4",
 		async: true,
 		description: "A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("sizzle.sizzle144.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

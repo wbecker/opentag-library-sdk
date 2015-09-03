@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googleretargetingconversionasyncwithcustomparametersdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Retargeting Conversion Async with custom parameters [DEPRECATED]",
 			async: true,
 			description: "Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
@@ -25,25 +25,25 @@ qubit.opentag.LibraryTag.define(
 				token: "conversion_label",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			window.google_trackConversion({
 				google_conversion_id: this.valueForToken("conversion_id"),
 				google_conversion_label: "" + this.valueForToken("conversion_label"),
 				google_custom_params: window.google_tag_params || {},
 				google_remarketing_only: true
 			});
-			/*~POST*/
+			/*~post*/
 		}
 	});

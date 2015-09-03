@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Analytics",
 		async: true,
 		description: "For all Professional and Enterprise HubSpot customers that want to use HubSpot's website analytics on a non-HubSpot hosted website.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		(function(d, s, i, r) {
 			if (d.getElementById(i)) {
@@ -36,14 +36,14 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 				'/' + _this.valueForToken("id") + '.js';
 			e.parentNode.insertBefore(n, e);
 		})(document, "script", "hs-analytics", 300000);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

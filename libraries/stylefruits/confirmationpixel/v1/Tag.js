@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Pixel",
 		async: true,
 		description: "The stylefruits tracking code has to be integrated on the final page of your checkout process. The \ncode has to be generated dynamically for every order.",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.v1.Tag", {
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

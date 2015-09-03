@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sojern.datapartnertagcruisepurchaseconfirmation.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Data Partner Tag - Cruise Purchase Confirmation",
 			async: true,
 			description: "",
@@ -70,11 +70,11 @@ qubit.opentag.LibraryTag.define(
 				token: "name",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
   },
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/cc?";
 			src += "cco=" + this.valueForToken("cruise_line") + "&";
@@ -88,14 +88,14 @@ qubit.opentag.LibraryTag.define(
 			src += "g=" + this.valueForToken("gender") + "&";
 			src += "n=" + this.valueForToken("name");
 			(new Image()).src = src;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

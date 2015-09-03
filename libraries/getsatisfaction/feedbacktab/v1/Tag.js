@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Feedback Tab",
 		async: true,
 		description: "Collect and prioritize product-specific customer feedback by adding a feedback tab to any (or every) page of your site.",
@@ -34,19 +34,19 @@ qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.v1.Tag", {
 			token: "STYLE",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var feedback_widget_options = {};
 		feedback_widget_options.display = "overlay";
 		feedback_widget_options.company = "" + this.valueForToken("COMPANY");
@@ -55,6 +55,6 @@ qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.v1.Tag", {
 		feedback_widget_options.color = "" + this.valueForToken("COLOR");
 		feedback_widget_options.style = "" + this.valueForToken("STYLE");
 		window.feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-		/*~POST*/
+		/*~post*/
 	}
 });

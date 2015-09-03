@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
   getDefaultConfig: function () {
       return {
-    /*DATA*/
+    /*config*/
     name: "Widget Instance",
     async: false,
     description: "",
@@ -41,11 +41,11 @@ qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
       defaultValue: "body",
       token: "appendat"
     }]
-    /*~DATA*/
+    /*~config*/
 		};
   },
   script: function () {
-    /*SCRIPT*/
+    /*script*/
     var olapicEl = document.createElement("div");
     olapicEl.id = this.valueForToken("elementref");
     if (document.querySelectorAll(this.valueForToken("appendat")).length > 0) {
@@ -63,14 +63,14 @@ qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
       }
       olapicEl.parentNode.insertBefore(olapicJs, olapicEl.nextSibling);
     }
-    /*~SCRIPT*/
+    /*~script*/
   },
   pre: function () {
-    /*PRE*/
-    /*~PRE*/
+    /*pre*/
+    /*~pre*/
   },
   post: function () {
-    /*POST*/
-    /*~POST*/
+    /*post*/
+    /*~post*/
   }
 });

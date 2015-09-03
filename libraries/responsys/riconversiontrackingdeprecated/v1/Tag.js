@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"responsys.riconversiontrackingdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "RI Conversion Tracking [DEPRECATED]",
 			async: true,
 			description: "Conversion Tracking allows you to evaluate how affective your email campaign is in driving a particular \npost-clickthrough action (such as making a purchase). With this feature you can monitor and report on \nthe success of a campaign (with link-tracking enabled) based on its resulting conversions.",
@@ -55,11 +55,11 @@ qubit.opentag.LibraryTag.define(
 				token: "domain",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var customerID = "" + this.valueForToken("customer_id");
 			var numberOfItems = this.valueForToken("purchased_items_array").length;
 
@@ -82,14 +82,14 @@ qubit.opentag.LibraryTag.define(
 			image.height = 1;
 
 			document.head.appendChild(image);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

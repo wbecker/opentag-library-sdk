@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("drawbridge.drawbridge.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Drawbridge",
 		async: true,
 		description: "Drawbridge provides advertisers with the unique capability of reaching 3rd party Desktop audiences on mobile devices.",
@@ -34,23 +34,23 @@ qubit.opentag.LibraryTag.define("drawbridge.drawbridge.v1.Tag", {
 			token: "label",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.drawbridge_partner_id  =  "" + this.valueForToken("partner_id");
 		window.drawbridge_partner_sign  =  "" + this.valueForToken("partner_sign");
 		window.drawbridge_app_id  =  "" + this.valueForToken("app_id");
 		window.drawbridge_label  =  "" + this.valueForToken("label");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

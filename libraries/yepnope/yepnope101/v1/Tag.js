@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("yepnope.yepnope101.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "yepnope 1.0.1",
 		async: true,
 		description: "yepnope is an asynchronous conditional resource loader that's super-fast, and allows you to load only the scripts that your users need.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("yepnope.yepnope101.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

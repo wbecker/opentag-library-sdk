@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Normal Tracking Pixel",
 		async: true,
 		description: "",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
 			token: "domain",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var src = "//" + this.valueForToken("domain") +
 			"/registersale.asp" +
 			"?site=" + this.valueForToken("program_id") +
@@ -71,14 +71,14 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
 
 		var image = new Image();
 		image.src = src;
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

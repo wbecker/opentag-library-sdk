@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sojern.advertisertagflightproductpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Advertiser Tag - Flight Product Page",
 		async: true,
 		description: "",
@@ -19,21 +19,21 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagflightproductpage.v1.Tag", 
 			token: "product_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		(new Image()).src = "https://beacon.sojern.com/p/1?fpid=" +
 			this.valueForToken("product_id");
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

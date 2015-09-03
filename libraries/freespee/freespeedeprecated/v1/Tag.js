@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("freespee.freespeedeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "FreeSpee [DEPRECATED]",
 		async: true,
 		description: "",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("freespee.freespeedeprecated.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

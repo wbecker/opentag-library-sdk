@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("google.dynamicadsforflightsallpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Dynamic Ads For Flights - All Pages",
 		async: true,
 		description: "",
@@ -44,19 +44,19 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforflightsallpages.v1.Tag", {
 			token: "pagetype",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var _this = this;
 		var poll = function() {
 			if (window.google_trackConversion) {
@@ -77,6 +77,6 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforflightsallpages.v1.Tag", {
 		};
 
 		poll();
-		/*~POST*/
+		/*~post*/
 	}
 });

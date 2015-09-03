@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("polyvore.conversiontrackingpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Tracking Pixel",
 		async: true,
 		description: "Increased visibility on your campaign enables you to better react and optimize to meet business objectives. Integrating the Polyvore conversion tracking pixel provides you access to the following metrics through the Promoted Products Report: Orders, Sales, Conversion-to-sale, Average order size, Return on ad spend",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("polyvore.conversiontrackingpixel.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var skus = "";
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
 			if (i > 0) {
@@ -57,14 +57,14 @@ qubit.opentag.LibraryTag.define("polyvore.conversiontrackingpixel.v1.Tag", {
 			this.valueForToken("subtotal") + "&oid=" +
 			this.valueForToken("id") + "&skus=" + skus + "&cur=" +
 			this.valueForToken("currency");
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Webtrends - basic multiTrack",
 		async: true,
 		description: "Use multiTrack for sending back custom data, or overriding the values from Webtrends' standard set of data.",
@@ -19,22 +19,22 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsbasicmultitrack.v1.Tag", {
 			token: "data",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		Webtrends.multiTrack({
 			args: this.valueForToken("data")
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

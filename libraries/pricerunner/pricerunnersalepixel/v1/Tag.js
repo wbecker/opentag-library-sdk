@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Price Runner Sale Pixel",
 		async: true,
 		description: "",
@@ -49,11 +49,11 @@ qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var img = document.createElement("img");
 		var src = [
 			"https://www.emjcd.com/u?",
@@ -75,14 +75,14 @@ qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.v1.Tag", {
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "20");
 		document.body.appendChild(img);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"zanox.zanoxconfirmationpagedeprecatedr1.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Zanox - Confirmation page DEPRECATED R1",
 			async: true,
 			description: "The Zanox confirmation page tag.",
@@ -45,11 +45,11 @@ qubit.opentag.LibraryTag.define(
 				token: "zanox_page_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			// Fire the confirmation tag
 			var url = "//ad.zanox.com/pps/?4711C081512345";
 			url += "&mode=[[" + this.valueForToken("mode") + "]]";
@@ -81,14 +81,14 @@ qubit.opentag.LibraryTag.define(
 				var a = d.getElementsByTagName("script")[0];
 				a.parentNode.insertBefore(s, a);
 			}(document));
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

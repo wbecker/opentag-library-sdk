@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "QuantCast - with event tracking",
 		async: true,
 		description: "Track custom events with QuantCast.",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 			token: "custom_page",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._qevents = window._qevents || [];
 
 		var e = document.createElement("script");
@@ -40,14 +40,14 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 			qacct: "" + this.valueForToken("account_no"),
 			labels: "_fp.event." + this.valueForToken("custom_page")
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Confirmation without Dedupe",
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user makes a payment. This version is preferred if the \"Criteo Referral\" parameter in the general confirmation tag is always going to be set to \"1\".",
@@ -54,19 +54,19 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag",
 			token: "product_quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var products = [];
 
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
@@ -108,6 +108,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag",
 			new_customer: ret,
 			product: products
 		});
-		/*~POST*/
+		/*~post*/
 	}
 });

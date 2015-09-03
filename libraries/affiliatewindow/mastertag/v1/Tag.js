@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("affiliatewindow.mastertag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Master Tag",
 		async: true,
 		description: "The Affiliate Window Master Tag should run on all pages.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("affiliatewindow.mastertag.v1.Tag", {
 			token: "MERCHANT_ID",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

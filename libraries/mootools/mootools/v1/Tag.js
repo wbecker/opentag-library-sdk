@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mootools.mootools.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "MooTools",
 		async: true,
 		description: "MooTools is a compact, modular, Object-Oriented JavaScript framework designed for the intermediate to advanced JavaScript developer. It allows you to write powerful, flexible, and cross-browser code with its elegant, well documented, and coherent API. MooTools code respects strict standards and doesn't throw any warnings. It's extensively documented and has meaningful variable names: a joy to browse and a snap to understand.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("mootools.mootools.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

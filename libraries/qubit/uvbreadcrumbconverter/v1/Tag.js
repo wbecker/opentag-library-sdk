@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "UV Breadcrumb Converter",
 		async: true,
 		description: "Converts UV page breadcrumbs to be in the new format.",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 				token: "skip_first",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 
 		function isArray(arr) {
@@ -117,14 +117,14 @@ qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 		waitForUV();
 
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

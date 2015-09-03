@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("conexance.categorypagedeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Category Page DEPRECATED",
 		async: true,
 		description: "DO NOT USE DEPRECATED",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("conexance.categorypagedeprecated.v1.Tag", {
 			token: "page_category",
 			uv: "universal_variable.page.category"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

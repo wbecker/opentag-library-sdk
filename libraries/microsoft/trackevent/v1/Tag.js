@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("microsoft.trackevent.v1.Tag", {
     getDefaultConfig: function () {
       return {
-      /*DATA*/
+      /*config*/
       name: "Track Event",
       async: false,
       description: "Track an event in Universal Event Tracking",
@@ -30,11 +30,11 @@ qubit.opentag.LibraryTag.define("microsoft.trackevent.v1.Tag", {
         description: "The value for the event",
         token: "ev"
       }]
-      /*~DATA*/
+      /*~config*/
 		};
     },
     script: function() {
-      /*SCRIPT*/
+      /*script*/
       window.uetq = window.uetq || [];
       window.uetq.push({
         'ec': this.valueForToken('ec') + '',
@@ -43,14 +43,14 @@ qubit.opentag.LibraryTag.define("microsoft.trackevent.v1.Tag", {
         'ev': this.valueForToken('ev') + ''
       });
 
-      /*~SCRIPT*/
+      /*~script*/
     },
     pre: function() {
-      /*PRE*/
-      /*~PRE*/
+      /*pre*/
+      /*~pre*/
 	},
 	post: function() {
-	/*POST*/
+	/*post*/
 	/* ~POST*/
 }
 });

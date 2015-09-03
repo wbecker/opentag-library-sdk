@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "CoreMetrics - Generic pages",
 		async: true,
 		description: "To be used on all pages that are not product, transactional, or conversion based.",
@@ -44,19 +44,19 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.v1.Tag", {
 			token: "category_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		// Top level settings	
 		window.cmSetClientID(
 			"" + this.valueForToken("client_id"),
@@ -70,6 +70,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.v1.Tag", {
 			"" + this.valueForToken("page_id"),
 			"" + this.valueForToken("category_id")
 		);
-		/*~POST*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Container Tag",
 		async: true,
 		description: "Tag to be placed on all pages",
@@ -19,24 +19,24 @@ qubit.opentag.LibraryTag.define("veinteractive.containertag.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var scriptURL = this.valueForToken("id");
 		var script = document.createElement("script");
 
 		script.src = scriptURL;
 		document.getElementsByTagName("head")[0].appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

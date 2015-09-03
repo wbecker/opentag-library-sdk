@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("bizrate.bizratenonbuyersurvey.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "BizRate Non-Buyer Survey",
 		async: true,
 		description: "Survey presented to visitors as they browse the site.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("bizrate.bizratenonbuyersurvey.v1.Tag", {
 			token: "merchant_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

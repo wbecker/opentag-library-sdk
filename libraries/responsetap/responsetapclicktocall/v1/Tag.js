@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Response Tap Click to Call",
 		async: true,
 		description: "Response Tap click to call script that replaces the phone number on your page.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 			token: "ACCOUNT_ID",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.adiInit = "" + this.valueForToken("ACCOUNT_ID");
 		window.adiRVO = true;
 		window.adiFunc = null;
@@ -35,14 +35,14 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 			".responsetap.com/static/scripts/rTapTrack.min.js";
 		var s = document.getElementsByTagName("script")[0];
 		s.parentNode.insertBefore(adiSrc, s);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

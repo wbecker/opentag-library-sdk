@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"affiliatewindow.confirmationtagwithcustomparameters.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Confirmation Tag with Custom Parameters",
 			async: true,
 			description: "Use this if you have different commission groups per product.",
@@ -90,15 +90,15 @@ qubit.opentag.LibraryTag.define(
 				token: "custom_parameter2",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			var i, cg, cg_groups = {}, parts;
 			for (i = 0; i < this.valueForToken("productId").length; i++) {
 				cg = this.valueForToken("commission_groups")[i];
@@ -176,10 +176,10 @@ qubit.opentag.LibraryTag.define(
 			};
 
 
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

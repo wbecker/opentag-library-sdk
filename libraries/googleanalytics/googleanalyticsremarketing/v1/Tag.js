@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googleanalytics.googleanalyticsremarketing.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Analytics Remarketing",
 			async: true,
 			description: "A Google Analytics tracking tag which reports information to the doubleclick servers for remarketing purposes.",
@@ -20,11 +20,11 @@ qubit.opentag.LibraryTag.define(
 				token: "PROFILE_ID",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window._gaq = window._gaq || [];
 			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
 			_gaq.push(['_trackPageview']);
@@ -36,14 +36,14 @@ qubit.opentag.LibraryTag.define(
 				'stats.g.doubleclick.net/dc.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

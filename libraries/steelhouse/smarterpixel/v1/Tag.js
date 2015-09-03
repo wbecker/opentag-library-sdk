@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Smarter Pixel",
 		async: true,
 		description: "The SteelHouse SmarterPixel is an all-in-one tracking solution intended to be deployed on every page of the site.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 			token: "merchant_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		"use strict";
 		var e = null,
 			b = "4.0.0",
@@ -70,14 +70,14 @@ qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 		c.src = ("https:" === document.location.protocol ? "https://" : "http://") +
 			h;
 		v.parentNode.insertBefore(c, v)
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

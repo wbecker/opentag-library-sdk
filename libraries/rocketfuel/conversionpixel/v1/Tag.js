@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Pixel",
 		async: true,
 		description: "To be placed on confirmation page.",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 			token: "order_total",
 			uv: "universal_variable.transaction.subtotal"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var img = new Image();
 		img.src = "//" +
 			this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" +
@@ -46,14 +46,14 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 			this.valueForToken("campaign_id") + "&ra=" +
 			this.valueForToken("random") + "&basket=" +
 			this.valueForToken("order_total");
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

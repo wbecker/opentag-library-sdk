@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("snowplowanalytics.snowploweventtracker.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Snowplow EventTracker",
 		async: true,
 		description: "Tag for getting SnowPlow to track all UV events into your custom SnowPlow system. Must be set to depend on the SnowPlow PageTracker.",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowploweventtracker.v1.Tag",
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.uv_listener.push(['on', 'event',
 			function(event) {
 				if (event && event.type && event.type === "struct") {
@@ -38,14 +38,14 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowploweventtracker.v1.Tag",
 				}
 			}
 		]);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

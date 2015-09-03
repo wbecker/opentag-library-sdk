@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("salecycle.genericmobile.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Generic [Mobile]",
 		async: true,
 		description: "The same as the non-confirmation tag, but for mobile.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("salecycle.genericmobile.v1.Tag", {
 			token: "client_name",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("smartfocus.homepage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Home Page",
 		async: true,
 		description: "",
@@ -24,15 +24,15 @@ qubit.opentag.LibraryTag.define("smartfocus.homepage.v1.Tag", {
 			token: "title",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._advisorq = window._advisorq || [];
 		window._advisorq.push({
 			_setConfig: {
@@ -49,10 +49,10 @@ qubit.opentag.LibraryTag.define("smartfocus.homepage.v1.Tag", {
 				}
 			}
 		});
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

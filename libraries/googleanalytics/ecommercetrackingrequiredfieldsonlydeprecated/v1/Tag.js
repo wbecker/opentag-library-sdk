@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googleanalytics.ecommercetrackingrequiredfieldsonlydeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "E-Commerce Tracking (Required Fields Only) DEPRECATED",
 			async: true,
 			description: "Before Google Analytics can report ecommerce activity for your website, you must enable ecommerce tracking on the profile settings page for your website.",
@@ -45,11 +45,11 @@ qubit.opentag.LibraryTag.define(
 				token: "itemQuantities",
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window._gaq = window._gaq || [];
 			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
 			_gaq.push(['_trackPageview']);
@@ -83,14 +83,14 @@ qubit.opentag.LibraryTag.define(
 				'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

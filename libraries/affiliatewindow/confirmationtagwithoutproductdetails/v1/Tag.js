@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"affiliatewindow.confirmationtagwithoutproductdetails.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Confirmation Tag without Product Details",
 			async: true,
 			description: "Confirmation page script for pages that do not send product information.",
@@ -50,15 +50,15 @@ qubit.opentag.LibraryTag.define(
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			window.AWIN = {
 				Tracking: {
 					Sale: {
@@ -73,10 +73,10 @@ qubit.opentag.LibraryTag.define(
 				}
 			};
 
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

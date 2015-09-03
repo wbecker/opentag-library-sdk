@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sojern.advertisertagvacationsearchresultspage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Advertiser Tag - Vacation Search Results Page",
 			async: true,
 			description: "",
@@ -50,11 +50,11 @@ qubit.opentag.LibraryTag.define(
 				token: "class",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
   },
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = "https://beacon.sojern.com/p/8?";
 			src += "et=" + this.valueForToken("event") + "&";
 			src += "va1=" + this.valueForToken("origin") + "&";
@@ -64,14 +64,14 @@ qubit.opentag.LibraryTag.define(
 			src += "t=" + this.valueForToken("travellers") + "&";
 			src += "vc=" + this.valueForToken("class");
 			(new Image()).src = src;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

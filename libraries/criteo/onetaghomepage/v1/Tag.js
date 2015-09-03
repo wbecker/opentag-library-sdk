@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Home Page",
 		async: true,
 		description: "The home page tag has to be integrated on the home page of the advertiser website.",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v1.Tag", {
 			token: "site_type",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var user_id = "" + this.valueForToken("customer_id");
 		//Remove email if present.
 		if (user_id.indexOf("@") > -1) {
@@ -61,6 +61,6 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v1.Tag", {
 		}, {
 			event: "viewHome"
 		});
-		/*~POST*/
+		/*~post*/
 	}
 });

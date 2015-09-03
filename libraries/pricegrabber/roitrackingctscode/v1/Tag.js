@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "ROI Tracking (CTS Code)",
 		async: true,
 		description: "Tracking tag to be placed on the confirmation page",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.v1.Tag", {
 			token: "quants",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var pixel = new Image();
 		var source = "https://www.pricegrabber.com/conversion.php?retid=" +
 			this.valueForToken("account_id");
@@ -68,14 +68,14 @@ qubit.opentag.LibraryTag.define("pricegrabber.roitrackingctscode.v1.Tag", {
 
 		source += items;
 		pixel.src = source;
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

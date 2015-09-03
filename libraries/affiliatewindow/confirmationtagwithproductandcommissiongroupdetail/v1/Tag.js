@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"affiliatewindow.confirmationtagwithproductandcommissiongroupdetail.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Confirmation Tag with Product and Commission Group Detail",
 			async: true,
 			description: "Use this if you have different commission groups per product.",
@@ -80,15 +80,15 @@ qubit.opentag.LibraryTag.define(
 				token: "commission_groups",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			var i, cg, cg_groups = {}, parts;
 			for (i = 0; i < this.valueForToken("productId").length; i++) {
 				cg = this.valueForToken("commission_groups")[i];
@@ -162,10 +162,10 @@ qubit.opentag.LibraryTag.define(
 					}
 				}
 			};
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

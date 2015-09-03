@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("prototype.prototypejs17.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Prototype JS 1.7",
 		async: true,
 		description: "Prototype is a JavaScript Framework that aims to ease development of dynamic web applications.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("prototype.prototypejs17.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

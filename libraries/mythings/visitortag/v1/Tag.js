@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mythings.visitortag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Visitor Tag",
 		async: true,
 		description: "This tag should be placed on ALL pages",
@@ -24,15 +24,15 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.v1.Tag", {
 			token: "subdomain",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._mt_ready = function() {
 			if (typeof(MyThings) !== "undefined") {
 				MyThings.Track({
@@ -46,10 +46,10 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.v1.Tag", {
 			this.valueForToken("subdomain") : "http://" +
 			this.valueForToken("subdomain")) + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("token");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Webtrends - Scenario analysis",
 		async: true,
 		description: "Analyse paths through your website to measure conversion or abandonment. Depends on the main Webtrends pageview tag.",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.v1.Tag", {
 			token: "step_where_conversion_occurs",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		window.dcsMultiTrack({
 			"WT.si_n": "" + _this.valueForToken("name"),
@@ -46,14 +46,14 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.v1.Tag", {
 			"WT.si_x": _this.valueForToken("step_position"),
 			"WT.si_cs": _this.valueForToken("step_where_conversion_occurs")
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

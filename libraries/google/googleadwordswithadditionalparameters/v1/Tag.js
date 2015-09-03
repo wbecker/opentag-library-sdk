@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googleadwordswithadditionalparameters.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google AdWords with additional parameters",
 			async: true,
 			description: "Tracks users that have converted who previously clicked through on an ad.",
@@ -50,19 +50,19 @@ qubit.opentag.LibraryTag.define(
 				token: "remarketing",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			window.google_trackConversion({
 				google_conversion_id: this.valueForToken("conversion_id"),
 				google_conversion_label: "" + this.valueForToken("conversion_label"),
@@ -72,6 +72,6 @@ qubit.opentag.LibraryTag.define(
 				google_conversion_value: this.valueForToken("conversion_value"),
 				google_remarketing_only: this.valueForToken("remarketing")
 			});
-			/*~POST*/
+			/*~post*/
 		}
 	});

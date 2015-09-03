@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sojern.datapartnertagvacationpurchaseconfirmation.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Data Partner Tag - Vacation Purchase Confirmation",
 			async: true,
 			description: "",
@@ -65,11 +65,11 @@ qubit.opentag.LibraryTag.define(
 				token: "first_name",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
   },
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/vc?";
 			src += "va1=" + this.valueForToken("origin_airport_code") + "&";
@@ -82,14 +82,14 @@ qubit.opentag.LibraryTag.define(
 			src += "g=" + this.valueForToken("gender") + "&";
 			src += "n=" + this.valueForToken("first_name");
 			(new Image()).src = src;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

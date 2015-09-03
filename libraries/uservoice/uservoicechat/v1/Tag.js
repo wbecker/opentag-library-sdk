@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("uservoice.uservoicechat.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "User Voice Chat",
 		async: true,
 		description: "UserVoice creates simple online feedback, help desk and knowledge base software. Our insight and support platforms enable businesses to understand and engage with customers with ease.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("uservoice.uservoicechat.v1.Tag", {
 			token: "ID",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.uvOptions = {};
 		var ID = this.valueForToken("ID");
     var uv = document.createElement('script');
@@ -33,14 +33,14 @@ qubit.opentag.LibraryTag.define("uservoice.uservoicechat.v1.Tag", {
 				"widget.uservoice.com/" + ID +".js";
     var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(uv, s);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

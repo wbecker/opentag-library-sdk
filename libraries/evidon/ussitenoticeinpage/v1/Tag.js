@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "US Site Notice (In-Page)",
 		async: true,
 		description: "This tag handles the Standard Notice functionality for US sites by adding an AdChoices link in the specified location. Must be filtered to fire on page types corresponding to individual PIDs (which are available via Evidon). The placement requires an element ID, or a classname and an index, corresponding to the element the tag should be placed into.",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.v1.Tag", {
 			token: "index",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		var lnk;
 		var _this = this;
@@ -165,14 +165,14 @@ qubit.opentag.LibraryTag.define("evidon.ussitenoticeinpage.v1.Tag", {
 			}
 		}
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("galleria.galleria123.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "galleria 1.2.3",
 		async: true,
 		description: "Galleria is a JavaScript image gallery framework built on top of the jQuery library. The aim is to simplify the process of creating professional image galleries for the web and mobile devices.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("galleria.galleria123.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

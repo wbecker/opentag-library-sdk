@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("drawbridge.crossdevicepixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Cross Device Pixel",
 		async: true,
 		description: "Needs to go on Confirmation page of the desktop site. This pixel will enable Drawbridge to track those users who have potentially clicked to go on the mobile site but then not converted, later that day they go on the desktop site to check very out again and this time make a purchase, using complex algorithms Drawbridge can track these users and provide data showing how many people are converting across mobile to desktop, a useful and unique data set previously unavailable on mobile anywhere.",
@@ -44,19 +44,19 @@ qubit.opentag.LibraryTag.define("drawbridge.crossdevicepixel.v1.Tag", {
 			token: "order_currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

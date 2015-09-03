@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v2.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Confirmation",
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user makes a payment.",
@@ -70,19 +70,19 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v2.Tag", {
 			token: "email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
         if (this.valueForToken("email")!='') {
             var passedemail = {event: "setEmail", email: [this.valueForToken("email")]};
         } else {
@@ -132,6 +132,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmation.v2.Tag", {
 			deduplication: this.valueForToken("criteo_referral"),
 			product: products
 		}, passedemail);
-		/*~POST*/
+		/*~post*/
 	}
 });

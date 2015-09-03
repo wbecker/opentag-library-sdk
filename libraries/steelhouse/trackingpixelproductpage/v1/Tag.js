@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("steelhouse.trackingpixelproductpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Tracking Pixel - Product Page",
 		async: true,
 		description: "The generic Steelhouse tracking pixel for product pages only.",
@@ -84,11 +84,11 @@ qubit.opentag.LibraryTag.define("steelhouse.trackingpixelproductpage.v1.Tag", {
 			token: "basket_skus_list",
 			uv: "universal_variable.basket.line_items[#].product.sku_code"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 
 		function shaddslashes(e) {
@@ -217,14 +217,14 @@ qubit.opentag.LibraryTag.define("steelhouse.trackingpixelproductpage.v1.Tag", {
 			e.load()
 		})()
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

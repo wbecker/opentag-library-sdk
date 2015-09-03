@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googledynamicremarketingtaghomeandcategorypagedeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Dynamic Remarketing Tag - Home and Category Page [DEPRECATED]",
 			async: true,
 			description: "",
@@ -30,11 +30,11 @@ qubit.opentag.LibraryTag.define(
 				token: "google_conversion_label",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window.google_tag_params = {
 				ecomm_pagetype: '' + this.valueForToken("page_category")
 			};
@@ -49,14 +49,14 @@ qubit.opentag.LibraryTag.define(
 			script.type = "text/javascript";
 			script.src = "//www.googleadservices.com/pagead/conversion.js";
 			document.head.appendChild(script);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

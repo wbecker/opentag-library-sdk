@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.homepagewithsmartrecs.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Home Page (with SmartRecs)",
 		async: true,
 		description: "Home page tag with SmartRecs. Uses global function renderRecsHome. Need to make sure renderRecsHome is defined on the home page in the window.",
@@ -39,15 +39,15 @@ qubit.opentag.LibraryTag.define("peerius.homepagewithsmartrecs.v1.Tag", {
 			token: "email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks = {
 			track: {
 				type: "home",
@@ -64,10 +64,10 @@ qubit.opentag.LibraryTag.define("peerius.homepagewithsmartrecs.v1.Tag", {
 				}
 			}
 		};
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

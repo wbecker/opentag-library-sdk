@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket Tracking Pixel",
 		async: true,
 		description: "The affilinet basket tracking system allows you to submit shopping basket information on item level to affilinet. \nThat information enables you to perform detailed statistical analyses and allows your publishers to optimise their \nmarketing activities even further. If you would like to make use of this tracking functionality, please call your \naccount manager to activate basket tracking and change the registersale call on your order confirmation page.",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 			token: "basket_items_prices",
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var iFrame = document.createElement('iframe');
 		iFrame.style.display = 'none';
 		iFrame.style.width = "1px";
@@ -118,14 +118,14 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 
 		iFrameDom.getElementById("basket").innerHTML = basketItemsData;
 		iFrameDom.getElementById('affilinetTrackingForm').submit();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

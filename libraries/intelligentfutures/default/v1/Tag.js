@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("intelligentfutures.default.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Default",
 		async: true,
 		description: ".",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("intelligentfutures.default.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		//script must be manually imported! empty parameters entries!
 		(function(a) {
 			var d = document,	c = d.createElement("script");
@@ -31,14 +31,14 @@ qubit.opentag.LibraryTag.define("intelligentfutures.default.v1.Tag", {
 				"//" + (window.location.protocol == "http:" && !iatDev ? "h" : "") +
 				"j.flxpxl.com/176554.js?r=" + Math.random() * 1e16 +
 				"&m=${}&a=${}" + (iatDev ? "&d=1" : "")))
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

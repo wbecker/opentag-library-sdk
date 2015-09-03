@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("smartfocus.confirmationpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Page",
 		async: true,
 		description: "",
@@ -44,15 +44,15 @@ qubit.opentag.LibraryTag.define("smartfocus.confirmationpage.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._advisorq = window._advisorq || [];
 
 		var skus = [];
@@ -82,10 +82,10 @@ qubit.opentag.LibraryTag.define("smartfocus.confirmationpage.v1.Tag", {
 				charges: this.valueForToken("total") - this.valueForToken("subtotal")
 			}
 		});
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

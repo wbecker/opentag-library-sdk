@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sociomantic.producttag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Product Tag",
 		async: true,
 		description: "This tracking code needs to go on all product pages in order to know which products user was interested in. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
@@ -34,15 +34,15 @@ qubit.opentag.LibraryTag.define("sociomantic.producttag.v1.Tag", {
 			token: "user_email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.product = {
 			identifier: '' + this.valueForToken("product_id")
 		};
@@ -76,10 +76,10 @@ qubit.opentag.LibraryTag.define("sociomantic.producttag.v1.Tag", {
 			var parts = document.cookie.split("qb_sm_uid=");
 			if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 		}
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

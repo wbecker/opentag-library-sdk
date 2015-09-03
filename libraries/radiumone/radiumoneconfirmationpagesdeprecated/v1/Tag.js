@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"radiumone.radiumoneconfirmationpagesdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "RadiumOne - Confirmation Pages DEPRECATED",
 			async: true,
 			description: "",
@@ -20,11 +20,11 @@ qubit.opentag.LibraryTag.define(
 				token: "order_article",
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			// Get timestamp (cachebuster)
 			var time = new Date().getTime();
 
@@ -48,14 +48,14 @@ qubit.opentag.LibraryTag.define(
 			iframe.marginHeight = 0;
 			iframe.scrolling = 'no';
 			document.body.appendChild(iframe);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

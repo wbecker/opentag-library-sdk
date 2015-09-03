@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("intelligentreach.productpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Product Page Tag",
 		async: true,
 		description: "This tag should be applied to product pages only",
@@ -24,21 +24,21 @@ qubit.opentag.LibraryTag.define("intelligentreach.productpagetag.v1.Tag", {
 			token: "product_id",
 			uv: "universal_variable.product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.istCompanyId = "" + this.valueForToken("id");
 		window.istItem = "" + this.valueForToken("product_id");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "UV Test - Product Page",
 		async: true,
 		description: "test opentag on a product page",
@@ -79,11 +79,11 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 			token: "m",
 			uv: "universal_variable.product.color"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		console.log("" + this.valueForToken("a"));
 		console.log("" + this.valueForToken("b"));
 		console.log("" + this.valueForToken("c"));
@@ -97,14 +97,14 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 		console.log("" + this.valueForToken("k"));
 		console.log("" + this.valueForToken("l"));
 		console.log("" + this.valueForToken("m"));
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

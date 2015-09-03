@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.json2.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "JSON2",
 		async: true,
 		description: "The standard JSON2 library by Douglas Crockford.",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("qubit.json2.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		/*
     json2.js
@@ -506,14 +506,14 @@ qubit.opentag.LibraryTag.define("qubit.json2.v1.Tag", {
 				};
 			}
 		}());
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

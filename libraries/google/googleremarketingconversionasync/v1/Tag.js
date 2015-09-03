@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googleremarketingconversionasync.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Remarketing Conversion Async",
 			async: true,
 			description: "Conversion tracking is a tool to help you measure conversions, and ultimately help you identify how effective your Ad Exchange ads are for you.",
@@ -20,19 +20,19 @@ qubit.opentag.LibraryTag.define(
 				token: "google_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			var _this = this;
 			var poll = function() {
 				if (window.google_trackConversion) {
@@ -46,6 +46,6 @@ qubit.opentag.LibraryTag.define(
 			};
 
 			poll();
-			/*~POST*/
+			/*~post*/
 		}
 	});

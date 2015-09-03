@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaforge.category.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Category",
 		async: true,
 		description: "To be placed of Product Listing pages",
@@ -24,19 +24,19 @@ qubit.opentag.LibraryTag.define("mediaforge.category.v1.Tag", {
 			token: "category_id",
 			uv: "universal_variable.page.subcategory"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

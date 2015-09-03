@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("flixmedia.checkoutstartpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Checkout Start Page",
 		async: true,
 		description: "To fire on the page that loads right after the user clicks on the checkout button.",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("flixmedia.checkoutstartpage.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var products = [];
      
     for (var i=0; i< this.valueForToken("skus").length; i++)
@@ -57,14 +57,14 @@ qubit.opentag.LibraryTag.define("flixmedia.checkoutstartpage.v1.Tag", {
        "basket_id" : "" + this.valueForToken("id"),
        "basket" : products 
     }); 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

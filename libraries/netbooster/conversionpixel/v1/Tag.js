@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("netbooster.conversionpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion pixel",
 		async: true,
 		description: "",
@@ -34,25 +34,25 @@ qubit.opentag.LibraryTag.define("netbooster.conversionpixel.v1.Tag", {
 			token: "partner_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.img = new Image();
 		img.src = "//conversion-pixel.invitemedia.com/pixel?pixelID=" + 
 				this.valueForToken("pixel_id") + "&clientID=" +
 				this.valueForToken("client_id") + "&partnerID=" +
 				this.valueForToken("partner_id") + "&key=conv&orderID=" +
 				this.valueForToken("order_id") + "&returnType=js";
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

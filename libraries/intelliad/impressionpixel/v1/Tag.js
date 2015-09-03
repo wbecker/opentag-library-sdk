@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("intelliad.impressionpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Impression Pixel",
 		async: true,
 		description: "With intelliAd’s impression pixel you have the possibility to measure all impressions of your custom channels.",
@@ -49,11 +49,11 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.v1.Tag", {
 			token: "cost_per_impression",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var t = (new Date()).getTime();
 		var paramObj = {
 			cl: "" + this.valueForToken("client_id"),
@@ -77,14 +77,14 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.v1.Tag", {
 
 		var img = new Image();
 		img.src = src.slice(0, -1);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

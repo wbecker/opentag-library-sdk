@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.uvlistproductlistingpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "UV List - Product Listing Page",
 		async: true,
 		description: "Test Universal Variables on a search or category page",
@@ -74,11 +74,11 @@ qubit.opentag.LibraryTag.define("qubit.uvlistproductlistingpage.v1.Tag", {
 			token: "l",
 			uv: "universal_variable.listing.items[#].sku_code"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		console.log("" + this.valueForToken("a"));
 		console.log("" + this.valueForToken("b"));
 		console.log("" + this.valueForToken("c"));
@@ -91,14 +91,14 @@ qubit.opentag.LibraryTag.define("qubit.uvlistproductlistingpage.v1.Tag", {
 		console.log("" + this.valueForToken("j"));
 		console.log("" + this.valueForToken("k"));
 		console.log("" + this.valueForToken("l"));
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

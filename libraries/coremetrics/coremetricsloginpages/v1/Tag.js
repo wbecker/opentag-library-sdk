@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("coremetrics.coremetricsloginpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "CoreMetrics - Login pages",
 		async: true,
 		description: "To be placed on login/signup completes, or after account updates.",
@@ -54,19 +54,19 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsloginpages.v1.Tag", {
 			token: "email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		// Top level settings	
 		window.cmSetClientID(
 			"" + this.valueForToken("client_id"),
@@ -86,6 +86,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsloginpages.v1.Tag", {
 			"" + this.valueForToken("registration_id"),
 			"" + this.valueForToken("email")
 		);
-		/*~POST*/
+		/*~post*/
 	}
 });

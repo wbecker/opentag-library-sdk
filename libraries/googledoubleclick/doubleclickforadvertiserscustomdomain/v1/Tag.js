@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googledoubleclick.doubleclickforadvertiserscustomdomain.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "DoubleClick for Advertisers - Custom Domain",
 			async: true,
 			description: "The non-conversion version of the DoubleClick tag with custom domain id",
@@ -35,11 +35,11 @@ qubit.opentag.LibraryTag.define(
 				token: "cat",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var axel = Math.random() + "";
 			var a = axel * 1000000000000;
 			var fl_if = document.createElement("iframe");
@@ -52,14 +52,14 @@ qubit.opentag.LibraryTag.define(
 			fl_if.frameborder = "0";
 			fl_if.style.display = "none";
 			document.body.appendChild(fl_if);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

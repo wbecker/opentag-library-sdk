@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "SiteCatalyst Page Tag",
 		async: true,
 		description: "Tag to be added to any non-conversion page. Any unused variables should be left blank.",
@@ -94,19 +94,19 @@ qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystpagetag.v1.Tag", 
 			token: "evar5",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var s = window.s;
 
 		s.pageName = "" + this.valueForToken("page_name");
@@ -127,6 +127,6 @@ qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystpagetag.v1.Tag", 
 		s.eVar5 = "" + this.valueForToken("evar5");
 
 		window.s_code = s.t();
-		/*~POST*/
+		/*~post*/
 	}
 });

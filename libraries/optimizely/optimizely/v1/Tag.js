@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("optimizely.optimizely.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Optimizely",
 		async: true,
 		description: "Simple, fast, and powerful. Optimizely is a dramatically easier way for you to improve your website through A/B testing. Create an experiment in minutes with our easy to use visual interface with absolutely no coding or engineering required.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("optimizely.optimizely.v1.Tag", {
 			token: "ACCOUNT_ID",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

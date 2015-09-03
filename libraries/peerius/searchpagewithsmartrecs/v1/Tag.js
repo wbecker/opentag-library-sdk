@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.searchpagewithsmartrecs.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Search Page (with SmartRecs)",
 		async: true,
 		description: "Peerius tag for search pages with SmartRecs. Uses renderRecsSearch global function. renderRecsSearch must be defined on window variable.",
@@ -34,15 +34,15 @@ qubit.opentag.LibraryTag.define("peerius.searchpagewithsmartrecs.v1.Tag", {
 			token: "search_listing_ids",
 			uv: "universal_variable.listing.items[#].id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks = {
 			track: {
 				type: "searchresults",
@@ -65,10 +65,10 @@ qubit.opentag.LibraryTag.define("peerius.searchpagewithsmartrecs.v1.Tag", {
 				refCode: this.valueForToken("search_listing_ids")[i]
 			});
 		}
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

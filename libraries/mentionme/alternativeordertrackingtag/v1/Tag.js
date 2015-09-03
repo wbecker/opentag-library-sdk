@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Alternative Order Tracking Tag",
 		async: true,
 		description: "Generic tag for MentionMe. All parameters marked with * are optional (if not used populate with empty hardcoded value, even if default is 'uses universal variable')",
@@ -89,11 +89,11 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", 
 			token: "domain",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var baseUrl = "https://" + this.valueForToken("domain") + "/api/v2/order/" +
 			this.valueForToken("partner_code") + "?";
 		var paramArr = [];
@@ -148,14 +148,14 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", 
 		function beginningZero(digit) {
 			return (digit < 10) ? "0" + digit : "" + digit;
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

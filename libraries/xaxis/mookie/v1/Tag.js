@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Mookie",
 		async: true,
 		description: "Fires a pixel with transaction information and 5 custom parameters.",
@@ -69,11 +69,11 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 			token: "param5",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var img = new Image(0, 0),
 			arr = [],
 			obj = {
@@ -93,14 +93,14 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 			arr.push(key + "=" + obj[key]);
 		}
 		img.src = "//t.mookie1.com/t/v1/event?" + arr.join("&");
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mentionme.bannerdeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Banner [DEPRECATED]",
 		async: true,
 		description: "Referrer promotional banner integration as an embedded iframe. Requires <div id=\"mmWrapper\"></div> to be on the page.\nThe * represents parameters that can be left as an empty value.",
@@ -49,11 +49,11 @@ qubit.opentag.LibraryTag.define("mentionme.bannerdeprecated.v1.Tag", {
 			token: "locale",
 			uv: "universal_variable.user.language"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var baseUrl = "https://" + this.valueForToken("script_domain") +
 			".mention-me.com/api/v2/banner/" + this.valueForToken("partner_code") + "?";
 		var mmScript = document.createElement("script");
@@ -77,14 +77,14 @@ qubit.opentag.LibraryTag.define("mentionme.bannerdeprecated.v1.Tag", {
 
 		mmScript.src = baseUrl + paramArr.join("&");
 		document.body.appendChild(mmScript);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

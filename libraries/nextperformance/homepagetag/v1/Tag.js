@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("nextperformance.homepagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Home Page Tag",
 		async: true,
 		description: "Tag to be inserted on the home page.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("nextperformance.homepagetag.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"affiliatewindow.confirmationtagwithproductdetailchannel.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Confirmation Tag with Product Detail & Channel",
 			async: true,
 			description: "Confirmation page script for pages that send product information with the same commission group for each product.",
@@ -85,15 +85,15 @@ qubit.opentag.LibraryTag.define(
 				token: "channel",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			var awinImgSrc = [
 				"https://www.awin1.com/sread.img?tt=ns&tv=2",
 				"&merchant=" + this.valueForToken("merchant_id"),
@@ -151,10 +151,10 @@ qubit.opentag.LibraryTag.define(
 					}
 				}
 			};
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

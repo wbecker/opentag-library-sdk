@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Sovendus [All Fields]",
 		async: true,
 		description: "<div id=\"gutscheinconnection-container\"></div> (the banner) should first be placed on the confirmation page, and positioned (using css) exactly where you'd like the banner to appear, before activating this tag on the confirmation page",
@@ -69,11 +69,11 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
 			token: "email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var waitForSovendusDiv = function() {
 			if (document.getElementById('gutscheinconnection-container')) {
@@ -127,14 +127,14 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
 		};
 
 		waitForSovendusDiv();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

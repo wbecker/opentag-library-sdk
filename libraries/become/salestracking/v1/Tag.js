@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Sales Tracking",
 		async: true,
 		description: "Sales tracking tag to be placed on the confirmation page, for customers with Pangora IDs to track more sale information.",
@@ -59,15 +59,15 @@ qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.pg_pangora_merchant_id = '' + this.valueForToken("merchant_id");
 		window.pg_order_id = '' + this.valueForToken("order_id");
 		window.pg_cart_value = '' + this.valueForToken("cart_value");
@@ -99,10 +99,10 @@ qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
 		}
 		pg_cart_size = String(pg_cart_size);
 
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

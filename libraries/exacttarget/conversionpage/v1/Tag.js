@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("exacttarget.conversionpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Page",
 		async: true,
 		description: "This tag must only fire if the Landing Page tag has previously fired and the relevant cookies have been set (see Landing Page tag). Once the Landing Page tag has fired on the Exact Target Landing page and stored the appropriate subscriber information in the relevant cookies, this tag should then fire on your chosen conversion page.",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("exacttarget.conversionpage.v1.Tag", {
 			token: "accumulate",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		function getCookie(cookiename) {
 			if (document.cookie.length > 0) {
 				startC = document.cookie.indexOf(cookiename + "=");
@@ -90,14 +90,14 @@ qubit.opentag.LibraryTag.define("exacttarget.conversionpage.v1.Tag", {
 		imgSrc += "</system>";
 
 		new Image().src = imgSrc;
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

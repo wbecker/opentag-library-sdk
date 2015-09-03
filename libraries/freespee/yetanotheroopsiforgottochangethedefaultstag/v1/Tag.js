@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"freespee.yetanotheroopsiforgottochangethedefaultstag.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Yet another \"oops I forgot to change the defaults\" tag",
 			async: true,
 			description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs. Now includes optional user ID support",
@@ -17,15 +17,15 @@ qubit.opentag.LibraryTag.define(
 			parameters: [
 
 			]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			window.basket = {
 				products: []
 			};
@@ -50,10 +50,10 @@ qubit.opentag.LibraryTag.define(
 				var customer = window.customer || {};
 				customer.identifier = uid;
 			}
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

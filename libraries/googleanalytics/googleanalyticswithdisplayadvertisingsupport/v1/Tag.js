@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googleanalytics.googleanalyticswithdisplayadvertisingsupport.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Analytics with display advertising support",
 			async: true,
 			description: "See https://support.google.com/analytics/answer/2444872 for details.",
@@ -20,11 +20,11 @@ qubit.opentag.LibraryTag.define(
 				token: "profile_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window._gaq = window._gaq || [];
 			_gaq.push(['_setAccount', '' + this.valueForToken("profile_id")]);
 			_gaq.push(['_trackPageview']);
@@ -36,14 +36,14 @@ qubit.opentag.LibraryTag.define(
 				'stats.g.doubleclick.net/dc.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

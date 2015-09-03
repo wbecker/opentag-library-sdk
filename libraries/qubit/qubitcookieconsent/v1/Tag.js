@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Qubit Cookie Consent",
 		async: true,
 		description: "customisable  cookie consent drop-down slider",
@@ -24,15 +24,15 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 			token: "mainText",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.mainText =
 			"For this website to run at its best, we ask the browser (like Google " +
 			"Chrome and Internet Explorer) for a little personal information. " +
@@ -138,10 +138,10 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 				window._q_ping("consentDismiss", reason);
 			}
 		};
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

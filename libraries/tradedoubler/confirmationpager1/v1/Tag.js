@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("tradedoubler.confirmationpager1.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Page R1",
 		async: true,
 		description: "Product Level Tracking (PLT) Version",
@@ -79,11 +79,11 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpager1.v1.Tag", {
 			token: "productGroupId",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		function readCookie(name) {
 			var nameEQ = name + "=";
 			var ca = document.cookie.split(';');
@@ -127,14 +127,14 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpager1.v1.Tag", {
 		var img = document.createElement("img");
 		img.src = src;
 		document.body.appendChild(img);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

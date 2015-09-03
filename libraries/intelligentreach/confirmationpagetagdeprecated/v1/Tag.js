@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"intelligentreach.confirmationpagetagdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Confirmation Page Tag - Deprecated",
 			async: true,
 			description: "The tag is placed on final checkout confirmation page only.",
@@ -50,15 +50,15 @@ qubit.opentag.LibraryTag.define(
 				token: "voucher",
 				uv: "universal_variable.transaction.voucher"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			window.istCompanyId = "" + this.valueForToken("id");
 			window.istOrderId = this.valueForToken("orderId");
 			window.istTotal = this.valueForToken("orderTotal");
@@ -84,10 +84,10 @@ qubit.opentag.LibraryTag.define(
 			window.istUserDefinedFieldThree = "";
 			window.istVoucherCode = this.valueForToken("voucher");
 			window.istLastAffiliateCode = "";
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

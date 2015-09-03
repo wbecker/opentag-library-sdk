@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("dojo.dojo160.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Dojo 1.6.0",
 		async: false,
 		description: "Dojo saves you time, delivers powerful performance, and scales with your development process. Itâ€™s the toolkit experienced developers turn to for building superior desktop and mobile web experiences.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("dojo.dojo160.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

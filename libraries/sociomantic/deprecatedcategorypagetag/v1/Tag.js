@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sociomantic.deprecatedcategorypagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "{DEPRECATED} Category Page Tag",
 		async: true,
 		description: "Information about what category page the user was interested in",
@@ -29,24 +29,24 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedcategorypagetag.v1.Tag", 
 			token: "SUBCATEGORY",
 			uv: "universal_variable.page.subcategory"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.product = {
 			category: ['' + this.valueForToken("CATEGORY"),
 				'' + this.valueForToken("SUBCATEGORY")
 			]
 		};
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

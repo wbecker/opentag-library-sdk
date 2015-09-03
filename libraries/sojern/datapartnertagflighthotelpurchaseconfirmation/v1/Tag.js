@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sojern.datapartnertagflighthotelpurchaseconfirmation.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Data Partner Tag - Flight + Hotel Purchase Confirmation",
 			async: true,
 			description: "",
@@ -135,11 +135,11 @@ qubit.opentag.LibraryTag.define(
 				token: "hotel_purchase_price",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
   },
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 				this.valueForToken("sojern_partner_key") + "/fc?";
 			src += "fa1=" + this.valueForToken("origin_airport_code") + "&";
@@ -166,14 +166,14 @@ qubit.opentag.LibraryTag.define(
 			src += "hl=" + this.valueForToken("customer_loyalty_hash") + "&";
 			src += "hc=" + this.valueForToken("room_type");
 			(new Image()).src = src;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

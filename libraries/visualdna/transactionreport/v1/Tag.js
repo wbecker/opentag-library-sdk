@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("visualdna.transactionreport.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Transaction Report",
 		async: true,
 		description: "This tag should fire on the Transaction Confirmation page. The tag must have a dependency on the Visual DNA Page View Report tag.",
@@ -74,11 +74,11 @@ qubit.opentag.LibraryTag.define("visualdna.transactionreport.v1.Tag", {
 			token: "api_key",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 		window.VDNA.queue.push({
@@ -110,14 +110,14 @@ qubit.opentag.LibraryTag.define("visualdna.transactionreport.v1.Tag", {
 				}]
 			});
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

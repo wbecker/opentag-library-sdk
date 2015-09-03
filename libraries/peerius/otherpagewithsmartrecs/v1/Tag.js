@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.otherpagewithsmartrecs.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Other Page (with SmartRecs)",
 		async: true,
 		description: "Peerius tag for all other pages. Uses the renderRecsLanding function, so requires window.renderRecsLanding to be defined on all pages the tag is on.",
@@ -24,15 +24,15 @@ qubit.opentag.LibraryTag.define("peerius.otherpagewithsmartrecs.v1.Tag", {
 			token: "lang",
 			uv: "universal_variable.user.language"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks = {
 			track: {
 				type: "other",
@@ -44,10 +44,10 @@ qubit.opentag.LibraryTag.define("peerius.otherpagewithsmartrecs.v1.Tag", {
 				}
 			}
 		};
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

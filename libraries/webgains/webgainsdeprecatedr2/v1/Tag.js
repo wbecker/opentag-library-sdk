@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("webgains.webgainsdeprecatedr2.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "WebGains [DEPRECATED] R2",
 		async: true,
 		description: "",
@@ -90,11 +90,11 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecatedr2.v1.Tag", {
 			token: "product_event_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var wgItems = function() {
 			var wgItemsString = "";
@@ -157,14 +157,14 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecatedr2.v1.Tag", {
 		var img = new Image();
 		img.src = wgUri;
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

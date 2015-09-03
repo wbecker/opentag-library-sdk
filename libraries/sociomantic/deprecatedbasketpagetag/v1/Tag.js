@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "{DEPRECATED} Basket Page Tag",
 		async: true,
 		description: "Product ID is required on the basket page, along with additional information like quantity, amount, currency",
@@ -39,15 +39,15 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.v1.Tag", {
 			token: "advertiserid",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.basket = {
 			products: []
 		};
@@ -62,10 +62,10 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.v1.Tag", {
 		}
 
 		window.basket = basket;
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Voucher code entered iframe",
 		async: true,
 		description: "This iframe passes back the pageview along with the validated voucher code being used. It should be fired once, as soon as possible after validating a voucher (before confirmation).",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.v1.Tag", {
 			token: "promo_code",
 			uv: "universal_variable.basket.voucher"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var frame = document.createElement("frame");
 		var src = (document.location.protocol === "https:") ? "https://secure." :
 			"http://";
@@ -52,14 +52,14 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.v1.Tag", {
 		frame.width = 1;
 		frame.frameborder = 0;
 		document.body.appendChild(frame);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket",
 		async: true,
 		description: "To be placed on the basket/cart page for cart abandonment targeting.",
@@ -29,11 +29,11 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
 			token: "basket_total",
 			uv: "universal_variable.basket.subtotal"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var script = document.createElement("script");
 		var productArr = [];
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
@@ -43,14 +43,14 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
 		script.src = "//tags.mediaforge.com/js/" + this.valueForToken("merchant_id") +
 			"/?cart=" + this.valueForToken("basket_total") + "&prodID=" + productIDs;
 		document.body.appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "[Deprecated] Product Listing Tag",
 		async: true,
 		description: "To be placed only on product listing/search result pages",
@@ -19,15 +19,15 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 			token: "product_id_list",
 			uv: "universal_variable.listing.items[#].id"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._struqPI = window._struqPI || [];
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("product_id_list").length; i < ii; i++) {
@@ -47,10 +47,10 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 				timeoutMs: 2000
 			}
 		}]);
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

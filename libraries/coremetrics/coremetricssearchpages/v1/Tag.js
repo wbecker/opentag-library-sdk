@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "CoreMetrics - Search Pages",
 		async: true,
 		description: "To be used on search pages.",
@@ -54,19 +54,19 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.v1.Tag", {
 			token: "number_results",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		// Client Setup
 		window.cmSetClientID(
 			"" + this.valueForToken("client_id"),
@@ -82,6 +82,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.v1.Tag", {
 			"" + this.valueForToken("search_query"),
 			"" + this.valueForToken("number_results")
 		);
-		/*~POST*/
+		/*~post*/
 	}
 });

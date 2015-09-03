@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("microsoft.universaleventracking.v1.Tag", {
     getDefaultConfig: function () {
       return {
-      /*DATA*/
+      /*config*/
       name: "Universal Event Tracking",
       async: false,
       description: "Universal Event Tracking (UET) Tag is a snippet of JavaScript code that is used for track conversions and re-messaging.",
@@ -18,11 +18,11 @@ qubit.opentag.LibraryTag.define("microsoft.universaleventracking.v1.Tag", {
         description: "The Microsoft TagID for your account.",
         token: "tagID"
       }]
-      /*~DATA*/
+      /*~config*/
 		};
     },
     script: function() {
-      /*SCRIPT*/
+      /*script*/
       (function(w, d, t, r, u) {
         var f, n, i;
         w[u] = w[u] || [], f = function() {
@@ -35,14 +35,14 @@ qubit.opentag.LibraryTag.define("microsoft.universaleventracking.v1.Tag", {
           s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
         }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
       })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
-	/*~SCRIPT*/
+	/*~script*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+	/*pre*/
+	/*~pre*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+	/*post*/
+	/*~post*/
 	}
 });

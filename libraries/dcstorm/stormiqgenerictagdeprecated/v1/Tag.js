@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictagdeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "StormIQ Generic Tag - Deprecated",
 		async: true,
 		description: "To be placed on all pages except confirmation",
@@ -29,22 +29,22 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictagdeprecated.v1.Tag", {
 			token: "channel",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.__stormJs = 't1.stormiq.com/dcv4/jslib/' +
 			this.valueForToken("storm_id") + '.js';
 		window.__ch = '' + this.valueForToken("channel");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

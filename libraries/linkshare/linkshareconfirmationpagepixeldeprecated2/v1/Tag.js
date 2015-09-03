@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"linkshare.linkshareconfirmationpagepixeldeprecated2.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "LinkShare Confirmation Page Pixel - DEPRECATED 2",
 			async: true,
 			description: "Reports transactions to linkshare server",
@@ -60,11 +60,11 @@ qubit.opentag.LibraryTag.define(
 				token: "voucher_discount",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var x = document.createElement("img");
 
 			var skuList = [],
@@ -99,14 +99,14 @@ qubit.opentag.LibraryTag.define(
 				"&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
 				this.valueForToken("cur") + "&namelist=" + nameList.join("|");
 			document.body.appendChild(x);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

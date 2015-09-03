@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Postcode Sync",
 		async: true,
 		description: "This tag should fire on any successful login or registration of a user with a known postcode. The tag must have a dependency on the Visual DNA Page View Report tag.",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
 			token: "postcode",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 		window.VDNA.queue.push({
@@ -39,14 +39,14 @@ qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
 				"partner_user_id_type": "postcode"
 			}]
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

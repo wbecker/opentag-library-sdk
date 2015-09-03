@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "CoreMetrics - Element Tracking",
 		async: true,
 		description: "Track custom elements with CoreMetrics. Note that this tag depends on other CoreMetrics tags having already loaded on the page.",
@@ -24,22 +24,22 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.v1.Tag",
 			token: "element_category",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		cmCreateElementTag(
 			"" + this.valueForToken("element_id"),
 			"" + this.valueForToken("element_category"));
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

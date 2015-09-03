@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Sovendus [DEPRECATED]",
 		async: true,
 		description: "",
@@ -69,11 +69,11 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 			token: "checksum",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var sovendusNewDate = new Date();
 		var sovendusTimestamp = sovendusNewDate.getTime();
 		var _gconData = _gconData || [];
@@ -101,14 +101,14 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 			'http://') + "api.gutscheinconnection.de/js/client.js";
 		sovendusScript.async = "true";
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

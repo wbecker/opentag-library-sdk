@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Snowplow EcommTracker",
 		async: true,
 		description: "SnowPlow eCommerce tracking tag to collect transaction data into your SnowPlow system. Must have a dependency set on the PageTracker.",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag",
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.sp_t = window.universal_variable.transaction;
 
 		if (sp_t) {
@@ -51,14 +51,14 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag",
 			// Finally fire the 'trackTrans' event to commit the transaction
 			_snaq.push(['trackTrans']);
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

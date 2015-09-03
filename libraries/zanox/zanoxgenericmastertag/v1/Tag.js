@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "zanox Generic MasterTag",
 		async: true,
 		description: "The MasterTag for all pages. Different IDs needed for each page type.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 			token: "zanoxPageId",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._zx = window._zx || [];
 		window._zx.push({
 			"id": "" + this.valueForToken("zanoxPageId")
@@ -45,14 +45,14 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 			}
 		};
 		waitForZanoxDiv();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

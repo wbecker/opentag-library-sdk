@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("shopzilla.shopzillasurveyform.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Shopzilla Survey Form",
 		async: true,
 		description: "The buyer survey comes in two parts – the point of sale survey, which collects feedback from customers that buy from your store, and the fulfilment survey, which follows up after goods have been delivered.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillasurveyform.v1.Tag", {
 			token: "account",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

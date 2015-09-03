@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Webtrends link tagging",
 		async: true,
 		description: "Designed to replace inline on click tagging. Usually you'll want one tag per link tagged. Uses jQuery selectors, so jQuery is required to exist on the page.",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 			token: "type",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var $ = window["" + this.valueForToken("jquery_name")];
 
@@ -59,14 +59,14 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 				});
 			});
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

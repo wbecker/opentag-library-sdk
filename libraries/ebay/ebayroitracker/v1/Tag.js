@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "eBay ROI Tracker",
 		async: true,
 		description: "A free campaign measurement tool available to all merchants. Displays product, category and order- level performance to give you the right visibility to effectively optimize for success.",
@@ -59,19 +59,19 @@ qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 			token: "product_category_ids",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		window._roi = window._roi || [];
 
 		_roi.push(['_setMerchantId', '' + this.valueForToken("ebay_merchant_id")]);
@@ -90,6 +90,6 @@ qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 		}
 
 		_roi.push(['_trackTrans']);
-		/*~POST*/
+		/*~post*/
 	}
 });

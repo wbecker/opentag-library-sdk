@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sociomantic.deprecatedconfirmationpagetag.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "{DEPRECATED} Confirmation Page Tag",
 			async: true,
 			description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs",
@@ -50,15 +50,15 @@ qubit.opentag.LibraryTag.define(
 				token: "checkout_total",
 				uv: "universal_variable.transaction.subtotal"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			window.basket = {
 				products: []
 			};
@@ -76,10 +76,10 @@ qubit.opentag.LibraryTag.define(
 			basket.amount = '' + this.valueForToken("checkout_total");
 			basket.currency = '' + this.valueForToken("currency");
 			window.basket = basket;
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

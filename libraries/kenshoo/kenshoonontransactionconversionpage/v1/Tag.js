@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"kenshoo.kenshoonontransactionconversionpage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Kenshoo Non-Transaction Conversion Page",
 			async: true,
 			description: "A pixel to enable tracking non-transaction conversions",
@@ -30,19 +30,19 @@ qubit.opentag.LibraryTag.define(
 				token: "valueCurrency",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

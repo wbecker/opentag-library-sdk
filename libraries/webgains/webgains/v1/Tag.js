@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("webgains.webgains.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "WebGains",
 		async: true,
 		description: "",
@@ -89,11 +89,11 @@ qubit.opentag.LibraryTag.define("webgains.webgains.v1.Tag", {
 			token: "product_event_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		window.wgItems = function() {
 			var itemList = [];
@@ -149,14 +149,14 @@ qubit.opentag.LibraryTag.define("webgains.webgains.v1.Tag", {
 		// Load the image pixel
 		var img = new Image();
 		img.src = wgUri;
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("prismastar.productpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Product Page Tag",
 		async: true,
 		description: "To be placed on all product pages",
@@ -39,19 +39,19 @@ qubit.opentag.LibraryTag.define("prismastar.productpagetag.v1.Tag", {
 			token: "CATEGORY_CODE",
 			uv: "universal_variable.product.category"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

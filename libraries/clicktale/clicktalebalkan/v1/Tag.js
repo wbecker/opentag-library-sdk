@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "ClickTale - Balkan",
 		async: true,
 		description: "New Balkan version of ClickTale mouse tracking",
@@ -19,21 +19,21 @@ qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.v1.Tag", {
 			token: "clicktale_url",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.WRInitTime = (new Date()).getTime();
 
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

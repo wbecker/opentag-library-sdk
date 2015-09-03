@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"marinsoftware.zzconversiontrackingtagrevenueonlydeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "zz-Conversion Tracking Tag - Revenue only [DEPRECATED]",
 			async: true,
 			description: "This conversion pixel tracks revenue only. Use either this or the asynchronous Conversion Capture Code depending on the instructions you have been given by Marin.",
@@ -40,11 +40,11 @@ qubit.opentag.LibraryTag.define(
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window._mf = document.createElement("form");
 			_mf.style.display = "none";
 			_mf.name = "utmform";
@@ -87,14 +87,14 @@ qubit.opentag.LibraryTag.define(
 				}
 			};
 			document.body.appendChild(_ml);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

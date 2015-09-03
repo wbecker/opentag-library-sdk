@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("struq.deprecatedproductpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "[Deprecated] Product Page Tag",
 		async: true,
 		description: "To be placed on the product page only",
@@ -19,15 +19,15 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductpagetag.v1.Tag", {
 			token: "product_id",
 			uv: "universal_variable.product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._struqPI = window._struqPI || [];
 		_struqPI.push(['injectTrackingPixel', {
 			trackingPixelId: 'PixelID',
@@ -41,10 +41,10 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductpagetag.v1.Tag", {
 				timeoutMs: 2000
 			}
 		}]);
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

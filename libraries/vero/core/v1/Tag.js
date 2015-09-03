@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("vero.core.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Vero Core",
 		async: true,
 		description: "",
@@ -18,22 +18,22 @@ qubit.opentag.LibraryTag.define("vero.core.v1.Tag", {
 			token: "api_key",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._veroq = window._veroq || [];
 		window._veroq.push(['init', { api_key: this.valueForToken("api_key") }]);
 		(function(){ var ve = document.createElement('script'); ve.type = 'text/javascript'; ve.async = true; ve.src = '//d3qxef4rp70elm.cloudfront.net/m.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ve, s); })();
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

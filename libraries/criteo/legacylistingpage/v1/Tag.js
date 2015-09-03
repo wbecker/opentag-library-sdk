@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.legacylistingpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Legacy - Listing Page",
 		async: true,
 		description: "Add to a page with a listing of products, eg a Search or Category Page. This will pick off the first three values in the Listing Product IDs array and send them to Criteo.",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("criteo.legacylistingpage.v1.Tag", {
 			token: "product_ids",
 			uv: "universal_variable.listing.items[#].id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 
 		function pcto_dis() {
@@ -100,14 +100,14 @@ qubit.opentag.LibraryTag.define("criteo.legacylistingpage.v1.Tag", {
 		_cr_i.onload = pcto_dis;
 		_cr_d2.appendChild(_cr_i);
 		document.body.appendChild(_cr_d2);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

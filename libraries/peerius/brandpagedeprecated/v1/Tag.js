@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.brandpagedeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Brand Page DEPRECATED",
 		async: true,
 		description: "DO NOT USE. Peerius tag for the brand page",
@@ -24,25 +24,25 @@ qubit.opentag.LibraryTag.define("peerius.brandpagedeprecated.v1.Tag", {
 			token: "brand",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks.track = {
 			type: "brand",
 			lang: "" + this.valueForToken("lang"),
 			brand: "" + this.valueForToken("brand")
 		};
 
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

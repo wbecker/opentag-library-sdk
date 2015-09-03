@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("firefly.generictag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Generic Tag",
 		async: true,
 		description: "The standard Firefly tag",
@@ -19,21 +19,21 @@ qubit.opentag.LibraryTag.define("firefly.generictag.v1.Tag", {
 			token: "client_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.fireflyAPI = {};
 		fireflyAPI.token = "" + this.valueForToken("client_id");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -191,7 +191,8 @@ var UNDEF;
   
     return {
       root: root,
-      object: last
+      object: last,
+      instance: last
     };
   }
 
@@ -287,10 +288,11 @@ var UNDEF;
     return (cp === undefined || cp === null) ? "qubit.vs" : cp;
   };
   
-  Define.namespace("qubit.vs", {}, null, true);
+  var _vspace = 
+    Define.namespace(Define.vendorsSpaceClasspath(), {}, null, true).instance;
   
   Define.getVendorSpace = function () {
-    return qubit.vs;
+    return _vspace;
   };
   
   Define.vendorNamespace = function (path, instance, pckg, noOverride) {
@@ -10966,7 +10968,7 @@ var JSON = {};
   };
   
   LibraryTag.getLibraryByClasspath = function (namespace) {
-    return Utils.getObjectUsingPath(namespace, Define.getVendorSpace());
+    return Utils.getObjectUsingPath(namespace, qubit.Define.getVendorSpace());
   };
   
 }());

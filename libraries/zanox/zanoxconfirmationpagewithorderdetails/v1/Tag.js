@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"zanox.zanoxconfirmationpagewithorderdetails.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Zanox - Confirmation Page with Order Details",
 			async: true,
 			description: "The Zanox confirmation page tag with order details. Includes generic \"MasterTag\" tracking pixel.",
@@ -80,11 +80,11 @@ qubit.opentag.LibraryTag.define(
 				token: "page_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var _this = this;
 			//Define a function to ensure all product details are HTML encoded.
 			window.htmlEncode = function(value) {
@@ -157,14 +157,14 @@ qubit.opentag.LibraryTag.define(
 				}
 			};
 			waitForZanoxDiv();
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("weborama.weboramawreport.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Weborama - WReport",
 		async: true,
 		description: "This tag is typically placed on all pages of a site and is used for web analytics.",
@@ -34,30 +34,30 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.v1.Tag", {
 			token: "SOURCE_URL",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.WRP_ID = this.valueForToken("WRP_ID");
 		window.WRP_SECTION = '' + this.valueForToken("SECTION");
 		window.WRP_SUBSECTION = '' + this.valueForToken("SUBSECTION");
 		window.wreport_ok = 0;
 		/* Profondeur Frame */
 		window.WRP_ACC;
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		if (wreport_ok == 1) {
 			window.w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID,
 				WRP_ACC);
 			w_counter.count();
 		}
-		/*~POST*/
+		/*~post*/
 	}
 });

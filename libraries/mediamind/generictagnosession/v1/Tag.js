@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Generic Tag (no session)",
 		async: true,
 		description: "",
@@ -19,24 +19,24 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var r = (Math.random() * 1000000) + "";
 		var s = document.createElement("script");
 		s.src = "//bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&ActivityID=" +
 			this.valueForToken("id") + "&rnd=" + r;
 		document.body.appendChild(s);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

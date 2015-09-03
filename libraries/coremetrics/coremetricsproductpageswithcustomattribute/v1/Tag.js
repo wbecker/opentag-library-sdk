@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"coremetrics.coremetricsproductpageswithcustomattribute.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "CoreMetrics - Product pages (with Custom Attribute)",
 			async: true,
 			description: "The same as the product page tag, but with the extra parameter to distinguish a specific type of product page view content.",
@@ -60,19 +60,19 @@ qubit.opentag.LibraryTag.define(
 				token: "custom_attribute",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			// Client Setup
 			window.cmSetClientID(
 				"" + this.valueForToken("client_id"),
@@ -94,6 +94,6 @@ qubit.opentag.LibraryTag.define(
 				"" + this.valueForToken("category_id"),
 				"" + this.valueForToken("custom_attribute")
 			);
-			/*~POST*/
+			/*~post*/
 		}
 	});

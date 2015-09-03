@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Display Integration Code",
 		async: true,
 		description: "Requirement: 1) Place the following code on every product page where you want to display the ratings summary. <div id=\"BVRRSummaryContainer\"></div> 2) Place the following code on every product page where you want to display review content. <div id=\"BVRRContainer\"></div>",
@@ -29,22 +29,22 @@ qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.v1.Tag", {
 			token: "product_id",
 			uv: "universal_variable.product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		windopw.$BV.ui("rr", "show_reviews", {
 			productId: "" + this.valueForToken("product_id")
 		});
-		/*~POST*/
+		/*~post*/
 	}
 });

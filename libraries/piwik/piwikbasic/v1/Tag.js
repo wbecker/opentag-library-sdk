@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("piwik.piwikbasic.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Piwik - Basic",
 		async: true,
 		description: "Implement the basic Piwik pageview and link tracking.",
@@ -24,25 +24,25 @@ qubit.opentag.LibraryTag.define("piwik.piwikbasic.v1.Tag", {
 			token: "piwik_site_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		var _paq = _paq || [];
 
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		window.piwikTracker = Piwik.getTracker(this.valueForToken("piwik_url") +
 				"piwik.php", 1);
 		piwikTracker.trackPageView();
 		piwikTracker.enableLinkTracking();
-		/*~POST*/
+		/*~post*/
 	}
 });

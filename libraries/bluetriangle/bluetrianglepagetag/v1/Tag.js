@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("bluetriangle.bluetrianglepagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Blue Triangle Page Tag",
 		async: true,
 		description: "Page tag should be implemented on all pages. Blue Triangle will provide your client ID.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("bluetriangle.bluetrianglepagetag.v1.Tag", {
 			token: "clientId",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

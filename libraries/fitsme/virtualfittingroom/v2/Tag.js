@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v2.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Virtual Fitting Room",
 		async: true,
 		description: "We provide virtual fitting room solutions online stores and help people find their right size and fit.",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v2.Tag", {
 			token: "titles",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		(function() {
 			var fm = document.createElement('script');
@@ -57,10 +57,10 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v2.Tag", {
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
 		})();
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 
 		var sizeArray = [];
 		console.log(this.valueForToken("titles")[1]);
@@ -83,10 +83,10 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v2.Tag", {
 			}
 		};
 
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

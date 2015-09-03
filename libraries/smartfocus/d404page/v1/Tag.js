@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("smartfocus.d404page.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "404 Page",
 		async: true,
 		description: "",
@@ -24,15 +24,15 @@ qubit.opentag.LibraryTag.define("smartfocus.d404page.v1.Tag", {
 			token: "title",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._advisorq = window._advisorq || [];
 		_advisorq.push({
 			_404page: {}
@@ -47,10 +47,10 @@ qubit.opentag.LibraryTag.define("smartfocus.d404page.v1.Tag", {
 				}
 			}
 		});
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

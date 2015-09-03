@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googleuniversalanalytics.genericpageview.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Generic Page View",
 			async: true,
 			description: "This tag registers a pageview, and is intended for any page other than confirmation pages.",
@@ -25,11 +25,11 @@ qubit.opentag.LibraryTag.define(
 				token: "url",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 
 			(function(i, s, o, g, r, a, m) {
 				i['GoogleAnalyticsObject'] = r;
@@ -46,14 +46,14 @@ qubit.opentag.LibraryTag.define(
 				'' + this.valueForToken("url"));
 			ga('require', 'displayfeatures');
 			ga('send', 'pageview');
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

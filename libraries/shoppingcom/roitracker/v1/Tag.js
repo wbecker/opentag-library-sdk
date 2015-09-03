@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "ROI Tracker",
 		async: true,
 		description: "A free campaign measurement tool available to all merchants enrolled in the Shopping.com Merchant \nProgram. Displays product and category – level performance data.",
@@ -59,15 +59,15 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 			token: "item_quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._roi = window._roi || [];
 
 		_roi.push(['_setMerchantId', this.valueForToken("client_id")]);
@@ -87,10 +87,10 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 		}
 
 		_roi.push(['_trackTrans']);
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

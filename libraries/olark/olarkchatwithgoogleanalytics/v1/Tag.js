@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Olark Chat with Google Analytics",
 		async: true,
 		description: "In-page chat widget, with Google Analytics tracking.",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.v1.Tag", {
 			token: "ga_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		(window.olark && Object.prototype.toString.call(window.olark) ===
 			"[object Function]") || (function(c) {
@@ -124,14 +124,14 @@ qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.v1.Tag", {
 		olark.identify("" + this.valueForToken("SITE_ID"));
 		olark.configure("GoogleAnalytics.custom_tracking_id", 
 		"" + this.valueForToken("ga_id"));
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

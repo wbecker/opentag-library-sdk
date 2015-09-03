@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "UV List - User Information",
 		async: true,
 		description: "Test Universal Variables regarding users",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.v1.Tag", {
 			token: "h",
 			uv: "universal_variable.user.twitter_id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		console.log("" + this.valueForToken("a"));
 		console.log("" + this.valueForToken("b"));
 		console.log("" + this.valueForToken("c"));
@@ -67,14 +67,14 @@ qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.v1.Tag", {
 		console.log("" + this.valueForToken("f"));
 		console.log("" + this.valueForToken("g"));
 		console.log("" + this.valueForToken("h"));
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

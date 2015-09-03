@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("chango.optimizationproductpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Optimization - Product Page",
 		async: true,
 		description: "",
@@ -64,11 +64,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationproductpage.v1.Tag", {
 			token: "visitor_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.__cho__ = {
 			"data": {
 				"pt": "product",
@@ -115,14 +115,14 @@ qubit.opentag.LibraryTag.define("chango.optimizationproductpage.v1.Tag", {
 		script.async = true;
 		script.src = document.location.protocol + '//cc.chango.com/static/o.js';
 		document.head.appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

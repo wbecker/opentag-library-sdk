@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Order Page DEPRECATED",
 		async: true,
 		description: "DO NOT USE. Peerius tag for the order page",
@@ -44,15 +44,15 @@ qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.v1.Tag", {
 			token: "total",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks = {
 			track: {
 				type: "order",
@@ -75,10 +75,10 @@ qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.v1.Tag", {
 				price: window.universal_variable.basket.line_items[i].product.unit_sale_price
 			});
 		}
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

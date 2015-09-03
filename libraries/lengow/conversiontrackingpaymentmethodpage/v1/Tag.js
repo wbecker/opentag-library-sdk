@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"lengow.conversiontrackingpaymentmethodpage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Conversion Tracking - Payment Method Page",
 			async: true,
 			description: "To ensure that your sales are tracked and show up in the “Statistics” section of the Solution, you \nneed to implement a tracking tag. You can choose to implement a simple tag (Payment Method Page tag) or to implement a double tag (both the Payment Method Page & Confirmation page tags).\nIf you only place a simple tag, all sales will show up in your Statistics board, whether they have been \nconfirmed and validated by a bank or other payment method or not.\n\nWe recommend that you place this conversion tracking tag on the page of the choice of payment \nmethod.\n\nIf you do not have the order ID generated on your payment page, you can place this tracker on \nyour confirmation page.",
@@ -45,11 +45,11 @@ qubit.opentag.LibraryTag.define(
 				token: "lengow_product_name_list",
 				uv: "universal_variable.transaction.line_items[#].product.name"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var lengowProductNamesString = "";
 
 			for (var i = 0; i < this.valueForToken("lengow_product_name_list").length; i++) {
@@ -71,14 +71,14 @@ qubit.opentag.LibraryTag.define(
 				this.valueForToken("lengow_order_id") + "&modePaiement=" +
 				this.valueForToken("lengow_payment_method") + "&listingProduit=" +
 				lengowProductNamesString;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

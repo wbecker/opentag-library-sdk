@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("netbooster.deprecatedconversionpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "[DEPRECATED] Conversion Pixel",
 		async: true,
 		description: "",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("netbooster.deprecatedconversionpixel.v1.Tag", {
 			token: "client_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "All Pages Tag",
 		async: true,
 		description: "Decibel Insight’s ground-breaking visual analytics software introduces the most advanced, innovative and complete heatmapping tool in the world, designed to help businesses of all types and sizes generate better results from their websites.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.v1.Tag", {
 			token: "account_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		window._da_ = window._da_ || [];
 		var _da_oldErr = window.onerror;
@@ -43,14 +43,14 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.v1.Tag", {
 			d.getElementsByTagName('head')[0].appendChild(da);
 		})(document);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

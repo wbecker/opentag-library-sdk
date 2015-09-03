@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sojern.advertisertagotherpurchaseconfirmationpage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Advertiser Tag - Other Purchase Confirmation Page",
 			async: true,
 			description: "",
@@ -35,22 +35,22 @@ qubit.opentag.LibraryTag.define(
 				token: "postcode",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
   },
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			(new Image()).src = "https://beacon.sojern.com/p/11?op=" + this.valueForToken(
 				"price") + "&oconfno" + this.valueForToken("id") + "&ono1=" + this.valueForToken(
 				"quantity") + "&oz1=" + this.valueForToken("postcode");
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

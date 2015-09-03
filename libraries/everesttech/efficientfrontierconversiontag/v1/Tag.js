@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"everesttech.efficientfrontierconversiontag.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Efficient Frontier Conversion Tag",
 			async: true,
 			description: "To be placed only on the confirmation page",
@@ -35,19 +35,19 @@ qubit.opentag.LibraryTag.define(
 				token: "order_id",
 				uv: "universal_variable.transaction.order_id"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			try {
 				window.ef_event_type = "transaction";
 				window.ef_transaction_properties = "ev_Very_Revenue=" +
@@ -60,6 +60,6 @@ qubit.opentag.LibraryTag.define(
 				effp();
 			} catch (err) {}
 
-			/*~POST*/
+			/*~post*/
 		}
 	});

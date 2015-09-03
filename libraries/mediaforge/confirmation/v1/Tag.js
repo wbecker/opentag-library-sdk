@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaforge.confirmation.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation",
 		async: true,
 		description: "To be place on order confirmation pages",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("mediaforge.confirmation.v1.Tag", {
 			token: "order_total",
 			uv: "universal_variable.transaction.subtotal"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

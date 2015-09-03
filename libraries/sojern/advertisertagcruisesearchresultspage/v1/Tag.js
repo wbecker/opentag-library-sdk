@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sojern.advertisertagcruisesearchresultspage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Advertiser Tag - Cruise Search Results Page",
 			async: true,
 			description: "",
@@ -55,11 +55,11 @@ qubit.opentag.LibraryTag.define(
 				token: "rooms",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = "https://beacon.sojern.com/p/10?";
 			src += "et=" + this.valueForToken("event") + "&";
 			src += "cco=" + this.valueForToken("line") + "&";
@@ -70,14 +70,14 @@ qubit.opentag.LibraryTag.define(
 			src += "t=" + this.valueForToken("travellers") + "&";
 			src += "cr=" + this.valueForToken("rooms");
 			(new Image()).src = src;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Product Level Conversion",
 		async: true,
 		description: "",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.v1.Tag", {
 			token: "tracking_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._mTrack = window._mTrack || [];
 
 		var items = [];
@@ -91,14 +91,14 @@ qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.v1.Tag", {
 		mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 		var fscr = document.getElementsByTagName('script')[0];
 		fscr.parentNode.insertBefore(mt, fscr);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

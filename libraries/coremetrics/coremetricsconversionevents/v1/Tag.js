@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"coremetrics.coremetricsconversionevents.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "CoreMetrics - Conversion Events",
 			async: true,
 			description: "Track custom conversion events with CoreMetrics. Note that this tag depends on other CoreMetrics tags having already loaded on the page.",
@@ -35,25 +35,25 @@ qubit.opentag.LibraryTag.define(
 				token: "points",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			cmCreateConversionEventTag(
 				"" + this.valueForToken("event_id"),
 				"" + this.valueForToken("action_type"),
 				"" + this.valueForToken("event_category_id"),
 				"" + this.valueForToken("points")
 			);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "WebGains [DEPRECATED]",
 		async: true,
 		description: "",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		window.wgItems = function() {
 			var wgItemsString = "";
@@ -68,14 +68,14 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecated.v1.Tag", {
 		webGainsScript.src = wgUri;
 
 		document.body.appendChild(webGainsScript);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

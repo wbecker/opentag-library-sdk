@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"radiumone.radiumonegenericpagesdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "RadiumOne - Generic Pages DEPRECATED",
 			async: true,
 			description: "",
@@ -20,11 +20,11 @@ qubit.opentag.LibraryTag.define(
 				token: "shop_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			// Get timestamp (cachebuster)
 			var time = new Date().getTime();
 			// Iframe
@@ -38,14 +38,14 @@ qubit.opentag.LibraryTag.define(
 			iframe.marginHeight = 0;
 			iframe.scrolling = 'no';
 			document.body.appendChild(iframe);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

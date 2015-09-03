@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithparameters.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Impression Desk Pixel With Parameters",
 		async: true,
 		description: "",
@@ -109,11 +109,11 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithparameters.v1
 			token: "product_brand",
 			uv: "universal_variable.transaction.line_items[#].product.manufacturer"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		var skus = [], prices = [], brands = [];
 		for (var i = 0; i < this.valueForToken("product_SKU").length; i++) {
@@ -168,14 +168,14 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithparameters.v1
 	    img.setAttribute("src", src);
 	    document.body.appendChild(img);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

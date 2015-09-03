@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "QuantCast Web Measurement",
 		async: true,
 		description: "Provides audience information showcasing your website’s traffic, demographic, geographic, affinities and business stats.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._qevents = window._qevents || [];
 
 		var e = document.createElement("script");
@@ -34,14 +34,14 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.v1.Tag", {
 		_qevents.push({
 			qacct: "" + this.valueForToken("id")
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

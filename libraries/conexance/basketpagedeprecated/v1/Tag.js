@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("conexance.basketpagedeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket Page [DEPRECATED]",
 		async: true,
 		description: "Picks up on basket page abandonment",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("conexance.basketpagedeprecated.v1.Tag", {
 			token: "quantity_list",
 			uv: "universal_variable.basket.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var require = function(url, cb) {
 			var script = document.createElement("script");
@@ -68,14 +68,14 @@ qubit.opentag.LibraryTag.define("conexance.basketpagedeprecated.v1.Tag", {
 			});
 		});
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

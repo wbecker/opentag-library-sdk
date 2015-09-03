@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Google AdWords Conversion Async",
 		async: true,
 		description: "Tracks users that have converted who previously clicked through on an ad.",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.v1.Tag", {
 			token: "value",
 			uv: "universal_variable.transaction.subtotal"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		window.google_trackConversion({
 			google_conversion_id: this.valueForToken("conversion_id"),
 			google_conversion_label: "" + this.valueForToken("label"),
@@ -50,6 +50,6 @@ qubit.opentag.LibraryTag.define("google.googleadwordsconversionasync.v1.Tag", {
 			google_is_call: true,
 			google_custom_params: {}
 		});
-		/*~POST*/
+		/*~post*/
 	}
 });

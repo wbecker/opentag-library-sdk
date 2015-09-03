@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "iGoDigital Observation",
 		async: true,
 		description: "Monitors the behavior of your website traffic, including user activity, intent, and outcome.",
@@ -89,11 +89,11 @@ qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.v1.Tag", {
 			token: "rtaTags",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		// iGoDigital RTA Initialization
 		window.rtaRetailer = "" + this.valueForToken("rtaRetailer");
 		window.rtaProductSKU = "" + this.valueForToken("rtaProductSKU");
@@ -114,14 +114,14 @@ qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.v1.Tag", {
 		addLoadEvent(function() {
 			callRTA();
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

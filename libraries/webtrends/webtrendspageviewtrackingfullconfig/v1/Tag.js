@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"webtrends.webtrendspageviewtrackingfullconfig.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Webtrends pageview tracking - full config",
 			async: true,
 			description: "The main WebTrends tag with full configuration options. Should be placed on every page. See http://help.webtrends.com/en/jstag/ for full details of the different parameters.",
@@ -80,15 +80,15 @@ qubit.opentag.LibraryTag.define(
 				token: "cookieTypes",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			var _this = this;
 			window.webtrendsAsyncInit = function() {
 				var options = {
@@ -121,10 +121,10 @@ qubit.opentag.LibraryTag.define(
 				dcs.init(options);
 				dcs.track();
 			};
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

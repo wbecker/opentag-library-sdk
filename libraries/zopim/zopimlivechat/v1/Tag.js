@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("zopim.zopimlivechat.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Zopim Livechat",
 		async: true,
 		description: "Real-time customer satisfaction made simple. Implement Zopim's live chat functionality on your site.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("zopim.zopimlivechat.v1.Tag", {
 			token: "client_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		window.$zopim || (function(d, s) {
 			var z = $zopim = function(c) {
@@ -45,14 +45,14 @@ qubit.opentag.LibraryTag.define("zopim.zopimlivechat.v1.Tag", {
 			type = 'text/javascript';
 			e.parentNode.insertBefore($, e)
 		})(document, 'script');
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

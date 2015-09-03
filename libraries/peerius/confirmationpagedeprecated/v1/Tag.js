@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.confirmationpagedeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Page - DEPRECATED",
 		async: true,
 		description: "Peerius tag for the confirmation page",
@@ -59,15 +59,15 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpagedeprecated.v1.Tag", {
 			token: "price_list",
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks = {
 			track: {
 				type: "checkout",
@@ -89,10 +89,10 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpagedeprecated.v1.Tag", {
 				price: this.valueForToken("price_list")[i]
 			});
 		}
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

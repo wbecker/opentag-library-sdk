@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("modernizr.modernizr206.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "modernizr 2.0.6",
 		async: true,
 		description: "Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("modernizr.modernizr206.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

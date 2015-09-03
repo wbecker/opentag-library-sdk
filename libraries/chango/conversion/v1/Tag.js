@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("chango.conversion.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion",
 		async: true,
 		description: "",
@@ -59,11 +59,11 @@ qubit.opentag.LibraryTag.define("chango.conversion.v1.Tag", {
 			token: "conversion_type",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var skus = [];
 		if (this.valueForToken("skus").length) {
 			for (var i = 0; i < this.valueForToken("skus").length; i++) {
@@ -91,14 +91,14 @@ qubit.opentag.LibraryTag.define("chango.conversion.v1.Tag", {
 		}
 		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
 			(new Date()).getTime() + '?' + p.join("&");
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Data Partner Tag - Hotel Search",
 		async: true,
 		description: "",
@@ -59,11 +59,11 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 			token: "airport_to_hotel",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var src = document.location.protocol + "//pixel.sojern.com/partner/" +
 			this.valueForToken("sojern_partner_key") + "/hs?";
 		src += "t=" + this.valueForToken("number_of_travellers") + "&";
@@ -75,14 +75,14 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 		src += "hn1=" + this.valueForToken("country") + "&";
 		src += "ha1=" + this.valueForToken("airport_to_hotel");
 		(new Image()).src = src;
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

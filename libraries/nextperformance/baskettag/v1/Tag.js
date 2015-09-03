@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("nextperformance.baskettag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket Tag",
 		async: true,
 		description: "Tag to be inserted on the shopping carts pages, pre-confirmation.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("nextperformance.baskettag.v1.Tag", {
 			token: "zid",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("visualdna.basketremovalreport.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket Removal Report",
 		async: true,
 		description: "This tag should fire when a user removes an item from their basket. The tag must have a dependency on the Visual DNA Page View Report tag.",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("visualdna.basketremovalreport.v1.Tag", {
 			token: "currency",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 		window.VDNA.queue.push({
@@ -63,14 +63,14 @@ qubit.opentag.LibraryTag.define("visualdna.basketremovalreport.v1.Tag", {
 				"currency": "" + this.valueForToken("currency")
 			}]
 		});
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

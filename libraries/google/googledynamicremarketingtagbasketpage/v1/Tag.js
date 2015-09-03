@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googledynamicremarketingtagbasketpage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Dynamic Remarketing Tag - Basket Page",
 			async: true,
 			description: "",
@@ -40,11 +40,11 @@ qubit.opentag.LibraryTag.define(
 				token: "google_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var productIdsArray = [];
 			for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
 				productIdsArray.push(this.valueForToken("product_ids")[i]);
@@ -73,14 +73,14 @@ qubit.opentag.LibraryTag.define(
 			script.type = "text/javascript";
 			script.src = "//www.googleadservices.com/pagead/conversion.js";
 			document.head.appendChild(script);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

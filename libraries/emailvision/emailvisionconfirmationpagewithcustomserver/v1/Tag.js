@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"emailvision.emailvisionconfirmationpagewithcustomserver.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Emailvision - Confirmation page with custom server",
 			async: true,
 			description: "The Emailvision tag to be used on confirmation pages, with the option to fully specify a custom server.",
@@ -50,11 +50,11 @@ qubit.opentag.LibraryTag.define(
 				token: "server_name",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = "//" + this.valueForToken("server_name") + "/P?";
 			src += "emv_client_id=" + this.valueForToken("client_id");
 			src += "&emv_value=" + this.valueForToken("order_total");
@@ -73,14 +73,14 @@ qubit.opentag.LibraryTag.define(
 			pixel.setAttribute("width", "1");
 			pixel.setAttribute("height", "1");
 			document.body.appendChild(pixel);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

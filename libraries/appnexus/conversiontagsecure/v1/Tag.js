@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("appnexus.conversiontagsecure.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Tag (Secure)",
 		async: true,
 		description: "",
@@ -24,19 +24,19 @@ qubit.opentag.LibraryTag.define("appnexus.conversiontagsecure.v1.Tag", {
 			token: "appnexus_segment",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

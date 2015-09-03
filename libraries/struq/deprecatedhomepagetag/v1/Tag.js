@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "[Deprecated] Home Page Tag",
 		async: true,
 		description: "To be placed on the homepage only",
@@ -16,15 +16,15 @@ qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._struqPI = window._struqPI || [];
 
 		_struqPI.push(['injectTrackingPixel', {
@@ -36,10 +36,10 @@ qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
 			}
 		}]);
 
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

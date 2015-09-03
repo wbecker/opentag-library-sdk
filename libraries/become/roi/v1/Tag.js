@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "ROI",
 		async: true,
 		description: "ROI script to be placed on the Confirmation Page",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 			token: "product_price_list",
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window.become_merchant_id = '' + this.valueForToken("become_merchant_id");
 		window.become_order_num = '' + this.valueForToken("order_number");
 		window.become_purchased_items = [];
@@ -72,14 +72,14 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 		var script = document.createElement("script");
 		script.src = "https://partner.become.com/roi-tracker2/conversion.js";
 		document.body.appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

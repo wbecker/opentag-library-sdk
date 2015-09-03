@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"sojern.advertisertaghotelpurchaseconfirmationpage.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Advertiser Tag - Hotel Purchase Confirmation Page",
 			async: true,
 			description: "",
@@ -125,11 +125,11 @@ qubit.opentag.LibraryTag.define(
 				token: "name",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src = "https://beacon.sojern.com/p/5?";
 			src += "et=" + this.valueForToken("event") + "&";
 			src += "t=" + this.valueForToken("travellers") + "&";
@@ -154,14 +154,14 @@ qubit.opentag.LibraryTag.define(
 			src += "hpr=" + this.valueForToken("property") + "&";
 			src += "hlt=" + this.valueForToken("tier");
 			(new Image()).src = src;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

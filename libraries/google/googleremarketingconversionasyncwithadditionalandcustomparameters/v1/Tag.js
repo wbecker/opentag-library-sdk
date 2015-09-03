@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googleremarketingconversionasyncwithadditionalandcustomparameters.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Remarketing Conversion Async, with additional and custom parameters",
 			async: true,
 			description: "Contains additional parameters including color, language, and format. Also includes custom parameter support.",
@@ -50,19 +50,19 @@ qubit.opentag.LibraryTag.define(
 				token: "custom",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			window.google_trackConversion({
 				google_conversion_id: this.valueForToken("conversion_id"),
 				google_conversion_label: "" + this.valueForToken("label"),
@@ -72,6 +72,6 @@ qubit.opentag.LibraryTag.define(
 				google_conversion_value: this.valueForToken("value"),
 				google_custom_params: this.valueForToken("custom")
 			});
-			/*~POST*/
+			/*~post*/
 		}
 	});

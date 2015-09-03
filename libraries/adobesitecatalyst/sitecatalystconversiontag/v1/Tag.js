@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"adobesitecatalyst.sitecatalystconversiontag.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "SiteCatalyst Conversion Tag",
 			async: true,
 			description: "This should be placed only conversion/confirmation page. Any unused variables should be left blank.",
@@ -135,19 +135,19 @@ qubit.opentag.LibraryTag.define(
 				token: "evar5",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			var s = window.s;
 
 			s.pageName = "" + this.valueForToken("page_name");
@@ -190,6 +190,6 @@ qubit.opentag.LibraryTag.define(
 
 			window.s_code = s.t();
 
-			/*~POST*/
+			/*~post*/
 		}
 	});

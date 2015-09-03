@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"bing.bingadcentercampaignanalyticsfullycustomizable.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Bing AdCenter Campaign Analytics - Fully Customizable",
 			async: true,
 			description: "Script to generate reports on the success of your advertising campaigns via Bing Search. Fully customizable.",
@@ -45,19 +45,19 @@ qubit.opentag.LibraryTag.define(
 				token: "ACTION_ID",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

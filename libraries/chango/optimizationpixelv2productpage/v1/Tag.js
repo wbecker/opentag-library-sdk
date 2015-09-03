@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("chango.optimizationpixelv2productpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Optimization Pixel	[v2] - Product Page",
 		async: true,
 		description: "Chango's optimization pixel is a site-wide data gathering tool used to improve retargeting services. It should fire on every page.",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2productpage.v1.Tag", 
 			token: "PC_VALUE",
 			uv: "universal_variable.product.category"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 
 		window.__cho__ = {
@@ -81,14 +81,14 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2productpage.v1.Tag", 
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(c, s);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

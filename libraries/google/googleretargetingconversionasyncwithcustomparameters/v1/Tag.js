@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googleretargetingconversionasyncwithcustomparameters.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Retargeting Conversion Async with custom parameters",
 			async: true,
 			description: "",
@@ -20,19 +20,19 @@ qubit.opentag.LibraryTag.define(
 				token: "google_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
+			/*post*/
 			var _this = this;
 			var poll = function() {
 				if (window.google_trackConversion) {
@@ -47,6 +47,6 @@ qubit.opentag.LibraryTag.define(
 			};
 
 			poll();
-			/*~POST*/
+			/*~post*/
 		}
 	});

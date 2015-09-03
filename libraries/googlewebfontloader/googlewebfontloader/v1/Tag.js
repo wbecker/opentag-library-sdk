@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googlewebfontloader.googlewebfontloader.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google WebFont Loader",
 			async: true,
 			description: "Google Web Fonts lets you browse all the fonts available via the Google Web Fonts API. All fonts in the directory are available for use on your website under an open source license and are served by Google servers.",
@@ -20,11 +20,11 @@ qubit.opentag.LibraryTag.define(
 				token: "font_family",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window.WebFontConfig = {
 				google: {
 					families: ['' + this.valueForToken("font_family")]
@@ -37,14 +37,14 @@ qubit.opentag.LibraryTag.define(
 			wf.async = 'true';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(wf, s);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

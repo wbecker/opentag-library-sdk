@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecgeneric.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Enhanced Ecommerce - Pageview - Generic",
 		async: true,
 		description: "",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecgeneric.v1.Tag", {
 				defaultValue: {}
 			}
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-	/*SCRIPT*/
+	/*script*/
 		(function(i, s, o, g, r, a, m) {
 			i["GoogleAnalyticsObject"] = r;
 			i[r] = i[r] || function() {
@@ -64,14 +64,14 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecgeneric.v1.Tag", {
 		}
 
 		ga("send", "pageview", this.valueForToken("pageview_conf"));
-	/*~SCRIPT*/
+	/*~script*/
 	},
 	pre: function() {
-	/*PRE*/
-	/*~PRE*/
+	/*pre*/
+	/*~pre*/
 	},
 	post: function() {
-	/*POST*/
-	/*~POST*/
+	/*post*/
+	/*~post*/
 	}
 });

@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"googleanalytics.googleanalyticsecommercesupportsdisplayadvertising.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Analytics Ecommerce - supports display advertising",
 			async: true,
 			description: "The standard ecommerce tag, but pointing to the Doubleclick servers to support display advertising.",
@@ -80,11 +80,11 @@ qubit.opentag.LibraryTag.define(
 				token: "itemQuantities",
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window._gaq = window._gaq || [];
 			_gaq.push(['_setAccount', '' + this.valueForToken("PROFILE_ID")]);
 			_gaq.push(['_trackPageview']);
@@ -119,14 +119,14 @@ qubit.opentag.LibraryTag.define(
 				'stats.g.doubleclick.net/dc.js';
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(ga, s);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

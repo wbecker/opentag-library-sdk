@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpages.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "CoreMetrics - Product pages",
 		async: true,
 		description: "To be used on product pages.",
@@ -59,19 +59,19 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpages.v1.Tag", {
 			token: "sendpageview",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		// Client Setup
 		window.cmSetClientID(
 			"" + this.valueForToken("client_id"),
@@ -94,6 +94,6 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpages.v1.Tag", {
 			"" + this.valueForToken("product_name"),
 			"" + this.valueForToken("category_id")
 		);
-		/*~POST*/
+		/*~post*/
 	}
 });

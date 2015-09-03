@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Kenshoo Thank-You Page Tracking",
 		async: true,
 		description: "Kenshoo conversion tracking is an open, flexible system for collecting and utilizing information on conversions. You can track conversions through tracking pixels on the target website, transaction reports, or Kenshoo's Seamless Site Tracking option.",
@@ -49,19 +49,19 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var params = new Array();
 		params[0] = 'id=' + this.valueForToken("id");
 		params[1] = 'type=' + this.valueForToken("type");
@@ -70,6 +70,6 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.v1.Tag", {
 		params[4] = 'promoCode=' + this.valueForToken("voucher");
 		params[5] = 'valueCurrency=' + this.valueForToken("currency");
 		window.k_trackevent(params, '' + this.valueForToken("ks_num"));
-		/*~POST*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("cryptojs.sha1hashingv312.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "SHA1 Hashing - v3.1.2.",
 		async: true,
 		description: "e.g. var hash = CryptoJS.SHA1(\"Message\").toString();",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("cryptojs.sha1hashingv312.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		if (!(window.CryptoJS && typeof(window.CryptoJS.SHA1) === "function")) {
 			/*
@@ -266,14 +266,14 @@ code.google.com/p/crypto-js/wiki/License
 				e.HmacSHA1 = j._createHmacHelper(m)
 			})();
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

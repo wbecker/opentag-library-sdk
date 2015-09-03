@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sammy.sammyjs063.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "sammy.js 0.6.3",
 		async: true,
 		description: "Sammy is built on a system of plugins and adapters . Only include the code you need. It's also easy to extract your own code into reusable plugins.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("sammy.sammyjs063.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

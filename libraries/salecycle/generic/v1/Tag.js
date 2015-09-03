@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("salecycle.generic.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Generic",
 		async: true,
 		description: "To implement SaleCycle, SaleCycle code must be pasted into the relevant web pages on your live website.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("salecycle.generic.v1.Tag", {
 			token: "clientName",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

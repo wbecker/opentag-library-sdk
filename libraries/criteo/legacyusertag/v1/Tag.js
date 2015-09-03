@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.legacyusertag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Legacy - User Tag",
 		async: true,
 		description: "The user tag is a special tag used on an ad hoc basis, most of the time with extra data.",
@@ -29,11 +29,11 @@ qubit.opentag.LibraryTag.define("criteo.legacyusertag.v1.Tag", {
 			token: "call_parameter",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var img = document.createElement("img");
 		var src = [
 			"//",
@@ -49,14 +49,14 @@ qubit.opentag.LibraryTag.define("criteo.legacyusertag.v1.Tag", {
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "1");
 		document.body.appendChild(img);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

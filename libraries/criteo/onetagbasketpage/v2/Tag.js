@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetagbasketpage.v2.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Basket Page",
 		async: true,
 		description: "The basket tag has to be integrated on the basket or checkout page.",
@@ -55,19 +55,19 @@ qubit.opentag.LibraryTag.define("criteo.onetagbasketpage.v2.Tag", {
 			token: "email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var products = [];
 
 		for (var i = 0; i < this.valueForToken("product_ids").length; i++) {
@@ -104,6 +104,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagbasketpage.v2.Tag", {
 			event: "viewBasket",
 			product: products
 		}, passedemail);
-		/*~POST*/
+		/*~post*/
 	}
 });

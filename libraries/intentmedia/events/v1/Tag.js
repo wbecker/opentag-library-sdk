@@ -1,7 +1,7 @@
 qubit.opentag.LibraryTag.define("intentmedia.events.v1.Tag", {
   getDefaultConfig: function () {
       return {
-    /*DATA*/
+    /*config*/
     name: "Intent Media - Events",
     description: "To be used in conjunction with the Search Compare Ads Tag to handle Intent Media events",
     upgradeable: true,
@@ -14,27 +14,27 @@ qubit.opentag.LibraryTag.define("intentmedia.events.v1.Tag", {
         uv: "",
         defaultValue: ""
     }]
-	/*~DATA*/
+	/*~config*/
 		};
   },
 
   script: function () {
-    /*SCRIPT*/
+    /*script*/
       if(this.valueForToken("im_event")) {
           if(IntentMedia && IntentMedia.trigger) {
               IntentMedia.trigger(this.valueForToken("im_event"));
           }
       }
-  	/*~SCRIPT*/
+  	/*~script*/
   },
 
   pre: function () {
-    /*PRE*/
-  	/*~PRE*/
+    /*pre*/
+  	/*~pre*/
   },
 
   post: function() {
-    /*POST*/
-    /*~POST*/
+    /*post*/
+    /*~post*/
   }
 });

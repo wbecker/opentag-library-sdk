@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Page Conversion Pixel",
 		async: true,
 		description: "Build audience profiles for both groups of customers, allowing to overlay that data on top of inventory operated by networks using the platform, or on top of third party ad exchange inventory. Retargeting based on conversion events, previous clicks on ads and other customer lifecycle events are all made possible in a simple, integrated interface.",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.v1.Tag",
 			token: "chipkey",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		if (typeof ADGEAR == "undefined") {
 			var proto = "http:";
@@ -61,14 +61,14 @@ qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.v1.Tag",
 			};
 			waitForAdgear();
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

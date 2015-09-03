@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("lessjs.lessjs113.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "less.js 1.1.3",
 		async: true,
 		description: "LESS extends CSS with dynamic behavior such as variables, mixins, operations and functions. LESS runs on both the client-side (IE 6+, Webkit, Firefox) and server-side, with Node.js.",
@@ -15,19 +15,19 @@ qubit.opentag.LibraryTag.define("lessjs.lessjs113.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

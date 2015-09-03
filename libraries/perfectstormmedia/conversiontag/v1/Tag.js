@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Tag",
 		async: true,
 		description: "",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.v1.Tag", {
 			token: "product_list",
 			uv: "universal_variable.transaction.line_items[#].product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var img = document.createElement("img");
 		img.height = 1;
 		img.width = 1;
@@ -59,14 +59,14 @@ qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.v1.Tag", {
 			product_ids;
 
 		document.body.appendChild(img);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

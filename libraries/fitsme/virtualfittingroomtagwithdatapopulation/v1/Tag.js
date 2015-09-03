@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"fitsme.virtualfittingroomtagwithdatapopulation.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Virtual Fitting Room Tag - With Data Population",
 			async: true,
 			description: "This product page tag adds the code needed to populate the \"fitsme_launcher\" div and makes sure GA is properly prepared (if present). This tag also populates the FitsMeData object prior to loading the code.",
@@ -55,15 +55,15 @@ qubit.opentag.LibraryTag.define(
 				token: "prices",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			var _this = this;
 			var fm_categories = (function() {
 				var temp = [];
@@ -106,10 +106,10 @@ qubit.opentag.LibraryTag.define(
 			_gaq.push(['_setAllowHash', false]);
 			
 			window._gaq = _gaq;
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

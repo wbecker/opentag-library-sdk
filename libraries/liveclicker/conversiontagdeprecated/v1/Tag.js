@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Tag DEPRECATED",
 		async: true,
 		description: "Should be placed on the confirmation page only",
@@ -24,11 +24,11 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 			token: "account_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var revenue = parseFloat(this.valueForToken("order_total")) * 100;
 		var script = document.createElement('script');
 
@@ -37,14 +37,14 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 			this.valueForToken("account_id") + '&value=' + revenue;
 
 		document.getElementsByTagName('head')[0].appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

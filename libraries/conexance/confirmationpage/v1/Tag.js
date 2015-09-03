@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("conexance.confirmationpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Page",
 		async: true,
 		description: "To be placed on the confirmation page. Tracks order transactions. Order number is compulsory all other parameters should be filled with 0 if unavailable. No currency symbols allowed.",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("conexance.confirmationpage.v1.Tag", {
 			token: "user_id",
 			uv: "universal_variable.user.user_id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 
 		var require = function(url, cb) {
@@ -90,14 +90,14 @@ qubit.opentag.LibraryTag.define("conexance.confirmationpage.v1.Tag", {
 		});
 
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

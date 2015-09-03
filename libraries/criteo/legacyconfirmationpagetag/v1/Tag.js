@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Legacy - Confirmation Page Tag",
 		async: true,
 		description: "This is a mandatory tag and must be executed on the confirmation page after user made payment.",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.v1.Tag", {
 			token: "quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var src = [
 			"https://", "sslwidget.criteo.com", "/",
 			"" + this.valueForToken("call_parameter"),
@@ -76,14 +76,14 @@ qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.v1.Tag", {
 		img.setAttribute("height", "1");
 		img.setAttribute("width", "1");
 		document.body.appendChild(img);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

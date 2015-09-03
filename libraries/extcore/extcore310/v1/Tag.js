@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("extcore.extcore310.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "ext-core 3.1.0",
 		async: true,
 		description: "Ext JS offers an extraordinary range of user interface widgets. High performance scalable grids, trees, menus, and more. If you need it, we've probably already built it. And even if it's not in the core library, you're almost certain to find it in the thousands of user extensions from our million-strong Sencha community.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("extcore.extcore310.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sociomantic.confirmationtag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Tag",
 		async: true,
 		description: "The transaction ID is required on the Confirmation page along with extra information such as currency, amounts, quantities, checkout total and product IDs. Now includes optional user ID support. MUST be set as dependent on CryptoJS SHA1 (Web Utilities in the tag library)",
@@ -59,15 +59,15 @@ qubit.opentag.LibraryTag.define("sociomantic.confirmationtag.v1.Tag", {
 			token: "user_email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.basket = {
 			products: []
 		};
@@ -114,10 +114,10 @@ qubit.opentag.LibraryTag.define("sociomantic.confirmationtag.v1.Tag", {
 			var parts = document.cookie.split("qb_sm_uid=");
 			if (parts.length == 2) window.customer.identifier = parts.pop().split(";").shift();
 		}
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

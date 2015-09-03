@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "CJ Conversion Pixel",
 		async: true,
 		description: "The conversion pixel code to enable Commission Junction to track purchases on the confirmation pages.",
@@ -59,11 +59,11 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 			token: "containerid",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var url = "https://www.emjcd.com/tags/c?containerTagId=" + this.valueForToken(
 			"containerid") + "&";
 		for (var i = 0, ii = this.valueForToken("item_ids").length; i < ii; i++) {
@@ -85,14 +85,14 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 		iframe.scrolling = 0;
 		iframe.src = url;
 		document.body.appendChild(iframe);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qype.qype.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Qype",
 		async: true,
 		description: "Qype is a local review site - http://www.qype.co.uk/.",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("qype.qype.v1.Tag", {
 			token: "DIV_ID",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

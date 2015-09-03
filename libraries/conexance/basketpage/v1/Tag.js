@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket Page",
 		async: true,
 		description: "Picks up on basket page abandonment",
@@ -54,11 +54,11 @@ qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
 			token: "voucher",
 			uv: "universal_variable.basket.voucher"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var safeLoad = function(url, variable, cb) {
 			var isLoading = function() {
@@ -119,14 +119,14 @@ qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
 					});
 			});
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

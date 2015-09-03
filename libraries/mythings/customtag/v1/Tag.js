@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mythings.customtag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Custom  Tag",
 		async: true,
 		description: "This is a custom myThings tracking tag in which the action number can be specified.",
@@ -29,15 +29,15 @@ qubit.opentag.LibraryTag.define("mythings.customtag.v1.Tag", {
 			token: "action_number",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		var _this = this;
 		window._mt_ready = function () {
 			if (typeof(MyThings) != "undefined") {
@@ -51,10 +51,10 @@ qubit.opentag.LibraryTag.define("mythings.customtag.v1.Tag", {
 		window.mtHost = (("https:" == document.location.protocol) ? "https" : "http") +
 			"://" + this.valueForToken("subdomain") + ".mythings.com";
 		window.mtAdvertiserToken = "" + this.valueForToken("advertiser_token");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

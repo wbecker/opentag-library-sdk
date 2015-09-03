@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("peerius.categorypage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Category Page",
 		async: true,
 		description: "Peerius tag for the category page (if using universal_variable: universal_variable.page.subcategory should be in - separated format e.g. * - * - * etc)",
@@ -29,15 +29,15 @@ qubit.opentag.LibraryTag.define("peerius.categorypage.v1.Tag", {
 			token: "subcategory",
 			uv: "universal_variable.page.subcategory"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.PeeriusCallbacks = {
 			track: {
 				type: "category",
@@ -45,10 +45,10 @@ qubit.opentag.LibraryTag.define("peerius.categorypage.v1.Tag", {
 				category: ("" + this.valueForToken("subcategory")).replace(/\s-\s/g, ">")
 			}
 		};
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

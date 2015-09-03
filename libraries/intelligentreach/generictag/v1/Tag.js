@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("intelligentreach.generictag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Generic Tag",
 		async: true,
 		description: "Tag to be applied to all pages",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("intelligentreach.generictag.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

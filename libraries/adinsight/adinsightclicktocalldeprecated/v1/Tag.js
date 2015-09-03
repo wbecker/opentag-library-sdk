@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"adinsight.adinsightclicktocalldeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "AdInsight Click to Call DEPRECATED",
 			async: true,
 			description: "DEPRECATED",
@@ -20,20 +20,20 @@ qubit.opentag.LibraryTag.define(
 				token: "Account_Id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
+			/*pre*/
 			window.adiInit = "" + this.valueForToken("Account_Id");
-			/*~PRE*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

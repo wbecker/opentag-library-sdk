@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"flixmedia.checkoutendpagewithextraeanparameter.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Checkout End Page with extra EAN parameter",
 			async: true,
 			description: "This version also sends through the EAN or UPC of the product that is being checked out. Use this version only if the EAN product value is available.",
@@ -40,11 +40,11 @@ qubit.opentag.LibraryTag.define(
 				token: "id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var products = [];
      
 			for (var i=0; i< this.valueForToken("skus").length; i++)
@@ -64,14 +64,14 @@ qubit.opentag.LibraryTag.define(
 				 "basket_id" : "" + this.valueForToken("id"),
 				 "basket" : products 
 			});
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

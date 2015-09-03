@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"marinsoftware.zzconversioncapturecodedeprecatedr2.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "zz-Conversion Capture Code [DEPRECATED] R2",
 			async: true,
 			description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together.",
@@ -50,11 +50,11 @@ qubit.opentag.LibraryTag.define(
 				token: "tracking_id",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window._mTrack = window._mTrack || [];
 
 			var productIDs = "";
@@ -98,14 +98,14 @@ qubit.opentag.LibraryTag.define(
 			mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 			var fscr = document.getElementsByTagName('script')[0];
 			fscr.parentNode.insertBefore(mt, fscr);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

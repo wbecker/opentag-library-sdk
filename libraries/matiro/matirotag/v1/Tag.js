@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("matiro.matirotag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Matiro Tag",
 		async: true,
 		description: "Real-time web market advertising tag",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("matiro.matirotag.v1.Tag", {
 			token: "order_amount",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

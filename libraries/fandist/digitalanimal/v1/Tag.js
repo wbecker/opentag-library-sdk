@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("fandist.digitalanimal.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Digital Animal",
 		async: true,
 		description: "This will enable fandi.st to show you what impact your Campaigns are having on your site.",
@@ -19,24 +19,24 @@ qubit.opentag.LibraryTag.define("fandist.digitalanimal.v1.Tag", {
 			token: "client_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var uv = window.universal_variable || {};
 		var src = "//a.fandi.st/pixel.gif?acc=" + this.valueForToken("client_id") +
 			"&camp=1&d=" + window.encodeURIComponent(JSON.stringify(uv));
 		var fandImage = new Image();
 		fandImage.src = src;
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

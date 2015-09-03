@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Travel Search Page",
 		async: true,
 		description: "This is a search tag specifically built for travel enquiries, as it stores check-in and check-out dates.",
@@ -49,19 +49,19 @@ qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.v1.Tag", {
 			token: "check_out",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		//Criteo suggests that this list should only be 3 products long.
 		var products = [];
 
@@ -100,6 +100,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.v1.Tag", {
 				checkout_date: "" + this.valueForToken("check_out")
 			}
 		);
-		/*~POST*/
+		/*~post*/
 	}
 });

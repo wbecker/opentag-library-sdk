@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("insparq.purchasetrackingpixel.v1.Tag", {
   getDefaultConfig: function () {
       return {
-    /*DATA*/
+    /*config*/
     name: "Purchase Tracking Pixel",
     async: true,
     description: "inSparq uses a tracking pixel to capture purchase data for two purposes: (1) As an input in calculating scores for trending products. (2) Tracking the business performance of inSparq installations in our analytics.",
@@ -74,11 +74,11 @@ qubit.opentag.LibraryTag.define("insparq.purchasetrackingpixel.v1.Tag", {
       token: "user_email",
       uv: "universal_variable.user.email"
     }]
-    /*~DATA*/
+    /*~config*/
 		};
   },
   script: function () {
-    /*SCRIPT*/
+    /*script*/
     var ids = "";
     var names = "";
     var prices = "";
@@ -116,14 +116,14 @@ qubit.opentag.LibraryTag.define("insparq.purchasetrackingpixel.v1.Tag", {
     src += "&buyerEmail=" + this.valueForToken("user_email");
 
     (new Image()).src = src;
-    /*~SCRIPT*/
+    /*~script*/
   },
   pre: function () {
-    /*PRE*/
-    /*~PRE*/
+    /*pre*/
+    /*~pre*/
   },
   post: function () {
-    /*POST*/
-    /*~POST*/
+    /*post*/
+    /*~post*/
   }
 });

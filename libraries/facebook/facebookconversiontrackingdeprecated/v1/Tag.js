@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"facebook.facebookconversiontrackingdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Facebook Conversion Tracking DEPRECATED",
 			async: true,
 			description: "Conversion tracking helps businesses measure the return on investment of their Facebook Ads by reporting on the actions people take after viewing those ads.",
@@ -25,11 +25,11 @@ qubit.opentag.LibraryTag.define(
 				token: "subtotal",
 				uv: "universal_variable.transaction.subtotal"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			window.fb_param = {};
 			fb_param.pixel_id = '' + this.valueForToken("pixel_id");
 			fb_param.value = '' + this.valueForToken("subtotal");
@@ -38,14 +38,14 @@ qubit.opentag.LibraryTag.define(
 			fpw.src = '//connect.facebook.net/en_US/fp.js';
 			var ref = document.getElementsByTagName('script')[0];
 			ref.parentNode.insertBefore(fpw, ref);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

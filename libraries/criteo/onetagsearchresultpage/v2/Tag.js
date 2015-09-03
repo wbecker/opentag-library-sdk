@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v2.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Search Result Page",
 		async: true,
 		description: "Add to a page listing products. This will pick off the first three values in the Listing Product IDs array and send them to Criteo, with (by default) the search query as keywords. INTENDED FOR: Pages which include a query in their UV Listing.",
@@ -50,19 +50,19 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v2.Tag", {
 			token: "email",
 			uv: "universal_variable.user.email"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
         if (this.valueForToken("email")!='') {
             var passedemail = {event: "setEmail", email: [this.valueForToken("email")]};
         } else {
@@ -100,6 +100,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v2.Tag", {
 			product: products,
 			keywords: "" + this.valueForToken("search_query")
 		}, passedemail);
-		/*~POST*/
+		/*~post*/
 	}
 });

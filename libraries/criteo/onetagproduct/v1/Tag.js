@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("criteo.onetagproduct.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "OneTag - Product",
 		async: true,
 		description: "This must be placed on all the advertiser product pages.",
@@ -34,19 +34,19 @@ qubit.opentag.LibraryTag.define("criteo.onetagproduct.v1.Tag", {
 			token: "product_id",
 			uv: "universal_variable.product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		var user_id = "" + this.valueForToken("customer_id");
 		//Remove email if present.
 		if (user_id.indexOf("@") > -1) {
@@ -67,6 +67,6 @@ qubit.opentag.LibraryTag.define("criteo.onetagproduct.v1.Tag", {
 			event: "viewItem",
 			product: "" + this.valueForToken("product_id")
 		});
-		/*~POST*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("visualdna.pageviewreport.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Page View Report",
 		async: true,
 		description: "This tag should fire across all pages and all other Visual DNA tags should have a dependency on this tag. If normal page transition is being used on the site, then an empty array should be assigned to the \"window.history generated URLs\" parameter. Otherwise, a 2-element array (containing the current URL and the referrer URL) should be assigned to the \"window.history generated URLs\" parameter using a JS Expression. If window.history is being used then this tag should fire every time the host page make a history mutation.",
@@ -24,19 +24,19 @@ qubit.opentag.LibraryTag.define("visualdna.pageviewreport.v1.Tag", {
 			token: "window_history",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
+		/*post*/
 		window.VDNA = window.VDNA || {};
 		window.VDNA.queue = window.VDNA.queue || [];
 		var object = {
@@ -47,6 +47,6 @@ qubit.opentag.LibraryTag.define("visualdna.pageviewreport.v1.Tag", {
 			object.args = this.valueForToken("window_history");
 		}
 		window.VDNA.queue.push(object);
-		/*~POST*/
+		/*~post*/
 	}
 });

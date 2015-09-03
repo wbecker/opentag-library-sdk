@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"prismastar.orderconfirmationtrackingpixel.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Order Confirmation Tracking Pixel",
 			async: true,
 			description: "The tracking code is an asynchronous call to the reporting gateway passing with it the details of the order. The reporting system can then cross reference the session with sessions already populated with a Selector history and derive time to order and average order values.",
@@ -50,11 +50,11 @@ qubit.opentag.LibraryTag.define(
 				token: "categories",
 				uv: "universal_variable.transaction.line_items[#].product.category"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var pixel = new Image();
 			var source = "https://" +
 				this.valueForToken("GATEWAY_PREFIX") +
@@ -73,14 +73,14 @@ qubit.opentag.LibraryTag.define(
 			}
 
 			pixel.src = source;
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

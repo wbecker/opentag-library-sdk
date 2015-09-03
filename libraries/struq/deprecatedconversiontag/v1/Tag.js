@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "[Deprecated] Conversion Tag",
 		async: true,
 		description: "To be placed only on the confirmation page",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var rnd, ifrm = document.createElement("IFRAME"),
 			i = 0,
 			ii = this.valueForToken("product_id_list").length,
@@ -61,14 +61,14 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 		ifrm.height = '1px';
 		ifrm.style.display = 'none';
 		document.body.appendChild(ifrm);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

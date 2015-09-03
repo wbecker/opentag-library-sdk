@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("skimlinks.skimlinks.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Skimlinks",
 		async: true,
 		description: "Converts any normal product or merchant link in your content into its equivalent affiliate link as a user clicks on it.",
@@ -19,19 +19,19 @@ qubit.opentag.LibraryTag.define("skimlinks.skimlinks.v1.Tag", {
 			token: "publisher_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

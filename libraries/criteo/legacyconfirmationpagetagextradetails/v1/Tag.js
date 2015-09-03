@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"criteo.legacyconfirmationpagetagextradetails.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Legacy - Confirmation Page Tag - Extra details",
 			async: true,
 			description: "This is a mandatory tag and must be executed on the confirmation page after user made payment. This contains variables to specify whether the user is new and also whether the sale was post-click or post-impression.",
@@ -55,11 +55,11 @@ qubit.opentag.LibraryTag.define(
 				token: "quantities",
 				uv: "universal_variable.transaction.line_items[#].quantity"
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var src, newUser, isNotPostClick, params;
 			src = [
 				"https://", "sslwidget.criteo.com", "/",
@@ -94,14 +94,14 @@ qubit.opentag.LibraryTag.define(
 			img.setAttribute("height", "1");
 			img.setAttribute("width", "1");
 			document.body.appendChild(img);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

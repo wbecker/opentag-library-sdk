@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Page",
 		async: true,
 		description: "Standard Version",
@@ -74,11 +74,11 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 			token: "quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		function readCookie(name) {
 			var nameEQ = name + "=";
 			var ca = document.cookie.split(';');
@@ -122,14 +122,14 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpage.v1.Tag", {
 		var img = document.createElement("img");
 		img.setAttribute("src", src.join(""));
 		document.body.appendChild(img);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

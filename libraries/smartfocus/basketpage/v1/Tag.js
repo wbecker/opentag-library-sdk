@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("smartfocus.basketpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basket Page",
 		async: true,
 		description: "",
@@ -29,15 +29,15 @@ qubit.opentag.LibraryTag.define("smartfocus.basketpage.v1.Tag", {
 			token: "title",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._advisorq = window._advisorq || [];
 		var skus = [];
 		for (var i = 0; i < this.valueForToken("skus").length; i++) {
@@ -60,10 +60,10 @@ qubit.opentag.LibraryTag.define("smartfocus.basketpage.v1.Tag", {
 				}
 			}
 		});
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

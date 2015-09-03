@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Listing Page",
 		async: true,
 		description: "",
@@ -39,15 +39,15 @@ qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 			token: "title",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window._advisorq = window._advisorq || [];
 
 		var skus = [];
@@ -73,10 +73,10 @@ qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 				}
 			}
 		});
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("struq.conversiontagv114.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Conversion Tag v1.14",
 		async: true,
 		description: "",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv114.v1.Tag", {
 			token: "products",
 			uv: "universal_variable.transaction.line_items[#].product.id"
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var productArr = [];
 		for (var i = 0, ii = this.valueForToken("products").length; i < ii; i++) {
 			productArr.push(this.valueForToken("products")[i]);
@@ -78,14 +78,14 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv114.v1.Tag", {
 			'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
 		document.getElementsByTagName('head')[0].appendChild(struq);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

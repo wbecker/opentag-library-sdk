@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"qubit.googletagmanagerconverterdatalayeruv.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Tag Manager Converter: dataLayer > UV",
 			async: true,
 			description: "Take the Google Tag Manager data layer and map it to UV.",
@@ -17,11 +17,11 @@ qubit.opentag.LibraryTag.define(
 			parameters: [
 
 			]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			var u = window.universal_variable = window.universal_variable || {};
 
 			var dataLayerOptions = {
@@ -226,14 +226,14 @@ qubit.opentag.LibraryTag.define(
 
 			// Start up
 			Adapater.initialize(dataLayerOptions);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

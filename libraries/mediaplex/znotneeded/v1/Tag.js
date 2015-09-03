@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaplex.znotneeded.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "z Not Needed",
 		async: true,
 		description: "Converted all pixels to use the same protocol as the page.",
@@ -29,19 +29,19 @@ qubit.opentag.LibraryTag.define("mediaplex.znotneeded.v1.Tag", {
 			token: "event_name",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("struq.homepagetagv15.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Homepage Tag v1.5",
 		async: true,
 		description: "To be placed on the homepage only",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv15.v1.Tag", {
 			token: "id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._struqPI = window._struqPI || [];
 		_struqPI.push(['injectTrackingPixel', {
 			trackingPixelId: '' + this.valueForToken("id"),
@@ -37,14 +37,14 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv15.v1.Tag", {
 		script.src =
 			"//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
 		document.body.appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Basic Conversion",
 		async: true,
 		description: "The Javascript will take the values specified below in the array of conversion metrics and send them to Marin along with the Cookie ID (UUID) created by the Click JavaScript; this allows Marin to join Clicks and Conversion data together. This version has fewer metrics for only basic conversion tracking.",
@@ -39,11 +39,11 @@ qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		window._mTrack = window._mTrack || [];
 
 		_mTrack.push(['addTrans', {
@@ -67,14 +67,14 @@ qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
 		mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
 		var fscr = document.getElementsByTagName('script')[0];
 		fscr.parentNode.insertBefore(mt, fscr);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

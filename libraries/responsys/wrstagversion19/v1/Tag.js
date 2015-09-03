@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "WRS Tag - version 1.9",
 		async: true,
 		description: "",
@@ -74,11 +74,11 @@ qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
 			token: "account_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var _riTrack;
 		function _riInit() {
@@ -127,14 +127,14 @@ qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
 		this.loadURL(window.location.protocol +
 			"//custom-wrs.api.responsys.net/ts-wrs/js/ri.min.js");
 		//</scr ipt><script type="text/javascript" src=""></sc ript>
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

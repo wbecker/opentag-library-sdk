@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "ClickTale - balkan - donotuse",
 		async: true,
 		description: "do not use",
@@ -29,21 +29,21 @@ qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.v1.Tag",
 			token: "clicktale_http",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.WRInitTime = (new Date()).getTime();
 
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

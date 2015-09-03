@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("graphael.graphael041.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "graphael 0.4.1",
 		async: true,
 		description: "GraphaÃ«l's goal is to help you create stunning charts on your website. It is based on RaphaÃ«l graphics library.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("graphael.graphael041.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

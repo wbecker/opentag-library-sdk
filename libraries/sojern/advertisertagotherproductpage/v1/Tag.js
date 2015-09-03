@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sojern.advertisertagotherproductpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Advertiser Tag - Other Product Page",
 		async: true,
 		description: "",
@@ -29,22 +29,22 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagotherproductpage.v1.Tag", {
 			token: "date",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		(new Image()).src = "https://beacon.sojern.com/p/1?opid=" + this.valueForToken(
 			"id") + "&opn=" + this.valueForToken("name") + "&date" + this.valueForToken(
 			"date");
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaforge.product.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Product",
 		async: true,
 		description: "To be placed on product display pages.",
@@ -24,19 +24,19 @@ qubit.opentag.LibraryTag.define("mediaforge.product.v1.Tag", {
 			token: "product_id",
 			uv: "universal_variable.product.sku_code"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

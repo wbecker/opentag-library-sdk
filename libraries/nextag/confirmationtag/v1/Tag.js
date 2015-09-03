@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("nextag.confirmationtag.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Confirmation Tag",
 		async: true,
 		description: "ROI Tag without product details",
@@ -29,22 +29,22 @@ qubit.opentag.LibraryTag.define("nextag.confirmationtag.v1.Tag", {
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
+		/*pre*/
 		window.id = '' + this.valueForToken("nextag_id");
 		window.rev = '' + this.valueForToken("order_total");
 		window.order = '' + this.valueForToken("order_id");
-		/*~PRE*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

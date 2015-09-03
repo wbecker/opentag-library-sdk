@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"tradedoubler.confirmationpagetagdeprecated.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Confirmation Page Tag [DEPRECATED]",
 			async: true,
 			description: "DO NOT USE",
@@ -75,11 +75,11 @@ qubit.opentag.LibraryTag.define(
 				token: "tracking_type",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
       };
 		},
 		script: function() {
-			/*SCRIPT*/
+			/*script*/
 			function readCookie(name) {
 				var nameEQ = name + "=";
 				var ca = document.cookie.split(';');
@@ -122,14 +122,14 @@ qubit.opentag.LibraryTag.define(
 			var img = document.createElement("img");
 			img.src = src;
 			document.body.appendChild(img);
-			/*~SCRIPT*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

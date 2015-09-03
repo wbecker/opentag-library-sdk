@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "[DEPRECATED] Conversion Pixel [v2]",
 		async: true,
 		description: "The conversion pixel passes back information about the order placed and should be placed only on the confirmation page.",
@@ -59,11 +59,11 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 			token: "CONVERSION_TYPE",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var _this = this;
 		var totalQuantity = (function() {
 			var total = 0;
@@ -106,14 +106,14 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 		}
 		(new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
 			(new Date()).getTime() + '?' + p.join("&");
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("spinejs.spinejs004.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "spinejs 0.0.4",
 		async: true,
 		description: "Spine is a lightweight framework for building JavaScript web applications. Spine gives you a MVC structure and then gets out of your way, allowing you to concentrate on the fun stuff, building awesome web applications.",
@@ -16,19 +16,19 @@ qubit.opentag.LibraryTag.define("spinejs.spinejs004.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
       };
   },
 	script: function() {
-		/*SCRIPT*/
-		/*~SCRIPT*/
+		/*script*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

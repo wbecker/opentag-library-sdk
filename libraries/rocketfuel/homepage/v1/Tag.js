@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("rocketfuel.homepage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Home Page",
 		async: true,
 		description: "Place on the site's home page. Intended to fire once per session - requires custom implementation to enforce this.",
@@ -29,25 +29,25 @@ qubit.opentag.LibraryTag.define("rocketfuel.homepage.v1.Tag", {
 			token: "random",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var img = new Image();
 		img.src = "//" +
 			this.valueForToken("campaign_id") + "p.rfihub.com/ca.gif?rb=" +
 			this.valueForToken("merchant_id") + "&ca=" +
 			this.valueForToken("campaign_id") + "&ra=" +
 			this.valueForToken("random")
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

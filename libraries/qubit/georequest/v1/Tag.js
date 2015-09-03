@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Geo Request",
 		async: true,
 		description: "A standardized template for making a request to Orca. Caches the result, and stores the parsed object (from cache or request) in window.qb_geo. But, the tag's asynchronous, so your best bet is to add a callback to window.qb_geo_cbs, and it'll get called when the object's available. NOTE: IE<8 doesn't have JSON, so you'll need to pull in the JSON2 tag as a dependency.",
@@ -19,11 +19,11 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 			token: "client_id",
 			uv: ""
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		function createCookie(name, value) {
 			document.cookie = name + "=" + escape(value) + expires + "; path=/";
 		}
@@ -77,14 +77,14 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 				}
 			};
 		}
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

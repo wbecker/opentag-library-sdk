@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("insparq.carousel.v1.Tag", {
   getDefaultConfig: function () {
       return {
-    /*DATA*/
+    /*config*/
     name: "Trending Products Carousel",
     async: true,
     description: "A carousel module that showcases your e-commerce site’s trending products. You can implement anywhere on your site.",
@@ -34,11 +34,11 @@ qubit.opentag.LibraryTag.define("insparq.carousel.v1.Tag", {
       token: "selector",
       uv: ""
     }]
-    /*~DATA*/
+    /*~config*/
 		};
   },
   script: function () {
-    /*SCRIPT*/
+    /*script*/
     var _this = this;
     (function () {
 
@@ -53,14 +53,14 @@ qubit.opentag.LibraryTag.define("insparq.carousel.v1.Tag", {
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(e, s);
     })();
-    /*~SCRIPT*/
+    /*~script*/
   },
   pre: function () {
-    /*PRE*/
-    /*~PRE*/
+    /*pre*/
+    /*~pre*/
   },
   post: function () {
-    /*POST*/
-    /*~POST*/
+    /*post*/
+    /*~post*/
   }
 });

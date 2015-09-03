@@ -4,7 +4,7 @@ qubit.opentag.LibraryTag.define(
 	"google.googleaffiliatenetworkconversion.v1.Tag", {
 		getDefaultConfig: function () {
       return {
-			/*DATA*/
+			/*config*/
 			name: "Google Affiliate Network Conversion",
 			async: true,
 			description: "Conversion script for Google Affiliate Network",
@@ -45,19 +45,19 @@ qubit.opentag.LibraryTag.define(
 				token: "EVENT_TYPE",
 				uv: ""
 			}]
-			/*~DATA*/
+			/*~config*/
 		};
 		},
 		script: function() {
-			/*SCRIPT*/
-			/*~SCRIPT*/
+			/*script*/
+			/*~script*/
 		},
 		pre: function() {
-			/*PRE*/
-			/*~PRE*/
+			/*pre*/
+			/*~pre*/
 		},
 		post: function() {
-			/*POST*/
-			/*~POST*/
+			/*post*/
+			/*~post*/
 		}
 	});

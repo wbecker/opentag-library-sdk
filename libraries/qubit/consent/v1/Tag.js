@@ -3,7 +3,7 @@
 qubit.Quick.library("qubit.consent.v1.Tag", {
   getDefaultConfig: function () { 
     return {
-    /*DATA*/
+    /*config*/
     name: "Qubit Consent Library",
     async: true,
     active: false,
@@ -16,15 +16,15 @@ qubit.Quick.library("qubit.consent.v1.Tag", {
     upgradeable: true,
     consentConfig: null,
     parameters: []
-    /*~DATA*/
+    /*~config*/
 		};
   },
   script: function () {
-    /*SCRIPT*/
-    /*~SCRIPT*/
+    /*script*/
+    /*~script*/
   },
   pre: function () {
-    /*PRE*/
+    /*pre*/
     var container = qubit.opentag.Tags.findTagContainers(this)[0];
     if (container) {
       var clientId = container.config.clientId;
@@ -33,11 +33,11 @@ qubit.Quick.library("qubit.consent.v1.Tag", {
     } else {
       this.openConsent();
     }
-    /*~PRE*/
+    /*~pre*/
   },
   post: function () {
-    /*POST*/
-    /*~POST*/
+    /*post*/
+    /*~post*/
   },
   openConsent: function (clientId, profileId) {
     var _q_pd = document.createElement("script");

@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "SessionCam v5.5",
 		async: true,
 		description: "SessionCam v5.5",
@@ -16,11 +16,11 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55.v1.Tag", {
 		parameters: [
 
 		]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 
 		//<![CDATA[
 		window.ServiceTickDetection = function() {
@@ -689,14 +689,14 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55.v1.Tag", {
 		ServiceTickDetection.AddServiceTick();
 		//]]>
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

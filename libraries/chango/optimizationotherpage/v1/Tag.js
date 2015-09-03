@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Optimization - Other Page",
 		async: true,
 		description: "",
@@ -69,11 +69,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 			token: "names",
 			uv: "universal_variable.basket.line_items[#].product.name"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var name = "" + this.valueForToken("name");
 		if (name.indexOf('^') !== -1) {
 			name = name.split('^');
@@ -155,14 +155,14 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 		script.async = true;
 		script.src = document.location.protocol + '//cc.chango.com/static/o.js';
 		document.head.appendChild(script);
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });

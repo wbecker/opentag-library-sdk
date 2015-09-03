@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("mediaplex.productiframe.v1.Tag", {
 	getDefaultConfig: function () {
       return {
-		/*DATA*/
+		/*config*/
 		name: "Product iframe",
 		async: true,
 		description: "The product iframe passes a pageview, product SKU, and the category/subcategory the product belongs in.",
@@ -44,11 +44,11 @@ qubit.opentag.LibraryTag.define("mediaplex.productiframe.v1.Tag", {
 			token: "product_sku",
 			uv: "universal_variable.product.sku_code"
 		}]
-		/*~DATA*/
+		/*~config*/
 		};
 	},
 	script: function() {
-		/*SCRIPT*/
+		/*script*/
 		var frame = document.createElement("iframe");
 		var src = (document.location.protocol === "https:") ? "https://secure." :
 			"http://";
@@ -65,14 +65,14 @@ qubit.opentag.LibraryTag.define("mediaplex.productiframe.v1.Tag", {
 		frame.frameborder = 0;
 		document.body.appendChild(frame);
 
-		/*~SCRIPT*/
+		/*~script*/
 	},
 	pre: function() {
-		/*PRE*/
-		/*~PRE*/
+		/*pre*/
+		/*~pre*/
 	},
 	post: function() {
-		/*POST*/
-		/*~POST*/
+		/*post*/
+		/*~post*/
 	}
 });
