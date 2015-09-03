@@ -282,9 +282,9 @@ var UNDEF;
       config);
   };
   
-  Define.vendorsSpacePrefix = function () {
+  Define.vendorsSpaceClasspath = function () {
     var cp = qubit.VENDOR_SPACE_CP;
-    return (cp === undefined || cp === null) ? "qubit.vs." : cp;
+    return (cp === undefined || cp === null) ? "qubit.vs" : cp;
   };
   
   Define.namespace("qubit.vs", {}, null, true);
@@ -293,9 +293,14 @@ var UNDEF;
     return qubit.vs;
   };
   
+  Define.vendorNamespace = function (path, instance, pckg, noOverride) {
+    return Define.namespace(
+      Define.vendorsSpaceClasspath() + "." + path, instance, pckg, noOverride);
+  };
+  
   Define.vendorClazz = function (path, Class, SuperClass, pckg, config) {
     return Define.clazz(
-      Define.vendorsSpacePrefix() + path,
+      Define.vendorsSpaceClasspath() + "." + path,
       Class,
       SuperClass,
       pckg,
@@ -10911,7 +10916,7 @@ var JSON = {};
       .replace(/[\.]+$/g, "")
       .replace(/\.+/g, ".");
     
-    namespace = qubit.Define.vendorsSpacePrefix() + namespace;
+    namespace = qubit.Define.vendorsSpaceClasspath() + "." + namespace;
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = {};
@@ -10961,8 +10966,7 @@ var JSON = {};
   };
   
   LibraryTag.getLibraryByClasspath = function (namespace) {
-    return Utils.getObjectUsingPath(
-      qubit.Define.vendorsSpacePrefix() + namespace);
+    return Utils.getObjectUsingPath(namespace, Define.getVendorSpace());
   };
   
 }());
