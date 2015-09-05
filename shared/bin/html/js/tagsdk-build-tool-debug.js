@@ -217,7 +217,7 @@ var UNDEF;
     return {
       root: root,
       object: last,
-      instance: last
+      instance: last[lastName]
     };
   }
 
