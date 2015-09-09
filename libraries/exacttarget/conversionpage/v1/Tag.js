@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("exacttarget.conversionpage.v1.Tag", {
 			description: "Boolean (true or false) : whether the conversion values should be accumulated.",
 			token: "accumulate",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

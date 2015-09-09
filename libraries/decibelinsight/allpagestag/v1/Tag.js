@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("decibelinsight.allpagestag.v1.Tag", {
 			description: "The ID specific to your account given by Decibel",
 			token: "account_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

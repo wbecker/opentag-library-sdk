@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The server to send data to",
 				token: "server_name",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Email Service Provider (ESP)"
+		]
+
 			/*~config*/
 		};
 		},

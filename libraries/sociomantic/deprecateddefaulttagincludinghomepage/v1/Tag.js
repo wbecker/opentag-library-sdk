@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Your Sociomantic customer ID. Please only use the token that has been created and sent to you.",
 				token: "TOKEN",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Advertising Network"
+		]
+
 			/*~config*/
 		};
 		},

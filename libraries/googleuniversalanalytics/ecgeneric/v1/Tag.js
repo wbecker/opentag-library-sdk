@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("googleuniversalanalytics.ecgeneric.v1.Tag", {
 				description: "JavaScript configuration object for pageview command",
 				defaultValue: {}
 			}
+		],
+		categories:[
+			"Web Analytics"
 		]
+
 		/*~config*/
 		};
 	},

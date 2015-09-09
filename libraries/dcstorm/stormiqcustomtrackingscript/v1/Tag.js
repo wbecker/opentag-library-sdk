@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqcustomtrackingscript.v1.Tag", {
 			description: "Location of script containing tracking code for StormIQ",
 			token: "track_url",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

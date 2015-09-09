@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("flixmedia.checkoutendpage.v1.Tag", {
 			description: "It should match with the Checkout Start Page tag Unique Checkout ID",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

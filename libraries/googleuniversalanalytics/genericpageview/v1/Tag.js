@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Web site URL, without 'www.'",
 				token: "url",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

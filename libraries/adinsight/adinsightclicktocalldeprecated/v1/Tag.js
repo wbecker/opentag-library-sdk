@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Your AdInsight account id, generally a 3 digit number",
 				token: "Account_Id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 			/*~config*/
 		};
 		},

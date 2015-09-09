@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsproductpages.v1.Tag", {
 			description: "",
 			token: "subcategory",
 			uv: "universal_variable.product.subcategory"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

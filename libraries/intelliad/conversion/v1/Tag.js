@@ -63,7 +63,11 @@ qubit.opentag.LibraryTag.define("intelliad.conversion.v1.Tag", {
 			description: "The id that relates the client to IntelliAd",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictag.v1.Tag", {
 			description: "If this is not specified, leave blank",
 			token: "channel",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

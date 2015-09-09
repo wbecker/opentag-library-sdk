@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Please enter your Google Analytics profile Id here. Example UA-123123-12",
 				token: "profile_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

@@ -73,7 +73,11 @@ qubit.opentag.LibraryTag.define("qubit.uvlistproductlistingpage.v1.Tag", {
 			description: "",
 			token: "l",
 			uv: "universal_variable.listing.items[#].sku_code"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "A conversion format provided in the script without quotes, e.g. 3",
 				token: "conversion_format",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

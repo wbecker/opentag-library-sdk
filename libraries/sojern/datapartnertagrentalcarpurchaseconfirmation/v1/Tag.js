@@ -79,7 +79,11 @@ qubit.opentag.LibraryTag.define(
 				description: "e.g. if price is $350.23 then pass 350 only",
 				token: "car_purchase_price",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

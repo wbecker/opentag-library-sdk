@@ -10766,7 +10766,7 @@ var JSON = {};
      * Library description..
      * @cfg {String} [description="Provide description."]
      */
-    description: "Provide description.",
+    description: "",
     /**
      * Is library asynchoronous?
      * @cfg {String} [async=true]

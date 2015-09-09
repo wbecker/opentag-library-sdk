@@ -88,7 +88,11 @@ qubit.opentag.LibraryTag.define("mentionme.alternativeordertrackingtag.v1.Tag", 
 			description: "Domain for the script: 'tag-demo.mention-me.com' for testing, 'tag.mention-me.com' for production",
 			token: "domain",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Social"
+		]
+
 		/*~config*/
 		};
 	},

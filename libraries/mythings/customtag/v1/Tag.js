@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("mythings.customtag.v1.Tag", {
 			description: "The action number specified for the specific tag",
 			token: "action_number",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

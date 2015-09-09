@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("shoppingcom.roitracker.v1.Tag", {
 			description: "A list of item quantities for items in the basket",
 			token: "item_quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

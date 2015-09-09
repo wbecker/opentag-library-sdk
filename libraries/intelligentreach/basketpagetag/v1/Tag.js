@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("intelligentreach.basketpagetag.v1.Tag", {
 			description: "",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

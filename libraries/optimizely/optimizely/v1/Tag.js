@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("optimizely.optimizely.v1.Tag", {
 			description: "Please enter your account ID. Do not include the .js",
 			token: "ACCOUNT_ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"AB & Multi-Variate Testing"
+		]
+
 		/*~config*/
 		};
 	},

@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastconfirmationpage.v1.Tag", {
 			description: "",
 			token: "revenue",
 			uv: "universal_variable.transaction.subtotal"
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

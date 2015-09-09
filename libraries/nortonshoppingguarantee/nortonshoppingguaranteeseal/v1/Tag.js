@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define("nortonshoppingguarantee.nortonshoppingguarantee
         name: "Guarantee Seal Hash",
         description: "This value will be provided to you during integration."
       }
-    ]
+    ],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

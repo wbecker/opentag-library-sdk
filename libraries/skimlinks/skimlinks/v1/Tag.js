@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("skimlinks.skimlinks.v1.Tag", {
 			description: "A publisher ID provided by Skimlinks. The format should be 0000X1111",
 			token: "publisher_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

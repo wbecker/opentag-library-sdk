@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "quantities",
 				uv: "universal_variable.transaction.line_items[#].quantity"
-			}]
+			}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 			/*~config*/
 		};
 		},

@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("audiencescience.gatewaytag.v1.Tag", {
 			description: "advertiser-code (CSID) provided by AudienceScience",
 			token: "clientID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("olark.olarkchat.v1.Tag", {
 			description: "Olark Site Id",
 			token: "SITE_ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Live Chat & Customer Service Engine"
+		]
+
 		/*~config*/
 		};
 	},

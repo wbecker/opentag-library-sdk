@@ -79,7 +79,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Types of cookies to use: either use \"firstPartyOnly\", \"none\", \"all\"",
 				token: "cookieTypes",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
       };
 		},

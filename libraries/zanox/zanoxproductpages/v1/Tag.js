@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxproductpages.v1.Tag", {
 			description: "",
 			token: "url",
 			uv: "universal_variable.product.url"
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

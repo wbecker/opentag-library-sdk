@@ -73,7 +73,11 @@ qubit.opentag.LibraryTag.define("insparq.purchasetrackingpixel.v1.Tag", {
       description: "The buyer's email.",
       token: "user_email",
       uv: "universal_variable.user.email"
-    }]
+    }],
+		categories:[
+			"Social"
+		]
+
     /*~config*/
 		};
   },

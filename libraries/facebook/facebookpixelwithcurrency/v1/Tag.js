@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixelwithcurrency.v1.Tag", {
 			description: "",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Social"
+		]
+
 		/*~config*/
 		};
 	},

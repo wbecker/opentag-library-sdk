@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "An array of field objects, each of which must define at least a 'hitType'",
 				token: "field_objects",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

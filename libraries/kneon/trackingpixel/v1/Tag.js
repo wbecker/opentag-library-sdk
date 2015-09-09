@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("kneon.trackingpixel.v1.Tag", {
 			description: "The 44 character ID specific to the person using the tag (provided by Kneon)",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

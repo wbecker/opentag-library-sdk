@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Action Id. Eg 948565",
 				token: "ACTION_ID",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

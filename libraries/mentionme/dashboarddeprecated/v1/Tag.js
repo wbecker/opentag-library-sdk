@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("mentionme.dashboarddeprecated.v1.Tag", {
 			description: "Optional SHA256 Hash of the customer's email concatenated with the merchant secret key (auth)",
 			token: "key",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Social"
+		]
+
 		/*~config*/
 		};
 	},

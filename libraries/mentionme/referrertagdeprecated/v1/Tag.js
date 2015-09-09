@@ -108,7 +108,11 @@ qubit.opentag.LibraryTag.define("mentionme.referrertagdeprecated.v1.Tag", {
 			description: "String representing the customer segment 'new' or 'existing' (leave blank if not used)",
 			token: "segment",
 			uv: ""
-		}]
+		}],
+		categories:[
+			,"Social"
+		]
+
 		/*~config*/
 		};
 	},

@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqgenerictagdeprecated.v1.Tag", {
 			description: "If this is not required, leave blank",
 			token: "channel",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "An array of all the product ids in the transaction",
 				token: "order_article",
 				uv: "universal_variable.transaction.line_items[#].quantity"
-			}]
+			}],
+		categories:[
+			"Advertising Network"
+		]
+
 			/*~config*/
 		};
 		},

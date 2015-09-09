@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("rocketfuel.universaltrackingpixel.v1.Tag", {
 			description: "The campaign ID for the specific campaign this tag applies to.",
 			token: "campaign_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"DSP (Ad Server)"
+		]
+
 		/*~config*/
 		};
 	},

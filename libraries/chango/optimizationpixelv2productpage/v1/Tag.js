@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2productpage.v1.Tag", 
 			description: "Product category",
 			token: "PC_VALUE",
 			uv: "universal_variable.product.category"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("merchenta.producttag.v1.Tag", {
 			description: "The SKU/ID of the product being viewed",
 			token: "Product_code",
 			uv: "universal_variable.product.sku_code"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

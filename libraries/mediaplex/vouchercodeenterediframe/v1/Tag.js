@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("mediaplex.vouchercodeenterediframe.v1.Tag", {
 			description: "The voucher code used in this order - leave blank if none.",
 			token: "promo_code",
 			uv: "universal_variable.basket.voucher"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

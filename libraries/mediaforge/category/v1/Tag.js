@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("mediaforge.category.v1.Tag", {
 			description: "The name/ID that relates to the current product listing page",
 			token: "category_id",
 			uv: "universal_variable.page.subcategory"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

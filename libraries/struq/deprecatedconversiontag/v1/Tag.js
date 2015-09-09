@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedconversiontag.v1.Tag", {
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

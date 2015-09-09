@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Labels for visitor segmentation, see Quantcast documentation for further info",
 				token: "labels",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
 		};
 		},

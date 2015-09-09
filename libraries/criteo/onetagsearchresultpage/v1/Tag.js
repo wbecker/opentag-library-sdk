@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("criteo.onetagsearchresultpage.v1.Tag", {
 			description: "Listing of Product IDs this search has produced.",
 			token: "product_ids",
 			uv: "universal_variable.listing.items[#].id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

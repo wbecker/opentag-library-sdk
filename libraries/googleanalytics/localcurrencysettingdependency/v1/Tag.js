@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The currency code for the transaction's payment, eg 'GBP', 'EUR', or 'USD'",
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

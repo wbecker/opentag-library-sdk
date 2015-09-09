@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Array of Product Quantities",
 				token: "quants",
 				uv: "universal_variable.basket.line_items[#].quantity"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

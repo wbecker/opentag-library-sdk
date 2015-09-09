@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "conversion_color",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

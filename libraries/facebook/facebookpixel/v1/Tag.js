@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixel.v1.Tag", {
 			description: "if not on Transaction Page, use following hardcoded value  instead : 0.00",
 			token: "param_value",
 			uv: "universal_variable.transaction.total"
-		}]
+		}],
+		categories:[
+			"Social"
+		]
+
 		/*~config*/
 		};
 	},

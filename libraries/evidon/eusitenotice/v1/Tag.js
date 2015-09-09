@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("evidon.eusitenotice.v1.Tag", {
 			description: "The unique identifier for the page this tag will be fired on",
 			token: "page_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

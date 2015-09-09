@@ -79,7 +79,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The page ID for the confirmation page. Zanox calls this the 'checkout' page.",
 				token: "page_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
       };
 		},

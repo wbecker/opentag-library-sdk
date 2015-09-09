@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("d7search.d7searchconversion.v1.Tag", {
 			description: "",
 			token: "transaction_total",
 			uv: "universal_variable.transaction.total"
-		}]
+		}],
+		categories:[
+			"Search Engine"
+		]
+
 		/*~config*/
 		};
 	},

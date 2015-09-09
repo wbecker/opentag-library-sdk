@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("peerius.orderpagedeprecated.v1.Tag", {
 			description: "The total of the order and other expenses like shipping",
 			token: "total",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

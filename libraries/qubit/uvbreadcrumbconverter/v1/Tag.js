@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("qubit.uvbreadcrumbconverter.v1.Tag", {
 				description: "Ignore the first breadcrumb in the UV",
 				token: "skip_first",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 			/*~config*/
 		};
 	},

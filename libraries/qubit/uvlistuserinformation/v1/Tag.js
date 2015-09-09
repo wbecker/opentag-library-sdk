@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("qubit.uvlistuserinformation.v1.Tag", {
 			description: "",
 			token: "h",
 			uv: "universal_variable.user.twitter_id"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

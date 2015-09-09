@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The index of the specific instance of element to be appended to. Leave blank if using ID",
 				token: "index",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

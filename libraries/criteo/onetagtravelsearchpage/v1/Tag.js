@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("criteo.onetagtravelsearchpage.v1.Tag", {
 			description: "The date of check out, as a string \"YYYY-MM-DD\"",
 			token: "check_out",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

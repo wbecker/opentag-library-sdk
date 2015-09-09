@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("mediaforge.confirmation.v1.Tag", {
 			description: "The total for the order excluding tax & shipping (sub-total)",
 			token: "order_total",
 			uv: "universal_variable.transaction.subtotal"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

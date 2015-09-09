@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("zopim.zopimlivechat.v1.Tag", {
 			description: "The unique client id, e.g. \"183c79emDOKRZl6272Y1DS6nmuZiWCDTf3e\"",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Live Chat & Customer Service Engine"
+		]
+
 		/*~config*/
       };
   },

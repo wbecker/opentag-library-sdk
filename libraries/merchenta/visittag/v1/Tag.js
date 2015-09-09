@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("merchenta.visittag.v1.Tag", {
 			description: "Your Merchenta account ID",
 			token: "Merchenta_Id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

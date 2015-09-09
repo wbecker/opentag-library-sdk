@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("conexance.basketpage.v1.Tag", {
 			description: "Voucher code applied to basket",
 			token: "voucher",
 			uv: "universal_variable.basket.voucher"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

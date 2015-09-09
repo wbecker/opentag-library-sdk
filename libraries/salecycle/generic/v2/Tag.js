@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("salecycle.generic.v2.Tag", {
 			description: "needs to be changed to reflect your company name minus any spaces",
 			token: "clientName",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

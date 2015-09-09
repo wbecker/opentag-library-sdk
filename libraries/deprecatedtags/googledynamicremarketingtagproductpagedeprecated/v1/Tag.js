@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Page Category",
 				token: "page_subcategory",
 				uv: "universal_variable.page.subcategory"
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

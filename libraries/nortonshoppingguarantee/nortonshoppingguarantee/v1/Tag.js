@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define("nortonshoppingguarantee.nortonshoppingguarantee
         name: "The transaction's order amount",
         uv: "universal_variable.transaction.subtotal"
       }
-    ]
+    ],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

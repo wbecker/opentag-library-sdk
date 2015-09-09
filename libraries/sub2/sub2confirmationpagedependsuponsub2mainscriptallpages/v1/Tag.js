@@ -144,7 +144,11 @@ qubit.opentag.LibraryTag.define(
 				description: "User Opted for SignUp Or Not",
 				token: "optins",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
 		},

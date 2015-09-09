@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("mediaplex.conversioniframe.v1.Tag", {
 			description: "The unique order ID for this purchase.",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

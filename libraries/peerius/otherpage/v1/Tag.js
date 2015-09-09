@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("peerius.otherpage.v1.Tag", {
 			description: "The name of the client for which the tag is to be implemented",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

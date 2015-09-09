@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("fandist.digitalanimal.v1.Tag", {
 			description: "The ID relating the script to you",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

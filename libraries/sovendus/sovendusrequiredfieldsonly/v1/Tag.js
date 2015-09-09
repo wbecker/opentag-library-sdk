@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusrequiredfieldsonly.v1.Tag", {
 			description: "The coupon code just encashed to track the success rate - e.g. ABC123",
 			token: "coupon_code",
 			uv: "universal_variable.transaction.voucher"
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

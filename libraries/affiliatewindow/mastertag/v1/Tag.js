@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("affiliatewindow.mastertag.v1.Tag", {
 			description: "Affiliate Window Merchant ID",
 			token: "MERCHANT_ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

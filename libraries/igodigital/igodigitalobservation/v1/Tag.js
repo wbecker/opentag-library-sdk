@@ -88,7 +88,11 @@ qubit.opentag.LibraryTag.define("igodigital.igodigitalobservation.v1.Tag", {
 			description: "can be used together with rtaSpecial to store relevant information to the user’s personal profile.",
 			token: "rtaTags",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

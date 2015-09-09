@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("qype.qype.v1.Tag", {
 			description: "In what url element should the reviews go? Must be an element id.",
 			token: "DIV_ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Ratings & Review Engine"
+		]
+
 		/*~config*/
 		};
 	},

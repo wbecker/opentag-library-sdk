@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("peerius.homepagewithsmartrecs.v1.Tag", {
 			description: "The user's email",
 			token: "email",
 			uv: "universal_variable.user.email"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

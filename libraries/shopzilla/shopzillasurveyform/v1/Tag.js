@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillasurveyform.v1.Tag", {
 			description: "The number at the end of Shopzilla script. e.g. 0000 in evaleu.shopzilla.com/js/pos_0000.js",
 			token: "account",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("visualdna.emailsync.v1.Tag", {
 			description: "Please read tag description for more details",
 			token: "email",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("affilinet.normaltrackingpixel.v1.Tag", {
 			description: "Affilinet domain, excluding https:// and http://",
 			token: "domain",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

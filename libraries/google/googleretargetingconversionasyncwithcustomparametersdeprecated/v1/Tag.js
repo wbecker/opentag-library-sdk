@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "conversion_label",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

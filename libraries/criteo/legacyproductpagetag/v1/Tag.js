@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("criteo.legacyproductpagetag.v1.Tag", {
 			description: "",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

@@ -17,7 +17,11 @@ qubit.opentag.LibraryTag.define("vero.core.v1.Tag", {
 			description: "Your Vero API key",
 			token: "api_key",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
       };
   },

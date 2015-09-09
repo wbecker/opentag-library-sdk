@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v2.Tag", {
 			description: "An array of size titles of the same length and in the same order as the Size ID / Size Price arrays.",
 			token: "titles",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Merchandising & Rich Media"
+		]
+
 		/*~config*/
 		};
 	},

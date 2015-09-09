@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Tracking ID",
 				token: "tracking_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

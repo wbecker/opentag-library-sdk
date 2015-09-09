@@ -148,7 +148,11 @@ qubit.opentag.LibraryTag.define("qubit.uvtestconfirmationpage.v1.Tag", {
 			description: "",
 			token: "aa",
 			uv: "universal_variable.transaction.delivery.name"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

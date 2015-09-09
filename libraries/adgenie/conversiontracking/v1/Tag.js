@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("adgenie.conversiontracking.v1.Tag", {
 			description: "The ID of the transaction",
 			token: "trans_id",
 			uv: "universal_variable.transaction.order_id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

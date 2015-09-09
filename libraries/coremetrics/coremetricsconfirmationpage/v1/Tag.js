@@ -114,7 +114,11 @@ qubit.opentag.LibraryTag.define(
 				description: "List of all the product categories.",
 				token: "product_category_id_list",
 				uv: "universal_variable.transaction.line_items[#].product.category"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

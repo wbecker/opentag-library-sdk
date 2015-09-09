@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("lyticsio.sendjstagevent.v1.Tag", {
 			description: "JSON stringified valid JSON data to send to Lytics i.e. \"{\\\"event-happened\\\":true}\"",
 			token: "event_json",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagedeprecated.v1.Tag", 
 			description: "Unique identifier for the page",
 			token: "zanoxPageId",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

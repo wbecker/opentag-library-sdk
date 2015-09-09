@@ -14,7 +14,11 @@ qubit.opentag.LibraryTag.define("lessjs.lessjs113.v1.Tag", {
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [
+		],
+		categories:[
+			"Web Utilities / JavaScript Tools"
 		]
+
 		/*~config*/
 		};
 	},

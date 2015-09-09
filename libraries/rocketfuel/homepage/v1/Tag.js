@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("rocketfuel.homepage.v1.Tag", {
 			description: "Random number for use as a cachebuster",
 			token: "random",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"DSP (Ad Server)"
+		]
+
 		/*~config*/
 		};
 	},

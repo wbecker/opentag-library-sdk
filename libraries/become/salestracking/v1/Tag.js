@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("become.salestracking.v1.Tag", {
 			description: "Currency used for submitting the total value. The value must match ISO 4217.",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

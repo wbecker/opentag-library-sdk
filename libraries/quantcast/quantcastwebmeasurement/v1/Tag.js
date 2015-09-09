@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwebmeasurement.v1.Tag", {
 			description: "Your QuantCast account number",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

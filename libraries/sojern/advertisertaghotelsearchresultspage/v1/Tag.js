@@ -69,7 +69,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Hotel Brand",
 				token: "brand",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

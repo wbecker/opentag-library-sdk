@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("google.googleremarketingonlyaynsc.v1.Tag", {
 			description: "",
 			token: "conversionid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

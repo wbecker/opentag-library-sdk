@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("nextag.confirmationtag.v1.Tag", {
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

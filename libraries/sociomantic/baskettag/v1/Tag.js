@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("sociomantic.baskettag.v1.Tag", {
 			description: "User's ID - return false to safely exclude it",
 			token: "user_id",
 			uv: "universal_variable.user.user_id"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

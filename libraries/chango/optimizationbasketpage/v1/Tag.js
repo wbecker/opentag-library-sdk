@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationbasketpage.v1.Tag", {
 			description: "Hashed Visitor ID",
 			token: "visitor_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

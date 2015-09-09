@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("piwik.piwikbasic.v1.Tag", {
 			description: "The ID of your website",
 			token: "piwik_site_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

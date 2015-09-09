@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "An array of size prices of the same length and in the same order as the Size Title / Size ID arrays.",
 				token: "prices",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Merchandising & Rich Media"
+		]
+
 			/*~config*/
 		};
 		},

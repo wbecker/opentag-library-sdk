@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("conexance.nonbasketconfirmation.v1.Tag", {
 			description: "The full URL of the Web1by1 Functions script (i.e. http://www.your-website.com/w1x1.jpg)",
 			token: "web1by1_functions_script",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

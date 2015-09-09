@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Google Conversion ID",
 				token: "google_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

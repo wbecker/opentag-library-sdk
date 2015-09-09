@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("criteo.onetagconfirmationwithoutdedupe.v1.Tag",
 			description: "List of quantities for each product in the user's order",
 			token: "product_quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

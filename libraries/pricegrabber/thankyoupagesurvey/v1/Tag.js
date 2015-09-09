@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("pricegrabber.thankyoupagesurvey.v1.Tag", {
 			description: "",
 			token: "email",
 			uv: "universal_variable.user.email"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

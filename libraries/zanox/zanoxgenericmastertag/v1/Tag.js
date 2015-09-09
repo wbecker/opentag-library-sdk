@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxgenericmastertag.v1.Tag", {
 			description: "Unique ID for the page",
 			token: "zanoxPageId",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

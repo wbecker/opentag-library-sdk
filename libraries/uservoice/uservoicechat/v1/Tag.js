@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("uservoice.uservoicechat.v1.Tag", {
 			description: "Unique JavaScript File name",
 			token: "ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Ratings & Review Engine"
+		]
+
 		/*~config*/
       };
   },

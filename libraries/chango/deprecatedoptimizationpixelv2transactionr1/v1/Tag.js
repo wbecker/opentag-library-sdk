@@ -40,7 +40,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "productNames",
 				uv: "universal_variable.transaction.line_items[#].product.name"
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

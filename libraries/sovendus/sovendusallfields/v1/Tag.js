@@ -68,7 +68,11 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusallfields.v1.Tag", {
 			description: "Optional. Used to prefill the coupon request form. - e.g. max@example.com",
 			token: "email",
 			uv: "universal_variable.user.email"
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

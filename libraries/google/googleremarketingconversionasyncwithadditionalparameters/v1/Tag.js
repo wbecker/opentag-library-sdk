@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Value",
 				token: "value",
 				uv: "universal_variable.transaction.subtotal"
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

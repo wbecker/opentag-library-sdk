@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("affilinet.baskettrackingpixel.v1.Tag", {
 			description: "",
 			token: "basket_items_prices",
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

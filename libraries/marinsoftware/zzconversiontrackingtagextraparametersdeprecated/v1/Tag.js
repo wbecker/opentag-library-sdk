@@ -89,7 +89,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "affiliation",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

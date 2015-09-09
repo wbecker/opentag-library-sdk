@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("jquery.asynchronous.v1.Tag", {
 			description: "jQuery version e.g. 1.8.3",
 			token: "version",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

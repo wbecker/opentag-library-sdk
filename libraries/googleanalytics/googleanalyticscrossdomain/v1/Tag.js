@@ -29,7 +29,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Set to true if you want to enable cross domain tracking, set to false otherwise. (boolean)",
 				token: "allow_linker",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

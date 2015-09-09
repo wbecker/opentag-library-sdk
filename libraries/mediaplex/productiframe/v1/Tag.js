@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("mediaplex.productiframe.v1.Tag", {
 			description: "The SKU of the product the user is currently viewing",
 			token: "product_sku",
 			uv: "universal_variable.product.sku_code"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

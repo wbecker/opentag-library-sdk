@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricselementtracking.v1.Tag",
 			description: "The category passed in the Element tag is used to populate the Element Categories report.",
 			token: "element_category",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

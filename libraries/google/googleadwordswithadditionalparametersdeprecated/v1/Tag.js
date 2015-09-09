@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "conversion_value",
 				uv: "universal_variable.transaction.subtotal"
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

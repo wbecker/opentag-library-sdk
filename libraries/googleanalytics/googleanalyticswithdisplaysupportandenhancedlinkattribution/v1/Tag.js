@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The ID provided to you by Google Analytics",
 				token: "google_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

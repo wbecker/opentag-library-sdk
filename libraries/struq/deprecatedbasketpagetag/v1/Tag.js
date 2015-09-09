@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedbasketpagetag.v1.Tag", {
 			description: "An array of the product IDs in the basket",
 			token: "basket_pid_listing",
 			uv: "universal_variable.basket.line_items[#].product.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

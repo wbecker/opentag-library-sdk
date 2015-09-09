@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("criteo.onetagcategorypage.v1.Tag", {
 			description: "The keywords used to generate the list.",
 			token: "list_keywords",
 			uv: "universal_variable.page.subcategory"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

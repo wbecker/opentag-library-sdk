@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("adroll.confirmationpagetag.v1.Tag", {
 			description: "The identifier relating to the user",
 			token: "user_id",
 			uv: "universal_variable.user.user_id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

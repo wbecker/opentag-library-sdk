@@ -59,7 +59,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Y if user wants to be contacted, N if not",
 				token: "OptIns",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
 		},

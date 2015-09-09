@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("cheetahmail.tracktopurchaseconversion.v1.Tag", 
 			description: "Any client specific data to be associated with each transaction - numbers only",
 			token: "cust3",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Email Service Provider (ESP)"
+		]
+
 		/*~config*/
 		};
 	},

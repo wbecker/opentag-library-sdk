@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("sub2.sub2mainscriptallpages.v1.Tag", {
 			description: "e.g.  .google.co.uk",
 			token: "cookie_domain",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("chango.conversionpixelv2.v1.Tag", {
 			description: "",
 			token: "CONVERSION_TYPE",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

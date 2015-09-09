@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("jquery.jquery211.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
-	]
+	],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

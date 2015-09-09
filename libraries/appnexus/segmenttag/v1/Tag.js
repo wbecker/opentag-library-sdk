@@ -14,7 +14,11 @@ qubit.opentag.LibraryTag.define("appnexus.segmenttag.v1.Tag", {
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [
+		],
+		categories:[
+			"Web Utilities / JavaScript Tools"
 		]
+
 		/*~config*/
 		};
 	},

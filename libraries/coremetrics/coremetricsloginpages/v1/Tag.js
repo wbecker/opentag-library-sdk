@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsloginpages.v1.Tag", {
 			description: "",
 			token: "email",
 			uv: "universal_variable.user.email"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

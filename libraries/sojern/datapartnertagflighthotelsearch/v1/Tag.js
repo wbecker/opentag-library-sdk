@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflighthotelsearch.v1.Tag",
 			description: "Blank string if not available",
 			token: "number_of_rooms",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

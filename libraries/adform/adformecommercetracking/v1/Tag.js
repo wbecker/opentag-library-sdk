@@ -113,7 +113,11 @@ qubit.opentag.LibraryTag.define("adform.adformecommercetracking.v1.Tag", {
 			description: "A list of the total sales of the product (qty x product value)",
 			token: "product_sales_arr",
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

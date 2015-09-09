@@ -113,7 +113,11 @@ qubit.opentag.LibraryTag.define("mentionme.referrertag.v1.Tag", {
 			description: "username",
 			token: "username",
 			uv: "universal_variable.user.username"
-		}]
+		}],
+		categories:[
+			"Social"
+		]
+
 		/*~config*/
 		};
 	},

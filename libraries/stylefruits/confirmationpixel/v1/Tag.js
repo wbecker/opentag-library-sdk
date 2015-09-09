@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("stylefruits.confirmationpixel.v1.Tag", {
 			description: "The dynamically  generated, unique order-ID of your shop  system.",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
       };
   },

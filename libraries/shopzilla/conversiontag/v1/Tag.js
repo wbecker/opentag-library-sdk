@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("shopzilla.conversiontag.v1.Tag", {
 			description: "",
 			token: "merch_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("visualdna.postcodesync.v1.Tag", {
 			description: "Postcode",
 			token: "postcode",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

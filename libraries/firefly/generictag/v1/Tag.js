@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("firefly.generictag.v1.Tag", {
 			description: "The token specific to the client using Firefly",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

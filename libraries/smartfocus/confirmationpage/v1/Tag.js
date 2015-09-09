@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("smartfocus.confirmationpage.v1.Tag", {
 			description: "Order Currency",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

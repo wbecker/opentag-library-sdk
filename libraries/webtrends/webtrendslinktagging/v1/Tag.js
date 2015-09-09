@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendslinktagging.v1.Tag", {
 			description: "Used to identify different types of web activity with a numeric value. See http://bit.ly/194oAXH.",
 			token: "type",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

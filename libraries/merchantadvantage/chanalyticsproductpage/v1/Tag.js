@@ -16,7 +16,11 @@ qubit.opentag.LibraryTag.define(
 			upgradeable: true,
 			parameters: [
 
-			]
+			],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

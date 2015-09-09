@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("insparq.carousel.v1.Tag", {
       description: "e.g. #content",
       token: "selector",
       uv: ""
-    }]
+    }],
+		categories:[
+			"Social"
+		]
+
     /*~config*/
 		};
   },

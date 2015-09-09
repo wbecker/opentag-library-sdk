@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("steelhouse.conversionpixel.v1.Tag", {
 			description: "Arbitrary additional information you'd like to pass back to SteelHouse",
 			token: "custom",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("monetate.monetate.v1.Tag", {
 			description: "e.g. qubitproducts.com",
 			token: "domain",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"AB & Multi-Variate Testing"
+		]
+
 		/*~config*/
 		};
 	},

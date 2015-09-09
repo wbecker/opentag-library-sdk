@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The font family code you wish to load, e.g. \"Noto+Serif::latin\"",
 				token: "font_family",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 			/*~config*/
 		};
 		},

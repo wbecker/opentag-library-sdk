@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixelv2.v1.Tag", {
 			description: "",
 			token: "CONVERSION_TYPE",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

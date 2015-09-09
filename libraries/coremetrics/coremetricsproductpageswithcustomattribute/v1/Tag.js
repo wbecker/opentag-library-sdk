@@ -59,7 +59,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Any custom parameter you would like to pass to distinguish between product content",
 				token: "custom_attribute",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

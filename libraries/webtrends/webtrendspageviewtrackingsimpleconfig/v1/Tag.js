@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The id of the logged in user.",
 				token: "user_id",
 				uv: "universal_variable.user.user_id"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
       };
 		},

@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("mediamind.basketpagetag.v1.Tag", {
 			description: "",
 			token: "quants",
 			uv: "universal_variable.basket.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

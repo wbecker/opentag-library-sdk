@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "A alphanumeric label of your conversion tracking",
 				token: "label",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

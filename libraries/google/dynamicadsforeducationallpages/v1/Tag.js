@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforeducationallpages.v1.Tag", 
 			description: "Page Type",
 			token: "pagetype",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

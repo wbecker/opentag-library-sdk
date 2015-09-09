@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("silverpop.webtracking.v1.Tag", {
 			description: "The name for the page the tag is currently firing on",
 			token: "page_name",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Email Service Provider (ESP)"
+		]
+
 		/*~config*/
 		};
 	},

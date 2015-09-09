@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("peerius.categorypage.v1.Tag", {
 			description: "The name of the subcategory for the current page",
 			token: "subcategory",
 			uv: "universal_variable.page.subcategory"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

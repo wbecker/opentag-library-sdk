@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("kenshoo.kenshoothankyoupagetracking.v1.Tag", {
 			description: "",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Search Engine"
+		]
+
 		/*~config*/
 		};
 	},

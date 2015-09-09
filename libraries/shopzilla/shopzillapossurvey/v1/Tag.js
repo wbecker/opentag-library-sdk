@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("shopzilla.shopzillapossurvey.v1.Tag", {
 			description: "",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

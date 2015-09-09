@@ -68,7 +68,11 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpageasync.v1.Tag", {
 			description: "The start of the URL in the ajax request: often just the Peerius client ID",
 			token: "url_start",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

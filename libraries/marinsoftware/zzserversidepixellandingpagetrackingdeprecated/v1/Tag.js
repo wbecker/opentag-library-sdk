@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Your unique marin client id",
 				token: "clientId",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

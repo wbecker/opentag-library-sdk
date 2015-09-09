@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("tvsquared.tracking.v1.Tag", {
 			description: "Will be supplied by TVSquared, and specifies the brand within the client (separate countries, websites etc.)",
 			token: "brandID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
       };
   },

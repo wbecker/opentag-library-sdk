@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("become.roi.v1.Tag", {
 			description: "A list of the prices for items in the transaction page (unit sale price)",
 			token: "product_price_list",
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

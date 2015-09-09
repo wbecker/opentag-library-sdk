@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("nextperformance.baskettag.v1.Tag", {
 			description: "zid value provided by NextPerformance",
 			token: "zid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

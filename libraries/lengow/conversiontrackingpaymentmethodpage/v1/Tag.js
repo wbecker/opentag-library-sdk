@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "[optional] javascript array of purchased product names",
 				token: "lengow_product_name_list",
 				uv: "universal_variable.transaction.line_items[#].product.name"
-			}]
+			}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 			/*~config*/
 		};
 		},

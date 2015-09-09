@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("qubit.uvtestpageinformation.v1.Tag", {
 			description: "",
 			token: "e",
 			uv: "universal_variable.page.revision"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

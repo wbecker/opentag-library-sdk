@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissinsightssurvey.v1.Tag", {
 			description: "The id of the particular website - the last part of the URL before ''.js",
 			token: "website_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

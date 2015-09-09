@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("chango.conversion.v1.Tag", {
 			description: "Conversion Type",
 			token: "conversion_type",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

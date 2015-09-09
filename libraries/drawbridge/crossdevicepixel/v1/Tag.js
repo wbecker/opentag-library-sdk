@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("drawbridge.crossdevicepixel.v1.Tag", {
 			description: "The currency for the current transaction",
 			token: "order_currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

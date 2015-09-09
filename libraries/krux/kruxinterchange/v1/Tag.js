@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("krux.kruxinterchange.v1.Tag", {
 			description: "The subsection of the site that is being shown",
 			token: "subsection",
 			uv: "universal_variable.page.subcategory"
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

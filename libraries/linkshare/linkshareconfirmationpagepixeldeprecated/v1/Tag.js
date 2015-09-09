@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "This is the product name value.",
 				token: "name_list",
 				uv: "universal_variable.transaction.line_items[#].product.name"
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

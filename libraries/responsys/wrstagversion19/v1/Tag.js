@@ -73,7 +73,11 @@ qubit.opentag.LibraryTag.define("responsys.wrstagversion19.v1.Tag", {
 			description: "Account ID",
 			token: "account_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

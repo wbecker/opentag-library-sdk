@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 			description: "List of Purchased items",
 			token: "product_id",
 			uv: "universal_variable.transaction.line_items[#].product.id"
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

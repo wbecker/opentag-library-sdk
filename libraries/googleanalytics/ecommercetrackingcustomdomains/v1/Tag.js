@@ -89,7 +89,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Type the name of the domain you wish to track. For example www.example.com or subdomain.example.com",
 				token: "domainName",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

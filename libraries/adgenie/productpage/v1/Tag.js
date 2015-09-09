@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("adgenie.productpage.v1.Tag", {
 			description: "The ID of the product on the page",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

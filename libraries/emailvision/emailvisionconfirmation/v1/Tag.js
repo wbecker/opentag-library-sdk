@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("emailvision.emailvisionconfirmation.v1.Tag", {
 			description: "The PCT server on Emailvision to send pings to",
 			token: "pct_server",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Email Service Provider (ESP)"
+		]
+
 		/*~config*/
 		};
 	},

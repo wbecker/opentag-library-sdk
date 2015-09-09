@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The order the currency is in. Can be hard coded to GBP if appropriate",
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

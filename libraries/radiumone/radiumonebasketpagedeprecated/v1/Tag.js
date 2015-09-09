@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "An array of product ids in the basket",
 				token: "order_article",
 				uv: "universal_variable.basket.line_items[#].product.id"
-			}]
+			}],
+		categories:[
+			"Advertising Network"
+		]
+
 			/*~config*/
 		};
 		},

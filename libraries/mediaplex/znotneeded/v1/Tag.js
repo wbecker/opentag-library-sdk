@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("mediaplex.znotneeded.v1.Tag", {
 			description: "The name of the event triggered. Typically, this is a CamelCased version of the page name",
 			token: "event_name",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

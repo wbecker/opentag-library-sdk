@@ -463,7 +463,11 @@ qubit.opentag.LibraryTag.define("intentmedia.allproductpaths.v1.Tag", {
         token: "IntentMediaFooter",
         uv: "",
         defaultValue: ""
-    }]
+    }],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 	/*~config*/
 		};
   },

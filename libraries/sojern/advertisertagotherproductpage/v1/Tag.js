@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagotherproductpage.v1.Tag", {
 			description: "Product Date",
 			token: "date",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

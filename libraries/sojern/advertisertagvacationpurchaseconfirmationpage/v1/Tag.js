@@ -69,7 +69,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Customer's First Name",
 				token: "name",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

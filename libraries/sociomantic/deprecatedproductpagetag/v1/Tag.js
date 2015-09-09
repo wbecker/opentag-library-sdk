@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedproductpagetag.v1.Tag", {
 			description: "Product identifier",
 			token: "PRODUCT_ID",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

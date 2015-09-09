@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "A true / false value indicating whether to only use remarketing version",
 				token: "remarketing",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

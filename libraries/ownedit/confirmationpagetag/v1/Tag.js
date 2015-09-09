@@ -88,7 +88,11 @@ qubit.opentag.LibraryTag.define("ownedit.confirmationpagetag.v1.Tag", {
 			description: "The name of the store that would be displayed on referrals",
 			token: "STORE_NAME",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

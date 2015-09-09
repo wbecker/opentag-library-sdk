@@ -88,7 +88,11 @@ qubit.opentag.LibraryTag.define("qubit.uvtestbasketpage.v1.Tag", {
 			description: "",
 			token: "o",
 			uv: "universal_variable.basket.id"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

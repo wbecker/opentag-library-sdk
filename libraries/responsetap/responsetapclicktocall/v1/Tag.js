@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("responsetap.responsetapclicktocall.v1.Tag", {
 			description: "Your Response Tap account id, generally a 3-4 digit number",
 			token: "ACCOUNT_ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("marinsoftware.basicconversion.v1.Tag", {
 			description: "Order Currency",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Search Engine"
+		]
+
 		/*~config*/
 		};
 	},

@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "A custom value for \"ord\". Can be left blank.",
 				token: "ord",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"DSP (Ad Server)"
+		]
+
 			/*~config*/
 		};
 		},

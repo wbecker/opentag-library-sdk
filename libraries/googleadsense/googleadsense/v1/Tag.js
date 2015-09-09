@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("googleadsense.googleadsense.v1.Tag", {
 			description: "The HTML element (by id) to add the ads to.",
 			token: "parent_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

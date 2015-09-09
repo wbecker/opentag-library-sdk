@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("sizmek.genericpagetag.v1.Tag", {
 			description: "An ID unique to each user's session - can be set blank",
 			token: "session_id",
 			uv: "universal_variable.user.user_id"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

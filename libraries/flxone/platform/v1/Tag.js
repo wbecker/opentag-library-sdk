@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("flxone.platform.v1.Tag", {
 			description: "The client ID given to you by FlxOne",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

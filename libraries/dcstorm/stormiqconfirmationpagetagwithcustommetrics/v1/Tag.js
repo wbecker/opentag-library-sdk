@@ -79,7 +79,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Arbitrary metric. It does NOT end with ';' - you may use empty quotes if this is unneeded.",
 				token: "custom_3",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

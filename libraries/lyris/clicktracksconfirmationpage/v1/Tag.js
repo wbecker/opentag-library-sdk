@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksconfirmationpage.v1.Tag", {
 			description: "",
 			token: "order_total",
 			uv: "universal_variable.transaction.total"
-		}]
+		}],
+		categories:[
+			"Digital Media Agencies"
+		]
+
 		/*~config*/
 		};
 	},

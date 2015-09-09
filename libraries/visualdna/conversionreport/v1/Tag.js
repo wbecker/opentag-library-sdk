@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("visualdna.conversionreport.v1.Tag", {
 			description: "An ID identifying the designated Conversion Goal",
 			token: "conversion_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

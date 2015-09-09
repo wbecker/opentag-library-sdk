@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "A boolean that when set to true, the event hit will not be used in bounce-rate calculation.",
 				token: "non_interaction",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

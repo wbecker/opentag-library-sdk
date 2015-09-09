@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("visualdna.basketremovalreport.v1.Tag", {
 			description: "Currency",
 			token: "currency",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsproductpages.v1.Tag", {
 			description: "Some CM setups don't require this on product pages - pass true or false depending on this.",
 			token: "sendpageview",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

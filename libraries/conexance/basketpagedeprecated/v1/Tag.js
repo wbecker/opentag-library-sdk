@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("conexance.basketpagedeprecated.v1.Tag", {
 			description: "An array of the quantities of each respective item currently in the basket",
 			token: "quantity_list",
 			uv: "universal_variable.basket.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

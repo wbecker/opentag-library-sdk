@@ -63,7 +63,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationproductpage.v1.Tag", {
 			description: "Leave blank if not available",
 			token: "visitor_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Individual Container Id",
 				token: "TAG_ID",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

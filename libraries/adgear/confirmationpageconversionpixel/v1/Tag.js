@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("adgear.confirmationpageconversionpixel.v1.Tag",
 			description: "The chip key value",
 			token: "chipkey",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

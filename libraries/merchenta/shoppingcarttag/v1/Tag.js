@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("merchenta.shoppingcarttag.v1.Tag", {
 			description: "Order id for your cart - if your system doesn't provide one, just provide an empty string here.",
 			token: "order_id",
 			uv: "universal_variable.basket.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

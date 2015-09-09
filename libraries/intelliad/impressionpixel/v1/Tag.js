@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("intelliad.impressionpixel.v1.Tag", {
 			description: "Represents cost per impression in EUR - so 0.1 cent  is 0.0010 (leave blank if not required)",
 			token: "cost_per_impression",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

@@ -108,7 +108,11 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithparameters.v1
 			description: "Product brand",
 			token: "product_brand",
 			uv: "universal_variable.transaction.line_items[#].product.manufacturer"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

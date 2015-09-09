@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The total value of items at checkout",
 				token: "checkout_total",
 				uv: "universal_variable.transaction.subtotal"
-			}]
+			}],
+		categories:[
+			"Advertising Network"
+		]
+
 			/*~config*/
 		};
 		},

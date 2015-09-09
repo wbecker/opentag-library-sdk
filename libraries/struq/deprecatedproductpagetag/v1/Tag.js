@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductpagetag.v1.Tag", {
 			description: "ID for the product on the current page",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Voucher code, if used",
 				token: "voucher",
 				uv: "voucher"
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
       };
 		},

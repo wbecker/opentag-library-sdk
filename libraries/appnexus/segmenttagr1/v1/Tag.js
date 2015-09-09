@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("appnexus.segmenttagr1.v1.Tag", {
 			description: "Segment for AppNexus",
 			token: "segment",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"DSP"
+		]
+
 		/*~config*/
 		};
 	},

@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("mediaforge.product.v1.Tag", {
 			description: "The product ID / SKU of the product on the current product display page",
 			token: "product_id",
 			uv: "universal_variable.product.sku_code"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

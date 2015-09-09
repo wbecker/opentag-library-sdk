@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("polyvore.conversiontrackingpixel.v1.Tag", {
 			description: "e.g. GBP or USD or EUR etc.",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

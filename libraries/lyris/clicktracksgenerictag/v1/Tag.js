@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("lyris.clicktracksgenerictag.v1.Tag", {
 			description: "",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Digital Media Agencies"
+		]
+
 		/*~config*/
 		};
 	},

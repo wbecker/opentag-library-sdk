@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The value associated with the conversion.",
 				token: "value",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

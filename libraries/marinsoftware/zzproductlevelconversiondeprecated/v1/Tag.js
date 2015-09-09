@@ -59,7 +59,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "marin_tracking_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

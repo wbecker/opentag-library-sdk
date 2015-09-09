@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("qubit.realtimeping.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Utilities / JavaScript Tools"
 		]
+
 		/*~config*/
 		};
 	},

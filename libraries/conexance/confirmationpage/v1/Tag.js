@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("conexance.confirmationpage.v1.Tag", {
 			description: "The unique identifier for the user",
 			token: "user_id",
 			uv: "universal_variable.user.user_id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

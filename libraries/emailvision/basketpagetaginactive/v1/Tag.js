@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("emailvision.basketpagetaginactive.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Email Service Provider (ESP)"
 		]
+
 		/*~config*/
 		};
 	},

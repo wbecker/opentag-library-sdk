@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Order Value",
 				token: "total",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

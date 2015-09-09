@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("sizmek.generictagnosession.v1.Tag", {
 			description: "The ID that relates this pixel to Sizmek",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

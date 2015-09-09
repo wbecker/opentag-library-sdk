@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("qubit.zzdeleteme.v1.Tag", {
 			description: "param",
 			token: "param",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

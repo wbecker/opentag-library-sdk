@@ -119,7 +119,11 @@ qubit.opentag.LibraryTag.define(
 				description: "\"Now\" or \"Later\" (Assign blank string if not available)",
 				token: "method",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

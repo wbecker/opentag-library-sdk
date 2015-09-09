@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv19us.v1.Tag", {
 			description: "The Struq Homepage tracking pixel ID",
 			token: "pixelid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

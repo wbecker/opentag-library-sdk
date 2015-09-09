@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Any remaining parameters, not visible in the url above, as 'paramName=paramValue' separated by ;",
 				token: "custom_params",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"DSP (Ad Server)"
+		]
+
 			/*~config*/
 		};
 		},

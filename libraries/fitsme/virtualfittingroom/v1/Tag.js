@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("fitsme.virtualfittingroom.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Merchandising & Rich Media"
 		]
+
 		/*~config*/
 		};
 	},

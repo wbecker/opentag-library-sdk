@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("kissmetrics.kissmetrics.v1.Tag", {
 			description: "Your KISS metrics API key",
 			token: "API_KEY",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

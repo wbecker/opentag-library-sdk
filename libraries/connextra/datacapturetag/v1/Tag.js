@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("connextra.datacapturetag.v1.Tag", {
 			description: "The Connextra address which holds your configuration data.",
 			token: "conf_server",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

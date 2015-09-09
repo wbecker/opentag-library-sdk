@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("peerius.otherpagewithsmartrecs.v1.Tag", {
 			description: "The language the user uses on the current page",
 			token: "lang",
 			uv: "universal_variable.user.language"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

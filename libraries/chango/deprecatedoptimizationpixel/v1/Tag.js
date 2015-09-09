@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("chango.deprecatedoptimizationpixel.v1.Tag", {
 			description: "Your Chango Account ID",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

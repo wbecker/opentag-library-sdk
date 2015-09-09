@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("smartfocus.allpagescss.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Analytics"
 		]
+
 		/*~config*/
 		};
 	},

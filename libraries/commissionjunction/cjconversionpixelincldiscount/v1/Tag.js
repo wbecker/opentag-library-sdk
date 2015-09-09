@@ -64,7 +64,11 @@ qubit.opentag.LibraryTag.define(
 				description: "JS returning empty array if no individual discounts. Else check documentation on how to calculate.",
 				token: "discounts",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

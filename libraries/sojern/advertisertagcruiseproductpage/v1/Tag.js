@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("sojern.advertisertagcruiseproductpage.v1.Tag", 
 			description: "Product ID",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

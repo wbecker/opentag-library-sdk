@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Product ID",
 				token: "product_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

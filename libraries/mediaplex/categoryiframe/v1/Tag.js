@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("mediaplex.categoryiframe.v1.Tag", {
 			description: "The subcategory of the page the user is viewing",
 			token: "subcategory",
 			uv: "universal_variable.page.subcategory"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

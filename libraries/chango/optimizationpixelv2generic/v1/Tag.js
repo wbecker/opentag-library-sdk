@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2generic.v1.Tag", {
 			description: "",
 			token: "ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

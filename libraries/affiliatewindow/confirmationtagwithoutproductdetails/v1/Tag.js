@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The currency the order was paid with",
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

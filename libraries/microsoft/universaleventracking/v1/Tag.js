@@ -17,7 +17,11 @@ qubit.opentag.LibraryTag.define("microsoft.universaleventracking.v1.Tag", {
         name: "Tag ID",
         description: "The Microsoft TagID for your account.",
         token: "tagID"
-      }]
+      }],
+		categories:[
+			"Web Analytics"
+		]
+
       /*~config*/
 		};
     },

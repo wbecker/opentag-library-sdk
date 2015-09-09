@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("clicktale.clicktaleatlaslegacy.v1.Tag", {
 			description: "The clicktale partition - normally something like \"www09\"",
 			token: "Partition",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxbasketpage.v1.Tag", {
 			description: "client/page specific ID",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsgenericpages.v1.Tag", {
 			description: "Category ID for the leaf 256 node to which this page belongs. Should match the id from a CDF file.",
 			token: "category_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

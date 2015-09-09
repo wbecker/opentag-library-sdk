@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("clicktale.clicktalebalkan.v1.Tag", {
 			description: "Fill this dynamically with HTTPS or HTTP URL using JavaScript variable",
 			token: "clicktale_url",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

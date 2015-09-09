@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The value should match that of the Checkout Start page tag Unique Checkout ID parameter",
 				token: "id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

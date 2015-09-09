@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Assign blank string if not available",
 				token: "residence",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
 		};
 		},

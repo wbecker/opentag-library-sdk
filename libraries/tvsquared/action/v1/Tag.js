@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("tvsquared.action.v1.Tag", {
 			description: "If the client uses Promo codes to attribute data, the code can be added here.",
 			token: "promoCode",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
       };
   },

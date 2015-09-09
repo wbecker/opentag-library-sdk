@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("jquery.d164deprecated.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Utilities / JavaScript Tools"
 		]
+
 		/*~config*/
 		};
 	},

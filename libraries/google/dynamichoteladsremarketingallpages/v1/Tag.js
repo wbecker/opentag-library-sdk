@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Check-Out Date",
 				token: "checkout",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "vals",
 				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

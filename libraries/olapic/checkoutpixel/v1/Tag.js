@@ -57,7 +57,11 @@ qubit.opentag.LibraryTag.define("olapic.checkoutpixel.v1.Tag", {
       description: "The prices for the products purchased.",
       token: "productprices",
       uv: "universal_variable.transaction.line_items[#].product.unit_price"
-    }]
+    }],
+		categories:[
+			"Personalisation Platform"
+		]
+
     /*~config*/
 		};
   },

@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("criteo.legacyusertag.v1.Tag", {
 			description: "Call parameter provided by Criteo",
 			token: "call_parameter",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

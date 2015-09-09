@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "product_id_list",
 				uv: "universal_variable.transaction.line_items[#].product.id"
-			}]
+			}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 			/*~config*/
 		};
 		},

@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("bazaarvoice.displayintegrationcode.v1.Tag", {
 			description: "The ID of the product displayed on the page",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Ratings & Review Engine"
+		]
+
 		/*~config*/
 		};
 	},

@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("insparq.pinboard.v1.Tag", {
       description: "URL for pinboard's CSS",
       token: "stylesheeturl",
       uv: ""
-    }]
+    }],
+		categories:[
+			"Social"
+		]
+
     /*~config*/
 		};
   },

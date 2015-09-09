@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("qubit.qubitcookieconsent.v1.Tag", {
 			description: "Replace the main text with your own - Otherwise assign an empty value to this  variable",
 			token: "mainText",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

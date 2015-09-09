@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("deprecatedtags.clicktalebalkandonotuse.v1.Tag",
 			description: "Set this to the HTTP URL specified in the ClickTale implementation code",
 			token: "clicktale_http",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

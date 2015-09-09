@@ -68,7 +68,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationotherpage.v1.Tag", {
 			description: "empty array if you're not tracking Basket items",
 			token: "names",
 			uv: "universal_variable.basket.line_items[#].product.name"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

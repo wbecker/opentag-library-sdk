@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("adform.globaltrackingpointpageviewonly.v1.Tag",
 			description: "The token used to divide sections of the page name - '/' for urls, for example.",
 			token: "divider",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

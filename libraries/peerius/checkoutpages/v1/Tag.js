@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("peerius.checkoutpages.v1.Tag", {
 			description: "A list of unit sale prices for items in the basket",
 			token: "price_list",
 			uv: "universal_variable.basket.line_items[#].product.unit_sale_price"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

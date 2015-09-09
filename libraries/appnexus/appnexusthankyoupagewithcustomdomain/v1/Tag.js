@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "e.g. 2",
 				token: "t",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"DSP"
+		]
+
 			/*~config*/
 		};
 		},

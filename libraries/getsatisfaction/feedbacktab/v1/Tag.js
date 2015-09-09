@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("getsatisfaction.feedbacktab.v1.Tag", {
 			description: "The default type that will be chosen",
 			token: "STYLE",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

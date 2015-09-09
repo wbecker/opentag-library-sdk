@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "order_total",
 				uv: "universal_variable.transaction.total"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

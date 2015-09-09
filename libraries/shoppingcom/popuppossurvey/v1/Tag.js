@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("shoppingcom.popuppossurvey.v1.Tag", {
 			description: "The merchant ID which represents your site.",
 			token: "merchant_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

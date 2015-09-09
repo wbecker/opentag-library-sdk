@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Customer's Postcode",
 				token: "postcode",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

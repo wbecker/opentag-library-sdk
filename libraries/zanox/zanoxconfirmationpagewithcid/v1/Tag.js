@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("zanox.zanoxconfirmationpagewithcid.v1.Tag", {
 			description: "",
 			token: "zanox_page_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "currency",
 				uv: "universal_variable.transaction.currency"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

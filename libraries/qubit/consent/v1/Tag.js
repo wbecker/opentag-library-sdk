@@ -15,7 +15,11 @@ qubit.Quick.library("qubit.consent.v1.Tag", {
     usesDocWrite: false,
     upgradeable: true,
     consentConfig: null,
-    parameters: []
+    parameters: [],
+		categories:[
+			
+		]
+
     /*~config*/
 		};
   },

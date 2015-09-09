@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("liveclicker.conversiontagdeprecated.v1.Tag", {
 			description: "",
 			token: "account_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

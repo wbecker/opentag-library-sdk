@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("struq.listingpagetagv15.v1.Tag", {
 			description: "",
 			token: "product_id_list",
 			uv: "universal_variable.listing.items[#].id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

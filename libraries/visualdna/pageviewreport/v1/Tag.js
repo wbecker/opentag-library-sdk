@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("visualdna.pageviewreport.v1.Tag", {
 			description: "See tag description for more details",
 			token: "window_history",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

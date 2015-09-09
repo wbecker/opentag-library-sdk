@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("rocketfuel.conversionpixel.v1.Tag", {
 			description: "The value paid by the customer for this order",
 			token: "order_total",
 			uv: "universal_variable.transaction.subtotal"
-		}]
+		}],
+		categories:[
+			"DSP (Ad Server)"
+		]
+
 		/*~config*/
 		};
 	},

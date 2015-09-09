@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("unidays.redemptiontracking.v1.Tag", {
 			description: "Provided by UNiDAYS in order to encrypt UNiDays Customer ID, Order ID & Student ID (if applicable)",
 			token: "unidays_secret_hash_key",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Define the type of event. Valid options are \"transaction\" or \"action\".",
 				token: "EVENT_TYPE",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

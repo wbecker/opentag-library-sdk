@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("mythings.visitortag.v1.Tag", {
 			description: "subdomian provided for tracking",
 			token: "subdomain",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

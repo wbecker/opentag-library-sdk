@@ -64,7 +64,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Any client specific data to be associated with each transaction - numbers only",
 				token: "cust2",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Email Service Provider (ESP)"
+		]
+
 			/*~config*/
 		};
 		},

@@ -79,7 +79,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The commission group for every product purchased",
 				token: "commission_groups",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

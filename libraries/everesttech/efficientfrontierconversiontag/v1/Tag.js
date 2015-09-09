@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "order_id",
 				uv: "universal_variable.transaction.order_id"
-			}]
+			}],
+		categories:[
+			"Email Service Provider (ESP)"
+		]
+
 			/*~config*/
 		};
 		},

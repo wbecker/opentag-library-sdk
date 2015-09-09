@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("mentionme.refereetagdeprecated.v1.Tag", {
 			description: "Optionally override the way the flow is implemented (one of: link, form)",
 			token: "implementation",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Social"
+		]
+
 		/*~config*/
 		};
 	},

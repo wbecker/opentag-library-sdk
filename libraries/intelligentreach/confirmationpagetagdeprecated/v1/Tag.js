@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The voucher code used with the purchase, if any",
 				token: "voucher",
 				uv: "universal_variable.transaction.voucher"
-			}]
+			}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 			/*~config*/
 		};
 		},

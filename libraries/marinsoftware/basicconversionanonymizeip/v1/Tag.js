@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Marin Conversion Type",
 				token: "conversion",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

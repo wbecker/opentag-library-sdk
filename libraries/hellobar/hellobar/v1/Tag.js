@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("hellobar.hellobar.v1.Tag", {
 			description: "Your Bar's id number",
 			token: "BAR_ID",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

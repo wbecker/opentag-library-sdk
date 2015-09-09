@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("drawbridge.drawbridge.v1.Tag", {
 			description: "The label for the specific implementation of Drawbridge",
 			token: "label",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

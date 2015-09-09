@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("olark.olarkchatwithgoogleanalytics.v1.Tag", {
 			description: "e.g. UA-123221321-12",
 			token: "ga_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Live Chat & Customer Service Engine"
+		]
+
 		/*~config*/
 		};
 	},

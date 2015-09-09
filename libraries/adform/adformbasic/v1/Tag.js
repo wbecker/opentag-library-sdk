@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("adform.adformbasic.v1.Tag", {
 			description: "Point ID for the tag. Usually unique to page type.",
 			token: "pointid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

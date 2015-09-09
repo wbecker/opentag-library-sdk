@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenerictag.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Advertising Network"
 		]
+
 		/*~config*/
 		};
 	},

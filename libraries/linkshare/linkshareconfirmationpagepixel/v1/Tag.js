@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Voucher discount amount (set to 0 if no discount)",
 				token: "voucher_discount",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "PUID",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

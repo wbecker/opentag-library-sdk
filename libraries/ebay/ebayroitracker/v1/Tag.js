@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("ebay.ebayroitracker.v1.Tag", {
 			description: "",
 			token: "product_category_ids",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

@@ -79,7 +79,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The category for each product purchased",
 				token: "product_categories",
 				uv: "universal_variable.transaction.line_items[#].product.category"
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

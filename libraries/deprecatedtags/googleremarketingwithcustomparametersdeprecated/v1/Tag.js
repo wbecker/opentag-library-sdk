@@ -29,7 +29,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Use a JavaScript-based parameter to return an object within an anonymous function.",
 				token: "custom_parameters",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

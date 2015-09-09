@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Whether to use the version of jQuery already existing on the page",
 				token: "use_jquery",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"AB & Multi-Variate Testing"
+		]
+
 			/*~config*/
       };
 		},

@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("sessioncam.sessioncamv55deprecated.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Analytics"
 		]
+
 		/*~config*/
 		};
 	},

@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedproductlistingtag.v1.Tag", {
 			description: "An array containing a list of product IDs",
 			token: "product_id_list",
 			uv: "universal_variable.listing.items[#].id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

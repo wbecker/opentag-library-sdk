@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("webtrends.deprecated.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Analytics"
 		]
+
 		/*~config*/
       };
   },

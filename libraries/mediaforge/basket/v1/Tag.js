@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("mediaforge.basket.v1.Tag", {
 			description: "The total value for all items in the basket",
 			token: "basket_total",
 			uv: "universal_variable.basket.subtotal"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

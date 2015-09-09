@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("smartfocus.d404page.v1.Tag", {
 			description: "e.g. Recommendations for You",
 			token: "title",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

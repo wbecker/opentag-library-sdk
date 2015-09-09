@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Conversion Tag - Lead Order ID must be identical with Conversion Tag - Lead Validation Order ID",
 				token: "lengow_order_id",
 				uv: "universal_variable.transaction.order_id"
-			}]
+			}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 			/*~config*/
 		};
 		},

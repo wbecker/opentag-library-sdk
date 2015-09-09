@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("struq.homepagetagv15.v1.Tag", {
 			description: "",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

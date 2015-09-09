@@ -34,7 +34,11 @@ qubit.opentag.LibraryTag.define(
 				description: "A point value used in establishing an arbitrary “value” for a conversion.",
 				token: "points",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

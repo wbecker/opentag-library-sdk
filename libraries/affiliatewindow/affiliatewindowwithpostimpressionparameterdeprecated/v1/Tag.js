@@ -94,7 +94,11 @@ qubit.opentag.LibraryTag.define(
 				description: "should be set to 1 if post impression, 0 if post click",
 				token: "isPostImpression",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

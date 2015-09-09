@@ -73,7 +73,11 @@ qubit.opentag.LibraryTag.define("visualdna.transactionreport.v1.Tag", {
 			description: "API Key",
 			token: "api_key",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("mediamind.generictagnosession.v1.Tag", {
 			description: "The ID that relates this pixel to MediaMind",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Client Specific Marin Tracking ID",
 				token: "marin_tracking_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

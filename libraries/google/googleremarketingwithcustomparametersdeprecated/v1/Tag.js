@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Specify the value of the product. On a basket/purchase page, this should be the total sum of items.",
 				token: "total",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

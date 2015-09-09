@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("peerius.productpagewithsmartrecs.v1.Tag", {
 			description: "The product ID for the current product page view",
 			token: "peerius_product_id",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

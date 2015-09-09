@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("peerius.searchpagewithsmartrecs.v1.Tag", {
 			description: "The array of product IDs in the results",
 			token: "search_listing_ids",
 			uv: "universal_variable.listing.items[#].id"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

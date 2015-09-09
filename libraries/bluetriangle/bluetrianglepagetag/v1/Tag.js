@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("bluetriangle.bluetrianglepagetag.v1.Tag", {
 			description: "Client ID provided by Blue Triangle. e.g. demo.btttag.com/BTT/btt.js, demo is your client ID",
 			token: "clientId",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

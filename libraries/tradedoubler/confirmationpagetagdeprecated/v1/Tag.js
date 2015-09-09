@@ -74,7 +74,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Enter hard coded value s for sales tracking or l for lead tracking",
 				token: "tracking_type",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
       };
 		},

@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "List of Product Quantities",
 				token: "quantity",
 				uv: "universal_variable.basket.line_items[#].quantity"
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
 		},

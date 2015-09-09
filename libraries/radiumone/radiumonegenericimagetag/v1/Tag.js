@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("radiumone.radiumonegenericimagetag.v1.Tag", {
 			description: "",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

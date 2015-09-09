@@ -93,7 +93,11 @@ qubit.opentag.LibraryTag.define("adobesitecatalyst.sitecatalystpagetag.v1.Tag", 
 			description: "",
 			token: "evar5",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

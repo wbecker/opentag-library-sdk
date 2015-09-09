@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("peerius.confirmationpagedeprecated.v1.Tag", {
 			description: "A list of unit sale prices for items on the confirmation page",
 			token: "price_list",
 			uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

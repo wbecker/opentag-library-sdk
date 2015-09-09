@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghomepage.v1.Tag", {
 			description: "Page Type Identifier",
 			token: "page_name",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

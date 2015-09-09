@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsscenarioanalysis.v1.Tag", {
 			description: "If the value is 1, the page is identified as a conversion page. Set as 0 otherwise.",
 			token: "step_where_conversion_occurs",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

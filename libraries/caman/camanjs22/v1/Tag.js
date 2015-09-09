@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("caman.camanjs22.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Utilities / JavaScript Tools"
 		]
+
 		/*~config*/
 		};
 	},

@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("qubit.pongtimers.v1.Tag", {
 			description: "URL of the pong to be tested",
 			token: "pong_url",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

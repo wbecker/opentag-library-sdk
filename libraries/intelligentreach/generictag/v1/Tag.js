@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("intelligentreach.generictag.v1.Tag", {
 			description: "",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

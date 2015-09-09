@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("facebook.facebookpixeldeprecated.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Social"
 		]
+
 		/*~config*/
 		};
 	},

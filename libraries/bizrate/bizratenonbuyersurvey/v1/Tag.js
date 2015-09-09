@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("bizrate.bizratenonbuyersurvey.v1.Tag", {
 			description: "The identifier that corresponds to the merchant.",
 			token: "merchant_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

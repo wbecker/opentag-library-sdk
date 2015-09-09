@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagflightsearch.v1.Tag", {
 			description: "Blank string if not available",
 			token: "service_class",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

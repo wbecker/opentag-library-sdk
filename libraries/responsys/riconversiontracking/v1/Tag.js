@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("responsys.riconversiontracking.v1.Tag", {
 			description: "e.g. email.somedomain.com",
 			token: "domain",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

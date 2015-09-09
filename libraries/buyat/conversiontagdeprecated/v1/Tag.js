@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("buyat.conversiontagdeprecated.v1.Tag", {
 			description: "Custom data specified by BuyAt",
 			token: "ppdata",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

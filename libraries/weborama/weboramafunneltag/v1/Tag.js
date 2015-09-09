@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("weborama.weboramafunneltag.v1.Tag", {
 			description: "Enter funnel step Id here",
 			token: "CONVERSION_PAGE",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
       };
   },

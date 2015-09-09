@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("visualdna.basketadditionreport.v1.Tag", {
 			description: "API Key",
 			token: "api_key",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

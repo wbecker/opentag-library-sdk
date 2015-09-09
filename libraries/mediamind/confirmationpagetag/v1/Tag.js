@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("mediamind.confirmationpagetag.v1.Tag", {
 			description: "",
 			token: "quants",
 			uv: "universal_variable.transaction.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

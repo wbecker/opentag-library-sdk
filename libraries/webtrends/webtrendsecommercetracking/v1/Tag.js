@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("webtrends.webtrendsecommercetracking.v1.Tag", {
 			description: "",
 			token: "quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
       };
   },

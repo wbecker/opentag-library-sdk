@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("netbooster.conversionpixel.v1.Tag", {
 			description: "",
 			token: "partner_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

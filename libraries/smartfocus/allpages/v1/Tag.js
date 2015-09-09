@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("smartfocus.allpages.v1.Tag", {
 			description: "ccid",
 			token: "accid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

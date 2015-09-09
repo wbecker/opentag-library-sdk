@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("mythings.confirmationtaginactive.v1.Tag", {
 			description: "",
 			token: "advertiser_token",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

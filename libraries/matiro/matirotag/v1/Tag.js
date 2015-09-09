@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("matiro.matirotag.v1.Tag", {
 			description: "The amount of the current order",
 			token: "order_amount",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

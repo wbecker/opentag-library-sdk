@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("nextag.thankyoupagesurvey.v1.Tag", {
 			description: "Default: 0",
 			token: "popup_resize",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

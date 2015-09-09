@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricssearchpages.v1.Tag", {
 			description: "Number of search results (new parameter, set as blank if not available)",
 			token: "number_results",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

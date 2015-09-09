@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("googleanalytics.fullycustomizeabletag.v1.Tag", 
 			description: "Array of arrays - each of which can be applied using _gaq.push()",
 			token: "commands",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

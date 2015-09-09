@@ -79,7 +79,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Blank string if not available",
 				token: "fare_code",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

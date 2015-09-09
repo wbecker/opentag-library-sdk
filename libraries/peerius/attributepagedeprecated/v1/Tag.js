@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("peerius.attributepagedeprecated.v1.Tag", {
 			description: "The value of the Peerius category attribute name",
 			token: "value",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

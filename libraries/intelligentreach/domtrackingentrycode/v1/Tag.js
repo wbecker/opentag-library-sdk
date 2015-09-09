@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("intelligentreach.domtrackingentrycode.v1.Tag", 
 			description: "Unique ID assigned by IntelligentReach - must remain the same across the whole site",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

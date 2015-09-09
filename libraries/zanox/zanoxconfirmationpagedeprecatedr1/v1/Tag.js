@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "zanox_page_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
       };
 		},

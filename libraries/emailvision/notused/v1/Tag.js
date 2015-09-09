@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("emailvision.notused.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Email Service Provider (ESP)"
 		]
+
 		/*~config*/
 		};
 	},

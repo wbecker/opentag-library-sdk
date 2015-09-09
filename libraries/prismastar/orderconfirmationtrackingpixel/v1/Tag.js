@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "categories",
 				uv: "universal_variable.transaction.line_items[#].product.category"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

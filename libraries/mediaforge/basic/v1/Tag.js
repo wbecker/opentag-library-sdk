@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("mediaforge.basic.v1.Tag", {
 			description: "The ID that relates you to mediaFORGE",
 			token: "merchant_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

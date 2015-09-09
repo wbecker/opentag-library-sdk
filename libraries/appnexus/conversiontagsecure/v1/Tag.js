@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("appnexus.conversiontagsecure.v1.Tag", {
 			description: "",
 			token: "appnexus_segment",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"DSP"
+		]
+
 		/*~config*/
 		};
 	},

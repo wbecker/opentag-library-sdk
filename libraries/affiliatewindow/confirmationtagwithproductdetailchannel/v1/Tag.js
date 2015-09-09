@@ -84,7 +84,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The traffic source - should be aw if AWIN referrer",
 				token: "channel",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

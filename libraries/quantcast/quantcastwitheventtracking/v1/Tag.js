@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("quantcast.quantcastwitheventtracking.v1.Tag", {
 			description: "The label for the custom page - e.g. \"Home\", \"Bracelets\"",
 			token: "custom_page",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

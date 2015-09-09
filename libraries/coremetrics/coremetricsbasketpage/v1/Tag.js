@@ -68,7 +68,11 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsbasketpage.v1.Tag", {
 			description: "A list of all the category ids the products belong to. Uses line_items[].product.category by default",
 			token: "product_category_id_list",
 			uv: "universal_variable.basket.line_items[#].product.category"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

@@ -94,7 +94,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Blank string if not available",
 				token: "car_class",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

@@ -78,7 +78,11 @@ qubit.opentag.LibraryTag.define("tradedoubler.confirmationpager1.v1.Tag", {
 			description: "Product group ID, supplied by TradeDoubler. Used  to distinguish different product categories.",
 			token: "productGroupId",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

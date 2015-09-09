@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("criteo.onetaghomepage.v1.Tag", {
 			description: "\"m\" for mobile or \"t\" for tablet or \"d\" for  desktop",
 			token: "site_type",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

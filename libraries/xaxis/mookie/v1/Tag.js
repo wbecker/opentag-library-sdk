@@ -68,7 +68,11 @@ qubit.opentag.LibraryTag.define("xaxis.mookie.v1.Tag", {
 			description: "Custom parameter. Leave blank if not used.",
 			token: "param5",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

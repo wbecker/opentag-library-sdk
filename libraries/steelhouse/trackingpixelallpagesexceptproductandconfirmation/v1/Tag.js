@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Any additional info to be passed along. Send an empty hard-coded variable to leave blank.",
 				token: "additional_info",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
       };
 		},

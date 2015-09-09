@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("prismastar.productpagetag.v1.Tag", {
 			description: "The product category used in the data feeds (Optional)",
 			token: "CATEGORY_CODE",
 			uv: "universal_variable.product.category"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

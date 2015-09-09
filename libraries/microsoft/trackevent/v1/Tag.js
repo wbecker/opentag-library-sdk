@@ -29,7 +29,11 @@ qubit.opentag.LibraryTag.define("microsoft.trackevent.v1.Tag", {
         name: "Event Value",
         description: "The value for the event",
         token: "ev"
-      }]
+      }],
+		categories:[
+			"Web Analytics"
+		]
+
       /*~config*/
 		};
     },

@@ -63,7 +63,11 @@ qubit.opentag.LibraryTag.define("coremetrics.coremetricsconversionpages.v1.Tag",
 			description: "A point value used in establishing an arbitrary “value” for a conversion.",
 			token: "points",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

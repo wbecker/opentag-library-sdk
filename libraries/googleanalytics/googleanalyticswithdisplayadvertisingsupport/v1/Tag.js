@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Your unique profile id for GA, e.g. UA-1234567",
 				token: "profile_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("netbooster.remarketingpixel.v1.Tag", {
 			description: "",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

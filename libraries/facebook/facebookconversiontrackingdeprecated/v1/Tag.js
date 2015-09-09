@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The value of the conversion",
 				token: "subtotal",
 				uv: "universal_variable.transaction.subtotal"
-			}]
+			}],
+		categories:[
+			"Social"
+		]
+
 			/*~config*/
 		};
 		},

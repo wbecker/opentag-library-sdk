@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("jquery.noconflictjquery.v1.Tag", {
 			description: "Save jQuery as a variable rather than as 'jQuery' or '$'",
 			token: "jquery_name",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

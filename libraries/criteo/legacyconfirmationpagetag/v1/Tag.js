@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("criteo.legacyconfirmationpagetag.v1.Tag", {
 			description: "",
 			token: "quantities",
 			uv: "universal_variable.transaction.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

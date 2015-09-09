@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "In the format www.yourdomain.com or subdomain.yourdomain.com",
 				token: "DOMAIN",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

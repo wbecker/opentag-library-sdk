@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("yieldify.yieldify.v1.Tag", {
 			description: "Your Yieldify ID",
 			token: "yieldifyid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

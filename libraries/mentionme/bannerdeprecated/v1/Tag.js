@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("mentionme.bannerdeprecated.v1.Tag", {
 			description: "String representing the locale for the campaign",
 			token: "locale",
 			uv: "universal_variable.user.language"
-		}]
+		}],
+		categories:[
+			"Social"
+		]
+
 		/*~config*/
 		};
 	},

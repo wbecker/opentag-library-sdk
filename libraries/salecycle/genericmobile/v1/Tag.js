@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("salecycle.genericmobile.v1.Tag", {
 			description: "The client name that identifies you to SaleCycle",
 			token: "client_name",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

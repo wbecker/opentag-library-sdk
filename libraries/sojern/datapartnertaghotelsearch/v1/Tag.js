@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertaghotelsearch.v1.Tag", {
 			description: "Blank string if not available",
 			token: "airport_to_hotel",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

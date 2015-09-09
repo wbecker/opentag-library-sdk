@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("criteo.legacylistingpage.v1.Tag", {
 			description: "An array containing the product ids on the page",
 			token: "product_ids",
 			uv: "universal_variable.listing.items[#].id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

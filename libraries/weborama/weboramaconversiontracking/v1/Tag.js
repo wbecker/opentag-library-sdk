@@ -68,7 +68,11 @@ qubit.opentag.LibraryTag.define("weborama.weboramaconversiontracking.v1.Tag", {
 			description: "Conversion Page type, numerical value",
 			token: "CONVERSION_PAGE",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
       };
   },

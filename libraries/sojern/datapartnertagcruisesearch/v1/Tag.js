@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("sojern.datapartnertagcruisesearch.v1.Tag", {
 			description: "Blank string if not available",
 			token: "rooms",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
       };
   },

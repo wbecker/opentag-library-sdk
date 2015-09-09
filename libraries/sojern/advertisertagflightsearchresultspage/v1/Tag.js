@@ -59,7 +59,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Assign blank string if not available",
 				token: "vacation_loyal",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
 		};
 		},

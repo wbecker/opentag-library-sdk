@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("conexance.categorypagedeprecated.v1.Tag", {
 			description: "A string representing the category of the page",
 			token: "page_category",
 			uv: "universal_variable.page.category"
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

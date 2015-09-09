@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedbasketpagetag.v1.Tag", {
 			description: "An identifier for the client",
 			token: "advertiserid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

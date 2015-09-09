@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("sociomantic.producttag.v1.Tag", {
 			description: "User's email - return false to safely exclude it - will be hashed before sending (no PII is sent)",
 			token: "user_email",
 			uv: "universal_variable.user.email"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

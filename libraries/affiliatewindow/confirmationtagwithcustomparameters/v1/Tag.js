@@ -89,7 +89,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "custom_parameter2",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 			/*~config*/
 		};
 		},

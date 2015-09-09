@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The unique ID for the store",
 				token: "shop_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Advertising Network"
+		]
+
 			/*~config*/
 		};
 		},

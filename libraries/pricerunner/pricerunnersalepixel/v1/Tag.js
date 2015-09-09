@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("pricerunner.pricerunnersalepixel.v1.Tag", {
 			description: "",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

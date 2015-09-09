@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("intelliad.seotracking.v1.Tag", {
 			description: "You have the option to categorise your SEO traffic / web pages into sub categories",
 			token: "ad_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

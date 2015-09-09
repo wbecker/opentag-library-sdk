@@ -29,7 +29,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The total revenue for the transaction (uses subtotal, not grand total)",
 				token: "revenue",
 				uv: "universal_variable.transaction.subtotal"
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
 		};
 		},

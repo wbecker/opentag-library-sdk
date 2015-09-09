@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The identifier that relates Channel Advisor to you",
 				token: "ca_id",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 			/*~config*/
 		};
 		},

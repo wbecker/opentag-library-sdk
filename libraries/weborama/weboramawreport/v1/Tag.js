@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("weborama.weboramawreport.v1.Tag", {
 			description: "Please put the full URL of the script here www.domain.com/path/to/script.js without http or https://",
 			token: "SOURCE_URL",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
       };
   },

@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("exacttarget.landingpage.v1.Tag", {
 			description: "Number of days the cookie should last",
 			token: "expire",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Audience Management"
+		]
+
 		/*~config*/
 		};
 	},

@@ -53,7 +53,11 @@ qubit.opentag.LibraryTag.define("marinsoftware.productlevelconversion.v1.Tag", {
 			description: "Marin Tracking ID",
 			token: "tracking_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Search Engine"
+		]
+
 		/*~config*/
 		};
 	},

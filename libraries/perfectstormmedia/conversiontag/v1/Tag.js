@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("perfectstormmedia.conversiontag.v1.Tag", {
 			description: "",
 			token: "product_list",
 			uv: "universal_variable.transaction.line_items[#].product.id"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

@@ -134,7 +134,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "evar5",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

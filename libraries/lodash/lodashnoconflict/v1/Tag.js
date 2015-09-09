@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("lodash.lodashnoconflict.v1.Tag", {
 			description: "The window variable name you want to assign Lodash to. E.g. \"_noConflict\"",
 			token: "key",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

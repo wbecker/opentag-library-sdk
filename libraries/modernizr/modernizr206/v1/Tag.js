@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("modernizr.modernizr206.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Utilities / JavaScript Tools"
 		]
+
 		/*~config*/
 		};
 	},

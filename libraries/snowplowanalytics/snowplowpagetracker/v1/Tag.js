@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowpagetracker.v1.Tag", 
 			description: "The cookie domain for your tracking",
 			token: "cookiedomain",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

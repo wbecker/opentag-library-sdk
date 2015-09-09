@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("hubspot.analytics.v1.Tag", {
 			description: "",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

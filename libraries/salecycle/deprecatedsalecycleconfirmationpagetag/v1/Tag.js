@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "userEmail",
 				uv: "universal_variable.user.email"
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

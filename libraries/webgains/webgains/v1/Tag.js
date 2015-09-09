@@ -88,7 +88,11 @@ qubit.opentag.LibraryTag.define("webgains.webgains.v1.Tag", {
 			description: "array of product.wgeventid values - should return empty array if no product.wegeventid are available",
 			token: "product_event_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

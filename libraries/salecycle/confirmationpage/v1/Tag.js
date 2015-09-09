@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("salecycle.confirmationpage.v1.Tag", {
 			description: "The transaction order id",
 			token: "order_id",
 			uv: "universal_variable.transaction.order_id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

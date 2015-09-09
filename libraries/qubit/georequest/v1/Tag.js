@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("qubit.georequest.v1.Tag", {
 			description: "Client's tracking ID",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

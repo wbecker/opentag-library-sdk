@@ -78,7 +78,11 @@ qubit.opentag.LibraryTag.define("qubit.uvtestproductpage.v1.Tag", {
 			description: "",
 			token: "m",
 			uv: "universal_variable.product.color"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

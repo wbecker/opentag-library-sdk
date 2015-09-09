@@ -74,7 +74,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "skus",
 				uv: "universal_variable.transaction.line_items[#].product.sku_code"
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

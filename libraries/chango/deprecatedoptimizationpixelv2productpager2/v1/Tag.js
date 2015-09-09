@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Product category",
 				token: "PC_VALUE",
 				uv: "universal_variable.product.category"
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

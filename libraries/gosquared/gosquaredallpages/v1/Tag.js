@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("gosquared.gosquaredallpages.v1.Tag", {
 			description: "The ID specific to your GoSquared account.",
 			token: "account_no",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

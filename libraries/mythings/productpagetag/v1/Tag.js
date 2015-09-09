@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("mythings.productpagetag.v1.Tag", {
 			description: "",
 			token: "productId",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

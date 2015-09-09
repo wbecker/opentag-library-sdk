@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("calltrackingmetrics.trackingcode.v1.Tag", {
 			description: "The client ID given to you in your generated code from CallTrackingMetrics",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

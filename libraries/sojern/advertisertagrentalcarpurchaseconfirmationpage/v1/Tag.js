@@ -144,7 +144,11 @@ qubit.opentag.LibraryTag.define(
 				description: "blank if not available",
 				token: "name",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

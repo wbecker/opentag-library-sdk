@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("tenderapp.tenderapp.v1.Tag", {
 			description: "Please enter your subdomain. Example: yourdomain.tenderapp.com",
 			token: "SUBDOMAIN",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
       };
   },

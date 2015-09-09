@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("commissionjunction.commissionjunction.v1.Tag", 
 			description: "If not available in UV, hard code e.g. \"GBP\"",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

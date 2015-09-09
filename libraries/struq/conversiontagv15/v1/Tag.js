@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("struq.conversiontagv15.v1.Tag", {
 			description: "The id specific to the client",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

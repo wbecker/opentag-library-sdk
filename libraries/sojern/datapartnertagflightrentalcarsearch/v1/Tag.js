@@ -84,7 +84,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Blank string if not available",
 				token: "origin_airport_code",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

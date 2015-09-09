@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("criteo.onetagproduct.v1.Tag", {
 			description: "The ID of the product currently being viewed",
 			token: "product_id",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

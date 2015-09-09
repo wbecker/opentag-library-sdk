@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("smartfocus.listingpage.v1.Tag", {
 			description: "e.g. Recommnedations for You",
 			token: "title",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

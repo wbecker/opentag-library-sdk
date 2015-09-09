@@ -63,7 +63,11 @@ qubit.opentag.LibraryTag.define("dcstorm.stormiqconfirmationpagetag.v1.Tag", {
 			description: "",
 			token: "shipping",
 			uv: "universal_variable.transaction.shipping_cost"
-		}]
+		}],
+		categories:[
+			"Web Analytics"
+		]
+
 		/*~config*/
 		};
 	},

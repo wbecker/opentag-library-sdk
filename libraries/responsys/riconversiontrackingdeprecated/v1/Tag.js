@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "e.g. email.somedomain.net",
 				token: "domain",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
 		};
 		},

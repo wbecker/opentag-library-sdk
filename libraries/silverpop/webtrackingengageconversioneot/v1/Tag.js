@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The host for the Engage Conversion Tracking meta tag e.g. engage5.sliverpop.com",
 				token: "cot_host",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Email Service Provider (ESP)"
+		]
+
 			/*~config*/
 		};
 		},

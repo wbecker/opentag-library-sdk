@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("insparq.sharingwidgetreferralpopout.v1.Tag", {
       description: "e,g, jQuery , $ , myJquery etc.",
       token: "jQuery",
       uv: ""
-    }]
+    }],
+		categories:[
+			"Social"
+		]
+
     /*~config*/
 		};
   },

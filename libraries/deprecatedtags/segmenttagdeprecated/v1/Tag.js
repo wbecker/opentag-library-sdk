@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("deprecatedtags.segmenttagdeprecated.v1.Tag", {
 			description: "Segment id for use with AppNexus tag",
 			token: "segment",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

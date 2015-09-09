@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("peerius.basketpagewithsmartrecs.v1.Tag", {
 			description: "The list of item quantities for products in the basket",
 			token: "item_quantities",
 			uv: "universal_variable.basket.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

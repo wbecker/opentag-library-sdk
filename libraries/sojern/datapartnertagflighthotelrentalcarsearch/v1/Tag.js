@@ -89,7 +89,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Sojern Partner Key",
 				token: "sojern_partner_key",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

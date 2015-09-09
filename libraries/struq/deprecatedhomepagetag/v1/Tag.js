@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("struq.deprecatedhomepagetag.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Re-Targeting"
 		]
+
 		/*~config*/
       };
   },

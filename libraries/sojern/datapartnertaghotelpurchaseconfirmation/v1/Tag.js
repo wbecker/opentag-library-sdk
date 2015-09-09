@@ -89,7 +89,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Blank string if not available",
 				token: "number_of_travellers",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
   },

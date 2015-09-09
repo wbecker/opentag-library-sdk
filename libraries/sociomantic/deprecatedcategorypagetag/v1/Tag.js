@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("sociomantic.deprecatedcategorypagetag.v1.Tag", 
 			description: "Subategory name for the page the user was interested in",
 			token: "SUBCATEGORY",
 			uv: "universal_variable.page.subcategory"
-		}]
+		}],
+		categories:[
+			"Advertising Network"
+		]
+
 		/*~config*/
 		};
 	},

@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The value of the conversion. This should be a number, or 0 if there is no value to the conversion",
 				token: "value",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

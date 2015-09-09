@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("nextperformance.producttag.v1.Tag", {
 			description: "",
 			token: "productId",
 			uv: "universal_variable.product.id"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define(
 			usesDocWrite: false,
 			upgradeable: true,
 			parameters: [
-			]
+			],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 			/*~config*/
 		};
 		},

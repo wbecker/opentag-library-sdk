@@ -49,7 +49,11 @@ qubit.opentag.LibraryTag.define(
 				description: "Arbitrary parameters defined in the form of a javascript object. An empty object \"{ }\" is valid.",
 				token: "custom",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 			/*~config*/
 		};
 		},

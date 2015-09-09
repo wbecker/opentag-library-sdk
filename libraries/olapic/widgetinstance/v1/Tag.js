@@ -40,7 +40,11 @@ qubit.opentag.LibraryTag.define("olapic.widgetinstance.v1.Tag", {
       description: "The location for where the <div/> created by the script will be inserted into the DOM. Example: .pdp-content or #side-content",
       defaultValue: "body",
       token: "appendat"
-    }]
+    }],
+		categories:[
+			"Personalisation Platform"
+		]
+
     /*~config*/
 		};
   },

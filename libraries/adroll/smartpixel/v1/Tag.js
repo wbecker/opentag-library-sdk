@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("adroll.smartpixel.v1.Tag", {
 			description: "ID for the AdRoll pixel",
 			token: "adroll_pix_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

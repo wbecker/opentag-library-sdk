@@ -33,7 +33,11 @@ qubit.opentag.LibraryTag.define("chango.deprecatedconversionpixel.v1.Tag", {
 			description: "An array of quantities associated with each unique product in the order",
 			token: "qtys",
 			uv: "universal_variable.transaction.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

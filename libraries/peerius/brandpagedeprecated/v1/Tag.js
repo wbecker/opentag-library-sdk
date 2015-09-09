@@ -23,7 +23,11 @@ qubit.opentag.LibraryTag.define("peerius.brandpagedeprecated.v1.Tag", {
 			description: "The brand relating to the current brand category",
 			token: "brand",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Personalisation Platform"
+		]
+
 		/*~config*/
 		};
 	},

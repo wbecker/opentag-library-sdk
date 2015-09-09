@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("snowplowanalytics.snowplowecommtracker.v1.Tag",
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Web Analytics"
 		]
+
 		/*~config*/
 		};
 	},

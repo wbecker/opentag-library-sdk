@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("intelligentreach.confirmationpagetag.v1.Tag", {
 			description: "Transaction is for in store pickup (usually hardcoded as false)",
 			token: "store_pickup",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Feed Management (Shopping Comparison)"
+		]
+
 		/*~config*/
 		};
 	},

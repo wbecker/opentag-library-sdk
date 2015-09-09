@@ -13,7 +13,11 @@ qubit.opentag.LibraryTag.define("intentmedia.events.v1.Tag", {
         token: "im_event",
         uv: "",
         defaultValue: ""
-    }]
+    }],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 	/*~config*/
 		};
   },

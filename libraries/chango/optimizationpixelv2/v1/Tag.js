@@ -63,7 +63,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2.v1.Tag", {
 			description: "If not available input a black hardcoded parameter",
 			token: "productNames",
 			uv: "universal_variable.transaction.line_items[#].product.name"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

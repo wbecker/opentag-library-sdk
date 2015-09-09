@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("freespee.callbackwidget.v1.Tag", {
 			description: "Provided by FreeSpee - as in: \"//<--LowLevelDomainName-->.freespee.com/js/external/fs.js\" [REQUIRED]",
 			token: "domain_name",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

@@ -38,7 +38,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixelv2transaction.v1.Tag", 
 			description: "",
 			token: "productNames",
 			uv: "universal_variable.transaction.line_items[#].product.name"
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

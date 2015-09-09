@@ -19,7 +19,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "ID",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Re-Targeting"
+		]
+
 			/*~config*/
 		};
 		},

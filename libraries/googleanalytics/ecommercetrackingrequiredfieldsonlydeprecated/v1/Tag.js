@@ -44,7 +44,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "itemQuantities",
 				uv: "universal_variable.transaction.line_items[#].quantity"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

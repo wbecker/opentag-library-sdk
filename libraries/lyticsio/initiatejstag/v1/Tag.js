@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("lyticsio.initiatejstag.v1.Tag", {
 			description: "The ID given to you by Lytics.io",
 			token: "client_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

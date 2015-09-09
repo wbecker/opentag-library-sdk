@@ -24,7 +24,11 @@ qubit.opentag.LibraryTag.define("infectious.impressiondeskpixelwithoutparameters
 			description: "Doubleclick Type",
 			token: "type",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

@@ -43,7 +43,11 @@ qubit.opentag.LibraryTag.define("criteo.onetagbasketpage.v1.Tag", {
 			description: "Quantities for each item currently in the basket",
 			token: "product_quantities",
 			uv: "universal_variable.basket.line_items[#].quantity"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

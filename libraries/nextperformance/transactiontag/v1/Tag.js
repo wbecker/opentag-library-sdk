@@ -28,7 +28,11 @@ qubit.opentag.LibraryTag.define("nextperformance.transactiontag.v1.Tag", {
 			description: "",
 			token: "total",
 			uv: "universal_variable.transaction.total"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

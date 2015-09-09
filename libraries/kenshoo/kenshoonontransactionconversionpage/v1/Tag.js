@@ -29,7 +29,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The current currency",
 				token: "valueCurrency",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Search Engine"
+		]
+
 			/*~config*/
 		};
 		},

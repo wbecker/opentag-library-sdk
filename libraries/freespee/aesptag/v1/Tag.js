@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("freespee.aesptag.v1.Tag", {
 			description: "Test",
 			token: "test_param2",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

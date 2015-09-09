@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("chango.optimizationpixel.v1.Tag", {
 			description: "Your Chango Account ID",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Web Utilities / JavaScript Tools"
+		]
+
 		/*~config*/
 		};
 	},

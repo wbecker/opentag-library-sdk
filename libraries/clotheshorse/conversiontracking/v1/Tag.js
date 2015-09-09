@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("clotheshorse.conversiontracking.v1.Tag", {
 			description: "The token specific to the client using the tag",
 			token: "client_token",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Merchandising & Rich Media"
+		]
+
 		/*~config*/
 		};
 	},

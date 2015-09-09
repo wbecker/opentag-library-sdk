@@ -59,7 +59,11 @@ qubit.opentag.LibraryTag.define(
 				description: "",
 				token: "shipping",
 				uv: "universal_variable.transaction.shipping_cost"
-			}]
+			}],
+		categories:[
+			"Web Analytics"
+		]
+
 			/*~config*/
 		};
 		},

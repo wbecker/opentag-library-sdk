@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "The list of product prices in the order",
 				token: "product_prices",
 				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-			}]
+			}],
+		categories:[
+			"Ratings & Review Engine"
+		]
+
 			/*~config*/
 		};
 		},

@@ -68,7 +68,11 @@ qubit.opentag.LibraryTag.define("sovendus.sovendusdeprecated.v1.Tag", {
 			description: "See Sovendus Technical Integration Documentation on how to implement",
 			token: "checksum",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
       };
   },

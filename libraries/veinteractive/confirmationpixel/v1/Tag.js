@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("veinteractive.confirmationpixel.v1.Tag", {
 			description: "The ID for the tag in this format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX with dashes included",
 			token: "id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

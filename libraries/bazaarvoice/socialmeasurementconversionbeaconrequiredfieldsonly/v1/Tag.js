@@ -54,7 +54,11 @@ qubit.opentag.LibraryTag.define(
 				description: "An array of sale prices for all unique item IDs in the order.",
 				token: "prices",
 				uv: "universal_variable.transaction.line_items[#].product.unit_sale_price"
-			}]
+			}],
+		categories:[
+			"Ratings & Review Engine"
+		]
+
 			/*~config*/
 		};
 		},

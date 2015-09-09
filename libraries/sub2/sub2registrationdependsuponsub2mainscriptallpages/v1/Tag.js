@@ -29,7 +29,11 @@ qubit.opentag.LibraryTag.define(
 				description: "If not available, leave blank",
 				token: "email",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"Audience Management"
+		]
+
 			/*~config*/
       };
 		},

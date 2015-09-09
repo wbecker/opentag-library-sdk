@@ -83,7 +83,11 @@ qubit.opentag.LibraryTag.define("steelhouse.trackingpixelproductpage.v1.Tag", {
 			description: "List of SKUs correlating to every product in the basket. Use a custom variable if UV is not present",
 			token: "basket_skus_list",
 			uv: "universal_variable.basket.line_items[#].product.sku_code"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },

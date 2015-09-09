@@ -58,7 +58,11 @@ qubit.opentag.LibraryTag.define("commissionjunction.cjconversionpixel.v1.Tag", {
 			description: "Container Tag ID",
 			token: "containerid",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Affiliate Networks"
+		]
+
 		/*~config*/
 		};
 	},

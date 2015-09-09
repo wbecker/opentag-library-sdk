@@ -48,7 +48,11 @@ qubit.opentag.LibraryTag.define("mythings.endoftransactiontag.v1.Tag", {
 			description: "",
 			token: "total",
 			uv: "universal_variable.transaction.subtotal"
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
 		};
 	},

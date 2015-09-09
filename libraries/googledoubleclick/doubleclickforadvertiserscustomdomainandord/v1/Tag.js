@@ -39,7 +39,11 @@ qubit.opentag.LibraryTag.define(
 				description: "e.g. 1",
 				token: "ord",
 				uv: ""
-			}]
+			}],
+		categories:[
+			"DSP (Ad Server)"
+		]
+
 			/*~config*/
 		};
 		},

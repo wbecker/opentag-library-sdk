@@ -15,7 +15,11 @@ qubit.opentag.LibraryTag.define("webgains.webgainsdeprecatedr1.v1.Tag", {
 		upgradeable: true,
 		parameters: [
 
+		],
+		categories:[
+			"Affiliate Networks"
 		]
+
 		/*~config*/
       };
   },

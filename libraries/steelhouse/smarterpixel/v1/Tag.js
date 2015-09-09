@@ -18,7 +18,11 @@ qubit.opentag.LibraryTag.define("steelhouse.smarterpixel.v1.Tag", {
 			description: "The merchant ID provided by SteelHouse",
 			token: "merchant_id",
 			uv: ""
-		}]
+		}],
+		categories:[
+			"Re-Targeting"
+		]
+
 		/*~config*/
       };
   },
