@@ -1224,10 +1224,11 @@ var UNDEF;
    *  the end of array.
    * if exists it will return its popsition.
    */
-  Utils.addToArrayIfNotExist = function (array, obj) {
+  Utils.addToArrayIfNotExist = function (array, obj, equals) {
     var i = 0, exists = false;
     for (; i < array.length; i += 1) {
-      if (array[i] === obj) {
+      var tmp = equals && equals(array[i], obj);
+      if (tmp || array[i] === obj) {
         exists = true;
         break;
       }
@@ -6948,38 +6949,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
         // RETHINK THIS, it looks usefull but a bit circural...
       }
       
-      if (config.filters) {
-        this.addFilters(config.filters);
-      }
-      
-      if (config.parameters) {
-        this.addParameters(config.parameters);
-      }
-      
-      if (config.variables) {
-        for (var prop in config.variables) {
-          if (config.variables.hasOwnProperty(prop)) {
-            var param = this.getParameterByTokenName(prop);
-            if (param) {
-              var variable = config.variables[prop];
-              param.variable = variable;
-              if (variable.defaultValue !== undefined) {
-                param.defaultValue = variable.defaultValue;
-              }
-              if (variable.uv !== undefined) {
-                param.uv = variable.uv;
-              }
-            }
-          }
-        }
-      }
-      
-      if (config.locked) {
-        this.lock();
-      }
-      
-      this.log.FINEST("Initializing variables.");/*L*/
-      this.initPageVariablesForParameters();
+      this.setupConfig(config);
       
       /**
        * @property {String} uniqueRefString This property is 
@@ -7000,6 +6970,45 @@ q.html.HtmlInjector.getAttributes = function (node) {
   }
   
   qubit.Define.clazz("qubit.opentag.BaseTag", BaseTag, GenericLoader);
+  
+  BaseTag.prototype.setupConfig = function (config) {
+    if (!config) {
+      return;
+    }
+    
+    if (config.filters) {
+      this.addFilters(config.filters);
+    }
+
+    if (config.parameters) {
+      this.addParameters(config.parameters);
+    }
+
+    if (config.variables) {
+      for (var prop in config.variables) {
+        if (config.variables.hasOwnProperty(prop)) {
+          var param = this.getParameterByTokenName(prop);
+          if (param) {
+            var variable = config.variables[prop];
+            param.variable = variable;
+            if (variable.defaultValue !== undefined) {
+              param.defaultValue = variable.defaultValue;
+            }
+            if (variable.uv !== undefined) {
+              param.uv = variable.uv;
+            }
+          }
+        }
+      }
+    }
+
+    if (config.locked) {
+      this.lock();
+    }
+    
+    this.log.FINEST("Initializing variables.");/*L*/
+    this.initPageVariablesForParameters();
+  };
   
   /**
    * Returns value for a token name.
@@ -10952,6 +10961,7 @@ var JSON = {};
       if (constr) {
         constr.call(this, cfg);
       }
+      
       if (ret) {
         return ret;
       }
