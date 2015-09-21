@@ -283,30 +283,44 @@ var UNDEF;
       config);
   };
   
-  Define.vendorsSpaceClasspath = function () {
+  Define.STANDARD_VS_NS = "qubit.vs";
+  
+  Define.vendorsSpaceClasspath = function (path) {
     var cp = qubit.VENDOR_SPACE_CP;
-    return (cp === undefined || cp === null) ? "qubit.vs" : cp;
+    var result = (cp === undefined || cp === null) ? Define.STANDARD_VS_NS : cp;
+    
+    if (path) {
+      if (result) {
+        return result + "." + path;
+      } else {
+        return path;
+      }
+    }
+    
+    return result;
   };
   
-  var _vspace = 
-    Define.namespace(Define.vendorsSpaceClasspath(), {}, null, true).instance;
+  var nsTmp = Define.vendorsSpaceClasspath();
+  var _vspace;
+  
+  if (nsTmp) {
+    _vspace = Define.namespace(nsTmp, {}, null, true).instance;
+  } else {
+    _vspace = Define.global();
+  }
   
   Define.getVendorSpace = function () {
     return _vspace;
   };
   
   Define.vendorNamespace = function (path, instance, pckg, noOverride) {
-    return Define.namespace(
-      Define.vendorsSpaceClasspath() + "." + path, instance, pckg, noOverride);
+    path = Define.vendorsSpaceClasspath(path);
+    return Define.namespace(path, instance, pckg, noOverride);
   };
   
   Define.vendorClazz = function (path, Class, SuperClass, pckg, config) {
-    return Define.clazz(
-      Define.vendorsSpaceClasspath() + "." + path,
-      Class,
-      SuperClass,
-      pckg,
-      config);
+    path = Define.vendorsSpaceClasspath(path);
+    return Define.clazz(path, Class, SuperClass, pckg, config);
   };
 }());
 
@@ -10691,6 +10705,7 @@ var JSON = {};
 
 (function () {
   var Utils = qubit.opentag.Utils;
+  var Define = qubit.Define;
   
   /**
    * #Library tag instance class.
@@ -10927,7 +10942,7 @@ var JSON = {};
       .replace(/[\.]+$/g, "")
       .replace(/\.+/g, ".");
     
-    namespace = qubit.Define.vendorsSpaceClasspath() + "." + namespace;
+    namespace = qubit.Define.vendorsSpaceClasspath(namespace);
     
     //config must be set in runtime - for each instance
     var libraryDefaultConfig = {};
@@ -10970,8 +10985,10 @@ var JSON = {};
     var ret = qubit.opentag.Utils.defineWrappedClass(
       namespace, LibraryTag, prototypeTemplate, GLOBAL, constructor);
     
-    if (namespace.indexOf("qubit.vs.") !== 0) {
-      Utils.namespace("qubit.vs." + namespace, ret);
+    var ns = Define.STANDARD_VS_NS + ".";
+    //make sure standard ns is always set
+    if (namespace.indexOf(ns) !== 0) {//
+      Utils.namespace(ns + namespace, ret);
     }
     
     return ret;
