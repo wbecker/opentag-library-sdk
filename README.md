@@ -15,7 +15,7 @@ This repository contains these tags in an easy to add and edit format.
 
 ###Requirements
 
-- [Java](https://www.java.com/en/download/) (version 1.5 or higher) 
+- [Java](https://www.java.com/en/download/) (version 1.7 or higher) 
 - [Git](http://git-scm.com/downloads). 
 
 ###Contribution process
