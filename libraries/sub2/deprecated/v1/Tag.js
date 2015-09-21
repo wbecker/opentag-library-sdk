@@ -99,7 +99,7 @@ qubit.opentag.LibraryTag.define("sub2.deprecated.v1.Tag", {
 						"" + _this.valueForToken("postcode"),
 						"" + _this.valueForToken("email"),
 						"" + _this.valueForToken("landline"),
-					  "" + _this.valueForToken("mobile"),
+						"" + _this.valueForToken("mobile"),
 					  "" + _this.valueForToken("optins"));
 			} else if (ii < 50) {
 				ii++;

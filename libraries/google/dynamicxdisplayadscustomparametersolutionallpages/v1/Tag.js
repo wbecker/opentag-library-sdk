@@ -58,9 +58,9 @@ qubit.opentag.LibraryTag.define(
 					window.google_trackConversion({
 						google_conversion_id: _this.valueForToken("id"),
 						google_custom_params: {
-							dynx_itemid:  '' + _this.valueForToken("itemid"),
-							dynx_locid:  '' + _this.valueForToken("itemlocationid"),
-							dynx_pagetype:  '' + _this.valueForToken("pagetype")
+							dynx_itemid: '' + _this.valueForToken("itemid"),
+							dynx_locid: '' + _this.valueForToken("itemlocationid"),
+							dynx_pagetype: '' + _this.valueForToken("pagetype")
 						},
 						google_remarketing_only: true
 					});

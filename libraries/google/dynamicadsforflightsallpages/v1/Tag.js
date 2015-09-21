@@ -67,11 +67,11 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforflightsallpages.v1.Tag", {
 				window.google_trackConversion({
 					google_conversion_id: _this.valueForToken("id"),
 					google_custom_params: {
-						flight_originid :  '' + _this.valueForToken("originid"),
-						flight_destid :  '' + _this.valueForToken("destinationid"),
-						flight_startdate :  '' + _this.valueForToken("start"),
+						flight_originid : '' + _this.valueForToken("originid"),
+						flight_destid : '' + _this.valueForToken("destinationid"),
+						flight_startdate : '' + _this.valueForToken("start"),
 						flight_enddate : '' + _this.valueForToken("end"),
-						flight_pagetype :  '' + _this.valueForToken("pagetype")
+						flight_pagetype : '' + _this.valueForToken("pagetype")
 					},
 					google_remarketing_only: true
 				});

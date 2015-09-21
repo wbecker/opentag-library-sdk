@@ -57,10 +57,10 @@ qubit.opentag.LibraryTag.define("google.dynamicadsforeducationallpages.v1.Tag", 
 				window.google_trackConversion({
 					google_conversion_id: _this.valueForToken("id"),
 					google_custom_params: {
-						edu_pid:  '' + _this.valueForToken("educationprogram"),
-						edu_plocid:  '' + _this.valueForToken("locationid"),
+						edu_pid: '' + _this.valueForToken("educationprogram"),
+						edu_plocid: '' + _this.valueForToken("locationid"),
 						 
-						edu_pagetype:  '' + _this.valueForToken("pagetype")
+						edu_pagetype: '' + _this.valueForToken("pagetype")
 					},
 					google_remarketing_only: true
 				});

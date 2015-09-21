@@ -177,7 +177,7 @@ qubit.opentag.LibraryTag.define(
 						"address1"), "" + _this.valueForToken("address2"), "" + _this.valueForToken(
 						"address3"), "" + _this.valueForToken("address4"), "" + _this.valueForToken(
 						"postcode"), "" + _this.valueForToken("email"), "" + _this.valueForToken(
-						"landline"),  "" + _this.valueForToken("mobile"),  "" + _this.valueForToken(
+						"landline"), "" + _this.valueForToken("mobile"), "" + _this.valueForToken(
 						"optins"));
 				} else if (ii < 50) {
 					ii++;

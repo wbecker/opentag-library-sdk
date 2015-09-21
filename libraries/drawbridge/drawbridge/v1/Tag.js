@@ -47,10 +47,10 @@ qubit.opentag.LibraryTag.define("drawbridge.drawbridge.v1.Tag", {
 	},
 	pre: function() {
 		/*pre*/
-		window.drawbridge_partner_id  =  "" + this.valueForToken("partner_id");
-		window.drawbridge_partner_sign  =  "" + this.valueForToken("partner_sign");
-		window.drawbridge_app_id  =  "" + this.valueForToken("app_id");
-		window.drawbridge_label  =  "" + this.valueForToken("label");
+		window.drawbridge_partner_id = "" + this.valueForToken("partner_id");
+		window.drawbridge_partner_sign = "" + this.valueForToken("partner_sign");
+		window.drawbridge_app_id = "" + this.valueForToken("app_id");
+		window.drawbridge_label = "" + this.valueForToken("label");
 		/*~pre*/
 	},
 	post: function() {
