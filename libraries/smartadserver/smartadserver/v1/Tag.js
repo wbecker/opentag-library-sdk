@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("smartadserver.smartadserver.v1.Tag", {
 		/*DATA*/
 		description: "SmartAdServer main script. To call the advertisement use into the page the sas.call() function, ex : sas.call('std', {siteId: 0000, pageId: 0000, formatId: 0000, target: ''}); and add the noscript marker. See the recommended implementation by SmartAdServer.",
 		name: "SmartAdServer main script",
-		async: true,
+		async: false,
 		isPrivate: false,
 		html: "",
 		url: "http://r.sascdn.com/diff/js/smart.js",
