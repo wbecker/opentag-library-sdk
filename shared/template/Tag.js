@@ -2,16 +2,18 @@
 
 qubit.opentag.LibraryTag.define("PACKAGE_NAME.Tag", {
 	getDefaultConfig: function () {
-		/*config*/
-		description: "DESCRIPTION.",
-		name: "TAG_NAME",
-		async: true,
-		isPrivate: false,
-		html: "",
-		parameters: [
-			
-		]
-		/*~config*/
+		return {
+			/*config*/
+			description: "DESCRIPTION.",
+			name: "TAG_NAME",
+			async: true,
+			isPrivate: false,
+			html: "",
+			parameters: [
+				
+			]
+			/*~config*/
+		};
 	},
 	script: function() {
 	/*script*/
