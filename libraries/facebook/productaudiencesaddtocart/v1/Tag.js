@@ -24,29 +24,14 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencesaddtocart.v1.Tag", {
 			uv: ""
 		}, {
 			name: "Value",
-			description: "Product price, if none, use following hardcoded value  instead : 0.00",
-			token: "product_value",
-			uv: "universal_variable.product.unit_price"
+			description: "Basket total, instead : 0.00",
+			token: "basket_value",
+			uv: "universal_variable.basket.total"
 		}, {
 			name: "Currency",
 			description: "",
 			token: "currency",
-			uv: "universal_variable.transaction.currency"
-		}, {
-			name: "Content Name",
-			description: "Content Name, e.g Shopping Cart",
-			token: "content_name",
-			uv: ""
-		}, {
-			name: "Category",
-			description: "Category",
-			token: "content_category",
-			uv: "universal_variable.product.category"
-		}, {
-			name: "Product ID",
-			description: "Product ID(s)",
-			token: "content_id",
-			uv: "universal_variable.product.id"
+			uv: "universal_variable.basket.currency"
 		}]
 		/*~DATA*/
 	},
@@ -60,14 +45,19 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencesaddtocart.v1.Tag", {
 		// Insert Your Custom Audience Pixel ID below.
 		fbq('init', this.valueForToken("pixel_id"));
 
+		var product_ids = [];
+		for (var i = 0; i < universal_variable.basket.line_items.length; i++) {
+			console.log(universal_variable.basket.line_items[i].product.sku_code);
+			product_ids.push(universal_variable.basket.line_items[i].product.sku_code)
+		}
+
 		fbq('track', 'AddToCart', {
-		  content_name: this.valueForToken("content_name"),
-		  content_category: this.valueForToken("content_category"),
-		  content_ids: this.valueForToken("content_id"),
-		  content_type: 'product',
-		  value: this.valueForToken("product_value"),
-		  currency: this.valueForToken("currency")
-		 });
+			content_name: 'Shopping Cart',
+			content_ids: product_ids,
+			content_type: 'product',
+			value: this.valueForToken("basket_value"),
+			currency: this.valueForToken("currency")
+		});
 		/*~SCRIPT*/
 	},
 	pre: function() {

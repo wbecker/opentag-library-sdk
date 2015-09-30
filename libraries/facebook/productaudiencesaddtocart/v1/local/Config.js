@@ -28,29 +28,15 @@ facebook.productaudiencesaddtocart.v1.local.Config = {
       "name": "Currency",
       "description": "",
       "token": "currency",
-      "uv": "universal_variable.transaction.currency",
+      "uv": "universal_variable.basket.currency",
       "inputVariable": "\"GBP\""
     },
      {
-      "name": "Product Name",
-      "description": "Product Name",
-      "token": "content_name",
-      "uv": "universal_variable.product.name",
-      "inputVariable": ""
-    },
-     {
-      "name": "Category",
-      "description": "Category",
-      "token": "content_category",
-      "uv": "universal_variable.product.category",
-      "inputVariable": ""
-    },
-     {
-      "name": "Product ID",
-      "description": "Product ID(s)",
-      "token": "content_id",
-      "uv": "universal_variable.product.id",
-      "inputVariable": ""
+      "name": "Product IDs",
+      "description": "",
+      "token": "product_category_ids",
+      "uv": "",
+      "inputVariable": "\"test\""
     }
   ]
 };

@@ -96,7 +96,7 @@ window.universal_variable = {
 					"currency": "GBP",
 					"unit_price": 130,
 					"unit_sale_price": 125,
-					"sku_code": "1234567890red",
+					"sku_code": "1234567890green",
 					"stock": 21,
 					"voucher": "MYVOUCHER1",
 					"color": "Red",

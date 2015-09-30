@@ -1,7 +1,7 @@
 /**ignore at merge**/
 //:include tagsdk-current.js
-qubit.opentag.Utils.namespace('facebook.productaudiencesviewcontent.v1.local');
-facebook.productaudiencesviewcontent.v1.local.Config = {
+qubit.opentag.Utils.namespace('facebook.productaudiencespurchase.v1.local');
+facebook.productaudiencespurchase.v1.local.Config = {
   "parameters": [
      {
       "name": "FB Country Code",
@@ -22,7 +22,7 @@ facebook.productaudiencesviewcontent.v1.local.Config = {
       "description": "Product price, if none, use following hardcoded value  instead : 0.00",
       "token": "product_value",
       "uv": "universal_variable.product.unit_price",
-      "inputVariable": "5.00"
+      "inputVariable": ""
     },
      {
       "name": "Currency",
@@ -30,20 +30,6 @@ facebook.productaudiencesviewcontent.v1.local.Config = {
       "token": "currency",
       "uv": "universal_variable.transaction.currency",
       "inputVariable": "\"GBP\""
-    },
-     {
-      "name": "Product Name",
-      "description": "Product Name",
-      "token": "content_name",
-      "uv": "universal_variable.product.name",
-      "inputVariable": ""
-    },
-     {
-      "name": "Category",
-      "description": "Category",
-      "token": "content_category",
-      "uv": "universal_variable.product.category",
-      "inputVariable": ""
     },
      {
       "name": "Product ID",

@@ -24,19 +24,14 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencespurchase.v1.Tag", {
 			uv: ""
 		}, {
 			name: "Value",
-			description: "Product price, if none, use following hardcoded value  instead : 0.00",
-			token: "product_value",
-			uv: "universal_variable.product.unit_price"
+			description: "transaction total, instead : 0.00",
+			token: "basket_value",
+			uv: "universal_variable.transaction.total"
 		}, {
 			name: "Currency",
 			description: "",
 			token: "currency",
 			uv: "universal_variable.transaction.currency"
-		}, {
-			name: "Product ID",
-			description: "Product ID(s)",
-			token: "content_id",
-			uv: "universal_variable.product.id"
 		}]
 		/*~DATA*/
 	},
@@ -50,8 +45,13 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencespurchase.v1.Tag", {
 		// Insert Your Custom Audience Pixel ID below.
 		fbq('init', this.valueForToken("pixel_id"));
 
+		var product_ids = [];
+		for (var i = 0; i < universal_variable.transaction.line_items.length; i++) {
+			product_ids.push(universal_variable.transaction.line_items[i].product.sku_code)
+		}
+
 		fbq('track', 'Purchase', {
-		  content_ids: this.valueForToken("content_id"),
+		  content_ids: product_ids
 		  content_type: 'product',
 		  value: this.valueForToken("product_value"),
 		  currency: this.valueForToken("currency")

@@ -31,7 +31,7 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencesviewcontent.v1.Tag", {
 			name: "Currency",
 			description: "",
 			token: "currency",
-			uv: "universal_variable.transaction.currency"
+			uv: "universal_variable.product.currency"
 		}, {
 			name: "Product Name",
 			description: "Product Name",
