@@ -25,7 +25,7 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencespurchase.v1.Tag", {
 		}, {
 			name: "Value",
 			description: "transaction total, instead : 0.00",
-			token: "basket_value",
+			token: "transaction_total",
 			uv: "universal_variable.transaction.total"
 		}, {
 			name: "Currency",
@@ -46,14 +46,16 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencespurchase.v1.Tag", {
 		fbq('init', this.valueForToken("pixel_id"));
 
 		var product_ids = [];
-		for (var i = 0; i < universal_variable.transaction.line_items.length; i++) {
-			product_ids.push(universal_variable.transaction.line_items[i].product.sku_code)
+		if(universal_variable.transaction.line_items){
+			for (var i = 0; i < universal_variable.transaction.line_items.length; i++) {
+				product_ids.push(universal_variable.transaction.line_items[i].product.sku_code)
+			}
 		}
 
 		fbq('track', 'Purchase', {
-		  content_ids: product_ids
+		  content_ids: product_ids,
 		  content_type: 'product',
-		  value: this.valueForToken("product_value"),
+		  value: this.valueForToken("transaction_total"),
 		  currency: this.valueForToken("currency")
 		 });
 		/*~SCRIPT*/

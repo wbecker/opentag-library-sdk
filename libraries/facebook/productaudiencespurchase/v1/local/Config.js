@@ -19,10 +19,10 @@ facebook.productaudiencespurchase.v1.local.Config = {
     },
      {
       "name": "Value",
-      "description": "Product price, if none, use following hardcoded value  instead : 0.00",
-      "token": "product_value",
-      "uv": "universal_variable.product.unit_price",
-      "inputVariable": ""
+      "description": "transaction total, instead : 0.00",
+      "token": "transaction_total",
+      "uv": "universal_variable.transaction.total",
+      "inputVariable": "200"
     },
      {
       "name": "Currency",
@@ -30,13 +30,6 @@ facebook.productaudiencespurchase.v1.local.Config = {
       "token": "currency",
       "uv": "universal_variable.transaction.currency",
       "inputVariable": "\"GBP\""
-    },
-     {
-      "name": "Product ID",
-      "description": "Product ID(s)",
-      "token": "content_id",
-      "uv": "universal_variable.product.id",
-      "inputVariable": ""
     }
   ]
 };

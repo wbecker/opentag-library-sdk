@@ -47,7 +47,6 @@ qubit.opentag.LibraryTag.define("facebook.productaudiencesaddtocart.v1.Tag", {
 
 		var product_ids = [];
 		for (var i = 0; i < universal_variable.basket.line_items.length; i++) {
-			console.log(universal_variable.basket.line_items[i].product.sku_code);
 			product_ids.push(universal_variable.basket.line_items[i].product.sku_code)
 		}
 
