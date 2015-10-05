@@ -36,6 +36,7 @@ qubit.opentag.LibraryTag.define("webperfio.foglio.v1.Tag", {
 	},
 	script: function() {
 	/*SCRIPT*/
+		var _this = this;
 		(function(){var f,d,a,b=document.createElement("iframe");
 		b.src="javascript:false";
 		(b.frameElement||b).style.cssText="width: 0; height: 0; border: 0; display: none;";
@@ -43,7 +44,7 @@ qubit.opentag.LibraryTag.define("webperfio.foglio.v1.Tag", {
 		a.parentNode.insertBefore(b,a);
 		try{d=b.contentWindow.document}catch(c){f=document.domain;b.src="javascript:var d=document.open();d.domain='"+f+"';void(0);";
 		d=b.contentWindow.document}d.open()._l=function(){var e=this.createElement("script");
-		if(f){this.domain=f}e.id="boomr-if-as";e.src=window.location.protocol=="https:"?"https://d3phbp7p78bdk9.cloudfront.net/"+this.valueForToken("foglio_app_id")+"/foglio.js":"http://foglio.basilic.io/"+this.valueForToken("foglio_app_id")+"/foglio.js";
+		if(f){this.domain=f}e.id="boomr-if-as";e.src=window.location.protocol=="https:"?"https://d3phbp7p78bdk9.cloudfront.net/"+_this.valueForToken("foglio_app_id")+"/foglio.js":"http://foglio.basilic.io/"+_this.valueForToken("foglio_app_id")+"/foglio.js";
 		this.body.appendChild(e)};d.write('<body onload="document._l();">');
 		d.close()})();
 	/*~SCRIPT*/
