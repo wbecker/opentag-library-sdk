@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("outbrain.widgets.v1.Tag", {
 		/*DATA*/
 		name: "widgets",
 		async: true,
-		description: "Promote your content ",
+		description: "Promote your content.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,

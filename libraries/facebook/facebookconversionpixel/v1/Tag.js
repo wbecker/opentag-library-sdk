@@ -33,7 +33,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookconversionpixel.v1.Tag", {
 			if(!_fbq.loaded){
 				var fbds=document.createElement('script');
 				fbds.async = true;
-				fbds.src='//connect.facebook.net/' + _this.valueForToken("url_locale")+'/fbds.js';
+				fbds.src='//connect.facebook.net/' + _this.valueForToken("url_locale") + '/fbds.js';
 				var s=document.getElementsByTagName('script')[0];
 				s.parentNode.insertBefore(fbds,s);
 				_fbq.loaded = true;

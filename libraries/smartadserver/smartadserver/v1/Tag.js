@@ -31,7 +31,7 @@ qubit.opentag.LibraryTag.define("smartadserver.smartadserver.v1.Tag", {
 	},
 	post: function() {
 		/*POST*/
-		sas.setup({ domain: "http://"+this.valueForToken("sas_domain")+".smartadserver.com"});
+		sas.setup({ domain: "http://" + this.valueForToken("sas_domain")+".smartadserver.com"});
 		/*~POST*/
 	}
 });

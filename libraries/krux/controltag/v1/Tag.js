@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("krux.controltag.v1.Tag", {
 		/*DATA*/
 		name: "controltag",
 		async: true,
-		description: "Leverage data to inform first party targeting of advertising, content, or commerce on your own web properties",
+		description: "Leverage data to inform first party targeting of advertising, content, or commerce on your own web properties.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
@@ -22,11 +22,11 @@ qubit.opentag.LibraryTag.define("krux.controltag.v1.Tag", {
 	},
 	script: function() {
 	/*SCRIPT*/
-		window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);console.log("//cdn.krxd.net/controltag?confid="+this.valueForToken("configuration_id"));
+		window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
 		var k=document.createElement('script');k.type='text/javascript';k.async=true;
 		var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);
 		k.src = /^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
-		(location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid="+this.valueForToken("configuration_id");
+		(location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=" + this.valueForToken("configuration_id");
 		var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
 	/*~SCRIPT*/
 	},

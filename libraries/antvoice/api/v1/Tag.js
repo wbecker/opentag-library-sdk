@@ -39,7 +39,7 @@ qubit.opentag.LibraryTag.define("antvoice.api.v1.Tag", {
 			js.type = 'text/javascript';
 			js.async = true;
 			// antvoice_url : js.antvoice.com/sr-company.js
-			js.src = '//'+_this.valueForToken('antvoice_api_url');
+			js.src = '//' + _this.valueForToken('antvoice_api_url');
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script'));
 		function srEnsureReady(callback) {
