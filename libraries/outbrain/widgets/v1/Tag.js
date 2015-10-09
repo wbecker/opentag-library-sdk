@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("outbrain.widgets.v1.Tag", {
 		/*DATA*/
 		name: "widgets",
 		async: true,
-		description: "Promote your content.",
+		description: "Outbrain : get your content featured on the world's top media sites. The widget script displays the recommendend content on your website.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
