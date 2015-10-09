@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("antvoice.api.v1.Tag", {
 		/*DATA*/
 		name: "api",
 		async: true,
-		description: "Recommendation engine",
+		description: "Recommendation engine which analyzes the behaviour of your visitors in real-time to put forward a selection of products and contents.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
@@ -26,13 +26,12 @@ qubit.opentag.LibraryTag.define("antvoice.api.v1.Tag", {
 	/*SCRIPT*/
 		var _this = this;
 		window._srAsyncInit = function () {
-			// Initialisation du SDK de recommandation sociale
+			// social recommendation SDK initialization
 			_sr._start();
-			// Code d’initialisation de votre application
-			// Identification de l’utilisateur, voir le détail plus bas
+			// initialization of the application
 			_sr.init({});
 		};
-		// Chargement asynchrone du SDK
+		// Synchronous load of the SDK
 		(function (d, s) {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			js = d.createElement(s);
