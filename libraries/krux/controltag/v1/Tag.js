@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("krux.controltag.v1.Tag", {
 		/*DATA*/
 		name: "controltag",
 		async: true,
-		description: "Leverage data to inform first party targeting of advertising, content, or commerce on your own web properties.",
+		description: "Data Management Platform (DMP) : leverage data to inform first party targeting of advertising, content, or commerce on your own web properties.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
