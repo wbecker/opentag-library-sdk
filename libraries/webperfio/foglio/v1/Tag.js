@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("webperfio.foglio.v1.Tag", {
 		/*DATA*/
 		name: "foglio",
 		async: true,
-		description: "Webperf.io : collect in realtime user's performance (RUM : Real User Monitoring), setup pages categories and observe the differences of performance. Track events (manual and automatic such as alerts), track performances of your CDNs and monitor your user's engagement. Webperf.io helps to optimize your website performances.",
+		description: "Foglio sampling tag sends user navigation performance to Webperf.io and time markers.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
