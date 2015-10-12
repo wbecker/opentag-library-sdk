@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("cedexis.radar.v1.Tag", {
 		/*DATA*/
 		name: "radar",
 		async: true,
-		description: "Radar measure and collects Page Load Times, from around the globe. Used by Cedexis for DNS dynamic routing.",
+		description: "Radar measures and collects Page Load Times, from around the globe. Used by Cedexis for DNS dynamic routing.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
@@ -13,7 +13,7 @@ qubit.opentag.LibraryTag.define("cedexis.radar.v1.Tag", {
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "Cedexis custommer ID",
+			name: "Cedexis customer ID",
 			description: "Customer ID given by Cedexis.",
 			token: "customer_id",
 			uv: "universal_variable.cedexis.customer_id"
