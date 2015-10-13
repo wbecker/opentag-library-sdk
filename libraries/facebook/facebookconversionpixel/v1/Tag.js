@@ -3,9 +3,9 @@
 qubit.opentag.LibraryTag.define("facebook.facebookconversionpixel.v1.Tag", {
 	config: {
 		/*DATA*/
-		name: "Facebook Conversion Pixel",
+		name: "Facebook Custom Audience Pixel Code",
 		async: true,
-		description: "The Facebook Conversion Pixel code has been updated to enable advertisers to track multiple pixels within the same web page. Previously if you had multiple versions of the Conversion Tracking pixel on the same page caused collisions and led to data loss.",
+		description: "The Custom Audience pixel is activated every time someone opens a webpage where the code is installed. When the pixel is activated an event is sent to Facebook's servers with general information about the browsing session including page URLs. The events are then compared to a set of Audience rules the advertiser has created. If the event matches an Audience rule the person who visited the webpage is added to that Audience. These website Custom Audiences can later be targeted by ads.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
