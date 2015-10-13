@@ -24,7 +24,14 @@ qubit.opentag.LibraryTag.define("cedexis.radar.v1.Tag", {
 	},
 	script: function() {
 	/*SCRIPT*/
-	(function(c,b){if(!/\bMSIE 6/.exec(c.navigator.userAgent)){var a=b.createElement("script");a.async=!0;a.src="//radar.cedexis.com/1/"+instance.valueForToken("CID")+"/radar.js";b.body.appendChild(a)}})(window,document);
+	(function(c,b){
+		if (!/\bMSIE 6/.exec(c.navigator.userAgent)){
+			var a = b.createElement("script");
+			a.async = !0;
+			a.src = "//radar.cedexis.com/1/" + instance.valueForToken("CID") + "/radar.js";
+			b.body.appendChild(a)
+		}
+	})(window,document);
 	/*~SCRIPT*/
 	},
 	pre: function() {
