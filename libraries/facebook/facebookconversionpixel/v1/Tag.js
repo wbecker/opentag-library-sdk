@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("facebook.facebookconversionpixel.v1.Tag", {
 		/*DATA*/
 		name: "Facebook Conversion Pixel",
 		async: true,
-		description: "Facebook's tracking and optimization tools : add a pixel on your website and a pixel on Facebook advertisement to get the conversion.",
+		description: "The Facebook Conversion Pixel code has been updated to enable advertisers to track multiple pixels within the same web page. Previously if you had multiple versions of the Conversion Tracking pixel on the same page caused collisions and led to data loss.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
