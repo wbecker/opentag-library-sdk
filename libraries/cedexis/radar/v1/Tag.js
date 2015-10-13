@@ -5,7 +5,7 @@ qubit.opentag.LibraryTag.define("cedexis.radar.v1.Tag", {
 		/*DATA*/
 		name: "Radar",
 		async: true,
-		description: "We collect billions of data about Internet performances directly from end-users all over the world in real-time. Thanks to this data we locate outages and congested zones on the 50 000 networks that constitute the Internet.",
+		description: "Radar Tag converts every end-users to monitoring probes, without impacting their experience, to measure page load time along with any CDN, Cloud or datacenter’s availability, latency and delivery.",
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
