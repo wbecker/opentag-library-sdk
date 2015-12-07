@@ -10816,7 +10816,15 @@ var JSON = {};
      * @cfg {String} [parameters=null]
      */
     parameters: [
-    ]
+    ],
+    /**
+     * @protected
+     * Compatibility property used internally. It causes running pre post bodies
+     * in a window scope - it is recommended to always run them in normal scope.
+     * This property is mostly used with old tags that were run in window scope.
+     * @cfg {Boolean} [prePostWindowScope=false]
+     */
+    prePostWindowScope: false
   };
   
   /**
@@ -12799,7 +12807,8 @@ var JSON = {};
         //load tool
         var debugTool = document.createElement("script");
         debugTool.src = 
-          "https://s3-eu-west-1.amazonaws.com/opentag-dev/debug-tool/loader.js";
+          "https://s3-eu-west-1.amazonaws.com/" +
+          "opentag-dev/debug-tool/loader-v3.js";
         document.getElementsByTagName("head")[0].appendChild(debugTool);
         GLOBAL.TAGSDK_DEBUG_TOOL_LOADED = true;
       }
