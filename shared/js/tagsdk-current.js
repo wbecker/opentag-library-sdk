@@ -11316,6 +11316,11 @@ var JSON = {};
     Utils.addToArrayIfNotExist(containers, ref);
   };
   
+  Container.prototype.destroy = function () {
+    this.destroyed = true;
+    this.unregister();
+  };
+  
   /**
    * Function finds containers that have name equal to passed parameter.
    * @param {String} name string that will be used to compare.
@@ -11579,6 +11584,10 @@ var JSON = {};
    * @param {Boolean} force use if containers are LOCKED to enforce running.
    */
   Container.prototype.runTags = function (config, force) {
+    if (this.destroyed) {
+      throw "Container has been destroyed.";
+    }
+    
     if (!force) {
       if (Container.LOCKED || Utils.global().QUBIT_CONTAINERS_LOCKED) {
         this.log.INFO("All containers are LOCKED.");/*L*/
@@ -11697,6 +11706,7 @@ var JSON = {};
     }
     return tagsOrdered;
   };
+  
   /**
    * @private Strictly private.
    * @param {type} tag
@@ -12840,6 +12850,7 @@ var JSON = {};
           
           if (needDebugModeButNotInDebug) {
             Main.loadDebugVersion(container);
+            container.destroy();
           } else {
             if (!GLOBAL.QUBIT_OPENTAG_STOP_MAIN_EXECUTION) {
               log.INFO("Running container " + container.CLASSPATH);/*L*/
