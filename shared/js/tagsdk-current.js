@@ -12839,7 +12839,7 @@ var JSON = {};
           container.configuredInMain = true;
           
           if (needDebugModeButNotInDebug) {
-            Main.loadDebugVersionForContainer(container);
+            Main.loadDebugVersion(container);
           } else {
             if (!GLOBAL.QUBIT_OPENTAG_STOP_MAIN_EXECUTION) {
               log.INFO("Running container " + container.CLASSPATH);/*L*/
