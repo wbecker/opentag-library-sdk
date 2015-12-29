@@ -625,58 +625,56 @@ var UNDEF;
     return (value !== undefined) && (value !== null);
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//  /**
+//   * @delete
+//   * @param {opentag.qubit.BaseTag} tag
+//   * @returns {Boolean}
+//   */
+//  Utils.determineIfSync = function (tag) {
+//    var i, ii, script, scripts, src;
+//    scripts = document.getElementsByTagName("script");
+//    for (i = 0, ii = scripts.length; i < ii; i += 1) {
+//      script = scripts[i];
+//      src = script.getAttribute("src");
+//      //removed "opentag", white labelling!!!
+//      if (!!src && (src.indexOf("" + 
+//          tag.config.opentagClientId + "-" + tag.config.profileName +
+//          ".js") > 0)) {
+//        return (script.getAttribute("async") === null && 
+//            //handle ie7
+//            (script.getAttribute("defer") === false ||
+//            //handle ie8
+//            script.getAttribute("defer") === "" ||
+//            //handle chrome/firefox
+//            script.getAttribute("defer") === null));
+//      } 
+//    }
+//    return true;
+//  };
+//  
+//  /**
+//   * @delete
+//   * COPY FROM OLD.
+//   * This function replaces following patterns ONLY:
+//   * a.b.c[#] + "ZZZ ${T}[i] YYY" -> "ZZZ a.b.c[i] YYY"
+//   * a.b.c[#] + "ZZZ ${T}.length YYY" -> "ZZZ a.b.c.length YYY"
+//   * 
+//   * It is a VERY private function.
+//   * 
+//   * @param {qubit.opentag.pagevariable.BaseVariable} pageVar
+//   * @param {String} token
+//   * @param {String} str
+//   * @returns {String}
+//   */
+//  Utils.substituteArray = function (pageVar, token, str) {
+//    var start, end, index, tok;
+//    index = pageVar.value.indexOf("[#]");
+//    start = pageVar.value.substring(0, index);
+//    end = pageVar.value.substring(index + 3);
+//    str = str.replace(new RegExp(token + "\\.length", "g"), start + ".length"); 
+//    str = str.replace(new RegExp(token + "(\\[.*?\\])", "g"), start + "$1" + end);
+//    return str;
+//  };
 
   Utils.ANON_VARS = [];
   /**
@@ -1668,7 +1666,6 @@ var UNDEF;
   
   
 }());
-/*NO LOG*/
 
 /* jshint white: false */
 
@@ -1678,6 +1675,8 @@ var UNDEF;
  * http://opentag.qubitproducts.com
  * Author: Peter Fronc <peter.fronc@qubitdigital.com>
  */
+
+/*log*/
 
 (function () {
   
@@ -2255,6 +2254,8 @@ var UNDEF;
   Log.setConsole(Define.global().console);
 }());
 
+/*~log*/
+
 
 
 /*
@@ -2265,7 +2266,7 @@ var UNDEF;
  */
 
 (function () {
-  var log = new qubit.opentag.Log("Timer -> ");
+  var log = new qubit.opentag.Log("Timer -> ");/*L*/
 
   /**
    * #Timer implementation.
@@ -3508,7 +3509,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
 /* global qubit,q */
 
 (function () {
-  var log = new qubit.opentag.Log("TagsUtils -> ");
+  var log = new qubit.opentag.Log("TagsUtils -> ");/*L*/
   var BaseFilter = qubit.opentag.filter.BaseFilter;
   var Utils = qubit.opentag.Utils;
   var HtmlInjector = q.html.HtmlInjector;
@@ -4655,7 +4656,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   TagHelper.allParameterVariablesReadyForTag = function (tag, tryDefaults) {
     var useDefaults = tryDefaults;
-    var log = tag.log;
+    var log = tag.log;/*L*/
     var allReady = true;
     var vars = tag.getPageVariables();
 
@@ -4835,7 +4836,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @param {Object} config empty object.
    */
   function Events(config) {
-    this.log = new qubit.opentag.Log("Events -> ");
+    this.log = new qubit.opentag.Log("Events -> ");/*L*/
     this.calls = {};
   }
   
@@ -4922,7 +4923,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
   var Timed = qubit.opentag.Timed;
   var TagHelper = qubit.opentag.TagHelper;
   var nameCounter = 0;
-  var Log = qubit.opentag.Log;
+  var Log = qubit.opentag.Log;/*L*/
 
   /*
    * @TODO - extract lower generic class for a script loader so it is better 
@@ -5014,8 +5015,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
     this.log = new Log("", function () {
       return this.CLASS_NAME + "[" + this.config.name + "]";
     }.bind(this), "collectLogs");
-    
     /*~log*/
+    
     this.urlsLoaded = 0;
     this.urlsFailed = 0;
     
@@ -6795,7 +6796,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
   var BaseVariable = qubit.opentag.pagevariable.BaseVariable;
   var Cookie = qubit.Cookie;
   
-  var log = new qubit.opentag.Log("BaseTag -> ");
+  var log = new qubit.opentag.Log("BaseTag -> ");/*L*/
 
   /**
    * @class qubit.opentag.BaseTag
@@ -7084,6 +7085,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
   BaseTag.prototype.FILTER_WAIT_TIMEOUT = -1;
   
   BaseTag.prototype.run = function () {
+    if (this.destroyed) {
+      throw "Tag is destroyed.";
+    }
+    
     this.resolveAllDynamicData();
     if (this.config.runner) {
       var ret = false;
@@ -7192,6 +7197,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {BaseFilter.state}
    */
   BaseTag.prototype.runIfFiltersPass = function () {
+    if (this.destroyed) {
+      throw "Tag is destroyed.";
+    }
+    
     this.resolveAllDynamicData();
     var state = this.filtersState(true);
     this.addState("FILTER_ACTIVE");
@@ -7975,6 +7984,15 @@ q.html.HtmlInjector.getAttributes = function (node) {
   };
   
   /**
+   * Destroys tag - destroyed tag cannot be re-run.
+   */
+  BaseTag.prototype.destroy = function () {
+    this.destroyed = true;
+    this.cancel();
+    BaseTag.unregister(this);
+  };
+  
+  /**
    * Use this function to unregister `tag` from the registry.
    * @static
    * @param {qubit.opentag.BaseTag} tag
@@ -7985,7 +8003,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     log.FINEST(tag, true);/*L*/
     var index = Utils.removeFromArray(tags, tag);
     if (!index || index.length === 0) {/*L*/
-      log.FINEST("tag " + tag.config.name + " is already unregisterd.");/*L*/
+      log.FINEST("tag " + tag.config.name + " is already unregistered.");/*L*/
     }/*L*/
 
     tag._tagIndex = -1;
@@ -8282,7 +8300,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
 
 (function () {
-  var log = new qubit.opentag.Log("Tags -> ");
+  var log = new qubit.opentag.Log("Tags -> ");/*L*/
   var Utils = qubit.opentag.Utils;
   var BaseFilter = qubit.opentag.filter.BaseFilter;
 
@@ -8825,7 +8843,7 @@ q.html.PostData = function (url, data, type) {
 
 (function () {
   
-  var log = new qubit.opentag.Log("Ping -> ");
+  var log = new qubit.opentag.Log("Ping -> ");/*L*/
   
   /**
    * #Ping processing class.
@@ -10269,7 +10287,7 @@ var JSON = {};
 (function () {
   var Define = qubit.Define;
   var Cookie = qubit.Cookie;
-  var log = new qubit.opentag.Log("CookieCompressor -> ");
+  var log = new qubit.opentag.Log("CookieCompressor -> ");/*L*/
   
   //var global = Define.global();
   var binSupported = false;
@@ -10413,7 +10431,7 @@ var JSON = {};
   var Cookie = qubit.Cookie;
   var Utils = qubit.opentag.Utils;
     
-  var log = new qubit.opentag.Log("Session -> ");
+  var log = new qubit.opentag.Log("Session -> ");/*L*/
   
   /**
    * #Session utilities class.
@@ -10822,24 +10840,28 @@ var JSON = {};
     expr = expr.replace(/\s*function\s*\([\w\s,_\d\$]*\)\s*\{/, "");
     expr = expr.substring(0, expr.lastIndexOf("}"));
     
+    //""+_this.val...'
     expr = expr.replace(
-      /(["']\s*\+\s*)\s*_*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
+      /(["']\s*\+\s*)\s*_*\w+\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
       "$1\"${$2}\"");
     expr = expr.replace(
-      /\s*_*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)(\s*\+\s*["'])/g,
+      /\s*_*\w+\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)(\s*\+\s*["'])/g,
       "\"${$1}\"$2");
     
+    //""+_this.val..."
     expr = expr.replace(
-      /(["']\s*\+\s*)\s*_*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
+      /(["']\s*\+\s*)\s*_*\w+\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
       "$1\"${$2}\"");
     expr = expr.replace(
-      /\s*_*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)(\s*\+\s*["'])/g,
+      /\s*_*\w+\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)(\s*\+\s*["'])/g,
       "\"${$1}\"$2");
     
-    expr = expr.replace(/\s*_*this\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
+    //_this.val..."'
+    expr = expr.replace(/\s*_*\w+\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
       "${$1}");
-    expr = expr.replace(/\s*_*this\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
+    expr = expr.replace(/\s*_*\w+\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
       "${$1}");
+    
     expr = tag.replaceTokensWithValues(expr);
     Utils.geval(expr);
   }
@@ -11079,7 +11101,7 @@ var JSON = {};
   var Tags = qubit.opentag.Tags;
   var Session = qubit.opentag.Session;//:session
   var Cookie = qubit.Cookie;
-  var log = new qubit.opentag.Log("Container -> ");
+  var log = new qubit.opentag.Log("Container -> ");/*L*/
 
   var _counter = 1;
 
@@ -11316,9 +11338,31 @@ var JSON = {};
     Utils.addToArrayIfNotExist(containers, ref);
   };
   
-  Container.prototype.destroy = function () {
+  /**
+   * Method to unregister and kill container.
+   * @param {Boolean} withTags if tags should be destroyed as well. 
+   *          Destroyed tags cannot be re-run and will be cancelled.
+   */
+  Container.prototype.destroy = function (withTags) {
     this.destroyed = true;
     this.unregister();
+    if (withTags) {
+      for(var prop in this.tags) {
+        var tag = this.tags[prop];
+        if (tag instanceof BaseTag) {
+          tag.destroy();
+          this.tags[prop] = null;
+          delete this.tags[prop];
+        }
+      }
+    }
+    var name = this.PACKAGE_NAME.split(".");
+    name = name[name.length - 1];
+    
+    var pkg = Utils.getParentObject(this.PACKAGE_NAME);
+    pkg[name] = null;
+    
+    delete pkg[name];
   };
   
   /**
@@ -11356,9 +11400,10 @@ var JSON = {};
   
   /**
    * Function used to unregister container from global registry.
+   * @param {Boolean} withTags
    */
-  Container.prototype.unregister = function () {
-    Container.unregister(this);
+  Container.prototype.unregister = function (withTags) {
+    Container.unregister(this, withTags);
   };
 
   /**
@@ -11366,13 +11411,27 @@ var JSON = {};
    * Unregister method for container. useful for debugging.
    * See `Container.register()` for more details.
    * @param {qubit.opentag.Container} ref
+   * @param {Boolean} withTags
    */
-  Container.unregister = function (ref) {
+  Container.unregister = function (ref, withTags) {
     Utils.addToArrayIfNotExist(containers, ref);
+    
     log.FINEST("Un-registering container named \"" +/*L*/
             ref.config.name + "\", instance of:");/*L*/
     log.FINEST(ref, true);/*L*/
+    
     var index = Utils.removeFromArray(containers, ref);
+    if (withTags) {
+      for(var prop in this.tags) {
+        var tag = this.tags[prop];
+        if (tag instanceof BaseTag) {
+          tag.unregister();
+          this.tags[prop] = null;
+          delete this.tags[prop];
+        }
+      }
+    }
+    
     if (!index || index.length === 0) {
       log.FINE("container is already unregisterd.");/*L*/
     }
@@ -12705,7 +12764,7 @@ var JSON = {};
 
 
 (function () {
-  var log = new qubit.opentag.Log("Main -> ");
+  var log = new qubit.opentag.Log("Main -> ");/*L*/
   var Cookie = qubit.Cookie;
   var Utils = qubit.opentag.Utils;
 
@@ -12737,12 +12796,12 @@ var JSON = {};
     return false;
   }
 
-  qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_NONE);
-  qubit.opentag.Log.setCollectLevel(3);
+  qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_NONE);/*L*/
+  qubit.opentag.Log.setCollectLevel(3);/*L*/
 
   /*debug*/
-  qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_INFO);
-  qubit.opentag.Log.setCollectLevel(4);
+  qubit.opentag.Log.setLevel(qubit.opentag.Log.LEVEL_INFO);/*L*/
+  qubit.opentag.Log.setCollectLevel(4);/*L*/
   /*~debug*/
 
   /**
@@ -12763,18 +12822,11 @@ var JSON = {};
     var debugToolRequested = requestedDebugTool();
     var debugRequested = debugToolRequested || requestedDebugMode();
 
-    if (!selfDebug && debugRequested) {
-      if (!qubit.opentag.Log) {
-        //clear existing tagsdk! And only for Log attaching purpose!
-        GLOBAL.TAGSDK_NS_OVERRIDE = true;
-      } else {
-        GLOBAL.TAGSDK_NS_OVERRIDE = false;
-      }
-      needDebugModeButNotInDebug = true; // STOP, RUNNIG CANCELLED
-    }
+    GLOBAL.TAGSDK_NS_OVERRIDE = false;
 
-    if (qubit.opentag.Log) {
-      GLOBAL.TAGSDK_NS_OVERRIDE = false;
+    if (!selfDebug && debugRequested) {
+        GLOBAL.TAGSDK_NS_OVERRIDE = true;
+      needDebugModeButNotInDebug = true; // STOP, RUNNIG CANCELLED
     }
 
     try {
@@ -12849,8 +12901,8 @@ var JSON = {};
           container.configuredInMain = true;
           
           if (needDebugModeButNotInDebug) {
+            container.destroy(true);
             Main.loadDebugVersion(container);
-            container.destroy();
           } else {
             if (!GLOBAL.QUBIT_OPENTAG_STOP_MAIN_EXECUTION) {
               log.INFO("Running container " + container.CLASSPATH);/*L*/
