@@ -3117,7 +3117,7 @@ q.html.fileLoader.tidyUrl = function (path) {
   var Utils = qubit.opentag.Utils;
 
   /**
-   * #SessionVariable filter class.
+   * #Session enabled common filter class.
    *  
    * This class is a compatibility layer part for TagSDK.
    * Session filters are used to customise scripts execution and use custom
@@ -3146,12 +3146,12 @@ q.html.fileLoader.tidyUrl = function (path) {
    *  there that returns true when the `jQuery` object exists.
    * 
    * 
-   * @class qubit.opentag.filter.SessionVariableFilter
+   * @class qubit.opentag.filter.Filter
    * @extends qubit.opentag.filter.URLFilter
    * @param config {Object} config object used to build instance
    */
   var sessionVariableFilterCount = 0;
-  function SessionVariableFilter(config) {
+  function Filter(config) {
     var defaultConfig = {
       /**
        * Custom starter function for session filter.
@@ -3190,12 +3190,12 @@ q.html.fileLoader.tidyUrl = function (path) {
       this.uid = "f" + (sessionVariableFilterCount++);
     }
     this.tagsToRun = [];
-    SessionVariableFilter.SUPER.call(this, defaultConfig);
+    Filter.SUPER.call(this, defaultConfig);
   }
   
   qubit.Define.clazz(
-          "qubit.opentag.filter.SessionVariableFilter",
-          SessionVariableFilter,
+          "qubit.opentag.filter.Filter",
+          Filter,
           URLFilter);
   
   /**
@@ -3211,20 +3211,44 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @param {Function} ready
    * @param {qubit.opentag.BaseTag} tag
    */
-  SessionVariableFilter.prototype.customStarter = function (
+  Filter.prototype.customStarter = function (
                                                           session,
                                                           ready,
                                                           tag) {
     ready(false);
   };
   
-  SessionVariableFilter.prototype.isAllStartersDefaults = function () {
-    if (this.customStarter !== SessionVariableFilter.prototype.customStarter) {
+//  //must be same as in the Filter.js template in repo templates
+//  var customStarterTemplate = 
+//          "function (session, cb) {cb(false);}";
+//  var customScriptTemplate = 
+//          "function (session) {return true;}";
+//  
+//  Filter.customStarterTemplate = customStarterTemplate;
+//  Filter.customScriptTemplate = customScriptTemplate;
+  
+  /**
+   * This function tells if filter is an empty session type (is URL filter).
+   */
+  Filter.prototype.isSession = function () {
+    if (this.config.sessionDisabled) {
       return false;
     }
-    if (this.customScript !== SessionVariableFilter.prototype.customScript) {
+    
+    if (this.customStarter === null && this.customScript === null) {
       return false;
     }
+    
+//    if (his.customStarter.toString() !== customStarterTemplate) {
+//      return true;
+//    }
+//    
+//    if (this.customScript.toString() !== customScriptTemplate) {
+//      return true;
+//    }
+//
+//    return false;
+    
     return true;
   };
   
@@ -3235,7 +3259,7 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @param {qubit.opentag.Session} session
    * @returns {Boolean}
    */
-  SessionVariableFilter.prototype.customScript = function (session) {
+  Filter.prototype.customScript = function (session) {
     return true;
   };
   
@@ -3243,10 +3267,10 @@ q.html.fileLoader.tidyUrl = function (path) {
    * Match function for a filter.
    * @returns {Boolean}
    */
-  SessionVariableFilter.prototype.match = function (url) {
+  Filter.prototype.match = function (url) {
     var match = true;
     try {
-      if (this._matchState === undefined) {
+      if (this._matchState === undefined && this.customScript) {
         this._matchState = !!this.customScript(this.getSession());
       }
       match = this._matchState;
@@ -3255,8 +3279,7 @@ q.html.fileLoader.tidyUrl = function (path) {
       match = false;
     }
     
-    return match && SessionVariableFilter.SUPER.prototype
-            .match.call(this, url);
+    return match && Filter.SUPER.prototype.match.call(this, url);
   };
   
   /**
@@ -3264,7 +3287,7 @@ q.html.fileLoader.tidyUrl = function (path) {
    * configuration object, the `customStarter`.
    * @param {qubit.opentag.BaseTag} tag
    */
-  SessionVariableFilter.prototype.runTag = function (tag) {
+  Filter.prototype.runTag = function (tag) {
     Utils.addToArrayIfNotExist(this.tagsToRun, tag);
     if (!this._runTag) {
       if (this.customStarter) {
@@ -3277,7 +3300,11 @@ q.html.fileLoader.tidyUrl = function (path) {
         
         //trigger "customStarter", only once
         this._runTag = true;
-        this.customStarter(this.getSession(), callback, tag);
+        if (this.customStarter) {
+          this.customStarter(this.getSession(), callback, tag);
+        } else {
+          Filter.prototype.customStarter(this.getSession(), callback, tag);
+        }
       }
     } else {
       if (this.lastRun) {//if the callback was already run. Note: if callback
@@ -3295,7 +3322,7 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @private
    * Strictly private.
    */
-  SessionVariableFilter.prototype._processQueuedTagsToRun = function (rerun) {
+  Filter.prototype._processQueuedTagsToRun = function (rerun) {
     for (var i = 0; i < this.tagsToRun.length; i++) {
       var tag = this.tagsToRun[i];
       if (rerun === true) {
@@ -3311,18 +3338,18 @@ q.html.fileLoader.tidyUrl = function (path) {
    * state. Session state is used if `customStarter` is attached.
    * @param {qubit.opentag.Session} session optional session
    */
-  SessionVariableFilter.prototype.getState = function (session) {
+  Filter.prototype.getState = function (session) {
     if (session) {
       this.setSession(session);
     }
-    var pass = SessionVariableFilter.SUPER.prototype.getState.call(this);
+    var pass = Filter.SUPER.prototype.getState.call(this);
     
     if (pass === BaseFilter.state.DISABLED) {
       return BaseFilter.state.DISABLED;
     }
     
     if (pass === BaseFilter.state.PASS) {
-      if (this.customStarter) {
+      if (!this.isSession()) {
         pass = BaseFilter.state.SESSION;
       }
     }
@@ -3338,9 +3365,9 @@ q.html.fileLoader.tidyUrl = function (path) {
   /**
    * Reset function.
    */
-  SessionVariableFilter.prototype.reset = function () {
+  Filter.prototype.reset = function () {
     this._matchState = undefined;
-    SessionVariableFilter.SUPER.prototype.reset.call(this);
+    Filter.SUPER.prototype.reset.call(this);
     this._runTag = undefined;
     this.lastRun = undefined;
     this.tagsToRun = [];
@@ -3514,7 +3541,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
   var Utils = qubit.opentag.Utils;
   var HtmlInjector = q.html.HtmlInjector;
   var FileLoader = q.html.fileLoader;
-  var SessionVariableFilter = qubit.opentag.filter.SessionVariableFilter;
+  var Filter = qubit.opentag.filter.Filter;
 
   /**
    * #Tag utility class
@@ -3923,7 +3950,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
       }
 
       decision = SESSION;
-      if (lastSessionFilter instanceof SessionVariableFilter) {
+      if (lastSessionFilter instanceof Filter &&
+            lastSessionFilter.isSession()) {
         if (runLastSessionFilterIfPresent) {
           for (var c = 0; c < sessionFiltersToRun.length; c++) {
             try {
@@ -3938,12 +3966,13 @@ q.html.HtmlInjector.getAttributes = function (node) {
     }
 
     if (tag.config.dedupe && decision === PASS) {
-      if (lastUnmatched && lastUnmatched instanceof SessionVariableFilter) {
+      if (lastUnmatched && lastUnmatched instanceof Filter &&
+            lastUnmatched.isSession()) {
         tag.sendDedupePing = true;
         decision = FAIL;
       }
     }
-
+    
     return decision;
   };
 
@@ -8712,7 +8741,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
   Tags.findAllFilters = function (pckg, maxDeep) {
     var excludes = [];
     try {
-      excludes.push(qubit.opentag.filter.SessionVariableFilter);
       excludes.push(qubit.opentag.filter.Filter);
       excludes.push(qubit.opentag.filter.URLFilter);
     } catch (ex) {
@@ -11095,7 +11123,7 @@ var JSON = {};
 (function () {
   var Utils = qubit.opentag.Utils;
   var BaseFilter = qubit.opentag.filter.BaseFilter;
-  var SessionVariableFilter = qubit.opentag.filter.SessionVariableFilter;
+  var Filter = qubit.opentag.filter.Filter;
   var BaseTag = qubit.opentag.BaseTag;
   var Timed = qubit.opentag.Timed;
   var Tags = qubit.opentag.Tags;
@@ -11347,7 +11375,7 @@ var JSON = {};
     this.destroyed = true;
     this.unregister();
     if (withTags) {
-      for(var prop in this.tags) {
+      for (var prop in this.tags) {
         var tag = this.tags[prop];
         if (tag instanceof BaseTag) {
           tag.destroy();
@@ -11422,7 +11450,7 @@ var JSON = {};
     
     var index = Utils.removeFromArray(containers, ref);
     if (withTags) {
-      for(var prop in this.tags) {
+      for (var prop in this.tags) {
         var tag = this.tags[prop];
         if (tag instanceof BaseTag) {
           tag.unregister();
@@ -11603,8 +11631,7 @@ var JSON = {};
           var filters = tags[name].getFilters();
           for (var i = 0; i < filters.length; i++) {
             var filter = filters[i];
-            if (filter instanceof SessionVariableFilter &&
-                    !filter.isAllStartersDefaults()) {
+            if (filter instanceof Filter && filter.isSession()) {
               this.trackSession = true;
               break;
             }
@@ -12818,15 +12845,23 @@ var JSON = {};
     var selfDebug = false;
     /*debug*/
     selfDebug = true;
+    qubit.DEBUG_MODE = true;
     /*~debug*/
     var debugToolRequested = requestedDebugTool();
     var debugRequested = debugToolRequested || requestedDebugMode();
 
-    GLOBAL.TAGSDK_NS_OVERRIDE = false;
-
     if (!selfDebug && debugRequested) {
+      if (!qubit.DEBUG_MODE) {
+        //clear existing tagsdk! And only for Log attaching purpose!
         GLOBAL.TAGSDK_NS_OVERRIDE = true;
+      } else {
+        GLOBAL.TAGSDK_NS_OVERRIDE = false;
+      }
       needDebugModeButNotInDebug = true; // STOP, RUNNIG CANCELLED
+    }
+
+    if (qubit.DEBUG_MODE) {
+      GLOBAL.TAGSDK_NS_OVERRIDE = false;
     }
 
     try {
@@ -12971,37 +13006,6 @@ var JSON = {};
   };
 
   qubit.Define.namespace("qubit.opentag.Main", Main);
-}());
-
-
-
-
-/*
- * TagSDK, a tag development platform
- * Copyright 2013-2014, Qubit Group
- * http://opentag.qubitproducts.com
- * Author: Peter Fronc <peter.fronc@qubitdigital.com>
- */
-
-(function () {
-  var SessionVariableFilter = qubit.opentag.filter.SessionVariableFilter;
-
-  /**
-   * #SessionVariable filter class.
-   * @class qubit.opentag.filter.Filter
-   * @extends qubit.opentag.filter.SessionVariableFilter
-   * @param config {Object} config object used to build instance
-   */
-  function Filter(config) {
-//    var defaultConfig = {};
-//    Utils.setIfUnset(config, defaultConfig);
-    Filter.SUPER.call(this, config);
-  }
-  
-  qubit.Define.clazz(
-          "qubit.opentag.filter.Filter",
-          Filter,
-          SessionVariableFilter);
 }());
 
 
