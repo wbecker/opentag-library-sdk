@@ -3270,10 +3270,12 @@ q.html.fileLoader.tidyUrl = function (path) {
   Filter.prototype.match = function (url) {
     var match = true;
     try {
-      if (this._matchState === undefined && this.customScript) {
-        this._matchState = !!this.customScript(this.getSession());
+      if (this.customScript) {
+        if (this._matchState === undefined) {
+          this._matchState = !!this.customScript(this.getSession());
+        }
+        match = this._matchState;
       }
-      match = this._matchState;
     } catch (ex) {
       this.log.FINE("Filter match throws exception:" + ex);/*L*/
       match = false;
@@ -3290,21 +3292,19 @@ q.html.fileLoader.tidyUrl = function (path) {
   Filter.prototype.runTag = function (tag) {
     Utils.addToArrayIfNotExist(this.tagsToRun, tag);
     if (!this._runTag) {
+      var callback = function (rerun) {
+        this.lastRun = new Date().valueOf();
+        this._processQueuedTagsToRun(rerun);
+        this._rerun = rerun;
+        //done
+      }.bind(this);
+
+      //trigger "customStarter", only once
+      this._runTag = true;
       if (this.customStarter) {
-        var callback = function (rerun) {
-          this.lastRun = new Date().valueOf();
-          this._processQueuedTagsToRun(rerun);
-          this._rerun = rerun;
-          //done
-        }.bind(this);
-        
-        //trigger "customStarter", only once
-        this._runTag = true;
-        if (this.customStarter) {
-          this.customStarter(this.getSession(), callback, tag);
-        } else {
-          Filter.prototype.customStarter(this.getSession(), callback, tag);
-        }
+        this.customStarter(this.getSession(), callback, tag);
+      } else {
+        Filter.prototype.customStarter(this.getSession(), callback, tag);
       }
     } else {
       if (this.lastRun) {//if the callback was already run. Note: if callback
@@ -3349,7 +3349,7 @@ q.html.fileLoader.tidyUrl = function (path) {
     }
     
     if (pass === BaseFilter.state.PASS) {
-      if (!this.isSession()) {
+      if (this.isSession()) {
         pass = BaseFilter.state.SESSION;
       }
     }
