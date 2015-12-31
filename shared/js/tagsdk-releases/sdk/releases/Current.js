@@ -3864,7 +3864,18 @@ q.html.HtmlInjector.getAttributes = function (node) {
     // @todo maybe this should be done buch earlier
     filters = filters.sort(function (a, b) {
       try {
-        return b.config.order - a.config.order;
+        var bOrder = b.config.order;
+        var aOrder = a.config.order;
+
+        if (isNaN(-aOrder)) {
+          aOrder = 0;
+        }
+
+        if (isNaN(-bOrder)) {
+          bOrder = 0;
+        }
+      
+        return bOrder - aOrder;
       } catch (nex) {
         return 0;
       }
