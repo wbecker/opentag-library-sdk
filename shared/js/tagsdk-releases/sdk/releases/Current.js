@@ -3290,30 +3290,39 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @param {qubit.opentag.BaseTag} tag
    */
   Filter.prototype.runTag = function (tag) {
-    Utils.addToArrayIfNotExist(this.tagsToRun, tag);
-    if (!this._runTag) {
-      var callback = function (rerun) {
-        this.lastRun = new Date().valueOf();
-        this._processQueuedTagsToRun(rerun);
-        this._rerun = rerun;
-        //done
-      }.bind(this);
+    //queue execution if starter didnt fire
+    if (!this.starterExecuted) {
+      Utils.addToArrayIfNotExist(this.tagsToRun, tag);
+      
+      //first time running runTag? Trigger starter.
+      if (!this._starterWasRun) {
+        //enter "customStarter", only once
+        this._starterWasRun = true;
+        //prepare callback
+        var callback = function (rerun) {
+          //mark starterExecuted on filter so any next tags will be fired immediately,
+          //rather than queued for execution.
+          this.reRun = rerun;
+          this.starterExecuted = new Date().valueOf();
+          this._processQueuedTagsToRun();
+          //done
+        }.bind(this);
 
-      //trigger "customStarter", only once
-      this._runTag = true;
-      if (this.customStarter) {
-        this.customStarter(this.getSession(), callback, tag);
-      } else {
-        Filter.prototype.customStarter(this.getSession(), callback, tag);
+        if (this.customStarter) {
+          //default starter executes immediately
+          this.customStarter(this.getSession(), callback, tag);
+        } else {
+          //if unset - used default
+          Filter.prototype.customStarter(this.getSession(), callback, tag);
+        }
       }
     } else {
-      if (this.lastRun) {//if the callback was already run. Note: if callback
-        //hasnt be called, tags are queued to execute.
-        if (this._rerun === true) {
-          tag.run();
-        } else {
-          tag.runOnce();
-        }
+      //if the starter was executed, run tags immediately
+      //hasnt be called, tags are queued to execute.
+      if (this.reRun === true) {
+        tag.run();
+      } else {
+        tag.runOnce();
       }
     }
   };
@@ -3322,10 +3331,10 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @private
    * Strictly private.
    */
-  Filter.prototype._processQueuedTagsToRun = function (rerun) {
+  Filter.prototype._processQueuedTagsToRun = function () {
     for (var i = 0; i < this.tagsToRun.length; i++) {
       var tag = this.tagsToRun[i];
-      if (rerun === true) {
+      if (this.reRun === true) {
         tag.run();
       } else {
         tag.runOnce();
@@ -3368,9 +3377,10 @@ q.html.fileLoader.tidyUrl = function (path) {
   Filter.prototype.reset = function () {
     this._matchState = undefined;
     Filter.SUPER.prototype.reset.call(this);
-    this._runTag = undefined;
-    this.lastRun = undefined;
+    this._starterWasRun = undefined;
+    this.starterExecuted = undefined;
     this.tagsToRun = [];
+    this.reRun = undefined;
   };
 }());
 /*jslint evil: true */
@@ -3881,13 +3891,13 @@ q.html.HtmlInjector.getAttributes = function (node) {
       }
     });
 
-    var decision = PASS;
+    var decision = PASS; //by default PASS
     if (!filters || (filters.length === 0)) {
       return decision;
     }
 
     //loop and execute - MATCH
-    var lastFilterResponded = null;
+    var lastReadyToProcessFilter = null;
     var disabledFiltersPresent = false;
     var sessionFiltersPresent = false;
     var waitingResponse = 0;
@@ -3904,7 +3914,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       if (filter.match()) {
         response = filter.getState();
         // positive response means that filter tells to WAIT for execution
-        // and try in 'response' miliseconds
+        // and try in 'response' miliseconds again
         if (response > 0) {
           if (waitingResponse === 0 || waitingResponse > response) {
             waitingResponse = response;
@@ -3915,20 +3925,21 @@ q.html.HtmlInjector.getAttributes = function (node) {
           disabledFiltersPresent = true;
         } else if (response === SESSION) {
           sessionFiltersPresent = true;
-          lastFilterResponded = filter;
+          lastReadyToProcessFilter = filter;
           lastSessionFilter = filter;
           sessionFiltersToRun.push(filter);
         } else {
-          lastFilterResponded = filter;
+          lastReadyToProcessFilter = filter;
         }
       } else {
         lastUnmatched = filter;
       }
     }
 
-    var onlyAwaitingFiltersPresent = false;
-    if (lastFilterResponded === null) {
-      onlyAwaitingFiltersPresent = true;
+    var onlyAwaitingOrDisabledFiltersPresent = false;
+    
+    if (lastReadyToProcessFilter === null) {
+      onlyAwaitingOrDisabledFiltersPresent = true;
       if (!disabledFiltersPresent) {
         //all filters failed
         decision = FAIL;
@@ -3938,7 +3949,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       }
     } else {
       //some filters matched, review state of final matched filter
-      if (lastFilterResponded.config.include) {
+      if (lastReadyToProcessFilter.config.include) {
         //last response was to INCLUDE this tag
         decision = response;
       } else {
@@ -3949,11 +3960,16 @@ q.html.HtmlInjector.getAttributes = function (node) {
 
     //if all passed, 
     //after standard checks, check if any filter called to wait
+    //because of onlyAwaitingOrDisabledFiltersPresent, it excludeds session
+    //filters cases too: "sessionFiltersPresent"
     if (waitingResponse > 0 && 
-            (decision === PASS || onlyAwaitingFiltersPresent)) {
+            //told to wait and no failures detected
+            (decision === PASS || onlyAwaitingOrDisabledFiltersPresent)) {
+      //tag is told to wait
       decision = waitingResponse;
     }
 
+    //no waiting or PASS but with session somwhere in order?
     if (decision === SESSION ||
             ((decision === PASS) && sessionFiltersPresent)) {
       if (!lastSessionFilter.config.include) {
@@ -3966,6 +3982,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
         if (runLastSessionFilterIfPresent) {
           for (var c = 0; c < sessionFiltersToRun.length; c++) {
             try {
+              //it will run tag immediatelly or queue for execution for starter
               sessionFiltersToRun[c].runTag(tag);
             } catch (ex) {
               sessionFiltersToRun[c].log/*L*/
@@ -3975,7 +3992,12 @@ q.html.HtmlInjector.getAttributes = function (node) {
         }
       }
     }
-
+    
+    // deduplication logic:
+    // only passing url filters (PASS) but failing session 
+    // should have dedupe sent. if session is matched it will run and 
+    // tag will decide on running but pings will be handled standard 
+    // way "run" tag
     if (tag.config.dedupe && decision === PASS) {
       if (lastUnmatched && lastUnmatched instanceof Filter &&
             lastUnmatched.isSession()) {
