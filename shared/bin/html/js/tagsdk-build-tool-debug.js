@@ -10959,11 +10959,11 @@ var JSON = {};
   LibraryTag.prototype.before = function () {
     LibraryTag.SUPER.prototype.before.call(this);
     
-    if (this.getHtml() || this.config.script) {
-      this.log.FINE("html or config.script is set while using pre." +/*L*/
-              " Cancelling running pre.");/*L*/
-      return false;//continue normally
-    }
+//    if (this.getHtml() || this.config.script) {
+//      this.log.FINE("html or config.script is set while using pre." +/*L*/
+//              " Cancelling running pre.");/*L*/
+//      return false;//continue normally
+//    }
     
     this.log.INFO("Running PRE script execution...");/*L*/
     try {
@@ -10998,11 +10998,11 @@ var JSON = {};
    */
   LibraryTag.prototype.after = function (success) {
     LibraryTag.SUPER.prototype.after.call(this, success);
-    if (this.getHtml() || this.config.script) {
-      this.log.WARN("html or config.script is set while using post." +/*L*/
-              " Cancelling running post.");/*L*/
-      return;
-    }
+//    if (this.getHtml() || this.config.script) {
+//      this.log.WARN("html or config.script is set while using post." +/*L*/
+//              " Cancelling running post.");/*L*/
+//      return;
+//    }
     
     this.log.INFO("Running POST script execution...");/*L*/
     try {
