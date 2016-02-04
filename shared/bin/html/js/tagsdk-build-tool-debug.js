@@ -131,11 +131,13 @@ var UNDEF;
     return GLOBAL;
   };
 
+  //keep those next to each other
+  Define.STANDARD_CS_NS = "qubit.cs";
   Define.clientSpaceClasspath = function () {
     if (window.qubit.CLIENT_CONFIG) {
       return "qubit.cs.d" + window.qubit.CLIENT_CONFIG.id;
     }
-    return "qubit.cs";
+    return Define.STANDARD_CS_NS;
   };
 
   /**
@@ -1959,13 +1961,16 @@ var UNDEF;
     }
   };
   
-  var _ssupported = !!Define.global().webkitURL;
+  //check if webkit or mozilla is present, for styling loos choice is fine
+  var tmp = Define.global();
+  var isStylingSupported = 
+    !!(tmp.webkitMediaStream || tmp.webkitURL || tmp.mozContact);
   /**
    * Use styling by default.
    * @returns {Boolean}
    */
   Log.isStyleSupported = function () {
-    return _ssupported;
+    return isStylingSupported;
   };
   
   //dummy for now
@@ -4618,6 +4623,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
   var Timed = qubit.opentag.Timed;
   var BaseVariable = qubit.opentag.pagevariable.BaseVariable;
   var Expression = qubit.opentag.pagevariable.Expression;
+  var UniversalVariable = qubit.opentag.pagevariable.UniversalVariable;
   var DOMText = qubit.opentag.pagevariable.DOMText;
   var Cookie = qubit.opentag.pagevariable.Cookie;
   var URLQuery = qubit.opentag.pagevariable.URLQuery;
@@ -4703,7 +4709,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       var params = tag.parameters;
       if (params) {
         for (var i = 0; i < params.length; i++) {
-          if (params[i].variable === varRef) {
+          if (tag.getVariableForParameter(params[i]) === varRef) {
             ret.push(params[i]);
           }
         }
@@ -4822,17 +4828,12 @@ q.html.HtmlInjector.getAttributes = function (node) {
     if (param.hasOwnProperty("variable") && param.variable) {// @todo review
       //validate it:
       param.variable = TagHelper.initPageVariable(param.variable);
-    } else if (param.uv) {//empty strings are also excluded
-      param.variable = new Expression({
-        name: param.uv,
-        value: param.uv
-      });
-    } else {
-      //got here? well: not set! initialize:
-      param.variable = TagHelper.initPageVariable({
-        value: undefined,
-        empty: true //marker to recognise empty initialization
-      });
+      //DISABLING UV SHORT DEFINITIONS PROCESSING
+//    } else if (param.uv) {//empty strings are also excluded
+//      param.variable = new UniversalVariable({
+//        name: param.uv,
+//        value: param.uv
+//      });
     }
     
     return param.variable;
@@ -6882,6 +6883,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
   var TagHelper = qubit.opentag.TagHelper;
   var BaseVariable = qubit.opentag.pagevariable.BaseVariable;
   var Cookie = qubit.Cookie;
+  var Define = qubit.Define;
   
   var log = new qubit.opentag.Log("BaseTag -> ");/*L*/
 
@@ -7071,7 +7073,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     }
   }
   
-  qubit.Define.clazz("qubit.opentag.BaseTag", BaseTag, GenericLoader);
+  Define.clazz("qubit.opentag.BaseTag", BaseTag, GenericLoader);
   
   BaseTag.prototype.setupConfig = function (config) {
     if (!config) {
@@ -7108,8 +7110,8 @@ q.html.HtmlInjector.getAttributes = function (node) {
       this.lock();
     }
     
-    this.log.FINEST("Initializing variables.");/*L*/
-    this.initPageVariablesForParameters();
+//    this.log.FINEST("Initializing variables.");/*L*/
+//    this.initPageVariablesForParameters();
   };
   
   /**
@@ -7592,7 +7594,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     var map = this.failedDependenciesToParse;
     if (map) {
       this.failedDependenciesToParse = null;
-      this.addDependenciesList(map, qubit.Define.clientSpaceClasspath());
+      this.addDependenciesList(map, Define.clientSpaceClasspath());
     }
     return this.dependencies;
   };
@@ -7605,7 +7607,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   BaseTag.prototype.addClientVariablesMap = function (map) {
     this.unresolvedClientVariablesMap = 
-      this.addVariablesMap(map, qubit.Define.clientSpaceClasspath());
+      this.addVariablesMap(map, Define.clientSpaceClasspath());
     return this.unresolvedClientVariablesMap;
   };
   
@@ -7881,7 +7883,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   BaseTag.prototype.addClientFiltersList = function (filters) {
     this.unresolvedClientFilterClasspaths = 
-      this.addFiltersList(filters, qubit.Define.clientSpaceClasspath());
+      this.addFiltersList(filters, Define.clientSpaceClasspath());
     return this.unresolvedClientFilterClasspaths;
   };
   
@@ -8121,31 +8123,31 @@ q.html.HtmlInjector.getAttributes = function (node) {
     return tags;
   };
   
-  /**
-   * @protected
-   * Function used to validate and initialize parameters and any variables 
-   * assigned. If variables were passed as plain objects, they will be converted
-   * to BaseVariable instances.
-   * It is always run at constructor time.
-   */
-  BaseTag.prototype.initPageVariablesForParameters = function () {
-    var params = this.parameters;
-    if (params) {
-      for (var i = 0; i < params.length; i++) {
-        params[i].variable = TagHelper
-                .validateAndGetVariableForParameter(params[i]);
-      }
-    }
-    var namedVariables = this.namedVariables;
-    if (namedVariables) {
-      for (var prop in namedVariables) {
-        if (namedVariables.hasOwnProperty(prop)) {
-          namedVariables[prop] = 
-            TagHelper.initPageVariable(namedVariables[prop]);
-        }
-      }
-    }
-  };
+//  /**
+//   * @protected
+//   * Function used to validate and initialize parameters and any variables 
+//   * assigned. If variables were passed as plain objects, they will be converted
+//   * to BaseVariable instances.
+//   * It is always run at constructor time.
+//   */
+//  BaseTag.prototype.initPageVariablesForParameters = function () {
+//    var params = this.parameters;
+//    if (params) {
+//      for (var i = 0; i < params.length; i++) {
+//        params[i].variable = TagHelper
+//                .validateAndGetVariableForParameter(params[i]);
+//      }
+//    }
+//    var namedVariables = this.namedVariables;
+//    if (namedVariables) {
+//      for (var prop in namedVariables) {
+//        if (namedVariables.hasOwnProperty(prop)) {
+//          namedVariables[prop] = 
+//            TagHelper.initPageVariable(namedVariables[prop]);
+//        }
+//      }
+//    }
+//  };
   
   /**
    * Function returns all page variables defined within this tag.
@@ -8198,15 +8200,16 @@ q.html.HtmlInjector.getAttributes = function (node) {
    * @returns {qubit.opentag.pagevariable.BaseVariable} BaseVariable instance
    */ 
   BaseTag.prototype.getVariableForParameter = function (param) {
-    var variable = TagHelper.validateAndGetVariableForParameter(param);
-    var existAndIsNotEmpty = variable && !variable.config.empty;
+    var variable;
     var namedVariables = this.namedVariables;
-    if (!existAndIsNotEmpty && 
-            (namedVariables && namedVariables[param.token])) {
-      //@todo clean it up
-      //use alternative value
+    if ((namedVariables && namedVariables[param.token])) {
       variable = _getSetNamedVariable(this, param.token);
     }
+    
+    if (!variable) {
+      variable = TagHelper.validateAndGetVariableForParameter(param);
+    }
+    
     return variable;
   };
 
@@ -8281,11 +8284,15 @@ q.html.HtmlInjector.getAttributes = function (node) {
   }
   
   BaseTag.prototype._getUniqueId = function () {
-    var id = this.config.name;
     if (this.config.id) {
-      id = this.config.id;
+      return this.config.id;
     }
-    return id;
+    
+    if (String(this.CLASSPATH).startsWith(Define.STANDARD_CS_NS)) {
+      return this.CLASSPATH;
+    } else {
+      return this.CLASSPATH + "#" + this.config.name;
+    }
   };
   
   var forceCookiePrefix = "qubit.tag.forceRunning_";
