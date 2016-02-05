@@ -5108,7 +5108,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
        * Should this loader be asynchronous?
        * If this property is set to true, loader will load any content in 
        * asynchronous mode.
-       * @cfg {Boolean} [async=false]
+       * @cfg {Boolean} [async=true]
        */
       async: true,
       /**
