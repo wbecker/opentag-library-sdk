@@ -6471,7 +6471,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       if (bad) {
         this.log.WARN("Bad object type passed to deps, ignoring.");/*L*/
         this.badDepsObjects = this.badDepsObjects || [];
-        Utils.addToArrayIfNotExist(this.badDepsObjects, item);
+        Utils.addToArrayIfNotExist(this.badDepsObjects, original);
       }
     }
   };
@@ -7915,10 +7915,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
         var cp = null;
         
         if (typeof (filter) === "string") {
+          cp = filter;
           if (ns) {
             filter = ns + "." + filter;
           }
-          cp = filter;
           filter = Utils.getObjectUsingPath(filter);
         }
 
