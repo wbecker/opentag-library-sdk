@@ -6471,7 +6471,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       if (bad) {
         this.log.WARN("Bad object type passed to deps, ignoring.");/*L*/
         this.badDepsObjects = this.badDepsObjects || [];
-        Utils.addToArrayIfNotExist(this.badDepsObjects, original);
+        Utils.addToArrayIfNotExist(this.badDepsObjects, item);
       }
     }
   };
