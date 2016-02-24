@@ -8258,6 +8258,10 @@ q.html.HtmlInjector.getAttributes = function (node) {
     return variable;
   }
   
+  BaseTag.prototype.getId = function () {
+    return this._getUniqueId();
+  };
+  
   BaseTag.prototype._getUniqueId = function () {
     if (this.config.id) {
       return this.config.id;
@@ -8948,7 +8952,7 @@ q.html.PostData = function (url, data, type) {
         continue;
       }
       
-      var loaderId = tag.config.id;
+      var loaderId = tag.getId();
       
       if (!tag.pingSent && loaderId && loadTime !== null) {
         if (loaderId !== undefined) {
@@ -9035,7 +9039,7 @@ q.html.PostData = function (url, data, type) {
 
     for (var i = 0; i < tags.length; i++) {
       var tag = tags[i];
-      var loaderId = tag.config.id;
+      var loaderId = tag.getId();
 
       if (loaderId === undefined) {
         log.WARN("sendDedupe: tag `" + tag.config.name +/*L*/
