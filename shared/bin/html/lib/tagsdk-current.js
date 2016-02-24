@@ -8268,7 +8268,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
     }
     
     if (String(this.CLASSPATH).startsWith(Define.STANDARD_CS_NS)) {
-      return this.CLASSPATH;
+      return this.CLASSPATH.substring(Define.STANDARD_CS_NS.length + 1);
     } else {
       return this.CLASSPATH + "#" + this.config.name;
     }
