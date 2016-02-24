@@ -90,7 +90,7 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-qubit.VERSION = "3.0.1";
+qubit.VERSION = "3.0.2";
 
 try {
   module.exports = PKG_ROOT;
