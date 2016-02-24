@@ -11293,7 +11293,7 @@ var JSON = {};
        * being set to true. You can choose values from 0.0 to 1.0 (float).
        * Old tellLoadTimesProbability [ping]
        */
-      tellLoadTimesProbability: 0,
+      tellLoadTimesProbability: null,
       /**
        * @cfg {String} [pingServerUrl=null]
        * Ping server url setting. Statistic submission will not work without
@@ -11343,19 +11343,6 @@ var JSON = {};
     
     if (config) {
       this.setConfig(config);
-      /**
-       * Property indicates if tag is telling load times. Tag's
-       * implementation does attach timestamps for all their loading.
-       * This property is used to indicate if loading times will be reported
-       * by this container.
-       * Value of this property is likely to be randomised, you should adjust 
-       * `this.config.tellLoadTimesProbability` instead.
-       * @protected
-       * @property isTellingLoadTimes
-       * @type Boolean
-       */
-      this.isTellingLoadTimes =
-          this.config.tellLoadTimesProbability > Math.random();
       
       if (!config.name) {
         this.config.name = "Cont-" + _counter++;
@@ -11404,6 +11391,25 @@ var JSON = {};
    */
   Container.register = function (ref) {
     Utils.addToArrayIfNotExist(containers, ref);
+  };
+  
+  /**
+   * Function indicates if tag is telling load times. Tag's
+   * implementation does attach timestamps for all their loading.
+   * This property is used to indicate if loading times will be reported
+   * by this container.
+   * Value of this property is likely to be randomised, you should adjust 
+   * `this.config.tellLoadTimesProbability` instead.
+   * @protected
+   * @property isTellingLoadTimes
+   * @type Boolean
+   */
+  Container.prototype.isTellingLoadTimes = function () {
+    var value = this.config.tellLoadTimesProbability;
+    if (value === null) {
+      value = 0;
+    }
+    return value > Math.random();
   };
   
   /**
@@ -12160,7 +12166,7 @@ var JSON = {};
     }
     
     var i;
-    if (this.isTellingLoadTimes) {
+    if (this.isTellingLoadTimes()) {
 //    Those are available in results:
 //      run: runScripts, (to be sent NOW)
 //      failed: failed, (to be NOT sent)
