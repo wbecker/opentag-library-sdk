@@ -8952,7 +8952,7 @@ q.html.PostData = function (url, data, type) {
         continue;
       }
       
-      var loaderId = tag.getId();
+      var loaderId = Ping.getPingID(tag);
       
       if (!tag.pingSent && loaderId && loadTime !== null) {
         if (loaderId !== undefined) {
@@ -9039,7 +9039,7 @@ q.html.PostData = function (url, data, type) {
 
     for (var i = 0; i < tags.length; i++) {
       var tag = tags[i];
-      var loaderId = tag.getId();
+      var loaderId = Ping.getPingID(tag);
 
       if (loaderId === undefined) {
         log.WARN("sendDedupe: tag `" + tag.config.name +/*L*/
@@ -9062,6 +9062,19 @@ q.html.PostData = function (url, data, type) {
       if (!config.pingServerUrl) {
         log.WARN("sendDedupe: config.pingServerUrl is unset!");/*L*/
       }
+    }
+  };
+  
+  Ping.getPingID = function (tag) {
+    if (tag.config.id) {
+      return tag.config.id;
+    }
+    
+    var idx = tag.PACKAGE_NAME.lastIndexOf(".");
+    if (idx !== -1) {
+      return tag.PACKAGE_NAME.substring(idx + 1);
+    } else {
+      return tag.PACKAGE_NAME;
     }
   };
   
