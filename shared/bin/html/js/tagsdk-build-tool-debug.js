@@ -90,7 +90,7 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-qubit.VERSION = "3.0.2";
+qubit.VERSION = "3.0.2-r1";
 
 try {
   module.exports = PKG_ROOT;
@@ -8292,7 +8292,7 @@ q.html.HtmlInjector.getAttributes = function (node) {
       return this.config.id;
     }
     
-    if (String(this.CLASSPATH).startsWith(Define.STANDARD_CS_NS)) {
+    if (String(this.CLASSPATH).indexOf(Define.STANDARD_CS_NS) === 0) {
       return this.CLASSPATH.substring(Define.STANDARD_CS_NS.length + 1);
     } else {
       return this.CLASSPATH + "#" + this.config.name;
