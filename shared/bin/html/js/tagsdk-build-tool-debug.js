@@ -11048,7 +11048,7 @@ var JSON = {};
       }
     } catch (ex) {
       this.log.ERROR(/*L*/
-        this.config.name + " exception while running pre: " + ex);/*L*/
+        this.config.name + " exception while running post: " + ex);/*L*/
     }
   };
   
