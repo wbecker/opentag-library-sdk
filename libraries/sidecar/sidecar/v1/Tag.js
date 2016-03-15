@@ -6,14 +6,14 @@ qubit.opentag.LibraryTag.define("sidecar.sidecar.v1.Tag", {
 		name: "sidecar",
 		async: true,
 		description: "Site wide tracking library - please add the name of the js file we give you.",
-		html: "<script type=\"text/javascript\" src=\"//d3v27wwd40f0xu.cloudfront.net/js/tracking/${sidecarJS}\"></script><!--@SRC@-->",
+		html: "",
 		locationDetail: "",
 		isPrivate: false,
-		url: "",
-		usesDocWrite: true,
+		url: "d3v27wwd40f0xu.cloudfront.net/js/tracking/${sidecarJS}",
+		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
-			name: "Sidecar JS File",
+			name: "Javascript File",
 			description: "Name of sidecar js file",
 			token: "sidecarJS",
 			uv: ""
