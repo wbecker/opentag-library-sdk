@@ -3,7 +3,7 @@
 qubit.opentag.LibraryTag.define("sidecar.sidecar.v1.Tag", {
 	config: {
 		/*DATA*/
-		name: "sidecar",
+		name: "Sidecar",
 		async: true,
 		description: "Site wide tracking library - please add the name of the js file we give you.",
 		html: "",
