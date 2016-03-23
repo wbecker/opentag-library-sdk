@@ -9,7 +9,6 @@ qubit.opentag.LibraryTag.define("cedexis.radar.v1.Tag", {
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
-		url: "http://www.cedexis.com",
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [
