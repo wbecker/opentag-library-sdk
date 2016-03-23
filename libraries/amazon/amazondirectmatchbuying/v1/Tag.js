@@ -33,7 +33,7 @@ qubit.opentag.LibraryTag.define("amazon.amazondirectmatchbuying.v1.Tag", {
 	post: function() {
 	/*POST*/
 		try {
-			amznads.getAds(this.valueForToken("amazon_direct_match_buying_id"));
+			window.amznads.getAds(this.valueForToken("amazon_direct_match_buying_id"));
 		} catch(e) { /*ignore*/}
 	/*~POST*/
 	}
