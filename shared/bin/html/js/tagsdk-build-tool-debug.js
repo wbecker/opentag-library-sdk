@@ -90,7 +90,7 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-var qversion = "3.0.2-r3";
+var qversion = "3.0.2-r4";
 
 if (qubit.VERSION && qubit.VERSION !== qversion) {
   try {
@@ -1458,7 +1458,8 @@ var UNDEF;
    */
   Utils.geval = function (expression) {
     if (window && window.execScript) {
-      return window.execScript(expression);
+      //ie9-10 doesn't like empty strings.
+      return window.execScript(expression === "" ? " " : expression);
     } else {
       return (function () {return global["eval"].call(global, expression); }());
     }
@@ -3434,7 +3435,7 @@ q.html.GlobalEval = {};
 //Adapted from http://weblogs.java.net/blog/driscoll/archive/2009/09/08/eval-javascript-global-context
 q.html.GlobalEval.globalEval = function (src) {
   if (window.execScript) {
-    window.execScript(src);
+    window.execScript(src === "" ? " " : src);
   } else {
     var fn = function () {
       window["eval"].call(window, src);
