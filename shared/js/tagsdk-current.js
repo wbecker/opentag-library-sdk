@@ -65,7 +65,15 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-qubit.VERSION = "3.0.2-r1";
+var qversion = "3.0.2-r2";
+
+if (qubit.VERSION && qubit.VERSION !== qversion) {
+  try {
+    console.warn("There is already 'qubit.VERSION' set to: " + qubit.VERSION);
+  } catch (ex) {}
+}
+
+qubit.VERSION = qversion;
 
 try {
   module.exports = PKG_ROOT;
