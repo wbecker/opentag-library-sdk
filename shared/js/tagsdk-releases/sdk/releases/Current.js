@@ -65,7 +65,7 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-var qversion = "3.0.2-r2";
+var qversion = "3.0.2-r3";
 
 if (qubit.VERSION && qubit.VERSION !== qversion) {
   try {
@@ -10953,10 +10953,12 @@ var JSON = {};
       "\"${$1}\"$2");
     
     //_this.val..."'
-    expr = expr.replace(/\s*_*\w+\s*\.\s*valueForToken\s*\(\s*'([^']*)'\s*\)/g,
-      "${$1}");
-    expr = expr.replace(/\s*_*\w+\s*\.\s*valueForToken\s*\(\s*"([^"]*)"\s*\)/g,
-      "${$1}");
+    expr = expr.replace(
+      /(\s*)_*\w+\s*\.\s*valueForToken\s*\(\s*'([^']*)'(\s*)\)/g,
+      "$1${$2}$3");
+    expr = expr.replace(
+      /(\s*)_*\w+\s*\.\s*valueForToken\s*\(\s*"([^"]*)"(\s*)\)/g,
+      "$1${$2}$3");
     
     expr = tag.replaceTokensWithValues(expr);
     Utils.geval(expr);
