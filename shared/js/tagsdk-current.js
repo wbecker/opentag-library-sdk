@@ -2686,6 +2686,9 @@ q.html.fileLoader.createScriptEl = function (path, async, forceReload, attr) {
       scriptEl.async = false;
     }
     scriptEl.defer = "false";
+    if (scriptEl.defer !== false) {
+      scriptEl.defer = false;
+    }
   }
   for (a in attr) {
     if (attr.hasOwnProperty(a)) {
