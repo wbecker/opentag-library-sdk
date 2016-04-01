@@ -65,7 +65,7 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-var qversion = "3.0.2-r4";
+var qversion = "3.0.2-r5";
 
 if (qubit.VERSION && qubit.VERSION !== qversion) {
   try {
@@ -3307,10 +3307,10 @@ q.html.fileLoader.tidyUrl = function (path) {
    * @param {qubit.opentag.BaseTag} tag
    */
   Filter.prototype.runTag = function (tag) {
+    //remember associated tags to run
+    Utils.addToArrayIfNotExist(this.tagsToRun, tag);
     //queue execution if starter didnt fire
     if (!this.starterExecuted) {
-      Utils.addToArrayIfNotExist(this.tagsToRun, tag);
-      
       //first time running runTag? Trigger starter.
       if (!this._starterWasRun) {
         //enter "customStarter", only once
@@ -5539,8 +5539,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
     if (!this._runOnceTriggered && !this.scriptExecuted) {
       this._runOnceTriggered = new Date().valueOf();
       this.run();
-    } else {
-      this.log.FINEST("runOnce has been already executed.");/*L*/
     }
   };
   
@@ -7947,7 +7945,6 @@ q.html.HtmlInjector.getAttributes = function (node) {
    */
   BaseTag.prototype.reset = function () {
     BaseTag.SUPER.prototype.reset.call(this);
-    this.resetFilters();
     var u;
     this.filtersPassed = u;
     this.dedupePingSent = u;
