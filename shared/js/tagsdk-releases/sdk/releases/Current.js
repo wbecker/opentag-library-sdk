@@ -65,7 +65,7 @@ if (!PKG_ROOT.qubit) {
   PKG_ROOT.qubit = qubit;
 }
 
-var qversion = "3.0.2-r5";
+var qversion = "3.0.2-r6";
 
 if (qubit.VERSION && qubit.VERSION !== qversion) {
   try {
@@ -11793,7 +11793,7 @@ var JSON = {};
     this.prepareSessionIfNeeded();
     
     //lets add priority option for tags
-    //@todo review if ordering does make any sense
+    // @todo review if ordering does make any sense
     var orderedTags = this.getTagsInOrder();
     
     for (var z = 0; z < orderedTags.length; z++) {
