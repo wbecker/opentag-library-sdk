@@ -10,7 +10,7 @@ qubit.opentag.LibraryTag.define("qubit.qubitdeliver.v1.Tag", {
 		html: "",
 		locationDetail: "",
 		isPrivate: false,
-		url: "//dd6zx4ibq538k.cloudfront.net/smartserve-${property_id}.js",
+		url: "dd6zx4ibq538k.cloudfront.net/smartserve-${property_id}.js",
 		usesDocWrite: false,
 		upgradeable: true,
 		parameters: [{
