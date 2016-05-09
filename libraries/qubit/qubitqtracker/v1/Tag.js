@@ -38,7 +38,7 @@ qubit.opentag.LibraryTag.define("qubit.qubitqtracker.v1.Tag", {
         options: {
           domain: "${domain}",
           serverUrl: "pong.qubitproducts.com/t2",
-          clientId: "${cliend_id}"
+          clientId: "${client_id}"
         }
       }];
 	/*~pre*/
