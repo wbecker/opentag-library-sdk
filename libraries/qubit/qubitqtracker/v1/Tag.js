@@ -36,9 +36,9 @@ qubit.opentag.LibraryTag.define("qubit.qubitqtracker.v1.Tag", {
 	/*pre*/
       window._qtd = [{
         options: {
-          domain: this.valueForToken('domain'),
+          domain: "${domain}",
           serverUrl: "pong.qubitproducts.com/t2",
-          clientId: this.valueForToken('client_id')
+          clientId: "${client_id}"
         }
       }];
 	/*~pre*/
